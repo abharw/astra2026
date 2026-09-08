@@ -193,3 +193,8 @@ Created seven best-fit schematics, 27 assumption records and selected completion
 
 
 [Reusable workflow](SPATIAL_WORKFLOW.md) · [Test report and public-source plans](SPATIAL_BEST_FIT_TESTS.md).
+
+
+## 2026-09-08 — Publish complete spatial-analysis artifacts
+
+At the user's request, added the previously local supplied-video floor plans, all seven best-fit diagrams, 10 panorama candidate points, 40 linked timestamped frames, missing-view inventory, 27 assumptions and 29 gap completions, photo evidence, viewed contact sheets and native detail reopens. The full bundle is in [docs/spatial-analysis](spatial-analysis/README.md), with a SHA-256 file manifest. Session asset paths were made portable; original source videos remain outside Git. This supplies the actual planning data in addition to the earlier summaries. The five other places still do not have the same detailed panorama-point inventory.

@@ -23,3 +23,6 @@ Read the local video-to-walkthrough planning references and ran the environment 
 ## Validation and unresolved work
 
 Validated reference IDs, viewed flags, exact source PTS/times, local frame files, route IDs and document links; inspected diagrams. No iPhone runtime code changed. The user's human check of the video-based layout is still pending, especially the candidate second study access, doorway offset and laundry enclosure. New footage or ground truth is needed to turn hypotheses into a complete measured layout.
+
+
+[Complete spatial-analysis artifacts, panorama inventory and evidence](spatial-analysis/README.md).

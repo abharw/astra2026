@@ -30,7 +30,7 @@ Keep four linked records:
 
 Each claim is observed, inferred or unresolved. A room's existence may be observed while its connection or shape remains inferred. Do not compress those into one confidence label. Keep dimensions, compass directions, camera pose and coverage percentage unset unless they are actually recovered.
 
-The current concrete examples are [the tour JSON](SPATIAL_BEST_FIT_TESTS.md), [video claims](SPATIAL_BEST_FIT_TESTS.md), [photo relationships](SPATIAL_BEST_FIT_TESTS.md) and [photo evidence manifest](SPATIAL_BEST_FIT_TESTS.md). These are example records, not yet a unified packaged schema for every stage.
+The current concrete examples are [the tour JSON](guided-tour-data.json), [video claims](experiment-evidence.json), [photo relationships](airbnb-spatial-data.json) and [photo evidence manifest](airbnb-evidence/a/manifest.json). These are example records, not yet a unified packaged schema for every stage.
 
 ## What “missing” means
 
@@ -77,11 +77,8 @@ The evidence workflow ends before image or 3D generation. Later completion can u
 - **Formalized here:** a repeatable framework with mandatory best-fit completion, alternative hypotheses and prospective rechecks.
 - **Not yet packaged:** a single reusable command that ingests either modality, runs the entire interpretation loop and emits a common validated project format automatically.
 
-[Review all experiments](SPATIAL_BEST_FIT_TESTS.md) · [Actual operational record](SPATIAL_BEST_FIT_TESTS.md).
+[Review all experiments](all-experiments-review.md) · [Actual operational record](astra-process-log.md).
 
 ## Best-fit pass exercised on seven places
 
-[Seven plans and reasoning](SPATIAL_BEST_FIT_TESTS.md) and [machine-readable assumption ledger](SPATIAL_BEST_FIT_TESTS.md) contain 27 selected layout decisions and 29 explicit tour-gap completions. [Frozen predictions](SPATIAL_BEST_FIT_TESTS.md) and [recheck outcomes](SPATIAL_BEST_FIT_TESTS.md) preserve the before/after test. Three apartment predictions were supported; the house corridor was partly supported, the bathroom was refined, and the utility connection was rejected and revised. These are source-consistency checks, not measured floor-plan accuracy.
-
-
-[Complete spatial-analysis artifacts, panorama inventory and evidence](spatial-analysis/README.md).
+[Seven plans and reasoning](best-fit-floor-plans.md) and [machine-readable assumption ledger](best-fit-assumptions.json) contain 27 selected layout decisions and 29 explicit tour-gap completions. [Frozen predictions](best-fit-tests/predictions-before-recheck.json) and [recheck outcomes](best-fit-tests/results.json) preserve the before/after test. Three apartment predictions were supported; the house corridor was partly supported, the bathroom was refined, and the utility connection was rejected and revised. These are source-consistency checks, not measured floor-plan accuracy.

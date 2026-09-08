@@ -66,3 +66,6 @@ The Quest client implements hand/controller pointing, real passthrough camera ca
 The source-photo probe returned 11 parts, 37 primitives including 2 custom meshes, and three similar-product manufacturer references. The photograph did not establish an exact model. This is approximate generated geometry, not a high-fidelity CAD scan. See the verification record for the boundaries of the evidence.
 
 - [Best-fit spatial workflow](docs/SPATIAL_WORKFLOW.md) and [two additional tour tests](docs/SPATIAL_BEST_FIT_TESTS.md).
+
+
+[Complete spatial-analysis artifacts, panorama inventory and evidence](docs/spatial-analysis/README.md).
