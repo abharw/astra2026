@@ -7,9 +7,9 @@ The Quest environment adds the source-derived Open Rack V2 with 18 Barreleye G2 
 Hold **B on the right controller** for about half a second to enable or stop voice. When the badge disappears after connecting, the microphone is listening and you can ask your question. Away from a rack selection, a short B press also toggles voice. A voice connection that does not become ready within 25 seconds shows an error and can be retried by holding B.
 
 - Trigger selects the rack frame, a server or a loaded component.
-- **Tap B on the rack or a server** runs the native demo: slide a server out, bring it into view, open all nine source groups, spread them apart, then bring the processors forward. If the frame is selected, the app chooses a server near viewing height. Loading overlaps the initial movement. The animation needs no model response and works offline; the first cold detail load may take longer.
-- **Tap B on a loaded component** brings only that component into view and requests its explanation.
-- When voice is available, the full demo starts a deterministic nine-part walkthrough. Each part is highlighted and brought forward; the prior part returns to its inspection slot. The next step waits until speech playback finishes. The microphone permission prompt may need to be accepted on first use.
+- **Tap B on the rack, a server, or one of its loaded components** stages one complete server. Its closed chassis first slides fully beyond the rack front, pauses, moves into view, and pauses again. Only then do its eight internal groups lift into two columns above the open chassis. The chassis remains below them. If the frame is selected, the app chooses a server near viewing height.
+- Loading overlaps the closed-chassis motion. The sequence works offline and waits for native mesh readiness before opening. Previously loaded groups in other servers remain hidden and those servers stay closed.
+- The complete layout remains available for inspection. B does not automatically pull the first component forward or begin a voice tour. Select or ask about a component to focus or explain it; ordinary voice walkthroughs remain available.
 - **Right grip** grabs and drags the selected whole assembly; release leaves it there. This applies to the entire rack, even when a component was selected. Part-specific placement remains available through voice controls.
 - **Left-stick click** toggles the whole assembly between its original/home scale and compact inspection scale without returning it home. While held, the size change follows the grab; after release, the rack keeps its base at the current placement. For generated models, original means the saved original fitted scale.
 - **Right-stick click** restores the original home pose and scale. **A** reassembles/explodes. **Y** cancels a running demo, walkthrough or load.
@@ -30,7 +30,7 @@ Available groups are **storage, fans, processors, heatsinks, network, power, cha
 
 The harness can ask for one group directly. It does not need to open a complete server first. Loaded semantic IDs use `rack01.server03.detail.processors`, preserving the real server instance association. The existing model-refinement tools preserve the authored rack and direct the harness to the approved loader; ordinary generated models retain their existing refinement path.
 
-The native demo sends `walkthrough.start` only after its source groups are present and voice is ready. The backend validates the rack object, server, existing internal IDs and current selection version, then uses the normal device-acknowledged tour steps directly. New selection, grabbing, resizing, Return or cancellation interrupts stale demo work. `walkthrough.started` / `walkthrough.stopped` keep the controller cancellation state in sync.
+The B sequence ends with the server selected and its full inspection layout stationary. It cancels an earlier voice tour but does not start a new one. Explicit voice walkthroughs retain device-acknowledged steps, and `walkthrough.started` / `walkthrough.stopped` keep cancellation state in sync. New selection, grabbing, resizing, Return or cancellation interrupts stale demo work. The active server scope is preserved through lazy model replacement and limits which loaded internals are shown.
 
 ## Implementation
 
@@ -67,3 +67,7 @@ The pre-addition source is preserved remotely at **`quest-before-rack`**, commit
 Delivery: the final Android APK built successfully, its ten catalog packages were verified inside the APK, installation returned Success, the matching backend was restarted and the app launch command succeeded. Saved models were retained. Headset acceptance remains with the wearer.
 
 The combined demo/indicator/size-control APK `spatial-assembly-quest-rack-demo.apk` is now installed. At the wearer's request, only the saved laptop model was removed; the rack and VR controller were preserved. The app was launched after headset wake. The subsequent quiet-mic update also installed successfully: the badge is hidden while listening and reads Off when voice is disabled. Controller/voice acceptance remains with the wearer; no headset interaction tests were run for these additions.
+
+The chassis-first revision replaces the fixed 40 cm extraction with a distance derived from the rack front and selected server back edge, plus 12 cm clearance. Native editor previews show the closed-in-rack, fully-clear, closed-in-view and raised-internals stages with another server already loaded. This is local rendering evidence; wearer acceptance of the timed controller sequence remains pending.
+
+The chassis-first APK compiled successfully and installed with `adb install -r`. This update did not edit or delete saved model records. Headset acceptance remains with the wearer.

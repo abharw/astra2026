@@ -34,6 +34,7 @@ namespace SpatialAssembly {
  public class AssemblyVisual:MonoBehaviour {
   public AssemblyData Data {get;private set;} public string ObjectId=Guid.NewGuid().ToString();
   public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;public bool InternalsRevealed;public string FocusedPart;Vector3 focusOffset;
+  public string InspectedServer {get;private set;}
   public Vector3 HomePosition,HomeScale=Vector3.one;public Quaternion HomeRotation=Quaternion.identity;
   public bool IsImportedRack=>Data?.assetId==RackResources.AssetId;
   readonly Dictionary<string,ImportedRackPart> importedParts=new();
@@ -68,10 +69,35 @@ namespace SpatialAssembly {
   public void RevealInternals(){InternalsRevealed=true;ShowInferred=true;SetExplosion(.25f);Restyle();}
   Vector3 PartCenter(string id){var data=partData[id];Vector3 center=Vector3.zero;foreach(var p in data.primitives)center+=AssemblyData.V(p.position);return center/data.primitives.Count;}
   public Vector3 PartWorldCenter(string id)=>parts[id].TransformPoint(PartCenter(id));
-  public void FocusPartAtWorld(string id,Vector3 worldCenter,bool reveal=true){
+  public Vector3 PartSourceWorldCenter(string id)=>transform.TransformPoint(PartCenter(id));
+  public float PartWorldSpan(string id,Vector3 axis){
+   var size=AssemblyData.V(partData[id].primitives[0].size);var group=parts[id];
+   return Mathf.Abs(Vector3.Dot(group.TransformVector(Vector3.right*size.x),axis))+Mathf.Abs(Vector3.Dot(group.TransformVector(Vector3.up*size.y),axis))+Mathf.Abs(Vector3.Dot(group.TransformVector(Vector3.forward*size.z),axis));
+  }
+  public void BeginServerInspection(string server){CloseHousing();InspectedServer=server;Restyle();}
+  public Dictionary<string,Vector3> ServerInspectionTargets(string server,Vector3 chassisCenter,Vector3 right){
+   // Size-aware rows in the wearer's horizontal plane, entirely above the open chassis.
+   string[] order={"motherboard","network","processors","heatsinks","memory","storage","power","fanwall"};
+   var ids=order.Select(key=>server+".detail."+key).Where(parts.ContainsKey).ToArray();const int columns=2,rows=4;var widths=new float[columns];var heights=new float[rows];
+   for(int i=0;i<ids.Length;i++){widths[i%columns]=Mathf.Max(widths[i%columns],PartWorldSpan(ids[i],right));heights[i/columns]=Mathf.Max(heights[i/columns],PartWorldSpan(ids[i],Vector3.up));}
+   const float gap=.12f;float total=widths.Sum()+gap*(columns-1);float bottom=chassisCenter.y+PartWorldSpan(server,Vector3.up)*.5f+gap;
+   var targets=new Dictionary<string,Vector3>();
+   for(int row=0;row<rows;row++){float x=-total*.5f;for(int col=0;col<columns;col++){int i=row*columns+col;if(i<ids.Length){var center=chassisCenter+right*(x+widths[col]*.5f);center.y=bottom+heights[row]*.5f;targets[ids[i]]=center;}x+=widths[col]+gap;}bottom+=heights[row]+gap;}
+   return targets;
+  }
+  public void StageServerInternals(string server,Vector3 chassisCenter,Dictionary<string,Vector3> targets,float progress){
+   FocusPartAtWorld(server,chassisCenter,false,true);InternalsRevealed=true;ShowInferred=true;Explosion=Mathf.Lerp(.2f,1,progress);
+   foreach(var part in Data.parts.Where(p=>p.parentPartId==server)){
+    var assembled=PartSourceWorldCenter(part.id)+transform.TransformVector(focusOffset);
+    var world=targets.TryGetValue(part.id,out var target)?Vector3.Lerp(assembled,target,progress):assembled;
+    partOffsets[part.id]=transform.InverseTransformPoint(world)-PartCenter(part.id);parts[part.id].localPosition=partOffsets[part.id];
+   }Restyle();
+  }
+  public void FocusPartAtWorld(string id,Vector3 worldCenter,bool reveal=true,bool immediate=false){
+   if(IsImportedRack){string server=partData[id].parentPartId??(partData[id].isHousing?id:null);if(server!=null){if(InspectedServer!=null&&InspectedServer!=server)CloseHousing();InspectedServer=server;}}
    foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;
    var group=parts[id];focusOffset=transform.InverseTransformPoint(worldCenter)-group.localRotation*Vector3.Scale(group.localScale,PartCenter(id));
-   if(reveal){InternalsRevealed=true;ShowInferred=true;}Restyle();
+   if(reveal){InternalsRevealed=true;ShowInferred=true;}if(immediate)foreach(var child in focusFamily)parts[child].localPosition=PartOffset(child);Restyle();
   }
   public void RememberInspectionLayout(){inspectionLayout.Clear();foreach(var p in Data.parts)inspectionLayout[p.id]=PartOffset(p.id);}
   public void FocusPart(string id,Transform head){
@@ -81,7 +107,7 @@ namespace SpatialAssembly {
    }
    var part=Data.parts.First(p=>p.id==id);foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
   public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null){var related=RelatedParts(id);foreach(var child in related)if(parts.TryGetValue(child,out var group)){partOffsets[child]=inspectionLayout.TryGetValue(child,out var resting)?resting:Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(related.Contains(FocusedPart??"")){FocusedPart=null;focusFamily.Clear();}}Selected=null;Restyle();}
-  public void CloseHousing(){inspectionLayout.Clear();partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;focusFamily.Clear();InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
+  public void CloseHousing(){InspectedServer=null;inspectionLayout.Clear();partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;focusFamily.Clear();InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
   public bool ManipulatePart(string id,string action,float amount,Transform head){
    if(!parts.TryGetValue(id,out var group))return false;Selected=id;ShowInferred=true;var related=RelatedParts(id);var part=Data.parts.First(p=>p.id==id);Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var worldCenter=group.TransformPoint(center);
    if(action=="rotate"||action=="scale"){
@@ -95,7 +121,7 @@ namespace SpatialAssembly {
   }
   public void CopyInspectionFrom(AssemblyVisual old){
    foreach(var entry in old.inspectionLayout)if(parts.ContainsKey(entry.Key))inspectionLayout[entry.Key]=entry.Value;
-   InternalsRevealed=old.InternalsRevealed;FocusedPart=parts.ContainsKey(old.FocusedPart??"")?old.FocusedPart:null;focusOffset=old.focusOffset;focusFamily=RelatedParts(FocusedPart??"");Selected=parts.ContainsKey(old.Selected??"")?old.Selected:null;
+   InspectedServer=old.InspectedServer;InternalsRevealed=old.InternalsRevealed;FocusedPart=parts.ContainsKey(old.FocusedPart??"")?old.FocusedPart:null;focusOffset=old.focusOffset;focusFamily=RelatedParts(FocusedPart??"");Selected=parts.ContainsKey(old.Selected??"")?old.Selected:null;
    foreach(var part in Data.parts){var next=parts[part.id];var sourceId=part.id;var seen=new HashSet<string>();while(!old.parts.ContainsKey(sourceId)&&seen.Add(sourceId)){var ancestor=Data.parts.FirstOrDefault(p=>p.id==sourceId);if(string.IsNullOrEmpty(ancestor?.parentPartId))break;sourceId=ancestor.parentPartId;}if(!old.parts.TryGetValue(sourceId,out var previous))continue;next.localPosition=previous.localPosition;next.localRotation=previous.localRotation;next.localScale=previous.localScale;
     if(old.partOffsets.TryGetValue(sourceId,out var offset))partOffsets[part.id]=offset;
    }Restyle();
@@ -104,7 +130,7 @@ namespace SpatialAssembly {
   public void Restyle(){
    var openServers=IsImportedRack?new HashSet<string>(Data.parts.Where(p=>!string.IsNullOrEmpty(p.parentPartId)).Select(p=>p.parentPartId)):null;
    foreach(var p in Data.parts){bool visible=ShowInferred||p.evidence!="inferred";
-    if(IsImportedRack){if(p.isInternal)visible&=InternalsRevealed;else if(InternalsRevealed&&openServers.Contains(p.id))visible=false;}
+    if(IsImportedRack){if(p.isInternal)visible&=InternalsRevealed&&(InspectedServer==null||p.parentPartId==InspectedServer);else if(InternalsRevealed&&openServers.Contains(p.id)&&(InspectedServer==null||p.id==InspectedServer))visible=false;}
     else visible&=!InternalsRevealed||!p.isHousing||p.id==FocusedPart||p.id==Selected;
     parts[p.id].gameObject.SetActive(visible);if(importedParts.TryGetValue(p.id,out var imported))imported.Highlight(Selected==p.id);
    }

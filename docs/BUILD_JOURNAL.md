@@ -297,3 +297,13 @@ The final combined Android APK compiled successfully. All ten packaged rack payl
 The wearer subsequently reconnected the Quest and requested deployment and removal of only the laptop. The combined APK installed successfully. The laptop saved record was backed up and removed, leaving the rack and VR-controller records unchanged. Launch was requested while the headset reported asleep; wearer wake and runtime acceptance remain pending.
 
 After headset wake, the combined app launched and connected to the backend. The wearer then requested that the bottom microphone badge disappear while listening and show Off when disabled. Updated the badge canvas opacity and off label, compiled `spatial-assembly-quest-quiet-mic.apk`, and installed it successfully. No saved models were changed by this update. Visual and voice acceptance remain with the wearer.
+
+## 28. One chassis first, then internals above it
+
+The wearer reported that pressing B spread components around the rack before presenting a single server. The previous fixed 40 cm slide did not clear the full chassis depth, and global internal visibility could expose parts loaded from other servers. The immediate processor focus also displaced the complete layout.
+
+B now resolves a single server, keeps it closed through a depth-derived slide, pauses, brings the closed chassis into view, then raises eight internal groups into two size-aware columns above the open chassis. Explicit per-server visibility survives lazy replacement. The base chassis stays in place and the complete arrangement remains until the wearer selects or asks about a component. B no longer starts an automatic first-component focus or narrated tour; explicit voice explanations and walkthroughs remain available. Prior loaded source records are retained.
+
+Native Unity editor previews render the four stages using the production geometry helpers with another server already loaded. No headset interactions or voice tests are performed; the wearer retains runtime acceptance.
+
+The chassis-first APK compiled successfully and installed with `adb install -r`. This update did not edit or delete saved model records. Headset acceptance remains with the wearer.

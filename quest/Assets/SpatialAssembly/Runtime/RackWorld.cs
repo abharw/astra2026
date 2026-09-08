@@ -58,7 +58,7 @@ namespace SpatialAssembly {
   public JObject Available(){
    if(RackResources.Catalog==null)return null;
    var rack=Controller.Objects.FirstOrDefault(o=>o.IsImportedRack);
-   return new JObject{{"object_id",rack?.ObjectId??DefaultId},{"available",rack!=null},{"name","Authored data-center rack"},{"servers",new JArray(((JObject)RackResources.Catalog["serverPositions"]).Properties().Select(p=>p.Name))},{"groups",RackResources.Catalog["groups"].DeepClone()},{"loaded",new JArray(rack?.Data.parts.Where(p=>p.isInternal).Select(p=>p.id)??Array.Empty<string>())},{"visible",rack?.InternalsRevealed??false},{"limits",RackResources.Catalog["limits"].DeepClone()},{"instruction","Use load_asset_detail with server ID and group ID, or all. Groups are available from the beginning, but their meshes load only when requested. unload_asset_detail removes that server's requested group. Do not regenerate authored rack CAD to reveal existing parts."}};
+   return new JObject{{"object_id",rack?.ObjectId??DefaultId},{"available",rack!=null},{"name","Authored data-center rack"},{"servers",new JArray(((JObject)RackResources.Catalog["serverPositions"]).Properties().Select(p=>p.Name))},{"groups",RackResources.Catalog["groups"].DeepClone()},{"loaded",new JArray(rack?.Data.parts.Where(p=>p.isInternal).Select(p=>p.id)??Array.Empty<string>())},{"visible",rack?.InternalsRevealed??false},{"visible_server",rack?.InspectedServer},{"limits",RackResources.Catalog["limits"].DeepClone()},{"instruction","Use load_asset_detail with server ID and group ID, or all. Groups are available from the beginning, but their meshes load only when requested. unload_asset_detail removes that server's requested group. Do not regenerate authored rack CAD to reveal existing parts."}};
   }
   public void Cancel(){epoch++;demoEpoch++;DemoPlaying=false;Status="Rack demo / loading cancelled";}
   public static AssemblyData DetailPatch(AssemblyData original,string server,string group,bool unload=false){
@@ -102,6 +102,15 @@ namespace SpatialAssembly {
    }catch(Exception error){Status="Rack detail unavailable: "+error.Message;return(false,Status);}
    finally{pendingDetails.Remove(server);foreach(var key in held)RackResources.Release(key);if(Controller){Controller.Status=Status;Controller.PublishScene();}}
   }
+  public static (Vector3 source,Vector3 slide,Vector3 view) ServerPullPositions(AssemblyVisual visual,string server,Transform head){
+   var source=visual.PartSourceWorldCenter(server);
+   // The back edge clears the full rack depth, at either original or inspection scale.
+   float travel=(float)RackResources.Catalog["packages"]["exterior"]["bounds"]["rack01.frame"][1][2]-(float)RackResources.Catalog["packages"]["exterior"]["bounds"][server][0][2];
+   var outward=visual.transform.forward;var slide=source+visual.transform.TransformVector(Vector3.forward*travel)+outward*.12f;
+   var forward=Vector3.ProjectOnPlane(head.forward,Vector3.up).normalized;if(forward.sqrMagnitude<.5f)forward=-outward;
+   var view=head.position+forward*1.15f-Vector3.up*.6f;
+   view+=outward*Mathf.Max(0,Vector3.Dot(slide-view,outward));return(source,slide,view);
+  }
   public async Task PlayDemo(){
    if(DemoPlaying){Cancel();return;}
    var initial=Controller.Active;if(!initial||!initial.IsImportedRack)return;
@@ -115,46 +124,38 @@ namespace SpatialAssembly {
      server=initial.Data.parts.Where(p=>RackResources.Catalog["serverPositions"][p.id]!=null).OrderBy(p=>(initial.PartWorldCenter(p.id)-(head.position+head.forward*1.5f-head.up*.2f)).sqrMagnitude).First().id;
     }
     Controller.Bridge.Send(new JObject{{"type","walkthrough.cancel"}});Controller.Audio.InterruptPlayback();
-    string selectedComponent=Controller.SelectedPart;
-    if(initial.Data.parts.Any(p=>p.id==selectedComponent&&p.isInternal)){
-     initial.FocusPart(selectedComponent,head);Controller.SelectAuthoredPart(initial,selectedComponent);Controller.Store.SaveCurrent();
-     await NarrateDemo(objectId,server,new[]{selectedComponent},run,Controller.ControlVersion);return;
-    }
-    initial.CloseHousing();Controller.SelectAuthoredPart(initial,server);int selection=Controller.ControlVersion;
+    initial.BeginServerInspection(server);Controller.SelectAuthoredPart(initial,server);int selection=Controller.ControlVersion;
     bool Current()=>this&&run==demoEpoch&&Controller.Active&&Controller.Active.ObjectId==objectId&&Controller.ControlVersion==selection;
     AssemblyVisual Visual()=>Controller.Objects.FirstOrDefault(v=>v.ObjectId==objectId);
-    var source=initial.PartWorldCenter(server);var slide=source+initial.transform.forward*.4f;var view=head.position+head.forward*1.25f-head.up*.22f;
-    Status="Pulling server into view";Controller.Status=Status;
-    // Start local asset loading during the visible pull-out, but retain the housing until the slide finishes.
+    var path=ServerPullPositions(initial,server,head);var source=path.source;var slide=path.slide;var view=path.view;
+    var forward=Vector3.ProjectOnPlane(head.forward,Vector3.up).normalized;if(forward.sqrMagnitude<.5f)forward=-initial.transform.forward;
+    var right=Vector3.Cross(Vector3.up,forward).normalized;
     var loading=LoadDetail(objectId,server,"all",focus:false,select:false,reveal:false);
+    Status="Sliding one closed server out of its rack slot";Controller.Status=Status;
     float start=Time.realtimeSinceStartup;
-    while(Time.realtimeSinceStartup-start<.85f){
+    // Separate, visible phases: slide clear, pause, bring to view, pause, then open upward.
+    const float slideSeconds=.9f,clearPause=.25f,bringSeconds=.85f,viewPause=.45f;
+    float pullSeconds=slideSeconds+clearPause+bringSeconds+viewPause;
+    while(Time.realtimeSinceStartup-start<pullSeconds){
      if(!Current()){await loading;return;}float t=Time.realtimeSinceStartup-start;
-     var location=t<.35f?Vector3.Lerp(source,slide,Mathf.SmoothStep(0,1,t/.35f)):Vector3.Lerp(slide,view,Mathf.SmoothStep(0,1,(t-.35f)/.5f));
-     var visual=Visual();if(!visual){await loading;return;}visual.FocusPartAtWorld(server,location,false);await Task.Yield();
+     Vector3 location;
+     if(t<slideSeconds)location=Vector3.Lerp(source,slide,Mathf.SmoothStep(0,1,t/slideSeconds));
+     else if(t<slideSeconds+clearPause)location=slide;
+     else{location=Vector3.Lerp(slide,view,Mathf.SmoothStep(0,1,(t-slideSeconds-clearPause)/bringSeconds));Status="Bringing the closed chassis into view";Controller.Status=Status;}
+     var visual=Visual();if(!visual){await loading;return;}visual.FocusPartAtWorld(server,location,false,true);await Task.Yield();
     }
-    if(!Current()){await loading;return;}Visual().FocusPartAtWorld(server,view,false);
+    if(!Current()){await loading;return;}Visual().FocusPartAtWorld(server,view,false,true);
     var loaded=await loading;if(!Current())return;if(!loaded.ok){Status=loaded.message;return;}
-    var ready=Visual();if(!ready)return;ready.FocusPartAtWorld(server,view);ready.SetExplosion(.2f);
-    Status="Opening server components";Controller.Status=Status;start=Time.realtimeSinceStartup;
-    while(Time.realtimeSinceStartup-start<.8f){if(!Current())return;ready.SetExplosion(Mathf.Lerp(.2f,1,Mathf.SmoothStep(0,1,(Time.realtimeSinceStartup-start)/.8f)));await Task.Yield();}
-    if(!Current())return;ready.SetExplosion(1);ready.RememberInspectionLayout();
-    string[] order={"processors","memory","motherboard","storage","network","power","fanwall","heatsinks","chassis"};
-    var ids=order.Select(id=>server+".detail."+id).Where(id=>ready.Data.parts.Any(p=>p.id==id)).ToArray();
-    start=Time.realtimeSinceStartup;while(Time.realtimeSinceStartup-start<.45f){if(!Current())return;await Task.Yield();}
-    // The first component comes forward locally even when voice is offline.
-    ready.FocusPart(ids[0],head);Controller.SelectAuthoredPart(ready,ids[0]);selection=Controller.ControlVersion;Controller.Store.SaveCurrent();
-    await NarrateDemo(objectId,server,ids,run,selection);
+    var ready=Visual();if(!ready)return;
+    while(!ready.AssetsReady){if(!Current())return;if(ready.AssetError!=null)throw new Exception(ready.AssetError);await Task.Yield();}
+    var targets=ready.ServerInspectionTargets(server,view,right);
+    Status="Lifting this server's internals above its chassis";Controller.Status=Status;start=Time.realtimeSinceStartup;
+    while(Time.realtimeSinceStartup-start<1.1f){if(!Current())return;ready.StageServerInternals(server,view,targets,Mathf.SmoothStep(0,1,(Time.realtimeSinceStartup-start)/1.1f));await Task.Yield();}
+    if(!Current())return;ready.StageServerInternals(server,view,targets,1);ready.RememberInspectionLayout();
+    Controller.SelectAuthoredPart(ready,server);Controller.Store.SaveCurrent();
+    Status="Server open · select or ask about a component";
    }catch(Exception error){Status="Rack demo unavailable: "+error.Message;Debug.LogWarning(Status);}
    finally{if(this&&run==demoEpoch){DemoPlaying=false;Controller.Status=Status;Controller.PublishScene();}}
-  }
-  async Task NarrateDemo(string objectId,string server,string[] ids,int run,int selection){
-   bool Current()=>this&&run==demoEpoch&&Controller.Active&&Controller.Active.ObjectId==objectId&&Controller.ControlVersion==selection;
-   Status="Components ready · hold B for voice";Controller.Status=Status;if(!Controller.Bridge.Connected)return;
-   if(!Controller.Audio.Enabled&&!Controller.Audio.Starting&&!Controller.Audio.AwaitingPermission)Controller.Audio.Toggle();
-   float start=Time.realtimeSinceStartup;
-   while(!Controller.Audio.Enabled){if(!Current()||Time.realtimeSinceStartup-start>30||(!Controller.Audio.Starting&&!Controller.Audio.AwaitingPermission))return;await Task.Yield();}
-   if(!Current())return;Controller.PublishScene();Controller.Bridge.Send(new JObject{{"type","walkthrough.start"},{"object_id",objectId},{"selection_version",selection},{"server",server},{"parts",new JArray(ids)}});Status="Explaining server components";
   }
   void OnDestroy(){epoch++;demoEpoch++;}
 
