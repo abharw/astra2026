@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/scripts/step_to_mesh.py", line 25, in <module>
+    from OCP.TDF import TDF_Label, TDF_LabelSequence, TDF_Tool
+ImportError: cannot import name 'TDF_LabelSequence' from 'OCP.TDF' (/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/.cad-venv/lib/python3.12/site-packages/OCP/TDF/__init__.py)

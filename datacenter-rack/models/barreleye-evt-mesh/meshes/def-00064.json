@@ -1,0 +1,25 @@
+{
+  "id": "def-00064",
+  "label": "0:1:1:101",
+  "name": "1_INNER-RAIL_L_POWER9",
+  "color_rgba": null,
+  "topological_faces": 388,
+  "missing_faces": 0,
+  "vertices": 10182,
+  "triangles": 10080,
+  "bounds_m": [
+    [
+      -0.0054956222884356976,
+      -0.012038572691380978,
+      -0.23399999737739563
+    ],
+    [
+      0.002300000051036477,
+      0.012038638815283775,
+      -0.005869999993592501
+    ]
+  ],
+  "mesh_path": "meshes/def-00064.npz",
+  "mesh_sha256": "1bf02b936a701dbf4c87804ecaa4e45746fffa140522a57f6691ab48893c9393",
+  "tessellation_seconds": 0.213117582956329
+}

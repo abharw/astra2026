@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026-09-08T19:00:59.945706+00:00",
+  "checks": [
+    "component key consistency",
+    "required metadata fields",
+    "local source paths",
+    "instance links",
+    "source input hashes",
+    "landmark EVT3 identities"
+  ],
+  "components": 449,
+  "instances": 7867,
+  "population_counts": {
+    "PWA-BOM-listed": 6663,
+    "unresolved": 198,
+    "depop-listed": 1006
+  },
+  "landmarks": {
+    "U1": {
+      "mpns": [
+        "PE38993-51BC0-1H"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "U10": {
+      "mpns": [
+        "PE38993-51BC0-1H"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "U14": {
+      "mpns": [
+        "AST2500A2-GP"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "U17": {
+      "mpns": [
+        "MT40A512M16JY-083E:B"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "U13": {
+      "mpns": [
+        "BCM54612EB1KMLG"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "LOM1": {
+      "mpns": [
+        "BCM5719A1KFBG"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "J27": {
+      "mpns": [
+        "42819-4233"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "DIMM00": {
+      "mpns": [
+        "10140702-0302K11LF"
+      ],
+      "population_status": "PWA-BOM-listed"
+    },
+    "DIMM01": {
+      "mpns": [
+        "10140702-0301K11LF"
+      ],
+      "population_status": "PWA-BOM-listed"
+    }
+  },
+  "errors": [],
+  "scope": "Metadata integrity only; not visual, physical or engineering acceptance"
+}

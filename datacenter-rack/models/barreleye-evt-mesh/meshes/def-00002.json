@@ -1,0 +1,25 @@
+{
+  "id": "def-00002",
+  "label": "0:1:1:10",
+  "name": "9_PIN_D3_H5_T1-0",
+  "color_rgba": null,
+  "topological_faces": 16,
+  "missing_faces": 0,
+  "vertices": 924,
+  "triangles": 972,
+  "bounds_m": [
+    [
+      -0.0023094010539352894,
+      0.0,
+      -0.0020000000949949026
+    ],
+    [
+      0.0023094010539352894,
+      0.004999999888241291,
+      0.0020000000949949026
+    ]
+  ],
+  "mesh_path": "meshes/def-00002.npz",
+  "mesh_sha256": "eb2a6aa1cf22bc83366719560e1f8258fa84aaa50067f63768825fa64dbdbf64",
+  "tessellation_seconds": 0.012654999969527125
+}

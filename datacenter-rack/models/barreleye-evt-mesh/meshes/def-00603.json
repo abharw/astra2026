@@ -1,0 +1,25 @@
+{
+  "id": "def-00603",
+  "label": "0:1:1:793",
+  "name": "9_SCREW-M3L4_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 26,
+  "missing_faces": 0,
+  "vertices": 2846,
+  "triangles": 4356,
+  "bounds_m": [
+    [
+      -0.002246510237455368,
+      -0.003999999724328518,
+      -0.002246510237455368
+    ],
+    [
+      0.002246510237455368,
+      0.0020000000949949026,
+      0.002246510237455368
+    ]
+  ],
+  "mesh_path": "meshes/def-00603.npz",
+  "mesh_sha256": "0f915771c810c5047d5848cb5243cce3dd54aa0077e773f4eb5f6575ceb39e46",
+  "tessellation_seconds": 0.03618799999821931
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00057",
+  "label": "0:1:1:92",
+  "name": "9_S01-RIVET-FLAT-HEAD",
+  "color_rgba": null,
+  "topological_faces": 21,
+  "missing_faces": 0,
+  "vertices": 4452,
+  "triangles": 6944,
+  "bounds_m": [
+    [
+      -0.0024999999441206455,
+      -0.0024999999441206455,
+      -0.0007999999797903001
+    ],
+    [
+      0.0024999999441206455,
+      0.0024999999441206455,
+      0.00419999985024333
+    ]
+  ],
+  "mesh_path": "meshes/def-00057.npz",
+  "mesh_sha256": "50febfe3ec0f3b464c5f413a582aaa86eda2129bf6415ce4f6a5413671864c4c",
+  "tessellation_seconds": 0.03799591597635299
+}

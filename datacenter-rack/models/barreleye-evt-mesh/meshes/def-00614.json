@@ -1,0 +1,25 @@
+{
+  "id": "def-00614",
+  "label": "0:1:1:824",
+  "name": "1_6056-FAN-CAGE-03_POWER9",
+  "color_rgba": null,
+  "topological_faces": 466,
+  "missing_faces": 0,
+  "vertices": 22178,
+  "triangles": 26800,
+  "bounds_m": [
+    [
+      -0.020874999463558197,
+      -0.04899999871850014,
+      -2.946191901553874e-12
+    ],
+    [
+      0.04127499833703041,
+      0.0348999984562397,
+      0.023169999942183495
+    ]
+  ],
+  "mesh_path": "meshes/def-00614.npz",
+  "mesh_sha256": "aa65f2ee4131c95b34d5f00c8e3f9dd29c28b397b0158a5439d92a9a2c885807",
+  "tessellation_seconds": 0.3848516249563545
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00420",
+  "label": "0:1:1:572",
+  "name": "FCI_61082_082402LF_LEOPARD_E1",
+  "color_rgba": null,
+  "topological_faces": 674,
+  "missing_faces": 0,
+  "vertices": 7958,
+  "triangles": 8110,
+  "bounds_m": [
+    [
+      -0.01889999955892563,
+      -0.0006995316362008452,
+      -0.0034000000450760126
+    ],
+    [
+      0.01889999955892563,
+      0.007650008425116539,
+      0.0034000000450760126
+    ]
+  ],
+  "mesh_path": "meshes/def-00420.npz",
+  "mesh_sha256": "415cd33cafde7207eae236388048aca6ad46d0371ad88b555908f371b076c3e0",
+  "tessellation_seconds": 0.37315504206344485
+}

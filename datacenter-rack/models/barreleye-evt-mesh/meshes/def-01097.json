@@ -1,0 +1,25 @@
+{
+  "id": "def-01097",
+  "label": "0:1:1:1379",
+  "name": "PH400_CBSA_VOLUMETRIC_TESLA_AF_",
+  "color_rgba": null,
+  "topological_faces": 18,
+  "missing_faces": 0,
+  "vertices": 96,
+  "triangles": 60,
+  "bounds_m": [
+    [
+      -0.052000001072883606,
+      0.0,
+      -0.04696999862790108
+    ],
+    [
+      0.052000001072883606,
+      0.025849999859929085,
+      0.03623000159859657
+    ]
+  ],
+  "mesh_path": "meshes/def-01097.npz",
+  "mesh_sha256": "2ca65ebdaeb45f88873067e102db93d7343cce3455cacdfcbae2fe3c99e8cdee",
+  "tessellation_seconds": 0.017004917026497424
+}

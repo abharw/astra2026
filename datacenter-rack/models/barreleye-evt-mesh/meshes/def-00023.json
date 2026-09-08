@@ -1,0 +1,25 @@
+{
+  "id": "def-00023",
+  "label": "0:1:1:42",
+  "name": "1_POWER-BOARD-PARTITION_POWER9",
+  "color_rgba": null,
+  "topological_faces": 1996,
+  "missing_faces": 0,
+  "vertices": 37591,
+  "triangles": 38316,
+  "bounds_m": [
+    [
+      -0.0771000012755394,
+      -0.008200000040233135,
+      -0.03139999881386757
+    ],
+    [
+      0.07519999891519547,
+      0.008999999612569809,
+      0.028999999165534973
+    ]
+  ],
+  "mesh_path": "meshes/def-00023.npz",
+  "mesh_sha256": "8aa1b8f172bf00c4931ae4ffd5dab7f288ce651d16ee436f1f0e14f5164d20c7",
+  "tessellation_seconds": 1.1654911249643192
+}

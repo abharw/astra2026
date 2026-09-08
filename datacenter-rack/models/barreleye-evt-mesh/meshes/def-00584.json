@@ -1,0 +1,25 @@
+{
+  "id": "def-00584",
+  "label": "0:1:1:771",
+  "name": "G846A04100Y1EU",
+  "color_rgba": null,
+  "topological_faces": 441,
+  "missing_faces": 0,
+  "vertices": 9908,
+  "triangles": 9064,
+  "bounds_m": [
+    [
+      -0.0010000000474974513,
+      0.0,
+      -0.001500000013038516
+    ],
+    [
+      0.004999999888241291,
+      0.00494999997317791,
+      0.001449999981559813
+    ]
+  ],
+  "mesh_path": "meshes/def-00584.npz",
+  "mesh_sha256": "b395828e6d3bfa83a18b97744c663dac38ecd8445b12160ae7724f130ab1c392",
+  "tessellation_seconds": 0.2920668750302866
+}

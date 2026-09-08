@@ -1,0 +1,25 @@
+{
+  "id": "def-00066",
+  "label": "0:1:1:103",
+  "name": "9_RIVET-INNER-LOCK_P9",
+  "color_rgba": null,
+  "topological_faces": 18,
+  "missing_faces": 0,
+  "vertices": 4858,
+  "triangles": 7904,
+  "bounds_m": [
+    [
+      -0.002199999988079071,
+      -0.0035000001080334187,
+      -0.0035000001080334187
+    ],
+    [
+      0.0020000000949949026,
+      0.0035000001080334187,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00066.npz",
+  "mesh_sha256": "3a499990f368b5e48b83e34c819ff1267b4f47f43850be4d8e7993144eec4701",
+  "tessellation_seconds": 0.03944141697138548
+}

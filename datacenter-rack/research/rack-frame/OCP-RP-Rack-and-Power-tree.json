@@ -1,0 +1,23 @@
+{
+  "sha": "d5e7eefcc5ae265826790cd89fc7965124f5341d",
+  "url": "https://api.github.com/repos/opencomputeproject/OCP-RP-Rack-and-Power/git/trees/d5e7eefcc5ae265826790cd89fc7965124f5341d",
+  "tree": [
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dc7b020e14097639482cb508dbaf196e6a358d8",
+      "size": 1077,
+      "url": "https://api.github.com/repos/opencomputeproject/OCP-RP-Rack-and-Power/git/blobs/3dc7b020e14097639482cb508dbaf196e6a358d8"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "03994c17a872417ce13efef8551ee33279438c06",
+      "size": 23,
+      "url": "https://api.github.com/repos/opencomputeproject/OCP-RP-Rack-and-Power/git/blobs/03994c17a872417ce13efef8551ee33279438c06"
+    }
+  ],
+  "truncated": false
+}

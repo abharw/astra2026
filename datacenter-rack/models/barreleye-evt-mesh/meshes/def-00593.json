@@ -1,0 +1,25 @@
+{
+  "id": "def-00593",
+  "label": "0:1:1:782",
+  "name": "2_FOXCONN-BUTTON_AGLAIA",
+  "color_rgba": null,
+  "topological_faces": 278,
+  "missing_faces": 1,
+  "vertices": 31384,
+  "triangles": 45468,
+  "bounds_m": [
+    [
+      -0.013589303009212017,
+      -0.0015999998431652784,
+      -0.007499999832361937
+    ],
+    [
+      0.004801650997251272,
+      0.013918217271566391,
+      0.007499999832361937
+    ]
+  ],
+  "mesh_path": "meshes/def-00593.npz",
+  "mesh_sha256": "0d6a1fa17ece232bce8cd9305bc0514b89b3af46261c627a1399208eb2138768",
+  "tessellation_seconds": 0.4266571250045672
+}

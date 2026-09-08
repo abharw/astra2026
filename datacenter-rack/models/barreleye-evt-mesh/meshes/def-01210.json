@@ -1,0 +1,25 @@
+{
+  "id": "def-01210",
+  "label": "0:1:1:1521",
+  "name": "HON_HAI_PRECISION_SKT_BODY_CONC",
+  "color_rgba": null,
+  "topological_faces": 333,
+  "missing_faces": 0,
+  "vertices": 3160,
+  "triangles": 2532,
+  "bounds_m": [
+    [
+      -0.00533400010317564,
+      -0.00450849998742342,
+      -0.002476500114426017
+    ],
+    [
+      0.00533400010317564,
+      0.004000499844551086,
+      0.004077135119587183
+    ]
+  ],
+  "mesh_path": "meshes/def-01210.npz",
+  "mesh_sha256": "e680fb5843453de1b8fbce690932df470b47d6882ec1702d660a6f6ea190999c",
+  "tessellation_seconds": 0.3586276669520885
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00109",
+  "label": "0:1:1:157",
+  "name": "Q54H_BRICK_DC",
+  "color_rgba": null,
+  "topological_faces": 15,
+  "missing_faces": 0,
+  "vertices": 996,
+  "triangles": 972,
+  "bounds_m": [
+    [
+      -0.018400000408291817,
+      0.0,
+      -0.029200000688433647
+    ],
+    [
+      0.018400000408291817,
+      0.014499999582767487,
+      0.029200000688433647
+    ]
+  ],
+  "mesh_path": "meshes/def-00109.npz",
+  "mesh_sha256": "c475d665623b50d75f57752fbf379764f6ba63dced9174a5c09b9408ad75c357",
+  "tessellation_seconds": 0.014223249978385866
+}

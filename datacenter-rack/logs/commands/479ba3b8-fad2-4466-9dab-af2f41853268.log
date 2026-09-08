@@ -1,0 +1,91 @@
+00:00.962  blend            | Read blend: "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/lazy/rack-exterior.blend"
+INFO Draco is available, use library at /Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/internet-revolution/engineering/blender-startup-20260908/candidate-build/extracted/Blender/Blender.app/Contents/Resources/lib/libbf_intern_draco_bridge.dylib
+INFO MeshOptimizer is available, use library at /Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/internet-revolution/engineering/blender-startup-20260908/candidate-build/extracted/Blender/Blender.app/Contents/Resources/lib/libbf_intern_meshopt_bridge.dylib
+12:54:41 | INFO: Starting glTF 2.0 export
+12:54:41 | INFO: Extracting primitive: cable.ou01.BMC_LAN1_to_patch01.route.001
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/internet-revolution/engineering/blender-startup-20260908/candidate-build/extracted/Blender/Blender.app/Contents/Resources/5.3/python/lib/python3.13/site-packages/numpy/_core/getlimits.py:559: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  setattr(self, word, getattr(machar, word).flat[0])
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/internet-revolution/engineering/blender-startup-20260908/candidate-build/extracted/Blender/Blender.app/Contents/Resources/5.3/python/lib/python3.13/site-packages/numpy/_core/getlimits.py:91: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
+  return self._float_to_str(self.smallest_subnormal)
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou03.BMC_LAN1_to_patch02.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou05.BMC_LAN1_to_patch03.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou07.BMC_LAN1_to_patch04.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou09.BMC_LAN1_to_patch05.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou11.BMC_LAN1_to_patch06.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou13.BMC_LAN1_to_patch07.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou15.BMC_LAN1_to_patch08.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou17.BMC_LAN1_to_patch09.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou19.BMC_LAN1_to_patch10.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou21.BMC_LAN1_to_patch11.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou23.BMC_LAN1_to_patch12.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou25.BMC_LAN1_to_patch13.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou27.BMC_LAN1_to_patch14.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou29.BMC_LAN1_to_patch15.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou31.BMC_LAN1_to_patch16.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou33.BMC_LAN1_to_patch17.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: cable.ou35.BMC_LAN1_to_patch18.route.001
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.hardware.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.labels.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.management.patch-panel-and-plugs.mesh
+12:54:41 | INFO: Primitives created: 6
+12:54:41 | INFO: Extracting primitive: rack01.power.mesh
+12:54:41 | INFO: Primitives created: 6
+12:54:41 | INFO: Extracting primitive: rack01.psu.01.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.02.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.03.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.04.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.05.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.06.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:41 | INFO: Extracting primitive: rack01.psu.06.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.psu.05.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.psu.04.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.psu.03.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.psu.02.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.psu.01.mesh.001
+12:54:41 | INFO: Primitives created: 5
+12:54:41 | INFO: Extracting primitive: rack01.retention.mesh
+12:54:41 | INFO: Primitives created: 1
+12:54:42 | INFO: Extracting primitive: server.exterior.surface.mesh
+12:54:42 | INFO: Primitives created: 2
+12:54:42 | INFO: Extracting primitive: rack01.structure.mesh
+12:54:43 | INFO: Primitives created: 4
+12:54:43 | INFO: Extracting primitive: rack01.supports.mesh
+12:54:43 | INFO: Primitives created: 1
+12:54:43 | INFO: Finished glTF 2.0 export in 2.0508432388305664 s
+
+RUNTIME_EXPORT_COMPLETE {"glb_bytes": 23057200, "usdz_bytes": 25786225}
+Blender 5.3.0 Alpha (hash baf26f9a6b9b built 2026-09-07 01:31:10)
+USD export of '/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/lazy/rack-exterior.usdz' took 344.65 ms
+
+Blender quit

@@ -1,0 +1,25 @@
+{
+  "id": "def-00630",
+  "label": "0:1:1:844",
+  "name": "MYLAR_1_P9",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 424,
+  "triangles": 380,
+  "bounds_m": [
+    [
+      -0.027799999341368675,
+      -0.023499999195337296,
+      -0.004699999932199717
+    ],
+    [
+      0.027799999341368675,
+      0.023499999195337296,
+      0.0003000000142492354
+    ]
+  ],
+  "mesh_path": "meshes/def-00630.npz",
+  "mesh_sha256": "21edaef8d70d2603e09ee0b1f7f86c21599aaa0bca142b9b49be63dff2b7b1e9",
+  "tessellation_seconds": 0.017503959010355175
+}

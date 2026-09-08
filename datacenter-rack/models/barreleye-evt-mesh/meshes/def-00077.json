@@ -1,0 +1,25 @@
+{
+  "id": "def-00077",
+  "label": "0:1:1:117",
+  "name": "8_MYLAR-TOP-COVER_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.3499999940395355,
+      0.0,
+      -0.06499999761581421
+    ],
+    [
+      0.13899999856948853,
+      0.00025400001322850585,
+      0.0689999982714653
+    ]
+  ],
+  "mesh_path": "meshes/def-00077.npz",
+  "mesh_sha256": "115641ecb631a5a37c3ceecc269caa812d4cdb89caf1602fb7fd16bf2a4e6d0d",
+  "tessellation_seconds": 0.007623624987900257
+}

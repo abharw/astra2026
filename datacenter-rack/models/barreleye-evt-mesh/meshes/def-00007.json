@@ -1,0 +1,25 @@
+{
+  "id": "def-00007",
+  "label": "0:1:1:17",
+  "name": "9_MB-STANDOFF_POWER9",
+  "color_rgba": null,
+  "topological_faces": 26,
+  "missing_faces": 0,
+  "vertices": 1938,
+  "triangles": 2008,
+  "bounds_m": [
+    [
+      -0.004618203267455101,
+      0.0,
+      -0.004000000189989805
+    ],
+    [
+      0.0046194009482860565,
+      0.013000000268220901,
+      0.004000000189989805
+    ]
+  ],
+  "mesh_path": "meshes/def-00007.npz",
+  "mesh_sha256": "7a491c491865be0388fd8cb1feb86ff89b1fc491b830a2a045860f110070f3c4",
+  "tessellation_seconds": 0.020107791991904378
+}

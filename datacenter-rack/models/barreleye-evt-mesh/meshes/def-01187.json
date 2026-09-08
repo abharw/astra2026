@@ -1,0 +1,25 @@
+{
+  "id": "def-01187",
+  "label": "0:1:1:1492",
+  "name": "CX400M4_SXM2_HS_HP_BLOCK_1",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.027499999850988388,
+      0.0,
+      -0.027499999850988388
+    ],
+    [
+      0.027499999850988388,
+      0.003000000026077032,
+      0.027499999850988388
+    ]
+  ],
+  "mesh_path": "meshes/def-01187.npz",
+  "mesh_sha256": "ed6c7181c98ae385bda9a90cd4aa7fb5abcf4ff70f105d4ee87eb04ff1bb968d",
+  "tessellation_seconds": 0.01239320810418576
+}

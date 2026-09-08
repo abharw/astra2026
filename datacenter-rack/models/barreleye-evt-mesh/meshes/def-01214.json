@@ -1,0 +1,25 @@
+{
+  "id": "def-01214",
+  "label": "0:1:1:1527",
+  "name": "_ESQ-104-33-L-D_PINS",
+  "color_rgba": null,
+  "topological_faces": 166,
+  "missing_faces": 0,
+  "vertices": 2136,
+  "triangles": 1836,
+  "bounds_m": [
+    [
+      -0.004953000228852034,
+      -0.009906000457704067,
+      -0.0023495000787079334
+    ],
+    [
+      0.004953000228852034,
+      0.004944370593875647,
+      0.0023495000787079334
+    ]
+  ],
+  "mesh_path": "meshes/def-01214.npz",
+  "mesh_sha256": "0e43de8ef7b00e1b691d93ff9864587e33ca324f410434a10b7c4d0fabfc99f9",
+  "tessellation_seconds": 0.1480038749286905
+}

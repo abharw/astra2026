@@ -1,0 +1,25 @@
+{
+  "id": "def-00092",
+  "label": "0:1:1:134",
+  "name": "8_SPONG-MEZZ-LED_POWER9",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 120,
+  "triangles": 92,
+  "bounds_m": [
+    [
+      -0.004999999888241291,
+      -0.007000000216066837,
+      0.0
+    ],
+    [
+      0.004999999888241291,
+      0.007000000216066837,
+      0.0024999999441206455
+    ]
+  ],
+  "mesh_path": "meshes/def-00092.npz",
+  "mesh_sha256": "b19ba965f1ff41f013461f0946a4b3ee741545f202374f343838df74918ce0a1",
+  "tessellation_seconds": 0.011663374956697226
+}

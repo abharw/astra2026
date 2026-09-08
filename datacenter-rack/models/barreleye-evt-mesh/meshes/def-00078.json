@@ -1,0 +1,25 @@
+{
+  "id": "def-00078",
+  "label": "0:1:1:118",
+  "name": "8_GASKET-TOP-COVER-BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.19300000369548798,
+      0.0,
+      -0.0017500000540167093
+    ],
+    [
+      0.19300000369548798,
+      0.000699999975040555,
+      0.0017500000540167093
+    ]
+  ],
+  "mesh_path": "meshes/def-00078.npz",
+  "mesh_sha256": "11f1c0dc9aa02b5a6e3aa257ab978850407cabbce3b7ae6507c152a563d473db",
+  "tessellation_seconds": 0.00701037491671741
+}

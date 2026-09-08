@@ -1,0 +1,25 @@
+{
+  "id": "def-00625",
+  "label": "0:1:1:837",
+  "name": "4_SWITCH-BOARD_POWER9",
+  "color_rgba": null,
+  "topological_faces": 152,
+  "missing_faces": 0,
+  "vertices": 18316,
+  "triangles": 18216,
+  "bounds_m": [
+    [
+      -0.05999999865889549,
+      -9.999999747378752e-05,
+      -0.06634999811649323
+    ],
+    [
+      0.05999999865889549,
+      0.002469999948516488,
+      0.06634999811649323
+    ]
+  ],
+  "mesh_path": "meshes/def-00625.npz",
+  "mesh_sha256": "0cf1ccaedc79488d6e6c2dc1e0010b1d73b062da8446d9087590c5e210498feb",
+  "tessellation_seconds": 0.26415637496393174
+}

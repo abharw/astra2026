@@ -1,0 +1,25 @@
+{
+  "id": "def-00408",
+  "label": "0:1:1:557",
+  "name": "OCP_F06-MEZZ-40G-CARD_ANY",
+  "color_rgba": null,
+  "topological_faces": 46,
+  "missing_faces": 0,
+  "vertices": 3824,
+  "triangles": 3764,
+  "bounds_m": [
+    [
+      -0.11005000025033951,
+      0.0,
+      -0.07791999727487564
+    ],
+    [
+      0.0,
+      0.0015699999639764428,
+      7.999999797903001e-05
+    ]
+  ],
+  "mesh_path": "meshes/def-00408.npz",
+  "mesh_sha256": "1e2b0f05b63e88764fc8f8023a5409bee89bea781fccd798d824e8532a92f266",
+  "tessellation_seconds": 0.054169250070117414
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00244",
+  "label": "0:1:1:311",
+  "name": "K3-TOP-KEEPOUT-4MM_1",
+  "color_rgba": null,
+  "topological_faces": 8,
+  "missing_faces": 0,
+  "vertices": 188,
+  "triangles": 172,
+  "bounds_m": [
+    [
+      0.037796687334775925,
+      -0.004000000189989805,
+      -0.10305022448301315
+    ],
+    [
+      0.04899721220135689,
+      0.0,
+      -0.03804340213537216
+    ]
+  ],
+  "mesh_path": "meshes/def-00244.npz",
+  "mesh_sha256": "c4f4ba9edf99d72aedfc8932c64d330680c859de44ed0197f5e5f8d78e8369cf",
+  "tessellation_seconds": 0.005561625002883375
+}

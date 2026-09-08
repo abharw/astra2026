@@ -1,0 +1,25 @@
+{
+  "id": "def-00040",
+  "label": "0:1:1:69",
+  "name": "9_SCREW-SELF-TAP-M3_BARR",
+  "color_rgba": null,
+  "topological_faces": 55,
+  "missing_faces": 0,
+  "vertices": 6924,
+  "triangles": 7596,
+  "bounds_m": [
+    [
+      -0.003000000026077032,
+      -0.007699999026954174,
+      -0.003000000026077032
+    ],
+    [
+      0.003000000026077032,
+      0.002199999988079071,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00040.npz",
+  "mesh_sha256": "61e573eefdd3d770b1a8ede6b1b7d698cd1cd1944b2d82b7fcbc44ca4f40876f",
+  "tessellation_seconds": 0.05862100003287196
+}

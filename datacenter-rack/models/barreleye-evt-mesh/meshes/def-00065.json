@@ -1,0 +1,25 @@
+{
+  "id": "def-00065",
+  "label": "0:1:1:102",
+  "name": "1_HDD-TRAY-LOCK-L_B_POWER9",
+  "color_rgba": null,
+  "topological_faces": 99,
+  "missing_faces": 0,
+  "vertices": 6596,
+  "triangles": 8872,
+  "bounds_m": [
+    [
+      -0.04899999871850014,
+      -0.006300000008195639,
+      -0.004000000189989805
+    ],
+    [
+      0.0044999998062849045,
+      0.0037999607156962156,
+      0.0012000000569969416
+    ]
+  ],
+  "mesh_path": "meshes/def-00065.npz",
+  "mesh_sha256": "32f511250eaa8e61d2d8ed98473796e5687989e9df7f8f3f82e20c90215e50cc",
+  "tessellation_seconds": 0.07752858300227672
+}

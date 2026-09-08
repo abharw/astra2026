@@ -1,0 +1,25 @@
+{
+  "id": "def-00165",
+  "label": "0:1:1:219",
+  "name": "BALL_0_6MM_ASSY_1",
+  "color_rgba": null,
+  "topological_faces": 4,
+  "missing_faces": 0,
+  "vertices": 1919,
+  "triangles": 3506,
+  "bounds_m": [
+    [
+      -0.0002699999895412475,
+      -0.0026400000788271427,
+      -6.600000051548705e-05
+    ],
+    [
+      0.00033000000985339284,
+      -0.00203999993391335,
+      0.0005339999916031957
+    ]
+  ],
+  "mesh_path": "meshes/def-00165.npz",
+  "mesh_sha256": "6726c24b9a11c530679dc800905a6195e5f2b67c9e984823fb10f120d3f71acf",
+  "tessellation_seconds": 0.015978624927811325
+}

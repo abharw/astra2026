@@ -1,0 +1,25 @@
+{
+  "id": "def-01162",
+  "label": "0:1:1:1457",
+  "name": "4_MB-GPU-P100_POWER9",
+  "color_rgba": null,
+  "topological_faces": 284,
+  "missing_faces": 0,
+  "vertices": 33996,
+  "triangles": 33744,
+  "bounds_m": [
+    [
+      -0.13429999351501465,
+      -9.999999747378752e-05,
+      -0.03909999877214432
+    ],
+    [
+      0.1979999989271164,
+      0.0017000000225380063,
+      0.11089999973773956
+    ]
+  ],
+  "mesh_path": "meshes/def-01162.npz",
+  "mesh_sha256": "9556e113ceffe712ae8e520d2f84c46d2e3a17287f9fc03ac7a7ca0355164e7d",
+  "tessellation_seconds": 0.7285172499250621
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01137",
+  "label": "0:1:1:1423",
+  "name": "367-0160-500_CVR-GRN-NORTH_1_P_",
+  "color_rgba": null,
+  "topological_faces": 245,
+  "missing_faces": 0,
+  "vertices": 10956,
+  "triangles": 11308,
+  "bounds_m": [
+    [
+      0.024301540106534958,
+      0.0788232833147049,
+      0.012948686257004738
+    ],
+    [
+      0.16766582429409027,
+      0.10256652534008026,
+      0.03490000218153
+    ]
+  ],
+  "mesh_path": "meshes/def-01137.npz",
+  "mesh_sha256": "b3e77eeb38e62f9a0ac88f1a528b7b53495d1a331b2a3da85a644f146dfba9ae",
+  "tessellation_seconds": 0.27162695792503655
+}

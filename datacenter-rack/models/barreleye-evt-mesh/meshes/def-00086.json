@@ -1,0 +1,25 @@
+{
+  "id": "def-00086",
+  "label": "0:1:1:126",
+  "name": "8_SPONGE-LED-2_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 500,
+  "triangles": 484,
+  "bounds_m": [
+    [
+      -0.0048699998296797276,
+      -0.003000000026077032,
+      0.0
+    ],
+    [
+      0.0020000000949949026,
+      0.003000000026077032,
+      0.0024999999441206455
+    ]
+  ],
+  "mesh_path": "meshes/def-00086.npz",
+  "mesh_sha256": "7de3dc82e771f920908f9ed04ff7bace6410552c2b70bf191832913662a8b2be",
+  "tessellation_seconds": 0.00821266695857048
+}

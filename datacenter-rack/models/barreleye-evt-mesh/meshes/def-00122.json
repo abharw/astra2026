@@ -1,0 +1,25 @@
+{
+  "id": "def-00122",
+  "label": "0:1:1:170",
+  "name": "7_TFM-104-02-L-D-K_ZUS",
+  "color_rgba": null,
+  "topological_faces": 154,
+  "missing_faces": 0,
+  "vertices": 4438,
+  "triangles": 4178,
+  "bounds_m": [
+    [
+      -0.0041275001130998135,
+      -0.00015239999629557133,
+      -0.0029845000244677067
+    ],
+    [
+      0.0041275001130998135,
+      0.005588000174611807,
+      0.0029845000244677067
+    ]
+  ],
+  "mesh_path": "meshes/def-00122.npz",
+  "mesh_sha256": "24cbbf76f842279c8c78cc03f27037ef2b48413ec542e97b5a86398b6bc9c9c6",
+  "tessellation_seconds": 0.08973150001838803
+}

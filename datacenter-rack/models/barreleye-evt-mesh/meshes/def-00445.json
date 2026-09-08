@@ -1,0 +1,25 @@
+{
+  "id": "def-00445",
+  "label": "0:1:1:600",
+  "name": "ZAIUS-LV-CARD-EMN-20160823",
+  "color_rgba": null,
+  "topological_faces": 194,
+  "missing_faces": 0,
+  "vertices": 2908,
+  "triangles": 2556,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.005299963988363743
+    ],
+    [
+      0.025280112400650978,
+      0.04045000672340393,
+      0.001600199961103499
+    ]
+  ],
+  "mesh_path": "meshes/def-00445.npz",
+  "mesh_sha256": "97cf8f528805130aef28e2e4ae27fbcda90b2be5f186abed97fb5bd1254281b1",
+  "tessellation_seconds": 0.11442183295730501
+}

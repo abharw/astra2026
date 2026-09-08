@@ -1,0 +1,25 @@
+{
+  "id": "def-00234",
+  "label": "0:1:1:300",
+  "name": "K2-BTM-KEEPOUT-2_9MM_4",
+  "color_rgba": null,
+  "topological_faces": 21,
+  "missing_faces": 0,
+  "vertices": 714,
+  "triangles": 672,
+  "bounds_m": [
+    [
+      -0.019916515797376633,
+      0.003010000102221966,
+      -0.1079573929309845
+    ],
+    [
+      0.04899999871850014,
+      0.005909999832510948,
+      -0.042770158499479294
+    ]
+  ],
+  "mesh_path": "meshes/def-00234.npz",
+  "mesh_sha256": "57733c6adff748d283886f23500d609e831a239ef4b6d8e98f0dcf321231543f",
+  "tessellation_seconds": 0.015033082920126617
+}

@@ -1,0 +1,9 @@
+{
+  "registration_does_not_append": true,
+  "cache_recovered_without_library_load": true,
+  "saved_server_asset_state": true,
+  "reopen_reuses_cache": true,
+  "saved_part_reselected": true,
+  "back_restores_saved_exterior": true,
+  "reopened_imports_can_unload": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00533",
+  "label": "0:1:1:710",
+  "name": "ULCO6_6-3_1-20170302-CLOSED",
+  "color_rgba": null,
+  "topological_faces": 208,
+  "missing_faces": 0,
+  "vertices": 31550,
+  "triangles": 50966,
+  "bounds_m": [
+    [
+      -0.011375445872545242,
+      -0.0056500001810491085,
+      -0.003000000026077032
+    ],
+    [
+      0.004153553396463394,
+      0.013050000183284283,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00533.npz",
+  "mesh_sha256": "abcdce8d1f98e5e10db511f270231ecc7301b17152adf000a3acf0038a6cb073",
+  "tessellation_seconds": 0.312523250002414
+}

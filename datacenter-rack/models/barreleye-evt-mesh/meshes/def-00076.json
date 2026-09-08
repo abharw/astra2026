@@ -1,0 +1,25 @@
+{
+  "id": "def-00076",
+  "label": "0:1:1:116",
+  "name": "8_MIDDLE-COVER-RUBBER_BARR",
+  "color_rgba": null,
+  "topological_faces": 24,
+  "missing_faces": 0,
+  "vertices": 436,
+  "triangles": 396,
+  "bounds_m": [
+    [
+      -0.015429999679327011,
+      -0.019430000334978104,
+      0.0
+    ],
+    [
+      0.015429999679327011,
+      0.019430000334978104,
+      0.0005000000237487257
+    ]
+  ],
+  "mesh_path": "meshes/def-00076.npz",
+  "mesh_sha256": "5a20055c26996cf1adeff814ad09bc8d17470f91bb178446951495a61c776e2a",
+  "tessellation_seconds": 0.014898791909217834
+}

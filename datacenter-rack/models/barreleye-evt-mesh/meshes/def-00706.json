@@ -1,0 +1,25 @@
+{
+  "id": "def-00706",
+  "label": "0:1:1:959",
+  "name": "PCB_4",
+  "color_rgba": null,
+  "topological_faces": 20,
+  "missing_faces": 0,
+  "vertices": 1512,
+  "triangles": 1488,
+  "bounds_m": [
+    [
+      -0.05939999967813492,
+      -0.009999999776482582,
+      0.0
+    ],
+    [
+      0.05939999967813492,
+      0.009999999776482582,
+      0.002360000042244792
+    ]
+  ],
+  "mesh_path": "meshes/def-00706.npz",
+  "mesh_sha256": "dc9e86e3ff823c3185c0cf81bb3acdf4d3d6325da90bcebaf0b8f0910886df22",
+  "tessellation_seconds": 0.02614366600755602
+}

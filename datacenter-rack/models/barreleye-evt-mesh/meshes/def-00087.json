@@ -1,0 +1,25 @@
+{
+  "id": "def-00087",
+  "label": "0:1:1:127",
+  "name": "8_MYLAR-HDD-BOTTOM-TEFLON_BARR",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.006000000052154064,
+      0.0,
+      -0.25
+    ],
+    [
+      0.006000000052154064,
+      0.0002500000118743628,
+      0.25
+    ]
+  ],
+  "mesh_path": "meshes/def-00087.npz",
+  "mesh_sha256": "1e2dc7e902e24668ea7b33f1b288404a0b0b0e48f06aec16412575abbd96019b",
+  "tessellation_seconds": 0.003412832971662283
+}

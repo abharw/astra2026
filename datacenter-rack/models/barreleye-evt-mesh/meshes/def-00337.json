@@ -1,0 +1,25 @@
+{
+  "id": "def-00337",
+  "label": "0:1:1:451",
+  "name": "___-108316_1",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 48,
+  "triangles": 28,
+  "bounds_m": [
+    [
+      0.000699999975040555,
+      -0.004891241434961557,
+      -0.0003499999875202775
+    ],
+    [
+      0.0012000000569969416,
+      -0.004050000105053186,
+      1.5809576145947937e-16
+    ]
+  ],
+  "mesh_path": "meshes/def-00337.npz",
+  "mesh_sha256": "65a2ac5727bb30f77e15b514b5cb3480267d1ecfe870e77dc57e8e8216a7c05a",
+  "tessellation_seconds": 0.006296540959738195
+}

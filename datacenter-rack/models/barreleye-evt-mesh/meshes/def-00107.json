@@ -1,0 +1,25 @@
+{
+  "id": "def-00107",
+  "label": "0:1:1:155",
+  "name": "7_DDR4_SMT_10140702_ZUS",
+  "color_rgba": null,
+  "topological_faces": 1800,
+  "missing_faces": 0,
+  "vertices": 42080,
+  "triangles": 40862,
+  "bounds_m": [
+    [
+      -0.07787177711725235,
+      -0.0020000000949949026,
+      -0.0032099999953061342
+    ],
+    [
+      0.07787177711725235,
+      0.019449999555945396,
+      0.0032099999953061342
+    ]
+  ],
+  "mesh_path": "meshes/def-00107.npz",
+  "mesh_sha256": "e43806ca5c0fc6b11008076d268ef3b97e3b5bcc00a7f04dbc847bba1d41c9fd",
+  "tessellation_seconds": 0.9182318750536069
+}

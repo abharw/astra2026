@@ -1,0 +1,7 @@
+00:01.094  blend            | Read blend: "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/barreleye-source-v001.blend"
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/source/build_asset.py:25: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/source/build_asset.py:95: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new(scene.name+' world');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.11,.14,.19,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.25
+Info: Saved as "datacenter-rack-v001.blend"
+ASSET_SAVED /Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/datacenter-rack-v001.blend 20996

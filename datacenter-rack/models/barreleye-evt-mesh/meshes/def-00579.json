@@ -1,0 +1,25 @@
+{
+  "id": "def-00579",
+  "label": "0:1:1:765",
+  "name": "4_HDD-BP_POWER9",
+  "color_rgba": null,
+  "topological_faces": 418,
+  "missing_faces": 0,
+  "vertices": 37972,
+  "triangles": 37556,
+  "bounds_m": [
+    [
+      -0.27489998936653137,
+      -0.032749999314546585,
+      -0.001500000013038516
+    ],
+    [
+      0.2215999960899353,
+      0.055399999022483826,
+      0.001509999972768128
+    ]
+  ],
+  "mesh_path": "meshes/def-00579.npz",
+  "mesh_sha256": "49389b02dba6b74b70edbd06418ab1bd2ce0c6add0dc30af1703893c6a3e2c55",
+  "tessellation_seconds": 0.9235375419957563
+}

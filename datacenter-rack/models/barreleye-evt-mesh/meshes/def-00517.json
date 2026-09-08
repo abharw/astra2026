@@ -1,0 +1,25 @@
+{
+  "id": "def-00517",
+  "label": "0:1:1:691",
+  "name": "VTM-1-D-20161103_ASM",
+  "color_rgba": null,
+  "topological_faces": 352,
+  "missing_faces": 0,
+  "vertices": 66353,
+  "triangles": 112752,
+  "bounds_m": [
+    [
+      0.2895350158214569,
+      0.0028699981048703194,
+      0.2263599932193756
+    ],
+    [
+      0.36953499913215637,
+      0.03989999741315842,
+      0.26985999941825867
+    ]
+  ],
+  "mesh_path": "meshes/def-00517.npz",
+  "mesh_sha256": "60b4f66fcfd1943b8728b98516d9328ae551b13378a3be6c0ba53e6de8b6b74a",
+  "tessellation_seconds": 0.8477699580835178
+}

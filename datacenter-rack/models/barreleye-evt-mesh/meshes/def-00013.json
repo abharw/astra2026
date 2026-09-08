@@ -1,0 +1,25 @@
+{
+  "id": "def-00013",
+  "label": "0:1:1:25",
+  "name": "1_EAR-LATCH-RIGHT_POWER9",
+  "color_rgba": null,
+  "topological_faces": 141,
+  "missing_faces": 0,
+  "vertices": 4603,
+  "triangles": 4824,
+  "bounds_m": [
+    [
+      -0.04450279846787453,
+      -0.005577410105615854,
+      -0.0070500001311302185
+    ],
+    [
+      0.007000000216066837,
+      0.0035102886613458395,
+      0.006949999835342169
+    ]
+  ],
+  "mesh_path": "meshes/def-00013.npz",
+  "mesh_sha256": "59e95853ab7d5cb846f4769433824c3ecd55c5070aa82185a010a70f526f7c8d",
+  "tessellation_seconds": 0.07420458400156349
+}

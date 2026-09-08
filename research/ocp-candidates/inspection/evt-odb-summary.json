@@ -1,0 +1,9 @@
+{
+  "components": 7867,
+  "unique_refdes": 7867,
+  "packages": 198,
+  "missing_center_matches": 0,
+  "max_center_error_mm": 0.0016000000000531145,
+  "truncated_PCP_refdes_recovered": 18,
+  "caution": "Keep ODB and PCP angle/mirror conventions separate; package bounds do not establish molded body."
+}

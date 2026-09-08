@@ -1,0 +1,6 @@
+{"stage": "read-start", "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/reviews/converter-smoke/box.step", "sha256": "46b10273b21ba3be4b3e311ec1d818b760c2ce2630ad4cf63f36301fe1bd44e5"}
+{"stage": "read-complete", "seconds": 0.01720612496137619}
+{"stage": "transfer-complete", "seconds": 0.03334995894692838}
+{"stage": "structure", "occurrences": 1, "definitions": 1, "seconds": 0.034191417042165995}
+{"stage": "mesh", "index": 0, "name": "Open CASCADE STEP translator 8.0 1", "triangles": 12, "seconds": 0.05772562499623746}
+{"stage": "complete", "totals": {"unique_vertices": 24, "unique_triangles": 12, "missing_faces": 0}, "seconds": 0.05811633402481675}

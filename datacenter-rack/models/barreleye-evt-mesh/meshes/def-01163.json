@@ -1,0 +1,25 @@
+{
+  "id": "def-01163",
+  "label": "0:1:1:1458",
+  "name": "HSEC8-170-01-X-DV-A-K",
+  "color_rgba": null,
+  "topological_faces": 1192,
+  "missing_faces": 0,
+  "vertices": 36206,
+  "triangles": 44767,
+  "bounds_m": [
+    [
+      -0.03189999982714653,
+      -0.0032500000670552254,
+      -0.0035000001080334187
+    ],
+    [
+      0.03189999982714653,
+      0.006176999770104885,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-01163.npz",
+  "mesh_sha256": "eeb28eecdb35aca84ae8b2e7a30934b7e22130aa19bda2367df0751b174bb2f5",
+  "tessellation_seconds": 1.622013624990359
+}

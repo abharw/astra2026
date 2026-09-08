@@ -1,0 +1,25 @@
+{
+  "id": "def-00464",
+  "label": "0:1:1:626",
+  "name": "SKIPPER0Z_IDF_20160407_1",
+  "color_rgba": null,
+  "topological_faces": 233,
+  "missing_faces": 0,
+  "vertices": 5980,
+  "triangles": 5640,
+  "bounds_m": [
+    [
+      -0.003809999907389283,
+      -0.003809999907389283,
+      -0.0010160000529140234
+    ],
+    [
+      0.025189941748976707,
+      0.02618994005024433,
+      0.0027889199554920197
+    ]
+  ],
+  "mesh_path": "meshes/def-00464.npz",
+  "mesh_sha256": "53c4fb1ab3c732923d24cccdff32339d18c8794225ad8141021b41f74da76962",
+  "tessellation_seconds": 0.1641262909397483
+}

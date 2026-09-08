@@ -1,0 +1,25 @@
+{
+  "id": "def-00389",
+  "label": "0:1:1:528",
+  "name": "FCI-64POS-REC1_1",
+  "color_rgba": null,
+  "topological_faces": 561,
+  "missing_faces": 0,
+  "vertices": 7535,
+  "triangles": 8190,
+  "bounds_m": [
+    [
+      -0.015699999406933784,
+      -0.000699999975040555,
+      -0.003000000026077032
+    ],
+    [
+      0.015699999406933784,
+      0.0036500028800219297,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00389.npz",
+  "mesh_sha256": "db47675b72733f01c7bb5c6d16939d078be6382ead800bce1dca00bb26302e1c",
+  "tessellation_seconds": 0.31167262501548976
+}

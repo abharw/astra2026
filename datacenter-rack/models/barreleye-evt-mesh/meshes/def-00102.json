@@ -1,0 +1,25 @@
+{
+  "id": "def-00102",
+  "label": "0:1:1:149",
+  "name": "4_MB-PCBA_ZUS",
+  "color_rgba": null,
+  "topological_faces": 154,
+  "missing_faces": 0,
+  "vertices": 14740,
+  "triangles": 14580,
+  "bounds_m": [
+    [
+      0.0,
+      -0.003000000026077032,
+      -0.5638800263404846
+    ],
+    [
+      0.3301999866962433,
+      0.0,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00102.npz",
+  "mesh_sha256": "e6440568279deafa54d6674fc7b7f3619d646a2ac179bb9c890d6f49dea6f0fc",
+  "tessellation_seconds": 0.225514541962184
+}

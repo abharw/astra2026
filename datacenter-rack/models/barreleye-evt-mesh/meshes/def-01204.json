@@ -1,0 +1,25 @@
+{
+  "id": "def-01204",
+  "label": "0:1:1:1512",
+  "name": "4_RISER-CARD-X16-P100_POWER9",
+  "color_rgba": null,
+  "topological_faces": 66,
+  "missing_faces": 0,
+  "vertices": 3552,
+  "triangles": 3436,
+  "bounds_m": [
+    [
+      -9.999999747378752e-05,
+      -0.005499999970197678,
+      -0.04399999976158142
+    ],
+    [
+      0.0016700000269338489,
+      0.014602620154619217,
+      0.0860000029206276
+    ]
+  ],
+  "mesh_path": "meshes/def-01204.npz",
+  "mesh_sha256": "9c1461e836da00629c9834a8cf85e6535948700d6a161cb1e637167f2dca0a8f",
+  "tessellation_seconds": 0.07583287497982383
+}

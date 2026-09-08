@@ -1,0 +1,25 @@
+{
+  "id": "def-00456",
+  "label": "0:1:1:615",
+  "name": "KSC411J",
+  "color_rgba": null,
+  "topological_faces": 35,
+  "missing_faces": 0,
+  "vertices": 2198,
+  "triangles": 3612,
+  "bounds_m": [
+    [
+      -0.0034000000450760126,
+      -0.003100000089034438,
+      -9.999999747378752e-05
+    ],
+    [
+      0.0034000000450760126,
+      0.003100000089034438,
+      0.005100000184029341
+    ]
+  ],
+  "mesh_path": "meshes/def-00456.npz",
+  "mesh_sha256": "2c9c3ceb64e69329cd659d5b9c531bb1f2535fa374f8167699d040564000ebf1",
+  "tessellation_seconds": 0.03695554193109274
+}

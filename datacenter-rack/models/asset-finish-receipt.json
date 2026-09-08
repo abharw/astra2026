@@ -1,0 +1,70 @@
+{
+  "schema": "rack-asset-finish/v1",
+  "file": "datacenter-rack-v002.blend",
+  "objects": 21243,
+  "unique_meshes": 12248,
+  "curves": 25,
+  "scenes": [
+    "01 \u00b7 Full rack",
+    "02 \u00b7 Open server",
+    "03 \u00b7 Motherboard fabrication",
+    "04 \u00b7 Processor study"
+  ],
+  "repaired_definitions": [
+    "def-00186",
+    "def-00593",
+    "def-00597"
+  ],
+  "processor_study_objects": 246,
+  "selected_geometry_defects": {
+    "configuration_id": "evt3-2ou-no-gpu-25gbe-furukawa",
+    "configuration_sha256": "4885735026bd2c98f62196e9045635b18acb61655f68817077556e112dfb1fa6",
+    "summary": {
+      "selected_affected_definitions": 4,
+      "remaining_nonzero_faces_unique": 0,
+      "remaining_nonzero_face_occurrences": 0,
+      "remaining_absolute_integrated_area_mm2_unique": 0,
+      "remaining_absolute_integrated_area_mm2_occurrence_weighted": 0
+    },
+    "rows": [
+      {
+        "definition_id": "def-00000",
+        "retained_occurrences": 1,
+        "missing_faces_before_per_definition": 24,
+        "numerically_zero_area_faces_per_definition": 24,
+        "repaired_faces_per_definition": 0,
+        "unresolved_nonzero_faces_per_definition": 0,
+        "remaining_absolute_integral_mm2_per_definition": 0
+      },
+      {
+        "definition_id": "def-00186",
+        "retained_occurrences": 8,
+        "missing_faces_before_per_definition": 2,
+        "numerically_zero_area_faces_per_definition": 0,
+        "repaired_faces_per_definition": 2,
+        "unresolved_nonzero_faces_per_definition": 0,
+        "remaining_absolute_integral_mm2_per_definition": 0
+      },
+      {
+        "definition_id": "def-00593",
+        "retained_occurrences": 24,
+        "missing_faces_before_per_definition": 1,
+        "numerically_zero_area_faces_per_definition": 0,
+        "repaired_faces_per_definition": 1,
+        "unresolved_nonzero_faces_per_definition": 0,
+        "remaining_absolute_integral_mm2_per_definition": 0
+      },
+      {
+        "definition_id": "def-00597",
+        "retained_occurrences": 24,
+        "missing_faces_before_per_definition": 1,
+        "numerically_zero_area_faces_per_definition": 0,
+        "repaired_faces_per_definition": 1,
+        "unresolved_nonzero_faces_per_definition": 0,
+        "remaining_absolute_integral_mm2_per_definition": 0
+      }
+    ],
+    "note": "Area is absolute signed CAD integration, not screen-visible hole area. Assumes finalized replacement meshes integrated."
+  },
+  "render_status": "pending visual review"
+}

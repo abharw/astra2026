@@ -1,0 +1,31 @@
+{
+  "glb_nodes": 92,
+  "glb_meshes": 38,
+  "server_ids": [
+    "rack01.server01",
+    "rack01.server02",
+    "rack01.server03",
+    "rack01.server04",
+    "rack01.server05",
+    "rack01.server06",
+    "rack01.server07",
+    "rack01.server08",
+    "rack01.server09",
+    "rack01.server10",
+    "rack01.server11",
+    "rack01.server12",
+    "rack01.server13",
+    "rack01.server14",
+    "rack01.server15",
+    "rack01.server16",
+    "rack01.server17",
+    "rack01.server18"
+  ],
+  "no_detail_ids": true,
+  "glb_bytes": 23057200,
+  "usdz_bytes": 25786225,
+  "usdz_members": [
+    "rack-exterior.usdc"
+  ],
+  "validation": "GLB structure and semantic IDs; USDZ archive integrity. Headset runtime untested."
+}

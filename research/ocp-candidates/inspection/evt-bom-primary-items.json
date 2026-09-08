@@ -1,0 +1,3971 @@
+[
+  {
+    "description": "PCB,Zaius-MB EVT3-X02,OSP,Red,22L,22.20*13.00,G",
+    "manufacturer": "GCE",
+    "manufacturer_part": "0101EJD00-000-G",
+    "qty": "1.0",
+    "locations": "PCB",
+    "source_sheet": "PWA BOM",
+    "source_row": 5
+  },
+  {
+    "description": "Battery,PANASONIC,CR-2032L/BE,Lithium,3V,225mAH,G",
+    "manufacturer": "PANASONIC INDUSTRIAL CO.,LTD.",
+    "manufacturer_part": "CR-2032L/BE",
+    "qty": "1.0",
+    "locations": "BAT1",
+    "source_sheet": "PWA BOM",
+    "source_row": 7
+  },
+  {
+    "description": "SPET CAP,220uF,+/-20%,10V,105\u2103,G,SMD2816,ESR<=40mOhm",
+    "manufacturer": "SANYO ELECTRIC CO., LTD.",
+    "manufacturer_part": "10TPB220ML",
+    "qty": "6.0",
+    "locations": "CE1,CE4,CE5,CE6,CE33,CE34",
+    "source_sheet": "PWA BOM",
+    "source_row": 8
+  },
+  {
+    "description": "SPEA CAP,100uF,+/-20%,16V,105\u2103,G,SMD6.3*5.9,ESR<=24mOhm",
+    "manufacturer": "SANYO ELECTRIC CO., LTD.",
+    "manufacturer_part": "16SVPC100M",
+    "qty": "4.0",
+    "locations": "CE17,CE18,CE19,CE20",
+    "source_sheet": "PWA BOM",
+    "source_row": 9
+  },
+  {
+    "description": "SP-CAP,100uF,+/-20%,16V,105\u2103,G,SMD2816,ESR<=12mOhm",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "ECASD91C107M012K01",
+    "qty": "10.0",
+    "locations": "CE21,CE22,CE23,CE24,CE25,CE26,CE27,CE28,CE29,CE30",
+    "source_sheet": "PWA BOM",
+    "source_row": 10
+  },
+  {
+    "description": "CAP,10nF,+/-10%,X7R,6.3V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R70J103K",
+    "qty": "43.0",
+    "locations": "C5,C6,C9,C14,C15,C189,C190,C730,C731,C734,C737,C738,C905,C906,C1513,C1628,C1629,C1630,C1631,C1632,C1633,C1634,C1635,C1636,C1637,C1638,C1639,C1640,C1641,C1642,C1643,C1644,C1667,C1730,C1731,C1732,C1733,C1742,C1743,C1744,C1745,C2048,C2087",
+    "source_sheet": "PWA BOM",
+    "source_row": 11
+  },
+  {
+    "description": "CAP,10nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C103KA01D",
+    "qty": "41.0",
+    "locations": "PUAC2,PSAC2,PRAC2,PQAC2,PPAC2,PIAC2,PFAC2,PEAC2,PANC7,PBNC8,PBNC15,PANC15,C33,C34,C698,C700,C701,C702,C705,C750,C1714,C1718,C1722,C1726,C2026,C2064,C2065,C2085,C2086,C2088,C2089,C2090,C2091,C2092,C2093,C2094,C2115,C2116,C2120,C2121,C2122",
+    "source_sheet": "PWA BOM",
+    "source_row": 13
+  },
+  {
+    "description": "CAP,100nF,+/-10%,X7R,10V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71A104K",
+    "qty": "174.0",
+    "locations": "PHAC5,PUAC10,PSLC10,PSIC10,PSFC10,PSEC10,PSDC10,PSAC10,PRAC10,PQAC10,PPAC10,PIAC10,PFAC10,PEEC10,PEDC10,PEAC10,C35,C84,C85,C86,C87,C88,C89,C90,C91,C92,C93,C94,C98,C99,C100,C101,C102,C103,C104,C105,C106,C107,C108,C687,C688,C691,C692,C693,C695,C696,C706,C707,C708,C709,C710,C711,C712,C713,C714,C715,C716,C717,C718,C720,C721,C722,C723,C724,C725,C751,C793,C801,C802,C803,C804,C805,C806,C807,C808,C809,C810,C815,C816,C817,C818,C819,C820,C821,C822,C823,C824,C1497,C1498,C1503,C1504,C1691,C1692,C1693,C1694,C1699,C1700,C1701,C1702,C2000,C2001,C2002,C2003,C2021,C2022,C2023,C2024,C2025,C2027,C2034,C2036,C2037,C2038,C2039,C2040,C2042,C2043,C2044,C2045,C2046,C2049,C2050,C2051,C2052,C2053,C2054,C2055,C2056,C2057,C2058,C2059,C2060,C2061,C2062,C2067,C2068,C2073,C2075,C2077,C2078,C2079,C2080,C2083,C2084,C2095,C2096,C2099,C2100,C2101,C2102,C2103,C2104,C2105,C2106,C2117,C2118,C2119,C2123,C2125,C2126,C2127,C2128,C2130,C2133,C2134,C2135,C2142,C2144,C2157,C2158,C2159,C2160,C2161,C2186",
+    "source_sheet": "PWA BOM",
+    "source_row": 16
+  },
+  {
+    "description": "CAP,1nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C102KA01D",
+    "qty": "58.0",
+    "locations": "C36,C191,C193,C195,C197,C207,C208,C217,C218,C219,C220,C221,C222,C223,C315,C317,C319,C321,C439,C441,C443,C445,C563,C565,C567,C569,C699,C703,C704,C749,C752,C907,C909,C911,C913,C1031,C1033,C1035,C1037,C1155,C1157,C1159,C1161,C1279,C1281,C1283,C1285,C1514,C1517,C1519,C1716,C1720,C1724,C1728,C1947,C1948,C2047,C2124",
+    "source_sheet": "PWA BOM",
+    "source_row": 19
+  },
+  {
+    "description": "CAP,4.7uF,+/-20%,X6S,6.3V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C80J475MEAAD",
+    "qty": "20.0",
+    "locations": "C40,C53,C56,C62,C65,C73,C74,C147,C764,C767,C775,C777,C787,C788,C790,C860,C689,C690,C694,C2166",
+    "source_sheet": "PWA BOM",
+    "source_row": 22
+  },
+  {
+    "description": "CAP,1uF,+/-10%,X7R,6.3V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R70J105KA12D",
+    "qty": "108.0",
+    "locations": "C41,C42,C43,C44,C49,C50,C51,C52,C54,C55,C57,C58,C59,C61,C64,C67,C68,C71,C72,C134,C136,C146,C149,C181,C199,C200,C201,C754,C755,C756,C758,C759,C760,C761,C763,C765,C769,C770,C771,C772,C773,C776,C778,C779,C780,C782,C783,C784,C789,C799,C848,C849,C855,C903,C916,C917,C45,C48,C159,C160,C169,C170,C697,C875,C876,C885,C886,C1475,C1482,C1483,C1500,C1501,C1505,C1506,C1507,C1508,C1509,C1510,C1512,C1572,C1573,C1574,C1575,C1578,C1579,C1580,C1581,C1582,C1583,C1586,C1587,C1588,C1589,C1590,C1591,C1593,C1594,C1595,C1599,C1602,C1605,C1650,C1748,C1833,C2072,C2074,C2076,C2143",
+    "source_sheet": "PWA BOM",
+    "source_row": 24
+  },
+  {
+    "description": "CAP,2.2uF,+/-20%,X7S,10V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C71A225M",
+    "qty": "27.0",
+    "locations": "PSTC5,PSLC5,PSFC5,PSEC5,PSDC5,PQPC5,PFRC5,PEEC5,PEDC5,C46,C63,C69,C79,C142,C144,C157,C167,C226,C234,C774,C781,C785,C813,C856,C864,C873,C883",
+    "source_sheet": "PWA BOM",
+    "source_row": 26
+  },
+  {
+    "description": "CAP,220nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C224K",
+    "qty": "283.0",
+    "locations": "C66,C70,C75,C76,C77,C81,C82,C97,C109,C110,C111,C112,C113,C114,C115,C116,C117,C118,C119,C120,C121,C122,C123,C124,C125,C126,C127,C128,C129,C130,C131,C132,C133,C135,C139,C140,C151,C152,C153,C154,C155,C156,C161,C162,C163,C164,C165,C166,C171,C172,C173,C174,C175,C176,C177,C178,C179,C180,C187,C203,C206,C224,C233,C235,C245,C762,C796,C797,C798,C800,C825,C826,C827,C828,C829,C830,C831,C832,C833,C834,C835,C836,C837,C838,C839,C840,C841,C842,C843,C844,C845,C846,C850,C859,C861,C862,C863,C865,C867,C868,C869,C870,C871,C872,C877,C878,C879,C880,C881,C882,C887,C888,C889,C890,C891,C892,C893,C894,C895,C896,C898,C901,C915,C1753,C1754,C1755,C1756,C1757,C1758,C1759,C1760,C1761,C1762,C1763,C1764,C1765,C1766,C1767,C1768,C1782,C1783,C1784,C1785,C1788,C1789,C1790,C1791,C1792,C1794,C1798,C1799,C1800,C1801,C1802,C1803,C1805,C1806,C1807,C1808,C1809,C1811,C1812,C1813,C1814,C1815,C1819,C1820,C1821,C1822,C1823,C1824,C1826,C1828,C1829,C1830,C1831,C1834,C1835,C1836,C1837,C1838,C1843,C1844,C1845,C1846,C1847,C1848,C1849,C1851,C1852,C1853,C1854,C1855,C1856,C1858,C1859,C1860,C1861,C1862,C1866,C1867,C1868,C1869,C1872,C1873,C1874,C1877,C1878,C1879,C1880,C1881,C1882,C1884,C1888,C1889,C1890,C1891,C1892,C1893,C1895,C1896,C1897,C1898,C1899,C1901,C1902,C1903,C1904,C1905,C1909,C1910,C1911,C1912,C1913,C1914,C1917,C1918,C1919,C1920,C1921,C1922,C1923,C1924,C1925,C1926,C1927,C1928,C1929,C1930,C1931,C1932,C1952,C1953,C1954,C1955,C1956,C1957,C1962,C1963,C1964,C1965,C1966,C1967,C1968,C1969,C1974,C1975,C1984,C1985,C1986,C1987,C1988,C1989,C1990,C1991,C1992,C1993,C1994,C1995,C1996,C1997,C1998,C1999",
+    "source_sheet": "PWA BOM",
+    "source_row": 27
+  },
+  {
+    "description": "CAP,22uF,+/-20%,X6S,6.3V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C80J226M",
+    "qty": "16.0",
+    "locations": "PSPC2,PIPC2,PFPC2,PEPC2,PSPC3,PIPC3,PFPC3,PEPC3,C158,C168,C874,C884,PSPC3000,PIPC3000,PFPC3000,PEPC3000",
+    "source_sheet": "PWA BOM",
+    "source_row": 30
+  },
+  {
+    "description": "CAP,100nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C104K",
+    "qty": "235.0",
+    "locations": "PSPC1,PIPC1,PFPC1,PEPC1,PSTC10,PQPC10,PFRC10,PETC10,PERC10,PBNC16,PANC16,PBNC17,PANC17,PALC36,PALC41,PALC44,PBLC57,PBLC61,PBLC64,C192,C194,C196,C198,C316,C318,C320,C322,C440,C442,C444,C446,PBFC500,PBEC500,PAFC500,PAEC500,C564,C566,C568,C570,PBMC600,PBAC600,PAMC600,PAAC600,C908,C910,C912,C914,C1032,C1034,C1036,C1038,C1156,C1158,C1160,C1162,C1280,C1282,C1284,C1286,C1403,C1404,C1405,C1406,C1407,C1408,C1409,C1410,C1411,C1412,C1413,C1414,C1415,C1416,C1417,C1418,C1419,C1422,C1423,C1425,C1426,C1428,C1429,C1430,C1431,C1432,C1433,C1434,C1435,C1436,C1437,C1438,C1441,C1442,C1443,C1444,C1445,C1446,C1449,C1450,C1452,C1453,C1454,C1457,C1460,C1461,C1462,C1465,C1467,C1469,C1471,C1472,C1480,C1481,C1484,C1487,C1488,C1490,C1491,C1493,C1494,C1496,C1515,C1516,C1518,C1520,C1521,C1522,C1524,C1526,C1527,C1528,C1529,C1530,C1531,C1534,C1535,C1536,C1537,C1538,C1539,C1540,C1543,C1544,C1545,C1568,C1569,C1570,C1571,C1576,C1597,C1600,C1603,C1606,C1608,C1609,C1610,C1611,C1612,C1613,C1616,C1617,C1618,C1619,C1620,C1621,C1622,C1624,C1625,C1626,C1627,C1645,C1646,C1647,C1648,C1649,C1651,C1652,C1677,C1678,C1713,C1715,C1719,C1723,C1727,C1738,C1740,C1749,C1750,C1787,C1796,C1797,C1841,C1842,C1876,C1886,C1887,C1940,C1941,C1943,C1946,C1949,C1951,C1959,C1960,C1961,C1977,C1978,C1979,C1980,C1981,C1982,C1983,C2004,C2005,C2006,C2007,C2011,C2012,C2029,C2070,C2107,C2108,C2109,C2112,C2131,C2132,C2152,C2155,C2156,C2163,C2164,C2165,C2167,C2181,PSRC3016",
+    "source_sheet": "PWA BOM",
+    "source_row": 32
+  },
+  {
+    "description": "CAP,100nF,+/-5%,X7R,10V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71A104JA01D",
+    "qty": "67.0",
+    "locations": "C209,C210,C211,C212,C213,C214,C215,C216,C227,C333,C334,C335,C336,C337,C338,C339,C340,C457,C458,C459,C460,C461,C462,C463,C464,C581,C582,C583,C584,C585,C586,C587,C588,C925,C926,C927,C928,C929,C930,C931,C932,C1049,C1050,C1051,C1052,C1053,C1054,C1055,C1056,C1173,C1174,C1175,C1176,C1177,C1178,C1179,C1180,C1297,C1298,C1299,C1300,C1301,C1302,C1303,C1304,C1532,C2009",
+    "source_sheet": "PWA BOM",
+    "source_row": 35
+  },
+  {
+    "description": "CAP,2.2uF,+/-20%,X6S,10V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C81A225ME15D",
+    "qty": "130.0",
+    "locations": "PBNC9,PANC9,C237,C238,C239,C240,C247,C248,C249,C250,C265,C266,C267,C268,C283,C284,C285,C286,C361,C362,C363,C364,C371,C372,C373,C374,C389,C390,C391,C392,C407,C408,C409,C410,C485,C486,C487,C488,C495,C496,C497,C498,C513,C514,C515,C516,C531,C532,C533,C534,C609,C610,C611,C612,C619,C620,C621,C622,C637,C638,C639,C640,C655,C656,C657,C658,C953,C954,C955,C956,C963,C964,C965,C966,C981,C982,C983,C984,C999,C1000,C1001,C1002,C1077,C1078,C1079,C1080,C1087,C1088,C1089,C1090,C1105,C1106,C1107,C1108,C1123,C1124,C1125,C1126,C1201,C1202,C1203,C1204,C1211,C1212,C1213,C1214,C1229,C1230,C1231,C1232,C1247,C1248,C1249,C1250,C1325,C1326,C1327,C1328,C1335,C1336,C1337,C1338,C1353,C1354,C1355,C1356,C1371,C1372,C1373,C1374",
+    "source_sheet": "PWA BOM",
+    "source_row": 37
+  },
+  {
+    "description": "CAP,470nF,+/-10%,X7R,6.3V,G,SMD0402",
+    "manufacturer": "SAMSUNG SEMICONDUCTOR",
+    "manufacturer_part": "CL05B474KQ5NNNC",
+    "qty": "160.0",
+    "locations": "C38,C39,C47,C78,C95,C96,C137,C141,C143,C145,C148,C150,C183,C185,C186,C188,C236,C766,C768,C786,C791,C792,C811,C847,C851,C852,C853,C854,C857,C858,C866,C902,C241,C242,C243,C244,C251,C252,C253,C254,C269,C270,C271,C272,C287,C288,C289,C290,C365,C366,C367,C368,C375,C376,C377,C378,C393,C394,C395,C396,C411,C412,C413,C414,C489,C490,C491,C492,C499,C500,C501,C502,C517,C518,C519,C520,C535,C536,C537,C538,C613,C614,C615,C616,C623,C624,C625,C626,C641,C642,C643,C644,C659,C660,C661,C662,C957,C958,C959,C960,C967,C968,C969,C970,C985,C986,C987,C988,C1003,C1004,C1005,C1006,C1081,C1082,C1083,C1084,C1091,C1092,C1093,C1094,C1109,C1110,C1111,C1112,C1127,C1128,C1129,C1130,C1205,C1206,C1207,C1208,C1215,C1216,C1217,C1218,C1233,C1234,C1235,C1236,C1251,C1252,C1253,C1254,C1329,C1330,C1331,C1332,C1339,C1340,C1341,C1342,C1357,C1358,C1359,C1360,C1375,C1376,C1377,C1378",
+    "source_sheet": "PWA BOM",
+    "source_row": 38
+  },
+  {
+    "description": "CAP,20pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H200J",
+    "qty": "6.0",
+    "locations": "C1420,C1421,C1476,C1477,C1653,C1654",
+    "source_sheet": "PWA BOM",
+    "source_row": 40
+  },
+  {
+    "description": "CAP,4.7uF,+/-10%,X7R,10V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BR71A475K",
+    "qty": "14.0",
+    "locations": "C1424,C1427,C1451,C1455,C1459,C1464,C1466,C1468,C1470,C1499,C1533,C1577,C1585,C1596",
+    "source_sheet": "PWA BOM",
+    "source_row": 42
+  },
+  {
+    "description": "CAP,10uF,+/-10%,X7R,6.3V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BR70J106K",
+    "qty": "7.0",
+    "locations": "C1439,C1440,C1447,C1448,C1456,C1623,C1747",
+    "source_sheet": "PWA BOM",
+    "source_row": 45
+  },
+  {
+    "description": "CAP,22uF,+/-10%,X7R,10V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CR71A226KE15L",
+    "qty": "17.0",
+    "locations": "C1458,C1463,C1486,C1489,C1492,C1774,C1775,C1793,C1795,C1839,C1840,C1883,C1885,C1938,C1939,C1950,C1976",
+    "source_sheet": "PWA BOM",
+    "source_row": 48
+  },
+  {
+    "description": "CAP,100pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H101J",
+    "qty": "23.0",
+    "locations": "PSPC4,PIPC4,PFPC4,PEPC4,PSRC9,PBNC12,PANC12,PSLC14,PSFC14,PSEC14,PSDC14,PEEC14,PEDC14,PBNC14,PANC14,PSIC20,PETC20,PERC20,C1473,C1474,C2041,C2113,C2114",
+    "source_sheet": "PWA BOM",
+    "source_row": 51
+  },
+  {
+    "description": "CAP,10uF,+/-10%,X7R,16V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CR71C106K",
+    "qty": "11.0",
+    "locations": "C1478,C1479,C1485,C1495,C1584,C1778,C1786,C1832,C1875,C1942,C2035",
+    "source_sheet": "PWA BOM",
+    "source_row": 54
+  },
+  {
+    "description": "CAP,100pF,+/-10%,X7R,16V,G,SMD0201",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM033R71C101K",
+    "qty": "6.0",
+    "locations": "C1502,C1592,C1598,C1601,C1604,C1607",
+    "source_sheet": "PWA BOM",
+    "source_row": 57
+  },
+  {
+    "description": "CAP,10nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H103K",
+    "qty": "13.0",
+    "locations": "PSIC7,C1541,C1679,C1680,C1681,C1682,C1684,C1685,C1686,C1688,C1704,C1710,C2069",
+    "source_sheet": "PWA BOM",
+    "source_row": 59
+  },
+  {
+    "description": "CAP,10pF,+/-5%,NPO,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H100J",
+    "qty": "1.0",
+    "locations": "C1542",
+    "source_sheet": "PWA BOM",
+    "source_row": 62
+  },
+  {
+    "description": "CAP,12pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H120J",
+    "qty": "4.0",
+    "locations": "C1655,C1656,C2008,C2010",
+    "source_sheet": "PWA BOM",
+    "source_row": 64
+  },
+  {
+    "description": "CAP,22uF,+/-10%,X7R,6.3V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CR70J226K",
+    "qty": "1.0",
+    "locations": "C1746",
+    "source_sheet": "PWA BOM",
+    "source_row": 67
+  },
+  {
+    "description": "CAP,22pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H220J",
+    "qty": "14.0",
+    "locations": "C1657,C1658,C1659,C1660,C1661,C1662,C1663,C1664,C1665,C1666,C2014,C2016,C2018,C2020",
+    "source_sheet": "PWA BOM",
+    "source_row": 70
+  },
+  {
+    "description": "CAP,2.2uF,+/-10%,X7R,10V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188R71A225K",
+    "qty": "8.0",
+    "locations": "C1683,C1687,C1703,C1709,C1717,C1721,C1725,C1729",
+    "source_sheet": "PWA BOM",
+    "source_row": 73
+  },
+  {
+    "description": "CAP,100nF,+/-10%,X7R,25V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71E104KE14D",
+    "qty": "88.0",
+    "locations": "PSTC1,PSLC1,PSFC1,PSEC1,PSDC1,PQPC1,PFRC1,PEEC1,PEDC1,PSUC3,PSTC6,PSLC6,PSFC6,PSEC6,PSDC6,PQPC6,PFRC6,PEEC6,PEDC6,PANC6,PBNC7,PBMC10,PBFC10,PBEC10,PBAC10,PAMC10,PAFC10,PAEC10,PAAC10,PSIC21,PETC21,PERC21,PBFC58,PBEC58,PAFC58,PAEC58,PBMC59,PAMC59,PBAC123,PAAC123,C1689,C1695,C1696,C1697,C1698,C1705,C1711,C1770,C1771,C1772,C1773,C1776,C1777,C1779,C1810,C1816,C1817,C1818,C1857,C1863,C1864,C1865,C1900,C1906,C1907,C1908,C1934,C1935,C1936,C1937,C1944,C1945,C1971,C1972,C1973,C2030,C2031,PSPC3002,PIPC3002,PFPC3002,PEPC3002,PSRC3006,PSPC3008,PIPC3008,PFPC3008,PEPC3008,PSRC3009,PSRC3011",
+    "source_sheet": "PWA BOM",
+    "source_row": 76
+  },
+  {
+    "description": "CAP,1nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H102K",
+    "qty": "12.0",
+    "locations": "PHAC2,PUAC7,PSAC7,PRAC7,PQAC7,PPAC7,PIAC7,PFAC7,PEAC7,C1690,C1706,C1712",
+    "source_sheet": "PWA BOM",
+    "source_row": 79
+  },
+  {
+    "description": "CAP,16pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H160JA01D",
+    "qty": "2.0",
+    "locations": "C1707,C1708",
+    "source_sheet": "PWA BOM",
+    "source_row": 82
+  },
+  {
+    "description": "CAP,47nF,+/-10%,X7R,25V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71E473K",
+    "qty": "4.0",
+    "locations": "C1734,C1735,C1736,C1739",
+    "source_sheet": "PWA BOM",
+    "source_row": 84
+  },
+  {
+    "description": "CAP,470pF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H471K",
+    "qty": "14.0",
+    "locations": "PBMC3,PBFC3,PBEC3,PBAC3,PAMC3,PAFC3,PAEC3,PAAC3,PALC42,PALC43,PBLC58,PBLC59,C1737,C1741",
+    "source_sheet": "PWA BOM",
+    "source_row": 87
+  },
+  {
+    "description": "CAP,10uF,+/-10%,X7R,25V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CR71E106K",
+    "qty": "8.0",
+    "locations": "C1769,C1804,C1850,C1894,C1933,C1958,C1970,C2032",
+    "source_sheet": "PWA BOM",
+    "source_row": 90
+  },
+  {
+    "description": "CAP,10uF,+/-20%,X6S,16V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C81C106MA73D",
+    "qty": "8.0",
+    "locations": "PBNC1,PANC8,PQPC16,C2013,C2015,C2017,C2019,PSRC3008",
+    "source_sheet": "PWA BOM",
+    "source_row": 93
+  },
+  {
+    "description": "CAP,22nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C223K",
+    "qty": "3.0",
+    "locations": "PHAC4,C2063,C2129",
+    "source_sheet": "PWA BOM",
+    "source_row": 96
+  },
+  {
+    "description": "CAP,1.2nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H122K",
+    "qty": "1.0",
+    "locations": "C2066",
+    "source_sheet": "PWA BOM",
+    "source_row": 99
+  },
+  {
+    "description": "CAP,470nF,+/-10%,X7R,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71C474KE01D",
+    "qty": "2.0",
+    "locations": "C2081,C2082",
+    "source_sheet": "PWA BOM",
+    "source_row": 102
+  },
+  {
+    "description": "CAP,1uF,+/-10%,X6S,16V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C81C105KE11J",
+    "qty": "7.0",
+    "locations": "PHAC1,PANC1,PBNC2,PHAC7,PALC37,PBLC62,C2111",
+    "source_sheet": "PWA BOM",
+    "source_row": 103
+  },
+  {
+    "description": "CAP,33pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H330J",
+    "qty": "9.0",
+    "locations": "PUAC3,PSAC3,PRAC3,PQAC3,PPAC3,PIAC3,PFAC3,PEAC3,C2146",
+    "source_sheet": "PWA BOM",
+    "source_row": 105
+  },
+  {
+    "description": "CAP,10uF,+/-20%,X6S,10V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C81A106M",
+    "qty": "11.0",
+    "locations": "PSTC16,PFRC16,C2147,C2148,C2149,C2150,C2151,C182,C225,C273,C812",
+    "source_sheet": "PWA BOM",
+    "source_row": 108
+  },
+  {
+    "description": "CAP,10uF,+/-20%,X6S,4V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C80G106M",
+    "qty": "495.0",
+    "locations": "PBFC28,PBEC28,PAFC28,PAEC28,PBMC29,PBFC29,PBEC29,PBAC29,PAMC29,PAFC29,PAEC29,PAAC29,PBMC30,PBFC30,PBEC30,PBAC30,PAMC30,PAFC30,PAEC30,PAAC30,PBMC31,PBFC31,PBEC31,PBAC31,PAMC31,PAFC31,PAEC31,PAAC31,PBMC32,PBFC32,PBEC32,PBAC32,PAMC32,PAFC32,PAEC32,PAAC32,PBMC33,PBFC33,PBEC33,PBAC33,PAMC33,PAFC33,PAEC33,PAAC33,PBMC34,PBFC34,PBEC34,PBAC34,PAMC34,PAFC34,PAEC34,PAAC34,PBMC35,PBFC35,PBEC35,PBAC35,PAMC35,PAFC35,PAEC35,PAAC35,PBMC36,PBFC36,PBEC36,PBAC36,PAMC36,PAFC36,PAEC36,PAAC36,PBMC37,PBFC37,PBEC37,PBAC37,PAMC37,PAFC37,PAEC37,PAAC37,PBMC38,PBFC38,PBEC38,PBAC38,PAMC38,PAFC38,PAEC38,PAAC38,PBMC39,PBFC39,PBEC39,PBAC39,PAMC39,PAFC39,PAEC39,PAAC39,PBMC40,PBFC40,PBEC40,PBAC40,PAMC40,PAFC40,PAEC40,PAAC40,PBMC41,PBFC41,PBEC41,PBAC41,PAMC41,PAFC41,PAEC41,PAAC41,PBMC42,PBFC42,PBEC42,PBAC42,PAMC42,PAFC42,PAEC42,PAAC42,PBMC43,PBFC43,PBEC43,PBAC43,PAMC43,PAFC43,PAEC43,PAAC43,PBMC44,PBFC44,PBEC44,PBAC44,PAMC44,PAFC44,PAEC44,PAAC44,PBMC45,PBFC45,PBEC45,PBAC45,PAMC45,PAFC45,PAEC45,PAAC45,PBMC46,PBFC46,PBEC46,PBAC46,PAMC46,PAFC46,PAEC46,PAAC46,PBMC47,PBFC47,PBEC47,PBAC47,PAMC47,PAFC47,PAEC47,PAAC47,PBMC48,PBFC48,PBEC48,PBAC48,PAMC48,PAFC48,PAEC48,PAAC48,PBMC49,PBFC49,PBEC49,PBAC49,PAMC49,PAFC49,PAEC49,PAAC49,PBMC50,PBFC50,PBEC50,PBAC50,PAMC50,PAFC50,PAEC50,PAAC50,PBMC51,PBFC51,PBEC51,PBAC51,PAMC51,PAFC51,PAEC51,PAAC51,PBMC52,PBFC52,PBEC52,PBAC52,PAMC52,PAFC52,PAEC52,PAAC52,PBMC53,PBFC53,PBEC53,PBAC53,PAMC53,PAFC53,PAEC53,PAAC53,PBMC54,PBFC54,PBEC54,PBAC54,PAMC54,PAFC54,PAEC54,PAAC54,PBMC55,PBFC55,PBEC55,PBAC55,PAMC55,PAFC55,PAEC55,PAAC55,PBMC56,PBFC56,PBEC56,PBAC56,PAMC56,PAFC56,PAEC56,PAAC56,PBMC57,PBFC57,PBEC57,PBAC57,PAMC57,PAFC57,PAEC57,PAAC57,PBMC58,PBAC58,PAMC58,PAAC58,PBAC59,PAAC59,PBAC60,PAAC60,PBAC61,PAAC61,PBFC62,PBEC62,PBAC62,PAFC62,PAEC62,PAAC62,PBMC63,PBFC63,PBEC63,PBAC63,PAMC63,PAFC63,PAEC63,PAAC63,PBMC64,PBFC64,PBEC64,PBAC64,PAMC64,PAFC64,PAEC64,PAAC64,PBMC65,PBFC65,PBEC65,PBAC65,PAMC65,PAFC65,PAEC65,PAAC65,PBMC66,PBFC66,PBEC66,PBAC66,PAMC66,PAFC66,PAEC66,PAAC66,PBMC67,PBFC67,PBEC67,PBAC67,PAMC67,PAFC67,PAEC67,PAAC67,PBMC68,PBFC68,PBEC68,PBAC68,PAMC68,PAFC68,PAEC68,PAAC68,PBMC69,PBFC69,PBEC69,PBAC69,PAMC69,PAFC69,PAEC69,PAAC69,PBMC70,PBFC70,PBEC70,PBAC70,PAMC70,PAFC70,PAEC70,PAAC70,PBMC71,PBFC71,PBEC71,PBAC71,PAMC71,PAFC71,PAEC71,PAAC71,PBMC72,PBAC72,PAMC72,PAAC72,PBAC73,PAAC73,PBAC74,PAAC74,PBAC75,PAAC75,PBAC76,PAAC76,PBAC77,PAAC77,PBAC78,PAAC78,PBAC81,PAAC81,PBAC82,PAAC82,PBAC83,PAAC83,PBAC84,PAAC84,PBAC85,PAAC85,PBAC86,PAAC86,PBAC87,PAAC87,PBAC88,PAAC88,PBAC89,PAAC89,PBAC90,PAAC90,PBAC91,PAAC91,PBAC92,PAAC92,PBAC93,PAAC93,PBAC94,PAAC94,PBAC95,PAAC95,PBAC96,PAAC96,PBAC97,PAAC97,PBAC98,PAAC98,PBAC99,PAAC99,PBAC100,PAAC100,PBAC101,PAAC101,PBAC102,PAAC102,PBAC103,PAAC103,PBAC104,PAAC104,PBAC105,PAAC105,PBAC106,PAAC106,PBAC107,PAAC107,PBAC108,PAAC108,PBAC109,PAAC109,PBAC110,PAAC110,PBAC113,PAAC113,PBAC114,PAAC114,PBAC115,PAAC115,PBAC116,PAAC116,PBAC117,PAAC117,PBAC118,PAAC118,PBAC119,PAAC119,PBAC120,PAAC120,PBAC121,PAAC121,PBAC122,PAAC122,PBAC127,PAAC127,PBAC128,PAAC128,PBAC129,PAAC129,PBAC130,PAAC130,PBAC131,PAAC131,PBAC132,PAAC132,PBAC133,PAAC133,PBAC134,PAAC134,PBAC135,PAAC135,PBAC136,PAAC136,PBAC137,PAAC137,PBAC138,PAAC138,PBAC139,PAAC139,PBAC140,PAAC140,PBAC141,PAAC141,PBAC142,PAAC142,PBAC143,PAAC143,PBAC144,PAAC144,PBAC145,PAAC145,PBAC146,PAAC146,PBAC147,PAAC147,PBAC148,PAAC148,PBAC149,PAAC149,PBAC150,PAAC150,PBAC151,PAAC151,PBAC152,PAAC152,PBAC153,PAAC153,PBAC154,PAAC154,PBAC155,PAAC155,PBAC156,PAAC156,PBFC501,PBEC501,PAFC501,PAEC501,C2168,C2169,C2170,C2172,C2173,C2174,C2175,C2176,C2177,C2178,C2179",
+    "source_sheet": "PWA BOM",
+    "source_row": 111
+  },
+  {
+    "description": "CAP,120pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H121J",
+    "qty": "4.0",
+    "locations": "C2182,C2183,C2184,C2185",
+    "source_sheet": "PWA BOM",
+    "source_row": 114
+  },
+  {
+    "description": "Diode,Array-TVS,UCLAMP0508T.TCT,Level 4,5V,G,SLP,SMD-9",
+    "manufacturer": "SEMTECH CORPORATION.",
+    "manufacturer_part": "UCLAMP0508T.TCT",
+    "qty": "1.0",
+    "locations": "DN1",
+    "source_sheet": "PWA BOM",
+    "source_row": 117
+  },
+  {
+    "description": "DIODE,Schottky,SD103AW-7-F,40V,0.35A,G,SOD123-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "SD103AW-7-F",
+    "qty": "1.0",
+    "locations": "D19",
+    "source_sheet": "PWA BOM",
+    "source_row": 118
+  },
+  {
+    "description": "DIODE,Switching,1N4148W-7-F,100V,0.15A,G,SOD123-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "1N4148W-7-F",
+    "qty": "7.0",
+    "locations": "PHAD6,D20,D21,D29,D30,D31,D32",
+    "source_sheet": "PWA BOM",
+    "source_row": 119
+  },
+  {
+    "description": "Diode,Schottky,B0530WS-7-F,30V,500mA,G,SOD-323-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "B0530WS-7-F",
+    "qty": "6.0",
+    "locations": "D22,D23,D24,D25,D26,D27",
+    "source_sheet": "PWA BOM",
+    "source_row": 120
+  },
+  {
+    "description": "Diode,Rectifier,ES2D-13-F,200V,2A,G,SMB-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "ES2D-13-F",
+    "qty": "3.0",
+    "locations": "D28,D35,D36",
+    "source_sheet": "PWA BOM",
+    "source_row": 121
+  },
+  {
+    "description": "DIODE,Schottky Rectifier,1N5819HW-7-F,40V,1A,G,SOD123-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "1N5819HW-7-F",
+    "qty": "1.0",
+    "locations": "D33",
+    "source_sheet": "PWA BOM",
+    "source_row": 122
+  },
+  {
+    "description": "DIODE,Zener,BZT52C3V6-7-F,3.6V,5mA,G,SOD123-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "BZT52C3V6-7-F",
+    "qty": "1.0",
+    "locations": "D34",
+    "source_sheet": "PWA BOM",
+    "source_row": 123
+  },
+  {
+    "description": "DIODE,Schottky,BAT54WS-7-F,30V,0.1A,G,SOD323-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "BAT54WS-7-F",
+    "qty": "4.0",
+    "locations": "D53,D54,D55,D56",
+    "source_sheet": "PWA BOM",
+    "source_row": 124
+  },
+  {
+    "description": "DIODE,Schottky,RB521S30,30V,200mA,G,SOD523-2,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "RB521S30",
+    "qty": "1.0",
+    "locations": "D57",
+    "source_sheet": "PWA BOM",
+    "source_row": 125
+  },
+  {
+    "description": "DIODE,Array-TVS,SRV05-4.TCT,5V,12A,G,SOT23-6,SMD",
+    "manufacturer": "SEMTECH CORPORATION.",
+    "manufacturer_part": "SRV05-4.TCT",
+    "qty": "3.0",
+    "locations": "ED1,ED2,ED3",
+    "source_sheet": "PWA BOM",
+    "source_row": 126
+  },
+  {
+    "description": "FB,60 Ohm@100MHz,+/-25%,3A,25mOhm,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM21PG600SN1D",
+    "qty": "1.0",
+    "locations": "FB1",
+    "source_sheet": "PWA BOM",
+    "source_row": 127
+  },
+  {
+    "description": "Common Choke,90Ohm@100MHz,+/-25%,220mA,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "DLW21HN900HQ2L",
+    "qty": "3.0",
+    "locations": "FL1,FL4,FL10",
+    "source_sheet": "PWA BOM",
+    "source_row": 128
+  },
+  {
+    "description": "Filter,Common Mode,90Ohm@100MHz,+/-25%,330mA,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "DLW21HN900SQ2L",
+    "qty": "7.0",
+    "locations": "FL2,FL3,FL5,FL6,FL7,FL8,FL9",
+    "source_sheet": "PWA BOM",
+    "source_row": 129
+  },
+  {
+    "description": "Fuse,Very fast acting,3A,32V,G,SMD0603",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0467003.NR",
+    "qty": "2.0",
+    "locations": "FS2,FS3",
+    "source_sheet": "PWA BOM",
+    "source_row": 130
+  },
+  {
+    "description": "Fuse,Fast acting,32V,7A,G,SMD1206",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0440007.WR",
+    "qty": "6.0",
+    "locations": "FS4,FS9,FS12,FS15,FS16,FS21",
+    "source_sheet": "PWA BOM",
+    "source_row": 131
+  },
+  {
+    "description": "Fuse,Fast acting,32V,5A,G,SMD0603",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0438005.WR",
+    "qty": "11.0",
+    "locations": "FS5,FS8,FS11,FS14,FS17,FS19,FS20,FS23,FS24,FS25,FS26",
+    "source_sheet": "PWA BOM",
+    "source_row": 132
+  },
+  {
+    "description": "Fuse,Fast acting,32V,1A,G,SMD0603",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0438001.WR",
+    "qty": "5.0",
+    "locations": "FS6,FS7,FS10,FS13,FS18",
+    "source_sheet": "PWA BOM",
+    "source_row": 133
+  },
+  {
+    "description": "Fuse,Fast acting,24V,10A,G,SMD1206",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0501010.WR",
+    "qty": "1.0",
+    "locations": "FS22",
+    "source_sheet": "PWA BOM",
+    "source_row": 134
+  },
+  {
+    "description": "Fuse,Fast acting,500V,30A,G,SMD",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0505030.MXP",
+    "qty": "3.0",
+    "locations": "FS27,FS28,FS30",
+    "source_sheet": "PWA BOM",
+    "source_row": 135
+  },
+  {
+    "description": "Fuse,Fast acting,125V,15A,G,SMD2010",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "CB61F15A-TR2",
+    "qty": "1.0",
+    "locations": "FS29",
+    "source_sheet": "PWA BOM",
+    "source_row": 136
+  },
+  {
+    "description": "CONN,SAS,V/T,0.6mm,30u,G,SMD-74",
+    "manufacturer": "AMPHENOL SHANGHAI CORP.",
+    "manufacturer_part": "U10-B074-260T",
+    "qty": "4.0",
+    "locations": "J28,J30,J31,J33",
+    "source_sheet": "PWA BOM",
+    "source_row": 137
+  },
+  {
+    "description": "RES,4.99 Ohm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD4R99F",
+    "qty": "1.0",
+    "locations": "R1756",
+    "source_sheet": "PWA BOM",
+    "source_row": 138
+  },
+  {
+    "description": "LED,Blu,LTST-C193TBKT-LO,5V,20mA,G,SMD",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTST-C193TBKT-LO",
+    "qty": "1.0",
+    "locations": "LED1",
+    "source_sheet": "PWA BOM",
+    "source_row": 139
+  },
+  {
+    "description": "LED,Ora,LTST-C281KFKT-5A,5V,30mA,G,SMD0402",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTST-C281KFKT-5A",
+    "qty": "3.0",
+    "locations": "LED2,LED4,LED6",
+    "source_sheet": "PWA BOM",
+    "source_row": 140
+  },
+  {
+    "description": "LED,Gre,LTST-C281KGKT-5A,2.3V,30mA,G,SMD0402",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTST-C281KGKT-5A",
+    "qty": "3.0",
+    "locations": "LED3,LED5,LED7",
+    "source_sheet": "PWA BOM",
+    "source_row": 141
+  },
+  {
+    "description": "LED,Red,LTL-42NEW8DH184P,5V,20mA,G,DIP-2",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTL-42NEW8DH184P",
+    "qty": "2.0",
+    "locations": "LED8,LED9",
+    "source_sheet": "PWA BOM",
+    "source_row": 142
+  },
+  {
+    "description": "LED,Yellow,LTL-42NSV8DH184P,5V,20mA,G,DIP-2",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTL-42NSV8DH184P",
+    "qty": "2.0",
+    "locations": "LED10,LED14",
+    "source_sheet": "PWA BOM",
+    "source_row": 143
+  },
+  {
+    "description": "LED,Green,LTL-42NGY8DH184P,5V,20mA,G,DIP-2",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTL-42NGY8DH184P",
+    "qty": "2.0",
+    "locations": "LED11,LED12",
+    "source_sheet": "PWA BOM",
+    "source_row": 144
+  },
+  {
+    "description": "LED,Blue,LTL42TB6NH184P,5V,30mA,G,DIP-2",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTL42TB6NH184P",
+    "qty": "1.0",
+    "locations": "LED13",
+    "source_sheet": "PWA BOM",
+    "source_row": 145
+  },
+  {
+    "description": "LED,Red,LTST-C190KRKT,2.4V,30mA,G,SMD0603",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTST-C190KRKT",
+    "qty": "3.0",
+    "locations": "LED63,LED64,LED65",
+    "source_sheet": "PWA BOM",
+    "source_row": 146
+  },
+  {
+    "description": "LED,Gre,LTST-C191KGKT,2.4V,30mA,G,SMD0603",
+    "manufacturer": "LITE-ON TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTST-C191KGKT",
+    "qty": "37.0",
+    "locations": "LED66,LED67,LED68,LED69,LED70,LED71,LED72,LED73,LED74,LED75,LED76,LED77,LED78,LED79,LED80,LED81,LED82,LED83,LED84,LED85,LED86,LED87,LED88,LED89,LED90,LED91,LED92,LED93,LED94,LED95,LED96,LED97,LED98,LED99,LED100,LED101,LED102",
+    "source_sheet": "PWA BOM",
+    "source_row": 147
+  },
+  {
+    "description": "IC,BROADCOM,BCM5719A1KFBG,A1,G,FBGA-256,SMD",
+    "manufacturer": "BROADCOM SINGAPORE PTE LTD.",
+    "manufacturer_part": "BCM5719A1KFBG",
+    "qty": "1.0",
+    "locations": "LOM1",
+    "source_sheet": "PWA BOM",
+    "source_row": 148
+  },
+  {
+    "description": "FB,600 Ohm@100MHz,+/-25%,500mA,350mOhm,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM18EG601SN1D",
+    "qty": "14.0",
+    "locations": "L2,L3,L4,L5,L6,L8,L9,L10,L11,L12,L13,L14,L15,L16",
+    "source_sheet": "PWA BOM",
+    "source_row": 149
+  },
+  {
+    "description": "IND,3.3uH@100KHz,+/-20%,2.57A,26mOhm,SHLD,G,SMD",
+    "manufacturer": "TOKO INC.",
+    "manufacturer_part": "#A916CY-3R3M=P3",
+    "qty": "1.0",
+    "locations": "L7",
+    "source_sheet": "PWA BOM",
+    "source_row": 150
+  },
+  {
+    "description": "FB,330 Ohm@100MHz,+/-25%,500mA,300mOhm,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM18EG331TN1D",
+    "qty": "1.0",
+    "locations": "L17",
+    "source_sheet": "PWA BOM",
+    "source_row": 151
+  },
+  {
+    "description": "FB,80 Ohm@100MHz,+/-25%,500mA,150mOhm,G,SMD0603",
+    "manufacturer": "TDK ELECTRONICS EUROPE GMBH",
+    "manufacturer_part": "MMZ1608S800AT",
+    "qty": "4.0",
+    "locations": "L22,L23,L24,L25",
+    "source_sheet": "PWA BOM",
+    "source_row": 152
+  },
+  {
+    "description": "FB,22 Ohm@100MHz,+/-25%,6A,10mOhm,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM21PG220SN1D",
+    "qty": "3.0",
+    "locations": "L26,L28,L47",
+    "source_sheet": "PWA BOM",
+    "source_row": 153
+  },
+  {
+    "description": "FB,80Ohm@100MHz,+/-25%,4A,10mOhm,G,SMD1206",
+    "manufacturer": "TAIYO ELECTRIC IND.CO.LTD",
+    "manufacturer_part": "FBMJ3216HS800-T",
+    "qty": "2.0",
+    "locations": "L34,L36",
+    "source_sheet": "PWA BOM",
+    "source_row": 154
+  },
+  {
+    "description": "FB,80 Ohm@100MHz,+/-25%,1.5A,70mOhm,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM15PD800SN1D",
+    "qty": "7.0",
+    "locations": "L35,L37,L38,L39,L40,L41,L42",
+    "source_sheet": "PWA BOM",
+    "source_row": 155
+  },
+  {
+    "description": "FB,600 Ohm@100MHz,+/-25%,200mA,650mOhm,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM18BD601SN1D",
+    "qty": "1.0",
+    "locations": "L45",
+    "source_sheet": "PWA BOM",
+    "source_row": 156
+  },
+  {
+    "description": "ECAP,68uF,+/-20%,100V,105C,G,SMD12.5*13.5,ESR<=320mOhm",
+    "manufacturer": "PANASONIC INDUSTRIAL CO.,LTD.",
+    "manufacturer_part": "EEVFK2A680Q",
+    "qty": "6.0",
+    "locations": "PSUCE1,PBACE1,PAACE1,PSUCE2,PBACE2,PAACE2",
+    "source_sheet": "PWA BOM",
+    "source_row": 157
+  },
+  {
+    "description": "ECAP,82uF,+/-20%,100V,105C,G,SMD12.5*13.5,ESR<=280mOhm",
+    "manufacturer": "NICHICON CORPORATION",
+    "manufacturer_part": "UCZ2A820MNQ1MS",
+    "qty": "8.0",
+    "locations": "PBMCE1,PAMCE1,PBFCE2,PBECE2,PAFCE2,PAECE2,PBACE3,PAACE3",
+    "source_sheet": "PWA BOM",
+    "source_row": 158
+  },
+  {
+    "description": "ECAP,SPEA,470uF,+/-20%,2.5V,105C,G,SMD2816,ESR<=3mOhm",
+    "manufacturer": "PANASONIC INDUSTRIAL CO.,LTD.",
+    "manufacturer_part": "EEFGX0E471R",
+    "qty": "50.0",
+    "locations": "PBNCE1,PANCE1,PBNCE2,PANCE2,PBECE3,PALCE3,PAFCE3,PAECE3,PBMCE4,PBFCE4,PBECE4,PBACE4,PAMCE4,PALCE4,PAFCE4,PAECE4,PAACE4,PBMCE5,PBFCE5,PBECE5,PBACE5,PAMCE5,PAFCE5,PAECE5,PAACE5,PBMCE6,PBFCE6,PBECE6,PBACE6,PAMCE6,PAFCE6,PAECE6,PAACE6,PBMCE7,PBLCE7,PBFCE7,PBACE7,PAMCE7,PAACE7,PBLCE8,PBACE8,PAACE8,PBACE9,PAACE9,PBACE10,PAACE10,PBACE11,PAACE11,PBACE12,PAACE12",
+    "source_sheet": "PWA BOM",
+    "source_row": 159
+  },
+  {
+    "description": "CAP,4.7uF,+/-10%,X6S,16V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C81C475K",
+    "qty": "34.0",
+    "locations": "PBMC1,PBFC1,PBEC1,PBAC1,PAMC1,PAFC1,PAEC1,PAAC1,PBMC2,PBFC2,PBEC2,PBAC2,PAMC2,PAFC2,PAEC2,PAAC2,PBMC22,PBFC22,PBEC22,PBAC22,PAMC22,PAFC22,PAEC22,PAAC22,PBMC450,PBFC450,PBEC450,PBAC450,PAMC450,PAFC450,PAEC450,PAAC450,PBAC452,PAAC452",
+    "source_sheet": "PWA BOM",
+    "source_row": 160
+  },
+  {
+    "description": "CAP,47pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H470J",
+    "qty": "12.0",
+    "locations": "PBMC4,PBFC4,PBEC4,PBAC4,PAMC4,PAFC4,PAEC4,PAAC4,PSPC11,PIPC11,PFPC11,PEPC11",
+    "source_sheet": "PWA BOM",
+    "source_row": 163
+  },
+  {
+    "description": "CAP,1nF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H102J",
+    "qty": "18.0",
+    "locations": "PSPC5,PIPC5,PFPC5,PEPC5,PBMC5,PBAC5,PAMC5,PAAC5,PBAC23,PAAC23,PBMC95,PAMC95,PBAC125,PAAC125,PBFC451,PBEC451,PAFC451,PAEC451",
+    "source_sheet": "PWA BOM",
+    "source_row": 166
+  },
+  {
+    "description": "CAP,27nF,+/-10%,X7R,25V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71E273KA88D",
+    "qty": "8.0",
+    "locations": "PBMC6,PBFC6,PBEC6,PBAC6,PAMC6,PAFC6,PAEC6,PAAC6",
+    "source_sheet": "PWA BOM",
+    "source_row": 168
+  },
+  {
+    "description": "CAP,100nF,+/-10%,X7R,100V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188R72A104K",
+    "qty": "9.0",
+    "locations": "PBEC11,PAFC11,PAEC11,PBMC12,PBFC12,PBAC12,PAMC12,PAAC12,PHAC14",
+    "source_sheet": "PWA BOM",
+    "source_row": 169
+  },
+  {
+    "description": "CAP,2.2uF,+/-10%,X7R,100V,G,SMD1210",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM32ER72A225K",
+    "qty": "42.0",
+    "locations": "PSUC1,PSUC2,PBMC13,PBFC13,PBEC13,PBAC13,PAMC13,PAFC13,PAEC13,PAAC13,PBMC14,PBFC14,PBEC14,PBAC14,PAMC14,PAFC14,PAEC14,PAAC14,PBMC15,PBFC15,PBEC15,PBAC15,PAMC15,PAFC15,PAEC15,PAAC15,PBAC16,PAAC16,PBEC17,PBAC17,PAAC17,PBAC18,PAAC18,PBAC19,PAAC19,PAFC20,PAAC20,PBMC21,PBFC21,PBAC21,PAMC21,PAEC21",
+    "source_sheet": "PWA BOM",
+    "source_row": 171
+  },
+  {
+    "description": "CAP,2.2nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H222K",
+    "qty": "16.0",
+    "locations": "PSRC2,PSPC12,PIPC12,PFPC12,PEPC12,PSIC18,PETC18,PERC18,PBFC25,PBEC25,PAFC25,PBMC26,PBAC26,PAMC26,PAAC26,PAEC516",
+    "source_sheet": "PWA BOM",
+    "source_row": 173
+  },
+  {
+    "description": "CAP,1uF,+/-10%,X7R,100V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CR72A105KA01K",
+    "qty": "6.0",
+    "locations": "PBMC27,PBAC27,PAMC27,PAAC27,PBAC111,PAAC111",
+    "source_sheet": "PWA BOM",
+    "source_row": 176
+  },
+  {
+    "description": "CAP,1.8nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H182KA01D",
+    "qty": "8.0",
+    "locations": "PBFC59,PBEC59,PAFC59,PAEC59,PBMC60,PAMC60,PBAC124,PAAC124",
+    "source_sheet": "PWA BOM",
+    "source_row": 180
+  },
+  {
+    "description": "CAP,47uF,+/-20%,X6S,4V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BC80G476M",
+    "qty": "636.0",
+    "locations": "PBNC18,PANC18,PBNC19,PANC19,PBNC20,PANC20,PBNC21,PANC21,PBNC22,PANC22,PBNC23,PANC23,PALC25,PALC26,PALC27,PALC28,PALC29,PALC30,PALC31,PALC32,PALC33,PALC34,PBLC45,PBLC46,PBLC47,PBLC48,PBLC49,PBLC50,PBLC51,PBLC52,PBLC53,PBLC63,PBMC73,PAMC73,PBMC74,PAMC74,PBMC75,PAMC75,PBMC76,PAMC76,PBMC77,PAMC77,PBMC78,PAMC78,PBMC79,PAMC79,PBMC80,PAMC80,PBMC81,PAMC81,PBMC82,PAMC82,PBMC83,PAMC83,PBMC84,PAMC84,PBMC85,PAMC85,PBMC86,PAMC86,PBMC87,PAMC87,PBMC88,PAMC88,PBMC89,PAMC89,PBMC90,PAMC90,PBMC91,PAMC91,PBMC92,PAMC92,PBMC93,PAMC93,PBMC94,PAMC94,PBMC96,PAMC96,PBMC97,PAMC97,PBMC98,PAMC98,PBMC99,PAMC99,PBMC100,PAMC100,PBMC101,PAMC101,PBMC102,PAMC102,PBMC103,PAMC103,PBAC167,PAAC167,PBAC168,PAAC168,PBAC169,PAAC169,PBAC170,PAAC170,PBAC171,PAAC171,PBAC172,PAAC172,PBAC173,PAAC173,PBAC174,PAAC174,PBAC175,PAAC175,PBAC176,PAAC176,PBAC177,PAAC177,PBAC178,PAAC178,PBAC179,PAAC179,PBAC180,PAAC180,PBAC181,PAAC181,PBAC182,PAAC182,PBAC183,PAAC183,PBAC184,PAAC184,PBAC185,PAAC185,PBAC186,PAAC186,PBAC187,PAAC187,PBAC188,PAAC188,PBAC189,PAAC189,PBAC190,PAAC190,PBAC191,PAAC191,PBAC192,PAAC192,PBAC193,PAAC193,PBAC194,PAAC194,PBAC195,PAAC195,PBAC196,PAAC196,PBAC197,PAAC197,PBAC198,PAAC198,PBAC199,PAAC199,PBAC200,PAAC200,PBAC201,PAAC201,PBAC202,PAAC202,PBAC203,PAAC203,PBAC204,PAAC204,PBAC205,PAAC205,PBAC206,PAAC206,PBAC207,PAAC207,PBAC208,PAAC208,PBAC209,PAAC209,PBAC210,PAAC210,PBAC211,PAAC211,PBAC212,PAAC212,PBAC213,PAAC213,PBAC214,PAAC214,PBAC215,PAAC215,PBAC216,PAAC216,PBAC217,PAAC217,PBAC218,PAAC218,PBAC219,PAAC219,PBAC220,PAAC220,PBAC221,PAAC221,PBAC222,PAAC222,PBAC223,PAAC223,PBAC224,PAAC224,PBAC225,PAAC225,PBAC226,PAAC226,PBAC227,PAAC227,PBAC228,PAAC228,PBAC229,PAAC229,PBAC230,PAAC230,PBAC231,PAAC231,PBAC232,PAAC232,PBAC233,PAAC233,PBAC234,PAAC234,PBAC235,PAAC235,PBAC236,PAAC236,PBAC237,PAAC237,PBAC238,PAAC238,PBAC239,PAAC239,PBAC240,PAAC240,PBAC241,PAAC241,PBAC242,PAAC242,PBAC243,PAAC243,PBAC244,PAAC244,PBAC245,PAAC245,PBAC246,PAAC246,PBFC300,PBEC300,PAFC300,PAEC300,PBFC301,PBEC301,PAFC301,PAEC301,PBFC302,PBEC302,PAFC302,PAEC302,PBFC303,PBEC303,PAFC303,PAEC303,PBFC304,PBEC304,PAFC304,PAEC304,PBFC305,PBEC305,PAFC305,PAEC305,PBFC306,PBEC306,PAFC306,PAEC306,PBFC307,PBEC307,PAFC307,PAEC307,PBFC308,PBEC308,PAFC308,PAEC308,PBFC309,PBEC309,PAFC309,PAEC309,PBFC310,PBEC310,PAFC310,PAEC310,PBFC311,PBEC311,PAFC311,PAEC311,PBFC312,PBEC312,PAFC312,PAEC312,PBFC313,PBEC313,PAFC313,PAEC313,PBFC314,PBEC314,PAFC314,PAEC314,PBFC315,PBEC315,PAFC315,PAEC315,PBFC316,PBEC316,PAFC316,PAEC316,PBFC317,PBEC317,PAFC317,PAEC317,PBFC318,PBEC318,PAFC318,PAEC318,PBFC319,PBEC319,PAFC319,PAEC319,PBFC320,PBEC320,PAFC320,PAEC320,PBFC321,PBEC321,PAFC321,PAEC321,PBFC322,PBEC322,PAFC322,PAEC322,PBFC323,PBEC323,PAFC323,PAEC323,PBFC324,PBEC324,PAFC324,PAEC324,PBFC325,PBEC325,PAFC325,PAEC325,PBFC326,PBEC326,PAFC326,PAEC326,PBFC327,PBEC327,PAFC327,PAEC327,PBFC328,PBEC328,PAFC328,PAEC328,PBFC329,PBEC329,PAFC329,PAEC329,PBFC330,PBEC330,PAFC330,PAEC330,PBFC331,PBEC331,PAFC331,PAEC331,PBFC332,PBEC332,PAFC332,PAEC332,PBFC333,PBEC333,PAFC333,PAEC333,PBFC334,PBEC334,PAFC334,PAEC334,PBFC335,PBEC335,PAFC335,PAEC335,PBFC336,PBEC336,PAFC336,PAEC336,PBFC337,PBEC337,PAFC337,PAEC337,PBFC338,PBEC338,PAFC338,PAEC338,PBFC339,PBEC339,PAFC339,PAEC339,PBFC340,PBEC340,PAFC340,PAEC340,PBFC341,PBEC341,PAFC341,PAEC341,PBFC342,PBEC342,PAFC342,PAEC342,PBFC343,PBEC343,PAFC343,PAEC343,PBFC344,PBEC344,PAFC344,PAEC344,PBFC345,PBEC345,PAFC345,PAEC345,PBFC346,PBEC346,PAFC346,PAEC346,PBFC347,PBEC347,PAFC347,PAEC347,PBFC348,PBEC348,PAFC348,PAEC348,PBFC349,PBEC349,PAFC349,PAEC349,PBFC350,PBEC350,PAFC350,PAEC350,PBFC351,PBEC351,PAFC351,PAEC351,PBFC352,PBEC352,PAFC352,PAEC352,PBFC353,PBEC353,PAFC353,PAEC353,PBFC354,PBEC354,PAFC354,PAEC354,PBFC355,PBEC355,PAFC355,PAEC355,PBFC356,PBEC356,PAFC356,PAEC356,PBFC357,PBEC357,PAFC357,PAEC357,PBFC358,PBEC358,PAFC358,PAEC358,PBFC359,PBEC359,PAFC359,PAEC359,PBFC360,PBEC360,PAFC360,PAEC360,PBFC361,PBEC361,PAFC361,PAEC361,PBFC362,PBEC362,PAFC362,PAEC362,PBFC363,PBEC363,PAFC363,PAEC363,PBFC364,PBEC364,PAFC364,PAEC364,PBFC365,PBEC365,PAFC365,PAEC365,PBFC366,PBEC366,PAFC366,PAEC366,PBFC367,PBEC367,PAFC367,PAEC367,PBFC368,PBEC368,PAFC368,PAEC368,PBFC369,PBEC369,PAFC369,PAEC369,PBFC370,PBEC370,PAFC370,PAEC370,PBFC371,PBEC371,PAFC371,PAEC371,PBFC372,PBEC372,PAFC372,PAEC372,PBFC373,PBEC373,PAFC373,PAEC373,PBFC374,PBEC374,PAFC374,PAEC374,PBFC375,PBEC375,PAFC375,PAEC375,PBFC376,PBEC376,PAFC376,PAEC376,PBFC377,PBEC377,PAFC377,PAEC377,PBFC378,PBEC378,PAFC378,PAEC378,PBFC379,PBEC379,PAFC379,PAEC379,PBFC380,PBEC380,PAFC380,PAEC380,PBFC381,PBEC381,PAFC381,PAEC381,PBFC382,PBEC382,PAFC382,PAEC382,PBFC383,PBEC383,PAFC383,PAEC383,PBFC384,PBEC384,PAFC384,PAEC384,PBFC385,PBEC385,PAFC385,PAEC385,PBFC386,PBEC386,PAFC386,PAEC386,PBFC387,PBEC387,PAFC387,PAEC387,PBFC388,PBEC388,PAFC388,PAEC388,PBFC389,PBEC389,PAFC389,PAEC389,PBFC390,PBEC390,PAFC390,PAEC390,PBFC391,PBEC391,PAFC391,PAEC391,PBFC392,PBEC392,PAFC392,PAEC392,PBFC393,PBEC393,PAFC393,PAEC393,PBFC394,PBEC394,PAFC394,PAEC394,PBFC395,PBEC395,PAFC395,PAEC395",
+    "source_sheet": "PWA BOM",
+    "source_row": 182
+  },
+  {
+    "description": "CAP,15nF,+/-10%,X7R,25V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188R71E153K",
+    "qty": "8.0",
+    "locations": "PBMC400,PBFC400,PBEC400,PBAC400,PAMC400,PAFC400,PAEC400,PAAC400",
+    "source_sheet": "PWA BOM",
+    "source_row": 185
+  },
+  {
+    "description": "Diode,Rectifier&Switching,MMBD1205,100V,200mA,G,SOT-23-3,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "MMBD1205",
+    "qty": "8.0",
+    "locations": "PBMD1,PBFD1,PBED1,PBAD1,PAMD1,PAFD1,PAED1,PAAD1",
+    "source_sheet": "PWA BOM",
+    "source_row": 186
+  },
+  {
+    "description": "DIODE,Schottky,BAT54A-7-F,30V,0.2A,G,SOT23-3,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "BAT54A-7-F",
+    "qty": "8.0",
+    "locations": "PBMD3,PBFD3,PBED3,PBAD3,PAMD3,PAFD3,PAED3,PAAD3",
+    "source_sheet": "PWA BOM",
+    "source_row": 187
+  },
+  {
+    "description": "Fuse,Very fast acting,125V,10A,G,SMD",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0451010.MRL",
+    "qty": "2.0",
+    "locations": "PBAFS1,PAAFS1",
+    "source_sheet": "PWA BOM",
+    "source_row": 188
+  },
+  {
+    "description": "IND,0.1uH@100KHz,+/-20%,11.5A,6mOhm,SHLD,G,SMD",
+    "manufacturer": "VISHAY ENTER TECHNO LOGY.INC",
+    "manufacturer_part": "IHLP1616ABERR10M01",
+    "qty": "18.0",
+    "locations": "PBML1,PBAL1,PAML1,PAAL1,PBFL2,PBEL2,PAFL2,PAEL2,PBML3,PBFL3,PBEL3,PBAL3,PAML3,PAFL3,PAEL3,PAAL3,PBAL5,PAAL5",
+    "source_sheet": "PWA BOM",
+    "source_row": 189
+  },
+  {
+    "description": "IND,375nH@1MHz,+/-5%,16A,1.15mOhm,SHLD,G,SMD",
+    "manufacturer": "Eaton Corporation",
+    "manufacturer_part": "CTX01-19603-R",
+    "qty": "2.0",
+    "locations": "PBAL2,PAAL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 190
+  },
+  {
+    "description": "TRANS P,MMBT3906,40V,0.2A,G,SOT23-3,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "MMBT3906",
+    "qty": "16.0",
+    "locations": "PBMQ1,PBFQ1,PBEQ1,PBAQ1,PAMQ1,PAFQ1,PAEQ1,PAAQ1,PBMQ2,PBFQ2,PBEQ2,PBAQ2,PAMQ2,PAFQ2,PAEQ2,PAAQ2",
+    "source_sheet": "PWA BOM",
+    "source_row": 191
+  },
+  {
+    "description": "MOS N,DMT10H014LSS-13,100V,8.9A,15m@10V,G,SO-8,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "DMT10H014LSS-13",
+    "qty": "8.0",
+    "locations": "PBMQ10,PBAQ10,PAMQ10,PAAQ10,PBFQ11,PBEQ11,PAFQ11,PAEQ11",
+    "source_sheet": "PWA BOM",
+    "source_row": 192
+  },
+  {
+    "description": "TRANS N,MMBT3904-7-F,40V,0.2A,G,SOT23-3,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "MMBT3904-7-F",
+    "qty": "18.0",
+    "locations": "PBMQ11,PBAQ11,PAMQ11,PAAQ11,PBFQ12,PBEQ12,PAFQ12,PAEQ12,Q8,PHAQ8,Q85,Q86,Q87,Q88,Q89,Q90,Q91,Q92",
+    "source_sheet": "PWA BOM",
+    "source_row": 193
+  },
+  {
+    "description": "MOS N,BSS138,50V,0.22A,6ohm@4.5V,G,SOT23-3,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "BSS138",
+    "qty": "8.0",
+    "locations": "PBFQ10,PBEQ10,PAFQ10,PAEQ10,PBMQ12,PBAQ12,PAMQ12,PAAQ12",
+    "source_sheet": "PWA BOM",
+    "source_row": 195
+  },
+  {
+    "description": "RES,0 Ohm,+/-5%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73Z1JTTD",
+    "qty": "108.0",
+    "locations": "PUAR1,PSIR1,PSAR1,PRAR1,PQAR1,PPAR1,PIAR1,PFAR1,PETR1,PERR1,PEAR1,PBMR1,PBFR1,PBER1,PBAR1,PAMR1,PAFR1,PAER1,PAAR1,PUAR3,PSIR3,PSAR3,PRAR3,PQAR3,PPAR3,PIAR3,PFAR3,PETR3,PERR3,PEAR3,PUAR9,PSIR9,PSAR9,PRAR9,PQAR9,PPAR9,PIAR9,PFAR9,PETR9,PERR9,PEAR9,PBNR10,PANR10,PBNR13,PANR13,PBAR66,PBMR68,PAMR70,PBER71,PAFR71,PAER71,PAAR71,PBFR72,PBMR78,PAMR78,R133,R142,R153,R163,R174,R184,R196,R205,R217,R226,R238,R247,R258,R268,R280,R289,PBER308,PBFR400,PBAR400,PAFR400,PAER400,PAAR400,R488,R497,R508,R518,R529,R539,R551,R560,R572,R581,R593,R602,R614,R623,R635,R644,R1028,R1742,R1743,R1744,R1747,R1748,R1749,R1755,R1761,R1762,R1763,R1764,R1765,R1766,R1767",
+    "source_sheet": "PWA BOM",
+    "source_row": 196
+  },
+  {
+    "description": "RES,0 Ohm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73Z1ETTP",
+    "qty": "712.0",
+    "locations": "R1,R2,PSTR2,PSPR2,PSLR2,PSFR2,PSER2,PSDR2,PQPR2,PIPR2,PFPR2,PEPR2,PEER2,PEDR2,PBFR2,PBER2,PBAR2,PAFR2,PAER2,PAAR2,PBNR3,PBER3,PBAR3,PANR3,PAER3,PAAR3,PBNR4,PBFR4,PBAR4,PANR4,PAFR4,PAAR4,R6,PBAR6,PAMR6,R7,PSPR7,PIPR7,PFPR7,PEPR7,PBFR7,PAER7,PAAR7,PSRR8,PSPR8,PSLR8,PSFR8,PSDR8,PQPR8,PIPR8,PFRR8,PFPR8,PEPR8,PEER8,PEDR8,PAFR8,PAER8,PSTR9,PSLR9,PSFR9,PSER9,PSDR9,PQPR9,PFRR9,PEER9,PEDR9,PBER9,PBAR9,PAMR9,PBFR10,PAAR10,PHAR11,PBMR11,PBER11,PAFR11,PUAR12,PSIR12,PSAR12,PRAR12,PQAR12,PPAR12,PIAR12,PHAR12,PFAR12,PETR12,PERR12,PEAR12,PBNR12,PANR12,PBER13,PAAR13,PUAR14,PSRR14,PSPR14,PSAR14,PRAR14,PQAR14,PPAR14,PIPR14,PIAR14,PFPR14,PFAR14,PEPR14,PEAR14,PBMR14,PBFR14,PAFR14,PUAR15,PSTR15,PSRR15,PSLR15,PSFR15,PSER15,PSDR15,PSAR15,PRAR15,PQPR15,PQAR15,PPAR15,PIAR15,PFRR15,PFAR15,PEER15,PEDR15,PEAR15,PBFR15,PBER15,PBAR15,PAFR15,PAER15,PAAR15,PSIR16,PETR16,PERR16,PBMR16,PBAR16,PAMR16,PAER16,PALR17,PSTR18,PSLR18,PSFR18,PSER18,PSDR18,PQPR18,PFRR18,PEER18,PEDR18,PBMR18,PBFR18,PBER18,PBAR18,PAMR18,PAFR18,PAER18,PAAR18,PBLR19,PBNR20,PANR20,PSRR22,PSPR22,PIPR22,PFPR22,PEPR22,PBMR22,PBFR22,PBER22,PBAR22,PAMR22,PAFR22,PAER22,PAAR22,PHAR24,PHAR25,PBMR25,PBFR25,PBER25,PBAR25,PAMR25,PAFR25,PAER25,PAAR25,PBMR28,PBFR28,PBER28,PBAR28,PAMR28,PAFR28,PAER28,PAAR28,R29,R30,PBMR30,PBFR30,PBER30,PBAR30,PAMR30,PAFR30,PAER30,PAAR30,PHAR31,PHAR32,PBMR32,PBFR32,PBER32,PBAR32,PAMR32,PAFR32,PAER32,PAAR32,PHAR33,PBMR33,PBFR33,PBER33,PBAR33,PAMR33,PAFR33,PAER33,PAAR33,PHAR34,PBMR35,PBFR35,PBER35,PBAR35,PAMR35,PAFR35,PAER35,PAAR35,PHAR36,PBMR36,PBFR36,PBER36,PBAR36,PAMR36,PAFR36,PAER36,PAAR36,PBMR38,PBFR38,PBER38,PBAR38,PAMR38,PAFR38,PAER38,PAAR38,PBMR39,PBAR39,PAMR39,PAAR39,PBMR42,PBFR42,PBER42,PBAR42,PAMR42,PAFR42,PAER42,PAAR42,PBMR46,PAMR46,PAER46,PBMR56,PBFR56,PBER56,PBAR56,PAMR56,PAFR56,PAER56,PAAR56,PBMR66,PAMR67,PAAR67,PBAR68,PAMR68,PAAR68,PBAR69,PAAR69,R70,PBMR70,PBAR70,R71,R72,PBAR72,PAAR72,R73,R74,R75,PAFR77,PAER77,PBFR78,PBER78,PAFR78,PAER78,PBMR79,PBFR79,PBER79,PAMR79,PAFR79,PAER79,PBFR80,PBER81,PBAR81,PAFR81,PAER81,PAAR81,PBFR82,PBER82,PAER82,R84,R85,R86,R87,PBMR87,PBER87,PAMR87,PBER89,PBAR89,PAFR89,PAER89,PAAR89,PBFR90,PBAR101,PAAR101,PBMR103,PAMR103,PBMR104,PAMR104,PBER105,PAFR105,PAER105,PBFR106,PBER106,PAFR106,PAER106,PBFR107,PBAR109,PAAR109,PBMR110,PBAR110,PAMR110,PAAR110,PBMR111,PAMR111,PBER112,PAFR112,PAER112,PBFR113,PBER113,PAFR113,PAER113,PBFR114,PBMR115,PAMR115,PBMR116,PBAR116,PAMR116,PAAR116,PBER117,PBAR117,PAFR117,PAER117,PAAR117,PBFR118,PBER118,PAFR118,PAER118,PBFR119,PBAR121,PAAR121,PBAR122,PAAR122,PBFR302,PBER302,PBAR302,PAFR302,PAER302,PAAR302,R303,R306,R308,PBMR308,PBAR308,PAMR308,PAAR308,R309,PBMR309,PBAR309,PAMR309,PAAR309,PBFR310,PAFR310,PAER310,R311,PBER311,R312,PBFR312,PAFR312,PAER312,R313,PBER313,PBAR313,PAAR313,R314,R315,R316,R317,R320,R321,R322,R323,R324,R325,R326,R331,R363,R364,R368,R369,R414,R415,R428,R429,R430,R431,R433,R434,R437,R438,R439,R440,R467,R473,R474,R477,R478,R479,PSUR500,PBNR500,PBMR500,PBFR500,PBER500,PANR500,PAMR500,PAFR500,PAER500,PAAR500,PSUR501,PBNR501,PBMR501,PBFR501,PBER501,PANR501,PAMR501,PAFR501,PAER501,PAAR501,PBAR502,PBAR503,PBFR514,PBER514,PAFR514,PBFR515,PBER515,PAFR515,PAER515,PBFR516,PBER516,PAFR516,PAER516,PAER517,PBFR518,PBER518,PAFR518,PBFR519,PBER519,PAFR519,PAER519,PAER520,PBMR607,PBAR607,PAMR607,PAAR607,PBMR608,PBAR608,PAMR608,PAAR608,R670,R671,R674,R677,R717,R722,R723,R724,R726,R728,R744,R745,R747,R750,R754,R757,R760,R761,R768,R785,R798,R802,R810,R812,R813,R824,R826,R895,R896,R898,R899,R900,R911,R918,R919,R923,R924,R926,R928,R930,R931,R941,R946,R947,R951,R952,R973,R974,R979,R987,R1004,R1005,R1073,R1082,R1086,R1091,R1099,R1100,R1102,R1116,R1117,R1130,R1131,R1132,R1133,R1134,R1143,R1145,R1146,R1158,R1160,R1166,R1167,R1168,R1170,R1177,R1178,R1179,R1180,R1182,R1187,R1188,R1191,R1192,R1194,R1200,R1201,R1203,R1204,R1207,R1208,R1214,R1215,R1216,R1226,R1228,R1233,R1235,R1236,R1238,R1241,R1242,R1243,R1244,R1245,R1246,R1247,R1248,R1249,R1250,R1259,R1260,R1264,R1268,R1272,R1276,R1281,R1282,R1283,R1284,R1285,R1286,R1289,R1290,R1291,R1292,R1293,R1297,R1307,R1314,R1315,R1316,R1317,R1318,R1319,R1320,R1321,R1322,R1330,R1339,R1344,R1360,R1362,R1369,R1370,R1372,R1373,R1375,R1376,R1406,R1407,R1432,R1433,R1434,R1435,R1436,R1437,R1438,R1439,R1442,R1443,R1472,R1473,R1478,R1491,R1496,R1497,R1501,R1502,R1503,R1510,R1514,R1522,R1527,R1528,R1531,R1532,R1599,R1600,R1720,R1721,R1722,R1724,R1725,R1752,R1753,R1776,R1787,R1788,R1803,R1804,R1805,R1807,R1808,R1809,R1810,R1812,R1813,R1814,R1815,R1816,R1817,R1818,R1819,R1825,R1826,R1832,R1833,R1835,R1840,R1841,R1842,PSPR3001,PIPR3001,PFPR3001,PEPR3001,PSPR3002,PIPR3002,PFPR3002,PEPR3002,PSRR3003,PSPR3003,PIPR3003,PFPR3003,PEPR3003,PSRR3005,PSRR3008",
+    "source_sheet": "PWA BOM",
+    "source_row": 198
+  },
+  {
+    "description": "RES,200KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2003F",
+    "qty": "48.0",
+    "locations": "PBER7,PAMR7,PAMR8,PAFR9,PAFR10,PAER10,PBAR11,PAER11,PBFR12,PBAR12,PAAR12,PBMR13,PBFR13,PBER14,PAAR14,PBMR15,PBMR17,PBFR17,PBER17,PBAR17,PAMR17,PAFR17,PAER17,PAAR17,PBMR21,PBFR21,PBER21,PBAR21,PAMR21,PAFR21,PAER21,PAAR21,PBMR24,PBFR24,PBER24,PBAR24,PAMR24,PAFR24,PAER24,PAAR24,PBMR27,PBFR27,PBER27,PBAR27,PAMR27,PAFR27,PAER27,PAAR27",
+    "source_sheet": "PWA BOM",
+    "source_row": 201
+  },
+  {
+    "description": "RES,9.53KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP9531B25",
+    "qty": "2.0",
+    "locations": "PBAR26,PAAR26",
+    "source_sheet": "PWA BOM",
+    "source_row": 203
+  },
+  {
+    "description": "RES,1KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1001B25",
+    "qty": "16.0",
+    "locations": "PBMR34,PBFR34,PBER34,PBAR34,PAMR34,PAFR34,PAER34,PAAR34,PBMR55,PBFR55,PBER55,PBAR55,PAMR55,PAFR55,PAER55,PAAR55",
+    "source_sheet": "PWA BOM",
+    "source_row": 205
+  },
+  {
+    "description": "RES,1KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1001F",
+    "qty": "44.0",
+    "locations": "PHAR9,PALR16,PBLR18,PBNR21,PANR21,PHAR38,PBMR40,PBFR40,PBER40,PBAR40,PAMR40,PAFR40,PAER40,PAAR40,PBMR303,PBFR303,PBER303,PBAR303,PAMR303,PAFR303,PAER303,PAAR303,R678,R679,R865,R866,R1155,R1169,R1181,R1193,R1205,R1217,R1258,R1329,R1333,R1334,R1335,R1498,R1500,R1729,R1733,R1737,R1741,R1824",
+    "source_sheet": "PWA BOM",
+    "source_row": 206
+  },
+  {
+    "description": "RES,73.2KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP7322B25",
+    "qty": "8.0",
+    "locations": "PBMR41,PBFR41,PBER41,PBAR41,PAMR41,PAFR41,PAER41,PAAR41",
+    "source_sheet": "PWA BOM",
+    "source_row": 209
+  },
+  {
+    "description": "RES,10 Ohm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD10R0F",
+    "qty": "16.0",
+    "locations": "PHAR8,PHAR14,PHAR15,PBMR45,PBAR45,PAMR45,PAER45,PAAR45,PBMR99,PAMR99,PBER101,PAFR101,PAER101,PBFR102,PBAR105,PAAR105",
+    "source_sheet": "PWA BOM",
+    "source_row": 210
+  },
+  {
+    "description": "RES,6.8KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP6801F",
+    "qty": "2.0",
+    "locations": "PBAR47,PAAR47",
+    "source_sheet": "PWA BOM",
+    "source_row": 212
+  },
+  {
+    "description": "Res,374 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3740F",
+    "qty": "8.0",
+    "locations": "PBMR54,PBFR54,PBER54,PBAR54,PAMR54,PAFR54,PAER54,PAAR54",
+    "source_sheet": "PWA BOM",
+    "source_row": 214
+  },
+  {
+    "description": "RES,49.9 Ohm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP49R9D50",
+    "qty": "8.0",
+    "locations": "PBAR57,PAAR57,R932,R980,R981,R982,R983,R984",
+    "source_sheet": "PWA BOM",
+    "source_row": 217
+  },
+  {
+    "description": "RES,649 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP6490B25",
+    "qty": "2.0",
+    "locations": "PBAR61,PAAR61",
+    "source_sheet": "PWA BOM",
+    "source_row": 218
+  },
+  {
+    "description": "RES,10 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP10R0F",
+    "qty": "31.0",
+    "locations": "PALR19,PALR20,PBLR23,PBLR24,PBFR45,PBER45,PAFR45,PBER61,PAFR61,PAER61,PBFR62,PBER62,PAFR62,PAER62,PBMR63,PBFR63,PBAR63,PAMR63,PAAR63,PBMR64,PBAR64,PAMR64,PAAR64,PBER93,PAFR93,PAER93,PBFR94,PBER96,PAFR96,PAER96,PBFR97",
+    "source_sheet": "PWA BOM",
+    "source_row": 221
+  },
+  {
+    "description": "RES,8mOhm,+/-1%,2W,G,SMD2512",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "TLR3AWDTE8L00F75",
+    "qty": "2.0",
+    "locations": "PBAR65,PAAR65",
+    "source_sheet": "PWA BOM",
+    "source_row": 222
+  },
+  {
+    "description": "RES,23.2KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD2322F",
+    "qty": "12.0",
+    "locations": "PBER66,PAFR66,PAER66,PAAR66,PBFR67,PBER67,PBAR67,PAFR67,PAER67,PBFR68,PBAR79,PAAR79",
+    "source_sheet": "PWA BOM",
+    "source_row": 225
+  },
+  {
+    "description": "RES,10KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD1002F",
+    "qty": "14.0",
+    "locations": "PBER72,PAFR72,PAER72,PBFR73,PBMR74,PAMR74,PBMR77,PBAR77,PAMR77,PAAR77,PBER84,PAFR84,PAER84,PBFR85",
+    "source_sheet": "PWA BOM",
+    "source_row": 228
+  },
+  {
+    "description": "RES,10KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1002F",
+    "qty": "102.0",
+    "locations": "PANR5,PSTR6,PSLR6,PSFR6,PSER6,PSDR6,PQPR6,PFRR6,PEER6,PEDR6,PBNR6,PUAR7,PSIR7,PSAR7,PRAR7,PQAR7,PPAR7,PIAR7,PFAR7,PETR7,PERR7,PEAR7,PHAR22,PHAR23,PHAR39,PBER74,PAFR74,PAER74,PBMR75,PBFR75,PAMR75,PBAR78,PAAR78,PBMR300,PBFR300,PBER300,PBAR300,PAMR300,PAFR300,PAER300,PAAR300,PBMR305,PBFR305,PBER305,PBAR305,PAMR305,PAFR305,PAER305,PAAR305,PBMR306,PBFR306,PBER306,PBAR306,PAMR306,PAFR306,PAER306,PAAR306,PBMR307,PBFR307,PBER307,PBAR307,PAMR307,PAFR307,PAER307,PAAR307,R330,R351,R353,R357,R359,R480,R481,R482,R483,R719,R864,R906,R914,R912,R913,R916,R917,R920,R1075,R1076,R1077,R1078,R1118,R1136,R1137,R1441,R1482,R1490,R1519,R1534,R1535,R1536,R1537,R1538,R1539,R1540,PSRR3001",
+    "source_sheet": "PWA BOM",
+    "source_row": 230
+  },
+  {
+    "description": "RES,8.25KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD8251F",
+    "qty": "2.0",
+    "locations": "PBAR80,PAAR80",
+    "source_sheet": "PWA BOM",
+    "source_row": 233
+  },
+  {
+    "description": "RES,1.74KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1741F",
+    "qty": "8.0",
+    "locations": "PBMR81,PAMR81,PBER83,PAFR83,PAER83,PBFR84,PBAR84,PAAR84",
+    "source_sheet": "PWA BOM",
+    "source_row": 234
+  },
+  {
+    "description": "RES,100 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1000F50",
+    "qty": "31.0",
+    "locations": "PSPR6,PIPR6,PFPR6,PEPR6,PALR14,PALR15,PBLR20,PBLR21,PBER68,PBMR82,PAMR82,PBAR85,PAAR85,PAFR87,PAER87,PBFR88,PBMR91,PAMR91,PBAR93,PAAR93,PBMR94,PAMR94,PBAR96,PAAR96,R1265,R1269,R1273,R1277,R1484,R1745,R1785",
+    "source_sheet": "PWA BOM",
+    "source_row": 236
+  },
+  {
+    "description": "RES,49.9 Ohm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD49R9F",
+    "qty": "8.0",
+    "locations": "PBER85,PAFR85,PBMR86,PBFR86,PBAR86,PAMR86,PAAR86,PAER672",
+    "source_sheet": "PWA BOM",
+    "source_row": 237
+  },
+  {
+    "description": "RES,1 Ohm,+/-1%,1/3W,G,SMD1206",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "SR732BTTD1R00F",
+    "qty": "11.0",
+    "locations": "PHAR4,PBMR90,PAMR90,PBER92,PBAR92,PAFR92,PAER92,PAAR92,PBFR93,PBAR102,PAAR102",
+    "source_sheet": "PWA BOM",
+    "source_row": 239
+  },
+  {
+    "description": "RES,10KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1002B25",
+    "qty": "34.0",
+    "locations": "PBMR26,PAMR26,PBMR97,PAMR97,PBMR98,PAMR98,PBER99,PAFR99,PAER99,PBMR100,PBFR100,PBER100,PAMR100,PAFR100,PAER100,PBFR101,PBMR102,PBER102,PAMR102,PAFR102,PAER102,PBFR103,PBAR103,PAAR103,PBER104,PBAR104,PAFR104,PAER104,PAAR104,PBFR105,PBAR106,PAAR106,PBAR108,PAAR108",
+    "source_sheet": "PWA BOM",
+    "source_row": 240
+  },
+  {
+    "description": "RES,1MOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1004F",
+    "qty": "8.0",
+    "locations": "PBMR107,PAMR107,PBER109,PAFR109,PAER109,PBFR110,PBAR113,PAAR113",
+    "source_sheet": "PWA BOM",
+    "source_row": 242
+  },
+  {
+    "description": "RES,274 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2740F",
+    "qty": "8.0",
+    "locations": "PBMR109,PAMR109,PBER111,PAFR111,PAER111,PBFR112,PBAR115,PAAR115",
+    "source_sheet": "PWA BOM",
+    "source_row": 244
+  },
+  {
+    "description": "RES,59 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP59R0F25",
+    "qty": "8.0",
+    "locations": "PBMR113,PAMR113,PBER115,PAFR115,PAER115,PBFR116,PBAR119,PAAR119",
+    "source_sheet": "PWA BOM",
+    "source_row": 246
+  },
+  {
+    "description": "RES,715 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP7150F",
+    "qty": "8.0",
+    "locations": "PBMR117,PAMR117,PBER119,PAFR119,PAER119,PBFR120,PBAR123,PAAR123",
+    "source_sheet": "PWA BOM",
+    "source_row": 247
+  },
+  {
+    "description": "RES,3.65KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3651F",
+    "qty": "9.0",
+    "locations": "PHAR79,PBMR118,PAMR118,PBER120,PAFR120,PAER120,PBFR121,PBAR124,PAAR124",
+    "source_sheet": "PWA BOM",
+    "source_row": 249
+  },
+  {
+    "description": "RES,22.1 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP22R1F",
+    "qty": "4.0",
+    "locations": "PBMR304,PBAR304,PAMR304,PAAR304",
+    "source_sheet": "PWA BOM",
+    "source_row": 251
+  },
+  {
+    "description": "RES,470 Ohm,+/-5%,1/8W,G,SMD0805",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B2ATTD471J",
+    "qty": "37.0",
+    "locations": "PUAR13,PSAR13,PRAR13,PQAR13,PPAR13,PIAR13,PFAR13,PEAR13,PSIR14,PETR14,PERR14,PALR18,PSTR20,PSLR20,PSFR20,PSER20,PSDR20,PQPR20,PFRR20,PEER20,PEDR20,PBLR22,PBMR452,PBNR502,PBFR502,PBER502,PANR502,PAMR502,PAFR502,PAAR502,PBAR504,PAER514,PSPR3000,PIPR3000,PFPR3000,PEPR3000,PSRR3009",
+    "source_sheet": "PWA BOM",
+    "source_row": 254
+  },
+  {
+    "description": "RES,2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2001F",
+    "qty": "11.0",
+    "locations": "R347,R348,R350,PBFR510,PBER510,PAFR510,PAER510,PBMR600,PBAR600,PAMR600,PAAR600",
+    "source_sheet": "PWA BOM",
+    "source_row": 255
+  },
+  {
+    "description": "RES,100KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1003F",
+    "qty": "16.0",
+    "locations": "PBFR511,PBER511,PAFR511,PAER511,PBMR603,PBAR603,PAMR603,PAAR603,PBMR604,PBAR604,PAMR604,PAAR604,PAFR634,PBFR659,PBER659,PAER684",
+    "source_sheet": "PWA BOM",
+    "source_row": 258
+  },
+  {
+    "description": "RES,6.8 Ohm,+/-1%,1/4W,G,SMD1206",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H2BTTD6R80F",
+    "qty": "4.0",
+    "locations": "PBMR605,PBAR605,PAMR605,PAAR605",
+    "source_sheet": "PWA BOM",
+    "source_row": 261
+  },
+  {
+    "description": "RES,42.2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4222F",
+    "qty": "8.0",
+    "locations": "PBFR512,PBER512,PAFR512,PAER512,PBMR606,PBAR606,PAMR606,PAAR606",
+    "source_sheet": "PWA BOM",
+    "source_row": 263
+  },
+  {
+    "description": "IC,PWM Controller,ISL68137IRAZ-T,G,QFN-48,SMD",
+    "manufacturer": "INTERSIL CORPORATION",
+    "manufacturer_part": "ISL68137IRAZ-EVT3",
+    "qty": "8.0",
+    "locations": "PBMU1,PBFU1,PBEU1,PBAU1,PAMU1,PAFU1,PAEU1,PAAU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 264
+  },
+  {
+    "description": "IC,Current Sensor, INA194AIDBVR ,G,SOT23-5,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "INA194AIDBVR",
+    "qty": "8.0",
+    "locations": "PBMU2,PBFU2,PBEU2,PBAU2,PAMU2,PAFU2,PAEU2,PAAU2",
+    "source_sheet": "PWA BOM",
+    "source_row": 265
+  },
+  {
+    "description": "Converter,input 0V~60V,185W,G,VTM48MP012T130AA0",
+    "manufacturer": "Vicor Corporation",
+    "manufacturer_part": "VTM48MP012T130AA0",
+    "qty": "4.0",
+    "locations": "PBAU4,PAAU4,PBAU6,PAAU6",
+    "source_sheet": "PWA BOM",
+    "source_row": 266
+  },
+  {
+    "description": "IC,Operation Amplifier,OPA2365AIDR,G,SOIC-8,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "OPA2365AIDR",
+    "qty": "8.0",
+    "locations": "PBMU5,PBFU5,PBEU5,PAMU5,PAFU5,PAEU5,PBAU7,PAAU7",
+    "source_sheet": "PWA BOM",
+    "source_row": 267
+  },
+  {
+    "description": "CAP,470nF,+/-10%,X7R,100V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BR72A474KA73L",
+    "qty": "4.0",
+    "locations": "PBFC26,PBEC26,PAFC26,PAEC26",
+    "source_sheet": "PWA BOM",
+    "source_row": 268
+  },
+  {
+    "description": "CAP,5.6nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H562K",
+    "qty": "6.0",
+    "locations": "PBFC60,PBEC60,PAFC60,PAEC60,PBMC61,PAMC61",
+    "source_sheet": "PWA BOM",
+    "source_row": 269
+  },
+  {
+    "description": "Fuse,Very fast acting,125V,5A,G,SMD",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0451005.MRL",
+    "qty": "6.0",
+    "locations": "PBFFS1,PBEFS1,PAMFS1,PAFFS1,PAEFS1,PAMFS2",
+    "source_sheet": "PWA BOM",
+    "source_row": 272
+  },
+  {
+    "description": "IND,1.5uH@100KHz,+/-10%,12A,6mOhm,SHLD,G,SMD",
+    "manufacturer": "Eaton Corporation",
+    "manufacturer_part": "HCV1206-1R5-R",
+    "qty": "6.0",
+    "locations": "PBFL1,PBEL1,PAFL1,PAEL1,PBML2,PAML2",
+    "source_sheet": "PWA BOM",
+    "source_row": 273
+  },
+  {
+    "description": "RES,680 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP6800F",
+    "qty": "4.0",
+    "locations": "PBER4,PAER4,R972,R1090",
+    "source_sheet": "PWA BOM",
+    "source_row": 274
+  },
+  {
+    "description": "RES,15.4KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1542B25",
+    "qty": "4.0",
+    "locations": "PBFR26,PBER26,PAFR26,PAER26",
+    "source_sheet": "PWA BOM",
+    "source_row": 275
+  },
+  {
+    "description": "RES,2.2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2201F",
+    "qty": "16.0",
+    "locations": "PBFR47,PBER47,PAFR47,PAER47,R1726,R1727,R1728,R1730,R1731,R1732,R1734,R1735,R1736,R1738,R1739,R1740",
+    "source_sheet": "PWA BOM",
+    "source_row": 276
+  },
+  {
+    "description": "RES,12.4 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP12R4F",
+    "qty": "4.0",
+    "locations": "PBFR57,PBER57,PAFR57,PAER57",
+    "source_sheet": "PWA BOM",
+    "source_row": 278
+  },
+  {
+    "description": "RES,2KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD2001F",
+    "qty": "6.0",
+    "locations": "PBER58,PAFR58,PAER58,PBFR59,PBMR61,PAMR61",
+    "source_sheet": "PWA BOM",
+    "source_row": 279
+  },
+  {
+    "description": "RES,10mOhm,+/-1%,2W,G,SMD2512",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "TLR3AWDTE10L0F",
+    "qty": "6.0",
+    "locations": "PBMR65,PBER65,PAMR65,PAFR65,PAER65,PBFR66",
+    "source_sheet": "PWA BOM",
+    "source_row": 281
+  },
+  {
+    "description": "RES,6.04 Ohm,+/-1%,1/4W,G,SMD1206",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H2BTTD6R04F",
+    "qty": "4.0",
+    "locations": "PBFR513,PBER513,PAFR513,PAER513",
+    "source_sheet": "PWA BOM",
+    "source_row": 284
+  },
+  {
+    "description": "RES,820 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP8200F",
+    "qty": "2.0",
+    "locations": "PBFR3,PAFR3",
+    "source_sheet": "PWA BOM",
+    "source_row": 285
+  },
+  {
+    "description": "Converter,input 0V~52V,120W,G,VTM48RP015C076AG0",
+    "manufacturer": "Vicor Corporation",
+    "manufacturer_part": "VTM48RP015C076AG0",
+    "qty": "4.0",
+    "locations": "PBFU4,PBEU4,PAFU4,PAEU4",
+    "source_sheet": "PWA BOM",
+    "source_row": 286
+  },
+  {
+    "description": "CAP,3.3nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H332K",
+    "qty": "21.0",
+    "locations": "PIPC10,PFPC10,PEPC10,PBNC11,PANC11,PBNC13,PANC13,PUAC18,PSAC18,PRAC18,PQAC18,PPAC18,PIAC18,PFAC18,PEAC18,PBNC25,PANC25,PALC35,PALC40,PBLC56,PBLC60",
+    "source_sheet": "PWA BOM",
+    "source_row": 287
+  },
+  {
+    "description": "CAP,10uF,+/-10%,X7S,25V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BC71E106K",
+    "qty": "68.0",
+    "locations": "PSTC2,PSLC2,PSFC2,PSEC2,PSDC2,PQPC2,PFRC2,PEEC2,PEDC2,PANC2,PSTC3,PSLC3,PSFC3,PSEC3,PSDC3,PQPC3,PFRC3,PEEC3,PEDC3,PBNC3,PANC3,PBNC4,PANC4,PBNC5,PANC5,PSPC6,PIPC6,PFPC6,PEPC6,PBNC6,PSPC7,PIPC7,PFPC7,PEPC7,PSPC8,PIPC8,PFPC8,PEPC8,PSPC9,PIPC9,PFPC9,PEPC9,PSTC17,PSTC18,PALC38,PALC39,PBLC54,PBLC55,PSPC3004,PIPC3004,PFPC3004,PEPC3004,PSPC3005,PIPC3005,PFPC3005,PEPC3005,PSPC3006,PIPC3006,PFPC3006,PEPC3006,PSPC3007,PIPC3007,PFPC3007,PEPC3007,PSPC3009,PIPC3009,PFPC3009,PEPC3009",
+    "source_sheet": "PWA BOM",
+    "source_row": 290
+  },
+  {
+    "description": "FB,26 Ohm@100MHz,+/-25%,6A,7mOhm,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "BLM18KG260TN1D",
+    "qty": "22.0",
+    "locations": "PSTL1,PSLL1,PSFL1,PSEL1,PSDL1,PQPL1,PFRL1,PEEL1,PEDL1,PBLL1,PALL1,PUAL2,PSIL2,PSAL2,PRAL2,PQAL2,PPAL2,PIAL2,PFAL2,PERL2,PEAL2,PQPL3",
+    "source_sheet": "PWA BOM",
+    "source_row": 291
+  },
+  {
+    "description": "IND,470nH@100KHz,+/-20%,30A,1.68mOhm,SHLD,G,SMD",
+    "manufacturer": "CYNTEC CO. LTD",
+    "manufacturer_part": "PCMB104T-R47MS",
+    "qty": "2.0",
+    "locations": "PALL2,PBLL4",
+    "source_sheet": "PWA BOM",
+    "source_row": 292
+  },
+  {
+    "description": "IC,PWM Controller,ISL99227FRZ-T,G,QFN-32,SMD",
+    "manufacturer": "INTERSIL CORPORATION",
+    "manufacturer_part": "ISL99227FRZ-T",
+    "qty": "2.0",
+    "locations": "PALU1,PBLU3",
+    "source_sheet": "PWA BOM",
+    "source_row": 293
+  },
+  {
+    "description": "RES,330 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3300F",
+    "qty": "2.0",
+    "locations": "PBMR3,PAMR12",
+    "source_sheet": "PWA BOM",
+    "source_row": 295
+  },
+  {
+    "description": "RES,1.8KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1801F",
+    "qty": "2.0",
+    "locations": "PBMR47,PAMR47",
+    "source_sheet": "PWA BOM",
+    "source_row": 297
+  },
+  {
+    "description": "RES,21 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP21R0F",
+    "qty": "2.0",
+    "locations": "PBMR57,PAMR57",
+    "source_sheet": "PWA BOM",
+    "source_row": 300
+  },
+  {
+    "description": "RES,27.4KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD2742F",
+    "qty": "4.0",
+    "locations": "PAMR66,PBMR69,PBMR76,PAMR76",
+    "source_sheet": "PWA BOM",
+    "source_row": 303
+  },
+  {
+    "description": "CAP,100nF,+/-10%,X7R,50V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188R71H104K",
+    "qty": "13.0",
+    "locations": "PUAC8,PSIC8,PSAC8,PRAC8,PQAC8,PPAC8,PIAC8,PFAC8,PETC8,PERC8,PEAC8,PBNC10,PANC10",
+    "source_sheet": "PWA BOM",
+    "source_row": 304
+  },
+  {
+    "description": "IND,300nH@100KHz,+/-10%,32.5A,304.5uOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "FP0906R1-R30-R",
+    "qty": "2.0",
+    "locations": "PBNL1,PANL1",
+    "source_sheet": "PWA BOM",
+    "source_row": 306
+  },
+  {
+    "description": "RES,19.1KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1912F",
+    "qty": "6.0",
+    "locations": "PANR6,PBNR7,R355,R356,R361,R362",
+    "source_sheet": "PWA BOM",
+    "source_row": 307
+  },
+  {
+    "description": "RES,4.99KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4991F",
+    "qty": "3.0",
+    "locations": "PFRR3,PBNR5,PANR7",
+    "source_sheet": "PWA BOM",
+    "source_row": 308
+  },
+  {
+    "description": "RES,2.49KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2491F",
+    "qty": "2.0",
+    "locations": "PBNR11,PANR11",
+    "source_sheet": "PWA BOM",
+    "source_row": 310
+  },
+  {
+    "description": "RES,365 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3650F",
+    "qty": "2.0",
+    "locations": "PBNR14,PANR14",
+    "source_sheet": "PWA BOM",
+    "source_row": 313
+  },
+  {
+    "description": "RES,20 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP20R0F",
+    "qty": "2.0",
+    "locations": "PBNR15,PANR15",
+    "source_sheet": "PWA BOM",
+    "source_row": 316
+  },
+  {
+    "description": "RES,100 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1000B25",
+    "qty": "5.0",
+    "locations": "PSRR16,PBNR16,PANR16,PBNR18,PANR18",
+    "source_sheet": "PWA BOM",
+    "source_row": 318
+  },
+  {
+    "description": "RES,5.36KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP5361F",
+    "qty": "2.0",
+    "locations": "PBNR17,PANR17",
+    "source_sheet": "PWA BOM",
+    "source_row": 319
+  },
+  {
+    "description": "RES,4.7KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4701F",
+    "qty": "156.0",
+    "locations": "PSRR20,PBNR23,PANR23,PHAR28,PHAR29,PHAR30,R668,R669,R683,R762,R763,R764,R765,R766,R767,R769,R770,R772,R773,R774,R775,R776,R777,R778,R779,R780,R781,R782,R783,R784,R788,R791,R795,R800,R801,R804,R805,R806,R807,R808,R809,R811,R814,R817,R820,R822,R823,R825,R827,R828,R830,R893,R894,R901,R902,R922,R942,R943,R944,R945,R949,R950,R955,R956,R957,R958,R959,R1129,R1135,R1138,R1148,R1149,R1150,R1151,R1152,R1156,R1159,R1162,R1164,R1165,R1172,R1174,R1175,R1176,R1184,R1185,R1186,R1190,R1195,R1197,R1198,R1199,R1210,R1211,R1212,R1213,R1218,R1219,R1220,R1221,R1222,R1223,R1224,R1240,R1256,R1257,R1263,R1267,R1271,R1275,R1295,R1296,R1460,R1461,R1462,R1463,R1464,R1465,R1466,R1467,R1468,R1469,R1470,R1471,R1474,R1475,R1476,R1477,R1495,R1504,R1507,R1508,R1509,R1511,R1512,R1515,R1520,R1521,R1589,R1590,R1592,R1593,R1603,R1604,R1605,R1606,R1779,R1780,R1781,R1782,R1786,R1789,R1801,R1820,R1821,R1834",
+    "source_sheet": "PWA BOM",
+    "source_row": 322
+  },
+  {
+    "description": "RES,750KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP7503F",
+    "qty": "2.0",
+    "locations": "PBNR24,PANR24",
+    "source_sheet": "PWA BOM",
+    "source_row": 324
+  },
+  {
+    "description": "RES,2.05KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2051F",
+    "qty": "1.0",
+    "locations": "PANR26",
+    "source_sheet": "PWA BOM",
+    "source_row": 326
+  },
+  {
+    "description": "IC,Regulator,IR38064MTRPBF,ADJ,35A,G,QFN-26,SMD",
+    "manufacturer": "INTERNATIONAL RECTIFIER",
+    "manufacturer_part": "IR38064MTRPBF",
+    "qty": "2.0",
+    "locations": "PBNU1,PANU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 328
+  },
+  {
+    "description": "RES,1.54KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1541F",
+    "qty": "1.0",
+    "locations": "PBNR26",
+    "source_sheet": "PWA BOM",
+    "source_row": 329
+  },
+  {
+    "description": "CAP,1uF,+/-10%,X7R,25V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188R71E105K",
+    "qty": "12.0",
+    "locations": "PUAC1,PSIC1,PSAC1,PRAC1,PQAC1,PPAC1,PIAC1,PFAC1,PETC1,PERC1,PEAC1,PSUC4",
+    "source_sheet": "PWA BOM",
+    "source_row": 331
+  },
+  {
+    "description": "CAP,22uF,+/-10%,X6S,6.3V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CC80J226K",
+    "qty": "24.0",
+    "locations": "PUAC4,PSAC4,PRAC4,PQAC4,PPAC4,PIAC4,PFAC4,PEAC4,PUAC5,PSAC5,PRAC5,PQAC5,PPAC5,PIAC5,PFAC5,PEAC5,PUAC6,PSAC6,PRAC6,PQAC6,PPAC6,PIAC6,PFAC6,PEAC6",
+    "source_sheet": "PWA BOM",
+    "source_row": 334
+  },
+  {
+    "description": "CAP,22uF,+/-20%,X6S,4V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BC80G226M",
+    "qty": "84.0",
+    "locations": "PSLC7,PSFC7,PSEC7,PSDC7,PEEC7,PEDC7,PSLC8,PSFC8,PSEC8,PSDC8,PEEC8,PEDC8,PUAC11,PSLC11,PSIC11,PSFC11,PSEC11,PSDC11,PSAC11,PRAC11,PQAC11,PPAC11,PIAC11,PFAC11,PEEC11,PEDC11,PEAC11,PUAC12,PSLC12,PSIC12,PSFC12,PSEC12,PSDC12,PSAC12,PRAC12,PQAC12,PPAC12,PIAC12,PFAC12,PEEC12,PEDC12,PEAC12,PUAC13,PSIC13,PSAC13,PRAC13,PQAC13,PPAC13,PIAC13,PFAC13,PEAC13,PUAC14,PSIC14,PSAC14,PRAC14,PQAC14,PPAC14,PIAC14,PFAC14,PEAC14,PUAC15,PSLC15,PSIC15,PSFC15,PSEC15,PSDC15,PSAC15,PRAC15,PQAC15,PPAC15,PIAC15,PFAC15,PEEC15,PEDC15,PEAC15,PUAC16,PSIC16,PSAC16,PRAC16,PQAC16,PPAC16,PIAC16,PFAC16,PEAC16",
+    "source_sheet": "PWA BOM",
+    "source_row": 335
+  },
+  {
+    "description": "CAP,2.2uF,+/-10%,X7S,25V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C71E225K",
+    "qty": "11.0",
+    "locations": "PUAC19,PSIC19,PSAC19,PRAC19,PQAC19,PPAC19,PIAC19,PFAC19,PETC19,PERC19,PEAC19",
+    "source_sheet": "PWA BOM",
+    "source_row": 338
+  },
+  {
+    "description": "IND,820nH@100KHz,+/-20%,13A,8mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-R82-R",
+    "qty": "8.0",
+    "locations": "PUAL1,PSAL1,PRAL1,PQAL1,PPAL1,PIAL1,PFAL1,PEAL1",
+    "source_sheet": "PWA BOM",
+    "source_row": 339
+  },
+  {
+    "description": "RES,10.7KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1072F",
+    "qty": "8.0",
+    "locations": "PUAR2,PSAR2,PRAR2,PQAR2,PPAR2,PIAR2,PFAR2,PEAR2",
+    "source_sheet": "PWA BOM",
+    "source_row": 340
+  },
+  {
+    "description": "RES,1.5KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1501B25",
+    "qty": "16.0",
+    "locations": "PUAR4,PSAR4,PRAR4,PQAR4,PPAR4,PIAR4,PFAR4,PEAR4,PUAR6,PSAR6,PRAR6,PQAR6,PPAR6,PIAR6,PFAR6,PEAR6",
+    "source_sheet": "PWA BOM",
+    "source_row": 343
+  },
+  {
+    "description": "RES,39.2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3922F",
+    "qty": "11.0",
+    "locations": "PUAR5,PSIR5,PSAR5,PRAR5,PQAR5,PPAR5,PIAR5,PFAR5,PETR5,PERR5,PEAR5",
+    "source_sheet": "PWA BOM",
+    "source_row": 345
+  },
+  {
+    "description": "RES,5.76KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP5761F",
+    "qty": "16.0",
+    "locations": "PUAR8,PSAR8,PRAR8,PQAR8,PPAR8,PIAR8,PFAR8,PEAR8,PUAR11,PSAR11,PRAR11,PQAR11,PPAR11,PIAR11,PFAR11,PEAR11",
+    "source_sheet": "PWA BOM",
+    "source_row": 347
+  },
+  {
+    "description": "RES,26.1 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP26R1F",
+    "qty": "8.0",
+    "locations": "PUAR10,PSAR10,PRAR10,PQAR10,PPAR10,PIAR10,PFAR10,PEAR10",
+    "source_sheet": "PWA BOM",
+    "source_row": 348
+  },
+  {
+    "description": "IC,Regulator,IR3898MTRPBF,6A,1.5MHZ,G,QFN-17,SMD",
+    "manufacturer": "INTERNATIONAL RECTIFIER",
+    "manufacturer_part": "IR3898MTRPBF",
+    "qty": "11.0",
+    "locations": "PUAU1,PSIU1,PSAU1,PRAU1,PQAU1,PPAU1,PIAU1,PFAU1,PETU1,PERU1,PEAU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 350
+  },
+  {
+    "description": "CAP,1uF,+/-10%,X7S,25V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155C71E105KE11D",
+    "qty": "14.0",
+    "locations": "PSTC4,PSLC4,PSFC4,PSEC4,PSDC4,PQPC4,PFRC4,PEEC4,PEDC4,PSPC3003,PIPC3003,PFPC3003,PEPC3003,PSRC3010",
+    "source_sheet": "PWA BOM",
+    "source_row": 351
+  },
+  {
+    "description": "CAP,10uF,+/-20%,X6S,4V,G,SMD0603",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM188C80G106M",
+    "qty": "6.0",
+    "locations": "PSLC16,PSFC16,PSEC16,PSDC16,PEEC16,PEDC16",
+    "source_sheet": "PWA BOM",
+    "source_row": 352
+  },
+  {
+    "description": "IND,2.2uH@100KHz,+/-20%,8A,20mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-2R2-R",
+    "qty": "5.0",
+    "locations": "PETL1,PERL1,PSFL2,PEEL2,PEDL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 355
+  },
+  {
+    "description": "RES,1 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1R00F",
+    "qty": "13.0",
+    "locations": "PSPR4,PIPR4,PFPR4,PEPR4,PSTR5,PSLR5,PSFR5,PSER5,PSDR5,PQPR5,PFRR5,PEER5,PEDR5",
+    "source_sheet": "PWA BOM",
+    "source_row": 356
+  },
+  {
+    "description": "RES,16.5KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1652B25",
+    "qty": "9.0",
+    "locations": "PSLR17,PSFR17,PSER17,PSDR17,PQPR17,PFRR17,PEER17,PEDR17,PEDR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 358
+  },
+  {
+    "description": "IC,Regulator,IR3883MTRPbF,ADJ,3A,G,QFN-16,SMD",
+    "manufacturer": "INTERNATIONAL RECTIFIER",
+    "manufacturer_part": "IR3883MTRPBF",
+    "qty": "9.0",
+    "locations": "PSTU1,PSLU1,PSFU1,PSEU1,PSDU1,PQPU1,PFRU1,PEEU1,PEDU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 360
+  },
+  {
+    "description": "RES,12.7KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1272B25",
+    "qty": "1.0",
+    "locations": "PEER19",
+    "source_sheet": "PWA BOM",
+    "source_row": 361
+  },
+  {
+    "description": "ECAP,SPEA,270uF,+/-20%,16V,105C,G,SMD6.3X9.9,ESR<=8mOhm",
+    "manufacturer": "SANYO ELECTRIC CO., LTD.",
+    "manufacturer_part": "16SVPG270M",
+    "qty": "5.0",
+    "locations": "PSPCE1,PIPCE1,PFPCE1,PEPCE1,PSUCE4",
+    "source_sheet": "PWA BOM",
+    "source_row": 364
+  },
+  {
+    "description": "SPEA CAP,220uF,+10%~-35%,6.3V,105C,G,SMD2816,ESR<=15mOhm",
+    "manufacturer": "PANASONIC INDUSTRIAL CO.,LTD.",
+    "manufacturer_part": "EEFCX0J221YR",
+    "qty": "14.0",
+    "locations": "PSRCE3000,PSRCE3001,PSPCE3003,PIPCE3003,PFPCE3003,PEPCE3003,PSPCE3004,PIPCE3004,PFPCE3004,PEPCE3004,PSPCE3005,PIPCE3005,PFPCE3005,PEPCE3005",
+    "source_sheet": "PWA BOM",
+    "source_row": 365
+  },
+  {
+    "description": "IND,1uH@100KHz,+/-20%,11A,10mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-1R0-R",
+    "qty": "4.0",
+    "locations": "PSPL1,PIPL1,PFPL1,PEPL1",
+    "source_sheet": "PWA BOM",
+    "source_row": 366
+  },
+  {
+    "description": "IND,22nH@1MHz,+/-20%,19A,368uOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "FP0404R1-R022-R",
+    "qty": "4.0",
+    "locations": "PSPL2,PIPL2,PFPL2,PEPL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 367
+  },
+  {
+    "description": "RES,316 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3160F",
+    "qty": "4.0",
+    "locations": "PSPR5,PIPR5,PFPR5,PEPR5",
+    "source_sheet": "PWA BOM",
+    "source_row": 368
+  },
+  {
+    "description": "RES,14.3KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1432F",
+    "qty": "4.0",
+    "locations": "PSPR9,PIPR9,PFPR9,PEPR9",
+    "source_sheet": "PWA BOM",
+    "source_row": 370
+  },
+  {
+    "description": "RES,9.76KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP9761B25",
+    "qty": "4.0",
+    "locations": "PSPR10,PIPR10,PFPR10,PEPR10",
+    "source_sheet": "PWA BOM",
+    "source_row": 372
+  },
+  {
+    "description": "RES,200 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2000F",
+    "qty": "15.0",
+    "locations": "PSPR11,PIPR11,PFPR11,PEPR11,R680,R688,R689,R746,R755,R756,R758,R759,R771,R1487,R1541",
+    "source_sheet": "PWA BOM",
+    "source_row": 375
+  },
+  {
+    "description": "RES,48.7KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4872F",
+    "qty": "5.0",
+    "locations": "PSRR7,PSPR15,PIPR15,PFPR15,PEPR15",
+    "source_sheet": "PWA BOM",
+    "source_row": 378
+  },
+  {
+    "description": "IC,Regulator,IR3447MTRPBF,ADJ,25A,G,PQFN-33",
+    "manufacturer": "INTERNATIONAL RECTIFIER",
+    "manufacturer_part": "IR3447MTRPBF",
+    "qty": "4.0",
+    "locations": "PSPU1,PIPU1,PFPU1,PEPU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 380
+  },
+  {
+    "description": "CAP,62pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H620JA01D",
+    "qty": "2.0",
+    "locations": "PSRC3,PERC3",
+    "source_sheet": "PWA BOM",
+    "source_row": 381
+  },
+  {
+    "description": "CAP,22uF,+/-20%,X6S,25V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CC81E226ME11L",
+    "qty": "10.0",
+    "locations": "PSIC4,PETC4,PERC4,PSIC5,PETC5,PERC5,PSIC6,PETC6,PERC6,PETC22",
+    "source_sheet": "PWA BOM",
+    "source_row": 382
+  },
+  {
+    "description": "CAP,4.3nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H432KA01D",
+    "qty": "1.0",
+    "locations": "PERC7",
+    "source_sheet": "PWA BOM",
+    "source_row": 383
+  },
+  {
+    "description": "CAP,22uF,+/-20%,X6S,16V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BC81C226M",
+    "qty": "35.0",
+    "locations": "PSTC7,PQPC7,PFRC7,PSTC8,PQPC8,PFRC8,PSRC10,PSTC11,PSRC11,PQPC11,PFRC11,PETC11,PERC11,PSTC12,PSRC12,PQPC12,PFRC12,PETC12,PERC12,PSRC13,PETC13,PERC13,PETC14,PERC14,PSTC15,PQPC15,PFRC15,PETC15,PERC15,PETC16,PERC16,PSRC3012,PSRC3013,PSRC3014,PSRC3015",
+    "source_sheet": "PWA BOM",
+    "source_row": 384
+  },
+  {
+    "description": "RES,8.87KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP8871F",
+    "qty": "2.0",
+    "locations": "PERR2,PHAR35",
+    "source_sheet": "PWA BOM",
+    "source_row": 386
+  },
+  {
+    "description": "RES,8.66KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP8661B25",
+    "qty": "2.0",
+    "locations": "PERR8,PERR11",
+    "source_sheet": "PWA BOM",
+    "source_row": 389
+  },
+  {
+    "description": "RES,63.4 Ohm,+/-1%,1/10W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP63R4F",
+    "qty": "3.0",
+    "locations": "PSIR10,PETR10,PERR10",
+    "source_sheet": "PWA BOM",
+    "source_row": 392
+  },
+  {
+    "description": "RES,1.54KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1541B25",
+    "qty": "2.0",
+    "locations": "PERR13,PERR15",
+    "source_sheet": "PWA BOM",
+    "source_row": 393
+  },
+  {
+    "description": "CAP,130pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H131JA01D",
+    "qty": "1.0",
+    "locations": "PETC3",
+    "source_sheet": "PWA BOM",
+    "source_row": 396
+  },
+  {
+    "description": "CAP,6.8nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H682K",
+    "qty": "1.0",
+    "locations": "PETC7",
+    "source_sheet": "PWA BOM",
+    "source_row": 397
+  },
+  {
+    "description": "RES,3.83KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3831F",
+    "qty": "1.0",
+    "locations": "PETR2",
+    "source_sheet": "PWA BOM",
+    "source_row": 398
+  },
+  {
+    "description": "RES,8.25KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP8251B25",
+    "qty": "4.0",
+    "locations": "PSIR8,PETR8,PSIR11,PETR11",
+    "source_sheet": "PWA BOM",
+    "source_row": 400
+  },
+  {
+    "description": "RES,909 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP9090B25",
+    "qty": "2.0",
+    "locations": "PETR13,PETR15",
+    "source_sheet": "PWA BOM",
+    "source_row": 401
+  },
+  {
+    "description": "CAP,220pF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H221K",
+    "qty": "3.0",
+    "locations": "PSTC14,PQPC14,PFRC14",
+    "source_sheet": "PWA BOM",
+    "source_row": 404
+  },
+  {
+    "description": "IND,4.7uH@100KHz,+/-20%,5.5A,40mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-4R7-R",
+    "qty": "2.0",
+    "locations": "PQPL2,PFRL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 407
+  },
+  {
+    "description": "RES,34.8KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3482F",
+    "qty": "1.0",
+    "locations": "PFRR1",
+    "source_sheet": "PWA BOM",
+    "source_row": 408
+  },
+  {
+    "description": "RES,2.94KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP2941B25",
+    "qty": "1.0",
+    "locations": "PFRR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 410
+  },
+  {
+    "description": "CAP,1nF,+/-5%,X7R,100V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM219R72A102JA01D",
+    "qty": "1.0",
+    "locations": "PHAC3",
+    "source_sheet": "PWA BOM",
+    "source_row": 411
+  },
+  {
+    "description": "CAP,39nF,+/-10%,X7R,100V,G,SMD0805",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM21BR72A393KA01L",
+    "qty": "1.0",
+    "locations": "PHAC18",
+    "source_sheet": "PWA BOM",
+    "source_row": 412
+  },
+  {
+    "description": "TVS Diode,SMCJ64A,G,DO-214AB-2,SMD",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "SMCJ64A",
+    "qty": "1.0",
+    "locations": "PHAD1",
+    "source_sheet": "PWA BOM",
+    "source_row": 413
+  },
+  {
+    "description": "DIODE,Schottky,MBR5H100MFST1G,100V,5A,G,SO8FL-8,SMD",
+    "manufacturer": "ON SEMICONDUCTOR CORP",
+    "manufacturer_part": "MBR5H100MFST1G",
+    "qty": "1.0",
+    "locations": "PHAD2",
+    "source_sheet": "PWA BOM",
+    "source_row": 414
+  },
+  {
+    "description": "DIODE,Zener,MMSZ5246B-7-F,16V,7.8mA,G,SOD123-2,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "MMSZ5246B-7-F",
+    "qty": "1.0",
+    "locations": "PHAD3",
+    "source_sheet": "PWA BOM",
+    "source_row": 415
+  },
+  {
+    "description": "MOS N,PSMN4R8-100BSE,100V,120A,4.8m@10V,G,SOT404-3,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PSMN4R8-100BSE",
+    "qty": "3.0",
+    "locations": "PHAQ1,PHAQ2,PHAQ3",
+    "source_sheet": "PWA BOM",
+    "source_row": 416
+  },
+  {
+    "description": "TRANS P,PBHV9115T,150V,1A,G,SOT23-3,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PBHV9115T",
+    "qty": "1.0",
+    "locations": "PHAQ4",
+    "source_sheet": "PWA BOM",
+    "source_row": 417
+  },
+  {
+    "description": "MOS N,DMN10H220L-7,100V,1.6A,220m@10V,G,SOT-23-3,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "DMN10H220L-7",
+    "qty": "2.0",
+    "locations": "PHAQ5,PHAQ6",
+    "source_sheet": "PWA BOM",
+    "source_row": 418
+  },
+  {
+    "description": "RES,57.6 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP57R6F",
+    "qty": "4.0",
+    "locations": "R1836,R1837,R1838,R1839",
+    "source_sheet": "PWA BOM",
+    "source_row": 419
+  },
+  {
+    "description": "RES,0.5mOhm,+/-1%,3W,G,SMD2512",
+    "manufacturer": "Thin Film Technology Corporation",
+    "manufacturer_part": "CPA1225RR0005FW",
+    "qty": "1.0",
+    "locations": "PHAR1",
+    "source_sheet": "PWA BOM",
+    "source_row": 421
+  },
+  {
+    "description": "RES,33KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP3302B25",
+    "qty": "1.0",
+    "locations": "PHAR2",
+    "source_sheet": "PWA BOM",
+    "source_row": 422
+  },
+  {
+    "description": "RES,100KOhm,+/-0.1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN73H1JTTD1003B25",
+    "qty": "1.0",
+    "locations": "PHAR5",
+    "source_sheet": "PWA BOM",
+    "source_row": 423
+  },
+  {
+    "description": "RES,3.74KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD3741F",
+    "qty": "1.0",
+    "locations": "PHAR6",
+    "source_sheet": "PWA BOM",
+    "source_row": 424
+  },
+  {
+    "description": "RES,4.12KOhm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD4121F",
+    "qty": "1.0",
+    "locations": "PHAR7",
+    "source_sheet": "PWA BOM",
+    "source_row": 427
+  },
+  {
+    "description": "RES,150KOhm,+/-1%,1/8W,G,SMD0805",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H2ATTD1503F",
+    "qty": "1.0",
+    "locations": "PHAR13",
+    "source_sheet": "PWA BOM",
+    "source_row": 428
+  },
+  {
+    "description": "RES,5.11KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP5111F",
+    "qty": "1.0",
+    "locations": "PHAR20",
+    "source_sheet": "PWA BOM",
+    "source_row": 429
+  },
+  {
+    "description": "RES,49.9KOhm,+/-1%,1/8W,G,SMD0805",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H2ATTD4992F",
+    "qty": "1.0",
+    "locations": "PHAR78",
+    "source_sheet": "PWA BOM",
+    "source_row": 432
+  },
+  {
+    "description": "IC,Power Controller,LM5066IPMHX/NOPB,G,HTSSOP-28,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "LM5066IPMHX/NOPB",
+    "qty": "1.0",
+    "locations": "PHAU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 433
+  },
+  {
+    "description": "IC,Power Controller,MAX6456UT29S+T,G,SOT-23-6,SMD",
+    "manufacturer": "MAXIM INTEGRATED PRODUCTS, INC.",
+    "manufacturer_part": "MAX6456UT29S+T",
+    "qty": "1.0",
+    "locations": "PHAU2",
+    "source_sheet": "PWA BOM",
+    "source_row": 434
+  },
+  {
+    "description": "RES,4.12KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP4121B25",
+    "qty": "3.0",
+    "locations": "PSIR13,PSIR15,PQPR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 435
+  },
+  {
+    "description": "IND,3.3uH@100KHz,+/-20%,6A,30mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-3R3-R",
+    "qty": "3.0",
+    "locations": "PSTL2,PSLL2,PSDL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 438
+  },
+  {
+    "description": "RES,15KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN73H1ETTP1502B25",
+    "qty": "1.0",
+    "locations": "PSDR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 439
+  },
+  {
+    "description": "IND,1.5uH@100KHz,+/-20%,9A,15mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM0703-1R5-R",
+    "qty": "2.0",
+    "locations": "PSIL1,PSEL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 442
+  },
+  {
+    "description": "RES,13.7KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1372B25",
+    "qty": "1.0",
+    "locations": "PSER19",
+    "source_sheet": "PWA BOM",
+    "source_row": 443
+  },
+  {
+    "description": "RES,11.8KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1182B25",
+    "qty": "1.0",
+    "locations": "PSFR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 446
+  },
+  {
+    "description": "CAP,160pF,+/-5%,NPO(C0G),50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM1555C1H161JA01D",
+    "qty": "1.0",
+    "locations": "PSIC3",
+    "source_sheet": "PWA BOM",
+    "source_row": 449
+  },
+  {
+    "description": "RES,3.32KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3321F",
+    "qty": "1.0",
+    "locations": "PSIR2",
+    "source_sheet": "PWA BOM",
+    "source_row": 450
+  },
+  {
+    "description": "RES,6.34KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP6341B25",
+    "qty": "1.0",
+    "locations": "PSLR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 453
+  },
+  {
+    "description": "CAP,3nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H302KA01D",
+    "qty": "1.0",
+    "locations": "PSPC10",
+    "source_sheet": "PWA BOM",
+    "source_row": 456
+  },
+  {
+    "description": "SPEA,CAP,180uF,+/-20%,16V,105C,G,SMD6.3*5.9,ESR<=22mOhm",
+    "manufacturer": "SANYO ELECTRIC CO., LTD.",
+    "manufacturer_part": "16SVPF180M",
+    "qty": "1.0",
+    "locations": "PSRCE1",
+    "source_sheet": "PWA BOM",
+    "source_row": 457
+  },
+  {
+    "description": "CAP,22uF,+/-20%,X7S,25V,G,SMD1206",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM31CC71E226ME11L",
+    "qty": "12.0",
+    "locations": "PSRC4,PSUC5,PSRC5,PSUC6,PSRC6,PSUC7,PSUC8,PSUC9,PSUC10,PSRC3001,PSRC3002,PSRC3005",
+    "source_sheet": "PWA BOM",
+    "source_row": 458
+  },
+  {
+    "description": "CAP,3.6nF,+/-10%,X7R,50V,G,SMD0402",
+    "manufacturer": "MURATA ELEC. NORTH AMERICA",
+    "manufacturer_part": "GRM155R71H362KA01D",
+    "qty": "1.0",
+    "locations": "PSRC7",
+    "source_sheet": "PWA BOM",
+    "source_row": 459
+  },
+  {
+    "description": "IND,22nH@100KHz,+/-15%,22A,249.55uOhm,SHLD,G,SMD",
+    "manufacturer": "The Inter-Technical Group, Inc.",
+    "manufacturer_part": "SLC1615A-R022LHF",
+    "qty": "1.0",
+    "locations": "PSRL1",
+    "source_sheet": "PWA BOM",
+    "source_row": 460
+  },
+  {
+    "description": "IND,680nH@100KHz,+/-20%,34A,1.33mOhm,SHLD,G,SMD",
+    "manufacturer": "COOPER BUSSMANN, INC.",
+    "manufacturer_part": "HCM1305-R68-R",
+    "qty": "1.0",
+    "locations": "PSRL2",
+    "source_sheet": "PWA BOM",
+    "source_row": 461
+  },
+  {
+    "description": "RES,976 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP9760F",
+    "qty": "1.0",
+    "locations": "PSRR11",
+    "source_sheet": "PWA BOM",
+    "source_row": 462
+  },
+  {
+    "description": "RES,8.45KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP8451B25",
+    "qty": "1.0",
+    "locations": "PSRR12",
+    "source_sheet": "PWA BOM",
+    "source_row": 463
+  },
+  {
+    "description": "RES,24.9KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2492F",
+    "qty": "1.0",
+    "locations": "PSRR13",
+    "source_sheet": "PWA BOM",
+    "source_row": 466
+  },
+  {
+    "description": "RES,453 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP4530B25",
+    "qty": "1.0",
+    "locations": "PSRR17",
+    "source_sheet": "PWA BOM",
+    "source_row": 469
+  },
+  {
+    "description": "RES,2.2 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2R20F",
+    "qty": "1.0",
+    "locations": "PSRR3006",
+    "source_sheet": "PWA BOM",
+    "source_row": 470
+  },
+  {
+    "description": "IC,Regulator,IR3846MTRPBF,ADJ,35A,G,PQFN-26,SMD",
+    "manufacturer": "INTERNATIONAL RECTIFIER",
+    "manufacturer_part": "IR3846MTRPBF",
+    "qty": "1.0",
+    "locations": "PSRU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 471
+  },
+  {
+    "description": "RES,16KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1602B25",
+    "qty": "1.0",
+    "locations": "PSTR17",
+    "source_sheet": "PWA BOM",
+    "source_row": 472
+  },
+  {
+    "description": "RES,1.78KOhm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN73H1ETTP1781B25",
+    "qty": "1.0",
+    "locations": "PSTR19",
+    "source_sheet": "PWA BOM",
+    "source_row": 475
+  },
+  {
+    "description": "Fuse,Fast acting,500V,20A,G,SMD",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "0505020.MXP",
+    "qty": "1.0",
+    "locations": "PSUFS1",
+    "source_sheet": "PWA BOM",
+    "source_row": 478
+  },
+  {
+    "description": "MOS N,2N7002,60V,115mA,7.5ohm@5V,G,SOT23-3,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "2N7002",
+    "qty": "3.0",
+    "locations": "PSUQ1,Q2,Q6",
+    "source_sheet": "PWA BOM",
+    "source_row": 479
+  },
+  {
+    "description": "RES,15KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1502F",
+    "qty": "1.0",
+    "locations": "PSUR1",
+    "source_sheet": "PWA BOM",
+    "source_row": 481
+  },
+  {
+    "description": "Converter,input 40V~60V,600W,G,Q54SJ12050NNDH",
+    "manufacturer": "DELTA ELECTRONICS INDUSTRIAL CO.,LTD",
+    "manufacturer_part": "Q54SJ12050NNDH",
+    "qty": "1.0",
+    "locations": "PSUU1",
+    "source_sheet": "PWA BOM",
+    "source_row": 484
+  },
+  {
+    "description": "MOS N/P,FDC6327C,20V,2.7/1.9A,80m/170m@4.5V,G,SuperSOT-6,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "FDC6327C",
+    "qty": "1.0",
+    "locations": "QN1",
+    "source_sheet": "PWA BOM",
+    "source_row": 485
+  },
+  {
+    "description": "MOS N/N,NTZD3154NT1G,20V,0.54A,550m24.5V,G,SOT563-6,SMD",
+    "manufacturer": "ON SEMICONDUCTOR CORP",
+    "manufacturer_part": "NTZD3154NT1G",
+    "qty": "1.0",
+    "locations": "QN2",
+    "source_sheet": "PWA BOM",
+    "source_row": 486
+  },
+  {
+    "description": "MOS N,BSS138W-7-F,50V,0.2A,3.5ohm@10V,G,SOT323-3,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "BSS138W-7-F",
+    "qty": "44.0",
+    "locations": "Q1,Q9,Q10,Q11,Q13,Q14,Q24,Q25,Q26,Q27,Q28,Q29,Q30,Q31,Q32,Q33,Q34,Q35,Q36,Q37,Q38,Q39,Q40,Q41,Q42,Q43,Q44,Q45,Q46,Q47,Q48,Q49,Q50,Q51,Q52,Q53,Q54,Q55,Q56,Q57,Q58,Q59,Q60,Q93",
+    "source_sheet": "PWA BOM",
+    "source_row": 487
+  },
+  {
+    "description": "MOS P,FDD6685,30V,11A,30m@4.5V,G,TO252-3,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "FDD6685",
+    "qty": "2.0",
+    "locations": "Q5,Q7",
+    "source_sheet": "PWA BOM",
+    "source_row": 488
+  },
+  {
+    "description": "MOS N/N,2N7002DW-7-F,60V,0.115A,7.5ohm@5V,G,SOT363-6,SMD",
+    "manufacturer": "DIODES INCORPORATION",
+    "manufacturer_part": "2N7002DW-7-F",
+    "qty": "1.0",
+    "locations": "Q12",
+    "source_sheet": "PWA BOM",
+    "source_row": 489
+  },
+  {
+    "description": "RES,60.4 Ohm,+/-1%,1/20W,G,SMD0201",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1HTTC60R4F",
+    "qty": "2.0",
+    "locations": "R1769,R1770",
+    "source_sheet": "PWA BOM",
+    "source_row": 490
+  },
+  {
+    "description": "RES,240 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP2400B25",
+    "qty": "4.0",
+    "locations": "R3,R8,R365,R370",
+    "source_sheet": "PWA BOM",
+    "source_row": 493
+  },
+  {
+    "description": "RES,1KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP102J",
+    "qty": "107.0",
+    "locations": "R4,R5,R9,R10,R103,R129,R130,R131,R150,R151,R154,R171,R172,R175,R192,R193,R195,R213,R214,R215,R234,R235,R236,R255,R256,R259,R276,R277,R279,R318,R319,R366,R367,R371,R372,R455,R458,R484,R485,R486,R505,R506,R509,R526,R527,R530,R547,R548,R550,R568,R569,R570,R589,R590,R591,R611,R612,R615,R631,R632,R634,R704,R705,R706,R711,R715,R735,R736,R1072,R1080,R1232,R1340,R1341,R1350,R1351,R1352,R1353,R1354,R1355,R1356,R1357,R1358,R1359,R1361,R1363,R1364,R1365,R1366,R1367,R1377,R1378,R1379,R1380,R1381,R1382,R1383,R1384,R1385,R1386,R1387,R1388,R1389,R1390,R1391,R1392,R1746,R1775",
+    "source_sheet": "PWA BOM",
+    "source_row": 494
+  },
+  {
+    "description": "RES,169 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1690B25",
+    "qty": "6.0",
+    "locations": "R11,R12,R13,R373,R374,R375",
+    "source_sheet": "PWA BOM",
+    "source_row": 496
+  },
+  {
+    "description": "RES,49.9 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP49R9F",
+    "qty": "204.0",
+    "locations": "R16,R17,R18,R19,R20,R21,R24,R25,R33,R34,R35,R36,R37,R46,R47,R48,R49,R50,R51,R65,R66,R69,R76,R94,R95,R99,R100,R101,R104,R105,R106,R107,R110,R111,R112,R113,R114,R115,R117,R121,R138,R139,R140,R146,R147,R148,R155,R160,R161,R164,R166,R169,R177,R180,R182,R186,R187,R189,R197,R198,R203,R206,R207,R208,R222,R223,R224,R230,R231,R232,R240,R244,R245,R248,R250,R253,R261,R264,R266,R270,R271,R273,R281,R282,R287,R291,R292,R293,R376,R379,R380,R381,R382,R383,R386,R387,R391,R392,R395,R396,R397,R398,R400,R405,R406,R407,R408,R409,R410,R421,R422,R423,R424,R425,R426,R427,R432,R435,R436,R445,R446,R449,R453,R456,R457,R459,R460,R461,R493,R494,R495,R501,R502,R503,R510,R515,R516,R519,R521,R524,R533,R535,R537,R541,R542,R544,R552,R553,R558,R561,R562,R563,R577,R578,R579,R585,R586,R587,R594,R599,R600,R603,R605,R608,R610,R617,R621,R625,R626,R628,R636,R637,R642,R645,R646,R647,R1346,R1348,R1349,R1368,R1371,R1374,R1396,R1397,R1401,R1402,R1408,R1409,R1410,R1411,R1419,R1420,R1421,R1429,R1430,R1431,R1591,R1811,R1822,R1827,R1828,R1829,R1830,R1831",
+    "source_sheet": "PWA BOM",
+    "source_row": 497
+  },
+  {
+    "description": "RES,3.3KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP332J",
+    "qty": "80.0",
+    "locations": "R22,R23,R26,R32,R38,R39,R41,R42,R43,R44,R45,R52,R68,R88,R89,R299,R300,R301,R302,R342,R384,R385,R388,R389,R390,R394,R399,R401,R403,R404,R411,R412,R413,R441,R442,R465,R466,R468,R469,R470,R472,R475,R476,R954,R1029,R1031,R1032,R1033,R1034,R1035,R1041,R1042,R1043,R1044,R1047,R1048,R1050,R1051,R1054,R1055,R1059,R1060,R1063,R1064,R1067,R1068,R1127,R1128,R1139,R1141,R1225,R1227,R1229,R1234,R1239,R1336,R1337,R1524,R1525,R1823",
+    "source_sheet": "PWA BOM",
+    "source_row": 500
+  },
+  {
+    "description": "RES,1.2KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP122J",
+    "qty": "12.0",
+    "locations": "R27,R28,R54,R55,R56,R57,R58,R59,R417,R418,R419,R420",
+    "source_sheet": "PWA BOM",
+    "source_row": 502
+  },
+  {
+    "description": "RES,200 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP2000B25",
+    "qty": "6.0",
+    "locations": "R31,R40,R53,R393,R402,R416",
+    "source_sheet": "PWA BOM",
+    "source_row": 504
+  },
+  {
+    "description": "RES,40.2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4022F",
+    "qty": "1.0",
+    "locations": "R78",
+    "source_sheet": "PWA BOM",
+    "source_row": 505
+  },
+  {
+    "description": "RES,2KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP202J",
+    "qty": "7.0",
+    "locations": "R96,R97,R98,R447,R448,R452,R454",
+    "source_sheet": "PWA BOM",
+    "source_row": 507
+  },
+  {
+    "description": "RES,0 Ohm,+/-5%,1/8W,G,SMD0805",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73Z2ATTD",
+    "qty": "6.0",
+    "locations": "R108,R109,R463,R464,R700,R701",
+    "source_sheet": "PWA BOM",
+    "source_row": 509
+  },
+  {
+    "description": "RES,100 Ohm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP101J",
+    "qty": "64.0",
+    "locations": "R132,R137,R141,R143,R152,R158,R162,R167,R173,R179,R183,R188,R194,R200,R204,R209,R216,R221,R225,R227,R237,R239,R246,R251,R257,R263,R267,R272,R278,R284,R288,R290,R487,R492,R496,R498,R507,R513,R517,R522,R528,R531,R538,R543,R549,R555,R559,R564,R571,R576,R580,R582,R592,R597,R601,R606,R613,R620,R622,R627,R633,R639,R643,R648",
+    "source_sheet": "PWA BOM",
+    "source_row": 511
+  },
+  {
+    "description": "RES,4.7KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP472J",
+    "qty": "7.0",
+    "locations": "R297,R298,R304,R1069,R1070,R1342,R1343",
+    "source_sheet": "PWA BOM",
+    "source_row": 513
+  },
+  {
+    "description": "RES,499 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4990F",
+    "qty": "1.0",
+    "locations": "R307",
+    "source_sheet": "PWA BOM",
+    "source_row": 516
+  },
+  {
+    "description": "RES,10KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP103J",
+    "qty": "2.0",
+    "locations": "R310,R990",
+    "source_sheet": "PWA BOM",
+    "source_row": 518
+  },
+  {
+    "description": "RES,31.6KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3162F",
+    "qty": "1.0",
+    "locations": "R328",
+    "source_sheet": "PWA BOM",
+    "source_row": 521
+  },
+  {
+    "description": "RES,90.9KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP9092F",
+    "qty": "1.0",
+    "locations": "R329",
+    "source_sheet": "PWA BOM",
+    "source_row": 522
+  },
+  {
+    "description": "RES,1.21KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1211F",
+    "qty": "13.0",
+    "locations": "R332,R333,R334,R335,R336,R337,R338,R339,R340,R341,R343,R344,R345",
+    "source_sheet": "PWA BOM",
+    "source_row": 524
+  },
+  {
+    "description": "RES,3.01KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3011F",
+    "qty": "1.0",
+    "locations": "R346",
+    "source_sheet": "PWA BOM",
+    "source_row": 527
+  },
+  {
+    "description": "RES,11KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1102F",
+    "qty": "1.0",
+    "locations": "R349",
+    "source_sheet": "PWA BOM",
+    "source_row": 529
+  },
+  {
+    "description": "RES,47KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4702F",
+    "qty": "2.0",
+    "locations": "R652,R658",
+    "source_sheet": "PWA BOM",
+    "source_row": 532
+  },
+  {
+    "description": "RES,2.2KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP222J",
+    "qty": "6.0",
+    "locations": "R664,R665,R666,R673,R1020,R1021",
+    "source_sheet": "PWA BOM",
+    "source_row": 534
+  },
+  {
+    "description": "RES,1.24KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1241F",
+    "qty": "2.0",
+    "locations": "R690,R753",
+    "source_sheet": "PWA BOM",
+    "source_row": 537
+  },
+  {
+    "description": "RES,470 Ohm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD4700F",
+    "qty": "1.0",
+    "locations": "R699",
+    "source_sheet": "PWA BOM",
+    "source_row": 540
+  },
+  {
+    "description": "RES,20mOhm,+/-1%,1/5W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "UR73D1JTTD20L0F",
+    "qty": "1.0",
+    "locations": "R702",
+    "source_sheet": "PWA BOM",
+    "source_row": 542
+  },
+  {
+    "description": "RES,22 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP22R0F",
+    "qty": "19.0",
+    "locations": "R725,R727,R729,R730,R815,R816,R818,R1012,R1015,R1161,R1163,R1171,R1173,R1183,R1189,R1196,R1202,R1206,R1209",
+    "source_sheet": "PWA BOM",
+    "source_row": 543
+  },
+  {
+    "description": "RES,3.4KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3401F",
+    "qty": "2.0",
+    "locations": "R733,R734",
+    "source_sheet": "PWA BOM",
+    "source_row": 545
+  },
+  {
+    "description": "RES,1.5KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1501F",
+    "qty": "2.0",
+    "locations": "R738,R1111",
+    "source_sheet": "PWA BOM",
+    "source_row": 546
+  },
+  {
+    "description": "RES,22 Ohm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP220J",
+    "qty": "23.0",
+    "locations": "R79,R80,R81,R82,R83,R1806,R739,R740,R741,R742,R743,R749,R933,R934,R935,R936,R937,R938,R993,R994,R995,R996,R997",
+    "source_sheet": "PWA BOM",
+    "source_row": 548
+  },
+  {
+    "description": "RES,2KOhm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP2001D25",
+    "qty": "1.0",
+    "locations": "R751",
+    "source_sheet": "PWA BOM",
+    "source_row": 550
+  },
+  {
+    "description": "RES,240 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2400F",
+    "qty": "1.0",
+    "locations": "R789",
+    "source_sheet": "PWA BOM",
+    "source_row": 551
+  },
+  {
+    "description": "RES,100KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1003F25",
+    "qty": "4.0",
+    "locations": "R790,R1154,R1157,R1237",
+    "source_sheet": "PWA BOM",
+    "source_row": 552
+  },
+  {
+    "description": "RES,33 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP33R0F",
+    "qty": "6.0",
+    "locations": "R792,R793,R794,R796,R797,R799",
+    "source_sheet": "PWA BOM",
+    "source_row": 553
+  },
+  {
+    "description": "RES,220 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2200F",
+    "qty": "7.0",
+    "locations": "R831,R832,R833,R834,R1345,R1347,R1494",
+    "source_sheet": "PWA BOM",
+    "source_row": 555
+  },
+  {
+    "description": "RES,120Ohm,+/-1%,1/20W,G,SMD0201",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1HTTC1200F",
+    "qty": "48.0",
+    "locations": "R839,R840,R841,R842,R843,R844,R845,R846,R847,R848,R849,R850,R851,R852,R853,R854,R855,R856,R857,R858,R859,R860,R861,R862,R867,R868,R869,R870,R871,R872,R873,R874,R875,R876,R877,R878,R879,R880,R881,R882,R883,R884,R885,R887,R888,R889,R890,R891",
+    "source_sheet": "PWA BOM",
+    "source_row": 558
+  },
+  {
+    "description": "RES,240 Ohm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP241J",
+    "qty": "1.0",
+    "locations": "R886",
+    "source_sheet": "PWA BOM",
+    "source_row": 559
+  },
+  {
+    "description": "RES,56 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP56R0F",
+    "qty": "3.0",
+    "locations": "R925,R927,R929",
+    "source_sheet": "PWA BOM",
+    "source_row": 561
+  },
+  {
+    "description": "RES,10KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1002F50",
+    "qty": "9.0",
+    "locations": "R940,R966,R998,R999,R1084,R1085,R1088,R1261,R1751",
+    "source_sheet": "PWA BOM",
+    "source_row": 563
+  },
+  {
+    "description": "RES,3.3KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3301F",
+    "qty": "25.0",
+    "locations": "R960,R1323,R1325,R1327,R1328,R1412,R1413,R1414,R1416,R1417,R1418,R1422,R1423,R1424,R1425,R1426,R1427,R1428,R1505,R1506,R1516,R1517,R1518,R1523,R1783",
+    "source_sheet": "PWA BOM",
+    "source_row": 564
+  },
+  {
+    "description": "RES,1KOhm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1001D25",
+    "qty": "19.0",
+    "locations": "R961,R962,R963,R964,R965,R967,R968,R969,R970,R975,R976,R977,R978,R985,R986,R988,R989,R992,R1003",
+    "source_sheet": "PWA BOM",
+    "source_row": 566
+  },
+  {
+    "description": "RES,8.2KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP822J",
+    "qty": "1.0",
+    "locations": "R971",
+    "source_sheet": "PWA BOM",
+    "source_row": 569
+  },
+  {
+    "description": "RES,300 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP3000F",
+    "qty": "48.0",
+    "locations": "R991,R1440,R1446,R1447,R1448,R1449,R1450,R1451,R1594,R1595,R1596,R1597,R1598,R1601,R1602,R1607,R1608,R1609,R1610,R1611,R1612,R1613,R1614,R1615,R1616,R1617,R1618,R1619,R1620,R1621,R1622,R1623,R1624,R1625,R1626,R1627,R1628,R1629,R1630,R1631,R1632,R1633,R1634,R1635,R1636,R1637,R1638,R1723",
+    "source_sheet": "PWA BOM",
+    "source_row": 571
+  },
+  {
+    "description": "RES,1.4KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1401F",
+    "qty": "2.0",
+    "locations": "R1000,R1002",
+    "source_sheet": "PWA BOM",
+    "source_row": 572
+  },
+  {
+    "description": "RES,49.9KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4992F",
+    "qty": "1.0",
+    "locations": "R1026",
+    "source_sheet": "PWA BOM",
+    "source_row": 574
+  },
+  {
+    "description": "RES,18KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1802F",
+    "qty": "1.0",
+    "locations": "R1027",
+    "source_sheet": "PWA BOM",
+    "source_row": 576
+  },
+  {
+    "description": "RES,191 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1910B25",
+    "qty": "3.0",
+    "locations": "R1074,R1083,R1777",
+    "source_sheet": "PWA BOM",
+    "source_row": 578
+  },
+  {
+    "description": "RES,1.6KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1601F",
+    "qty": "1.0",
+    "locations": "R1089",
+    "source_sheet": "PWA BOM",
+    "source_row": 579
+  },
+  {
+    "description": "RES,510 Ohm,+/-0.1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP5100B25",
+    "qty": "6.0",
+    "locations": "R1092,R1093,R1110,R1113,R1114,R1115",
+    "source_sheet": "PWA BOM",
+    "source_row": 580
+  },
+  {
+    "description": "RES,27 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP27R0F",
+    "qty": "10.0",
+    "locations": "R1094,R1095,R1096,R1097,R1098,R1104,R1105,R1106,R1108,R1109",
+    "source_sheet": "PWA BOM",
+    "source_row": 581
+  },
+  {
+    "description": "RES,6.04KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP6041F",
+    "qty": "1.0",
+    "locations": "R1147",
+    "source_sheet": "PWA BOM",
+    "source_row": 582
+  },
+  {
+    "description": "RES,100KOhm,+/-5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73B1ETTP104J",
+    "qty": "6.0",
+    "locations": "R1251,R1252,R1253,R1254,R1395,R1398",
+    "source_sheet": "PWA BOM",
+    "source_row": 584
+  },
+  {
+    "description": "RES,13KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1302F25",
+    "qty": "1.0",
+    "locations": "R1255",
+    "source_sheet": "PWA BOM",
+    "source_row": 586
+  },
+  {
+    "description": "RES,47KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP4702F25",
+    "qty": "1.0",
+    "locations": "R1262",
+    "source_sheet": "PWA BOM",
+    "source_row": 587
+  },
+  {
+    "description": "RES,130 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1300F",
+    "qty": "1.0",
+    "locations": "R1280",
+    "source_sheet": "PWA BOM",
+    "source_row": 588
+  },
+  {
+    "description": "RES,64.9 Ohm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP64R9F",
+    "qty": "1.0",
+    "locations": "R1288",
+    "source_sheet": "PWA BOM",
+    "source_row": 591
+  },
+  {
+    "description": "RES,2.2 Ohm,+/-1%,1/10W,G,SMD0603",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1JTTD2R20F",
+    "qty": "1.0",
+    "locations": "R1298",
+    "source_sheet": "PWA BOM",
+    "source_row": 592
+  },
+  {
+    "description": "RES,10KOhm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP1002D25",
+    "qty": "8.0",
+    "locations": "R1303,R1304,R1305,R1308,R1310,R1311,R1312,R1313",
+    "source_sheet": "PWA BOM",
+    "source_row": 594
+  },
+  {
+    "description": "RES,2.4KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2401F",
+    "qty": "2.0",
+    "locations": "R1331,R1332",
+    "source_sheet": "PWA BOM",
+    "source_row": 595
+  },
+  {
+    "description": "RES,1.2KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1201F",
+    "qty": "2.0",
+    "locations": "R1393,R1394",
+    "source_sheet": "PWA BOM",
+    "source_row": 596
+  },
+  {
+    "description": "RES,1KOhm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP1001D",
+    "qty": "1.0",
+    "locations": "R1480",
+    "source_sheet": "PWA BOM",
+    "source_row": 597
+  },
+  {
+    "description": "RES,10 Ohm,+/-0.5%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP10R0D25",
+    "qty": "1.0",
+    "locations": "R1483",
+    "source_sheet": "PWA BOM",
+    "source_row": 598
+  },
+  {
+    "description": "RES,20KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RN731ETTP2002F50",
+    "qty": "1.0",
+    "locations": "R1488",
+    "source_sheet": "PWA BOM",
+    "source_row": 599
+  },
+  {
+    "description": "RES,499KOhm,+/-1%,1/8W,G,SMD0805",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H2ATTD4993F",
+    "qty": "1.0",
+    "locations": "R1492",
+    "source_sheet": "PWA BOM",
+    "source_row": 600
+  },
+  {
+    "description": "RES,499KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP4993F",
+    "qty": "1.0",
+    "locations": "R1493",
+    "source_sheet": "PWA BOM",
+    "source_row": 602
+  },
+  {
+    "description": "RES,2.7KOhm,+/-1%,1/16W,G,SMD0402",
+    "manufacturer": "KOA SPEER ELECTRONICS, INC.",
+    "manufacturer_part": "RK73H1ETTP2701F",
+    "qty": "1.0",
+    "locations": "R1754",
+    "source_sheet": "PWA BOM",
+    "source_row": 604
+  },
+  {
+    "description": "Flash,AT45DB081E-SHNHC-T,1.65~3.6V,8M,SPI,G,SOIC-8,SMD",
+    "manufacturer": "Adesto Technologies Corporation",
+    "manufacturer_part": "AT45DB081E-SHNHC-T",
+    "qty": "1.0",
+    "locations": "U_LOM1_ROM1",
+    "source_sheet": "PWA BOM",
+    "source_row": 607
+  },
+  {
+    "description": "IC,Buffer,NC7SV17P5X,0.9V~3.6V,G,SC70-5,SMD",
+    "manufacturer": "FAIRCHILD SEMICONDUCTOR CORP",
+    "manufacturer_part": "NC7SV17P5X",
+    "qty": "2.0",
+    "locations": "U2,U11",
+    "source_sheet": "PWA BOM",
+    "source_row": 608
+  },
+  {
+    "description": "IC,Power Controller,LM3880MFX-1AA/NOPB,G,SOT-23-6,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "LM3880MFX-1AA/NOPB",
+    "qty": "2.0",
+    "locations": "U3,U4",
+    "source_sheet": "PWA BOM",
+    "source_row": 609
+  },
+  {
+    "description": "IC,Power Controller,UCD90160RGCR-C09,G,VQFN-64,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "UCD90160RGCR-C09",
+    "qty": "1.0",
+    "locations": "U5",
+    "source_sheet": "PWA BOM",
+    "source_row": 610
+  },
+  {
+    "description": "IC,Buffer,74LVC1G07GW,1.65~5.5V,G,SOT353-5,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC1G07GW",
+    "qty": "25.0",
+    "locations": "U6,U7,U8,U9,U53,U54,U56,U57,U58,U59,U64,U65,U67,U69,U70,U71,U72,U85,U88,U111,U113,U114,U115,U117,U169",
+    "source_sheet": "PWA BOM",
+    "source_row": 611
+  },
+  {
+    "description": "IC,Multiplexer,CBTL01023GM,3V~3.6V,G,XQFN-10,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "CBTL01023GM",
+    "qty": "1.0",
+    "locations": "U12",
+    "source_sheet": "PWA BOM",
+    "source_row": 612
+  },
+  {
+    "description": "IC,BROADCOM,BCM54612EB1KMLG,B1,G,MLP-48,SMD",
+    "manufacturer": "BROADCOM SINGAPORE PTE LTD.",
+    "manufacturer_part": "BCM54612EB1KMLG",
+    "qty": "1.0",
+    "locations": "U13",
+    "source_sheet": "PWA BOM",
+    "source_row": 613
+  },
+  {
+    "description": "IC,ASPEED,AST2500A2-GP,A2,G,TFBGA-456,SMD",
+    "manufacturer": "ASPEED TECHNOLOGY INC",
+    "manufacturer_part": "AST2500A2-GP",
+    "qty": "1.0",
+    "locations": "U14",
+    "source_sheet": "PWA BOM",
+    "source_row": 614
+  },
+  {
+    "description": "IC,Switch,PCA9546APW,2.3~5.5V,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9546APW",
+    "qty": "2.0",
+    "locations": "U15,U16",
+    "source_sheet": "PWA BOM",
+    "source_row": 615
+  },
+  {
+    "description": "DRAM,MT40A512M16JY-083E:B,1.2V,512M*16,1.2GHz,G,FBGA-96,SMD",
+    "manufacturer": "MICRON SEMICONDUCTOR ASIA PTE.LTD.",
+    "manufacturer_part": "MT40A512M16JY-083E:B",
+    "qty": "1.0",
+    "locations": "U17",
+    "source_sheet": "PWA BOM",
+    "source_row": 616
+  },
+  {
+    "description": "IC,Switch,TS3L110RGYR,3V~3.6V,G,VQFN-16,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "TS3L110RGYR",
+    "qty": "2.0",
+    "locations": "U18,U19",
+    "source_sheet": "PWA BOM",
+    "source_row": 617
+  },
+  {
+    "description": "Flash,MX66L51235FMI-10G,2.7V~3.6V,512M,SPI,G,SOP-16,SMD",
+    "manufacturer": "MACRONIX INTERNATIONAL CO.,LTD.",
+    "manufacturer_part": "MX66L51235FMI-10G",
+    "qty": "2.0",
+    "locations": "U20,U21",
+    "source_sheet": "PWA BOM",
+    "source_row": 618
+  },
+  {
+    "description": "Flash,MX25L6445EMI-10G,2.7~3.6V,64M,SPI,G,SOP-16,SMD",
+    "manufacturer": "MACRONIX INTERNATIONAL CO.,LTD.",
+    "manufacturer_part": "MX25L6445EMI-10G",
+    "qty": "1.0",
+    "locations": "U24",
+    "source_sheet": "PWA BOM",
+    "source_row": 619
+  },
+  {
+    "description": "IC,Switch,74CBTLV3125QG8,2.3V~3.6V,G,QSOP-16,SMD",
+    "manufacturer": "INTEGRATED DEVICE TECHNOLOGY",
+    "manufacturer_part": "74CBTLV3125QG8",
+    "qty": "1.0",
+    "locations": "U25",
+    "source_sheet": "PWA BOM",
+    "source_row": 620
+  },
+  {
+    "description": "IC,Switch,74CBTLV3257PGG8,2.3~3.6V,G,TSSOP-16,SMD",
+    "manufacturer": "INTEGRATED DEVICE TECHNOLOGY",
+    "manufacturer_part": "74CBTLV3257PGG8",
+    "qty": "2.0",
+    "locations": "U27,U179",
+    "source_sheet": "PWA BOM",
+    "source_row": 621
+  },
+  {
+    "description": "IC,IDT,2305B-1DCG8,B,G,SOIC-8,SMD",
+    "manufacturer": "INTEGRATED DEVICE TECHNOLOGY",
+    "manufacturer_part": "2305B-1DCG8",
+    "qty": "1.0",
+    "locations": "U29",
+    "source_sheet": "PWA BOM",
+    "source_row": 622
+  },
+  {
+    "description": "EEPROM,AT24C64D-SSHM-T,1.7~5.5V,64K,I2C,G,SOIC-8,SMD",
+    "manufacturer": "ATMEL CORPORATION",
+    "manufacturer_part": "AT24C64D-SSHM-T",
+    "qty": "1.0",
+    "locations": "U30",
+    "source_sheet": "PWA BOM",
+    "source_row": 623
+  },
+  {
+    "description": "IC,Driver/Receiver,MAX3243CAI+T,G,SSOP-28,SMD",
+    "manufacturer": "MAXIM INTEGRATED PRODUCTS, INC.",
+    "manufacturer_part": "MAX3243CAI+T",
+    "qty": "1.0",
+    "locations": "U32",
+    "source_sheet": "PWA BOM",
+    "source_row": 624
+  },
+  {
+    "description": "IC,RENESAS,uPD720201K8-701-BAC-A,G,QFN-68,SMD",
+    "manufacturer": "RENESAS TECHNOLOGY AMERICA INC",
+    "manufacturer_part": "uPD720201K8-701-BAC-A",
+    "qty": "1.0",
+    "locations": "U36",
+    "source_sheet": "PWA BOM",
+    "source_row": 625
+  },
+  {
+    "description": "Flash,MX25L5121EMC-20G,2.7~3.6V,512K,SPI,G,SOP-8,SMD",
+    "manufacturer": "MACRONIX INTERNATIONAL CO.,LTD.",
+    "manufacturer_part": "MX25L5121EMC-20G",
+    "qty": "1.0",
+    "locations": "U37",
+    "source_sheet": "PWA BOM",
+    "source_row": 626
+  },
+  {
+    "description": "IC,TI,TUSB2077APTR,G,LQFP-48,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "TUSB2077APTR",
+    "qty": "1.0",
+    "locations": "U38",
+    "source_sheet": "PWA BOM",
+    "source_row": 627
+  },
+  {
+    "description": "IC,MARVELL,88SE9235A1-NAA2C000,A1,G,QFN-76,SMD",
+    "manufacturer": "MARVELL SEMICONDUCTOR, INC",
+    "manufacturer_part": "88SE9235A1-NAA2C000[VER.A1]",
+    "qty": "1.0",
+    "locations": "U45",
+    "source_sheet": "PWA BOM",
+    "source_row": 628
+  },
+  {
+    "description": "Flash,MX25L4006EM2I-12G,2.7V~3.6V,4M,SPI,G,SOP-8,SMD",
+    "manufacturer": "MACRONIX INTERNATIONAL CO.,LTD.",
+    "manufacturer_part": "MX25L4006EM2I-12G",
+    "qty": "1.0",
+    "locations": "U46",
+    "source_sheet": "PWA BOM",
+    "source_row": 629
+  },
+  {
+    "description": "IC,Trigger,74LVC74APW,1.2~3.6V,G,TSSOP-14,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC74APW",
+    "qty": "2.0",
+    "locations": "U55,U168",
+    "source_sheet": "PWA BOM",
+    "source_row": 630
+  },
+  {
+    "description": "IC,NXP,PCF8523TK,G,HVSON-8,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCF8523TK",
+    "qty": "1.0",
+    "locations": "U60",
+    "source_sheet": "PWA BOM",
+    "source_row": 631
+  },
+  {
+    "description": "IC,IDT,5PB1102PGGI8,G,TSSOP-8,SMD",
+    "manufacturer": "INTEGRATED DEVICE TECHNOLOGY",
+    "manufacturer_part": "5PB1102PGGI8",
+    "qty": "1.0",
+    "locations": "U61",
+    "source_sheet": "PWA BOM",
+    "source_row": 632
+  },
+  {
+    "description": "IC,SILABS,Si5338C-B06799-GMR,G,QFN-24,SMD",
+    "manufacturer": "Silicon Laboratories Inc.",
+    "manufacturer_part": "SI5338C-B06799-GMR",
+    "qty": "1.0",
+    "locations": "U62",
+    "source_sheet": "PWA BOM",
+    "source_row": 633
+  },
+  {
+    "description": "IC,IDT,9DBL0452BKILFT,G,VFQFPN-32,SMD",
+    "manufacturer": "INTEGRATED DEVICE TECHNOLOGY",
+    "manufacturer_part": "9DBL0452BKILFT",
+    "qty": "1.0",
+    "locations": "U63",
+    "source_sheet": "PWA BOM",
+    "source_row": 634
+  },
+  {
+    "description": "IC,Gate&Inverter,74LVC1G08GW,1.65~5.5V,G,SOT353-5,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC1G08GW",
+    "qty": "13.0",
+    "locations": "U66,U73,U74,U75,U76,U77,U78,U79,U80,U81,U82,U161,U178",
+    "source_sheet": "PWA BOM",
+    "source_row": 635
+  },
+  {
+    "description": "IC,Buffer,74LVC1G17GW,1.65~5.5V,G,SOT353-5,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC1G17GW",
+    "qty": "3.0",
+    "locations": "U68,U86,U89",
+    "source_sheet": "PWA BOM",
+    "source_row": 636
+  },
+  {
+    "description": "IC,Buffer,74LVC07APW,1.65~5.5V,G,TSSOP-14,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC07APW",
+    "qty": "3.0",
+    "locations": "U83,U101,U102",
+    "source_sheet": "PWA BOM",
+    "source_row": 637
+  },
+  {
+    "description": "IC,Voltage Sensor,TPS3897ADRYR,G,SON-6,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "TPS3897ADRYR",
+    "qty": "1.0",
+    "locations": "U84",
+    "source_sheet": "PWA BOM",
+    "source_row": 638
+  },
+  {
+    "description": "IC,Power Controller,TPS3801K33DCKR,G,SC-70-5,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "TPS3801K33DCKR",
+    "qty": "1.0",
+    "locations": "U87",
+    "source_sheet": "PWA BOM",
+    "source_row": 639
+  },
+  {
+    "description": "IC,Gate&Inverter,74LVC2G14GW,1.65~5.5V,G,SOT363-6,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC2G14GW",
+    "qty": "3.0",
+    "locations": "U90,U91,U112",
+    "source_sheet": "PWA BOM",
+    "source_row": 640
+  },
+  {
+    "description": "IC,Buffer,PCA9516APW,2.3V~3.6V,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9516APW",
+    "qty": "4.0",
+    "locations": "U92,U93,U94,U95",
+    "source_sheet": "PWA BOM",
+    "source_row": 641
+  },
+  {
+    "description": "IC,Power Controller,PI3USB102ZLEX,G,TQFN-10P,SMD",
+    "manufacturer": "PERICOM SEMICONDUCTOR CORP",
+    "manufacturer_part": "PI3USB102ZLEX",
+    "qty": "2.0",
+    "locations": "U96,U108",
+    "source_sheet": "PWA BOM",
+    "source_row": 642
+  },
+  {
+    "description": "IC,Transceiver,74AVC4TD245GU,0.8V~3.6V,G,XQFN-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74AVC4TD245GU",
+    "qty": "1.0",
+    "locations": "U97",
+    "source_sheet": "PWA BOM",
+    "source_row": 643
+  },
+  {
+    "description": "EEPROM,M24512-WMN6TP,2.5~5.5V,512K,I2C,G,SO-8,SMD",
+    "manufacturer": "ST MICRO ELECTRONICS,INC",
+    "manufacturer_part": "M24512-WMN6TP",
+    "qty": "1.0",
+    "locations": "U98",
+    "source_sheet": "PWA BOM",
+    "source_row": 644
+  },
+  {
+    "description": "IC,NXP,PCA9554PW,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9554PW",
+    "qty": "2.0",
+    "locations": "U99,U100",
+    "source_sheet": "PWA BOM",
+    "source_row": 645
+  },
+  {
+    "description": "IC,Translator,PCA9617ADPJ,0.8~5.5V,2.2~5.5V,G,TSSOP-8,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9617ADPJ",
+    "qty": "4.0",
+    "locations": "U104,U105,U106,U107",
+    "source_sheet": "PWA BOM",
+    "source_row": 646
+  },
+  {
+    "description": "IC,Switch,74CBTLV1G125GV,2.3~3.6V,G,SOT753-5,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74CBTLV1G125GV",
+    "qty": "1.0",
+    "locations": "U109",
+    "source_sheet": "PWA BOM",
+    "source_row": 647
+  },
+  {
+    "description": "IC,Optocoupler,PS2811-1-F3-A,G,SSOP-4,SMD",
+    "manufacturer": "RENESAS TECHNOLOGY AMERICA INC",
+    "manufacturer_part": "PS2811-1-F3-A",
+    "qty": "1.0",
+    "locations": "U110",
+    "source_sheet": "PWA BOM",
+    "source_row": 648
+  },
+  {
+    "description": "IC,NXP,PCA9541APW/01,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9541APW/01",
+    "qty": "1.0",
+    "locations": "U116",
+    "source_sheet": "PWA BOM",
+    "source_row": 649
+  },
+  {
+    "description": "IC,Translator,PCA9508D,0.9V~5.5V/2.7V~5.5V,G,SO-8,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9508D",
+    "qty": "1.0",
+    "locations": "U164",
+    "source_sheet": "PWA BOM",
+    "source_row": 650
+  },
+  {
+    "description": "IC,Power Controller,LTC2955CDDB-2#TRMPBF,G,DFN-10,SMD",
+    "manufacturer": "LINEAR TECHNOLOGY CORPORATION",
+    "manufacturer_part": "LTC2955CDDB-2#TRMPBF",
+    "qty": "1.0",
+    "locations": "U165",
+    "source_sheet": "PWA BOM",
+    "source_row": 651
+  },
+  {
+    "description": "IC,LED Driver,PCA9551PW,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "PCA9551PW",
+    "qty": "2.0",
+    "locations": "U166,U172",
+    "source_sheet": "PWA BOM",
+    "source_row": 652
+  },
+  {
+    "description": "IC,Trigger,NL17SZ14DFT2G,1.65~5.5V,G,SOT353-5,SMD",
+    "manufacturer": "ON SEMICONDUCTOR CORP",
+    "manufacturer_part": "NL17SZ14DFT2G",
+    "qty": "2.0",
+    "locations": "U167,U173",
+    "source_sheet": "PWA BOM",
+    "source_row": 653
+  },
+  {
+    "description": "IC,Gate&Inverter,74LVC1G32GW,1.65~5.5V,G,TSSOP-5,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74LVC1G32GW",
+    "qty": "3.0",
+    "locations": "U170,U174,U180",
+    "source_sheet": "PWA BOM",
+    "source_row": 654
+  },
+  {
+    "description": "IC,Buffer,74HC75PW,2.0V~6.0V,G,TSSOP-16,SMD",
+    "manufacturer": "NXP SEMICONDUCTORS",
+    "manufacturer_part": "74HC75PW",
+    "qty": "1.0",
+    "locations": "U171",
+    "source_sheet": "PWA BOM",
+    "source_row": 655
+  },
+  {
+    "description": "Logic IC,Gate,ISO1540DR,3V~5.5V,G,SOIC-8,SMD",
+    "manufacturer": "TEXAS INSTRUMENTS",
+    "manufacturer_part": "ISO1540DR",
+    "qty": "1.0",
+    "locations": "U175",
+    "source_sheet": "PWA BOM",
+    "source_row": 656
+  },
+  {
+    "description": "XTAL,25MHz,+/-25ppm,20pF,G,SMD",
+    "manufacturer": "TXC CORPORATION",
+    "manufacturer_part": "7V25000016",
+    "qty": "1.0",
+    "locations": "X1",
+    "source_sheet": "PWA BOM",
+    "source_row": 657
+  },
+  {
+    "description": "XTAL,25MHz,+/-30ppm,20pF,G,SMD",
+    "manufacturer": "DAISHINKU CORPORATION/DAISHINKU SINGAPORE PTE LTD/KDS",
+    "manufacturer_part": "1Y725000CC1G",
+    "qty": "1.0",
+    "locations": "X2",
+    "source_sheet": "PWA BOM",
+    "source_row": 658
+  },
+  {
+    "description": "XTAL,24MHz,+/-30ppm,20pF,G,SMD",
+    "manufacturer": "TXC CORPORATION",
+    "manufacturer_part": "7B24000038",
+    "qty": "1.0",
+    "locations": "X3",
+    "source_sheet": "PWA BOM",
+    "source_row": 659
+  },
+  {
+    "description": "XTAL,6MHz,+/-30ppm,20pF,G,SMD",
+    "manufacturer": "EPSON ELECTRONICS AMERICA,INC.",
+    "manufacturer_part": "Q22MA4061164200",
+    "qty": "1.0",
+    "locations": "X4",
+    "source_sheet": "PWA BOM",
+    "source_row": 660
+  },
+  {
+    "description": "XTAL,25MHz,+/-15ppm,16pF,G,SMD",
+    "manufacturer": "DAISHINKU CORPORATION/DAISHINKU SINGAPORE PTE LTD/KDS",
+    "manufacturer_part": "1ZHY25000BB0A",
+    "qty": "1.0",
+    "locations": "X5",
+    "source_sheet": "PWA BOM",
+    "source_row": 661
+  },
+  {
+    "description": "XTAL,32.768KHz,+/-20ppm,12.5pF,G,SMD",
+    "manufacturer": "EPSON ELECTRONICS AMERICA,INC.",
+    "manufacturer_part": "Q13FC1350000400",
+    "qty": "1.0",
+    "locations": "X6",
+    "source_sheet": "PWA BOM",
+    "source_row": 662
+  },
+  {
+    "description": "OSC,24MHz,+/-25ppm,3.3V,15pF,G,SMD",
+    "manufacturer": "DAISHINKU CORPORATION/DAISHINKU SINGAPORE PTE LTD/KDS",
+    "manufacturer_part": "1XSE024000AR40",
+    "qty": "1.0",
+    "locations": "Y1",
+    "source_sheet": "PWA BOM",
+    "source_row": 663
+  },
+  {
+    "description": "OSC,50MHz,50ppm,3.3V,G,SMD",
+    "manufacturer": "SiTime Corporation",
+    "manufacturer_part": "SIT1602AC-23-33E-50.000000T",
+    "qty": "1.0",
+    "locations": "Y2",
+    "source_sheet": "PWA BOM",
+    "source_row": 664
+  },
+  {
+    "description": "OSC,25MHz,+/-1.5ppm,3.3V,15pF,G,SMD",
+    "manufacturer": "SiTime Corporation",
+    "manufacturer_part": "SIT5000AC-3B-33N0-25.000000T",
+    "qty": "1.0",
+    "locations": "Y3",
+    "source_sheet": "PWA BOM",
+    "source_row": 665
+  },
+  {
+    "description": "OSC,33MHz,+/-50ppm,3.3V,15pF,G,SMD",
+    "manufacturer": "TXC CORPORATION",
+    "manufacturer_part": "7X33000013",
+    "qty": "1.0",
+    "locations": "Y4",
+    "source_sheet": "PWA BOM",
+    "source_row": 666
+  },
+  {
+    "description": "CONN,Header,Battery Holder,Bla,21.3mm,G/F,G,SMD-2",
+    "manufacturer": "LOTES CO LTD",
+    "manufacturer_part": "AAA-BAT-063-P02_A",
+    "qty": "1.0",
+    "locations": "B1",
+    "source_sheet": "PWA BOM",
+    "source_row": 667
+  },
+  {
+    "description": "Fuse Clips,N/A,7.87mm*7.11mm10.67mm,G,00",
+    "manufacturer": "LITTELFUSE FAR EAST PTE LTD",
+    "manufacturer_part": "01220088Z",
+    "qty": "8.0",
+    "locations": "CLIP1,CLIP2,CLIP3,CLIP4,CLIP5,CLIP6,PSUCLIP1,PSUCLIP2",
+    "source_sheet": "PWA BOM",
+    "source_row": 668
+  },
+  {
+    "description": "CONN,DDR IV,V/T,1.2V,Blu,0.85mm,15u,G,SMD-288",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10140702-0302K11LF",
+    "qty": "16.0",
+    "locations": "DIMM02,DIMM04,DIMM06,DIMM09,DIMM11,DIMM13,DIMM15,DIMM16,DIMM18,DIMM20,DIMM22,DIMM25,DIMM27,DIMM29,DIMM31,DIMM00",
+    "source_sheet": "PWA BOM",
+    "source_row": 669
+  },
+  {
+    "description": "CONN,DDR IV,V/T,1.2V,Bla,0.85mm,15u,G,SMD-288",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10140702-0301K11LF",
+    "qty": "16.0",
+    "locations": "DIMM01,DIMM03,DIMM05,DIMM07,DIMM08,DIMM10,DIMM12,DIMM14,DIMM17,DIMM19,DIMM21,DIMM23,DIMM24,DIMM26,DIMM28,DIMM30",
+    "source_sheet": "PWA BOM",
+    "source_row": 670
+  },
+  {
+    "description": "CONN,Jumper,Bla,2.54mm,G,DIP-2",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "SNT-100-BK-G",
+    "qty": "3.0",
+    "locations": "JP1(2-3),JP4(2-3),JP5(2-3)",
+    "source_sheet": "PWA BOM",
+    "source_row": 671
+  },
+  {
+    "description": "CONN,Header,Pin Header,1X3,V/T,2.54mm,30u,G,SMD-3",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "87898-0315",
+    "qty": "11.0",
+    "locations": "J_BMC_DEBUG1,J1,J3,J4,J5,J7,J36,J41,J43,J48,J147",
+    "source_sheet": "PWA BOM",
+    "source_row": 673
+  },
+  {
+    "description": "CONN,Header,Socket,2X30,V/T,Bla,0.5mm,G/F,G,SMD-60",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "QSH-030-01-F-D-A-K-TR",
+    "qty": "2.0",
+    "locations": "J2,J6",
+    "source_sheet": "PWA BOM",
+    "source_row": 674
+  },
+  {
+    "description": "CONN,I/O,HDMI,V/T,Bla,0.5mm,1u,G,SMD-19",
+    "manufacturer": "LOTES CO LTD",
+    "manufacturer_part": "AHDM0001-P004A",
+    "qty": "1.0",
+    "locations": "J8",
+    "source_sheet": "PWA BOM",
+    "source_row": 675
+  },
+  {
+    "description": "CONN,Header,Shrouded,2X4,V/T,1.27mm,15u,G,SMD-8",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "TFM-104-02-L-D-K-TR",
+    "qty": "1.0",
+    "locations": "J9",
+    "source_sheet": "PWA BOM",
+    "source_row": 676
+  },
+  {
+    "description": "CONN,Header,Shrouded,2X6,V/T,1.27mm,15u,G,SMD-12",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "TFM-106-02-L-D-K-TR",
+    "qty": "1.0",
+    "locations": "J10",
+    "source_sheet": "PWA BOM",
+    "source_row": 677
+  },
+  {
+    "description": "CONN,Header,Shrouded,2X4,R/A,Bla,2.54mm,G/F,G,DIP-8",
+    "manufacturer": "AMPHENOL SHANGHAI CORP.",
+    "manufacturer_part": "G821EU208AGN00Y",
+    "qty": "1.0",
+    "locations": "J11",
+    "source_sheet": "PWA BOM",
+    "source_row": 678
+  },
+  {
+    "description": "CONN,SATA,V/T,Bla,1.27mm,15u,G,DIP-22",
+    "manufacturer": "AMPHENOL SHANGHAI CORP.",
+    "manufacturer_part": "G16CE41210W3EU",
+    "qty": "1.0",
+    "locations": "J14",
+    "source_sheet": "PWA BOM",
+    "source_row": 679
+  },
+  {
+    "description": "CONN,NGFF,R/A,Bla,0.5mm,30u,G,SMD-67",
+    "manufacturer": "FOXCONN TECHNOLOGY CO.,LTD.",
+    "manufacturer_part": "2E0BC23-S85BM-7H",
+    "qty": "1.0",
+    "locations": "J15",
+    "source_sheet": "PWA BOM",
+    "source_row": 680
+  },
+  {
+    "description": "CONN,BTB,Bla,0.8mm,7.87u,G,SMD-120",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10139781-122402LF",
+    "qty": "1.0",
+    "locations": "J16",
+    "source_sheet": "PWA BOM",
+    "source_row": 681
+  },
+  {
+    "description": "CONN,BTB,Bla,0.8mm,7.87u,G,SMD-80",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10139781-082402LF",
+    "qty": "2.0",
+    "locations": "J17,J18",
+    "source_sheet": "PWA BOM",
+    "source_row": 682
+  },
+  {
+    "description": "CONN,Header,Friction,1X3,V/T,Ivo,2.54mm,G,DIP-3",
+    "manufacturer": "FOXCONN TECHNOLOGY CO.,LTD.",
+    "manufacturer_part": "HF2803E-P1",
+    "qty": "4.0",
+    "locations": "J19,J20,J21,J22",
+    "source_sheet": "PWA BOM",
+    "source_row": 683
+  },
+  {
+    "description": "CONN,Header,WTB,1X4,V/T,Bla,2.54mm,15u,G,DIP-4",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "171856-1104",
+    "qty": "4.0",
+    "locations": "J23,J24,J25,J26",
+    "source_sheet": "PWA BOM",
+    "source_row": 684
+  },
+  {
+    "description": "CONN,Header,MINFIT,2X4,V/T,Bla,10mm,30u,G,DIP-8",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "42819-4233",
+    "qty": "1.0",
+    "locations": "J27",
+    "source_sheet": "PWA BOM",
+    "source_row": 685
+  },
+  {
+    "description": "CONN,SATA,V/T,Bla,1.27mm,15u,G,DIP-7",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "678008025",
+    "qty": "4.0",
+    "locations": "J29,J32,J49,J50",
+    "source_sheet": "PWA BOM",
+    "source_row": 686
+  },
+  {
+    "description": "CONN,Header,WTB,2X5,V/T,Bla,1.27mm,10u,G,SMD-10",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "FTSH-105-01-L-DV-K-P-TR",
+    "qty": "2.0",
+    "locations": "J_JTAG_LOM1,J101",
+    "source_sheet": "PWA BOM",
+    "source_row": 687
+  },
+  {
+    "description": "CONN,Header,Pin Header,1X6,V/T,Bla,2.54mm,G,SMD-6",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "87898-0656",
+    "qty": "5.0",
+    "locations": "J35,J37,J39,J42,J45",
+    "source_sheet": "PWA BOM",
+    "source_row": 688
+  },
+  {
+    "description": "CONN,Modular Jack,USBX2_RJ45,R/A,Bla/Blu,2mm,30u,G,DIP-23",
+    "manufacturer": "LOTES CO LTD",
+    "manufacturer_part": "AUSBS002-K001C05",
+    "qty": "1.0",
+    "locations": "J99",
+    "source_sheet": "PWA BOM",
+    "source_row": 689
+  },
+  {
+    "description": "CONN,Header,Power,2X8,V/T,Whi,4.2mm,G,DIP-16",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "46015-1602",
+    "qty": "1.0",
+    "locations": "J100",
+    "source_sheet": "PWA BOM",
+    "source_row": 690
+  },
+  {
+    "description": "CONN,Pin Header,1X2,V/T,Bla,2.54mm,10u,G,SMD-2",
+    "manufacturer": "SAMTEC INC.",
+    "manufacturer_part": "ASP-195607-01",
+    "qty": "36.0",
+    "locations": "J105,J106,J107,J108,J109,J110,J111,J112,J113,J114,J115,J116,J118,J119,J120,J121,J122,J123,J124,J126,J127,J128,J129,J130,J131,J132,J133,J134,J135,J136,J137,J138,J139,J140,J141,J149",
+    "source_sheet": "PWA BOM",
+    "source_row": 691
+  },
+  {
+    "description": "CONN,Pin Header,1X4,V/T,Bla,2.54mm,30u,G,SMD-4",
+    "manufacturer": "MOLEX INCORPORATED",
+    "manufacturer_part": "87898-0455",
+    "qty": "1.0",
+    "locations": "J148",
+    "source_sheet": "PWA BOM",
+    "source_row": 692
+  },
+  {
+    "description": "CONN,Modular Jack,RJ45X2,R/A,Bla,1.27mm,50u,G,DIP-28",
+    "manufacturer": "TRP CONNECTOR B.V.",
+    "manufacturer_part": "1840855-5",
+    "qty": "1.0",
+    "locations": "LAN1",
+    "source_sheet": "PWA BOM",
+    "source_row": 693
+  },
+  {
+    "description": "CONN,Pin Header,2X3,V/T,Bla,2.54mm,30u,G,SMD-6",
+    "manufacturer": "FOXCONN TECHNOLOGY CO.,LTD.",
+    "manufacturer_part": "HS1103H-RN",
+    "qty": "6.0",
+    "locations": "PBMJ1,PBEJ1,PBAJ1,PAMJ1,PAEJ1,PAAJ1",
+    "source_sheet": "PWA BOM",
+    "source_row": 695
+  },
+  {
+    "description": "IC,Regulator,PI3753-00,ADJ,4A,G,LGA-71,SMD",
+    "manufacturer": "Vicor Corporation",
+    "manufacturer_part": "PI3753-00-LGIZ",
+    "qty": "2.0",
+    "locations": "PBAU3,PAAU3",
+    "source_sheet": "PWA BOM",
+    "source_row": 696
+  },
+  {
+    "description": "IC,Regulator,PI3755-02-LGIZ,ADJ,4A,G,LGA-71,SMD",
+    "manufacturer": "Vicor Corporation",
+    "manufacturer_part": "PI3755-02-LGIZ",
+    "qty": "6.0",
+    "locations": "PBFU3,PBEU3,PAMU3,PAFU3,PAEU3,PBMU3",
+    "source_sheet": "PWA BOM",
+    "source_row": 697
+  },
+  {
+    "description": "CONN,PCIE-8X,V/T,Bla,1mm,30u,G,SMD-98",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10061913-102HLF",
+    "qty": "2.0",
+    "locations": "PCIE1,PCIE5",
+    "source_sheet": "PWA BOM",
+    "source_row": 698
+  },
+  {
+    "description": "CONN,PCIE-16X,V/T,Bla,1mm,30u,G,SMD-164",
+    "manufacturer": "FCI CONNECTORS HONGKONG LTD.",
+    "manufacturer_part": "10061913-103HLF",
+    "qty": "3.0",
+    "locations": "PCIE2,PCIE3,PCIE4",
+    "source_sheet": "PWA BOM",
+    "source_row": 699
+  },
+  {
+    "description": "CONN,Switch,tact,50mA,12V,G,SMD-2",
+    "manufacturer": "E-SWITCH",
+    "manufacturer_part": "TL1015AF160QG",
+    "qty": "2.0",
+    "locations": "SW1,SW2",
+    "source_sheet": "PWA BOM",
+    "source_row": 700
+  },
+  {
+    "description": "CONN,Switch,tact,Brown,50mA,12V,G,DIP-4",
+    "manufacturer": "DIPTRONICS MANUFACTURING INC.",
+    "manufacturer_part": "DTSA-644N-Q",
+    "qty": "2.0",
+    "locations": "SW3,SW4",
+    "source_sheet": "PWA BOM",
+    "source_row": 701
+  },
+  {
+    "description": "POWER9 CPU Socket for LGA3899-HYBRID",
+    "manufacturer": "FOXCONN TECHNOLOGY CO.,LTD.",
+    "manufacturer_part": "PE38993-51BC0-1H",
+    "qty": "2.0",
+    "locations": "U1,U10",
+    "source_sheet": "PWA BOM",
+    "source_row": 702
+  },
+  {
+    "description": "CONN,Socket,SPI Flash,V/T,Bla,1.27mm,G/F,G,SMD-16",
+    "manufacturer": "LOTES CO LTD",
+    "manufacturer_part": "ACA-SPI-006-F01",
+    "qty": "2.0",
+    "locations": "U22,U23",
+    "source_sheet": "PWA BOM",
+    "source_row": 703
+  },
+  {
+    "description": "IC,Power Controller,MIC2039AYM6-TR,G,SOT-23-6,SMD",
+    "manufacturer": "MICROCHIP",
+    "manufacturer_part": "MIC2039AYM6-TR",
+    "qty": "3.0",
+    "locations": "U33,U35,U177",
+    "source_sheet": "PWA BOM",
+    "source_row": 704
+  },
+  {
+    "description": "Converter,input 0V~60V,131W,G,VTM48MP010C105AG0",
+    "manufacturer": "Vicor Corporation",
+    "manufacturer_part": "VTM48MP010C105AG0",
+    "qty": "2.0",
+    "locations": "PAMU4,PBMU4",
+    "source_sheet": "PWA BOM",
+    "source_row": 705
+  }
+]

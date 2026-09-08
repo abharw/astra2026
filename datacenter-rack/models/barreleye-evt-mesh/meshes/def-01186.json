@@ -1,0 +1,25 @@
+{
+  "id": "def-01186",
+  "label": "0:1:1:1491",
+  "name": "CX400M4_SXM2_HS_HP_SINK_1",
+  "color_rgba": null,
+  "topological_faces": 154,
+  "missing_faces": 0,
+  "vertices": 11501,
+  "triangles": 14826,
+  "bounds_m": [
+    [
+      -0.039000000804662704,
+      -0.003599999938160181,
+      -0.07900000363588333
+    ],
+    [
+      0.039000000804662704,
+      0.004999999888241291,
+      0.07900000363588333
+    ]
+  ],
+  "mesh_path": "meshes/def-01186.npz",
+  "mesh_sha256": "5a6163250fc6c3d82a475acc8d1d99e24ae9e64356838a887d4c793e5bd51890",
+  "tessellation_seconds": 0.1933991250116378
+}

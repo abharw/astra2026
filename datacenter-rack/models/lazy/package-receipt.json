@@ -1,0 +1,98 @@
+{
+  "schema": "rack-exterior-package/v1",
+  "initial_file_bytes": 11199741,
+  "detail_library_bytes": 137229178,
+  "initial_objects": 80,
+  "initial_meshes": 21,
+  "initial_scenes": [
+    "Rack Lab \u00b7 exterior only"
+  ],
+  "loaded_detail_collections": [],
+  "server_exterior": {
+    "source_objects": 199,
+    "source_triangles": 5923075,
+    "exterior_triangles": 129331,
+    "vertices": 59416
+  },
+  "rack_groups": {
+    "structure": {
+      "source_objects": 158,
+      "source_triangles": 28936,
+      "exterior_triangles": 28936,
+      "vertices": 14784
+    },
+    "retention": {
+      "source_objects": 180,
+      "source_triangles": 215120,
+      "exterior_triangles": 215120,
+      "vertices": 106280
+    },
+    "supports": {
+      "source_objects": 76,
+      "source_triangles": 8208,
+      "exterior_triangles": 8208,
+      "vertices": 4256
+    },
+    "hardware": {
+      "source_objects": 94,
+      "source_triangles": 15416,
+      "exterior_triangles": 15416,
+      "vertices": 7896
+    },
+    "psu.06": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "psu.05": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "psu.04": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "psu.03": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "psu.02": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "psu.01": {
+      "source_objects": 28,
+      "source_triangles": 10680,
+      "exterior_triangles": 10680,
+      "vertices": 5272
+    },
+    "power": {
+      "source_objects": 46,
+      "source_triangles": 104592,
+      "exterior_triangles": 104592,
+      "vertices": 50810
+    },
+    "labels": {
+      "source_objects": 84,
+      "source_triangles": 59636,
+      "exterior_triangles": 59636,
+      "vertices": 60084
+    },
+    "management": {
+      "source_objects": 771,
+      "source_triangles": 111708,
+      "exterior_triangles": 111708,
+      "vertices": 74708
+    }
+  },
+  "seconds": 321.02561762498226
+}

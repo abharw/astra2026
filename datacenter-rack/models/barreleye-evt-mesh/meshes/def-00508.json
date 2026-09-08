@@ -1,0 +1,25 @@
+{
+  "id": "def-00508",
+  "label": "0:1:1:680",
+  "name": "VTM-HSK-1_20160812",
+  "color_rgba": null,
+  "topological_faces": 138,
+  "missing_faces": 0,
+  "vertices": 114067,
+  "triangles": 218098,
+  "bounds_m": [
+    [
+      0.2895350158214569,
+      0.004399998113512993,
+      0.2263599932193756
+    ],
+    [
+      0.36953499913215637,
+      0.03989999741315842,
+      0.26635998487472534
+    ]
+  ],
+  "mesh_path": "meshes/def-00508.npz",
+  "mesh_sha256": "e4bc4fefe3e0ce89f44f2e0b5f69c9ec5bf9afedcf8b6586a1c330bd1669306a",
+  "tessellation_seconds": 1.274958209018223
+}

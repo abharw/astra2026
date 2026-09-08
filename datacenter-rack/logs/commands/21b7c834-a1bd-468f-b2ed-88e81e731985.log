@@ -1,0 +1,8 @@
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/source/import_cad.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(key);m.diffuse_color=rgba;m.use_nodes=True
+00:01.000  render           | Saved: '/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/reviews/converter-smoke/box.png'
+Info: Saved as "box.blend"
+{"schema": "blender-cad-import/v1", "source_sha256": "46b10273b21ba3be4b3e311ec1d818b760c2ce2630ad4cf63f36301fe1bd44e5", "blender_version": "5.3.0 Alpha", "occurrences": 1, "unique_meshes": 1, "world_bounds_m": [[0.0, 0.0, 0.0], [0.009999999776482582, 0.019999999552965164, 0.029999999329447746]], "bounds_note": "transformed local AABB envelopes; exact vertex bounds checked separately", "seconds": 0.00829699996393174}
+Blender 5.3.0 Alpha (hash baf26f9a6b9b built 2026-09-07 01:31:10)
+
+Blender quit

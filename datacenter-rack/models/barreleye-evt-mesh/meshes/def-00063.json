@@ -1,0 +1,25 @@
+{
+  "id": "def-00063",
+  "label": "0:1:1:99",
+  "name": "1_HDD-TRAY-DUMMY-NEW_POWER9",
+  "color_rgba": null,
+  "topological_faces": 764,
+  "missing_faces": 0,
+  "vertices": 39220,
+  "triangles": 50408,
+  "bounds_m": [
+    [
+      -0.05549267679452896,
+      -0.0011957002570852637,
+      -0.07780002057552338
+    ],
+    [
+      0.061500001698732376,
+      0.07760000228881836,
+      0.006599999964237213
+    ]
+  ],
+  "mesh_path": "meshes/def-00063.npz",
+  "mesh_sha256": "05d094de8b47a44adc34a6f966ea5ac3d888b8111caf14217848b9adf4c6aefb",
+  "tessellation_seconds": 0.5019577089697123
+}

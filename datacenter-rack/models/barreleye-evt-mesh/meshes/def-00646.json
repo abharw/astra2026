@@ -1,0 +1,25 @@
+{
+  "id": "def-00646",
+  "label": "0:1:1:871",
+  "name": "1_CROSS_BAR_FIXED_BKT_L_POWER9",
+  "color_rgba": null,
+  "topological_faces": 199,
+  "missing_faces": 0,
+  "vertices": 19001,
+  "triangles": 27614,
+  "bounds_m": [
+    [
+      0.0004999999655410647,
+      -0.02280000038444996,
+      -0.02662999927997589
+    ],
+    [
+      0.020250000059604645,
+      0.02280000038444996,
+      0.020999999716877937
+    ]
+  ],
+  "mesh_path": "meshes/def-00646.npz",
+  "mesh_sha256": "7360f53e46a61c1768a51e0ecabafafa4a958e0f7337cc9bb32ffc1244b2312d",
+  "tessellation_seconds": 0.23560349992476404
+}

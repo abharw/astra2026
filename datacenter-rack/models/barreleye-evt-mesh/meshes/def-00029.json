@@ -1,0 +1,25 @@
+{
+  "id": "def-00029",
+  "label": "0:1:1:50",
+  "name": "2_END-STOP-FOR-MI-BK_BE",
+  "color_rgba": null,
+  "topological_faces": 217,
+  "missing_faces": 0,
+  "vertices": 13667,
+  "triangles": 18462,
+  "bounds_m": [
+    [
+      -0.012799853459000587,
+      -0.017050189897418022,
+      -0.028200000524520874
+    ],
+    [
+      -0.004800000227987766,
+      0.01704983040690422,
+      0.004699999932199717
+    ]
+  ],
+  "mesh_path": "meshes/def-00029.npz",
+  "mesh_sha256": "d8053f050c2ece1a251707e64480539b1c4cd2d823ee8b4c6a2dc7fe9d56b74b",
+  "tessellation_seconds": 0.15532279096078128
+}

@@ -20,3 +20,16 @@
 **/xcuserdata/
 **/*.xcodeproj/
 .DS_Store
+# Local CAD runtime and large source-download originals; provenance is tracked.
+.cad-venv/
+research/ocp-candidates/originals/
+research/ocp-candidates/inspection/extracted/
+
+# Local full-text/raster research captures; source registers remain tracked.
+research/ocp-candidates/inspection/*.txt
+research/ocp-candidates/inspection/*.png
+research/ocp-candidates/inspection/*.html
+research/ocp-candidates/inspection/*.pdf
+
+**/.venv/
+**/__pycache__/

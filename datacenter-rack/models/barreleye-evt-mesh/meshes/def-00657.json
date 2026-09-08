@@ -1,0 +1,25 @@
+{
+  "id": "def-00657",
+  "label": "0:1:1:885",
+  "name": "8_LABLE-DIMM-CPU_POWER9",
+  "color_rgba": null,
+  "topological_faces": 12,
+  "missing_faces": 0,
+  "vertices": 364,
+  "triangles": 340,
+  "bounds_m": [
+    [
+      -0.029999999329447746,
+      0.0018700000364333391,
+      -0.027499999850988388
+    ],
+    [
+      0.029999999329447746,
+      0.0020000000949949026,
+      0.027499999850988388
+    ]
+  ],
+  "mesh_path": "meshes/def-00657.npz",
+  "mesh_sha256": "e57bbc98d07503449270875f9c4a2574588bcb502e01c48823fd9601579a0223",
+  "tessellation_seconds": 0.009705125004984438
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00490",
+  "label": "0:1:1:658",
+  "name": "6_SATA22P-MALE_ZUS",
+  "color_rgba": null,
+  "topological_faces": 473,
+  "missing_faces": 0,
+  "vertices": 17930,
+  "triangles": 22212,
+  "bounds_m": [
+    [
+      -0.022450000047683716,
+      -0.005150000099092722,
+      -0.03610000014305115
+    ],
+    [
+      0.022450000047683716,
+      0.0011500000255182385,
+      0.005900000222027302
+    ]
+  ],
+  "mesh_path": "meshes/def-00490.npz",
+  "mesh_sha256": "fc5167dd211b25b1cde060eccab570d380558c1bb9245294a1c1bc6240a13fca",
+  "tessellation_seconds": 0.3465988750103861
+}

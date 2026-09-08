@@ -1,0 +1,25 @@
+{
+  "id": "def-00384",
+  "label": "0:1:1:522",
+  "name": "GD2-PCB-73140_1",
+  "color_rgba": null,
+  "topological_faces": 293,
+  "missing_faces": 0,
+  "vertices": 30818,
+  "triangles": 30452,
+  "bounds_m": [
+    [
+      -0.006974999792873859,
+      -0.0003100000030826777,
+      -0.022290000692009926
+    ],
+    [
+      0.006974999792873859,
+      0.0003100000030826777,
+      -0.002400000113993883
+    ]
+  ],
+  "mesh_path": "meshes/def-00384.npz",
+  "mesh_sha256": "acfcef6bf2a13f0d303e733452dd1e8b19c06dd1cedabc32c9a51daefcab8773",
+  "tessellation_seconds": 0.324804125004448
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00080",
+  "label": "0:1:1:120",
+  "name": "1_FAN-MODULE-SUP_POWER9",
+  "color_rgba": null,
+  "topological_faces": 400,
+  "missing_faces": 0,
+  "vertices": 13870,
+  "triangles": 15100,
+  "bounds_m": [
+    [
+      -0.03240000084042549,
+      -0.003599999938160181,
+      -0.06710000336170197
+    ],
+    [
+      0.03240000084042549,
+      0.014499999582767487,
+      0.0017999999690800905
+    ]
+  ],
+  "mesh_path": "meshes/def-00080.npz",
+  "mesh_sha256": "0814cebf7b5bece1ad259d34b1524a34645f025495e7f88013cb4022ca1265c1",
+  "tessellation_seconds": 0.22768204100430012
+}

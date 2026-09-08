@@ -1,0 +1,25 @@
+{
+  "id": "def-00583",
+  "label": "0:1:1:770",
+  "name": "9_STD_HOLE-BP_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 15,
+  "missing_faces": 0,
+  "vertices": 1502,
+  "triangles": 1516,
+  "bounds_m": [
+    [
+      -0.0035000001080334187,
+      0.0008999999845400453,
+      -0.0035000001080334187
+    ],
+    [
+      0.0035000001080334187,
+      0.00559999980032444,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00583.npz",
+  "mesh_sha256": "dd2c11643edf7f44d54b77ea8d3ec23d4b3ff2f2ac317c233c7e954602e87f65",
+  "tessellation_seconds": 0.01624429097864777
+}

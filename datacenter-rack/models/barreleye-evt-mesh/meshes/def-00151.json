@@ -1,0 +1,25 @@
+{
+  "id": "def-00151",
+  "label": "0:1:1:200",
+  "name": "CM-87898-0656_ASM",
+  "color_rgba": null,
+  "topological_faces": 281,
+  "missing_faces": 0,
+  "vertices": 14056,
+  "triangles": 21348,
+  "bounds_m": [
+    [
+      0.025889230892062187,
+      0.07965432852506638,
+      -0.0004799999878741801
+    ],
+    [
+      0.041129231452941895,
+      0.08445432782173157,
+      0.010329999960958958
+    ]
+  ],
+  "mesh_path": "meshes/def-00151.npz",
+  "mesh_sha256": "12fd5ffad5467caca829e69d32ab5d8b40805630d2e92f39cdd6bc9e022cd7fd",
+  "tessellation_seconds": 0.20311529096215963
+}

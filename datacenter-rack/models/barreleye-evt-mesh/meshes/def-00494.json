@@ -1,0 +1,25 @@
+{
+  "id": "def-00494",
+  "label": "0:1:1:662",
+  "name": "HDB15_MOLD",
+  "color_rgba": null,
+  "topological_faces": 1417,
+  "missing_faces": 0,
+  "vertices": 106262,
+  "triangles": 128172,
+  "bounds_m": [
+    [
+      -0.015399999916553497,
+      -0.004749999847263098,
+      -0.03454999998211861
+    ],
+    [
+      0.015399999916553497,
+      0.004749999847263098,
+      0.007550000213086605
+    ]
+  ],
+  "mesh_path": "meshes/def-00494.npz",
+  "mesh_sha256": "b5da1fccd0e4739026cb3a70a6347e941fef9e95a00c9f4ee27967d17b98ccce",
+  "tessellation_seconds": 1.2857490830356255
+}

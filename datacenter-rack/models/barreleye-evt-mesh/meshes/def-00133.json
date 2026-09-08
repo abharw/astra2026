@@ -1,0 +1,25 @@
+{
+  "id": "def-00133",
+  "label": "0:1:1:181",
+  "name": "LD2822-S04-3D_ZUS",
+  "color_rgba": null,
+  "topological_faces": 1615,
+  "missing_faces": 0,
+  "vertices": 33616,
+  "triangles": 30630,
+  "bounds_m": [
+    [
+      -0.021364999935030937,
+      -0.011850000359117985,
+      -0.0024999999441206455
+    ],
+    [
+      0.021364999935030937,
+      0.0017000000225380063,
+      0.0024999999441206455
+    ]
+  ],
+  "mesh_path": "meshes/def-00133.npz",
+  "mesh_sha256": "4cac5a56cd5d22150095093c7bdd549dda1d06c264f1d09e97794bf824e848f6",
+  "tessellation_seconds": 0.8095332920784131
+}

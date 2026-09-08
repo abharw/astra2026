@@ -1,0 +1,25 @@
+{
+  "id": "def-00079",
+  "label": "0:1:1:119",
+  "name": "8_MYLAR-P100-HSK_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.1665000021457672,
+      0.0,
+      -0.05000000074505806
+    ],
+    [
+      0.1665000021457672,
+      0.00013000000035390258,
+      0.05999999865889549
+    ]
+  ],
+  "mesh_path": "meshes/def-00079.npz",
+  "mesh_sha256": "5bbba50e976a99eafc7dea6deb189ad3da7ba45bcf49fce524e44b5fdaec819a",
+  "tessellation_seconds": 0.006944624939933419
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00609",
+  "label": "0:1:1:818",
+  "name": "9_PIN-FAN-D3-NEW_POWER9",
+  "color_rgba": null,
+  "topological_faces": 16,
+  "missing_faces": 0,
+  "vertices": 962,
+  "triangles": 1048,
+  "bounds_m": [
+    [
+      -0.0023094010539352894,
+      0.0,
+      -0.0020000000949949026
+    ],
+    [
+      0.0023094010539352894,
+      0.010999999940395355,
+      0.0020000000949949026
+    ]
+  ],
+  "mesh_path": "meshes/def-00609.npz",
+  "mesh_sha256": "b435f67052c65f55154a0ea92b05b3d11b2fb05807f12e72d4401c3491259999",
+  "tessellation_seconds": 0.015744333039037883
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01205",
+  "label": "0:1:1:1514",
+  "name": "4_POST-CARD_POWER9",
+  "color_rgba": null,
+  "topological_faces": 20,
+  "missing_faces": 0,
+  "vertices": 1028,
+  "triangles": 992,
+  "bounds_m": [
+    [
+      -0.008849999867379665,
+      -0.01001800037920475,
+      0.0
+    ],
+    [
+      0.01298999972641468,
+      0.007000000216066837,
+      0.0007315200055018067
+    ]
+  ],
+  "mesh_path": "meshes/def-01205.npz",
+  "mesh_sha256": "3ac071422eb3559f61f41ac016acb7222a125560e8221eef003210db83e7a0eb",
+  "tessellation_seconds": 0.023618333041667938
+}

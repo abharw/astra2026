@@ -1,0 +1,25 @@
+{
+  "id": "def-00493",
+  "label": "0:1:1:661",
+  "name": "6_PLUG_VGA-JPC_ZUS",
+  "color_rgba": null,
+  "topological_faces": 287,
+  "missing_faces": 0,
+  "vertices": 13090,
+  "triangles": 13164,
+  "bounds_m": [
+    [
+      -0.017249999567866325,
+      -0.00800000037997961,
+      -0.07400000095367432
+    ],
+    [
+      0.017249999567866325,
+      0.00800000037997961,
+      0.005799999926239252
+    ]
+  ],
+  "mesh_path": "meshes/def-00493.npz",
+  "mesh_sha256": "aff3ce6f33dddca1b97a7dd51d3b35dee106f2221efebb83e52dbfdd99c24a26",
+  "tessellation_seconds": 0.21107466600369662
+}

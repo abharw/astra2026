@@ -1,0 +1,25 @@
+{
+  "id": "def-00047",
+  "label": "0:1:1:78",
+  "name": "LED_2_CABLE-2OU_POWER9",
+  "color_rgba": null,
+  "topological_faces": 54,
+  "missing_faces": 0,
+  "vertices": 69235,
+  "triangles": 132358,
+  "bounds_m": [
+    [
+      -0.017999999225139618,
+      -0.011147326789796352,
+      -0.0020000000949949026
+    ],
+    [
+      0.007047940976917744,
+      0.006000000052154064,
+      0.11126027256250381
+    ]
+  ],
+  "mesh_path": "meshes/def-00047.npz",
+  "mesh_sha256": "440087e05a99f693e49a42abb0b635d278218f387f489e06a3b59cda324c7bf0",
+  "tessellation_seconds": 0.6303295829566196
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01153",
+  "label": "0:1:1:1442",
+  "name": "PCIE_X16_CARD_EDGE",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.02565000019967556,
+      -0.0035000001080334187,
+      0.0
+    ],
+    [
+      0.05835000053048134,
+      0.0023499999660998583,
+      0.0010000000474974513
+    ]
+  ],
+  "mesh_path": "meshes/def-01153.npz",
+  "mesh_sha256": "da7ff28cea5815a5b0b4b3ae50b33c3f36598dbff21a0604c99201fc3320c9b5",
+  "tessellation_seconds": 0.007417083019390702
+}

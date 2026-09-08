@@ -1,0 +1,25 @@
+{
+  "id": "def-00232",
+  "label": "0:1:1:298",
+  "name": "64POS-PLUG4_1",
+  "color_rgba": null,
+  "topological_faces": 1376,
+  "missing_faces": 0,
+  "vertices": 12170,
+  "triangles": 11176,
+  "bounds_m": [
+    [
+      -0.015699999406933784,
+      -0.000699999975040555,
+      -0.003000000026077032
+    ],
+    [
+      0.015699999406933784,
+      0.0076500000432133675,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00232.npz",
+  "mesh_sha256": "6aff3f871d70ac696428c1ffe0bdd9d9cbbe56c19b1769ffe516aa3e543e23ef",
+  "tessellation_seconds": 0.6647990000201389
+}

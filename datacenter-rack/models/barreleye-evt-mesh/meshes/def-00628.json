@@ -1,0 +1,25 @@
+{
+  "id": "def-00628",
+  "label": "0:1:1:840",
+  "name": "LSISAS-35X48-12GBS_POWER9",
+  "color_rgba": null,
+  "topological_faces": 31,
+  "missing_faces": 0,
+  "vertices": 864,
+  "triangles": 892,
+  "bounds_m": [
+    [
+      -0.014499999582767487,
+      0.0,
+      -0.014499999582767487
+    ],
+    [
+      0.014499999582767487,
+      0.0024999999441206455,
+      0.014499999582767487
+    ]
+  ],
+  "mesh_path": "meshes/def-00628.npz",
+  "mesh_sha256": "38b64f59c7461efa038d4eff9a2edc53b923c9f6799e1ac75e9413e5cd68cab4",
+  "tessellation_seconds": 0.023889082949608564
+}

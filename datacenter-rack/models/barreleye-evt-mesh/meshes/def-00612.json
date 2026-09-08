@@ -1,0 +1,25 @@
+{
+  "id": "def-00612",
+  "label": "0:1:1:822",
+  "name": "1_FAN-CAGE-LATCH_RAX_AF0",
+  "color_rgba": null,
+  "topological_faces": 134,
+  "missing_faces": 0,
+  "vertices": 17227,
+  "triangles": 27280,
+  "bounds_m": [
+    [
+      -0.0030398410744965076,
+      -0.05976073816418648,
+      -0.012600000016391277
+    ],
+    [
+      0.002261925721541047,
+      -1.7043761545210145e-05,
+      0.0015999999595806003
+    ]
+  ],
+  "mesh_path": "meshes/def-00612.npz",
+  "mesh_sha256": "8fdd6c324e70a67cab188c66e2432738442da54b9c19d8e1197e29c282cd7b2a",
+  "tessellation_seconds": 0.1806383749935776
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00449",
+  "label": "0:1:1:605",
+  "name": "4_POST-CARD_ZUS",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.008500000461935997,
+      0.0,
+      -0.014999999664723873
+    ],
+    [
+      0.008500000461935997,
+      0.0015999999595806003,
+      0.014999999664723873
+    ]
+  ],
+  "mesh_path": "meshes/def-00449.npz",
+  "mesh_sha256": "4a1f37c611061dd24d8f2c0524c78a0ee45093d90914e931e6808b50d358035d",
+  "tessellation_seconds": 0.008767541963607073
+}

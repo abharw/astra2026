@@ -1,0 +1,25 @@
+{
+  "id": "def-00619",
+  "label": "0:1:1:829",
+  "name": "SR-44Y-A",
+  "color_rgba": null,
+  "topological_faces": 18,
+  "missing_faces": 0,
+  "vertices": 2729,
+  "triangles": 3866,
+  "bounds_m": [
+    [
+      -0.0037499999161809683,
+      -0.009999999776482582,
+      -0.0037499999161809683
+    ],
+    [
+      0.0037499999161809683,
+      0.0024002946447581053,
+      0.0037499999161809683
+    ]
+  ],
+  "mesh_path": "meshes/def-00619.npz",
+  "mesh_sha256": "912bdf2c03f8cf8a0c72f9f14e642ecea7e15b99f55eebf1c6ef0a5edd2aa45c",
+  "tessellation_seconds": 0.028471500030718744
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00248",
+  "label": "0:1:1:318",
+  "name": "R12-LED_LEFT_1",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.001550000044517219,
+      -0.0009500000160187483,
+      0.0
+    ],
+    [
+      0.001550000044517219,
+      0.0009500000160187483,
+      0.00419999985024333
+    ]
+  ],
+  "mesh_path": "meshes/def-00248.npz",
+  "mesh_sha256": "ece648961545849fdf2f5a4d6553c3172ed1a4017eba3a65096e54fd7885eee4",
+  "tessellation_seconds": 0.003566416911780834
+}

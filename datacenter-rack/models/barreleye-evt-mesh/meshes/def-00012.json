@@ -1,0 +1,25 @@
+{
+  "id": "def-00012",
+  "label": "0:1:1:24",
+  "name": "HANE-37_2011_03_04_",
+  "color_rgba": null,
+  "topological_faces": 43,
+  "missing_faces": 0,
+  "vertices": 1754,
+  "triangles": 2368,
+  "bounds_m": [
+    [
+      4.060374405407893e-14,
+      0.0,
+      0.0005000000237487257
+    ],
+    [
+      0.012299999594688416,
+      0.00480517977848649,
+      0.016499999910593033
+    ]
+  ],
+  "mesh_path": "meshes/def-00012.npz",
+  "mesh_sha256": "0c0de2643352c6cec312eead1b01e17d7d1b68830d372a8b422e47592b10e142",
+  "tessellation_seconds": 0.028268166002817452
+}

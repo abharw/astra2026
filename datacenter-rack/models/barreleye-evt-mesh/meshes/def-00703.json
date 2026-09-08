@@ -1,0 +1,25 @@
+{
+  "id": "def-00703",
+  "label": "0:1:1:955",
+  "name": "HOUSING_23",
+  "color_rgba": null,
+  "topological_faces": 1641,
+  "missing_faces": 0,
+  "vertices": 12974,
+  "triangles": 10362,
+  "bounds_m": [
+    [
+      -0.01940000057220459,
+      -0.01655000075697899,
+      -0.0037499999161809683
+    ],
+    [
+      0.07940000295639038,
+      0.0,
+      0.005100000184029341
+    ]
+  ],
+  "mesh_path": "meshes/def-00703.npz",
+  "mesh_sha256": "1b81e413e61410a89845574c20acb1033e386a25b4f74053fd33016490d14a1e",
+  "tessellation_seconds": 1.154787665931508
+}

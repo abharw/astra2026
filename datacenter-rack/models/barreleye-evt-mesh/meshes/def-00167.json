@@ -1,0 +1,25 @@
+{
+  "id": "def-00167",
+  "label": "0:1:1:221",
+  "name": "FOXCONN_HYBRID3899_HOUSING_2014",
+  "color_rgba": null,
+  "topological_faces": 3722,
+  "missing_faces": 0,
+  "vertices": 54412,
+  "triangles": 51184,
+  "bounds_m": [
+    [
+      -0.03725000098347664,
+      -0.03725000098347664,
+      -0.0024399999529123306
+    ],
+    [
+      0.03725000098347664,
+      0.03725000098347664,
+      0.0005099999834783375
+    ]
+  ],
+  "mesh_path": "meshes/def-00167.npz",
+  "mesh_sha256": "9faade938a0c5c405e590f9c44dc749fe93ed64a192684d1a78ff9db77a97ab7",
+  "tessellation_seconds": 1.9031192910624668
+}

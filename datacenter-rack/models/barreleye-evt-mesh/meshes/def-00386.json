@@ -1,0 +1,25 @@
+{
+  "id": "def-00386",
+  "label": "0:1:1:525",
+  "name": "PORTION_MB_LEOPARD_E1_FILLED_2",
+  "color_rgba": null,
+  "topological_faces": 34,
+  "missing_faces": 0,
+  "vertices": 1896,
+  "triangles": 1844,
+  "bounds_m": [
+    [
+      0.026149999350309372,
+      -0.00215999991632998,
+      -0.5080000162124634
+    ],
+    [
+      0.12786999344825745,
+      0.0,
+      -0.4180000126361847
+    ]
+  ],
+  "mesh_path": "meshes/def-00386.npz",
+  "mesh_sha256": "9eec3e19c7616f330f9027ceae8dcaca2c90b5be3681759eac5515435ef3e365",
+  "tessellation_seconds": 0.030658583040349185
+}

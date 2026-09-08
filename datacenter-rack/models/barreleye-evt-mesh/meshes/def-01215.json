@@ -1,0 +1,25 @@
+{
+  "id": "def-01215",
+  "label": "0:1:1:1528",
+  "name": "_ESQ-104-33-G-D-LL_BPINS",
+  "color_rgba": null,
+  "topological_faces": 110,
+  "missing_faces": 0,
+  "vertices": 600,
+  "triangles": 396,
+  "bounds_m": [
+    [
+      0.00012700000661425292,
+      0.0,
+      -0.0025400000158697367
+    ],
+    [
+      0.010286999866366386,
+      0.007619999814778566,
+      0.0025400000158697367
+    ]
+  ],
+  "mesh_path": "meshes/def-01215.npz",
+  "mesh_sha256": "2ff8b1e74b9b718d937aada490093ec8b92df185d5f5e7c74431d08792efaf11",
+  "tessellation_seconds": 0.10153037507552654
+}

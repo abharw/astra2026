@@ -1,0 +1,25 @@
+{
+  "id": "def-00601",
+  "label": "0:1:1:791",
+  "name": "K8398-SAS-15MM",
+  "color_rgba": null,
+  "topological_faces": 57,
+  "missing_faces": 0,
+  "vertices": 4828,
+  "triangles": 5324,
+  "bounds_m": [
+    [
+      -0.03492499887943268,
+      0.0,
+      -0.10000000149011612
+    ],
+    [
+      0.03492499887943268,
+      0.014999999664723873,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00601.npz",
+  "mesh_sha256": "731e7c93fc626595cae191c77dc252ee890206821c3f63b87ca3639f0695d850",
+  "tessellation_seconds": 0.05907812505029142
+}

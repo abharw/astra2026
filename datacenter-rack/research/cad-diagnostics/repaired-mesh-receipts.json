@@ -1,0 +1,122 @@
+[
+  {
+    "definition_id": "def-00186",
+    "source_mesh_sha256": "ff938f4ef7db5e8a6a68b48ed1c2a1a017c1d3d286225bc98c0be95d8ba2f7c4",
+    "derivative_mesh": "repaired-meshes/def-00186.npz",
+    "derivative_mesh_sha256": "3bfe87bc5089877e0fec72e5c1b9d53bd78b950d08f4cb643ba4983e413b1c2a",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 2,
+    "added_triangles": 869,
+    "remaining_untriangulated_faces": 0,
+    "patch_faces": [
+      4,
+      10
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00393",
+    "source_mesh_sha256": "f27f9b7f149b25c370c0f5065e5c164ae1584d10ffede1cb35b0764471b6470d",
+    "derivative_mesh": "repaired-meshes/def-00393.npz",
+    "derivative_mesh_sha256": "210fa754b3379ef1e2f433f3e3723b6d8c97ca78ef68f0d28ca9ca03d9060ba8",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 4,
+    "added_triangles": 24,
+    "remaining_untriangulated_faces": 12,
+    "patch_faces": [
+      1048,
+      1118,
+      1189,
+      1259
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00403",
+    "source_mesh_sha256": "5169a901e7973267483e621546e4d8127e9ec2e324ec845933608b10077c2778",
+    "derivative_mesh": "repaired-meshes/def-00403.npz",
+    "derivative_mesh_sha256": "324f4d971a67dbc639c40ae9cf8ed582723e818822ad51e4ed0338d5a2840fc9",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 2,
+    "added_triangles": 12,
+    "remaining_untriangulated_faces": 7,
+    "patch_faces": [
+      2606,
+      2677
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00428",
+    "source_mesh_sha256": "5766d6f3264592eb2ef11dab7fe711d5b2901aa4ccb513beaeae972258f409bc",
+    "derivative_mesh": "repaired-meshes/def-00428.npz",
+    "derivative_mesh_sha256": "8842cb11e8c4651070635b2540c97484d74ef0bfbf3e2cae54f391d56d1eb510",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 1,
+    "added_triangles": 51,
+    "remaining_untriangulated_faces": 0,
+    "patch_faces": [
+      100
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00501",
+    "source_mesh_sha256": "68b412b66508492ca6024c7d3b85290784ee06a4fce3536283a8d6ce64d0dd99",
+    "derivative_mesh": "repaired-meshes/def-00501.npz",
+    "derivative_mesh_sha256": "3991642470353643624155383c86284d458c59c3c0f9c5ad26a22dabf5016b42",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 4,
+    "added_triangles": 24,
+    "remaining_untriangulated_faces": 14,
+    "patch_faces": [
+      1048,
+      1118,
+      1190,
+      1260
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00593",
+    "source_mesh_sha256": "0d6a1fa17ece232bce8cd9305bc0514b89b3af46261c627a1399208eb2138768",
+    "derivative_mesh": "repaired-meshes/def-00593.npz",
+    "derivative_mesh_sha256": "9df96e38f0386e42c7d696027f5af69043bbc89a044ca07d1fc6f3ed0d12e971",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 1,
+    "added_triangles": 490,
+    "remaining_untriangulated_faces": 0,
+    "patch_faces": [
+      128
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  },
+  {
+    "definition_id": "def-00597",
+    "source_mesh_sha256": "d088c949768312591d2177e1a259781dd070e7b2e451a1c824bdd249d209116e",
+    "derivative_mesh": "repaired-meshes/def-00597.npz",
+    "derivative_mesh_sha256": "17b99583141657810733ac59d86d81a6f1dea546c191f14fc6de2d05169419cc",
+    "original_vertex_prefix_preserved": true,
+    "original_triangle_prefix_preserved": true,
+    "original_material_prefix_preserved": true,
+    "added_faces": 1,
+    "added_triangles": 49,
+    "remaining_untriangulated_faces": 0,
+    "patch_faces": [
+      369
+    ],
+    "finish_note": "Neutral patch color: source face color unspecified."
+  }
+]

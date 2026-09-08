@@ -1,0 +1,25 @@
+{
+  "id": "def-00476",
+  "label": "0:1:1:640",
+  "name": "9_SCR_4-40",
+  "color_rgba": null,
+  "topological_faces": 29,
+  "missing_faces": 0,
+  "vertices": 2794,
+  "triangles": 3952,
+  "bounds_m": [
+    [
+      -0.002705099992454052,
+      -0.004241799935698509,
+      -0.002705099992454052
+    ],
+    [
+      0.002705099992454052,
+      0.001976273488253355,
+      0.002705099992454052
+    ]
+  ],
+  "mesh_path": "meshes/def-00476.npz",
+  "mesh_sha256": "e5db55c043b1aa1efcc838c4538b37b7ba2597c857ed8bf5e92d4a3ade172742",
+  "tessellation_seconds": 0.034374625072814524
+}

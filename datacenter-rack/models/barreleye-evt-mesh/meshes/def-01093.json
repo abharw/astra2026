@@ -1,0 +1,25 @@
+{
+  "id": "def-01093",
+  "label": "0:1:1:1357",
+  "name": "CMLB17095T-R21MHQ-2_1_PRT_1",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 440,
+  "triangles": 396,
+  "bounds_m": [
+    [
+      -0.008400000631809235,
+      -0.004399999976158142,
+      -0.0016662500565871596
+    ],
+    [
+      0.008400000631809235,
+      0.004399999976158142,
+      0.0030337499920278788
+    ]
+  ],
+  "mesh_path": "meshes/def-01093.npz",
+  "mesh_sha256": "355481254a9ab35776840d364e50685585350208e7a7fbce54242abca89fb48f",
+  "tessellation_seconds": 0.020863500074483454
+}

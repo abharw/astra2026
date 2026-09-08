@@ -1,0 +1,25 @@
+{
+  "id": "def-00592",
+  "label": "0:1:1:781",
+  "name": "2_FOXCONN-CARRIER_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 1348,
+  "missing_faces": 0,
+  "vertices": 190023,
+  "triangles": 289114,
+  "bounds_m": [
+    [
+      -0.007650000508874655,
+      -0.0382029227912426,
+      -0.0010000000474974513
+    ],
+    [
+      0.007650000508874655,
+      0.03823438659310341,
+      0.016599999740719795
+    ]
+  ],
+  "mesh_path": "meshes/def-00592.npz",
+  "mesh_sha256": "2cbfd99a505debc279830fbe13ea3608b43f927717337329b3bf9f34b013b713",
+  "tessellation_seconds": 1.9526372919790447
+}

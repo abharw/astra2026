@@ -1,0 +1,25 @@
+{
+  "id": "def-00101",
+  "label": "0:1:1:146",
+  "name": "8_MYLAR-FAN-CONNECTOR_POWER9",
+  "color_rgba": null,
+  "topological_faces": 26,
+  "missing_faces": 0,
+  "vertices": 144,
+  "triangles": 96,
+  "bounds_m": [
+    [
+      -0.01964999921619892,
+      -0.01269999984651804,
+      0.0
+    ],
+    [
+      0.021649999544024467,
+      0.013000000268220901,
+      0.0002500000118743628
+    ]
+  ],
+  "mesh_path": "meshes/def-00101.npz",
+  "mesh_sha256": "9255d9aa5423da9b979b7738670e8232c2eeb880bc634ed7794fe72f56160e87",
+  "tessellation_seconds": 0.013881290913559496
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00108",
+  "label": "0:1:1:156",
+  "name": "10124677_DDR4_SMT_155MM_ZUS",
+  "color_rgba": null,
+  "topological_faces": 1479,
+  "missing_faces": 0,
+  "vertices": 35312,
+  "triangles": 35032,
+  "bounds_m": [
+    [
+      -0.07737177610397339,
+      -0.004000000189989805,
+      -0.0032099999953061342
+    ],
+    [
+      0.07737177610397339,
+      0.019449999555945396,
+      0.0032099999953061342
+    ]
+  ],
+  "mesh_path": "meshes/def-00108.npz",
+  "mesh_sha256": "b06d5409e7524ff30e63ba38f40e7ba5a9cd0e9ed85317e02f657f035c3f014c",
+  "tessellation_seconds": 0.7454673328902572
+}

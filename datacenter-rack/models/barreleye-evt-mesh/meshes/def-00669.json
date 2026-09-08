@@ -1,0 +1,25 @@
+{
+  "id": "def-00669",
+  "label": "0:1:1:900",
+  "name": "G2-PIPE-A2_5",
+  "color_rgba": null,
+  "topological_faces": 26,
+  "missing_faces": 0,
+  "vertices": 7992,
+  "triangles": 13176,
+  "bounds_m": [
+    [
+      -0.030499858781695366,
+      0.0011999999405816197,
+      -0.02899985946714878
+    ],
+    [
+      0.030499858781695366,
+      0.06800000369548798,
+      -0.009499999694526196
+    ]
+  ],
+  "mesh_path": "meshes/def-00669.npz",
+  "mesh_sha256": "a53e3b3ef7b6c05e730f442ec3ebfbe0a191f96497c7d75504b1f731bc06eb9f",
+  "tessellation_seconds": 0.07153004105202854
+}

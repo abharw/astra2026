@@ -1,0 +1,25 @@
+{
+  "id": "def-00688",
+  "label": "0:1:1:931",
+  "name": "9_PIN_D3_H3_T0-8",
+  "color_rgba": null,
+  "topological_faces": 16,
+  "missing_faces": 0,
+  "vertices": 924,
+  "triangles": 972,
+  "bounds_m": [
+    [
+      -0.0023094010539352894,
+      0.0,
+      -0.0020000000949949026
+    ],
+    [
+      0.0023094010539352894,
+      0.003000000026077032,
+      0.0020000000949949026
+    ]
+  ],
+  "mesh_path": "meshes/def-00688.npz",
+  "mesh_sha256": "0e7ce45c9ffe6b84aa9d8f160717557e908acbe5e1f65d0ad8f1e518b149825c",
+  "tessellation_seconds": 0.01813570805825293
+}

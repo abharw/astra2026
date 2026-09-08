@@ -1,0 +1,25 @@
+{
+  "id": "def-00118",
+  "label": "0:1:1:166",
+  "name": "TL1015AF160QG_ZUS",
+  "color_rgba": null,
+  "topological_faces": 231,
+  "missing_faces": 0,
+  "vertices": 10514,
+  "triangles": 13044,
+  "bounds_m": [
+    [
+      0.0,
+      0.0005499999970197678,
+      -0.0044999998062849045
+    ],
+    [
+      0.002899999963119626,
+      0.0025500000920146704,
+      1.7394419788886056e-16
+    ]
+  ],
+  "mesh_path": "meshes/def-00118.npz",
+  "mesh_sha256": "52850c735ca2a1b4c2486bb425ab8c6f174894795e2b296b8376cbe4c16305a7",
+  "tessellation_seconds": 0.1575516249286011
+}

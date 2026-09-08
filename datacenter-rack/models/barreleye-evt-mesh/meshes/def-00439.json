@@ -1,0 +1,25 @@
+{
+  "id": "def-00439",
+  "label": "0:1:1:594",
+  "name": "4_PCB-LOM-VGA_ZUS",
+  "color_rgba": null,
+  "topological_faces": 12,
+  "missing_faces": 0,
+  "vertices": 676,
+  "triangles": 656,
+  "bounds_m": [
+    [
+      -0.012640000320971012,
+      0.0,
+      -0.022724999114871025
+    ],
+    [
+      0.012640000320971012,
+      0.0015699999639764428,
+      0.01772500015795231
+    ]
+  ],
+  "mesh_path": "meshes/def-00439.npz",
+  "mesh_sha256": "2e163b7d76f234bd87262a7cd303ed9249da412b1711d60e0ec6beb05166fe7e",
+  "tessellation_seconds": 0.011852041934616864
+}

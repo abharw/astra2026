@@ -1,0 +1,25 @@
+{
+  "id": "def-00026",
+  "label": "0:1:1:47",
+  "name": "1_MI-BALL-BKT-1U_L_POWR9",
+  "color_rgba": null,
+  "topological_faces": 1153,
+  "missing_faces": 0,
+  "vertices": 122327,
+  "triangles": 180942,
+  "bounds_m": [
+    [
+      -0.006198159419000149,
+      -0.013092842884361744,
+      -0.5353000164031982
+    ],
+    [
+      -0.0009138515451923013,
+      0.013092842884361744,
+      -0.23149999976158142
+    ]
+  ],
+  "mesh_path": "meshes/def-00026.npz",
+  "mesh_sha256": "1bd998f81e09fe43d5688cdf85c8b272bd697c37c6aec9a3f53856b995fbe7bf",
+  "tessellation_seconds": 1.1428047920344397
+}

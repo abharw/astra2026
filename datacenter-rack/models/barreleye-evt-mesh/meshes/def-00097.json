@@ -1,0 +1,25 @@
+{
+  "id": "def-00097",
+  "label": "0:1:1:141",
+  "name": "KAPTON_TAPE_1",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.009999999776482582
+    ],
+    [
+      0.008999999612569809,
+      9.999999747378752e-05,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00097.npz",
+  "mesh_sha256": "1d5612c76fea17b0e4b191e93104cf59ac36a4e5c59ad5a11f2526b0b5cffd0d",
+  "tessellation_seconds": 0.004639083053916693
+}

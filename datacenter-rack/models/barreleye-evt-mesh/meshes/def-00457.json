@@ -1,0 +1,25 @@
+{
+  "id": "def-00457",
+  "label": "0:1:1:616",
+  "name": "POST_CARD_0108_ASM",
+  "color_rgba": null,
+  "topological_faces": 253,
+  "missing_faces": 0,
+  "vertices": 2678,
+  "triangles": 2196,
+  "bounds_m": [
+    [
+      -0.0026034999173134565,
+      -0.016510000452399254,
+      -0.008508999831974506
+    ],
+    [
+      0.014414500445127487,
+      0.00533400010317564,
+      0.0022301198914647102
+    ]
+  ],
+  "mesh_path": "meshes/def-00457.npz",
+  "mesh_sha256": "61052004d309c32ab86a66a63cf314322905c65a15c61f68ce5585c9f69ac073",
+  "tessellation_seconds": 0.14222791697829962
+}

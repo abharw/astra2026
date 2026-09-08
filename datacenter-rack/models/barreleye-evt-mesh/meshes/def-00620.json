@@ -1,0 +1,25 @@
+{
+  "id": "def-00620",
+  "label": "0:1:1:830",
+  "name": "2_FLAPPER_POWER9",
+  "color_rgba": null,
+  "topological_faces": 95,
+  "missing_faces": 0,
+  "vertices": 5158,
+  "triangles": 6108,
+  "bounds_m": [
+    [
+      0.002300000051036477,
+      -0.031099999323487282,
+      -0.0010000000474974513
+    ],
+    [
+      0.03240000084042549,
+      0.031099999323487282,
+      0.0022000360768288374
+    ]
+  ],
+  "mesh_path": "meshes/def-00620.npz",
+  "mesh_sha256": "dbe08902f9c32efe1886e3531f7edccfb8aaee814f011861495a3613e22f8b56",
+  "tessellation_seconds": 0.08541208400856704
+}

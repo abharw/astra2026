@@ -1,0 +1,25 @@
+{
+  "id": "def-00075",
+  "label": "0:1:1:115",
+  "name": "9_STD-GUIDE-BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 19,
+  "missing_faces": 0,
+  "vertices": 1902,
+  "triangles": 1984,
+  "bounds_m": [
+    [
+      -0.0035000001080334187,
+      0.0,
+      -0.0035000001080334187
+    ],
+    [
+      0.0035000001080334187,
+      0.004350000526756048,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00075.npz",
+  "mesh_sha256": "c601a60d90452e2ebc8fb05e10433f7c2de59841ca29e5dfd1898256320e7b58",
+  "tessellation_seconds": 0.018284250050783157
+}

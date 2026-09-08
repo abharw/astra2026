@@ -1,0 +1,50 @@
+[
+  {
+    "file": "inspection/evt-component-placement-bom.json",
+    "bytes": 15439649,
+    "sha256": "4966cdc3ac0ae8be4e4891ac583f783067a6020c029fdbe21df591efba5d095e",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-bom-primary-items.json",
+    "bytes": 153582,
+    "sha256": "61a3a77763446e63f05a8d76a12530e5927bd09bdd9d041d96e0fdc8f7b25340",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-odb-placement-bom.json",
+    "bytes": 20345110,
+    "sha256": "140e000ce825092a9cd441f7ab1fffc5759b42e0ca71ae49102b42ffe6a32a22",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-component-centers.json",
+    "bytes": 2156000,
+    "sha256": "635fe95451015380d710538fa2a2556cf20f370a07a790bc5683cc0a11cbb5e7",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-odb-package-bounds.json",
+    "bytes": 49802,
+    "sha256": "40d61bc82b37b0dbc85934111b191179c52823143c873c7607b870e082d3dec6",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-odb-components.json",
+    "bytes": 7054049,
+    "sha256": "ad1e915585e8711e9b38d1f4c350abe5d22c3e9853f75d36ea60983899ab9de7",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-bom-depop-refdes.json",
+    "bytes": 11362,
+    "sha256": "46dca5373760e05897793e260020a5e3d8ae3b184e210e3c75679b8b77b715ef",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  },
+  {
+    "file": "inspection/evt-odb-summary.json",
+    "bytes": 300,
+    "sha256": "5db8f7ba3fc5df4d330f61002b54a71da13f89c5afcced0305dcdcf1f20471e7",
+    "provenance": "Derived from tracked EVT originals; see findings.md/scripts/actions.jsonl"
+  }
+]

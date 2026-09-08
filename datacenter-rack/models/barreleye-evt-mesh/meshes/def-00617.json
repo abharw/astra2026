@@ -1,0 +1,25 @@
+{
+  "id": "def-00617",
+  "label": "0:1:1:827",
+  "name": "9_LED-HOLDER_STRYPER",
+  "color_rgba": null,
+  "topological_faces": 82,
+  "missing_faces": 0,
+  "vertices": 2488,
+  "triangles": 2400,
+  "bounds_m": [
+    [
+      -0.002749999985098839,
+      -0.005900000222027302,
+      -0.002749999985098839
+    ],
+    [
+      0.002749999985098839,
+      0.0,
+      0.002749999985098839
+    ]
+  ],
+  "mesh_path": "meshes/def-00617.npz",
+  "mesh_sha256": "90174bc8fb7a4d0c364e4db08f67fa24141b5d06a9e879692f833d91c672cf29",
+  "tessellation_seconds": 0.06165416701696813
+}

@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "asset_id": "server.mechanical",
+      "collection": "DETAIL \u00b7 server.mechanical",
+      "library": "fixture-parts.blend",
+      "description": "Explicit isolated test fixture"
+    },
+    {
+      "asset_id": "server.motherboard",
+      "collection": "DETAIL \u00b7 server.motherboard",
+      "library": "fixture-parts.blend",
+      "description": "Explicit isolated test fixture"
+    },
+    {
+      "asset_id": "server.memory",
+      "collection": "DETAIL \u00b7 server.memory",
+      "library": "fixture-parts.blend",
+      "description": "Explicit isolated test fixture"
+    },
+    {
+      "asset_id": "processor.study",
+      "collection": "DETAIL \u00b7 processor.study",
+      "library": "fixture-parts.blend",
+      "description": "Explicit isolated test fixture"
+    }
+  ]
+}

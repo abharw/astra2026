@@ -1,0 +1,25 @@
+{
+  "id": "def-00208",
+  "label": "0:1:1:271",
+  "name": "M-U90-A111-1001-REVT1_1",
+  "color_rgba": null,
+  "topological_faces": 428,
+  "missing_faces": 0,
+  "vertices": 9164,
+  "triangles": 8356,
+  "bounds_m": [
+    [
+      -0.010405000299215317,
+      -0.029362499713897705,
+      -0.002725000027567148
+    ],
+    [
+      0.010405000299215317,
+      0.029362499713897705,
+      0.010180000215768814
+    ]
+  ],
+  "mesh_path": "meshes/def-00208.npz",
+  "mesh_sha256": "6ce6b318d7de7ec49b92fd4f131b48f84fd17bea10b90f6e1b010756148a81a5",
+  "tessellation_seconds": 0.23219600005540997
+}

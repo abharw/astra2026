@@ -1,0 +1,75 @@
+00:00.802  blend            | Read blend: "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/datacenter-rack-v002.blend"
+SAVED_LAZY_LIBRARY 137229178
+EXTERIOR_SELECTION 199
+MERGE_PROGRESS server.exterior.surface 25 199
+MERGE_PROGRESS server.exterior.surface 50 199
+MERGE_PROGRESS server.exterior.surface 75 199
+MERGE_PROGRESS server.exterior.surface 100 199
+MERGE_PROGRESS server.exterior.surface 125 199
+MERGE_PROGRESS server.exterior.surface 150 199
+MERGE_PROGRESS server.exterior.surface 175 199
+EXTERIOR_READY {'source_objects': 199, 'source_triangles': 5923075, 'exterior_triangles': 129331, 'vertices': 59416}
+MERGE_PROGRESS rack01.structure 25 158
+MERGE_PROGRESS rack01.structure 50 158
+MERGE_PROGRESS rack01.structure 75 158
+MERGE_PROGRESS rack01.structure 100 158
+MERGE_PROGRESS rack01.structure 125 158
+MERGE_PROGRESS rack01.structure 150 158
+MERGE_PROGRESS rack01.retention 25 180
+MERGE_PROGRESS rack01.retention 50 180
+MERGE_PROGRESS rack01.retention 75 180
+MERGE_PROGRESS rack01.retention 100 180
+MERGE_PROGRESS rack01.retention 125 180
+MERGE_PROGRESS rack01.retention 150 180
+MERGE_PROGRESS rack01.retention 175 180
+MERGE_PROGRESS rack01.supports 25 76
+MERGE_PROGRESS rack01.supports 50 76
+MERGE_PROGRESS rack01.supports 75 76
+MERGE_PROGRESS rack01.hardware 25 94
+MERGE_PROGRESS rack01.hardware 50 94
+MERGE_PROGRESS rack01.hardware 75 94
+MERGE_PROGRESS rack01.power 25 46
+MERGE_PROGRESS rack01.psu.06 25 28
+MERGE_PROGRESS rack01.psu.05 25 28
+MERGE_PROGRESS rack01.psu.04 25 28
+MERGE_PROGRESS rack01.psu.03 25 28
+MERGE_PROGRESS rack01.psu.02 25 28
+MERGE_PROGRESS rack01.psu.01 25 28
+MERGE_PROGRESS rack01.labels 25 84
+MERGE_PROGRESS rack01.labels 50 84
+MERGE_PROGRESS rack01.labels 75 84
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 25 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 50 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 75 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 100 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 125 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 150 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 175 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 200 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 225 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 250 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 275 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 300 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 325 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 350 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 375 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 400 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 425 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 450 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 475 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 500 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 525 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 550 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 575 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 600 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 625 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 650 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 675 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 700 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 725 771
+MERGE_PROGRESS rack01.management.patch-panel-and-plugs 750 771
+Info: Saved as "rack-exterior.blend"
+LAZY_PACKAGE_COMPLETE {"schema": "rack-exterior-package/v1", "initial_file_bytes": 11199741, "detail_library_bytes": 137229178, "initial_objects": 80, "initial_meshes": 21, "initial_scenes": ["Rack Lab \u00b7 exterior only"], "loaded_detail_collections": [], "server_exterior": {"source_objects": 199, "source_triangles": 5923075, "exterior_triangles": 129331, "vertices": 59416}, "rack_groups": {"structure": {"source_objects": 158, "source_triangles": 28936, "exterior_triangles": 28936, "vertices": 14784}, "retention": {"source_objects": 180, "source_triangles": 215120, "exterior_triangles": 215120, "vertices": 106280}, "supports": {"source_objects": 76, "source_triangles": 8208, "exterior_triangles": 8208, "vertices": 4256}, "hardware": {"source_objects": 94, "source_triangles": 15416, "exterior_triangles": 15416, "vertices": 7896}, "psu.06": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "psu.05": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "psu.04": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "psu.03": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "psu.02": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "psu.01": {"source_objects": 28, "source_triangles": 10680, "exterior_triangles": 10680, "vertices": 5272}, "power": {"source_objects": 46, "source_triangles": 104592, "exterior_triangles": 104592, "vertices": 50810}, "labels": {"source_objects": 84, "source_triangles": 59636, "exterior_triangles": 59636, "vertices": 60084}, "management": {"source_objects": 771, "source_triangles": 111708, "exterior_triangles": 111708, "vertices": 74708}}, "seconds": 321.02561762498226}
+Blender 5.3.0 Alpha (hash baf26f9a6b9b built 2026-09-07 01:31:10)
+
+Blender quit

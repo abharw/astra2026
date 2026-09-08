@@ -1,0 +1,25 @@
+{
+  "id": "def-01239",
+  "label": "0:1:1:1564",
+  "name": "1_WASHER-BUSBAR-CLIP_POWER9",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 648,
+  "triangles": 640,
+  "bounds_m": [
+    [
+      -0.008999999612569809,
+      -0.008999999612569809,
+      0.0
+    ],
+    [
+      0.008999999612569809,
+      0.008999999612569809,
+      0.0006000000284984708
+    ]
+  ],
+  "mesh_path": "meshes/def-01239.npz",
+  "mesh_sha256": "4d7026227cb781003222d1b81218757d3f5b332ef30ebc704e7c36990345ebc3",
+  "tessellation_seconds": 0.010441833990626037
+}

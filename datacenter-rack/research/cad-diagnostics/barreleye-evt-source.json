@@ -1,0 +1,17 @@
+{
+  "step": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/research/ocp-candidates/inspection/extracted/barreleye-EVT-detailed/00_server-2ou-tla-sku3_power9_asm.stp",
+  "step_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1",
+  "cache": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/cad-diagnostics/barreleye-evt-source.xbf",
+  "cache_sha256": "f1cd4434d57d1fda640335405bba5a02678db49749ec83ab5d80c225ee88a034",
+  "units": {
+    "file_length_units": [
+      "millimetre"
+    ],
+    "file_angle_units": [
+      "DEGREE"
+    ],
+    "reader_system_length_unit": 1.0
+  },
+  "cache_has_original_source_geometry": true,
+  "cached_before_any_diagnostic_tessellation": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00622",
+  "label": "0:1:1:832",
+  "name": "2_FAN-FLAPPER_SH",
+  "color_rgba": null,
+  "topological_faces": 111,
+  "missing_faces": 0,
+  "vertices": 6894,
+  "triangles": 7860,
+  "bounds_m": [
+    [
+      0.0024290475994348526,
+      -0.03169595077633858,
+      -0.000999916810542345
+    ],
+    [
+      0.02590000070631504,
+      0.03169595077633858,
+      0.0021998242009431124
+    ]
+  ],
+  "mesh_path": "meshes/def-00622.npz",
+  "mesh_sha256": "fab2eebc85b5ce19cb74383f4071f7c15ab8d3e93b380327960ce411d8b2820e",
+  "tessellation_seconds": 0.1053947500186041
+}

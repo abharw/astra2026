@@ -16,6 +16,10 @@ This is the **Akeil** development branch. `main` contains the requested initial 
 
 The physical phone saved a six-part speaker, then restored and autosaved the same room after app termination/relaunch. Four persistence tests and eight backend validation tests passed. This proves a same-location reopen, not guaranteed recognition after traveling elsewhere or precise visual registration to an object.
 
+## Rack Lab hardware library
+
+The [complete rack library](datacenter-rack/README.md) adds a pregenerated, editable server rack with demand-loaded mechanical parts, motherboard, memory and processor study. [Agents start here](datacenter-rack/docs/AGENT_USAGE.md); fetch binaries with `git lfs pull`.
+
 ## Start here
 
 - [Development journal: how we assembled this](docs/BUILD_JOURNAL.md)

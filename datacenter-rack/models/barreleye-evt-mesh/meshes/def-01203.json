@@ -1,0 +1,25 @@
+{
+  "id": "def-01203",
+  "label": "0:1:1:1511",
+  "name": "WASHER_1_POWER9",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 648,
+  "triangles": 640,
+  "bounds_m": [
+    [
+      -0.004000000189989805,
+      0.004100000020116568,
+      -0.004000000189989805
+    ],
+    [
+      0.004000000189989805,
+      0.004600000102072954,
+      0.004000000189989805
+    ]
+  ],
+  "mesh_path": "meshes/def-01203.npz",
+  "mesh_sha256": "96c14ebf831dc21a3f396f05e77c73835013abef966f68603ab4d774259ab60e",
+  "tessellation_seconds": 0.010476125054992735
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00606",
+  "label": "0:1:1:813",
+  "name": "9_KHSTD_D6X3_W1-1_T1-2_L3-5",
+  "color_rgba": null,
+  "topological_faces": 20,
+  "missing_faces": 0,
+  "vertices": 2024,
+  "triangles": 2068,
+  "bounds_m": [
+    [
+      -0.0035000001080334187,
+      0.0,
+      -0.0035000001080334187
+    ],
+    [
+      0.0035000001080334187,
+      0.0035000003408640623,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00606.npz",
+  "mesh_sha256": "c337592a639f989e591fb80638cad55b7a9a3282e743afc421d886c7916b26e3",
+  "tessellation_seconds": 0.02302233292721212
+}

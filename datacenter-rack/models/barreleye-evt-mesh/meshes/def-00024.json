@@ -1,0 +1,25 @@
+{
+  "id": "def-00024",
+  "label": "0:1:1:43",
+  "name": "1_SUPERCAP-CAGE_POWER9",
+  "color_rgba": null,
+  "topological_faces": 138,
+  "missing_faces": 0,
+  "vertices": 4552,
+  "triangles": 4444,
+  "bounds_m": [
+    [
+      -0.032499998807907104,
+      -0.027499999850988388,
+      -0.0005000000237487257
+    ],
+    [
+      0.032499998807907104,
+      0.027499999850988388,
+      0.009981075301766396
+    ]
+  ],
+  "mesh_path": "meshes/def-00024.npz",
+  "mesh_sha256": "0371e013f8380db66f9b7b8cbe2204342a1521eefabac7430c308f071a5a9706",
+  "tessellation_seconds": 0.07636862492654473
+}

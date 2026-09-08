@@ -1,0 +1,25 @@
+{
+  "id": "def-00414",
+  "label": "0:1:1:564",
+  "name": "OCP_755860010-PRO4_ANY",
+  "color_rgba": null,
+  "topological_faces": 1540,
+  "missing_faces": 0,
+  "vertices": 28742,
+  "triangles": 25908,
+  "bounds_m": [
+    [
+      -0.009100000374019146,
+      -0.0036249998956918716,
+      -0.007515000179409981
+    ],
+    [
+      0.009100000374019146,
+      0.002675000112503767,
+      0.003984999842941761
+    ]
+  ],
+  "mesh_path": "meshes/def-00414.npz",
+  "mesh_sha256": "e4fa4d846f9416e22e846aa46ed9102d581bd2c431a923eb80d7b8337c0044b0",
+  "tessellation_seconds": 0.8743812090251595
+}

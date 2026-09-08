@@ -1,0 +1,25 @@
+{
+  "id": "def-00485",
+  "label": "0:1:1:653",
+  "name": "ZAIUS-HSK-20160817",
+  "color_rgba": null,
+  "topological_faces": 5090,
+  "missing_faces": 0,
+  "vertices": 122684,
+  "triangles": 144256,
+  "bounds_m": [
+    [
+      -0.045499999076128006,
+      0.0,
+      -0.05000000074505806
+    ],
+    [
+      0.045499999076128006,
+      0.04399999976158142,
+      0.05000000074505806
+    ]
+  ],
+  "mesh_path": "meshes/def-00485.npz",
+  "mesh_sha256": "80989d61d5fc55c5ae8679d19b701d440fc3de5b43082711ab61e53b7c838af5",
+  "tessellation_seconds": 3.3178056250326335
+}

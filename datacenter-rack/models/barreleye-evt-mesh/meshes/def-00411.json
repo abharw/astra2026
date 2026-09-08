@@ -1,0 +1,25 @@
+{
+  "id": "def-00411",
+  "label": "0:1:1:560",
+  "name": "OCP_FCI-P61083-124X2XXX_ANY",
+  "color_rgba": null,
+  "topological_faces": 2373,
+  "missing_faces": 0,
+  "vertices": 15460,
+  "triangles": 11076,
+  "bounds_m": [
+    [
+      -0.026900000870227814,
+      -4.999999873689376e-05,
+      -0.003000000026077032
+    ],
+    [
+      0.026900000870227814,
+      0.0076500000432133675,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00411.npz",
+  "mesh_sha256": "8289501b0821e6d82cfcefe994bd9905c50c31486cb397e492205b7eb114b497",
+  "tessellation_seconds": 1.2246017080033198
+}

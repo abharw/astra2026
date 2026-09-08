@@ -1,0 +1,25 @@
+{
+  "id": "def-00121",
+  "label": "0:1:1:169",
+  "name": "7_101329781-80POS_R2_ZUS",
+  "color_rgba": null,
+  "topological_faces": 672,
+  "missing_faces": 0,
+  "vertices": 8194,
+  "triangles": 8636,
+  "bounds_m": [
+    [
+      -0.01889999955892563,
+      -0.000699999975040555,
+      -0.0034000000450760126
+    ],
+    [
+      0.01889999955892563,
+      0.007650002837181091,
+      0.0034000000450760126
+    ]
+  ],
+  "mesh_path": "meshes/def-00121.npz",
+  "mesh_sha256": "d3a9f4d09d43839321f2754b62c5c2ccdfff6f6a996c9bc583be631e3a7d6ebf",
+  "tessellation_seconds": 0.3150245420401916
+}

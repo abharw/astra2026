@@ -1,0 +1,25 @@
+{
+  "id": "def-00557",
+  "label": "0:1:1:737",
+  "name": "9_SCREW-4-40L7_87_TAN",
+  "color_rgba": null,
+  "topological_faces": 80,
+  "missing_faces": 0,
+  "vertices": 18909,
+  "triangles": 21880,
+  "bounds_m": [
+    [
+      -0.0027424136642366648,
+      -0.007873999886214733,
+      -0.002374999923631549
+    ],
+    [
+      0.0027424136642366648,
+      0.004826000425964594,
+      0.002374999923631549
+    ]
+  ],
+  "mesh_path": "meshes/def-00557.npz",
+  "mesh_sha256": "0a6d7a5bb4e37c0400dbdd0b254939dbfc03fb37bd7fb88ca3cfe57a443dc0bc",
+  "tessellation_seconds": 0.14784104202408344
+}

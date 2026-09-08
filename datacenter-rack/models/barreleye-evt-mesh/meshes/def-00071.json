@@ -1,0 +1,25 @@
+{
+  "id": "def-00071",
+  "label": "0:1:1:110",
+  "name": "9_STD_S_632_H7-5_D6-08_T1-0_T",
+  "color_rgba": null,
+  "topological_faces": 27,
+  "missing_faces": 0,
+  "vertices": 2064,
+  "triangles": 2096,
+  "bounds_m": [
+    [
+      -0.004041451960802078,
+      0.0,
+      -0.0035000001080334187
+    ],
+    [
+      0.004041451960802078,
+      0.007499999832361937,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00071.npz",
+  "mesh_sha256": "8235d6935ef29303c204dfc2ae1c059748e599a495373cc5df1f1b7580304834",
+  "tessellation_seconds": 0.021674541989341378
+}

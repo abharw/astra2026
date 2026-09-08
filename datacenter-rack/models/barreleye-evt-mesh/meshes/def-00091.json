@@ -1,0 +1,25 @@
+{
+  "id": "def-00091",
+  "label": "0:1:1:133",
+  "name": "1_MEZZ-PANEL-100G_POWER9",
+  "color_rgba": null,
+  "topological_faces": 249,
+  "missing_faces": 0,
+  "vertices": 6394,
+  "triangles": 7488,
+  "bounds_m": [
+    [
+      -0.034790001809597015,
+      -0.016499999910593033,
+      -0.002099999925121665
+    ],
+    [
+      0.03500000014901161,
+      0.01489999983459711,
+      0.002400000113993883
+    ]
+  ],
+  "mesh_path": "meshes/def-00091.npz",
+  "mesh_sha256": "cb3902024801994829ee7821ea34b28b687853c12605e8dd14589966fc87970a",
+  "tessellation_seconds": 0.13588841701857746
+}

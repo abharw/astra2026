@@ -1,0 +1,25 @@
+{
+  "id": "def-01136",
+  "label": "0:1:1:1422",
+  "name": "367-0160-500_M2-FLT-CRS_1_PRT_1",
+  "color_rgba": null,
+  "topological_faces": 21,
+  "missing_faces": 0,
+  "vertices": 970,
+  "triangles": 1082,
+  "bounds_m": [
+    [
+      -0.0019000000320374966,
+      -0.0022000139579176903,
+      -0.0018999987514689565
+    ],
+    [
+      0.0019000000320374966,
+      0.0009000006248243153,
+      0.0018999987514689565
+    ]
+  ],
+  "mesh_path": "meshes/def-01136.npz",
+  "mesh_sha256": "e809a5c9eec5502716553bdee07f5241dfbfb7707a9a86cc3e7213489c3fb5ed",
+  "tessellation_seconds": 0.025065166992135346
+}

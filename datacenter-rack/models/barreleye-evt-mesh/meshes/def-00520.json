@@ -1,0 +1,25 @@
+{
+  "id": "def-00520",
+  "label": "0:1:1:695",
+  "name": "8_R0404-SGB_ZUS",
+  "color_rgba": null,
+  "topological_faces": 7,
+  "missing_faces": 0,
+  "vertices": 648,
+  "triangles": 636,
+  "bounds_m": [
+    [
+      -0.0020000000949949026,
+      0.0,
+      -0.0020000000949949026
+    ],
+    [
+      0.0020000000949949026,
+      0.0044999998062849045,
+      0.0020000000949949026
+    ]
+  ],
+  "mesh_path": "meshes/def-00520.npz",
+  "mesh_sha256": "6fcf7237c4389e385e87fff33b6c300f85d6117e2c02ce71cc2072c2646d0c4c",
+  "tessellation_seconds": 0.009181083994917572
+}

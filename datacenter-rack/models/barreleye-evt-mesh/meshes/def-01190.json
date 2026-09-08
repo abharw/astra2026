@@ -1,0 +1,25 @@
+{
+  "id": "def-01190",
+  "label": "0:1:1:1496",
+  "name": "FIN367-2_1",
+  "color_rgba": null,
+  "topological_faces": 59,
+  "missing_faces": 0,
+  "vertices": 20956,
+  "triangles": 35688,
+  "bounds_m": [
+    [
+      -0.039000000804662704,
+      0.004999999888241291,
+      0.05869999900460243
+    ],
+    [
+      0.039000000804662704,
+      0.04170000180602074,
+      0.0608999989926815
+    ]
+  ],
+  "mesh_path": "meshes/def-01190.npz",
+  "mesh_sha256": "b99adb16b98c00340fa242ce251b9462d6f87f476766d4013e9b2fd01a529925",
+  "tessellation_seconds": 0.1815805829828605
+}

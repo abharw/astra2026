@@ -1,0 +1,25 @@
+{
+  "id": "def-00597",
+  "label": "0:1:1:786",
+  "name": "D18154-BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 800,
+  "missing_faces": 1,
+  "vertices": 64394,
+  "triangles": 95812,
+  "bounds_m": [
+    [
+      -0.0032700069714337587,
+      -0.0032999999821186066,
+      0.0026679174043238163
+    ],
+    [
+      0.014999999664723873,
+      0.012299999594688416,
+      0.11305707693099976
+    ]
+  ],
+  "mesh_path": "meshes/def-00597.npz",
+  "mesh_sha256": "d088c949768312591d2177e1a259781dd070e7b2e451a1c824bdd249d209116e",
+  "tessellation_seconds": 0.8336144579807296
+}

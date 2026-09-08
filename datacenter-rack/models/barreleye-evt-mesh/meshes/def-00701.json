@@ -1,0 +1,25 @@
+{
+  "id": "def-00701",
+  "label": "0:1:1:951",
+  "name": "1_GPU-K80-BKT1_POWER9",
+  "color_rgba": null,
+  "topological_faces": 86,
+  "missing_faces": 0,
+  "vertices": 6728,
+  "triangles": 9038,
+  "bounds_m": [
+    [
+      -0.007499999832361937,
+      -0.0012000000569969416,
+      0.0
+    ],
+    [
+      0.009999999776482582,
+      0.03920000046491623,
+      0.009999999776482582
+    ]
+  ],
+  "mesh_path": "meshes/def-00701.npz",
+  "mesh_sha256": "6af0f9e039b73c361dea4992bc24863fcfcc6df5b12c00f42be8e3698a42215f",
+  "tessellation_seconds": 0.09380287502426654
+}

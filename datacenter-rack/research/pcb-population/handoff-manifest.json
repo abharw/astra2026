@@ -1,0 +1,38 @@
+{
+  "outputs/astra2026-rack/datacenter-rack/source/pcb_population.py": {
+    "bytes": 17032,
+    "sha256": "2c95721c1a83174df908d19819a16e95bee1ccde105073c8f1ce73f19e83c23a"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/population-source.json": {
+    "bytes": 20794403,
+    "sha256": "39ae63bde056a836c0d7a2f5d4d14607a3884e959f843b6ba6134a492306d223"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/prepare_source.py": {
+    "bytes": 5302,
+    "sha256": "712a9fddeb1be4791817107c4567cabe3bcafbbd9d8607d3429b48fb3de87da9"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/prepare_textures.py": {
+    "bytes": 4639,
+    "sha256": "26cb482e45842a7a70bb1ea6d24bb55f0153b847ff95201945414741151a81fc"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/smoke_test.py": {
+    "bytes": 3414,
+    "sha256": "8d8b589c121c3afad9482f43636c340b1d90dbe1a07669e70a36006c4053a823"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/smoke-receipt.json": {
+    "bytes": 1218,
+    "sha256": "60fd2629c8b6d996eda83ceac322af2a760917f623e17c3e4e31ebe3184b4d1a"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/README.md": {
+    "bytes": 6618,
+    "sha256": "1dbd249a635a393442959457ea4194545d08c5e9a812e5df73af1af6602a4c37"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/texture-receipt.json": {
+    "bytes": 6714,
+    "sha256": "e5852e19aebd7390eb84e6102e7195e164beb985959484a0a552c594262d03f0"
+  },
+  "outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/registration-check.json": {
+    "bytes": 1071,
+    "sha256": "48c0598d5c398082fc9d8428f35d9248b6f2806e52cbe964ffe87d92e41b7001"
+  }
+}

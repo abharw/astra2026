@@ -1,0 +1,25 @@
+{
+  "id": "def-00184",
+  "label": "0:1:1:242",
+  "name": "00FV447_FLEXED_1_ZUS",
+  "color_rgba": null,
+  "topological_faces": 16,
+  "missing_faces": 0,
+  "vertices": 28471,
+  "triangles": 54320,
+  "bounds_m": [
+    [
+      -0.002652399940416217,
+      -0.004032030701637268,
+      -0.007338555995374918
+    ],
+    [
+      0.0011023599654436111,
+      0.0020824000239372253,
+      0.006032399833202362
+    ]
+  ],
+  "mesh_path": "meshes/def-00184.npz",
+  "mesh_sha256": "b647780c41f6454c9f847cbfa2d85d84e9b07ab3aa8c9cc865b1502225a5d940",
+  "tessellation_seconds": 0.3475369169609621
+}

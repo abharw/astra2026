@@ -1,0 +1,25 @@
+{
+  "id": "def-00166",
+  "label": "0:1:1:220",
+  "name": "FOXCONN_HYBRID3777_CONTACT_ASSY",
+  "color_rgba": null,
+  "topological_faces": 118,
+  "missing_faces": 0,
+  "vertices": 2772,
+  "triangles": 2540,
+  "bounds_m": [
+    [
+      -0.00031937603489495814,
+      -0.0021899999119341373,
+      -7.000000186963007e-05
+    ],
+    [
+      0.0009617286268621683,
+      0.0010099982609972358,
+      0.0008960371487773955
+    ]
+  ],
+  "mesh_path": "meshes/def-00166.npz",
+  "mesh_sha256": "0b4789025842ff14feab1fcf37b16ca206df26131b5a4098f3169bcc2b1a75b0",
+  "tessellation_seconds": 0.06763445900287479
+}

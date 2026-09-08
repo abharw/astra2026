@@ -1,0 +1,25 @@
+{
+  "id": "def-00128",
+  "label": "0:1:1:176",
+  "name": "7_SSM-106-S-DV-P-TR_ZUS",
+  "color_rgba": null,
+  "topological_faces": 275,
+  "missing_faces": 0,
+  "vertices": 3432,
+  "triangles": 2940,
+  "bounds_m": [
+    [
+      -0.007619999814778566,
+      0.0,
+      -0.0035178998950868845
+    ],
+    [
+      0.007619999814778566,
+      0.007366000209003687,
+      0.0035178998950868845
+    ]
+  ],
+  "mesh_path": "meshes/def-00128.npz",
+  "mesh_sha256": "1c14f781fda10ad0b3844860e6d027449acfc1f7ba7ac3edcd06021f42a608d4",
+  "tessellation_seconds": 0.13200041698291898
+}

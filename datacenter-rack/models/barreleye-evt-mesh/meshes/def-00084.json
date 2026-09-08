@@ -1,0 +1,25 @@
+{
+  "id": "def-00084",
+  "label": "0:1:1:124",
+  "name": "2_AIR-DUCT_POWER9",
+  "color_rgba": null,
+  "topological_faces": 341,
+  "missing_faces": 0,
+  "vertices": 18192,
+  "triangles": 24184,
+  "bounds_m": [
+    [
+      -0.19589999318122864,
+      -0.009200000204145908,
+      -0.03400000184774399
+    ],
+    [
+      0.18549999594688416,
+      0.07970000058412552,
+      0.20499999821186066
+    ]
+  ],
+  "mesh_path": "meshes/def-00084.npz",
+  "mesh_sha256": "29c6876f892f8fdd0e0de6bf613177ccab16b35306612ce154190d87b5280952",
+  "tessellation_seconds": 0.23495337506756186
+}

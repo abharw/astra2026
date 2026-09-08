@@ -1,0 +1,15 @@
+{"stage": "read-start", "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/reviews/converter-smoke/box.step", "sha256": "46b10273b21ba3be4b3e311ec1d818b760c2ce2630ad4cf63f36301fe1bd44e5"}
+{"stage": "read-complete", "seconds": 0.012186415959149599}
+{"stage": "transfer-complete", "seconds": 0.028341999975964427}
+{"stage": "structure", "occurrences": 1, "definitions": 1, "seconds": 0.030130582978017628}
+Traceback (most recent call last):
+  File "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/scripts/step_to_mesh.py", line 147, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/scripts/step_to_mesh.py", line 133, in main
+    result,stats=mesh_shape(shape,ct,info['color_rgba'],a.deflection_mm,a.angle_rad)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/scripts/step_to_mesh.py", line 70, in mesh_shape
+    face=TopoDS.Face_s(ex.Current());loc=TopLoc_Location()
+         ^^^^^^^^^^^^^
+AttributeError: module 'OCP.OCP.TopoDS.TopoDS' has no attribute 'Face_s'. Did you mean: 'Face'?

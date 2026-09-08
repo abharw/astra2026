@@ -1,0 +1,25 @@
+{
+  "id": "def-00324",
+  "label": "0:1:1:430",
+  "name": "GDX-_S110_1X4_1",
+  "color_rgba": null,
+  "topological_faces": 1427,
+  "missing_faces": 0,
+  "vertices": 52075,
+  "triangles": 58047,
+  "bounds_m": [
+    [
+      -0.0322946235537529,
+      -0.015650000423192978,
+      -0.0284000001847744
+    ],
+    [
+      0.0322946235537529,
+      0.0015996231231838465,
+      7.034888080056922e-13
+    ]
+  ],
+  "mesh_path": "meshes/def-00324.npz",
+  "mesh_sha256": "5bacfab82e05c928ac6d14692708b59ca6c0d4e08f6d9231b186c3a1ddce1789",
+  "tessellation_seconds": 0.9471129999728873
+}
