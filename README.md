@@ -6,7 +6,8 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 
 ## Read the project
 
-- [Work handoff](HANDOFF.md): completed repository and image stages, followed by native flow geometry.
+- [Work handoff](HANDOFF.md): implemented repository, illustration and native flow stages, with remaining physical acceptance.
+- [Native flows](docs/native-flow-integration.md): bound curved annotations, labels, local motion, live follow-ups and measured limits.
 - [Generated illustrations](docs/images-2.5-integration-status.md): real Flare integration, native panels, measured latency and fidelity limits.
 - [Architecture](docs/architecture.md): responsibilities, runtime loop, and future extension boundaries.
 - [Product](docs/product.md): current interaction and accessibility constraints.
@@ -107,3 +108,5 @@ The current authoring path accepts one complete bounded proposal per turn, with 
 Arav has also completed a three-turn typed interaction on the physical iPhone: pull-out, explanation and arrows. [Event evidence](docs/evidence/iphone-heat-flow-session.json) verifies installations and final responses; his visual feedback motivates [richer spatial explanations and Images 2.5 research](docs/images-and-spatial-explanations.md).
 
 Astra can request a generated 2D teaching illustration through the existing proposal tool. Images appear in a separate explanation panel while the editable scene remains available; follow-ups can refine the previous image. Generation, cancellation, retry, authenticated downloads and bounded caches are implemented. Real model/provider checks and both simulator layouts pass; exact visual fidelity and this stage’s physical-device rendering are still qualified in the [integration record](docs/images-2.5-integration-status.md).
+
+Generic native flow annotations preserve their scene identity through reversal, bound-part movement, hiding, deletion and Undo. They use cached curved meshes, readable unlit labels and local moving markers; host-measured local bounds give Astra geometric context. Flow support is explicitly capability-gated. Real rack/lamp reducer sequences, native simulator rendering, and physical iPhone 0/1/8/32-flow CPU/callback measurements pass. Physical AR visual checks and iPad timing remain separate acceptance steps.

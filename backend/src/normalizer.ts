@@ -24,18 +24,25 @@ export interface NormalizedProposal {
   illustration?: IllustrationIntent;
 }
 
+export interface NormalizationOptions {
+  flowEnabled?: boolean;
+  observedGeometries?: ReadonlyMap<string, JsonObject>;
+  observedRelationships?: readonly JsonObject[];
+}
+
 /**
  * Resolves model-local aliases to deterministic IDs. The emitted operation tags
  * deliberately match the portable v1 contract; native code remains authority
  * for semantic validity and installation.
  */
-export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>, observedGeometryIds: Set<string> = new Set(), observedNodes: ReadonlyMap<string, JsonObject> = new Map(), availableAssetDetails: readonly AvailableAssetDetail[] = []): NormalizedProposal {
+export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>, observedGeometryIds: Set<string> = new Set(), observedNodes: ReadonlyMap<string, JsonObject> = new Map(), availableAssetDetails: readonly AvailableAssetDetail[] = [], options: NormalizationOptions = {}): NormalizedProposal {
   const aliases = new Map<string, string>();
   const workingTransforms = new Map<string, JsonObject>();
   const createdNodeIds = new Set<string>();
   const changedGeometryNodeIds = new Set<string>();
   const expandedNodeIds = new Set<string>();
   const emittedDetailGeometries = new Set<string>();
+  const removedRelationshipIds = new Set<string>();
   const operationCount = proposal.operations.length;
   if (operationCount > 128 || (proposal.mode === "explanation" && operationCount !== 0) || (proposal.mode !== "explanation" && operationCount === 0)) {
     throw new ProtocolError("explanations require zero operations; mutations require 1-128 operations", "proposal_rejected");
@@ -70,8 +77,38 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
     switch (kind) {
       case "geometry": {
         const geometryId = define(source.alias, "geometry");
-        const recipe = normalizeRecipe(asObject(source.recipe, "geometry.recipe"));
+        const recipe = normalizeRecipe(asObject(source.recipe, "geometry.recipe"), options.flowEnabled === true);
         operations.push({ op: "put.geometry", geometry: { geometryId, contentHash: geometryContentHash(recipe), recipe } });
+        break;
+      }
+      case "flow": {
+        if (!options.flowEnabled) throw new ProtocolError("flow requires the flow.v1 client capability", "proposal_rejected");
+        const allowed = new Set(["kind", "alias", "parentNodeRef", "source", "target", "routePoints", "direction", "width", "label", "animated", "color"]);
+        if (Object.keys(source).some((key) => !allowed.has(key))) throw new ProtocolError("unknown semantic flow property", "proposal_rejected");
+        const nodeId = define(source.alias, "node");
+        if (observedNodeIds.has(nodeId) || createdNodeIds.has(nodeId)) throw new ProtocolError("created node ID collides with an existing node", "proposal_rejected");
+        createdNodeIds.add(nodeId);
+        // The semantic operation expands to the same immutable definitions and
+        // ordinary node lifecycle used by every other geometry.
+        const geometryId = define(source.alias, "geometry");
+        const materialId = define(source.alias, "material");
+        const recipe = normalizeFlowRecipe({
+          kind: "flow", source: source.source!, target: source.target!, routePoints: source.routePoints!,
+          direction: source.direction!, width: source.width!, label: source.label!, animated: source.animated!
+        });
+        const color = numericArray(source, "color", 4);
+        if (color.some((channel) => channel < 0 || channel > 1) || color[3] !== 1) throw new ProtocolError("flow color requires RGB channels in 0...1 and alpha 1", "proposal_rejected");
+        const parentId = source.parentNodeRef === null ? null : resolve(source.parentNodeRef, "node", true);
+        operations.push(
+          { op: "put.geometry", geometry: { geometryId, contentHash: geometryContentHash(recipe), recipe } },
+          { op: "put.material", material: { materialId, baseColorLinear: color, metallic: 0, roughness: 1 } },
+          { op: "create.node", node: {
+            nodeId, parentId, geometryId, materialId,
+            transform: { translation: [0, 0, 0], rotation: [0, 0, 0, 1], scale: [1, 1, 1] }, isVisible: true,
+            semantic: { name: recipe.label === "" ? "Flow" : recipe.label!, role: "flow", description: null },
+            provenance: { origin: "generated", factualSupport: "illustrative", sourceRefs: [] }
+          } }
+        );
         break;
       }
       case "material": {
@@ -177,6 +214,19 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
         operations.push({ op: "set.visibility", nodeId: resolve(source.nodeRef, "node", true), isVisible: source.visible });
         break;
       }
+      case "removeNode": {
+        const nodeId = resolve(source.nodeRef, "node", true);
+        for (const relationship of options.observedRelationships ?? []) {
+          if (relationship.sourceNodeId !== nodeId && relationship.targetNodeId !== nodeId) continue;
+          const relationshipId = requireString(relationship, "relationshipId", 128);
+          if (!removedRelationshipIds.has(relationshipId)) {
+            operations.push({ op: "remove.relationship", relationshipId });
+            removedRelationshipIds.add(relationshipId);
+          }
+        }
+        operations.push({ op: "remove.node", nodeId });
+        break;
+      }
       default: throw new ProtocolError(`unsupported authoring operation: ${kind}`, "proposal_rejected");
     }
     if (operations.length > 128) throw new ProtocolError("normalized proposal exceeds 128 operations; expand fewer instances per turn", "proposal_rejected");
@@ -184,6 +234,7 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
   if (proposal.mode === "generation" && proposal.scopeParentNodeId !== null && !observedNodeIds.has(proposal.scopeParentNodeId)) {
     throw new ProtocolError("generation scope parent was not observed", "proposal_rejected");
   }
+  validateFlowCandidate(operations, observedNodeIds, observedNodes, options);
   return { mode: proposal.mode, explanation: proposal.explanation, scopeParentNodeId: proposal.scopeParentNodeId ?? undefined, operations, ...(illustration ? { illustration } : {}) };
 }
 
@@ -257,6 +308,15 @@ class CanonicalWriter {
       case "cone": this.double(numberField(value, "bottomRadius")); this.double(numberField(value, "topRadius")); this.double(numberField(value, "height")); this.integer(integerFieldOr(value, "radialSegments", 24)); return;
       case "tube": { const points = requireArray(value, "points", 256); this.count(points.length); points.forEach((point) => this.vec3(point)); this.double(numberField(value, "radius")); this.integer(integerFieldOr(value, "radialSegments", 12)); return; }
       case "arrow": this.vec3(value.start); this.vec3(value.end); this.double(numberField(value, "shaftRadius")); this.double(numberField(value, "headRadius")); this.double(numberField(value, "headLength")); this.integer(integerFieldOr(value, "radialSegments", 16)); return;
+      case "flow": {
+        const source = asObject(value.source, "flow.source"), target = asObject(value.target, "flow.target");
+        this.string(requireString(source, "nodeId")); this.vec3(source.localPoint);
+        this.string(requireString(target, "nodeId")); this.vec3(target.localPoint);
+        const points = requireArray(value, "routePoints", 8); this.count(points.length); points.forEach((point) => this.vec3(point));
+        this.string(enumField(value, "direction", ["forward", "reverse"])); this.double(numberField(value, "width"));
+        if (typeof value.label !== "string") throw new ProtocolError("flow label must be a string", "proposal_rejected");
+        this.string(value.label); this.byte(booleanField(value, "animated") ? 1 : 0); return;
+      }
       case "importedAsset": this.string(requireString(value, "assetID")); this.string(requireString(value, "partID")); return;
       default: throw new ProtocolError(`unsupported geometry recipe: ${kind}`, "proposal_rejected");
     }
@@ -275,6 +335,7 @@ class CanonicalWriter {
         case "put.material": this.material(asObject(value.material, "material")); break;
         case "create.node": this.node(asObject(value.node, "node")); break;
         case "remove.node": this.string(requireString(value, "nodeId")); break;
+        case "remove.relationship": this.string(requireString(value, "relationshipId")); break;
         case "set.transform": this.string(requireString(value, "nodeId")); this.transform(asObject(value.transform, "transform")); break;
         case "set.geometry": this.string(requireString(value, "nodeId")); this.optionalString(optionalString(value, "geometryId")); break;
         case "set.material": this.string(requireString(value, "nodeId")); this.optionalString(optionalString(value, "materialId")); break;
@@ -295,7 +356,7 @@ function optionalString(object: JsonObject, key: string): string | null { const 
 function booleanField(object: JsonObject, key: string): boolean { const value = object[key]; if (typeof value !== "boolean") throw new ProtocolError(`${key} must be boolean`, "proposal_rejected"); return value; }
 function enumField(object: JsonObject, key: string, allowed: string[]): string { const value = requireString(object, key); if (!allowed.includes(value)) throw new ProtocolError(`${key} is invalid`, "proposal_rejected"); return value; }
 function canonicalTransform(value: JsonObject): JsonObject { return { translation: vector(value.translation, 3), rotation: vector(value.rotation, 4), scale: vector(value.scale, 3) }; }
-function normalizeRecipe(value: JsonObject): JsonObject {
+function normalizeRecipe(value: JsonObject, flowEnabled = false): JsonObject {
   const kind = requireString(value, "kind");
   switch (kind) {
     case "box": return { kind, size: vector(value.size, 3) };
@@ -304,7 +365,119 @@ function normalizeRecipe(value: JsonObject): JsonObject {
     case "cone": return { kind, bottomRadius: numberField(value, "bottomRadius"), topRadius: numberField(value, "topRadius"), height: numberField(value, "height"), radialSegments: integerFieldOr(value, "radialSegments", 24) };
     case "tube": return { kind, points: requireArray(value, "points", 256).map((point) => vector(point, 3)), radius: numberField(value, "radius"), radialSegments: integerFieldOr(value, "radialSegments", 12) };
     case "arrow": return { kind, start: vector(value.start, 3), end: vector(value.end, 3), shaftRadius: numberField(value, "shaftRadius"), headRadius: numberField(value, "headRadius"), headLength: numberField(value, "headLength"), radialSegments: integerFieldOr(value, "radialSegments", 16) };
+    case "flow": {
+      if (!flowEnabled) throw new ProtocolError("flow requires the flow.v1 client capability", "proposal_rejected");
+      return normalizeFlowRecipe(value);
+    }
     default: throw new ProtocolError(`unsupported geometry recipe: ${kind}`, "proposal_rejected");
+  }
+}
+
+function normalizeFlowRecipe(value: JsonObject): JsonObject {
+  const allowed = new Set(["kind", "source", "target", "routePoints", "direction", "width", "label", "animated"]);
+  if (Object.keys(value).some((key) => !allowed.has(key))) throw new ProtocolError("unknown flow recipe property", "proposal_rejected");
+  const attachment = (raw: unknown, name: string): JsonObject => {
+    const object = asObject(raw, `flow.${name}`);
+    if (Object.keys(object).some((key) => key !== "nodeId" && key !== "localPoint")) throw new ProtocolError("unknown flow attachment property", "proposal_rejected");
+    return { nodeId: requireString(object, "nodeId", 128), localPoint: flowPoint(object.localPoint) };
+  };
+  const source = attachment(value.source, "source"), target = attachment(value.target, "target");
+  if (source.nodeId === target.nodeId && (source.localPoint as number[]).every((coordinate, index) => coordinate === (target.localPoint as number[])[index])) {
+    throw new ProtocolError("flow attachments on the same node require distinct local points", "proposal_rejected");
+  }
+  const width = numberField(value, "width");
+  if (width < 0.001 || width > 0.25) throw new ProtocolError("flow width must be between 0.001 and 0.25 metres", "proposal_rejected");
+  if (typeof value.label !== "string" || Buffer.byteLength(value.label, "utf8") > 80) throw new ProtocolError("flow label must be at most 80 UTF-8 bytes", "proposal_rejected");
+  return {
+    kind: "flow", source, target, routePoints: requireArray(value, "routePoints", 8).map(flowPoint),
+    direction: enumField(value, "direction", ["forward", "reverse"]), width, label: value.label, animated: booleanField(value, "animated")
+  };
+}
+
+function flowPoint(value: unknown): number[] {
+  const point = vector(value, 3);
+  if (point.some((coordinate) => Math.abs(coordinate) > 10_000)) throw new ProtocolError("flow point exceeds coordinate bounds", "proposal_rejected");
+  return [...point];
+}
+
+/** Validate the final candidate, so a bound part and its annotations can be
+ * removed atomically in either order. Unused definitions have no node binding. */
+function validateFlowCandidate(operations: readonly JsonObject[], observedNodeIds: ReadonlySet<string>, observedNodes: ReadonlyMap<string, JsonObject>, options: NormalizationOptions): void {
+  const nodes = new Map<string, JsonObject>();
+  for (const nodeId of observedNodeIds) nodes.set(nodeId, { ...(observedNodes.get(nodeId) ?? {}), nodeId });
+  const recipes = new Map<string, JsonObject>();
+  for (const [geometryId, geometry] of options.observedGeometries ?? []) recipes.set(geometryId, asObject(geometry.recipe, "observed geometry recipe"));
+  const requireCapability = (geometryId: unknown): void => {
+    if (!options.flowEnabled && typeof geometryId === "string" && recipes.get(geometryId)?.kind === "flow") {
+      throw new ProtocolError("flow requires the flow.v1 client capability", "proposal_rejected");
+    }
+  };
+  for (const operation of operations) {
+    switch (operation.op) {
+      case "put.geometry": {
+        const geometry = asObject(operation.geometry, "geometry");
+        const recipe = asObject(geometry.recipe, "geometry recipe");
+        recipes.set(requireString(geometry, "geometryId"), recipe);
+        requireCapability(geometry.geometryId);
+        break;
+      }
+      case "create.node": {
+        const node = asObject(operation.node, "node");
+        requireCapability(node.geometryId);
+        nodes.set(requireString(node, "nodeId"), node);
+        break;
+      }
+      case "set.geometry": {
+        requireCapability(operation.geometryId);
+        const nodeId = requireString(operation, "nodeId"), node = nodes.get(nodeId);
+        if (!node) throw new ProtocolError("cannot modify a removed node", "proposal_rejected");
+        nodes.set(nodeId, { ...node, geometryId: operation.geometryId! });
+        break;
+      }
+      case "remove.node": {
+        if (!nodes.delete(requireString(operation, "nodeId"))) throw new ProtocolError("cannot remove a missing node", "proposal_rejected");
+        break;
+      }
+      case "set.transform": case "set.material": case "set.visibility": {
+        if (!nodes.has(requireString(operation, "nodeId"))) throw new ProtocolError("cannot modify a removed node", "proposal_rejected");
+        break;
+      }
+    }
+  }
+  const flowNodes = new Map<string, JsonObject>();
+  for (const [nodeId, node] of nodes) {
+    const recipe = typeof node.geometryId === "string" ? recipes.get(node.geometryId) : undefined;
+    if (recipe?.kind === "flow") flowNodes.set(nodeId, recipe);
+  }
+  if (flowNodes.size > 32) throw new ProtocolError("scene exceeds 32 flow instances", "proposal_rejected");
+  if (flowNodes.size === 0 && !options.flowEnabled) return;
+
+  // Validate hierarchy independently of geometry sharing. A definition that is
+  // valid for one instance can bind to a descendant of another instance.
+  const complete = new Set<string>();
+  for (const nodeId of nodes.keys()) {
+    const path = new Set<string>();
+    let current: string | null = nodeId;
+    while (current !== null && !complete.has(current)) {
+      if (path.has(current)) throw new ProtocolError("flow candidate contains a hierarchy cycle", "proposal_rejected");
+      const node = nodes.get(current);
+      if (!node) throw new ProtocolError("flow candidate contains a missing parent", "proposal_rejected");
+      path.add(current);
+      current = optionalString(node, "parentId");
+    }
+    for (const visited of path) complete.add(visited);
+  }
+  for (const recipe of flowNodes.values()) {
+    const normalized = normalizeFlowRecipe(recipe);
+    for (const name of ["source", "target"]) {
+      const endpointId = requireString(asObject(normalized[name], `flow.${name}`), "nodeId");
+      if (!nodes.has(endpointId)) throw new ProtocolError(`flow endpoint does not exist: ${endpointId}`, "proposal_rejected");
+      let current: string | null = endpointId;
+      while (current !== null) {
+        if (flowNodes.has(current)) throw new ProtocolError("flow endpoints must be structural nodes outside flow annotation subtrees", "proposal_rejected");
+        current = optionalString(nodes.get(current)!, "parentId");
+      }
+    }
   }
 }
 

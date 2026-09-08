@@ -7,11 +7,17 @@ import simd
 public final class GeometryCompiler {
     public enum CompilationError: LocalizedError {
         case emptyMesh(String)
+        case sceneBindingRequired(String)
+        case invalidFlowWidth
 
         public var errorDescription: String? {
             switch self {
             case let .emptyMesh(geometryID):
                 "Geometry \(geometryID) produced no triangles."
+            case let .sceneBindingRequired(geometryID):
+                "Flow geometry \(geometryID) requires resolved scene endpoint bindings."
+            case .invalidFlowWidth:
+                "Flow shaft width must be finite and positive."
             }
         }
     }
@@ -28,6 +34,8 @@ public final class GeometryCompiler {
 
         let resource: MeshResource
         switch definition.recipe {
+        case .flow:
+            throw CompilationError.sceneBindingRequired(definition.geometryId)
         case let .importedAsset(assetID, partID):
             throw ImportedAssetError.unknownReference("\(assetID)/\(partID) requires an approved entity prototype")
         case let .box(size):
@@ -83,17 +91,74 @@ public final class GeometryCompiler {
         let retained = Set(definitions.map { "\($0.geometryId):\($0.contentHash)" })
         meshes = meshes.filter { retained.contains($0.key) }
     }
+}
 
-    private func generate(_ data: MeshData, name: String) throws -> MeshResource {
-        guard !data.positions.isEmpty, !data.indices.isEmpty else {
-            throw CompilationError.emptyMesh(name)
-        }
-        var descriptor = MeshDescriptor(name: name)
-        descriptor.positions = MeshBuffers.Positions(data.positions)
-        descriptor.normals = MeshBuffers.Normals(data.normals)
-        descriptor.primitives = .triangles(data.indices)
-        return try MeshResource.generate(from: [descriptor])
+struct FlowMesh {
+    let resource: MeshResource
+    let vertexCount: Int
+    let triangleCount: Int
+}
+
+@MainActor
+func compileFlowMesh(path: FlowPath, width: Double) throws -> FlowMesh {
+    guard width.isFinite, width > 0, Float(width).isFinite else {
+        throw GeometryCompiler.CompilationError.invalidFlowWidth
     }
+    guard !path.isDegenerate, let endpoint = path.points.last else {
+        throw GeometryCompiler.CompilationError.emptyMesh("flow")
+    }
+
+    let terminalTangent = path.sample(at: path.length).tangent
+    var terminalRun = 0.0
+    for index in (0..<(path.points.count - 1)).reversed() {
+        let direction = simd_normalize(path.points[index + 1] - path.points[index])
+        // Keep the cone within the final low-curvature run. A long path ending
+        // in a tiny turn must not pull its shaft far outside the authored route.
+        guard simd_dot(direction, SIMD3<Double>(terminalTangent)) >= 0.94 else { break }
+        terminalRun += path.cumulativeLengths[index + 1] - path.cumulativeLengths[index]
+    }
+    let headLength = min(width * 3, path.length * 0.35, terminalRun * 0.8)
+    let base = endpoint - SIMD3<Double>(terminalTangent) * headLength
+    let shaftEndDistance = path.length - headLength
+    var shaftPoints = zip(path.points, path.cumulativeLengths)
+        .prefix { $0.1 < shaftEndDistance }
+        .map(\.0)
+    if shaftPoints.last != base { shaftPoints.append(base) }
+
+    var mesh = MeshData()
+    if shaftPoints.count >= 2 {
+        mesh.append(tube(points: shaftPoints, radius: Float(width / 2), segments: 8, endTangent: terminalTangent))
+    }
+    // Local +Y points at the semantic endpoint. The shaft stops at the cone
+    // base, avoiding the blunt terminal ring left by a full-length tube.
+    var headTransform = simd_float4x4(simd_quatf(from: SIMD3<Float>(0, 1, 0), to: terminalTangent))
+    headTransform.columns.3 = SIMD4(SIMD3<Float>(endpoint) - terminalTangent * Float(headLength / 2), 1)
+    mesh.append(
+        frustum(
+            bottomRadius: Float(max(width / 2, min(width, headLength / 2))),
+            topRadius: 0,
+            height: Float(headLength),
+            segments: 8
+        ),
+        transform: headTransform
+    )
+    return FlowMesh(
+        resource: try generate(mesh, name: "flow"),
+        vertexCount: mesh.positions.count,
+        triangleCount: mesh.indices.count / 3
+    )
+}
+
+@MainActor
+private func generate(_ data: MeshData, name: String) throws -> MeshResource {
+    guard !data.positions.isEmpty, !data.indices.isEmpty else {
+        throw GeometryCompiler.CompilationError.emptyMesh(name)
+    }
+    var descriptor = MeshDescriptor(name: name)
+    descriptor.positions = MeshBuffers.Positions(data.positions)
+    descriptor.normals = MeshBuffers.Normals(data.normals)
+    descriptor.primitives = .triangles(data.indices)
+    return try MeshResource.generate(from: [descriptor])
 }
 
 private struct MeshData {
@@ -190,7 +255,7 @@ private func appendCap(to mesh: inout MeshData, radius: Float, y: Float, segment
     }
 }
 
-private func tube(points: [SIMD3<Double>], radius: Float, segments: Int) -> MeshData {
+private func tube(points: [SIMD3<Double>], radius: Float, segments: Int, endTangent: SIMD3<Float>? = nil) -> MeshData {
     let count = max(3, segments)
     // Derive directions before converting positions to Float: distinct validated
     // points can otherwise round to the same native position.
@@ -209,7 +274,7 @@ private func tube(points: [SIMD3<Double>], radius: Float, segments: Int) -> Mesh
         if pointIndex == points.startIndex {
             tangent = directions[0]
         } else if pointIndex == points.index(before: points.endIndex) {
-            tangent = directions[pointIndex - 1]
+            tangent = endTangent ?? directions[pointIndex - 1]
         } else {
             let bisector = directions[pointIndex - 1] + directions[pointIndex]
             // A path may double back. Its cusp has no unique tangent; retain the

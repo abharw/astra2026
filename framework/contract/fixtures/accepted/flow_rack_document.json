@@ -1,0 +1,215 @@
+{
+  "documentId" : "flow_rack_fixture",
+  "geometryDefinitions" : [
+    {
+      "contentHash" : "46ca053e81e0b427a8de4582e84463682833761d468c96af608e565461d984e4",
+      "geometryId" : "imported.rack01.frame",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.frame"
+      }
+    },
+    {
+      "contentHash" : "c27b64346dd24291c9fcee2e5eefa189e00f149d7328d1075fedd2e27a587be9",
+      "geometryId" : "imported.rack01.server01",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server01"
+      }
+    },
+    {
+      "contentHash" : "479fe9e206cfb7f9361c798ef2bf70e7516d91dad80e690eb34b9cf8dac19666",
+      "geometryId" : "rack_flow_geometry",
+      "recipe" : {
+        "animated" : true,
+        "direction" : "forward",
+        "kind" : "flow",
+        "label" : "Airflow",
+        "routePoints" : [
+
+        ],
+        "source" : {
+          "localPoint" : [
+            -0.15,
+            0,
+            0.03
+          ],
+          "nodeId" : "rack01.server01"
+        },
+        "target" : {
+          "localPoint" : [
+            -0.15,
+            0.7,
+            0.03
+          ],
+          "nodeId" : "rack01.server01"
+        },
+        "width" : 0.012
+      }
+    }
+  ],
+  "geometrySemanticsVersion" : 1,
+  "materials" : [
+    {
+      "baseColorLinear" : [
+        0.03,
+        0.6,
+        0.9,
+        1
+      ],
+      "materialId" : "flow_material",
+      "metallic" : 0,
+      "roughness" : 1
+    }
+  ],
+  "nodes" : [
+    {
+      "isVisible" : true,
+      "nodeId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Contract fixture retaining the approved exterior frame and first server at physical scale. The flow is an illustrative example; attachment points are authored and are not a thermal simulation or measured airflow.",
+        "name" : "Open Rack V2 with 18 Barreleye G2 servers",
+        "role" : "assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.frame",
+      "isVisible" : true,
+      "nodeId" : "rack01.frame",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Frame and power equipment remainder from the source hierarchy.",
+        "name" : "Open Rack V2 frame and power equipment",
+        "role" : "rack frame"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server01",
+      "isVisible" : true,
+      "nodeId" : "rack01.server01",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 1",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.17999997735023499,
+          0.3999999761581421
+        ]
+      }
+    },
+    {
+      "geometryId" : "rack_flow_geometry",
+      "isVisible" : true,
+      "materialId" : "flow_material",
+      "nodeId" : "rack_flow",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "generated",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "name" : "Illustrative airflow",
+        "role" : "flow annotation"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "relationships" : [
+
+  ],
+  "schemaVersion" : 1
+}

@@ -1,0 +1,216 @@
+{
+  "documentId" : "flow_energy_fixture",
+  "geometryDefinitions" : [
+    {
+      "contentHash" : "d63fdbae53a6d222018a9b8f146ca26c48834412e9cf0ddd333b47ddb0be4e3b",
+      "geometryId" : "box_geometry",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.2,
+          0.1,
+          0.2
+        ]
+      }
+    },
+    {
+      "contentHash" : "24fe9f7b3acc0d409dfed20451d089b6bf173a4e55f5d4a69355a35f8b41925d",
+      "geometryId" : "energy_flow_geometry",
+      "recipe" : {
+        "animated" : true,
+        "direction" : "forward",
+        "kind" : "flow",
+        "label" : "Energy → storage",
+        "routePoints" : [
+          [
+            -0.15,
+            0.2,
+            -0
+          ],
+          [
+            0.15,
+            0.2,
+            0
+          ]
+        ],
+        "source" : {
+          "localPoint" : [
+            0.1,
+            0,
+            0
+          ],
+          "nodeId" : "solar_panel"
+        },
+        "target" : {
+          "localPoint" : [
+            -0.1,
+            0,
+            0
+          ],
+          "nodeId" : "battery"
+        },
+        "width" : 0.012
+      }
+    }
+  ],
+  "geometrySemanticsVersion" : 1,
+  "materials" : [
+    {
+      "baseColorLinear" : [
+        0.03,
+        0.6,
+        0.9,
+        1
+      ],
+      "materialId" : "flow_material",
+      "metallic" : 0,
+      "roughness" : 1
+    }
+  ],
+  "nodes" : [
+    {
+      "isVisible" : true,
+      "nodeId" : "energy_system",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "generated",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Synthetic contract fixture; positions and attachments are authored examples, not measured device geometry.",
+        "name" : "Illustrative energy system",
+        "role" : "assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0.3826834323650898,
+          0.9238795325112867
+        ],
+        "scale" : [
+          1.2,
+          0.8,
+          1.1
+        ],
+        "translation" : [
+          0.1,
+          0.3,
+          -0.2
+        ]
+      }
+    },
+    {
+      "geometryId" : "box_geometry",
+      "isVisible" : true,
+      "nodeId" : "solar_panel",
+      "parentId" : "energy_system",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "generated",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "name" : "Solar panel",
+        "role" : "energy source"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.4,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "box_geometry",
+      "isVisible" : true,
+      "nodeId" : "battery",
+      "parentId" : "energy_system",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "generated",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "name" : "Battery",
+        "role" : "energy storage"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          0.8,
+          1.4,
+          1
+        ],
+        "translation" : [
+          0.4,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "energy_flow_geometry",
+      "isVisible" : true,
+      "materialId" : "flow_material",
+      "nodeId" : "energy_flow",
+      "parentId" : "energy_system",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "generated",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "name" : "Energy transfer",
+        "role" : "flow annotation"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "relationships" : [
+
+  ],
+  "schemaVersion" : 1
+}

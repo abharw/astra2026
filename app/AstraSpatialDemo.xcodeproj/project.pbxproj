@@ -16,6 +16,7 @@
 		38F525A5D654D2442BA98CB7 /* NativeARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */; };
 		3D2143EE43C695B564AF7604 /* scene.json in Resources */ = {isa = PBXBuildFile; fileRef = 323E938DBF004EF68FAE077D /* scene.json */; };
 		3D5F903A60D89920B7662938 /* SpatialDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48390268EED22994556DB /* SpatialDemoApp.swift */; };
+		3F0886A043AE465B595119DF /* DebugFlowAcceptance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142114D169D643F7617D39F /* DebugFlowAcceptance.swift */; };
 		4967AA78B432C2501C86116E /* ConversationFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42719BB9D5A99CADDEDE33 /* ConversationFeedback.swift */; };
 		5D3B018BEFECCDBB91DE2979 /* RealtimeWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322DF28EEBA6B7CEDBC4843 /* RealtimeWire.swift */; };
 		64C89544E262D66CBF384230 /* rack-exterior.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F8CD159B72CA21B5DC54FE8 /* rack-exterior.usdz */; };
@@ -44,6 +45,7 @@
 		323E938DBF004EF68FAE077D /* scene.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scene.json; sourceTree = "<group>"; };
 		3D096F4160DEB58075A13E7C /* SessionConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConfigurationStore.swift; sourceTree = "<group>"; };
 		3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeARView.swift; sourceTree = "<group>"; };
+		4142114D169D643F7617D39F /* DebugFlowAcceptance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFlowAcceptance.swift; sourceTree = "<group>"; };
 		4DD54CC7344D9A424145A065 /* AstraSpatialDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AstraSpatialDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509376F797FBEFFBD79FB710 /* ConnectionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsView.swift; sourceTree = "<group>"; };
 		53AF52106FC23EDE9770B763 /* PCMCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMCodec.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		FE8C4BCCF7DAAB0A6ED483ED /* SpatialDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4142114D169D643F7617D39F /* DebugFlowAcceptance.swift */,
 				1410DE33DE319FDB77F1C1B4 /* DemoAssetLibrary.swift */,
 				DB08807885A02459BF39E847 /* DemoPresentationPhase.swift */,
 				BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */,
@@ -266,6 +269,7 @@
 				DEA0EC115F9A1176B2AC50B2 /* ConversationComposer.swift in Sources */,
 				4967AA78B432C2501C86116E /* ConversationFeedback.swift in Sources */,
 				0CD98F3AC881AE12C083B095 /* ConversationModels.swift in Sources */,
+				3F0886A043AE465B595119DF /* DebugFlowAcceptance.swift in Sources */,
 				E83DF565E144EE17AD1184E4 /* DemoAssetLibrary.swift in Sources */,
 				F83D1EAD5754D77D8B647836 /* DemoPresentationPhase.swift in Sources */,
 				791C7C42447E52329A57F744 /* DemoSessionModel.swift in Sources */,

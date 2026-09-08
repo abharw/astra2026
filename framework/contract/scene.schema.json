@@ -25,6 +25,13 @@
       "properties": { "translation": { "$ref": "#/$defs/vec3" }, "rotation": { "$ref": "#/$defs/quat" }, "scale": { "$ref": "#/$defs/vec3" } },
       "x-astra-hash-order": ["translation", "rotation", "scale"]
     },
+    "flowAttachment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["nodeId", "localPoint"],
+      "properties": { "nodeId": { "$ref": "#/$defs/id" }, "localPoint": { "$ref": "#/$defs/vec3" } },
+      "x-astra-hash-order": ["nodeId", "localPoint"],
+      "description": "Attachment to a structural scene node. localPoint is in that node's local coordinate space. Referenced nodes and containment constraints are validated for each installed flow instance."
+    },
     "geometryRecipe": {
       "oneOf": [
         { "type": "object", "additionalProperties": false, "required": ["kind", "assetID", "partID"], "properties": { "kind": { "const": "importedAsset" }, "assetID": { "$ref": "#/$defs/id" }, "partID": { "$ref": "#/$defs/id" } }, "x-astra-hash-order": ["kind", "assetID", "partID"], "description": "Immutable native catalog part. The runtime resolves the reference and validates measured asset triangle budgets before installation; model drafts cannot create catalog references." },
@@ -33,7 +40,23 @@
         { "type": "object", "additionalProperties": false, "required": ["kind", "radius", "height", "radialSegments"], "properties": { "kind": { "const": "cylinder" }, "radius": { "$ref": "#/$defs/finiteNumber" }, "height": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "radius", "height", "radialSegments"] },
         { "type": "object", "additionalProperties": false, "required": ["kind", "bottomRadius", "topRadius", "height", "radialSegments"], "properties": { "kind": { "const": "cone" }, "bottomRadius": { "$ref": "#/$defs/finiteNumber" }, "topRadius": { "$ref": "#/$defs/finiteNumber" }, "height": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "bottomRadius", "topRadius", "height", "radialSegments"] },
         { "type": "object", "additionalProperties": false, "required": ["kind", "points", "radius", "radialSegments"], "properties": { "kind": { "const": "tube" }, "points": { "type": "array", "items": { "$ref": "#/$defs/vec3" }, "minItems": 2, "maxItems": 256 }, "radius": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "points", "radius", "radialSegments"] },
-        { "type": "object", "additionalProperties": false, "required": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"], "properties": { "kind": { "const": "arrow" }, "start": { "$ref": "#/$defs/vec3" }, "end": { "$ref": "#/$defs/vec3" }, "shaftRadius": { "$ref": "#/$defs/finiteNumber" }, "headRadius": { "$ref": "#/$defs/finiteNumber" }, "headLength": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"] }
+        { "type": "object", "additionalProperties": false, "required": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"], "properties": { "kind": { "const": "arrow" }, "start": { "$ref": "#/$defs/vec3" }, "end": { "$ref": "#/$defs/vec3" }, "shaftRadius": { "$ref": "#/$defs/finiteNumber" }, "headRadius": { "$ref": "#/$defs/finiteNumber" }, "headLength": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"] },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["kind", "source", "target", "routePoints", "direction", "width", "label", "animated"],
+          "properties": {
+            "kind": { "const": "flow" },
+            "source": { "$ref": "#/$defs/flowAttachment" },
+            "target": { "$ref": "#/$defs/flowAttachment" },
+            "routePoints": { "type": "array", "items": { "$ref": "#/$defs/vec3" }, "maxItems": 8 },
+            "direction": { "enum": ["forward", "reverse"] },
+            "width": { "type": "number", "minimum": 0.001, "maximum": 0.25 },
+            "label": { "type": "string", "maxLength": 80, "description": "At most 80 UTF-8 bytes, additionally enforced by semantic validation; an empty label is allowed." },
+            "animated": { "type": "boolean" }
+          },
+          "x-astra-hash-order": ["kind", "source", "target", "routePoints", "direction", "width", "label", "animated"],
+          "description": "Capability flow.v1. An ordinary scene node binds a directed, illustrative path to structural nodes. Route points and width are in the flow node's local coordinate space. At most 32 flow node instances are permitted in a document."
+        }
       ]
     },
     "geometryDefinition": {
@@ -91,7 +114,7 @@
     "operations": { "type": "array", "items": { "$ref": "#/$defs/operation" }, "maxItems": 128 },
     "hello": {
       "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "sceneSchemaVersions", "geometrySemanticsVersions", "capabilities"],
-      "properties": { "type": { "const": "hello" }, "protocolVersion": { "const": 1 }, "sceneSchemaVersions": { "type": "array", "contains": { "const": 1 } }, "geometrySemanticsVersions": { "type": "array", "contains": { "const": 1 } }, "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["box.v1", "sphere.v1", "cylinder.v1", "cone.v1", "tube.v1", "arrow.v1", "importedAsset.v1"] } } }
+      "properties": { "type": { "const": "hello" }, "protocolVersion": { "const": 1 }, "sceneSchemaVersions": { "type": "array", "contains": { "const": 1 } }, "geometrySemanticsVersions": { "type": "array", "contains": { "const": 1 } }, "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["box.v1", "sphere.v1", "cylinder.v1", "cone.v1", "tube.v1", "arrow.v1", "importedAsset.v1", "flow.v1"] } } }
     },
     "generationBegin": {
       "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "initialBaseRevision"],

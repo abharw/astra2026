@@ -11,6 +11,7 @@ struct NativeARView: UIViewRepresentable {
     @Binding var pointingEnabled: Bool
     var isActive: Bool
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     init(
         controller: SceneController,
@@ -46,13 +47,15 @@ struct NativeARView: UIViewRepresentable {
     }
 
     static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
-        coordinator.dismantle()
+        guard let view = uiView as? ARView else { return }
+        coordinator.dismantle(from: view)
     }
 
     private func updateActivity(_ coordinator: Coordinator) {
         coordinator.updateActivity(
             sessionActive: scenePhase == .active,
-            pointingEnabled: pointingEnabled && isActive
+            pointingEnabled: pointingEnabled && isActive,
+            flowAnimationEnabled: scenePhase == .active && !reduceMotion
         )
     }
 
@@ -63,12 +66,19 @@ struct NativeARView: UIViewRepresentable {
         private var pointingAdapter: ARPointingFrameAdapter?
         private var isPointingEnabled = false
         private var wantsPointing = false
+        private var wantsFlowAnimation = false
         private var isSessionActive = true
         private var isInterrupted = false
         private var pausedConfiguration: ARConfiguration?
+        #if DEBUG
+        private let flowAcceptanceSampler: DebugFlowAcceptanceSampler?
+        #endif
 
         init(controller: SceneController) {
             self.controller = controller
+            #if DEBUG
+            self.flowAcceptanceSampler = DebugFlowAcceptanceSampler(controller: controller)
+            #endif
         }
 
         func install(on view: ARView) {
@@ -79,8 +89,9 @@ struct NativeARView: UIViewRepresentable {
             view.session.delegateQueue = .main
         }
 
-        func updateActivity(sessionActive: Bool, pointingEnabled: Bool) {
+        func updateActivity(sessionActive: Bool, pointingEnabled: Bool, flowAnimationEnabled: Bool) {
             wantsPointing = pointingEnabled
+            wantsFlowAnimation = flowAnimationEnabled
             #if !targetEnvironment(simulator)
             if sessionActive != isSessionActive {
                 isSessionActive = sessionActive
@@ -98,17 +109,33 @@ struct NativeARView: UIViewRepresentable {
             }
             setPointingEnabled(pointingEnabled && sessionActive && !isInterrupted)
             #else
+            isSessionActive = sessionActive
             setPointingEnabled(false)
+            #endif
+            controller.renderer.setFlowAnimationEnabled(flowAnimationEnabled && sessionActive && !isInterrupted)
+            #if DEBUG
+            if let view {
+                if sessionActive && !isInterrupted {
+                    flowAcceptanceSampler?.start(on: view)
+                } else {
+                    flowAcceptanceSampler?.stop(from: view)
+                }
+            }
             #endif
         }
 
-        func dismantle() {
-            setPointingEnabled(false)
-            view?.session.delegate = nil
-            #if !targetEnvironment(simulator)
-            view?.session.pause()
+        func dismantle(from view: ARView) {
+            #if DEBUG
+            flowAcceptanceSampler?.stop(from: view, reason: "view_dismantled")
             #endif
-            view = nil
+            setPointingEnabled(false)
+            view.session.delegate = nil
+            #if !targetEnvironment(simulator)
+            view.session.pause()
+            #endif
+            // Detach only this surface: a replacement may already own the renderer.
+            controller.renderer.detach(from: view)
+            self.view = nil
         }
 
         private func setPointingEnabled(_ enabled: Bool) {
@@ -144,17 +171,24 @@ struct NativeARView: UIViewRepresentable {
 
         nonisolated func sessionWasInterrupted(_ session: ARSession) {
             MainActor.assumeIsolated {
+                guard let view = self.view, view.session === session else { return }
                 self.isInterrupted = true
                 self.setPointingEnabled(false)
+                self.controller.renderer.setFlowAnimationEnabled(false)
+                #if DEBUG
+                self.flowAcceptanceSampler?.stop(from: view, reason: "session_interrupted")
+                #endif
             }
         }
 
         nonisolated func sessionInterruptionEnded(_ session: ARSession) {
             MainActor.assumeIsolated {
+                guard let view = self.view, view.session === session else { return }
                 self.isInterrupted = false
                 self.updateActivity(
                     sessionActive: self.isSessionActive,
-                    pointingEnabled: self.wantsPointing
+                    pointingEnabled: self.wantsPointing,
+                    flowAnimationEnabled: self.wantsFlowAnimation
                 )
             }
         }

@@ -15,6 +15,9 @@ enum SceneLab {
     private static func run() async throws {
         let args = Array(CommandLine.arguments.dropFirst())
         switch args.first {
+        case "reducer":
+            guard args.count == 1 else { throw LabError.usage }
+            ReducerBridge.run()
         case "seed":
             guard args.count == 2 else { throw LabError.usage }
             let document = try startingRack()
@@ -132,7 +135,7 @@ private enum LabError: Error, CustomStringConvertible {
 
     var description: String {
         switch self {
-        case .usage: "Usage: SceneLab seed OUTPUT | validate SCENE | live WS_URL PROMPT EVIDENCE [STARTING_SCENE]"
+        case .usage: "Usage: SceneLab reducer | seed OUTPUT | validate SCENE | live WS_URL PROMPT EVIDENCE [STARTING_SCENE]"
         case .invalidResponse: "The service returned an invalid response."
         case let .rejected(reason): reason
         }

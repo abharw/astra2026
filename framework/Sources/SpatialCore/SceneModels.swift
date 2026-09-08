@@ -93,6 +93,7 @@ public enum GeometryRecipe: Sendable, Equatable {
   case arrow(
     start: Vec3, end: Vec3, shaftRadius: Double, headRadius: Double, headLength: Double,
     radialSegments: Int)
+  case flow(FlowRecipe)
 }
 
 extension GeometryRecipe: Codable {
@@ -100,9 +101,12 @@ extension GeometryRecipe: Codable {
     case kind, size, radius, segments, height, radialSegments
     case bottomRadius, topRadius, points, start, end, shaftRadius, headRadius, headLength
     case assetID, partID
+    case source, target, routePoints, direction, width, label, animated
   }
 
-  private enum Kind: String, Codable { case box, sphere, cylinder, cone, tube, arrow, importedAsset }
+  private enum Kind: String, Codable {
+    case box, sphere, cylinder, cone, tube, arrow, importedAsset, flow
+  }
 
   public init(from decoder: any Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -147,6 +151,16 @@ extension GeometryRecipe: Codable {
         headLength: try values.decode(Double.self, forKey: .headLength),
         radialSegments: try values.decode(Int.self, forKey: .radialSegments)
       )
+    case .flow:
+      self = .flow(
+        FlowRecipe(
+          source: try values.decode(FlowAttachment.self, forKey: .source),
+          target: try values.decode(FlowAttachment.self, forKey: .target),
+          routePoints: try values.decode([Vec3].self, forKey: .routePoints),
+          direction: try values.decode(FlowDirection.self, forKey: .direction),
+          width: try values.decode(Double.self, forKey: .width),
+          label: try values.decode(String.self, forKey: .label),
+          animated: try values.decode(Bool.self, forKey: .animated)))
     }
   }
 
@@ -189,6 +203,15 @@ extension GeometryRecipe: Codable {
       try values.encode(headRadius, forKey: .headRadius)
       try values.encode(headLength, forKey: .headLength)
       try values.encode(radialSegments, forKey: .radialSegments)
+    case .flow(let flow):
+      try values.encode(Kind.flow, forKey: .kind)
+      try values.encode(flow.source, forKey: .source)
+      try values.encode(flow.target, forKey: .target)
+      try values.encode(flow.routePoints, forKey: .routePoints)
+      try values.encode(flow.direction, forKey: .direction)
+      try values.encode(flow.width, forKey: .width)
+      try values.encode(flow.label, forKey: .label)
+      try values.encode(flow.animated, forKey: .animated)
     }
   }
 }

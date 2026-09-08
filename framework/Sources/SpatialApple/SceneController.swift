@@ -319,7 +319,7 @@ public final class SceneController {
             text: text,
             selection: validNodeIDs.isEmpty ? nil : .init(nodeIds: validNodeIDs)
         )
-        let snapshot = makeSnapshot()
+        let snapshot = makeSnapshot(prioritizing: validNodeIDs)
         lastExplanation = nil
         lastError = nil
         activity = "sending"
@@ -955,7 +955,8 @@ public final class SceneController {
         guard self.sessionID == sessionID, connectionState == .connecting else { return }
         do {
             try await sendSessionHello()
-            guard self.sessionID == sessionID, connectionState == .connecting,
+            guard !Task.isCancelled, self.sessionID == sessionID,
+                  connectionState == .connecting || connectionState == .connected,
                   transport.state == .connected else { return }
             try await sendSnapshot()
             DiagnosticsLog.shared.record("handshake.sent", component: "scene.controller", correlationID: sessionID)
@@ -1093,15 +1094,60 @@ public final class SceneController {
         try await transport.send(makeSnapshot(), using: encoder)
     }
 
-    private func makeSnapshot() -> PhoneSnapshot {
+    private func makeSnapshot(prioritizing requestedNodeIDs: [String]? = nil) -> PhoneSnapshot {
         let details = availableAssetDetails
+        let bounds = renderer.nodeLocalBounds(prioritizing: Self.boundsPriorityNodeIDs(
+            in: acceptedScene.document, selectionIDs: requestedNodeIDs ?? selection?.nodeIDs ?? []), maximumCount: 128)
         return PhoneSnapshot(
             sceneId: acceptedScene.sceneId,
             revision: acceptedScene.revision,
             intentEpoch: acceptedScene.intentEpoch,
             document: acceptedScene.document,
-            availableAssetDetails: details.isEmpty ? nil : details
+            availableAssetDetails: details.isEmpty ? nil : details,
+            nodeLocalBounds: bounds.isEmpty ? nil : bounds
         )
+    }
+
+    /// Keep the selected structure and its hierarchy ahead of unrelated bounds
+    /// when a large assembly exceeds the measured-context budget.
+    static func boundsPriorityNodeIDs(in document: SceneDocument, selectionIDs: [String],
+                                     maximumCount: Int = 128) -> [String] {
+        let limit = min(128, max(0, maximumCount))
+        guard limit > 0, !selectionIDs.isEmpty else { return [] }
+        let nodes = Dictionary(uniqueKeysWithValues: document.nodes.map { ($0.nodeId, $0) })
+        var children: [String: [String]] = [:]
+        for node in document.nodes {
+            if let parentID = node.parentId { children[parentID, default: []].append(node.nodeId) }
+        }
+        let selected = selectionIDs.filter { nodes[$0] != nil }
+        var result: [String] = []
+        var included = Set<String>()
+        func include(_ nodeID: String) {
+            if result.count < limit, included.insert(nodeID).inserted { result.append(nodeID) }
+        }
+        for nodeID in selected { include(nodeID) }
+        for nodeID in selected {
+            var parentID = nodes[nodeID]?.parentId
+            var ancestors = Set<String>()
+            while let current = parentID, ancestors.insert(current).inserted, result.count < limit {
+                guard let parent = nodes[current] else { break }
+                include(current)
+                parentID = parent.parentId
+            }
+        }
+        var queue = selected
+        var visited = Set<String>()
+        var cursor = 0
+        while cursor < queue.count, result.count < limit {
+            let current = queue[cursor]
+            cursor += 1
+            guard visited.insert(current).inserted else { continue }
+            for childID in children[current] ?? [] {
+                include(childID)
+                if result.count < limit { queue.append(childID) }
+            }
+        }
+        return result
     }
 
     private func websocketURL(from url: URL) -> URL? {

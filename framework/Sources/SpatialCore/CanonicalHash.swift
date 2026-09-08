@@ -148,6 +148,18 @@ private struct CanonicalWriter {
       try double(headRadius)
       try double(headLength)
       try integer(radialSegments)
+    case .flow(let flow):
+      try string("flow")
+      try string(flow.source.nodeId)
+      try vec3(flow.source.localPoint)
+      try string(flow.target.nodeId)
+      try vec3(flow.target.localPoint)
+      try count(flow.routePoints.count)
+      for point in flow.routePoints { try vec3(point) }
+      try string(flow.direction.rawValue)
+      try double(flow.width)
+      try string(flow.label)
+      byte(flow.animated ? 1 : 0)
     }
   }
 

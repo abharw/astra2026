@@ -254,6 +254,13 @@ public struct SceneWireDecoder: Sendable {
       allowed = [
         "kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments",
       ]
+    case "flow":
+      allowed = ["kind", "source", "target", "routePoints", "direction", "width", "label", "animated"]
+      for endpoint in ["source", "target"] {
+        if let attachment = value[endpoint] as? [String: Any] {
+          try keys(attachment, allowed: ["nodeId", "localPoint"], path: "\(path).\(endpoint)")
+        }
+      }
     default: return
     }
     try keys(value, allowed: allowed, path: path)

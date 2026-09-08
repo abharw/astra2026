@@ -1,5 +1,6 @@
 import { asObject, isObject, isString, JsonObject, JsonValue, ProtocolError, rejectUnknown, requireArray, requireInteger, requireString } from "./json.js";
 import { AvailableAssetDetail, parseAvailableAssetDetails } from "./asset-details.js";
+import { NodeLocalBounds, parseNodeLocalBounds } from "./node-local-bounds.js";
 
 export const PROTOCOL_VERSION = 1;
 export const MAX_WIRE_BYTES = 256 * 1024;
@@ -25,6 +26,7 @@ export interface PhoneSnapshot {
   intentEpoch: number;
   document: JsonObject;
   availableAssetDetails?: AvailableAssetDetail[];
+  nodeLocalBounds?: NodeLocalBounds[];
 }
 
 export interface UserRequest {
@@ -73,7 +75,7 @@ export function parseClientEnvelope(value: unknown): ClientEnvelope {
   switch (type) {
     case "session.hello": return parseHello(object);
     case "phone.snapshot": {
-      rejectUnknown(object, ["type", "sceneId", "revision", "intentEpoch", "document", "availableAssetDetails"]);
+      rejectUnknown(object, ["type", "sceneId", "revision", "intentEpoch", "document", "availableAssetDetails", "nodeLocalBounds"]);
       const document = asObject(object.document, "document");
       return {
       type,
@@ -81,6 +83,7 @@ export function parseClientEnvelope(value: unknown): ClientEnvelope {
       revision: requireInteger(object, "revision"),
       intentEpoch: requireInteger(object, "intentEpoch"),
       document,
+      ...(object.nodeLocalBounds === undefined ? {} : { nodeLocalBounds: parseNodeLocalBounds(object.nodeLocalBounds, document) }),
       ...(object.availableAssetDetails === undefined ? {} : { availableAssetDetails: parseAvailableAssetDetails(object.availableAssetDetails, document) })
     };
     }

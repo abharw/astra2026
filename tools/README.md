@@ -31,3 +31,26 @@ The two Realtime checks cover different contracts: `realtime-smoke.mjs` verifies
 
 The app owns rendering, camera input, and device behavior. The testing lanes and
 their evidence limits are defined in [docs/testing-harness.md](../docs/testing-harness.md).
+
+## Native flow acceptance
+
+[Flow integration and evidence](../docs/native-flow-integration.md) separates real-model scene acceptance from native rendering and physical-device performance.
+
+```sh
+swift build --package-path tools --scratch-path .local/build/flow-check --product SceneLab
+node tools/checks/check-flows.mjs --prepare-only
+node tools/checks/check-flows.mjs --out .local/flow-acceptance/live
+```
+
+[check-flows.mjs](checks/check-flows.mjs) runs rack and non-rack creation, reversal, bound-part translation, hide, delete, and host Undo through the production Swift reducer. It uses real model authoring for the first five stages, supplies synthetic phone snapshots with no invented measured bounds, and saves receipts/documents only under `.local/`. `--prepare-only` validates the fixtures without network access.
+
+[check-flow-metrics.py](checks/check-flow-metrics.py) restarts an installed Debug app for each selected 0/1/8/32-flow fixture and records 30 active seconds per count:
+
+```sh
+python3 tools/checks/check-flow-metrics.py --simulator-id <SIMULATOR_UDID> \
+  --counts 0,1,8,32 --out .local/flow-metrics/simulator
+python3 tools/checks/check-flow-metrics.py --device <DEVICE_ID> \
+  --counts 0,1,8,32 --out .local/flow-metrics/device
+```
+
+Use a new output directory. The explicit Debug launch setting `ASTRA_FLOW_ACCEPTANCE_COUNT` selects a synthetic fixture; ordinary launches do not. Reports measure marker-loop CPU wall time, bounded resources, and scene-update callback cadence. Simulator results never establish physical AR, GPU time, thermal behavior, or visual correctness; physical runs require an unlocked device.

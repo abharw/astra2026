@@ -7,7 +7,7 @@ import SpatialApple
 @MainActor
 @Observable
 final class DemoSessionModel {
-    let controller = SceneController()
+    let controller: SceneController
 
     @ObservationIgnored private var speechLocks: [String: PointingSpeechLock] = [:]
     @ObservationIgnored private var latestSpeechLock: PointingSpeechLock?
@@ -76,6 +76,11 @@ final class DemoSessionModel {
     )
 
     init() {
+        #if DEBUG
+        controller = DebugFlowAcceptance.makeControllerIfRequested() ?? SceneController()
+        #else
+        controller = SceneController()
+        #endif
         let configuration = SessionConfigurationStore().load()
         backendURL = configuration.backendURL
         sessionAuthToken = configuration.token

@@ -1,0 +1,58 @@
+{
+  "baseRevision" : 7,
+  "intentEpoch" : 3,
+  "operations" : [
+    {
+      "geometry" : {
+        "contentHash" : "24fe9f7b3acc0d409dfed20451d089b6bf173a4e55f5d4a69355a35f8b41925d",
+        "geometryId" : "energy_flow_geometry",
+        "recipe" : {
+          "animated" : true,
+          "direction" : "forward",
+          "kind" : "flow",
+          "label" : "Energy → storage",
+          "routePoints" : [
+            [
+              -0.15,
+              0.2,
+              -0
+            ],
+            [
+              0.15,
+              0.2,
+              0
+            ]
+          ],
+          "source" : {
+            "localPoint" : [
+              0.1,
+              0,
+              0
+            ],
+            "nodeId" : "solar_panel"
+          },
+          "target" : {
+            "localPoint" : [
+              -0.1,
+              0,
+              0
+            ],
+            "nodeId" : "battery"
+          },
+          "width" : 0.012
+        }
+      },
+      "op" : "put.geometry"
+    },
+    {
+      "geometryId" : "energy_flow_geometry",
+      "nodeId" : "energy_flow",
+      "op" : "set.geometry"
+    }
+  ],
+  "payloadHash" : "74d6425e2190b04f913ce68235c2e008c7631e699c4c5d603d2ab02e693a7207",
+  "protocolVersion" : 1,
+  "requestId" : "flow_fixture_request",
+  "sceneId" : "flow_fixture_scene",
+  "type" : "scene.patch"
+}

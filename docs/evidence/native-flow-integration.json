@@ -1,0 +1,1875 @@
+{
+  "schema": "astra-native-flow-integration-evidence/v1",
+  "recordedAt": "2026-09-08",
+  "implementationBaseline": "Native flow stage following 8d93cb3 image integration",
+  "status": "implemented_with_physical_visual_acceptance_pending",
+  "scope": "Generic native flow geometry on ordinary accepted scene nodes; no physical heat/fluid/electrical simulation.",
+  "redaction": "No credentials, endpoint hostnames, raw model prompts, full diagnostic traces, or full Undo affected-node lists. Local receipts and accepted documents are referenced by checksum.",
+  "contract": {
+    "capability": "flow.v1",
+    "stableSceneNodeIdentity": true,
+    "maximumFlowInstances": 32,
+    "maximumRoutePoints": 8,
+    "maximumLabelUTF8Bytes": 80,
+    "minimumWidthMetres": 0.001,
+    "maximumWidthMetres": 0.25,
+    "attachmentCoordinates": "Source/target structural node local; route points and width annotation local.",
+    "bindingResolution": "inverse(annotationWorld) * endpointWorld * localPoint from complete candidate accepted hierarchy.",
+    "coincidentEndpoints": "Retain node identity and suppress degenerate visuals.",
+    "lifecycle": "Existing transactional scene operations and Undo; dependent annotations must be removed with a deleted structural endpoint."
+  },
+  "legacyHashVectors": {
+    "path": "framework/contract/fixtures/hash-vectors.json",
+    "baselineSHA256": "336e27fbd36bf6fae694f6f1673faec25651f552d69655b86bbb4085e175024c",
+    "currentSHA256": "5f2c976e9d88b382adfb747a63999a024bdc57794948cb1ee71f4815d7a6d9fa",
+    "fileBytesUnchanged": false,
+    "boundary": "File adds one flow request and two flow geometry vectors. Every prior entry remains exactly equal; previous recipe/request hashes are unchanged.",
+    "allPriorEntriesRetainedExactly": true,
+    "addedFlowRequestVectors": 1,
+    "addedFlowGeometryVectors": 2
+  },
+  "liveAcceptance": {
+    "sourceReceipt": {
+      "path": ".local/flow-acceptance/live/receipt.json",
+      "sha256": "93c38fa045f5f086b3db412731af909d460871e521b2bcb85e4c13e6fea3439b"
+    },
+    "startedAt": "2026-09-08T22:28:33.098Z",
+    "status": "passed",
+    "mode": "live-model-real-Swift-reducer",
+    "reducer": "Production SpatialCore.SceneState and SceneWireDecoder via persistent SceneLab reducer process.",
+    "reducerBinarySHA256": "39c06ae2de6d1b66f7a482e94bf3d489745138056cfc7965c241d74ee54e8648",
+    "elapsedMS": 32459,
+    "stageCount": 12,
+    "model": "gpt-6-astra",
+    "modelTurnCount": 10,
+    "hostUndoCount": 2,
+    "nodeLocalBoundsSupplied": false,
+    "inputBoundary": "Synthetic phone snapshots from the procedural 179-node rack and inline three-node lamp. Not imported CAD, native measured bounds, or camera observations.",
+    "sceneSHA256Meaning": "Harness digest of canonicalized scene JSON; sceneFileSHA256 separately hashes exact exported file bytes.",
+    "fixtures": [
+      {
+        "fixture": "rack",
+        "source": "assets/server-rack/scene.json",
+        "sourceFixtureSHA256": "712b5bc82c8aadd4ba33d07f522ef28c09cc8362f87cbe2b49531dfa0831455f",
+        "initialNodeCount": 179,
+        "status": "passed",
+        "initialSceneSemanticSHA256": "e60502deb71ee37028bb73851eb6065ada426b84dd71c2e0f7556001f88f911d",
+        "initialScenePath": ".local/flow-acceptance/live/rack-initial.scene.json",
+        "initialSceneFileSHA256": "0297e1731cae43584921c385f55e5b3ff8a48d4fb158a07de2907b4ea98672ed",
+        "flowIdentityPreserved": true,
+        "turns": [
+          {
+            "stage": "create",
+            "requestId": "create-63439040-808e-4b03-a4dc-eba462b84a4d",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 0,
+            "intentEpoch": 1,
+            "elapsedMS": 4004,
+            "resultingRevision": 1,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "0f0d6f3348b36cf11195df9d1fcc9d3b157d5f49e2565a87e5d14e1b3ca79f76",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-create.scene.json",
+            "sceneFileSHA256": "81bf1dd5038ad6bd071c213f76b167a7265ce9f8a919a83213453a2e719c23d4",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "create-63439040-808e-4b03-a4dc-eba462b84a4d:patch",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 1,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "create-63439040-808e-4b03-a4dc-eba462b84a4d:patch",
+                "payloadHash": "3a64c796cb059dd9ddfdf193a0b1765977b8abf78cded5a9b2e0fe8dd578d699",
+                "operationCount": 3,
+                "previousRevision": 0,
+                "resultingRevision": 1
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true,
+            "recipe": {
+              "direction": "forward",
+              "routePoints": [],
+              "label": "Heat transfer",
+              "kind": "flow",
+              "source": {
+                "nodeId": "server-1-cpu-1",
+                "localPoint": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "width": 0.008,
+              "animated": true,
+              "target": {
+                "nodeId": "server-1-fan-wall",
+                "localPoint": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          {
+            "stage": "reverse",
+            "requestId": "reverse-36370ce2-43d8-4a81-a0d8-e2057b3163a4",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 1,
+            "intentEpoch": 2,
+            "elapsedMS": 4873,
+            "resultingRevision": 2,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "e2bb0e1df4f39fba21b3ce5e5ffdf8be21aacbd451b7525026774dda3d646362",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-reverse.scene.json",
+            "sceneFileSHA256": "f980ff7cb3c00cca7423581100f51b616913a73f9e44f9cec25778ad9c07e3d1",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "reverse-36370ce2-43d8-4a81-a0d8-e2057b3163a4:patch",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 2,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "reverse-36370ce2-43d8-4a81-a0d8-e2057b3163a4:patch",
+                "payloadHash": "062863e58e25ff079176bce528a53fe78d464fc805c77d1cc191d834a45382ba",
+                "operationCount": 2,
+                "previousRevision": 1,
+                "resultingRevision": 2
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true
+          },
+          {
+            "stage": "transform",
+            "requestId": "transform-e6b6976a-0cc9-47a9-879b-38f1c4cc193a",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 2,
+            "intentEpoch": 3,
+            "elapsedMS": 2879,
+            "resultingRevision": 3,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "a26c9e064ea715567b53206cf3b997cf6b38e6455c0161f0892dbcf1ebee3fee",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-transform.scene.json",
+            "bindingPreserved": true,
+            "renderedPathMovementVerified": false,
+            "sceneFileSHA256": "0e0730ccac22714f9719c2872767eb8f18c992eab3dd14bc86a2f6acc3de4833",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "transform-e6b6976a-0cc9-47a9-879b-38f1c4cc193a:patch",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 3,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "transform-e6b6976a-0cc9-47a9-879b-38f1c4cc193a:patch",
+                "payloadHash": "f2d59cfb20dfb7a1fa5cbab9f6fe919f1808814df291d89f88d6db556c15cb9e",
+                "operationCount": 1,
+                "previousRevision": 2,
+                "resultingRevision": 3
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true
+          },
+          {
+            "stage": "hide",
+            "requestId": "hide-19fbce56-2aab-4ebb-af09-0d1c2639a843",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 3,
+            "intentEpoch": 4,
+            "elapsedMS": 3014,
+            "resultingRevision": 4,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "9cda892b6f7f477dab39ee3517c1ce292fa5e582bc5fd324a9f82e0dc4bee968",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-hide.scene.json",
+            "sceneFileSHA256": "eeb12c6774ae418384847aa1f6c76579817eb52c677a1ec0b7e1842ce2b7b5a7",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "hide-19fbce56-2aab-4ebb-af09-0d1c2639a843:patch",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 4,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "hide-19fbce56-2aab-4ebb-af09-0d1c2639a843:patch",
+                "payloadHash": "cf649e81463519b662feb09d9d380185a2cbb29ecbc68fb2b57b0a13ef9097fb",
+                "operationCount": 1,
+                "previousRevision": 3,
+                "resultingRevision": 4
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": false
+          },
+          {
+            "stage": "delete",
+            "requestId": "delete-3e6dd36e-c328-4f2e-8ca4-c162f9e9115b",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 4,
+            "intentEpoch": 5,
+            "elapsedMS": 2276,
+            "resultingRevision": 5,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "f1ec04f48ff4b0d0d0903d837cf56f1619d8364b738e119a37f96f04ade59327",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-delete.scene.json",
+            "sceneFileSHA256": "bcfaf2e55c282a601241c3561e7b5ecd291d116d08ce55c74c9abf2492483933",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "delete-3e6dd36e-c328-4f2e-8ca4-c162f9e9115b:patch",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 5,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "delete-3e6dd36e-c328-4f2e-8ca4-c162f9e9115b:patch",
+                "payloadHash": "ec7f870ccc171ace60629065a226c63c6ee377929a1304d114544477be82677f",
+                "operationCount": 1,
+                "previousRevision": 4,
+                "resultingRevision": 5
+              }
+            ],
+            "flowNodePresent": false,
+            "flowNodeVisible": null
+          },
+          {
+            "stage": "undo",
+            "requestId": "undo-9963f7d2-7e1d-49bb-84ab-1dd47171d1f9",
+            "status": "passed",
+            "authoring": "native-host-undo-no-model-call",
+            "elapsedMS": 5,
+            "resultingRevision": 6,
+            "flowNodeId": "node_6705c256d67242c424369401",
+            "sceneSHA256": "9cda892b6f7f477dab39ee3517c1ce292fa5e582bc5fd324a9f82e0dc4bee968",
+            "acceptedScenePath": ".local/flow-acceptance/live/rack-undo.scene.json",
+            "sceneFileSHA256": "eeb12c6774ae418384847aa1f6c76579817eb52c677a1ec0b7e1842ce2b7b5a7",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "undo-9963f7d2-7e1d-49bb-84ab-1dd47171d1f9",
+                "sceneId": "flow-check-50745917-786b-417b-aaa4-3379dcee33ce",
+                "revision": 6,
+                "type": "scene.receipt",
+                "affectedNodeCount": 180
+              }
+            ],
+            "proposals": [],
+            "flowNodePresent": true,
+            "flowNodeVisible": false,
+            "restoredExactPreDeleteScene": true
+          }
+        ]
+      },
+      {
+        "fixture": "lamp",
+        "source": "inline:synthetic-lamp-with-authored-primitive-geometry",
+        "sourceFixtureSHA256": "dcec15f9e3c4936e190d9ca36833a17263e44a721e3ec27b970027d2d4570011",
+        "initialNodeCount": 3,
+        "status": "passed",
+        "initialSceneSemanticSHA256": "dcec15f9e3c4936e190d9ca36833a17263e44a721e3ec27b970027d2d4570011",
+        "initialScenePath": ".local/flow-acceptance/live/lamp-initial.scene.json",
+        "initialSceneFileSHA256": "4b7780ce262d0155f166711ea4ddebd6b7bcf6b838fbaad05f2c3344b5179f15",
+        "flowIdentityPreserved": true,
+        "turns": [
+          {
+            "stage": "create",
+            "requestId": "create-74906a83-7761-4090-b5ba-12ae0e6da4a4",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 0,
+            "intentEpoch": 1,
+            "elapsedMS": 2926,
+            "resultingRevision": 1,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "6d3079ce5c7c2bdf51719e389ddc243ce7d5dc463cb19f8067dd791cc5f6e6f2",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-create.scene.json",
+            "sceneFileSHA256": "0ac9489f38b42efb8dbf4446a246b4157b1c41e5c1f8e99e14454f6708e9d43d",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "create-74906a83-7761-4090-b5ba-12ae0e6da4a4:patch",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 1,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "create-74906a83-7761-4090-b5ba-12ae0e6da4a4:patch",
+                "payloadHash": "320621c5ce2eeadd360fd1821dc1a269a0274bea6d51f77aae7ec17ae75cb424",
+                "operationCount": 3,
+                "previousRevision": 0,
+                "resultingRevision": 1
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true,
+            "recipe": {
+              "width": 0.008,
+              "source": {
+                "nodeId": "lamp.base",
+                "localPoint": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "direction": "forward",
+              "target": {
+                "nodeId": "lamp.bulb",
+                "localPoint": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "kind": "flow",
+              "label": "Electrical energy",
+              "animated": true,
+              "routePoints": []
+            }
+          },
+          {
+            "stage": "reverse",
+            "requestId": "reverse-2b943f3d-e2d9-4100-886d-d7200f92f2a0",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 1,
+            "intentEpoch": 2,
+            "elapsedMS": 4740,
+            "resultingRevision": 2,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "9270f94e72b58a7b1a6756ba8462275d6177fcf35438815814f033d37dcd60f9",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-reverse.scene.json",
+            "sceneFileSHA256": "748dfd534f06880a99ba5da380a81a82160f70cea9afc901d9ff990f29d2774d",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "reverse-2b943f3d-e2d9-4100-886d-d7200f92f2a0:patch",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 2,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "reverse-2b943f3d-e2d9-4100-886d-d7200f92f2a0:patch",
+                "payloadHash": "9d19d89066b0d54dbdb5c1c4884d0c294094bc3b0462a21d10861c0d8e0727e5",
+                "operationCount": 2,
+                "previousRevision": 1,
+                "resultingRevision": 2
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true
+          },
+          {
+            "stage": "transform",
+            "requestId": "transform-54298ced-eddc-410f-9ca1-819453f3ff8f",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 2,
+            "intentEpoch": 3,
+            "elapsedMS": 2682,
+            "resultingRevision": 3,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "9e762652114cdee359b90081345bb1887dde5031b609dca5f7cc275fd4137759",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-transform.scene.json",
+            "bindingPreserved": true,
+            "renderedPathMovementVerified": false,
+            "sceneFileSHA256": "fab9e467256563ca0de0172839dd1f737e85ad83369216016cc5bb5d83a90e99",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "transform-54298ced-eddc-410f-9ca1-819453f3ff8f:patch",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 3,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "transform-54298ced-eddc-410f-9ca1-819453f3ff8f:patch",
+                "payloadHash": "155c5fd6301f189ed46c94d45b58537f74e1bc3e65e07653bcfad20c414c28f0",
+                "operationCount": 1,
+                "previousRevision": 2,
+                "resultingRevision": 3
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": true
+          },
+          {
+            "stage": "hide",
+            "requestId": "hide-51f8e302-5d57-4d96-a44f-0c354780ba1c",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 3,
+            "intentEpoch": 4,
+            "elapsedMS": 2434,
+            "resultingRevision": 4,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "26d592e556dc4c3f30a746a860d1c0f657ead097dc5d1d8457b948e4ce8455ef",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-hide.scene.json",
+            "sceneFileSHA256": "66251e722b1f4bd03265f3e6eaca64ba338dbbbe6615b03c1d21ab0171ab90f1",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "hide-51f8e302-5d57-4d96-a44f-0c354780ba1c:patch",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 4,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "hide-51f8e302-5d57-4d96-a44f-0c354780ba1c:patch",
+                "payloadHash": "283975dbb13db49ad6338f770d0453f50bcc402af0333ba2dd24e463b2e4df50",
+                "operationCount": 1,
+                "previousRevision": 3,
+                "resultingRevision": 4
+              }
+            ],
+            "flowNodePresent": true,
+            "flowNodeVisible": false
+          },
+          {
+            "stage": "delete",
+            "requestId": "delete-97f38f75-9e9d-4ec9-aa7f-f10d6dbd66b5",
+            "status": "passed",
+            "authoring": "live-model-propose_scene",
+            "sourceRevision": 4,
+            "intentEpoch": 5,
+            "elapsedMS": 2541,
+            "resultingRevision": 5,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "f3b99b72925f8fa383ccdd17a103ea612046b15caf39a98cac0ecc2f1490117e",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-delete.scene.json",
+            "sceneFileSHA256": "3a4b4193bec5602f95722a2b7e0697c92a38d058c1ad3c3a6be850a49388467e",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "delete-97f38f75-9e9d-4ec9-aa7f-f10d6dbd66b5:patch",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 5,
+                "type": "scene.receipt",
+                "affectedNodeCount": 1
+              }
+            ],
+            "proposals": [
+              {
+                "type": "scene.patch",
+                "requestId": "delete-97f38f75-9e9d-4ec9-aa7f-f10d6dbd66b5:patch",
+                "payloadHash": "af2ba6928df32c1dcddf1dda6c63a23ea66ddb863b18a42967d3c5900d048cc3",
+                "operationCount": 1,
+                "previousRevision": 4,
+                "resultingRevision": 5
+              }
+            ],
+            "flowNodePresent": false,
+            "flowNodeVisible": null
+          },
+          {
+            "stage": "undo",
+            "requestId": "undo-d75f78d0-0a3b-4d1f-9d13-12c32bbd41b1",
+            "status": "passed",
+            "authoring": "native-host-undo-no-model-call",
+            "elapsedMS": 2,
+            "resultingRevision": 6,
+            "flowNodeId": "node_fcbe15b0680af2ea874e6078",
+            "sceneSHA256": "26d592e556dc4c3f30a746a860d1c0f657ead097dc5d1d8457b948e4ce8455ef",
+            "acceptedScenePath": ".local/flow-acceptance/live/lamp-undo.scene.json",
+            "sceneFileSHA256": "ad145fb02a3cba5fe94d6621b3ab5d15fae87fe72bb4aec651ed75791a9dfb5e",
+            "receipts": [
+              {
+                "status": "installed",
+                "requestId": "undo-d75f78d0-0a3b-4d1f-9d13-12c32bbd41b1",
+                "sceneId": "flow-check-0efca717-04a2-4e99-9a34-05613b4e0d26",
+                "revision": 6,
+                "type": "scene.receipt",
+                "affectedNodeCount": 4
+              }
+            ],
+            "proposals": [],
+            "flowNodePresent": true,
+            "flowNodeVisible": false,
+            "restoredExactPreDeleteScene": true
+          }
+        ]
+      }
+    ],
+    "nativeRenderingVerified": false,
+    "physicalARVerified": false,
+    "devicePerformanceVerified": false
+  },
+  "preliminaryVerification": {
+    "spatialCoreTests": 39,
+    "backendTests": 206,
+    "status": "passed_scoped_checks_before_full_suite"
+  },
+  "nativeVerification": {
+    "status": "simulator_and_iphone_physical_metrics_passed_physical_visual_pending",
+    "visualInspection": {
+      "status": "native_rack_and_synthetic_fixture_observed",
+      "oneFlowFixture": {
+        "platform": "iOSSimulator",
+        "subject": "synthetic non-rack two-chamber fixture",
+        "observed": "Curved cyan flow line and Flow 1 label between structural chambers.",
+        "source": "Computer-control screenshot observation; no saved screenshot file claimed.",
+        "backendBoundary": "Existing saved endpoint unavailable; connection error visible, while renderer and sampler continued independently. Not live conversation acceptance."
+      },
+      "furtherChecks": "physical_AR_and_high_density_label_layout_remain_unaccepted",
+      "thirtyTwoFlowStressFixture": {
+        "platform": "iOSSimulator",
+        "observed": "All colored flow paths and moving markers visible; many labels overlap substantially.",
+        "status": "rendering_observed_readability_limit",
+        "source": "Computer-control screenshot observation; no saved screenshot file claimed."
+      }
+    },
+    "simulatorMetrics": {
+      "sourceReceipt": {
+        "path": ".local/flow-metrics/iphone-simulator-final/receipt.json",
+        "sha256": "8f3c36874280829cf56b52f946e3506b48d006b85fabb244c5640d5919f46c6f"
+      },
+      "startedAt": "2026-09-08T22:42:08.605295+00:00",
+      "status": "passed",
+      "surface": "simulator",
+      "boundary": "Explicit synthetic Debug fixture. CPU marker-loop wall time and SceneEvents.Update cadence; no GPU-time, thermal-soak, pointing, or visual-fidelity claim.",
+      "implementationPhase": "after_label_contrast_polish",
+      "simulatorDevice": "iPhone 17 Pro",
+      "osVersion": "26.5",
+      "hostBoundary": "Both iPhone and iPad simulators were running; this is not an isolated hardware or GPU measurement. Saved development configuration was supplied silently so the fixture view did not show the earlier connection error.",
+      "runs": [
+        {
+          "requestedFlowCount": 0,
+          "status": "passed",
+          "correlationID": "c106b33b-f94d-4a0a-9ce9-102804b79110",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 31.055755125009455,
+            "flowCount": 0,
+            "markerCount": 0,
+            "maximumMarkerUpdateMs": 0.009667,
+            "meanFrameIntervalMs": 16.66669414068262,
+            "meanMarkerUpdateMs": 0.0021701099999999972,
+            "meshCount": 0,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.68570749461651,
+            "p95MarkerUpdateMs": 0.003625,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 0,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 0,
+            "updateCount": 1862,
+            "vertexCount": 0,
+            "visibleFlowCount": 0
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator-final/count-0/events.jsonl",
+              "sha256": "3e56701ef5b593318fc759bea078bc96e5481bbe5a14c56bdd9f739496795b64"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 1,
+          "status": "passed",
+          "correlationID": "92f75314-28ab-4ac6-a945-a8ae0ead9285",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.667042416665936,
+            "flowCount": 1,
+            "markerCount": 4,
+            "maximumMarkerUpdateMs": 0.107042,
+            "meanFrameIntervalMs": 16.6667180446287,
+            "meanMarkerUpdateMs": 0.06375350999999997,
+            "meshCount": 4,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.686707735061646,
+            "p95MarkerUpdateMs": 0.091167,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 1,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 3382,
+            "updateCount": 1837,
+            "vertexCount": 2471,
+            "visibleFlowCount": 1
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator-final/count-1/events.jsonl",
+              "sha256": "1283efb8e65a0348d59ee96ac771864117e563bd83ae8e0a3d5f456193a5c336"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 8,
+          "status": "passed",
+          "correlationID": "beb9b8f0-591e-4023-b63f-980101696164",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.723621874989476,
+            "flowCount": 8,
+            "markerCount": 32,
+            "maximumMarkerUpdateMs": 0.309,
+            "meanFrameIntervalMs": 16.66669577981035,
+            "meanMarkerUpdateMs": 0.14914028333333354,
+            "meshCount": 18,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.699250787496567,
+            "p95MarkerUpdateMs": 0.226125,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 8,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 30112,
+            "updateCount": 1839,
+            "vertexCount": 23295,
+            "visibleFlowCount": 8
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator-final/count-8/events.jsonl",
+              "sha256": "5b901d52a17af093ecaeb510b258489c08feb0897da965904e340a90fe6b266d"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 32,
+          "status": "passed",
+          "correlationID": "7fd82a67-ed9e-4a5f-b8df-72a09a48e7e5",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.96473808333394,
+            "flowCount": 32,
+            "markerCount": 128,
+            "maximumMarkerUpdateMs": 0.707167,
+            "meanFrameIntervalMs": 16.666649328544736,
+            "meanMarkerUpdateMs": 0.40101274,
+            "meshCount": 66,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.684915870428085,
+            "p95MarkerUpdateMs": 0.591917,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 32,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 130930,
+            "updateCount": 1856,
+            "vertexCount": 104355,
+            "visibleFlowCount": 32
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator-final/count-32/events.jsonl",
+              "sha256": "f606d9e0aac8f8837724c902ccef54d60a4f183cdded312eebd8f755477118bb"
+            }
+          ]
+        }
+      ]
+    },
+    "physicalDeviceMetrics": "passed_iphone_0_1_8_32_pre_audio_fix; ipad_launch_locked",
+    "fullSuiteAndBuilds": "passed",
+    "physicalMetricAttempts": [
+      {
+        "device": "iPhone",
+        "receipt": {
+          "path": ".local/flow-metrics/iphone-physical/receipt.json",
+          "sha256": "2ba341c5064e890843d40d3acfdf90cb76da838e3453bc4aac9c6a8468aa191c"
+        },
+        "startedAt": "2026-09-08T22:34:25.536217+00:00",
+        "status": "failed",
+        "errorClassification": "Locked",
+        "failureStage": "application_launch",
+        "collectedRunCount": 0,
+        "metricsCollected": false,
+        "implementationPhase": "before_label_contrast_polish"
+      },
+      {
+        "device": "iPad",
+        "receipt": {
+          "path": ".local/flow-metrics/ipad-physical/receipt.json",
+          "sha256": "75c404eb6c4385319238a264eb3471176397eeb4c0e2de5e0d9a7293ab4c2c1f"
+        },
+        "startedAt": "2026-09-08T22:34:25.595087+00:00",
+        "status": "failed",
+        "errorClassification": "Locked",
+        "failureStage": "application_launch",
+        "collectedRunCount": 0,
+        "metricsCollected": false,
+        "implementationPhase": "before_label_contrast_polish"
+      }
+    ],
+    "liveImportedRackSimulator": {
+      "platform": "iOSSimulator",
+      "device": "iPad Air 11-inch (M4)",
+      "surface": "nonAR",
+      "scene": "Actual app imported rack, initially 20 nodes",
+      "backendSessionId": "3b747510-9c26-4452-857f-87497e839ee2",
+      "model": "gpt-6-astra",
+      "diagnostics": {
+        "path": ".local/diagnostics/20260908T223813Z-564C0D96-3E0F-491B-8592-910A7DAEECEA/events.jsonl",
+        "sha256": "a9e6f042ca361643a305ef4d2d9c4d17a88e0de6fce419140d7fc73188d5a74e"
+      },
+      "turns": [
+        {
+          "requestId": "turn_1468b31d-dacf-4365-84e4-2e09dedbbdc2",
+          "requestSentAt": "2026-09-08T22:37:00.754Z",
+          "nativeInstalledAt": "2026-09-08T22:37:08.715Z",
+          "requestToNativeInstallationMS": 7960.434,
+          "resultingRevision": 1,
+          "resultingNodeCount": 21
+        },
+        {
+          "requestId": "turn_d14cbb41-ebd7-4ad9-bc62-03fdd8416a9c",
+          "requestSentAt": "2026-09-08T22:37:54.500Z",
+          "nativeInstalledAt": "2026-09-08T22:37:57.274Z",
+          "requestToNativeInstallationMS": 2773.905,
+          "resultingRevision": 2,
+          "resultingNodeCount": 21
+        }
+      ],
+      "redactedEvents": [
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_1468b31d-dacf-4365-84e4-2e09dedbbdc2",
+          "event": "request.sent",
+          "fields": {
+            "intent_epoch": "1"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 164,
+          "timestamp": "2026-09-08T22:37:00.754Z",
+          "uptimeMs": 249582757.8791667
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_1468b31d-dacf-4365-84e4-2e09dedbbdc2:patch",
+          "event": "native.prepare_started",
+          "fields": {
+            "intent_epoch": "1",
+            "revision": "0"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 175,
+          "timestamp": "2026-09-08T22:37:08.664Z",
+          "uptimeMs": 249590667.95670834
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_1468b31d-dacf-4365-84e4-2e09dedbbdc2:patch",
+          "event": "native.prepare_finished",
+          "fields": {
+            "node_count": "21"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 176,
+          "timestamp": "2026-09-08T22:37:08.698Z",
+          "uptimeMs": 249590701.91479167
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_1468b31d-dacf-4365-84e4-2e09dedbbdc2:patch",
+          "event": "native.installed",
+          "fields": {
+            "node_count": "21",
+            "revision": "1"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 177,
+          "timestamp": "2026-09-08T22:37:08.715Z",
+          "uptimeMs": 249590718.31283334
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_d14cbb41-ebd7-4ad9-bc62-03fdd8416a9c",
+          "event": "request.sent",
+          "fields": {
+            "intent_epoch": "2"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 288,
+          "timestamp": "2026-09-08T22:37:54.500Z",
+          "uptimeMs": 249636507.87712502
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_d14cbb41-ebd7-4ad9-bc62-03fdd8416a9c:patch",
+          "event": "native.prepare_started",
+          "fields": {
+            "intent_epoch": "2",
+            "revision": "1"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 301,
+          "timestamp": "2026-09-08T22:37:57.267Z",
+          "uptimeMs": 249639274.84358335
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_d14cbb41-ebd7-4ad9-bc62-03fdd8416a9c:patch",
+          "event": "native.prepare_finished",
+          "fields": {
+            "node_count": "21"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 302,
+          "timestamp": "2026-09-08T22:37:57.271Z",
+          "uptimeMs": 249639279.13375002
+        },
+        {
+          "component": "scene.controller",
+          "correlationID": "turn_d14cbb41-ebd7-4ad9-bc62-03fdd8416a9c:patch",
+          "event": "native.installed",
+          "fields": {
+            "node_count": "21",
+            "revision": "2"
+          },
+          "level": "info",
+          "runID": "51216bf8-59ae-42c2-8a7d-ecbc4c02f1f5",
+          "sequence": 303,
+          "timestamp": "2026-09-08T22:37:57.274Z",
+          "uptimeMs": 249639281.7817917
+        }
+      ],
+      "visualObservation": {
+        "firstTurn": "A request to pull server01 forward by 0.6 m and add a cyan Airflow annotation was accepted; the path appeared on the imported rack.",
+        "followup": "A request to lift the bound server by 1 m advanced revision 2 with 21 nodes; computer control observed the path and markers move with the server.",
+        "bindingMovementObserved": true,
+        "labelReadability": "White Airflow label was unreadable over the silver chassis.",
+        "source": "Computer-control screenshot observation; no saved screenshot file claimed.",
+        "measurementBoundary": "Logs verify accepted revisions, node counts, and native timing. Exact translation distances describe the requested edit; rendered coordinates were not independently measured."
+      },
+      "preLabelReversalScreenshot": {
+        "path": ".local/flow-acceptance/live/native-rack-pre-label.png",
+        "sha256": "a990eece0860d91d77ac4ea146c6f72ef4e21d3b39eee61ad5c00fd097140221",
+        "width": 1640,
+        "height": 2360,
+        "phase": "before_label_contrast_polish",
+        "observed": "Reversed cyan arrowhead points toward the server front; white marker spheres visible; tiny white Airflow label has poor contrast against silver geometry.",
+        "imageBytesCommitted": false
+      }
+    },
+    "labelPolish": {
+      "status": "implemented_native_visual_and_simulator_metrics_passed",
+      "reason": "Unreadable white text against the imported silver chassis.",
+      "change": "Text scale increased to 0.035 with a shared dark unit-plane backing scaled to text bounds, included in retained and expanded resource metrics.",
+      "finalVisualVerification": "passed_for_recorded_rack_view",
+      "finalMetricsVerification": "passed_0_1_8_32_counts_after_label_change",
+      "finalScreenshot": {
+        "path": "docs/evidence/native-flow-rack.png",
+        "sha256": "0ab01b9a4e366a86e7e93000224e8ec99c3e2fc39a9f1629fc8b601ebd6daa35",
+        "sourcePath": ".local/flow-acceptance/live/native-rack-final.png",
+        "width": 1640,
+        "height": 2360,
+        "byteCount": 2653157,
+        "imageBytesIncludedInEvidence": true
+      },
+      "observed": "The Airflow label is clearly readable as larger white text on a dark backing above the silver chassis; cyan curve and white markers remain visible.",
+      "nativeRequest": {
+        "requestId": "turn_1bac7f0d-2fbd-4766-a9b6-8036db8cb565",
+        "requestSentAt": "2026-09-08T22:42:42.197Z",
+        "installedAt": "2026-09-08T22:42:48.307Z",
+        "requestToNativeInstallationMS": 6109.967,
+        "revision": 1,
+        "nodeCount": 21,
+        "diagnostics": {
+          "path": ".local/diagnostics/20260908T224353Z-564C0D96-3E0F-491B-8592-910A7DAEECEA/events.jsonl",
+          "sha256": "92b3ccfa25b68f5791bdf3522254aff62e27d4e28fe7851b661b161025c70521"
+        },
+        "redactedEvents": [
+          {
+            "component": "scene.controller",
+            "correlationID": "turn_1bac7f0d-2fbd-4766-a9b6-8036db8cb565",
+            "event": "request.sent",
+            "fields": {
+              "intent_epoch": "1"
+            },
+            "level": "info",
+            "runID": "cccfa8d6-6f7b-403a-a320-e009d8b48bd8",
+            "sequence": 171,
+            "timestamp": "2026-09-08T22:42:42.197Z",
+            "uptimeMs": 249924206.34912503
+          },
+          {
+            "component": "scene.controller",
+            "correlationID": "turn_1bac7f0d-2fbd-4766-a9b6-8036db8cb565:patch",
+            "event": "native.prepare_started",
+            "fields": {
+              "intent_epoch": "1",
+              "revision": "0"
+            },
+            "level": "info",
+            "runID": "cccfa8d6-6f7b-403a-a320-e009d8b48bd8",
+            "sequence": 183,
+            "timestamp": "2026-09-08T22:42:48.270Z",
+            "uptimeMs": 249930279.2759167
+          },
+          {
+            "component": "scene.controller",
+            "correlationID": "turn_1bac7f0d-2fbd-4766-a9b6-8036db8cb565:patch",
+            "event": "native.prepare_finished",
+            "fields": {
+              "node_count": "21"
+            },
+            "level": "info",
+            "runID": "cccfa8d6-6f7b-403a-a320-e009d8b48bd8",
+            "sequence": 184,
+            "timestamp": "2026-09-08T22:42:48.293Z",
+            "uptimeMs": 249930302.3905
+          },
+          {
+            "component": "scene.controller",
+            "correlationID": "turn_1bac7f0d-2fbd-4766-a9b6-8036db8cb565:patch",
+            "event": "native.installed",
+            "fields": {
+              "node_count": "21",
+              "revision": "1"
+            },
+            "level": "info",
+            "runID": "cccfa8d6-6f7b-403a-a320-e009d8b48bd8",
+            "sequence": 185,
+            "timestamp": "2026-09-08T22:42:48.307Z",
+            "uptimeMs": 249930316.31566668
+          }
+        ]
+      },
+      "measurementBoundary": "One inspected iPad simulator view; not a universal readability guarantee or physical AR result."
+    },
+    "simulatorMetricsBeforeLabelPolish": {
+      "sourceReceipt": {
+        "path": ".local/flow-metrics/iphone-simulator/receipt.json",
+        "sha256": "339eef24510c8652302ecd84c67707ae664f89805cb84028e0f63ad5583d815e"
+      },
+      "startedAt": "2026-09-08T22:33:26.161267+00:00",
+      "status": "passed",
+      "surface": "simulator",
+      "boundary": "Explicit synthetic Debug fixture. CPU marker-loop wall time and SceneEvents.Update cadence; no GPU-time, thermal-soak, pointing, or visual-fidelity claim.",
+      "simulatorDevice": "iPhone 17 Pro",
+      "osVersion": "26.5",
+      "runs": [
+        {
+          "requestedFlowCount": 0,
+          "status": "passed",
+          "correlationID": "2cd85b59-dd4a-4ed1-b02c-ef74fd648578",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.73730254167458,
+            "flowCount": 0,
+            "markerCount": 0,
+            "maximumMarkerUpdateMs": 0.023292,
+            "meanFrameIntervalMs": 16.666711003830034,
+            "meanMarkerUpdateMs": 0.0019984533333333304,
+            "meshCount": 0,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.683833673596382,
+            "p95MarkerUpdateMs": 0.002667,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 0,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 0,
+            "updateCount": 1842,
+            "vertexCount": 0,
+            "visibleFlowCount": 0
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator/count-0/events.jsonl",
+              "sha256": "fb667eae11254f0b0b74df7eecc6ba10ee5c622bdefbfa2fce66fbb45052fe98"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 1,
+          "status": "passed",
+          "correlationID": "a55beaad-aa5c-476a-855a-0ccb9ecde1c0",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.667582875001244,
+            "flowCount": 1,
+            "markerCount": 4,
+            "maximumMarkerUpdateMs": 0.114041,
+            "meanFrameIntervalMs": 16.666707120214898,
+            "meanMarkerUpdateMs": 0.05707239,
+            "meshCount": 3,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.685541719198227,
+            "p95MarkerUpdateMs": 0.078042,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 1,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 3380,
+            "updateCount": 1834,
+            "vertexCount": 2467,
+            "visibleFlowCount": 1
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator/count-1/events.jsonl",
+              "sha256": "a1436fed6e3ec468cae334e05167ca00738077b3ecb22ba0a570089ab17b427f"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 8,
+          "status": "passed",
+          "correlationID": "494ba080-e232-44e5-8db2-a1de52345260",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.737545208336087,
+            "flowCount": 8,
+            "markerCount": 32,
+            "maximumMarkerUpdateMs": 0.337,
+            "meanFrameIntervalMs": 16.666676783934236,
+            "meanMarkerUpdateMs": 0.1797335933333333,
+            "meshCount": 17,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.68350026011467,
+            "p95MarkerUpdateMs": 0.23925,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 8,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 30110,
+            "updateCount": 1840,
+            "vertexCount": 23291,
+            "visibleFlowCount": 8
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator/count-8/events.jsonl",
+              "sha256": "916aa6e27db32ad4abbd7b5f237f6d0f029f78558b9bcde56a0b6507c646bc92"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 32,
+          "status": "passed",
+          "correlationID": "48f24aec-b6ce-46af-b17c-e0ef661ee456",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.546433916664682,
+            "flowCount": 32,
+            "markerCount": 128,
+            "maximumMarkerUpdateMs": 0.797292,
+            "meanFrameIntervalMs": 16.666676190992195,
+            "meanMarkerUpdateMs": 0.5252416566666663,
+            "meshCount": 65,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 16.690459102392197,
+            "p95MarkerUpdateMs": 0.693,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 32,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "simulator",
+            "triangleCount": 130928,
+            "updateCount": 1830,
+            "vertexCount": 104351,
+            "visibleFlowCount": 32
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-simulator/count-32/events.jsonl",
+              "sha256": "b064c84df9798d2dc13eedc0a1c2a2775f47bccfb273c76e1b1af6462356119c"
+            }
+          ]
+        }
+      ],
+      "implementationPhase": "before_label_contrast_polish"
+    },
+    "finalOrdinaryLaunches": [
+      {
+        "device": "iPhone",
+        "receipt": {
+          "path": ".local/flow-acceptance/final-iphone-launch.json",
+          "sha256": "76f1f4819074d3ffcc13d1dfc16b718b84457a68a144bfacccb5075305b0de0a"
+        },
+        "outcome": "success",
+        "injectedAppConfiguration": false,
+        "injectedFlowFixture": false,
+        "boundary": "Ordinary process launch only; no claim about visible AR, anchoring, backend readiness, or GPU performance.",
+        "processStarted": true,
+        "readinessEvidence": {
+          "timestamp": "2026-09-08T22:48:05.574Z",
+          "runID": "f92c9726-040b-4576-856f-69490af7c3ae",
+          "source": ".local/flow-metrics/iphone-physical-final/count-0/events.jsonl",
+          "boundary": "Ready event preceded the separate Debug benchmark run; process launch and later benchmark have distinct run IDs."
+        }
+      },
+      {
+        "device": "iPad",
+        "receipt": {
+          "path": ".local/flow-acceptance/final-ipad-launch.json",
+          "sha256": "e75063e59bc733641686dce4d96d774e889efd8638bdfeff0acd3bcef6420a64"
+        },
+        "outcome": "failed",
+        "injectedAppConfiguration": false,
+        "injectedFlowFixture": false,
+        "boundary": "Ordinary process launch only; no claim about visible AR, anchoring, backend readiness, or GPU performance.",
+        "processStarted": false,
+        "errorClassification": "Locked"
+      }
+    ],
+    "physicalFinalMetrics": {
+      "status": "failed",
+      "sourceReceipt": {
+        "path": ".local/flow-metrics/iphone-physical-final/receipt.json",
+        "sha256": "f7c30f134174369f129fc45617d22fea0b916ab8fee69a9535080ef598f6d286"
+      },
+      "startedAt": "2026-09-08T22:48:05.582309+00:00",
+      "surface": "physicalAR",
+      "osVersion": "26.6.1",
+      "requestedCounts": [
+        0,
+        1,
+        8,
+        32
+      ],
+      "attemptedCounts": [
+        0
+      ],
+      "unattemptedCounts": [
+        1,
+        8,
+        32
+      ],
+      "qualifiedMeasurement": false,
+      "baseline": {
+        "requestedFlowCount": 0,
+        "status": "failed",
+        "sampleCount": 4,
+        "lastElapsedSeconds": 4.0999854166657315,
+        "completedEventPresent": false,
+        "finalFields": null,
+        "checks": {
+          "completed": false,
+          "thirtySamples": false,
+          "orderedSamples": false,
+          "thirtySecondsObserved": false,
+          "surfaceMatchesTarget": true,
+          "requestedFlowCount": true,
+          "boundedMarkers": true,
+          "boundedTimingRing": true,
+          "noMeshRebuildDuringAnimation": true,
+          "callbacksAdvanced": true,
+          "boundedUniqueResources": true,
+          "finiteTiming": true
+        },
+        "diagnosticSources": [
+          {
+            "path": ".local/flow-metrics/iphone-physical-final/count-0/events.jsonl",
+            "sha256": "31e1ac67cf1b71e37e28b005ab7d8e11230705264a19e97623d8884cc4ff5e8c"
+          }
+        ]
+      },
+      "failure": "Required 30-sample, 30-second run did not complete; only four samples through 4.100 seconds were retained.",
+      "cause": "confirmed_audio_callback_actor_isolation_trap",
+      "claimBoundary": "This failed attempt provides no qualified physical timing result. Its four partial samples remain excluded from comparisons; the separately recorded later successful retry supplies CPU/callback/resource evidence only.",
+      "connectionReadyEvents": [
+        {
+          "component": "app",
+          "correlationID": "conversation_706a21fe-3147-47f3-a6b6-61a75fd00bcf",
+          "event": "connection.finished",
+          "fields": {
+            "ready": "true"
+          },
+          "level": "info",
+          "runID": "f92c9726-040b-4576-856f-69490af7c3ae",
+          "sequence": 30,
+          "timestamp": "2026-09-08T22:48:05.574Z",
+          "uptimeMs": 22312285.077250004
+        },
+        {
+          "component": "app",
+          "correlationID": "conversation_687b946f-d591-4baa-abc5-5762ee6add79",
+          "event": "connection.finished",
+          "fields": {
+            "ready": "true"
+          },
+          "level": "info",
+          "runID": "47707eba-709a-4ce2-9c7a-7568ea4160cc",
+          "sequence": 31,
+          "timestamp": "2026-09-08T22:48:11.859Z",
+          "uptimeMs": 22318570.25733334
+        }
+      ]
+    },
+    "audioCrash": {
+      "status": "confirmed_historical_audio_callback_trap",
+      "report": {
+        "path": ".local/flow-acceptance/iphone-astra-20260908T224815.ips",
+        "sha256": "c26d948534b9466e5e3c9e3717a365b6f78f2621ce529b157850ded5a8d1f768"
+      },
+      "incidentId": "35C79207-7821-48DE-ADA0-EA04986F5B58",
+      "captureTime": "2026-09-08T22:48:14.804Z",
+      "exception": "EXC_BREAKPOINT",
+      "signal": "SIGTRAP",
+      "faultingThreadQueue": "RealtimeMessenger.mServiceQueue",
+      "relevantFrames": [
+        "_dispatch_assert_queue_fail",
+        "_swift_task_checkIsolatedSwift",
+        "closure #1 in AudioIOController.installInputTap(input:)",
+        "AVAudioNodeTap::TapMessage::RealtimeMessenger_Perform()"
+      ],
+      "diagnosis": "Audio input callback inherited actor isolation and trapped on the audio callback queue. This interrupted the zero-flow baseline; it is not evidence of a flow marker-loop crash.",
+      "fixVerification": "Not assessed by these flow receipts; the successful retry predates the subsequent audio callback fix."
+    },
+    "preAudioFixNativeBinaryHashes": [
+      {
+        "path": ".local/build/flow-device/Build/Products/Debug-iphoneos/Astra Spatial Demo.app/Astra Spatial Demo",
+        "sha256": "a80230dff6ebe6c2d3905c0416b9eb2c4f314c9e6329caebee92bb4635fce2b5"
+      },
+      {
+        "path": ".local/build/flow-device/Build/Products/Debug-iphoneos/Astra Spatial Demo.app/Astra Spatial Demo.debug.dylib",
+        "sha256": "0d5813a5aecf4a4fea0bae6787ed3f40fc96e64c659a226e44ef6b5b57ee58a3"
+      }
+    ],
+    "physicalMetricsSuccessfulRetry": {
+      "status": "passed",
+      "sourceReceipt": {
+        "path": ".local/flow-metrics/iphone-physical-retry/receipt.json",
+        "sha256": "aa78d8a4cd839b99792348368cd12d1d3a670c01e5d01b591564aec263e752ff"
+      },
+      "startedAt": "2026-09-08T22:50:04.713257+00:00",
+      "surface": "physicalAR",
+      "device": "iPhone",
+      "osVersion": "26.6.1",
+      "implementationPhase": "after_label_contrast_polish_before_audio_callback_fix",
+      "qualifiedMeasurement": true,
+      "boundary": "Explicit synthetic Debug fixture. CPU marker-loop wall time and SceneEvents.Update cadence; no GPU-time, thermal-soak, pointing, or visual-fidelity claim.",
+      "timingStatisticBoundary": "Final values are the last rolling 300 callbacks per run, not percentiles over all thirty one-second samples.",
+      "sourceSelection": "Each cumulative diagnostic file is filtered by the receipt correlationID; earlier process runs are excluded.",
+      "buildBoundary": "Dated signed build from the flow stage before the subsequent audio callback fix. This receipt does not validate later audio changes or embed an executable checksum.",
+      "runs": [
+        {
+          "requestedFlowCount": 0,
+          "status": "passed",
+          "correlationID": "3074d2d5-f867-4cb9-a23d-b56bbbb616de",
+          "runID": "bcdd2090-1cf0-4082-97c5-0944108f7b73",
+          "startedAt": "2026-09-08T22:50:07.096Z",
+          "firstSampleAt": "2026-09-08T22:50:08.110Z",
+          "lastSampleAt": "2026-09-08T22:50:37.631Z",
+          "finishedAt": "2026-09-08T22:50:37.635Z",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "environment": {
+            "animationEnabled": true,
+            "deviceModel": "iPhone",
+            "deviceName": "iPhone",
+            "durationSeconds": 30,
+            "elapsedSeconds": 5.3333315008785576e-06,
+            "flowCount": 0,
+            "markerCount": 0,
+            "meshCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "osVersion": "26.6.1",
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 0,
+            "sampleIndex": 0,
+            "simulator": false,
+            "surface": "physicalAR",
+            "triangleCount": 0,
+            "vertexCount": 0,
+            "visibleFlowCount": 0
+          },
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.52822870833188,
+            "flowCount": 0,
+            "markerCount": 0,
+            "maximumMarkerUpdateMs": 0.119125,
+            "meanFrameIntervalMs": 16.667072909573715,
+            "meanMarkerUpdateMs": 0.003994566666666663,
+            "meshCount": 0,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 17.8228747099638,
+            "p95MarkerUpdateMs": 0.003875,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 0,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "physicalAR",
+            "triangleCount": 0,
+            "updateCount": 1828,
+            "vertexCount": 0,
+            "visibleFlowCount": 0
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-physical-retry/count-0/events.jsonl",
+              "sha256": "a9feeca4dbc7fbbc9c3a98a7059d2e66c2aa32cfc3998e976434c1dffd6d3e64"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 1,
+          "status": "passed",
+          "correlationID": "d69fc3a1-a0b0-46ff-8f34-93a56d37eaf1",
+          "runID": "506a1d5b-02b3-4569-bfee-cc5419691754",
+          "startedAt": "2026-09-08T22:50:45.465Z",
+          "firstSampleAt": "2026-09-08T22:50:46.478Z",
+          "lastSampleAt": "2026-09-08T22:51:15.973Z",
+          "finishedAt": "2026-09-08T22:51:15.978Z",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "environment": {
+            "animationEnabled": true,
+            "deviceModel": "iPhone",
+            "deviceName": "iPhone",
+            "durationSeconds": 30,
+            "elapsedSeconds": 5.166664777789265e-06,
+            "flowCount": 1,
+            "markerCount": 4,
+            "meshCount": 4,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "osVersion": "26.6.1",
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 1,
+            "sampleIndex": 0,
+            "simulator": false,
+            "surface": "physicalAR",
+            "triangleCount": 3384,
+            "vertexCount": 2471,
+            "visibleFlowCount": 1
+          },
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.511674999997922,
+            "flowCount": 1,
+            "markerCount": 4,
+            "maximumMarkerUpdateMs": 0.372458,
+            "meanFrameIntervalMs": 16.670883856713772,
+            "meanMarkerUpdateMs": 0.08069530666666665,
+            "meshCount": 4,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 17.700333148241043,
+            "p95MarkerUpdateMs": 0.141708,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 1,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "physicalAR",
+            "triangleCount": 3384,
+            "updateCount": 1821,
+            "vertexCount": 2471,
+            "visibleFlowCount": 1
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-physical-retry/count-1/events.jsonl",
+              "sha256": "f3b91b93576d8cc202273df9cab3c7393250abe4b8eef87c6cb1767dea57dd55"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 8,
+          "status": "passed",
+          "correlationID": "3da5a3e1-9510-46c4-83c2-77dde20994d3",
+          "runID": "1ef67966-752c-49ad-b3d8-2f51f36ccab6",
+          "startedAt": "2026-09-08T22:51:29.297Z",
+          "firstSampleAt": "2026-09-08T22:51:30.306Z",
+          "lastSampleAt": "2026-09-08T22:51:59.997Z",
+          "finishedAt": "2026-09-08T22:51:59.999Z",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "environment": {
+            "animationEnabled": true,
+            "deviceModel": "iPhone",
+            "deviceName": "iPhone",
+            "durationSeconds": 30,
+            "elapsedSeconds": 8.916664228308946e-06,
+            "flowCount": 8,
+            "markerCount": 32,
+            "meshCount": 18,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "osVersion": "26.6.1",
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 8,
+            "sampleIndex": 0,
+            "simulator": false,
+            "surface": "physicalAR",
+            "triangleCount": 30142,
+            "vertexCount": 23297,
+            "visibleFlowCount": 8
+          },
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.702687708333542,
+            "flowCount": 8,
+            "markerCount": 32,
+            "maximumMarkerUpdateMs": 1.233792,
+            "meanFrameIntervalMs": 16.66916525612275,
+            "meanMarkerUpdateMs": 0.38720097999999986,
+            "meshCount": 18,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 17.61404238641262,
+            "p95MarkerUpdateMs": 0.581917,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 8,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "physicalAR",
+            "triangleCount": 30142,
+            "updateCount": 1839,
+            "vertexCount": 23297,
+            "visibleFlowCount": 8
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-physical-retry/count-8/events.jsonl",
+              "sha256": "d36394f48ffa1aa5042e56e37da7f3f6c1b02084c6f09d01b2e0a0128d913441"
+            }
+          ]
+        },
+        {
+          "requestedFlowCount": 32,
+          "status": "passed",
+          "correlationID": "055ffa61-c5a1-4029-b92d-4e76611b4f52",
+          "runID": "db73b06b-0e47-46fa-a63d-d8ca7fedd282",
+          "startedAt": "2026-09-08T22:52:10.650Z",
+          "firstSampleAt": "2026-09-08T22:52:11.680Z",
+          "lastSampleAt": "2026-09-08T22:52:41.188Z",
+          "finishedAt": "2026-09-08T22:52:41.190Z",
+          "checks": {
+            "completed": true,
+            "thirtySamples": true,
+            "orderedSamples": true,
+            "thirtySecondsObserved": true,
+            "surfaceMatchesTarget": true,
+            "requestedFlowCount": true,
+            "boundedMarkers": true,
+            "boundedTimingRing": true,
+            "noMeshRebuildDuringAnimation": true,
+            "callbacksAdvanced": true,
+            "boundedUniqueResources": true,
+            "finiteTiming": true
+          },
+          "oneSecondSampleCount": 30,
+          "environment": {
+            "animationEnabled": true,
+            "deviceModel": "iPhone",
+            "deviceName": "iPhone",
+            "durationSeconds": 30,
+            "elapsedSeconds": 2.0541665435303003e-05,
+            "flowCount": 32,
+            "markerCount": 128,
+            "meshCount": 66,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "osVersion": "26.6.1",
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 32,
+            "sampleIndex": 0,
+            "simulator": false,
+            "surface": "physicalAR",
+            "triangleCount": 131142,
+            "vertexCount": 104383,
+            "visibleFlowCount": 32
+          },
+          "finalRollingTimingWindow": {
+            "animationEnabled": true,
+            "durationSeconds": 30,
+            "elapsedSeconds": 30.540315249996638,
+            "flowCount": 32,
+            "markerCount": 128,
+            "maximumMarkerUpdateMs": 1.145333,
+            "meanFrameIntervalMs": 16.67368282874425,
+            "meanMarkerUpdateMs": 0.5867905633333338,
+            "meshCount": 66,
+            "meshRebuildCount": 0,
+            "metricKind": "cpu_and_callback_cadence_not_gpu",
+            "p95FrameIntervalMs": 19.00562457740307,
+            "p95MarkerUpdateMs": 1.00025,
+            "platform": "iOS",
+            "reduceMotion": false,
+            "requestedFlowCount": 32,
+            "sampleCount": 300,
+            "sampleIndex": 30,
+            "surface": "physicalAR",
+            "triangleCount": 131142,
+            "updateCount": 1829,
+            "vertexCount": 104383,
+            "visibleFlowCount": 32
+          },
+          "diagnosticSources": [
+            {
+              "path": ".local/flow-metrics/iphone-physical-retry/count-32/events.jsonl",
+              "sha256": "a77f6f02445e2009de8fedc123eb900553079180f55fbf80e42aa65001eda4e2"
+            }
+          ]
+        }
+      ],
+      "completedAt": "2026-09-08T22:52:41.190Z"
+    },
+    "physicalAttemptChronology": {
+      "basis": "Embedded receipt startedAt, matching acceptance events, and system crash captureTime; not directory names or file modification times.",
+      "events": [
+        {
+          "timestamp": "2026-09-08T22:34:25.536217+00:00",
+          "event": "iphone_metric_launch_locked",
+          "evidence": "physicalMetricAttempts[0]"
+        },
+        {
+          "timestamp": "2026-09-08T22:34:25.595087+00:00",
+          "event": "ipad_metric_launch_locked",
+          "evidence": "physicalMetricAttempts[1]"
+        },
+        {
+          "timestamp": "2026-09-08T22:48:10.581Z",
+          "event": "incomplete_iphone_zero_flow_baseline_started",
+          "evidence": "physicalFinalMetrics"
+        },
+        {
+          "timestamp": "2026-09-08T22:48:14.681Z",
+          "event": "incomplete_baseline_fourth_and_last_sample",
+          "evidence": "physicalFinalMetrics"
+        },
+        {
+          "timestamp": "2026-09-08T22:48:14.804Z",
+          "event": "audio_input_tap_actor_isolation_crash",
+          "evidence": "audioCrash"
+        },
+        {
+          "timestamp": "2026-09-08T22:50:07.096Z",
+          "event": "successful_iphone_retry_first_count_started",
+          "evidence": "physicalMetricsSuccessfulRetry.runs[0]"
+        },
+        {
+          "timestamp": "2026-09-08T22:52:41.190Z",
+          "event": "successful_iphone_retry_fourth_count_finished",
+          "evidence": "physicalMetricsSuccessfulRetry.runs[3]"
+        }
+      ],
+      "conclusion": "The successful physical retry followed the four-sample audio-crashed baseline and preceded the subsequent audio callback fix."
+    }
+  },
+  "rendererBoundary": {
+    "maximumPathSamples": 128,
+    "shaftRadialSegments": 8,
+    "maximumMarkersPerFlow": 4,
+    "nominalMarkerMetresPerSecond": 0.12,
+    "maximumAnimationDeltaSeconds": 0.1,
+    "maximumExpandedVertices": 500000,
+    "maximumExpandedTriangles": 250000,
+    "reduceMotion": "Disable markers; preserve static shaft, arrowhead and label. Native renderer toggle tested and wired to SwiftUI environment; live operating-system preference change not exercised.",
+    "cache": "Prepared candidate resources are installed and pruned atomically; ordinary frame updates change marker transforms only.",
+    "label": "Cached larger white native text with BillboardComponent and shared dark backing near path midpoint; final rack view has verified contrast, while high-density overlap remains a separate concern."
+  },
+  "metricsContract": {
+    "activation": "DEBUG-only ASTRA_FLOW_ACCEPTANCE_COUNT exactly 0,1,8,32",
+    "fixture": "Synthetic illustrative non-rack transfer manifold, production scene/controller/renderer, no model request.",
+    "secondsPerCount": 30,
+    "sampleCountPerRun": 30,
+    "sampleIntervalSeconds": 1,
+    "rollingTimingEventCapacity": 300,
+    "metricKind": "marker-loop CPU wall time and SceneEvents.Update callback cadence, not GPU time",
+    "resourceMeaning": "Retained unique meshes/vertices/triangles; admission limits separately count expanded instances.",
+    "markerCountMeaning": "Allocated marker entities, including disabled markers.",
+    "visibleFlowCountMeaning": "Ancestor-enabled flow nodes, including degenerate nodes; no frustum or occlusion measurement.",
+    "hostWaitSeconds": 36,
+    "hostWaitIsMeasuredFrameTime": false,
+    "surfaceLabels": [
+      "simulator",
+      "physicalAR"
+    ],
+    "cancellation": "Inactive/interrupted/replaced view, changed scene, or missing original fixture prevents completed acceptance."
+  },
+  "reproduction": {
+    "build": "swift build --package-path tools --scratch-path .local/build/flow-check --product SceneLab",
+    "offline": "node tools/checks/check-flows.mjs --prepare-only",
+    "live": "node tools/checks/check-flows.mjs --out .local/flow-acceptance/live",
+    "simulatorMetrics": "python3 tools/checks/check-flow-metrics.py --simulator-id <SIMULATOR_UDID> --counts 0,1,8,32 --out .local/flow-metrics/simulator",
+    "physicalMetrics": "python3 tools/checks/check-flow-metrics.py --device <DEVICE_ID> --counts 0,1,8,32 --out .local/flow-metrics/device",
+    "outputBoundary": "Outputs beneath ignored .local/. Metrics require a new output directory, installed Debug app, and active available target."
+  },
+  "limitations": [
+    "Live reducer acceptance establishes scene data/receipts and preserved bindings, not rendered path movement.",
+    "Host Undo restores the pre-deletion hidden flow, not its earlier visible state.",
+    "Physical iPhone metrics establish instrumented marker-loop CPU wall time, callback cadence, and retained resource counts for the dated pre-audio-fix build. No physical visual, AR anchoring, GPU-time, thermal-soak, or pointing claim.",
+    "The 22:48 physical baseline retained four samples over 4.100 seconds before an audio callback actor-isolation trap and is unqualified. The separate 22:50\u201322:52 retry passed all four counts; it does not verify later audio fixes.",
+    "Recorded iPad physical metric and ordinary launches were locked; no qualified iPad physical metrics are included."
+  ],
+  "verification": {
+    "nativeSwiftTestingCases": 138,
+    "nativeXCTestCases": 6,
+    "nativeEnvironmentGatedSkips": 4,
+    "approvedAppDetailResourceTest": "enabled_and_passed",
+    "backendTests": 206,
+    "simulatorBuild": "passed",
+    "signedDeviceBuild": "passed",
+    "sources": [
+      {
+        "path": ".local/flow-framework-tests.log",
+        "sha256": "f68a22ac9d7d332f9e988954d4c42584fc68ec588fc0ce75ec63912cca3c2a81"
+      },
+      {
+        "path": ".local/flow-app-build.log",
+        "sha256": "4a4bdca3300763e6a4df826d212ec7d93cbbc229e0ab59a44dc3328f951242d3"
+      },
+      {
+        "path": ".local/flow-device-build.log",
+        "sha256": "76dadb28dd2300d83e6d8220485f61af842ac152aa17a2e861f61c76653084c2"
+      }
+    ],
+    "handshakeRace": "Early session.accepted before hello send completion is supported by a narrow guard fix; six bridge tests pass.",
+    "physicalInstallation": {
+      "iPhone": "latest_signed_build_installed",
+      "iPad": "latest_signed_build_installed"
+    },
+    "implementationPhase": "after_label_contrast_polish"
+  }
+}

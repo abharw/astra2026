@@ -7,6 +7,8 @@ public struct SceneBudgets: Sendable, Equatable {
   public var maximumGeometryDefinitions: Int
   public var maximumMaterials: Int
   public var maximumTubePoints: Int
+  public var maximumFlowInstances: Int
+  public var maximumFlowRoutePoints: Int
   public var maximumUniqueTriangles: Int
   public var maximumExpandedTriangles: Int
   public var maximumAbsoluteCoordinate: Double
@@ -19,6 +21,8 @@ public struct SceneBudgets: Sendable, Equatable {
     maximumGeometryDefinitions: Int = 2_000,
     maximumMaterials: Int = 512,
     maximumTubePoints: Int = 256,
+    maximumFlowInstances: Int = 32,
+    maximumFlowRoutePoints: Int = 8,
     maximumUniqueTriangles: Int = 500_000,
     maximumExpandedTriangles: Int = 500_000,
     maximumAbsoluteCoordinate: Double = 10_000,
@@ -30,6 +34,8 @@ public struct SceneBudgets: Sendable, Equatable {
     self.maximumGeometryDefinitions = maximumGeometryDefinitions
     self.maximumMaterials = maximumMaterials
     self.maximumTubePoints = maximumTubePoints
+    self.maximumFlowInstances = maximumFlowInstances
+    self.maximumFlowRoutePoints = maximumFlowRoutePoints
     self.maximumUniqueTriangles = maximumUniqueTriangles
     self.maximumExpandedTriangles = maximumExpandedTriangles
     self.maximumAbsoluteCoordinate = maximumAbsoluteCoordinate
@@ -130,6 +136,7 @@ public struct SceneValidator: Sendable {
       }
     }
     try validateHierarchy(document.nodes)
+    try validateFlowBindings(document)
     for relationship in document.relationships {
       try identifier(relationship.relationshipId, field: "relationshipId")
       guard !relationship.kind.isEmpty, relationship.kind.utf8.count <= 128 else {
@@ -213,6 +220,24 @@ public struct SceneValidator: Sendable {
         throw SceneValidationError.invalidGeometry("arrow headLength exceeds length")
       }
       try segments(radialSegments)
+    case .flow(let flow):
+      try identifier(flow.source.nodeId, field: "flow source.nodeId")
+      try identifier(flow.target.nodeId, field: "flow target.nodeId")
+      try bounded(flow.source.localPoint, "flow source.localPoint")
+      try bounded(flow.target.localPoint, "flow target.localPoint")
+      guard flow.source != flow.target else {
+        throw SceneValidationError.invalidGeometry("identical flow attachments")
+      }
+      guard flow.routePoints.count <= budgets.maximumFlowRoutePoints else {
+        throw SceneValidationError.budgetExceeded("flow route points")
+      }
+      for point in flow.routePoints { try bounded(point, "flow route point") }
+      guard flow.width.isFinite, (0.001...0.25).contains(flow.width) else {
+        throw SceneValidationError.invalidGeometry("flow width")
+      }
+      guard flow.label.utf8.count <= 80 else {
+        throw SceneValidationError.invalidGeometry("flow label exceeds 80 UTF-8 bytes")
+      }
     }
   }
 
@@ -237,6 +262,45 @@ public struct SceneValidator: Sendable {
       2 * (points.count - 1) * radialSegments
     case .arrow(_, _, _, _, _, let radialSegments):
       8 * radialSegments
+    case .flow:
+      // A bounded 128-sample, eight-sided path, arrowhead, and four markers.
+      // Native admission separately measures renderer-owned text geometry.
+      3_000
+    }
+  }
+
+  private func validateFlowBindings(_ document: SceneDocument) throws {
+    let recipes = Dictionary(
+      uniqueKeysWithValues: document.geometryDefinitions.map { ($0.geometryId, $0.recipe) })
+    let nodes = Dictionary(uniqueKeysWithValues: document.nodes.map { ($0.nodeId, $0) })
+    let instances: [(SceneNode, FlowRecipe)] = document.nodes.compactMap { node in
+      guard let geometryId = node.geometryId, case .flow(let flow) = recipes[geometryId] else {
+        return nil
+      }
+      return (node, flow)
+    }
+    guard instances.count <= budgets.maximumFlowInstances else {
+      throw SceneValidationError.budgetExceeded("flow instances")
+    }
+    let annotationIDs = Set(instances.map { $0.0.nodeId })
+    for (annotation, flow) in instances {
+      for attachment in [flow.source, flow.target] {
+        guard let endpoint = nodes[attachment.nodeId] else {
+          throw SceneValidationError.missingReference("flow endpoint \(attachment.nodeId)")
+        }
+        // A flow may follow an assembly or one of its structural parts, but may
+        // not bind its own transform back through a descendant or another flow.
+        var cursor: SceneNode? = endpoint
+        while let current = cursor {
+          guard current.nodeId != annotation.nodeId,
+            !annotationIDs.contains(current.nodeId)
+          else {
+            throw SceneValidationError.invalidGeometry(
+              "flow \(annotation.nodeId) endpoint \(attachment.nodeId) is not structural")
+          }
+          cursor = current.parentId.flatMap { nodes[$0] }
+        }
+      }
     }
   }
 

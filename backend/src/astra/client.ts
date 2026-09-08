@@ -1,10 +1,11 @@
 import { JsonObject, isObject } from "../json.js";
 import { authoringTool } from "./authoring-tool.js";
-import { ASTRA_ILLUSTRATION_INSTRUCTIONS, ASTRA_SYSTEM_INSTRUCTIONS } from "./instructions.js";
+import { ASTRA_FLOW_INSTRUCTIONS, ASTRA_ILLUSTRATION_INSTRUCTIONS, ASTRA_SYSTEM_INSTRUCTIONS } from "./instructions.js";
 import { DiagnosticLogger, safeError } from "../diagnostics.js";
 import { RecentTurn } from "./conversation-context.js";
 import { sceneContext } from "./scene-context.js";
 import { AvailableAssetDetail } from "../asset-details.js";
+import { NodeLocalBounds } from "../node-local-bounds.js";
 
 /** Only completed, admitted artifacts from the current scene enter model context. */
 export interface RecentIllustration {
@@ -23,6 +24,8 @@ export interface ModelRequest {
   availableAssetDetails?: AvailableAssetDetail[];
   illustrationEnabled?: boolean;
   recentIllustrations?: RecentIllustration[];
+  flowEnabled?: boolean;
+  nodeLocalBounds?: NodeLocalBounds[];
   signal: AbortSignal;
 }
 
@@ -62,9 +65,9 @@ export class OpenAIResponsesTransport implements ModelTransport {
         parallel_tool_calls: false,
         max_output_tokens: 4_096,
         prompt_cache_options: { mode: "explicit", ttl: "30m" },
-        tools: [authoringTool(request.illustrationEnabled)],
+        tools: [authoringTool(request.illustrationEnabled, request.flowEnabled)],
         input: [
-          { role: "developer", content: [{ type: "input_text", text: request.illustrationEnabled ? `${ASTRA_SYSTEM_INSTRUCTIONS}\n\n${ASTRA_ILLUSTRATION_INSTRUCTIONS}` : ASTRA_SYSTEM_INSTRUCTIONS, prompt_cache_breakpoint: { mode: "explicit" } }] },
+          { role: "developer", content: [{ type: "input_text", text: systemInstructions(request), prompt_cache_breakpoint: { mode: "explicit" } }] },
           { role: "user", content: [{ type: "input_text", text: input }] }
         ]
       })
@@ -145,8 +148,16 @@ export function formatUserInput(request: ModelRequest): string {
   return JSON.stringify({
     userRequest: request.text, selectionNodeIds: request.selectionNodeIds, recentTurns: request.recentTurns ?? [],
     acceptedScene: sceneContext(request.scene), availableAssetDetails: request.availableAssetDetails ?? [],
-    ...(request.illustrationEnabled ? { recentIllustrations: (request.recentIllustrations ?? []).slice(-4).map(({ artifactId, componentNodeIds, sourceRevision, brief }) => ({ artifactId, componentNodeIds, sourceRevision, brief })) } : {})
+    ...(request.illustrationEnabled ? { recentIllustrations: (request.recentIllustrations ?? []).slice(-4).map(({ artifactId, componentNodeIds, sourceRevision, brief }) => ({ artifactId, componentNodeIds, sourceRevision, brief })) } : {}),
+    ...(request.flowEnabled ? { nodeLocalBounds: (request.nodeLocalBounds ?? []).slice(0, 128).map(({ nodeId, minimum, maximum }) => ({ nodeId, minimum, maximum })) } : {})
   });
+}
+
+function systemInstructions(request: ModelRequest): string {
+  let instructions = ASTRA_SYSTEM_INSTRUCTIONS;
+  if (request.illustrationEnabled) instructions += `\n\n${ASTRA_ILLUSTRATION_INSTRUCTIONS}`;
+  if (request.flowEnabled) instructions += `\n\n${ASTRA_FLOW_INSTRUCTIONS}`;
+  return instructions;
 }
 
 function numeric(value: unknown): number | undefined { return typeof value === "number" && Number.isFinite(value) ? value : undefined; }

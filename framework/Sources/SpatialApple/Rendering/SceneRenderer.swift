@@ -1,4 +1,5 @@
 import CoreGraphics
+import Combine
 import Foundation
 import RealityKit
 import SpatialCore
@@ -16,6 +17,7 @@ public final class SceneRenderer {
 
     private let geometryCompiler = GeometryCompiler()
     private let materialCompiler = MaterialCompiler()
+    private let flowRenderer = FlowRenderer()
     private let importedAssets = ImportedAssetCatalog()
     private let contentRoot = Entity()
     private var rootAnchor: AnchorEntity
@@ -26,6 +28,9 @@ public final class SceneRenderer {
     private var importedBounds: [String: BoundingBox] = [:]
     private var importedSelectionOutline: Entity?
     private weak var attachedView: ARView?
+    private var flowUpdates: (any Cancellable)?
+    private var structuralOwnBounds: [String: BoundingBox] = [:]
+    private var structuralBounds: [String: BoundingBox] = [:]
 
     public init(initialDocument: SceneDocument = SceneDocument(documentId: "document_local")) {
         document = initialDocument
@@ -42,11 +47,44 @@ public final class SceneRenderer {
 
     public func attach(to view: ARView) throws {
         guard attachedView !== view else { return }
+        let prepared = try prepareScene(document)
+        flowUpdates?.cancel()
         rootAnchor.removeFromParent()
         attachedView = view
         view.scene.addAnchor(rootAnchor)
-        let prepared = try prepareScene(document)
         installPreparedScene(document, prepared: prepared)
+        flowUpdates = view.scene.subscribe(to: SceneEvents.Update.self) { [weak self] event in
+            self?.flowRenderer.update(deltaTime: event.deltaTime)
+        }
+    }
+
+    /// A coordinator from an old view cannot detach the current renderer.
+    public func detach(from view: ARView) {
+        guard attachedView === view else { return }
+        flowUpdates?.cancel()
+        flowUpdates = nil
+        rootAnchor.removeFromParent()
+        attachedView = nil
+    }
+
+    public func setFlowAnimationEnabled(_ enabled: Bool) { flowRenderer.setAnimationEnabled(enabled) }
+    public func setFlowMetricsEnabled(_ enabled: Bool) { flowRenderer.setMetricsEnabled(enabled) }
+    public func resetFlowMetrics() { flowRenderer.resetMetrics() }
+    public var flowMetrics: FlowRenderMetrics { flowRenderer.metrics }
+
+    /// Structural node-local metres; visual helpers and flow annotations never
+    /// affect these measurements. Snapshot revision supplies their provenance.
+    public func nodeLocalBounds(prioritizing nodeIDs: [String] = [], maximumCount: Int = 128) -> [NodeLocalBounds] {
+        let limit = min(max(maximumCount, 0), 128)
+        var seen = Set<String>()
+        var result: [NodeLocalBounds] = []
+        for id in nodeIDs + structuralBounds.keys.sorted() {
+            guard result.count < limit else { break }
+            guard seen.insert(id).inserted, let bounds = structuralBounds[id], bounds.hasFiniteExtent else { continue }
+            result.append(NodeLocalBounds(nodeId: id, minimum: Vec3(Double(bounds.min.x), Double(bounds.min.y), Double(bounds.min.z)),
+                maximum: Vec3(Double(bounds.max.x), Double(bounds.max.y), Double(bounds.max.z))))
+        }
+        return result
     }
 
     /// Prepares every required native resource before mutating the accepted entity graph.
@@ -224,13 +262,15 @@ public final class SceneRenderer {
         }
         // Reject unapproved references and imported-budget/material failures before allocating procedural resources.
         for definition in document.geometryDefinitions where importedParts[definition.geometryId] == nil {
+            if case .flow = definition.recipe { continue }
             meshes[definition.geometryId] = try geometryCompiler.resource(for: definition)
         }
         var materials: [String: PhysicallyBasedMaterial] = [:]
         for definition in document.materials {
             materials[definition.materialId] = materialCompiler.resource(for: definition)
         }
-        return PreparedScene(meshes: meshes, materials: materials, importedParts: importedParts)
+        let flows = try flowRenderer.prepare(document)
+        return PreparedScene(meshes: meshes, materials: materials, importedParts: importedParts, flows: flows)
     }
 
     /// This synchronous method is the native commit boundary. It has no suspension point.
@@ -240,6 +280,7 @@ public final class SceneRenderer {
         for nodeID in removedNodeIDs {
             entitiesByNodeID.removeValue(forKey: nodeID)?.removeFromParent()
             importedBounds.removeValue(forKey: nodeID)
+            structuralOwnBounds.removeValue(forKey: nodeID)
         }
 
         let geometryByID = Dictionary(uniqueKeysWithValues: document.geometryDefinitions.map { ($0.geometryId, $0) })
@@ -247,6 +288,7 @@ public final class SceneRenderer {
 
         let oldNodes = Dictionary(uniqueKeysWithValues: self.document.nodes.map { ($0.nodeId, $0) })
         let oldGeometries = Dictionary(uniqueKeysWithValues: self.document.geometryDefinitions.map { ($0.geometryId, $0) })
+        var changedStructuralIDs = Set<String>()
         for node in document.nodes {
             let oldNode = oldNodes[node.nodeId]
             let geometryChanged = oldNode?.geometryId != node.geometryId
@@ -255,6 +297,7 @@ public final class SceneRenderer {
             if let existing = entitiesByNodeID[node.nodeId], !geometryChanged {
                 entity = existing
             } else {
+                changedStructuralIDs.insert(node.nodeId)
                 entitiesByNodeID[node.nodeId]?.removeFromParent()
                 importedBounds.removeValue(forKey: node.nodeId)
                 if let geometryID = node.geometryId, let part = prepared.importedParts[geometryID] {
@@ -293,6 +336,8 @@ public final class SceneRenderer {
         }
 
         self.document = document
+        updateStructuralBounds(changedNodeIDs: changedStructuralIDs, geometryByID: geometryByID)
+        flowRenderer.install(prepared.flows, entities: entitiesByNodeID, labelParent: contentRoot)
         preparedMeshes = prepared.meshes
         preparedMaterials = prepared.materials
         geometryCompiler.prune(keeping: Array(geometryByID.values))
@@ -320,6 +365,50 @@ public final class SceneRenderer {
             remaining.append(contentsOf: entity.children)
         }
         return bounds
+    }
+
+    private func updateStructuralBounds(changedNodeIDs: Set<String>, geometryByID: [String: GeometryDefinition]) {
+        let flowIDs = Set(document.nodes.compactMap { node -> String? in
+            guard let geometryID = node.geometryId, case .flow? = geometryByID[geometryID]?.recipe else { return nil }
+            return node.nodeId
+        })
+        let nodeEntities = Set(entitiesByNodeID.values.map(ObjectIdentifier.init))
+        for node in document.nodes {
+            guard !flowIDs.contains(node.nodeId), let root = entitiesByNodeID[node.nodeId] else {
+                structuralOwnBounds.removeValue(forKey: node.nodeId)
+                continue
+            }
+            guard changedNodeIDs.contains(node.nodeId) || structuralOwnBounds[node.nodeId] == nil else { continue }
+            var bounds = BoundingBox.empty
+            var remaining = [root]
+            while let entity = remaining.popLast() {
+                guard entity !== importedSelectionOutline else { continue }
+                // A child scene node is aggregated from its own cached bound.
+                if entity !== root, nodeEntities.contains(ObjectIdentifier(entity)) { continue }
+                if entity.components[ModelComponent.self] != nil {
+                    bounds.formUnion(entity.visualBounds(recursive: false, relativeTo: root, excludeInactive: false))
+                }
+                remaining.append(contentsOf: entity.children)
+            }
+            structuralOwnBounds[node.nodeId] = bounds
+        }
+        let children = Dictionary(grouping: document.nodes.filter { $0.parentId != nil }, by: { $0.parentId! })
+        var combined: [String: BoundingBox] = [:]
+        func aggregate(_ node: SceneNode) -> BoundingBox {
+            if let cached = combined[node.nodeId] { return cached }
+            guard !flowIDs.contains(node.nodeId) else { return .empty }
+            var bounds = structuralOwnBounds[node.nodeId] ?? .empty
+            for child in children[node.nodeId] ?? [] {
+                let childBounds = aggregate(child)
+                if childBounds.hasFiniteExtent {
+                    bounds.formUnion(childBounds.transformed(by: child.transform.realityKitTransform.matrix))
+                }
+            }
+            combined[node.nodeId] = bounds
+            return bounds
+        }
+        for node in document.nodes { _ = aggregate(node) }
+        structuralBounds = combined.filter { $0.value.hasFiniteExtent }
     }
 
     private func nativeMaterial(for node: SceneNode, prepared: PreparedScene) -> PhysicallyBasedMaterial {
@@ -422,6 +511,14 @@ struct PreparedScene {
     var meshes: [String: MeshResource]
     var materials: [String: PhysicallyBasedMaterial]
     var importedParts: [String: ImportedAssetCatalog.Part]
+    var flows: PreparedFlows
+}
+
+private extension BoundingBox {
+    var hasFiniteExtent: Bool {
+        min.x.isFinite && min.y.isFinite && min.z.isFinite && max.x.isFinite && max.y.isFinite && max.z.isFinite
+            && min.x <= max.x && min.y <= max.y && min.z <= max.z
+    }
 }
 
 private extension Transform3D {

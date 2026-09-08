@@ -1,4 +1,4 @@
-# Next work: organization, generated visuals, richer geometry
+# Implementation handoff: repository, illustrations, native flows
 
 Updated September 8, 2026. Reorganization baseline: `ef10dcb` (primitive implementation baseline: `103f798`) on branch **`Arav`**. Arav explicitly selected this order for the next session:
 
@@ -6,7 +6,7 @@ Updated September 8, 2026. Reorganization baseline: `ef10dcb` (primitive impleme
 2. **Integrate and evaluate Images 2.5 for generated visuals, starting with 2D.**
 3. **Improve the native geometry and visual vocabulary Astra can generate.**
 
-This handoff records the current implementation work. Stage 1 is implemented, verified, committed and pushed as `ef10dcb`. Image integration is implemented and verified through real model/provider calls and both simulator layouts, with physical-device acceptance pending locked screens. Flow features are next. Follow this order even though the earlier visual research suggested improving native flows first.
+This handoff records the completed implementation stages and remaining acceptance. Stage 1 is committed and pushed as `ef10dcb`. Image integration is committed and pushed as `8d93cb3`, verified through real model/provider calls and both simulator layouts. Native flows pass automated checks, real-model rack/lamp edits, a live native rack visual check and 0/1/8/32-flow measurements on the simulator and physical iPhone. Both physical devices have the build installed. Physical AR visual acceptance and iPad performance remain unverified.
 
 ## Goal and current behavior
 
@@ -85,7 +85,9 @@ Official references: [launch](https://openai.com/index/introducing-chatgpt-image
 
 ## 3. Improve generated native geometry
 
-The current authoring vocabulary has straight arrows, static polyline tubes and solid physically based materials. It lacks flow bindings, smooth arrow paths, readable labels and motion cues. Give Astra better semantic controls instead of asking it to compose increasingly elaborate diagrams from many primitive nodes.
+**Implemented:** `flow.v1` adds an ordinary scene geometry recipe with stable identity, component-local attachment points, curved paths, direction, width, label and animation. Native rendering uses cached meshes, unlit materials, dark-backed billboard labels and four local markers per flow. Host-derived structural bounds accompany phone snapshots. Reversal, component movement, hiding, removal and Undo share normal scene validation and receipts. Backend checks pass 206 tests; the framework passes 138 Swift Testing cases and six XCTest cases, including the real approved app-detail resource check (four other explicit environment-gated skips). Both simulator and signed-device builds pass. Real model/reducer sequences passed for rack and lamp fixtures; native rack rendering and resource measurements are detailed in the [flow integration record](docs/native-flow-integration.md). The physical iPhone passed all four 30-sample CPU/callback/resource runs, with zero animation mesh rebuilds; 32 flows averaged 0.587 ms of marker-update CPU time. Physical AR visual acceptance and iPad performance remain unverified.
+
+The earlier authoring vocabulary had straight arrows, static polyline tubes and physically based materials. The flow recipe extends those primitives with bindings, smooth paths, labels and local motion. The implementation follows the design below.
 
 Start with a **generic flow annotation**: stable identity, parent/visibility, source and target node IDs with local attachment points, optional route points, direction, width/style and a short label. Supply host-derived local bounds and optional attachment metadata so the model can place its output using actual geometry context. No hardware-specific branches.
 
@@ -103,7 +105,7 @@ Apple references and API choices are collected in [the visual research](docs/ima
 - OpenAI key: use Doppler CLI, project `backend`, config `dev`, selecting `OPENAI_API_KEY`. Never print credentials or add them to commits. The local session token is separate and now stored in ignored `.local/dev-session.json` plus device Keychain.
 - The direct phone-to-Mac LAN route failed. An authenticated HTTPS/WSS tunnel to the same service succeeded. This remains a temporary Mac-dependent route, not a deployed cloud backend. Inspect running processes and saved configuration on resume; do not assume an old tunnel URL or PID remains valid. [Endpoint notes](docs/backend-endpoint.md).
 - Devices: iPhone 15 Pro and iPad Air 13-inch M4, with developer trust already configured. Both use the same universal app. The last baseline rollout encountered locked screens; verify availability rather than repeating trust setup. The last primitive-fix builds passed but their physical visual recheck is pending.
-- Current migration checks: 115 backend tests; 69 Swift Testing cases and six XCTest cases, with four explicit environment-gated skips. Both app builds and the ordinary iPhone launch passed. Docker deployment files exist; the image has not been built because the daemon was unavailable.
+- Current implementation checks: 206 backend tests; 138 Swift Testing cases and six XCTest cases, with four explicit environment-gated skips. Both final app builds pass. Ordinary physical iPhone launch was verified at migration; fresh image/flow build launch attempts hit locked screens. Docker deployment files exist; the image has not been built because the daemon was unavailable.
 
 Current commands from the repository root:
 
@@ -117,4 +119,10 @@ swift run --package-path tools --scratch-path .local/build/tools PointingReplay 
 python3 tools/dev-session.py doctor
 ```
 
-Stage 1 was committed and pushed before image implementation. Commit the verified image stage before starting native flow implementation. Continue independent reviews and bounded acceptance in parallel with clear file ownership. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.
+Stage 1 was committed and pushed before image implementation. Image stage `8d93cb3` was committed and pushed before native flow implementation began. Continue independent reviews and bounded acceptance in parallel with clear file ownership. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.
+
+## Remaining acceptance
+
+- Unlock the physical iPhone and iPad, launch the installed final build, place the scene and inspect attachment, labels and motion against a real camera background. Run the explicit device metric harness for 0/1/8/32 flows; simulator callback and CPU measurements are not device/GPU measurements.
+- Dense 32-flow labels can overlap; the stress fixture establishes bounded resources, not a readable high-density diagram.
+- Generated illustrations remain conceptual. Exact rack-slot/exterior fidelity is unverified without an actual assembly reference render.
