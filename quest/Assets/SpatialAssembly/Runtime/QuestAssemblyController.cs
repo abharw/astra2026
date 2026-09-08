@@ -12,7 +12,7 @@ namespace SpatialAssembly {
   public OVRCameraRig Rig;public OVRHand RightHand;public PassthroughCameraAccess CameraAccess;public EnvironmentRaycastManager Depth;
   public BridgeConnection Bridge;public RealtimeAudio Audio;public SavedAssemblies Store;
   public Text StatusText,DetailText,HintText,VoiceButton,PullButton;public Transform Panel;
-  bool movingPanel,dragWithTrigger;float panelDistance;Vector3 panelOffset;string voiceCaption="";
+  bool movingPanel,dragWithTrigger;bool panelFollows=true;float panelDistance;Vector3 panelOffset;string voiceCaption="";
   public string Status="Allow camera and spatial-data permissions. Point at an object.";
   public AssemblyVisual Active;readonly List<AssemblyVisual> objects=new();
   Transform marker;LineRenderer pointer;bool lastPinch,busy;string requestId,refiningObject;Snapshot snapshot;Vector3 target,normal;bool hasTarget;float started;string selectedPart;int explainIndex;
@@ -31,6 +31,7 @@ namespace SpatialAssembly {
   Ray PointingRay(){if(RightHand&&RightHand.IsTracked&&RightHand.IsPointerPoseValid&&RightHand.HandConfidence==OVRHand.TrackingConfidence.High)return new Ray(RightHand.PointerPose.position,RightHand.PointerPose.forward);return new Ray(Rig.rightControllerAnchor.position,Rig.rightControllerAnchor.forward);}
   void Update(){
    if(!Rig||!CameraAccess)return;
+   if(panelFollows&&!movingPanel)PlacePanelAtEyeHeight();
    var ray=PointingRay();EnvironmentRaycastHit hit=default;hasTarget=EnvironmentRaycastManager.IsSupported&&Depth.Raycast(ray,out hit,6);
    if(hasTarget){target=hit.point;normal=hit.normalConfidence>.3f?hit.normal:(Rig.centerEyeAnchor.position-target).normalized;if(marker)marker.position=target;}
    if(marker)marker.gameObject.SetActive(hasTarget);if(pointer){pointer.SetPosition(0,ray.origin);pointer.SetPosition(1,hasTarget?target:ray.GetPoint(1));}
@@ -50,16 +51,17 @@ namespace SpatialAssembly {
    if(Active&&Active.Extracted&&!busy){var stick=OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.Controller.RTouch);Active.transform.position+=Rig.centerEyeAnchor.forward*stick.y*Time.deltaTime*.5f;Active.transform.Rotate(Vector3.up,stick.x*60*Time.deltaTime,Space.World);}
    UpdateStatus();
   }
-  void BeginPanelMove(Ray ray,Vector3 point,bool withTrigger){movingPanel=true;dragWithTrigger=withTrigger;panelDistance=Vector3.Distance(ray.origin,point);panelOffset=Panel.position-point;}
+  void BeginPanelMove(Ray ray,Vector3 point,bool withTrigger){panelFollows=false;movingPanel=true;dragWithTrigger=withTrigger;panelDistance=Vector3.Distance(ray.origin,point);panelOffset=Panel.position-point;}
   void UpdateStatus(){
    string state=!Bridge.Connected?"OFFLINE":!CameraAccess.IsPlaying?"CAMERA NOT READY":busy?"RECONSTRUCTING":Audio.Speaking?"SPEAKING":Audio.Enabled?"LISTENING":Audio.Starting?"STARTING VOICE":"READY";
    string next=!Bridge.Connected?"Connect Quest to Wi-Fi, then choose Reconnect.":!CameraAccess.IsPlaying?"Allow camera access in the headset.":busy?"Your captured view is processing. You can look around. Cancel stops this request.":Audio.Speaking?"Reply is playing. Speak to interrupt or choose Stop voice.":Audio.Enabled?"Ask a question aloud. Your microphone is on.":Active?"Point at a model part and press trigger to inspect it.":hasTarget?"Point at a real object. Press trigger once to reconstruct it.":"Aim at a nearby real surface until the cyan target appears.";
    if(StatusText){StatusText.text=state+(busy?$"  •  {(int)(Time.realtimeSinceStartup-started)}s":"")+"\n"+(movingPanel?"Moving panel • release to place":next)+"\n"+(busy?Status:Active?"Selected: "+Active.Data.name:Status);StatusText.color=!Bridge.Connected?new Color(1,.65f,.4f):Color.white;}
-   if(HintText)HintText.text="Hold grip over panel to move • left stick click: bring panel here\n"+(Audio.Enabled?$"Mic {(Audio.InputLevel>.015f?"hearing sound":"quiet")} • ":"")+Store.Status;
+   if(HintText)HintText.text=(panelFollows?"Panel follows you • grab and release to pin":"Panel pinned • left stick click: bring panel here")+"\nHold grip over panel to move • "+(Audio.Enabled?$"Mic {(Audio.InputLevel>.015f?"hearing sound":"quiet")} • ":"")+Store.Status;
    if(VoiceButton)VoiceButton.text=Audio.Enabled||Audio.Starting?"Stop voice":"Start voice";
    if(PullButton)PullButton.text=Active&&Active.Extracted?"Return object":"Pull object";
   }
-  public void PositionPanel(){if(Panel&&Rig){var forward=Vector3.ProjectOnPlane(Rig.centerEyeAnchor.forward,Vector3.up);if(forward.sqrMagnitude<.01f)forward=Vector3.ProjectOnPlane(Rig.transform.forward,Vector3.up);forward.Normalize();Panel.position=Rig.centerEyeAnchor.position+forward*1.25f-Vector3.up*.12f;Panel.rotation=Quaternion.LookRotation(forward,Vector3.up);}}
+  public void PositionPanel(){panelFollows=true;PlacePanelAtEyeHeight();}
+  void PlacePanelAtEyeHeight(){if(Panel&&Rig){var forward=Vector3.ProjectOnPlane(Rig.centerEyeAnchor.forward,Vector3.up);if(forward.sqrMagnitude<.01f)forward=Vector3.ProjectOnPlane(Rig.transform.forward,Vector3.up);forward.Normalize();Panel.position=Rig.centerEyeAnchor.position+forward*1.25f;Panel.rotation=Quaternion.LookRotation(forward,Vector3.up);}}
   public void Reconstruct(){if(busy){Status="Already reconstructing. Cancel to stop.";return;}Capture(Guid.NewGuid().ToString(),false,"");}
   public void Refine(){if(!Active||busy){Status="Select a generated object first";return;}SyncScene();requestId=Guid.NewGuid().ToString();refiningObject=Active.ObjectId;busy=true;started=Time.realtimeSinceStartup;Status="Searching technical references to rebuild this object";Bridge.Send(new JObject{{"type","rebuild"},{"request_id",requestId},{"hint",selectedPart==null?"Improve the fidelity of this object using technical references":"Improve component "+selectedPart+" using references; retain other components"}});}
   public void Cancel(){Bridge.Send(new JObject{{"type","reconstruction.cancel"}});requestId=null;refiningObject=null;busy=false;Status="Cancelled";}

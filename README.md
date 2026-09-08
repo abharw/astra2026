@@ -69,3 +69,8 @@ The source-photo probe returned 11 parts, 37 primitives including 2 custom meshe
 
 
 [Complete spatial-analysis artifacts, panorama inventory and evidence](docs/spatial-analysis/README.md).
+
+
+### Live Quest testing together
+
+We tested on a physical Quest 3 with the wearer opening and controlling the app, sharing the headset view through Meta Horizon casting, and Codex watching the browser view while diagnosing and rebuilding. See [the collaborative VR/AR test record](docs/QUEST_LIVE_TESTING.md) for the exact workflow, observed results, problems found and remaining checks.
