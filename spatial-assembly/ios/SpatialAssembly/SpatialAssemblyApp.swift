@@ -91,6 +91,7 @@ struct AssemblyScreen: View {
         }.accessibilityLabel("Connection settings")
       }
       ConnectionBadge(bridge: ar.bridge)
+      Button { ar.toggleMacTest() } label: { Label(ar.macTestStatus, systemImage: ar.macTestEnabled ? "stop.circle.fill" : "desktopcomputer").font(.caption) }.accessibilityIdentifier("macCameraTestButton")
       HStack {
         Text(ar.roomStatus).font(.caption2).foregroundStyle(ar.restoringRoom ? .orange : .secondary).lineLimit(2)
         Spacer()
@@ -100,7 +101,7 @@ struct AssemblyScreen: View {
   }
   private var capturePanel: some View {
     VStack(alignment: .leading, spacing: 14) {
-      Text(ar.restoringRoom ? "Recognizing this place…" : ar.targetLocked ? "Target locked." : "Point. Reconstruct. Explore.").font(
+      Text(ar.restoringRoom ? "Recognizing this place…" : ar.targetLocked ? "Target locked." : "Tap an object. Make it 3D.").font(
         .system(size: 25, weight: .medium)
       ).tracking(-0.5)
       Text(ar.targetLocked ? "Keep the object in view, then reconstruct it." : ar.surface).font(
@@ -116,6 +117,7 @@ struct AssemblyScreen: View {
           "reconstructButton").disabled(ar.restoringRoom)
         voiceButton
       }
+      Toggle("Tap objects to reconstruct", isOn: $ar.tapToCreate).font(.subheadline).accessibilityIdentifier("tapToCreateToggle")
       if ar.restoringRoom { Button("I’m somewhere new") { ar.newPlace() }.font(.subheadline) }
       if ar.targetLocked { Button("Unlock target") { ar.resetTarget() }.font(.subheadline) }
       Text("Selected camera images go to OpenAI. Generated shapes and hidden parts are estimates.")
@@ -311,7 +313,7 @@ struct AssemblyScreen: View {
         VStack(alignment: .leading, spacing: 22) {
           Text("From your room into your hands.").font(.largeTitle.bold())
           Text(
-            "1. Move the phone slowly until Tracking ready appears.\n\n2. Point at an object, or tap its surface to lock it.\n\n3. Tap Reconstruct that, or turn on the microphone and say it.\n\n4. The overlay stays anchored over the source. Tap it to take it apart, then tap again to assemble it there.\n\n5. Use Pull out to move it; Return restores its original pose."
+            "1. Move the phone slowly until Tracking ready appears.\n\n2. Tap a real object to reconstruct it. Turn off Tap objects to reconstruct if you prefer to lock the target first.\n\n3. You can also turn on the microphone and say reconstruct that, or use the Reconstruct that button.\n\n4. The overlay stays anchored over the source. Tap it to take it apart, then tap again to assemble it there.\n\n5. Use Pull out to move it; Return restores its original pose."
           )
           Text("Try saying").font(.headline)
           Text(

@@ -166,3 +166,13 @@ Build diagnosis: OpenXR required explicit EditorBuildSettings configuration regi
 Quest headset acceptance remains pending a USB-authorized Quest 3. The implementation is a generated approximate assembly with sampled POV frames, not an accurate CAD scan, continuous omniscient vision, or a tracker for a moved physical object.
 
 Final software checks: the Quest APK built successfully with camera/scene/anchor/hand/audio/network permissions. Unity checked the real 11-part, 37-primitive response, calibrated capture-ray orientation and return pose. The final pass also guarded concurrent captures and preserved JSON/toolbar members under IL2CPP stripping. No Quest was listed by adb at delivery; hardware acceptance remains pending. Sanitized metrics and public reference links are in RESEARCH_QUEST_VERIFICATION.json.
+
+## 14. Phone computer use and direct tap creation (September 8, 2026)
+
+The user requested a mounted-phone computer-use test and explicit hackathon documentation. Searched for the Astra iPhone-control demonstration, located a matching creator video, and checked Apple's camera/microphone limitation for iPhone Mirroring. Opened Mirroring with native computer use; it is waiting for the user's Mac login. The existing QuickTime iPhone screen preview remained black. Neither observation proves remote touch or live AR success.
+
+Changed the app so tapping a physical surface starts reconstruction by default, with an on-screen toggle for the original target-lock-then-voice workflow. Existing generated-part taps still select/explode. The physical iPhone build passed. See [the phone-control experiment record](PHONE_COMPUTER_USE.md) for source links, actual tool actions, current blockers and the remaining acceptance sequence.
+
+## 15. Direct camera/control workaround (September 8, 2026)
+
+After the user unlocked Mac authentication and locked the phone, Astra controlled the physical iPhone through Mirroring and opened Spatial Assembly. The system visibly rejected camera access, matching Apple's documentation. The user requested a workaround. Added an optional authenticated foreground-only camera/control link inside the app, with fresh ARView snapshots, shared object-tap handling, command acknowledgments and an explicit stop control. Three relay tests and the physical iPhone build passed; the build was installed and launched. See PHONE_COMPUTER_USE.md for setup, the exact distinction from OS computer use, and pending/live evidence.

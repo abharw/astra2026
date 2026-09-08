@@ -21,6 +21,10 @@ import SwiftUI
   @Published var voiceOn = false
   @Published var voiceConnecting = false
   @Published var transcript = ""
+  @Published var macTestEnabled = false
+  @Published var macTestStatus = "Mac camera test off"
+  private let macTest = BridgeClient()
+  @Published var tapToCreate = true
   @Published var targetLocked = false
   @Published var targetScreen: CGPoint?
   @Published var generationInfo = ""
@@ -104,6 +108,61 @@ import SwiftUI
       installed = true
     }
     bridge.connect()
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("--mac-camera-test") { toggleMacTest() }
+    #endif
+  }
+  func toggleMacTest() {
+    if macTestEnabled { macTest.disconnect(); macTestEnabled = false; macTestStatus = "Mac camera test off"; UIApplication.shared.isIdleTimerDisabled = false; return }
+    guard let url = Bundle.main.url(forResource: "Connection", withExtension: "plist"),
+      let data = try? Data(contentsOf: url), let config = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:String],
+      let endpoint = config["controlURL"], let token = config["controlToken"] else { error = "Pair the Mac camera test connection before building"; return }
+    macTest.baseURL = endpoint; macTest.token = token
+    macTest.onEvent = { [weak self] event in
+      guard let self else { return }
+      if event["type"] as? String == "connected" { self.macTestStatus = "Mac camera test connected" }
+      if event["type"] as? String == "disconnected" { self.macTestStatus = "Mac test disconnected · stop and retry" }
+      if event["type"] as? String == "test.command" { self.testCommand(event) }
+    }
+    macTestEnabled = true; macTestStatus = "Connecting Mac camera test…"; UIApplication.shared.isIdleTimerDisabled = true; macTest.connect()
+  }
+  private func testState() -> [String:Any] {
+    let frame = view.session.currentFrame
+    return ["tracking":tracking,"phase":phase,"busy":busy,"roomStatus":roomStatus,"restoring":restoringRoom,
+      "frameTimestamp":frame?.timestamp ?? -1,"frameAge":frame.map{ProcessInfo.processInfo.systemUptime - $0.timestamp} ?? -1,
+      "viewSize":[view.bounds.width,view.bounds.height],"bridgeConnected":bridge.connected,"voiceOn":voiceOn,
+      "object":assembly?.name ?? "","objectID":assembly == nil ? "" : renderer.objectID.uuidString,
+      "parts":assembly?.parts.map{["id":$0.id,"name":$0.name]} ?? [],"selectedPart":selectedID ?? "",
+      "explosion":explosion,"extracted":extracted,"error":error ?? "","macTestEnabled":macTestEnabled]
+  }
+  private func testCommand(_ e:[String:Any]) {
+    guard macTestEnabled else { return }
+    let id = e["id"] as? String ?? ""
+    func reply(_ ok:Bool,_ message:String) { macTest.send(["type":"test.result","id":id,"ok":ok,"message":message,"state":testState()]) }
+    switch e["action"] as? String {
+    case "state": reply(true,"Current app state")
+    case "snapshot":
+      guard let frame = view.session.currentFrame, ProcessInfo.processInfo.systemUptime - frame.timestamp < 2 else { reply(false,"No fresh physical camera frame; exit Mirroring and unlock the phone"); return }
+      view.snapshot(saveToHDR:false) { [weak self] image in
+        Task { @MainActor in
+          guard let self else { return }
+          guard self.macTestEnabled, let image, let data = image.jpegData(compressionQuality:0.8) else { reply(false,"AR snapshot unavailable"); return }
+          self.macTest.send(["type":"test.result","id":id,"ok":true,"message":"Actual ARView camera and virtual geometry snapshot; native toolbar not included","image":data.base64EncodedString(),"state":self.testState()])
+        }
+      }
+    case "tap":
+      guard let x = e["x"] as? Double, let y = e["y"] as? Double, (0...1).contains(x), (0...1).contains(y), !busy, !restoringRoom else { reply(false,"Tap unavailable while busy/restoring or invalid coordinates"); return }
+      tapObject(at:CGPoint(x:x*view.bounds.width,y:y*view.bounds.height)); reply(error == nil,"Invoked the same object-tap handler used on the phone")
+    case "reconstruct": guard !busy else { reply(false,"Already reconstructing"); return }; reconstruct(); reply(busy,"Reconstruction requested; completion is reported separately")
+    case "cancel": cancel(); reply(true,"Cancelled")
+    case "manipulate":
+      let result = command(["action":e["operation"] as? String ?? "","amount":e["amount"] as? Double ?? 0,"part":e["part"] as? String ?? ""]); reply(result.0,result.1)
+    case "voice.start": if !voiceOn && !voiceConnecting { toggleVoice() }; reply(true,"Voice requested; inspect state for readiness")
+    case "voice.stop": stopVoice(); reply(true,"Voice stopped")
+    case "explain": explainSelected(); reply(true,"Part explanation requested")
+    case "refine": refine(); reply(busy,"Refinement requested")
+    default: reply(false,"Unsupported test action")
+    }
   }
   private func configuration() -> ARWorldTrackingConfiguration {
     let c = ARWorldTrackingConfiguration()
@@ -243,13 +302,16 @@ import SwiftUI
   }
   func pause() {
     sessionRunning = false
+    if macTestEnabled { toggleMacTest() }
     if busy { cancel() }
     saveCachedRoom()
     stopVoice()
     view.session.pause()
   }
   @objc private func tapped(_ recognizer: UITapGestureRecognizer) {
-    let p = recognizer.location(in: view)
+    tapObject(at: recognizer.location(in: view))
+  }
+  func tapObject(at p: CGPoint) {
     guard !restoringRoom, !busy else { return }
     if let index = placed.firstIndex(where: { $0.contains(p) }) {
       let picked = placed.remove(at: index)
@@ -263,7 +325,7 @@ import SwiftUI
       return
     }
     guard !busy else { return }
-    lock(at: p)
+    if lock(at: p), tapToCreate { reconstruct() }
   }
   private func surfacePoint(at point: CGPoint, frame supplied: ARFrame? = nil) -> SIMD3<Float>? {
     guard let frame = supplied ?? view.session.currentFrame else { return nil }
@@ -273,10 +335,10 @@ import SwiftUI
     if let measured = DepthSnapshot(frame: frame)?.point(raw) { return measured }
     return view.raycast(from: point, allowing: .estimatedPlane, alignment: .any).first?.worldTransform.translation
   }
-  func lock(at point: CGPoint) {
+  @discardableResult func lock(at point: CGPoint) -> Bool {
     guard let world = surfacePoint(at: point) else {
       error = "No surface at that point yet. Move the phone slightly, then tap the object again."
-      return
+      return false
     }
     targetWorld = world
     targetLocked = true
@@ -289,6 +351,7 @@ import SwiftUI
     anchor.addChild(dot)
     view.scene.addAnchor(anchor)
     targetAnchor = anchor
+    return true
   }
   func resetTarget() {
     if let targetAnchor { view.scene.removeAnchor(targetAnchor) }

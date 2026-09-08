@@ -20,6 +20,7 @@ The physical phone saved a six-part speaker, then restored and autosaved the sam
 
 ## Start here
 
+- [Phone computer-use experiment](docs/PHONE_COMPUTER_USE.md)
 - [Development journal: how we assembled this](docs/BUILD_JOURNAL.md)
 - [Video-to-floor-plan experiment](docs/VIDEO_FLOOR_PLAN_EXPERIMENT.md)
 - [Astra computer-use and evidence workflow](docs/ASTRA_PROCESS_LOG.md)
