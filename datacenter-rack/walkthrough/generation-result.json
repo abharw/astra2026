@@ -1,0 +1,28 @@
+{
+  "job_id": "89ad0a4d-f5c7-4748-9d92-072beceb39e9",
+  "model": "seedance_2_5",
+  "mode_requested": "video_edit",
+  "status": "completed",
+  "video": "datacenter-maze-walkthrough.mp4",
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GpkK2uEF1cooePDhkwCcejo5qJ/hf_20260908_212817_89ad0a4d-f5c7-4748-9d92-072beceb39e9.mp4",
+  "sha256": "1b72ccf37ece8b8aa804b33faf14f9d7245b06d49723f4cb7656720bc3049f2b",
+  "bytes": 61454881,
+  "width": 1920,
+  "height": 1080,
+  "fps": 24,
+  "decoded_frames": 713,
+  "duration_seconds": 29.708333333333332,
+  "review": {
+    "overview_records_viewed": 30,
+    "junction_records_viewed": 24,
+    "tail_records_viewed": 3,
+    "topology": "Reviewed progression matches source: straight, left, right, left, look back",
+    "metric_fidelity": "Not calibrated; exact metric ground truth belongs to the Blender source",
+    "notes": [
+      "Output is seven frames shorter than the 720-frame reference.",
+      "Generated surface detail, lighting and door hardware differ from the graybox.",
+      "Pan motion blur is visible; corner reveals remain legible in adjacent samples.",
+      "No frame-by-frame artifact certification or audio listening was performed."
+    ]
+  }
+}

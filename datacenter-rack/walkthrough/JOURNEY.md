@@ -74,3 +74,21 @@ Rendered all 720 graybox frames, encoded an exact 30.000-second 1280×720/24 fps
 The installed FFmpeg lacks zscale. The first encode command failed before producing a clip; used the available colorspace filter with explicit sRGB-to-Rec.709 conversion and tagged the output accordingly. No interpolation or synthetic motion frames were used.
 
 Submitted the exact reference MP4 plus the original rack render to Seedance 2.5 in video_edit mode, 30 seconds, 1080p, high bitrate, with the saved timestamped prompt. The current live model schema supports 1080p despite older installed skill prose saying 720p. Job/result status will be updated from the actual service response. Source hashes are pinned in source-hashes.json.
+
+### Source lighting study and publication
+
+A separate lit-render test found the original area lights were centered behind the overhead cable trays, darkening the room. Moved the render-variant lights to the visible fixture offsets and reviewed front/final-gallery stills. This changes source lighting only; the pinned motion reference, wall topology and camera poses remain unchanged. `render_lit.py` retains the optional variant.
+
+Published the source/checkpoint to the requested Akeil branch. The remote branch advanced during the first push; fetched and merged that independent task's work, preserving both appended journal entries and renumbering the maze entry to 24. LFS source/media objects uploaded successfully. Publication does not constitute visual acceptance of the still-running generated video.
+
+## Final generated result and review
+
+Seedance 2.5 completed the video-edit request. The downloaded original is 1920×1080, 24 fps, 713 decoded frames, 29.708 seconds and 61,454,881 bytes. SHA-256: `1b72ccf37ece8b8aa804b33faf14f9d7245b06d49723f4cb7656720bc3049f2b`. The output is seven frames shorter than the 30-second source; it has not been padded or retimed.
+
+Actually viewed 30 one-second overview records across the entire generated clip, 24 quarter-second records covering the three turns (6–8, 13–15 and 20–22 s), and three final look-back records at 29–29.5 s. All seven contact sheets are retained in `review/`. This is 57 viewed records, including repeated timestamps, not continuous every-frame inspection.
+
+Observed: the amber/cyan/red/green landmark sequence and the straight → left → right → left route match the source. Dense turn samples retain the corresponding rack banks and continuous corners. The final look-back also matches the source's occluded view; a direct comparison of the source frame at 29.5 s confirmed the blank far wall and intervening racks rather than assuming a missing red marker was a failure. Generated lighting, surface detail, added door hardware and motion blur differ from the graybox. No extra route or missing junction was found in the reviewed samples.
+
+This result is accepted for the requested visual maze demo. Exact per-pixel geometry, calibrated metric correspondence, unseen rooms and every-frame artifact freedom were not established. The authored map remains exact for the Blender reference; the generated clip supports a reviewed qualitative topology comparison. Audio is present in the original container but was not listened to or assessed.
+
+Copied the unchanged generated MP4 to `datacenter-maze-walkthrough.mp4` in this package and to the Desktop, with the floor-plan image as a separate Desktop file. The video contains no floor-map overlay. The input-only video can be supplied to the user's mapping system while withholding the answer key and prompts. No claim is made that the user's mapping system was run in this task.
