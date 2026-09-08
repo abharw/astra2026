@@ -59,7 +59,7 @@ public final class GeometryCompiler {
             )
         case let .tube(points, radius, radialSegments):
             resource = try generate(
-                tube(points: points.map(\.simdFloat), radius: Float(radius), segments: radialSegments),
+                tube(points: points.map(\.simdDouble), radius: Float(radius), segments: radialSegments),
                 name: definition.geometryId
             )
         case let .arrow(start, end, shaftRadius, headRadius, headLength, radialSegments):
@@ -139,7 +139,7 @@ private func sphere(radius: Float, segments: Int) -> MeshData {
         for longitude in 0..<longitudeCount {
             let a = UInt32(latitude * stride + longitude)
             let b = UInt32((latitude + 1) * stride + longitude)
-            mesh.indices += [a, b, a + 1, a + 1, b, b + 1]
+            mesh.indices += [a, a + 1, b, a + 1, b + 1, b]
         }
     }
     return mesh
@@ -186,31 +186,51 @@ private func appendCap(to mesh: inout MeshData, radius: Float, y: Float, segment
     for index in 0..<segments {
         let current = center + 1 + UInt32(index)
         let next = current + 1
-        mesh.indices += upward ? [center, current, next] : [center, next, current]
+        mesh.indices += upward ? [center, next, current] : [center, current, next]
     }
 }
 
-private func tube(points: [SIMD3<Float>], radius: Float, segments: Int) -> MeshData {
+private func tube(points: [SIMD3<Double>], radius: Float, segments: Int) -> MeshData {
     let count = max(3, segments)
+    // Derive directions before converting positions to Float: distinct validated
+    // points can otherwise round to the same native position.
+    let directions = zip(points, points.dropFirst()).map { start, end in
+        let delta = end - start
+        let magnitude = simd_reduce_max(simd_abs(delta))
+        return magnitude > 0 ? SIMD3<Float>(simd_normalize(delta / magnitude)) : SIMD3<Float>(1, 0, 0)
+    }
+    var previousTangent = directions[0]
+    let reference: SIMD3<Float> = abs(previousTangent.y) < 0.9 ? [0, 1, 0] : [1, 0, 0]
+    var basisX = simd_normalize(simd_cross(reference, previousTangent))
     var mesh = MeshData()
 
     for pointIndex in points.indices {
         let tangent: SIMD3<Float>
         if pointIndex == points.startIndex {
-            tangent = simd_normalize(points[pointIndex + 1] - points[pointIndex])
+            tangent = directions[0]
         } else if pointIndex == points.index(before: points.endIndex) {
-            tangent = simd_normalize(points[pointIndex] - points[pointIndex - 1])
+            tangent = directions[pointIndex - 1]
         } else {
-            tangent = simd_normalize(points[pointIndex + 1] - points[pointIndex - 1])
+            let bisector = directions[pointIndex - 1] + directions[pointIndex]
+            // A path may double back. Its cusp has no unique tangent; retain the
+            // incoming direction rather than normalizing a zero vector.
+            tangent = simd_length_squared(bisector) > 1e-8
+                ? simd_normalize(bisector) : directions[pointIndex - 1]
         }
-        let reference: SIMD3<Float> = abs(tangent.y) < 0.9 ? [0, 1, 0] : [1, 0, 0]
-        let basisX = simd_normalize(simd_cross(reference, tangent))
+        if pointIndex > 0 {
+            // Transport the frame instead of choosing a new reference axis for
+            // each ring. At a reversal, rotate around basisX (which stays fixed).
+            let transported = simd_dot(previousTangent, tangent) > -0.9999
+                ? simd_quatf(from: previousTangent, to: tangent).act(basisX) : basisX
+            basisX = simd_normalize(transported - tangent * simd_dot(transported, tangent))
+        }
         let basisY = simd_normalize(simd_cross(tangent, basisX))
+        previousTangent = tangent
 
         for ringIndex in 0..<count {
             let angle = 2 * Float.pi * Float(ringIndex) / Float(count)
             let normal = basisX * cos(angle) + basisY * sin(angle)
-            mesh.positions.append(points[pointIndex] + normal * radius)
+            mesh.positions.append(SIMD3<Float>(points[pointIndex]) + normal * radius)
             mesh.normals.append(normal)
         }
     }
@@ -222,7 +242,7 @@ private func tube(points: [SIMD3<Float>], radius: Float, segments: Int) -> MeshD
             let b = UInt32((pointIndex + 1) * count + ringIndex)
             let c = UInt32((pointIndex + 1) * count + nextRing)
             let d = UInt32(pointIndex * count + nextRing)
-            mesh.indices += [a, b, c, a, c, d]
+            mesh.indices += [a, c, b, a, d, c]
         }
     }
     return mesh
@@ -266,6 +286,10 @@ private func arrow(
 }
 
 private extension Vec3 {
+    var simdDouble: SIMD3<Double> {
+        SIMD3(x, y, z)
+    }
+
     var simdFloat: SIMD3<Float> {
         SIMD3(Float(x), Float(y), Float(z))
     }
