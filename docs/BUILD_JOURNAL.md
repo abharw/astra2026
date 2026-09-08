@@ -210,3 +210,5 @@ Before switching to Quest, the iPhone app acknowledged extraction and dragging o
 ## 18. Cast the headset view and repair panel placement
 
 Opened Meta Horizon casting in the desktop browser; the wearer completed account login. Actual browser screenshots showed Ready, a selected chair assembly, one saved object and cyan geometry in the room. The wearer still found the panel too low after horizontal recentering. Changed the default to follow horizontal heading at current eye height, with grab/release to pin and recenter to resume following. The complete workflow, failures, fixes and remaining wearer acceptance are in [QUEST_LIVE_TESTING.md](QUEST_LIVE_TESTING.md).
+
+The final follow-and-pin APK built and installed successfully. In the live browser cast after launch, the complete panel was centered in the forward view and displayed “Panel follows you”, Ready, the saved chair selection and controls. This is visual placement proof at that moment; audio and grab/pin behavior remain unconfirmed by the wearer.
