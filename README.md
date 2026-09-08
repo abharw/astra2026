@@ -19,6 +19,8 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 
 ## Repository
 
+A [proposed consolidation](docs/repository-structure-plan.md) groups this into app, backend, framework, assets, tools and docs. The table below describes the current checkout.
+
 | Path | Owns |
 | --- | --- |
 | `packages/SpatialKit/Sources/SpatialCore` | Portable values, closed decoding, resource validation, canonical hashes, transactional scene reducer |
@@ -94,3 +96,5 @@ These live checks call OpenAI. Deterministic tests inject a test transport and d
 The native app builds for simulator and device and has been signed, installed, and launched on the physical iPad with its rear-camera view visible over USB. Arav confirmed that its fingertip ring tracks and turns green over a part after the detector fix. Live Astra creation, rack edits, read-only explanations, a native simulator edit/Undo interaction, and Realtime synthetic text-to-audio have passed separate checks. Phone usability is prioritized for audience participation using the same universal implementation. Measured pointing accuracy, microphone/playback quality, and the combined spoken interaction still need their device trial.
 
 The current authoring path accepts one complete bounded proposal per turn, with one repair attempt before delivery. It does not progressively install token fragments. Observed request times were about 10–24 seconds for the first small examples; this is a measured starting point, not a conversational-latency claim. The default Load rack path now uses the approved bundled Akeil USDZ catalog (`content/imported-rack/app-catalog.json`), while the procedural six-shape path and generic approved detail expansion remain available for generated or revealed content. Manual SQLite checkpoint APIs exist; Save/Open UI and autosave are not connected yet. The [diagnostics contract](docs/diagnostics.md) explains JSONL/OSLog evidence and the boundaries of the Realtime tool smoke.
+
+Arav has also completed a three-turn typed interaction on the physical iPhone: pull-out, explanation and arrows. [Event evidence](evidence/iphone-heat-flow-session.json) verifies installations and final responses; his visual feedback motivates [richer spatial explanations and Images 2.5 research](docs/images-and-spatial-explanations.md).

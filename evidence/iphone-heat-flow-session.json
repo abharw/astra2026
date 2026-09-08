@@ -1,0 +1,57 @@
+{
+  "schema": "astra-device-multiturn-acceptance/v1",
+  "date": "2026-09-08",
+  "device": "iPhone 15 Pro",
+  "nativeRunID": "0a2e7e18-9e3b-4fad-82c3-0baac7b6e99d",
+  "backendSessionID": "d959ce35-dee8-4210-853f-2547eba130a1",
+  "userReport": "Arav reported the rack pull-out, heat-flow explanation and arrows all worked, but the arrows looked low-fidelity.",
+  "semanticAttribution": "Reported purposes are from Arav and sequence matching. Raw prompts, recipes and screenshots are not retained in these diagnostic events.",
+  "initialNodes": 20,
+  "turns": [
+    {
+      "requestID": "turn_a227eee0-5e85-4fba-928a-a6b9d26f6655",
+      "reportedPurpose": "Pull one server out",
+      "textSubmittedAt": "2026-09-08T21:29:12.932Z",
+      "nativeInstalledAt": "2026-09-08T21:29:17.830Z",
+      "finalResponseCompletedAt": "2026-09-08T21:29:19.442Z",
+      "submissionToInstalledMs": 4898.838,
+      "submissionToFinalMs": 6510.878,
+      "revision": 1,
+      "nodeCount": 20,
+      "completed": true,
+      "source": "typed"
+    },
+    {
+      "requestID": "turn_2dd5093e-688f-4dc5-a0d8-2b7de9b9eb79",
+      "reportedPurpose": "Explain heat flow",
+      "textSubmittedAt": "2026-09-08T21:29:31.744Z",
+      "nativeInstalledAt": "2026-09-08T21:29:38.620Z",
+      "finalResponseCompletedAt": "2026-09-08T21:29:40.730Z",
+      "submissionToInstalledMs": 6876.277,
+      "submissionToFinalMs": 8986.389,
+      "revision": 2,
+      "nodeCount": 29,
+      "completed": true,
+      "source": "typed"
+    },
+    {
+      "requestID": "turn_f3ca7766-a8f0-4e12-b67f-adb2ed1da2c1",
+      "reportedPurpose": "Generate arrows",
+      "textSubmittedAt": "2026-09-08T21:30:13.307Z",
+      "nativeInstalledAt": "2026-09-08T21:30:29.649Z",
+      "finalResponseCompletedAt": "2026-09-08T21:30:32.291Z",
+      "submissionToInstalledMs": 16342.051,
+      "submissionToFinalMs": 18984.147,
+      "revision": 3,
+      "nodeCount": 33,
+      "completed": true,
+      "source": "typed"
+    }
+  ],
+  "timingMethod": "Same-device monotonic uptime; excludes typing time.",
+  "limits": [
+    "Confirms typed Realtime tool execution, native installation and final response events.",
+    "Does not measure visual fidelity, physical pointing accuracy, microphone quality or frame rate.",
+    "The exact four nodes added in the final turn cannot be reconstructed from redacted logs."
+  ]
+}

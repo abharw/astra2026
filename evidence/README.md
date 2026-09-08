@@ -54,3 +54,5 @@ These generated scenes are evidence fixtures. The live service never looks up th
 ## Historical records
 
 [Faithful exterior native validation](faithful-exterior-native.json) and [the earlier imported Realtime run](native-imported-realtime.json) are retained chronology. They predate the current shipped root-scale-1 faithful rack and must not be used as evidence for its shipping scale or current app behavior.
+
+- [Physical iPhone heat-flow session](iphone-heat-flow-session.json): three native installations and completed typed Realtime responses, matched to Arav's reported walkthrough; visual quality remains his observation.
