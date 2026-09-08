@@ -121,3 +121,14 @@ The wearer requested easier bring-to-me/grab movement, rotation, normal item col
 Solid generated per-component colors are now the default instead of cyan/orange hologram fills. A selection highlight preserves the base colors. These remain generated colors, not measured textures. The Mac test link starts disabled. Trigger selection, separate scan confirmation, Y cancellation, delete and Return remain in place.
 
 When the wearer repeated “reset the scene,” Codex stopped the app, moved its saved assembly record into an on-device scene-backups folder, and reopened it with an empty saved-scene list. Existing anchors were retained with the backup for recoverability. No camera capture, remote command, interaction test or automated reconstruction was performed. The subsequent grab/color build and install are compilation/delivery steps only; wearer acceptance is still pending.
+
+
+### Concurrent reconstruction and guided explanations
+
+Up to four independent reconstructions/refinements can run at once. Each keeps its own frozen capture, target pose, request ID and progress marker. Finishing another job does not steal the current selection or held object. Y cancels all pending jobs. Cancellation epochs reject delayed results and captures. Trigger selection still requires explicit scan confirmation or an explicit voice request.
+
+New models include the visible exterior plus useful functional internals for that object category. Hidden geometry is labeled inferred unless exact-model documentation supports it. Housing panels are separate so the voice harness can reveal internals. Existing saved models remain readable; asking for missing internal components can refine the existing model while retaining its exterior and anchor.
+
+Say “How does this work?” for a guided walkthrough, or “Explain the processor” for a specific component. The harness pulls out and highlights one part, explains its function and connections, and waits for the headset audio playback boundary before advancing. Speaking pauses the tour. It can also open/close housing, explode/assemble, return a part, or move/rotate/scale a named component. Right-stick click on a generated selection returns the complete model to its original anchor, resets part transforms and closes the housing. Stale commands are rejected after a newer user selection or Return.
+
+This revision was reviewed through source inspection and compilation only. No new remote camera inspection, voice question, scan, manipulation or runtime tests were performed; the wearer owns all acceptance testing. Current scene records are preserved through the single final installation.

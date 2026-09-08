@@ -20,7 +20,7 @@ namespace SpatialAssembly {
   public static bool VectorOK(float[] v,float max)=>v!=null&&v.Length==3&&v.All(x=>Finite(x)&&Mathf.Abs(x)<=max);
   public static Vector3 V(float[] a)=>new Vector3(a[0],a[1],a[2]);
  }
- [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
+ [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public bool isInternal,isHousing;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
  [Serializable] public class SourceData {public string id,url,title,match,kind,findings;}
  [Serializable] public class ResearchData {public string summary,status;public List<SourceData> sources;public string[] gaps;}
  [Serializable] public class PrimitiveData {
@@ -33,10 +33,10 @@ namespace SpatialAssembly {
  public class PartHandle:MonoBehaviour {public PartData Part; public AssemblyVisual Owner;}
  public class AssemblyVisual:MonoBehaviour {
   public AssemblyData Data {get;private set;} public string ObjectId=Guid.NewGuid().ToString();
-  public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;
+  public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;public bool InternalsRevealed;public string FocusedPart;Vector3 focusOffset;
   public Vector3 HomePosition,HomeScale=Vector3.one;public Quaternion HomeRotation=Quaternion.identity;
   bool moving;float moveTime;Vector3 moveFrom,moveTo,scaleFrom,scaleTo;Quaternion rotationFrom,rotationTo;
-  readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
+  readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
   public void Build(AssemblyData data){
    data.Validate();Data=data;
    foreach(var p in data.parts){var group=new GameObject(p.name);group.transform.SetParent(transform,false);parts[p.id]=group.transform;
@@ -52,10 +52,15 @@ namespace SpatialAssembly {
    Restyle();SetExplosion(Explosion);
   }
   public void SetExplosion(float value){Explosion=Mathf.Clamp01(value);}
-  void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,AssemblyData.V(p.explode)*Explosion,1-Mathf.Exp(-12*Time.deltaTime));}}
+  void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,(partOffsets.TryGetValue(p.id,out var offset)?offset:p.id==FocusedPart?focusOffset:AssemblyData.V(p.explode)*Explosion),1-Mathf.Exp(-12*Time.deltaTime));}}
+  public void RevealInternals(){InternalsRevealed=true;ShowInferred=true;SetExplosion(.25f);Restyle();}
+  public void FocusPart(string id,Transform head){var part=Data.parts.First(p=>p.id==id);partOffsets.Remove(id);FocusedPart=id;Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
+  public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null&&parts.TryGetValue(id,out var group)){partOffsets[id]=Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(id==FocusedPart)FocusedPart=null;Selected=null;Restyle();}
+  public void CloseHousing(){partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
+  public bool ManipulatePart(string id,string action,float amount,Transform head){if(!parts.TryGetValue(id,out var group))return false;Selected=id;ShowInferred=true;var part=Data.parts.First(p=>p.id==id);Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var worldCenter=group.TransformPoint(center);if(action=="rotate"||action=="scale"){if(action=="rotate")group.Rotate(Vector3.up,amount==0?30:amount,Space.World);else group.localScale*=Mathf.Clamp(amount==0?1.2f:amount,.25f,3);group.position+=worldCenter-group.TransformPoint(center);partOffsets[id]=group.localPosition;}else if(action.StartsWith("move_")){var direction=action=="move_left"?-head.right:action=="move_right"?head.right:action=="move_up"?Vector3.up:action=="move_down"?Vector3.down:action=="move_back"?head.forward:-head.forward;var start=partOffsets.TryGetValue(id,out var position)?position:id==FocusedPart?focusOffset:AssemblyData.V(Data.parts.First(p=>p.id==id).explode)*Explosion;partOffsets[id]=start+transform.InverseTransformVector(direction*Mathf.Clamp(Mathf.Abs(amount==0?.15f:amount),.02f,1));}else return false;Restyle();return true;}
   public void Select(string id){Selected=id;Restyle();}
   public void Restyle(){
-   foreach(var p in Data.parts)parts[p.id].gameObject.SetActive(ShowInferred||p.evidence!="inferred");
+   foreach(var p in Data.parts)parts[p.id].gameObject.SetActive((ShowInferred||p.evidence!="inferred")&&(!InternalsRevealed||!p.isHousing||p.id==FocusedPart||p.id==Selected));
    foreach(var x in surfaces){
     var c=Hologram?(x.part.evidence=="inferred"?new Color(1,.55f,.15f):new Color(.08f,.85f,1)):new Color(x.primitive.color[0],x.primitive.color[1],x.primitive.color[2]);
     var material=x.renderer.material;material.color=c;
@@ -67,7 +72,7 @@ namespace SpatialAssembly {
   public Vector3 InspectionScale(float maxSize){float size=Mathf.Max(transform.lossyScale.x,transform.lossyScale.y,transform.lossyScale.z);return transform.localScale*Mathf.Min(1,maxSize/Mathf.Max(.001f,size));}
   public void StopMotion(){moving=false;}
   public void PullOut(Transform head){Extracted=true;moveTime=0;moveFrom=transform.position;rotationFrom=transform.rotation;scaleFrom=transform.localScale;moveTo=head.position+head.forward*.75f-head.up*.12f;rotationTo=transform.rotation;scaleTo=InspectionScale(.65f);moving=true;}
-  public void ReturnHome(){StopMotion();Extracted=false;transform.localPosition=HomePosition;transform.localRotation=HomeRotation;transform.localScale=HomeScale;SetExplosion(0);}
+  public void ReturnHome(){CloseHousing();StopMotion();Extracted=false;transform.localPosition=HomePosition;transform.localRotation=HomeRotation;transform.localScale=HomeScale;SetExplosion(0);}
   void OnDestroy(){foreach(var x in surfaces){if(x.renderer){Geometry.Release(x.renderer.material);var f=x.renderer.GetComponent<MeshFilter>();if(f)Geometry.Release(f.sharedMesh);}}}
  }
  public static class Geometry {

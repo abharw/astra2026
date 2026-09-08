@@ -39,6 +39,7 @@ export function groundAssembly(assembly,research) {
   const byId=new Map(sources.map(x=>[x.id,x]));
   for(const p of assembly.parts) {
     p.sourceIds=(p.sourceIds || []).filter(id=>byId.has(id));
+    if(p.isInternal && p.evidence==='observed'){p.evidence='inferred';p.uncertainty=(p.uncertainty || '')+' Internal arrangement is illustrative, not visible proof.';}
     if(p.evidence==='documented' && !p.sourceIds.some(id=>byId.get(id).match==='exact')) {
       p.evidence='inferred';p.uncertainty=(p.uncertainty || '')+' No exact-model reference verifies this component.';
     }

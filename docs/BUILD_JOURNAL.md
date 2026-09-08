@@ -237,3 +237,8 @@ The wearer then took over all testing and revoked independent remote tests. Stop
 Implemented damped distant-object grabbing, grip on the current selection without re-aiming, wrist/stick rotation, distance and tilt controls, and left grip + A bring-to-me. Large models fit within reach and Return retains the original source transform. Switched default rendering to generated component colors with a subtle selection highlight. Optional remote test connection starts off. Preserved explicit scan confirmation, Y cancel, deletion and Return controls.
 
 At the wearer's repeated reset request, moved the saved assembly record into an on-device backup and reopened an empty scene. No remote tests ran. The updated build/install handoff is separate from the wearer's pending runtime acceptance.
+
+
+## 22. Independent reconstruction jobs and educational component control
+
+Added four concurrent request-scoped jobs, per-job capture/pose/progress, object-scoped refinement, cancellation epochs and selection protection. Added educational internal/housing metadata, inferred-evidence normalization, part focus/reveal/return and individual part transforms. The voice harness plans an ordered walkthrough and advances only after each response finishes headset playback. Per-response audio completion markers prevent concurrent reconstruction announcements from losing a tour acknowledgment. Newer wearer input rejects stale queued commands; Return restores the anchor and all component transforms. Current models are preserved, and the wearer retains all runtime testing. No tests or remote device inspection were run for these changes.

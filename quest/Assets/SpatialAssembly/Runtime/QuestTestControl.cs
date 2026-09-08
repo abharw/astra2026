@@ -11,7 +11,7 @@ namespace SpatialAssembly {
   public void ToggleTest(){Link.SetEnabled(!Link.UserEnabled);}
   static JArray V(Vector3 value)=>new JArray(value.x,value.y,value.z);
   JObject State(){var c=Controller;return new JObject{
-   {"platform","quest"},{"phase",c.Status},{"busy",c.Busy},{"bridgeConnected",c.Bridge.Connected},{"cameraPlaying",c.CameraAccess.IsPlaying},{"frameAge",Time.realtimeSinceStartup-lastFresh},{"voiceOn",c.Audio.Enabled},{"speaking",c.Audio.Speaking},{"voiceStatus",c.Audio.Status},
+   {"platform","quest"},{"phase",c.Status},{"busy",c.Busy},{"runningJobs",c.RunningJobs},{"bridgeConnected",c.Bridge.Connected},{"cameraPlaying",c.CameraAccess.IsPlaying},{"frameAge",Time.realtimeSinceStartup-lastFresh},{"voiceOn",c.Audio.Enabled},{"speaking",c.Audio.Speaking},{"voiceStatus",c.Audio.Status},
    {"object",c.Active?c.Active.Data.name:""},{"objectID",c.Active?c.Active.ObjectId:""},{"selectedPart",c.SelectedPart??""},{"voiceError",c.Audio.Error},{"savedObjectIDs",new JArray(c.Store.SavedObjectIds)},
    {"objects",new JArray(c.Objects.Select(v=>new JObject{{"id",v.ObjectId},{"name",v.Data.name},{"position",V(v.transform.position)},{"extracted",v.Extracted},{"explosion",v.Explosion},{"parts",new JArray(v.Data.parts.Select(p=>new JObject{{"id",p.id},{"name",p.name}}))}}))},
    {"headPosition",V(c.Rig.centerEyeAnchor.position)},{"panelPosition",V(c.Panel.position)},{"transcript",c.DetailText?c.DetailText.text:""}};}
