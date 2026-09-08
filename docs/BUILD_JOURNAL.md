@@ -295,3 +295,5 @@ The wearer will connect the headset after all work is finished. The combined bui
 The final combined Android APK compiled successfully. All ten packaged rack payloads match the catalog byte counts and SHA-256 hashes, and the bridge JavaScript syntax check passed. Installation is pending the wearer reconnecting the headset.
 
 The wearer subsequently reconnected the Quest and requested deployment and removal of only the laptop. The combined APK installed successfully. The laptop saved record was backed up and removed, leaving the rack and VR-controller records unchanged. Launch was requested while the headset reported asleep; wearer wake and runtime acceptance remain pending.
+
+After headset wake, the combined app launched and connected to the backend. The wearer then requested that the bottom microphone badge disappear while listening and show Off when disabled. Updated the badge canvas opacity and off label, compiled `spatial-assembly-quest-quiet-mic.apk`, and installed it successfully. No saved models were changed by this update. Visual and voice acceptance remain with the wearer.

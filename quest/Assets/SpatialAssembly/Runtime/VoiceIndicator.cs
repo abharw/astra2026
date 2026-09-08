@@ -14,10 +14,10 @@ namespace SpatialAssembly {
    else if(Audio.Starting){label="Connecting";color=new Color(1f,.8f,.49f);}
    else if(Audio.Speaking){label="Speaking";color=new Color(.52f,.86f,1f);active=true;}
    else if(Audio.Enabled){active=Audio.MicrophoneActive;label=active?"Listening":"Starting mic";color=active?new Color(.58f,.91f,.74f):new Color(1f,.8f,.49f);}
-   else{label="Hold B · off";color=new Color(.8f,.83f,.85f);}
+   else{label="Off";color=new Color(.8f,.83f,.85f);}
    if(Label.text!=label)Label.text=label;Label.color=color;Icon.color=color;
    Icon.SetState(active,Audio.Speaking?0:Audio.InputLevel);
-   if(Opacity)Opacity.alpha=active? .94f:.84f;
+   if(Opacity)Opacity.alpha=label=="Listening"?0:active?.94f:.84f;
   }
  }
 }
