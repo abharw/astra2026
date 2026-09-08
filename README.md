@@ -1,14 +1,24 @@
 # Astra Spatial
 
-Point, ask, and explore how things work in AR and VR. Built for the Cerebral Valley / OpenAI hackathon. Astra generates scenes, Realtime handles voice, and RealityKit/Unity render locally.
+Point, ask, and explore how things work in AR and VR. Built for the Cerebral Valley / OpenAI hackathon.
 
 ## Features
 
-- **Shared rack:** explore 18 servers and load nine internal teaching groups on demand.
-- **AR · iPhone/iPad:** create and edit 3D scenes with voice or text; select parts by touch or hand pointing.
-- **AR explanations:** animated flow annotations, generated illustrations, and Undo.
-- **VR · Quest:** grab, resize, explode, and inspect components with guided voice walkthroughs.
-- **VR reconstruction:** turn camera captures and technical references into approximate editable models; save and restore anchored objects.
+- **Reconstruct real objects · VR.** Point at something and say “reconstruct that.” Astra identifies it from the camera image, searches technical references, and generates an approximate model with individually selectable components. The captured camera pose and surface depth help place it against the real-world surface.
+
+- **Reveal detail on demand · AR + VR.** Start with an 18-server rack exterior and reveal its internal teaching groups as you explore. In VR, “show the processors in server 3” loads just that group. The model knows which parts are available before their geometry loads; bundled resources are decoded on demand, shared between instances, and released when unused.
+
+- **Go deeper inside a component · VR.** Ask for more detail inside a generated part to create further selectable subcomponents while preserving the rest of the assembly. The authored rack uses nine approved teaching groups; generated hidden structures remain labeled as inferred unless supported by exact-model references.
+
+- **Make explanations spatial · AR.** Create and edit scenes through voice or text, selecting parts by touch or hand pointing. Add animated flow paths, attached labels, or generated illustrations. Flow annotations follow their connected parts as you move them, and scene edits support Undo.
+
+- **Learn one part at a time · VR.** Guided walkthroughs pull out and highlight each component, explain its function, and wait for speech playback to finish before advancing. The rack also has a native visual demo that opens and separates its internals without waiting for model generation.
+
+- **Manipulate models and return to them · VR.** Grab, resize, explode, and restore assemblies to their original poses. Save models with local spatial anchors and restore them when those anchors are located again.
+
+## How it works
+
+Astra turns conversation—and, in VR, camera images and technical references—into structured components and scene edits. Realtime handles voice. The apps build and render geometry locally using RealityKit for AR and Unity for VR; tracking, manipulation, and rendering stay on the device.
 
 API access: `gpt-6-astra` and `gpt-realtime-2.1`; AR illustrations also use `gpt-image-2.5-flare`.
 
