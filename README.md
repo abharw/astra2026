@@ -24,6 +24,7 @@ The [complete rack library](datacenter-rack/README.md) adds a pregenerated, edit
 
 ## Start here
 
+- [Quest integration architecture and handoff to Arav](docs/QUEST_INTEGRATION_ARCHITECTURE.md)
 - [Phone computer-use experiment](docs/PHONE_COMPUTER_USE.md)
 - [Development journal: how we assembled this](docs/BUILD_JOURNAL.md)
 - [Video-to-floor-plan experiment](docs/VIDEO_FLOOR_PLAN_EXPERIMENT.md)
