@@ -1,0 +1,22 @@
+Create a photorealistic everyday smartphone POV video by editing the provided 15-second Blender blocking video. This is a normal landscape 16:9 video. Treat the reference video as the authoritative shot: copy its camera position, speed, rotation, lens, framing, room boundaries, rack footprints, ceiling cable-tray positions and door locations at every moment. The additional rendered still images show the exact same room and rack appearance. Replace only the graybox rack surfaces with the detailed silver Open Rack server equipment, blue patch cables, dark structural metal and natural materials shown in those images. Maintain all world geometry and occlusions. One continuous shot with no cuts, no dissolves, no zoom and no newly invented spaces.
+
+This is one rectangular data-center room with two facing rows of seven racks. Every rack stays anchored to its floor tiles. Straight overhead blue cable trays stay attached to their ceiling supports. At the starting forward view, a closed dark service door is centered on the far wall, with a small amber rectangular panel on its right leaf. Behind the camera is the open entry to a small bounded vestibule with one blue panel centered on its back wall. These are two different permanent landmarks at opposite ends of the same aisle. Preserve the actual room dimensions, rack spacing and orientation from the video. Preserve continuous parallax while walking, and zero translational parallax during the stationary turn. No windows, no added doors, no extra rack rows, no warped tiles, no fisheye distortion, no mirrors, no people or visible hands.
+
+CAMERA TIMING — follow the uploaded video frame for frame:
+0–1 s: Begin just inside the entry and ease forward down the center aisle. Eye height stays 1.65 m. Tiny smooth human walking sway only.
+1–2 s: Continue forward, facing the amber-panel service door. The existing rack edges move past the camera with coherent parallax.
+2–3 s: Continue along exactly the same central line and begin decelerating.
+3–4 s: Come to a complete smooth stop after 2.2 m of total travel.
+4–5 s: Stay at the same physical point. Begin a very gentle clockwise turn, only about 3 degrees at 5 s.
+5–6 s: Continue the fixed-point clockwise turn to about 21 degrees.
+6–7 s: Turn to about 59 degrees, revealing the right row in the correct physical position.
+7–8 s: Continue across the right row to about 114 degrees.
+8–9 s: Continue to 180 degrees. At precisely 9 s, face the original entry vestibule and its blue back-wall panel, opposite the service door.
+9–10 s: Continue the same clockwise turn to about 246 degrees, revealing the left row from this same point.
+10–11 s: Continue to about 301 degrees.
+11–12 s: Ease toward the original forward heading, reaching about 339 degrees.
+12–13 s: Slow the turn, reaching about 357 degrees.
+13–14 s: Complete exactly one full 360-degree turn. The amber-panel service door and both rows must match the view at 4 s, because the camera occupies precisely the same position and heading.
+14–15 s: Hold this final matching forward view still.
+
+LOOK: believable handheld phone footage with controlled smooth movement, fixed 26 mm-equivalent rectilinear wide lens, straight architectural lines, realistic overhead white lighting, clean matte pale walls, gray raised floor, silver server housings, restrained blue cables, subtle natural roughness. Exposure and white balance remain constant through the turn. Photographic realism, not glossy sci-fi styling. Preserve any visible labels as fixed markings instead of inventing changing text. No music or speech; if sound is present use only quiet steady server fan ambience. Do not extend the walk beyond 4 seconds and do not replace the full turn with a partial pan. The blocking video controls motion and layout; the stills control material appearance.

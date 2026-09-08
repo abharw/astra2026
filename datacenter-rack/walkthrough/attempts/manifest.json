@@ -1,0 +1,42 @@
+[
+  {
+    "job_id": "36e2baef-5daa-44b7-aaae-a03605fb4e8f",
+    "local_filename": "datacenter-360.mp4",
+    "duration_requested_s": 15,
+    "title": "Initial",
+    "model": "seedance_2_0",
+    "resolution_requested": "4k",
+    "sha256": "f90358752a4ea9f939022d953d0dd901315739909575227d648d395d201e6a3a",
+    "bytes": 94016887
+  },
+  {
+    "job_id": "1f30e925-4606-4252-955f-a27d0bc611c8",
+    "local_filename": "tripod-attempt-15s.mp4",
+    "duration_requested_s": 15,
+    "title": "Fixed turn",
+    "model": "seedance_2_0",
+    "resolution_requested": "4k",
+    "sha256": "95a97f8e7e0956f17c88788bad5ac0bbeaf3943bbaee14edc913c453cc2b4103",
+    "bytes": 128282332
+  },
+  {
+    "job_id": "5c43721a-5d9f-40df-a5b9-2db9b0fa2683",
+    "local_filename": "phone-pan-10s.mp4",
+    "duration_requested_s": 10,
+    "title": "Phone pan",
+    "model": "seedance_2_0",
+    "resolution_requested": "4k",
+    "sha256": "ef8a13a528b874cdb33c14252900e5cbe79f2d919dc758fba2f6979b1cfb25f4",
+    "bytes": 54490819
+  },
+  {
+    "job_id": "d331485c-d0bc-4646-9c29-aec5fc03a644",
+    "local_filename": "datacenter-phone-walkthrough.mp4",
+    "duration_requested_s": 15,
+    "title": "Timed walk",
+    "model": "seedance_2_0",
+    "resolution_requested": "4k",
+    "sha256": "0eb5387a40ebc10eaa6c38cf245ba3d5aabcd41cfb2b61975e3b1508c47d5538",
+    "bytes": 164539904
+  }
+]

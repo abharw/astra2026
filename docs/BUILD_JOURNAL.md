@@ -242,3 +242,10 @@ At the wearer's repeated reset request, moved the saved assembly record into an 
 ## 22. Independent reconstruction jobs and educational component control
 
 Added four concurrent request-scoped jobs, per-job capture/pose/progress, object-scoped refinement, cancellation epochs and selection protection. Added educational internal/housing metadata, inferred-evidence normalization, part focus/reveal/return and individual part transforms. The voice harness plans an ordered walkthrough and advances only after each response finishes headset playback. Per-response audio completion markers prevent concurrent reconstruction announcements from losing a tour acknowledgment. Newer wearer input rejects stale queued commands; Return restores the anchor and all component transforms. Current models are preserved, and the wearer retains all runtime testing. No tests or remote device inspection were run for these changes.
+
+
+## 23. Data-center video world consistency and maze benchmark
+
+The rack-image-to-video experiment produced four short Seedance 2.0 clips, but sampled review and user feedback found camera-path and floor-plan inconsistencies. The user supplied a Higgsfield + Blender tutorial and clarified a regular POV video. Shifted to explicit editable Blender geometry, saved camera poses and a rendered motion reference, with appearance images supplied separately. Initial source checks also caught and locally repaired a doubled PSU shelf offset in the appended rack copy.
+
+The user then expanded the shot into a maze-like straight → left → right → left route to test video-to-floor-map inference. Production is in progress; no generated maze clip is yet accepted. The evolving [walkthrough journey](../datacenter-rack/walkthrough/JOURNEY.md) records prompts, tutorial observations, local render failures, geometry checks and actual outcomes. The ground-truth floor plan remains separate from the video-only test input.

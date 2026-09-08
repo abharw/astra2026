@@ -1,0 +1,17 @@
+{
+  "schema": "maze-geometry-check/v1",
+  "camera_poses_checked": 720,
+  "minimum_camera_capsule_clearance_m": 0.7879223823547363,
+  "camera_radius_m": 0.25,
+  "poses_outside_floor": [],
+  "rack_aabb_overlaps": [],
+  "racks_intersecting_walls": [],
+  "turn_sequence": [
+    "left",
+    "right",
+    "left"
+  ],
+  "authored_route_length_m": 24,
+  "status": "pass",
+  "limits": "Authored geometric bounds check; generated video requires separate review."
+}

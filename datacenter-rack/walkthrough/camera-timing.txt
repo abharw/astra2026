@@ -1,0 +1,30 @@
+0 s: walk; x=4.000 m, y=-6.000 m, yaw=0.0000 rad
+1 s: walk; x=4.000 m, y=-5.353 m, yaw=0.0000 rad
+2 s: walk; x=4.000 m, y=-4.176 m, yaw=0.0000 rad
+3 s: walk; x=4.000 m, y=-3.000 m, yaw=0.0000 rad
+4 s: walk; x=4.000 m, y=-1.824 m, yaw=0.0000 rad
+5 s: walk; x=4.000 m, y=-0.647 m, yaw=0.0000 rad
+6 s: left; x=4.000 m, y=0.000 m, yaw=0.0000 rad
+7 s: left; x=4.000 m, y=0.000 m, yaw=0.7854 rad
+8 s: walk; x=4.000 m, y=0.000 m, yaw=1.5708 rad
+9 s: walk; x=3.118 m, y=0.000 m, yaw=1.5708 rad
+10 s: walk; x=1.706 m, y=0.000 m, yaw=1.5708 rad
+11 s: walk; x=0.294 m, y=0.000 m, yaw=1.5708 rad
+12 s: walk; x=-1.118 m, y=0.000 m, yaw=1.5708 rad
+13 s: right; x=-2.000 m, y=0.000 m, yaw=1.5708 rad
+14 s: right; x=-2.000 m, y=0.000 m, yaw=0.7854 rad
+15 s: walk; x=-2.000 m, y=0.000 m, yaw=0.0000 rad
+16 s: walk; x=-2.000 m, y=0.882 m, yaw=0.0000 rad
+17 s: walk; x=-2.000 m, y=2.294 m, yaw=0.0000 rad
+18 s: walk; x=-2.000 m, y=3.706 m, yaw=0.0000 rad
+19 s: walk; x=-2.000 m, y=5.118 m, yaw=0.0000 rad
+20 s: left; x=-2.000 m, y=6.000 m, yaw=0.0000 rad
+21 s: left; x=-2.000 m, y=6.000 m, yaw=0.7854 rad
+22 s: walk; x=-2.000 m, y=6.000 m, yaw=1.5708 rad
+23 s: walk; x=-2.882 m, y=6.000 m, yaw=1.5708 rad
+24 s: walk; x=-4.294 m, y=6.000 m, yaw=1.5708 rad
+25 s: walk; x=-5.706 m, y=6.000 m, yaw=1.5708 rad
+26 s: walk; x=-7.118 m, y=6.000 m, yaw=1.5708 rad
+27 s: look back; x=-8.000 m, y=6.000 m, yaw=1.5708 rad
+28 s: look back; x=-8.000 m, y=6.000 m, yaw=0.9114 rad
+29 s: look back; x=-8.000 m, y=6.000 m, yaw=-0.9114 rad

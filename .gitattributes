@@ -4,3 +4,4 @@ datacenter-rack/research/pcb-population/population-source.json filter=lfs diff=l
 datacenter-rack/models/lazy/part-knowledge.json filter=lfs diff=lfs merge=lfs -text
 datacenter-rack/**/*.blend filter=lfs diff=lfs merge=lfs -text
 datacenter-rack/**/*.glb filter=lfs diff=lfs merge=lfs -text
+datacenter-rack/walkthrough/*.mp4 filter=lfs diff=lfs merge=lfs -text

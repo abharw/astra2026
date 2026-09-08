@@ -1,0 +1,24 @@
+{
+  "user_supplied_tutorial": {
+    "url": "https://www.youtube.com/watch?v=OiULPvTJ-0E",
+    "title": "How To Save AI Credits With Higgsfield + Blender (No One Talks About This Workflow)",
+    "duration_s": 1187.4583333333,
+    "source_sha256": "a14d87c63a8bc58804e6f58c0df009a4b8d3528e05a4fc2a21928ffd7afbd33b",
+    "inspection": "36 overview frames across full duration, 12 frames at 180-290 s, 12 frames at 660-797.5 s; automatic caption excerpts read",
+    "audio_listened": false
+  },
+  "other_studies": [
+    {
+      "url": "https://www.youtube.com/watch?v=u1jAqZyxsNA",
+      "title": "Blender Follow Path Constraint",
+      "inspection": "12 frames through 59.5-second tutorial"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4PyqqGZL5S8",
+      "title": "Seedance 2.0 + Video Reference = Fixes Continuity Issues",
+      "inspection": "11 frames from 190-290 seconds"
+    }
+  ],
+  "official_workflow": "https://higgsfield.ai/blog/higgsfield-blender-plugin",
+  "applied_method": "Fixed editable world and explicit camera timeline; graybox reference video supplies geometry and motion, separate rack image supplies appearance. Generation remains subject to review."
+}
