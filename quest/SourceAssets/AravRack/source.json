@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/abharw/astra2026",
+  "branch": "Arav",
+  "commit": "ef10dcbd5160b05205d61f5080a31ef117cfa900",
+  "sourceDirectory": "assets/imported-rack",
+  "purpose": "Quest runtime import of the existing authored rack and lazily loaded teaching groups"
+}

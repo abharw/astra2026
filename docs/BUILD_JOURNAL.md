@@ -267,3 +267,16 @@ The revised 29.708-second 1080p output is complete. The half-second overview and
 At the user's request, documented the current Quest implementation and proposed port into Arav's organized product structure in [QUEST_INTEGRATION_ARCHITECTURE.md](QUEST_INTEGRATION_ARCHITECTURE.md). The handoff pins both source revisions, maps platform/backend ownership, describes capture and placement, concurrent jobs, recursive detail, voice/playback acknowledgments, persistence, rack asset identities and lazy loading, and identifies contract gaps before backend cutover. It explicitly distinguishes implemented behavior, earlier device observations and remaining wearer acceptance.
 
 Delivery clarification: after the staged-build checkpoint in entry 23, the wearer explicitly requested installation. The recursive-detail APK was installed and its backend restarted. No new runtime acceptance was performed. This architecture handoff makes documentation changes only; it adds no rack runtime, asset export, build, installation or remote headset tests. Another agent on Arav will perform the integration.
+
+
+## 26. Authored rack, on-demand source components and unobstructed Quest view
+
+Added the approved Open Rack V2 / Barreleye G2 source geometry to the existing Quest environment, preserving ordinary reconstruction and saved assemblies. The rack is placed at a floor-level world anchor and restores through the existing anchor store. A startup capability catalog lets the voice harness request any of nine server teaching groups directly; Y loads all groups for the selected server. Loaded groups can be focused, manipulated, arranged in a separated exploded layout, explained in a paced walkthrough, returned or unloaded. The black instruction canvas was removed at the user's request.
+
+The exporter preserves source materials, instance transforms, component associations, licenses and hashes. Shared mesh resources are decoded asynchronously and released when no loaded instance needs them. Imported source CAD is protected from generic reconstruction replacement. Exact installed memory specifications and finer circuits remain unverified; teaching groups are not every individual fastener or electronic component. See [RACK_LAZY_LOADING.md](../quest/RACK_LAZY_LOADING.md) for the protocol, source pins, layout and limits.
+
+Native Unity editor preview rendering covered the source exterior, direct processors and a complete server interior. It caught handedness, initialization and resource-release issues. Final APK packaging inspection additionally caught Unity Android expanding `.gz` StreamingAssets; the source payloads now use `.rackbin` to preserve catalog paths and hashes. The separated floating layout was compiled after those previews. No headset interaction, camera, voice or runtime performance tests were performed; the wearer retains acceptance.
+
+Before these additions, the user requested a rollback point. The prior source is committed and remotely tagged `quest-before-rack` at `fe9be8a`; the previous recursive-detail APK is preserved separately.
+
+The final APK compiled, and every packaged mesh payload matched its catalog byte count and SHA-256. Installation returned Success, the matching voice backend restarted, and the app launch command succeeded. Saved app data was retained. These are delivery results, not headset acceptance.

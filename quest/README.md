@@ -2,6 +2,8 @@
 
 Native Unity/OpenXR prototype: point with a right hand or controller, capture the actual left passthrough camera image, search technical references, and generate an editable component assembly at the measured surface. Quest 3/3S camera support is required; this does not run through Quest Link camera passthrough.
 
+Latest addition: [authored rack and individually lazy-loaded parts](RACK_LAZY_LOADING.md). The harness receives the complete approved part catalog at startup. The black controller-guide canvas is removed; controller and voice actions remain. Older guide and staged-build descriptions below are historical checkpoints; use the linked rack note for this revision's changes.
+
 ## Build and install
 
 1. Install Unity **6000.3.23f1** with Android Build Support (SDK/NDK and OpenJDK).

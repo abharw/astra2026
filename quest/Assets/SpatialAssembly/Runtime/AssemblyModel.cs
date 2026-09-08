@@ -7,10 +7,10 @@ using UnityEngine.Rendering;
 
 namespace SpatialAssembly {
  [Serializable] public class AssemblyData {
-  public string name, description, confidence, captureId; public int revision;
+  public string name, description, confidence, captureId,assetId; public int revision;
   public float[] bounds, sizeMeters; public List<PartData> parts; public ResearchData research;
   public void Validate() {
-   if(parts==null||parts.Count<1||parts.Count>96||sizeMeters==null||sizeMeters.Length!=3||sizeMeters.Any(x=>!Finite(x)||x<=0||x>20))throw new Exception("Invalid assembly");
+   if(parts==null||parts.Count<1||parts.Count>(assetId==RackResources.AssetId?192:96)||sizeMeters==null||sizeMeters.Length!=3||sizeMeters.Any(x=>!Finite(x)||x<=0||x>20))throw new Exception("Invalid assembly");
    if(bounds==null||bounds.Length!=4||bounds.Any(x=>!Finite(x)||x<0||x>1)||bounds[2]<=bounds[0]||bounds[3]<=bounds[1])throw new Exception("Invalid image bounds");
    var ids=new HashSet<string>();var total=0;
    foreach(var p in parts){if(string.IsNullOrEmpty(p.id)||!ids.Add(p.id)||!new[]{"observed","documented","inferred"}.Contains(p.evidence)||!VectorOK(p.explode,4)||p.primitives==null||p.primitives.Count<1||p.primitives.Count>16)throw new Exception("Invalid part");foreach(var m in p.primitives){total++;m.Validate();}}
@@ -20,7 +20,7 @@ namespace SpatialAssembly {
   public static bool VectorOK(float[] v,float max)=>v!=null&&v.Length==3&&v.All(x=>Finite(x)&&Mathf.Abs(x)<=max);
   public static Vector3 V(float[] a)=>new Vector3(a[0],a[1],a[2]);
  }
- [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public string parentPartId;public int detailLevel;public bool isInternal,isHousing;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
+ [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public string parentPartId,assetPackage,assetPart;public int detailLevel;public bool isInternal,isHousing;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
  [Serializable] public class SourceData {public string id,url,title,match,kind,findings;}
  [Serializable] public class ResearchData {public string summary,status;public List<SourceData> sources;public string[] gaps;}
  [Serializable] public class PrimitiveData {
@@ -35,11 +35,20 @@ namespace SpatialAssembly {
   public AssemblyData Data {get;private set;} public string ObjectId=Guid.NewGuid().ToString();
   public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;public bool InternalsRevealed;public string FocusedPart;Vector3 focusOffset;
   public Vector3 HomePosition,HomeScale=Vector3.one;public Quaternion HomeRotation=Quaternion.identity;
+  public bool IsImportedRack=>Data?.assetId==RackResources.AssetId;
+  readonly Dictionary<string,ImportedRackPart> importedParts=new();
+  public bool AssetsReady=>importedParts.Values.All(p=>p&&p.Ready);
+  public string AssetError=>importedParts.Values.FirstOrDefault(p=>p&&!string.IsNullOrEmpty(p.Error))?.Error;
+  public void ReleaseImportedAssets(){foreach(var part in importedParts.Values)if(part)part.Release();}
+#if UNITY_EDITOR
+  public void SettleInspectionForPreview(){foreach(var p in Data.parts)parts[p.id].localPosition=PartOffset(p.id);}
+#endif
   bool moving;float moveTime;Vector3 moveFrom,moveTo,scaleFrom,scaleTo;Quaternion rotationFrom,rotationTo;
   HashSet<string> focusFamily=new();readonly Dictionary<string,PartData> partData=new();readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
   public void Build(AssemblyData data){
    data.Validate();Data=data;
    foreach(var p in data.parts){partData[p.id]=p;var group=new GameObject(p.name);group.transform.SetParent(transform,false);parts[p.id]=group.transform;
+    if(IsImportedRack&&!string.IsNullOrEmpty(p.assetPackage)){var imported=group.AddComponent<ImportedRackPart>();importedParts[p.id]=imported;imported.Changed+=Restyle;continue;}
     foreach(var primitive in p.primitives){var go=new GameObject(primitive.kind);go.transform.SetParent(group.transform,false);var mesh=Geometry.Create(primitive);
      go.AddComponent<MeshFilter>().sharedMesh=mesh;var r=go.AddComponent<MeshRenderer>();r.material=new Material(Shader.Find("Universal Render Pipeline/Lit")??Shader.Find("Standard"));
      go.transform.localPosition=AssemblyData.V(primitive.position);go.transform.localScale=AssemblyData.V(primitive.size);
@@ -49,12 +58,13 @@ namespace SpatialAssembly {
      var handle=go.AddComponent<PartHandle>();handle.Part=p;handle.Owner=this;surfaces.Add((r,primitive,p));
     }
    }
+   foreach(var p in data.parts)if(importedParts.TryGetValue(p.id,out var imported))imported.Initialize(p,this);
    Restyle();SetExplosion(Explosion);
   }
-  public void SetExplosion(float value){Explosion=Mathf.Clamp01(value);}
+  public void SetExplosion(float value){Explosion=Mathf.Clamp01(value);if(IsImportedRack&&Explosion>.2f){InternalsRevealed=true;ShowInferred=true;foreach(var p in Data.parts.Where(p=>p.isInternal))partOffsets.Remove(p.id);Restyle();}}
   void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,PartOffset(p.id),1-Mathf.Exp(-12*Time.deltaTime));}}
   public HashSet<string> RelatedParts(string id){var ids=new HashSet<string>{id};bool changed=true;while(changed){changed=false;foreach(var part in Data.parts)if(!string.IsNullOrEmpty(part.parentPartId)&&ids.Contains(part.parentPartId)&&ids.Add(part.id))changed=true;}return ids;}
-  Vector3 PartOffset(string id){if(partOffsets.TryGetValue(id,out var offset))return offset;var part=partData[id];if(id==FocusedPart)return focusOffset;if(focusFamily.Contains(id))return focusOffset+AssemblyData.V(part.explode)*.15f;return AssemblyData.V(part.explode)*Explosion;}
+  Vector3 PartOffset(string id){if(partOffsets.TryGetValue(id,out var offset))return offset;var part=partData[id];if(id==FocusedPart)return focusOffset;if(focusFamily.Contains(id))return focusOffset+AssemblyData.V(part.explode)*(IsImportedRack?Mathf.Clamp01((Explosion-.2f)/.8f):.15f);return AssemblyData.V(part.explode)*Explosion;}
   public void RevealInternals(){InternalsRevealed=true;ShowInferred=true;SetExplosion(.25f);Restyle();}
   public void FocusPart(string id,Transform head){var part=Data.parts.First(p=>p.id==id);foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
   public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null){var related=RelatedParts(id);foreach(var child in related)if(parts.TryGetValue(child,out var group)){partOffsets[child]=Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(related.Contains(FocusedPart??"")){FocusedPart=null;focusFamily.Clear();}}Selected=null;Restyle();}
@@ -78,7 +88,12 @@ namespace SpatialAssembly {
   }
   public void Select(string id){Selected=id;Restyle();}
   public void Restyle(){
-   foreach(var p in Data.parts)parts[p.id].gameObject.SetActive((ShowInferred||p.evidence!="inferred")&&(!InternalsRevealed||!p.isHousing||p.id==FocusedPart||p.id==Selected));
+   var openServers=IsImportedRack?new HashSet<string>(Data.parts.Where(p=>!string.IsNullOrEmpty(p.parentPartId)).Select(p=>p.parentPartId)):null;
+   foreach(var p in Data.parts){bool visible=ShowInferred||p.evidence!="inferred";
+    if(IsImportedRack){if(p.isInternal)visible&=InternalsRevealed;else if(InternalsRevealed&&openServers.Contains(p.id))visible=false;}
+    else visible&=!InternalsRevealed||!p.isHousing||p.id==FocusedPart||p.id==Selected;
+    parts[p.id].gameObject.SetActive(visible);if(importedParts.TryGetValue(p.id,out var imported))imported.Highlight(Selected==p.id);
+   }
    foreach(var x in surfaces){
     var c=Hologram?(x.part.evidence=="inferred"?new Color(1,.55f,.15f):new Color(.08f,.85f,1)):new Color(x.primitive.color[0],x.primitive.color[1],x.primitive.color[2]);
     var material=x.renderer.material;material.color=c;
@@ -91,7 +106,7 @@ namespace SpatialAssembly {
   public void StopMotion(){moving=false;}
   public void PullOut(Transform head){Extracted=true;moveTime=0;moveFrom=transform.position;rotationFrom=transform.rotation;scaleFrom=transform.localScale;moveTo=head.position+head.forward*.75f-head.up*.12f;rotationTo=transform.rotation;scaleTo=InspectionScale(.65f);moving=true;}
   public void ReturnHome(){CloseHousing();StopMotion();Extracted=false;transform.localPosition=HomePosition;transform.localRotation=HomeRotation;transform.localScale=HomeScale;SetExplosion(0);}
-  void OnDestroy(){foreach(var x in surfaces){if(x.renderer){Geometry.Release(x.renderer.material);var f=x.renderer.GetComponent<MeshFilter>();if(f)Geometry.Release(f.sharedMesh);}}}
+  void OnDestroy(){ReleaseImportedAssets();foreach(var x in surfaces){if(x.renderer){Geometry.Release(x.renderer.material);var f=x.renderer.GetComponent<MeshFilter>();if(f)Geometry.Release(f.sharedMesh);}}}
  }
  public static class Geometry {
   public static void Release(UnityEngine.Object value){if(Application.isPlaying)UnityEngine.Object.Destroy(value);else UnityEngine.Object.DestroyImmediate(value);}

@@ -14,7 +14,7 @@ namespace SpatialAssembly {
    {"platform","quest"},{"phase",c.Status},{"busy",c.Busy},{"runningJobs",c.RunningJobs},{"bridgeConnected",c.Bridge.Connected},{"cameraPlaying",c.CameraAccess.IsPlaying},{"frameAge",Time.realtimeSinceStartup-lastFresh},{"voiceOn",c.Audio.Enabled},{"speaking",c.Audio.Speaking},{"voiceStatus",c.Audio.Status},
    {"object",c.Active?c.Active.Data.name:""},{"objectID",c.Active?c.Active.ObjectId:""},{"selectedPart",c.SelectedPart??""},{"voiceError",c.Audio.Error},{"savedObjectIDs",new JArray(c.Store.SavedObjectIds)},
    {"objects",new JArray(c.Objects.Select(v=>new JObject{{"id",v.ObjectId},{"name",v.Data.name},{"position",V(v.transform.position)},{"extracted",v.Extracted},{"explosion",v.Explosion},{"parts",new JArray(v.Data.parts.Select(p=>new JObject{{"id",p.id},{"name",p.name}}))}}))},
-   {"headPosition",V(c.Rig.centerEyeAnchor.position)},{"panelPosition",V(c.Panel.position)},{"transcript",c.DetailText?c.DetailText.text:""}};}
+   {"headPosition",V(c.Rig.centerEyeAnchor.position)},{"panelPosition",c.Panel?V(c.Panel.position):JValue.CreateNull()},{"transcript",c.DetailText?c.DetailText.text:""}};}
   void Handle(JObject e){if((string)e["type"]!="test.command")return;string id=(string)e["id"];
    void Reply(bool ok,string message,string image=null){var result=new JObject{{"type","test.result"},{"id",id},{"ok",ok},{"message",message},{"state",State()}};if(image!=null){result["image"]=image;result["frameId"]=snapshotId;}Link.Send(result);}
    if(paused||!Link.UserEnabled){Reply(false,"Quest test connection is paused");return;}
