@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+.build/
+.swiftpm/
+DerivedData/
+build/
+dist/
+.cache/
+*.xcuserstate
+xcuserdata/
+evidence/local/
+runtime/
+*.log
