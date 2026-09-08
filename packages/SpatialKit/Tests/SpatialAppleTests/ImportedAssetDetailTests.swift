@@ -353,7 +353,11 @@ func approvedAppDetailResourcesExpandOneInstanceThroughExistingPatch() async thr
         from: Data(contentsOf: directory.appendingPathComponent("detail-templates.json")))
     let controller = SceneController(initialState: try SceneState(document: .init(documentId: "empty"), sceneId: "initial"), transport: DetailTransport())
     try controller.registerAssetDetails(templates, resources: [detail])
-    _ = try await controller.loadImportedAsset(overview, rootNodeID: "fixture.root", scale: 0.6 / 2.21)
+    _ = try await controller.loadImportedAsset(overview, rootNodeID: "fixture.root")
+    let nativeRoot = try #require(controller.renderer.entity(for: "fixture.root"))
+    let authoredHeight = nativeRoot.visualBounds(relativeTo: nil).extents.y
+    #expect(abs(authoredHeight - 2.21) < 0.001)
+    #expect(controller.acceptedScene.document.nodes.first { $0.nodeId == "fixture.root" }?.transform.scale == Vec3(1, 1, 1))
     let available = try #require(controller.availableAssetDetails.first)
     let targetID = try #require(available.targetNodeIds.first)
     let template = try #require(templates.first { $0.detailId == available.detailId })
@@ -383,6 +387,7 @@ func approvedAppDetailResourcesExpandOneInstanceThroughExistingPatch() async thr
             "schema": "astra-native-detail-installation/v1", "status": "passed",
             "overviewAssetID": overview.assetID, "detailAssetID": detail.assetID,
             "detailBytes": detail.byteCount, "detailTriangles": detail.uniqueTriangleCount,
+            "authoredHeightMeters": Double(authoredHeight), "rootScale": 1,
             "targetNodeID": targetID, "originalInstances": available.targetNodeIds.count,
             "childrenInstalled": template.children.count, "nodesBefore": before.nodes.count, "nodesAfter": after.nodes.count,
             "prepareAndInstallSeconds": Double(duration.components.seconds) + Double(duration.components.attoseconds) / 1e18,

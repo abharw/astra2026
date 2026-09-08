@@ -1,0 +1,25 @@
+{
+  "authoredHeightMeters" : 2.2100000381469727,
+  "checks" : [
+    "Target ID\/current pose preserved",
+    "Other instances unchanged",
+    "Authored local rest poses retained",
+    "All detail entities installed",
+    "Availability updates for selected instance only",
+    "Undo restores intact overview"
+  ],
+  "childrenInstalled" : 9,
+  "detailAssetID" : "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "detailBytes" : 8226964,
+  "detailTriangles" : 381897,
+  "nodesAfter" : 29,
+  "nodesBefore" : 20,
+  "originalInstances" : 18,
+  "overviewAssetID" : "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+  "prepareAndInstallSeconds" : 0.495933083,
+  "rootScale" : 1,
+  "schema" : "astra-native-detail-installation\/v1",
+  "scope" : "macOS RealityKit controller; no AR camera or physical device frame-rate measurement",
+  "status" : "passed",
+  "targetNodeID" : "rack01.server01"
+}

@@ -300,7 +300,26 @@ public final class SceneRenderer {
         if let selectedNodeID, !desiredIDs.contains(selectedNodeID) {
             self.selectedNodeID = nil
         }
+        (attachedView as? PreviewARView)?.captureFramingBounds(
+            for: document.documentId,
+            bounds: previewBounds()
+        )
         applySelectionAppearance()
+    }
+
+    private func previewBounds() -> BoundingBox {
+        var bounds = BoundingBox.empty
+        var remaining = [contentRoot]
+        while let entity = remaining.popLast() {
+            guard entity.isEnabled, entity !== importedSelectionOutline else { continue }
+            if entity.components[ModelComponent.self] != nil {
+                // Before the first rendered frame, an enabled entity may not be
+                // active yet. Check visibility ourselves and include its bounds.
+                bounds.formUnion(entity.visualBounds(recursive: false, relativeTo: nil, excludeInactive: false))
+            }
+            remaining.append(contentsOf: entity.children)
+        }
+        return bounds
     }
 
     private func nativeMaterial(for node: SceneNode, prepared: PreparedScene) -> PhysicallyBasedMaterial {

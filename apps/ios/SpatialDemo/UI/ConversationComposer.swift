@@ -16,7 +16,7 @@ struct ConversationComposer: View {
     }
 
     var body: some View {
-        HStack(alignment: .bottom, spacing: 2) {
+        HStack(alignment: .center, spacing: 2) {
             TextField(
                 "Ask Astra",
                 text: $text,
@@ -55,8 +55,7 @@ struct ConversationComposer: View {
             .accessibilityIdentifier(hasDraft ? "send-request" : "microphone-button")
         }
         .padding(.trailing, 6)
-        .padding(.bottom, 5)
-        .padding(.top, 1)
+        .padding(.vertical, 3)
         .background(Color(white: 0.065).opacity(0.97), in: RoundedRectangle(cornerRadius: 29))
         .overlay {
             RoundedRectangle(cornerRadius: 29)

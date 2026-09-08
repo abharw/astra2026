@@ -24,7 +24,7 @@ public enum RuntimeMode {
 public enum ARViewFactory {
     public static func make(_ mode: RuntimeMode = .automatic) -> ARView {
         #if os(macOS)
-        let view = ARView(frame: .zero)
+        let view = PreviewARView(frame: .zero)
         configureNonARScene(view)
         return view
         #else
@@ -55,14 +55,13 @@ public enum ARViewFactory {
         #endif
         }
 
-        let view = ARView(
-            frame: .zero,
-            cameraMode: cameraMode,
-            automaticallyConfigureSession: cameraMode == .ar
-        )
-
+        let view: ARView
         if cameraMode == .nonAR {
-            configureNonARScene(view)
+            let preview = PreviewARView(frame: .zero, cameraMode: .nonAR, automaticallyConfigureSession: false)
+            configureNonARScene(preview)
+            view = preview
+        } else {
+            view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
         }
         return view
         #endif
@@ -74,7 +73,7 @@ public enum ARViewFactory {
         return view
     }
 
-    private static func configureNonARScene(_ view: ARView) {
+    private static func configureNonARScene(_ view: PreviewARView) {
         view.environment.background = .color(PreviewColor(
             red: 0.075,
             green: 0.08,
@@ -85,7 +84,7 @@ public enum ARViewFactory {
         let sceneCenter: SIMD3<Float> = [0, 0.30, 0]
         let cameraPosition: SIMD3<Float> = [0.90, 0.78, 1.45]
         let cameraAnchor = AnchorEntity(world: [0, 0, 0])
-        let camera = PerspectiveCamera()
+        let camera = view.previewCamera
         cameraAnchor.addChild(camera)
         camera.look(at: sceneCenter, from: cameraPosition, relativeTo: cameraAnchor)
         view.scene.addAnchor(cameraAnchor)

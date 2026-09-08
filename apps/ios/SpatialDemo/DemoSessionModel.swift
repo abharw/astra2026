@@ -217,7 +217,7 @@ final class DemoSessionModel {
                 let descriptor = try DemoAssetLibrary.descriptor(named: "app-catalog")
                 try DemoAssetLibrary.registerDetails(on: self.controller)
                 let report = try await self.controller.loadImportedAsset(
-                    descriptor, rootNodeID: "rack01", scale: 0.6 / 2.21,
+                    descriptor, rootNodeID: "rack01",
                     progress: { [weak self] phase in
                         guard let self, self.assetLoadAttempt == attempt else { return }
                         self.assetLoadPhase = phase
