@@ -6,6 +6,7 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 
 ## Read the project
 
+- [Next-work handoff](HANDOFF.md): reorganize the repo, integrate generated images, then improve native geometry.
 - [Architecture](architecture.md): responsibilities, runtime loop, and future extension boundaries.
 - [Product](PRODUCT.md): current interaction and accessibility constraints.
 - [APPROACH](APPROACH.md): chronological Arav/Astra collaboration log.

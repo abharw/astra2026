@@ -2,6 +2,8 @@
 
 September 8, 2026. Research and proposed integration; Images 2.5 has not been called or integrated in this app.
 
+Arav's subsequent implementation order is repository reorganization → image API integration → richer native geometry. [HANDOFF.md](../HANDOFF.md) is the execution guide; the comparison below explains the separate roles of generated images and native flows.
+
 ## What the current session proves
 
 Arav reported pulling out one server, asking about heat flow and requesting arrows. The matching physical-iPhone session contains three successful native installations and three completed typed Realtime responses. Node counts progress 20 → 20 → 29 → 33, with scene revisions 0 → 1 → 2 → 3. The last turn took 18.984 seconds from native text submission to final response, and 15.460 seconds from backend admission to receipt-gated explanation. [Redacted session evidence](../evidence/iphone-heat-flow-session.json).

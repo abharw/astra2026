@@ -1,6 +1,6 @@
 # Proposed repository consolidation
 
-Status: recommendation based on the current code at `e93ffe4`. The directory migration has not been applied. Public Swift module names and the wire format do not need to change.
+Status: selected next-work direction; the directory migration has not been applied. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the current baseline. Public Swift module names and the wire format do not need to change.
 
 The product has three code owners: one native app, one reusable spatial framework, and one deployable backend. The current `apps/ios`, `packages/SpatialKit`, and `services/session` wrappers add navigation without representing additional applications, packages, or services.
 
@@ -8,6 +8,7 @@ The product has three code owners: one native app, one reusable spatial framewor
 astra2026/
 ├── README.md
 ├── APPROACH.md
+├── HANDOFF.md
 ├── app/                       # Universal iPhone/iPad product
 │   ├── project.yml
 │   ├── AstraSpatialDemo.xcodeproj
