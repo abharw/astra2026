@@ -15,7 +15,7 @@ enum DemoPresentationPhase: Equatable {
         case .generating: "Generating…"
         case .constructing: "Constructing…"
         case .downloading: "Downloading the rack…"
-        case .loadingAsset: "Loading the rack…"
+        case .loadingAsset: "Loading details…"
         case .processing: "Processing…"
         case .responding: "Responding…"
         case let .failed(message): message

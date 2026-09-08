@@ -110,7 +110,7 @@ enum RealtimeWire {
     }
 
     private static func finalInstructions(for result: RealtimeSceneToolResult) -> String {
-        let presentation = "Use only the latest ask_astra function output. Present its explanation clearly in two to four concise sentences. Do not mention internal IDs, receipts, tool calls, or protocol details."
+        let presentation = "Use only the latest ask_astra function output. Present its explanation clearly in two to four concise sentences, speaking directly as Astra. If clarification is needed, ask the question directly; do not refer to another model or say that it needs clarification. Do not mention internal IDs, receipts, tool calls, or protocol details."
         switch result.outcome {
         case .confirmedInstalled:
             return "The trusted app result confirms that the requested edit is installed in the scene. Describe it as completed. Installation does not prove that a part is visible in the current camera view. If the explanation uses pre-install words such as proposal, proposed, would, could, or recommendation for that edit, rephrase them to the actual installed state. Do not call the installed edit a proposal. \(presentation)"

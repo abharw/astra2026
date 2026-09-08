@@ -110,6 +110,9 @@ public final class SceneController {
     @ObservationIgnored private var connectionDeadlineTask: Task<Void, Never>?
     @ObservationIgnored private var activeRequest: ActiveSceneRequest?
     @ObservationIgnored private var importedLoadGeneration = UUID()
+    @ObservationIgnored private var assetDetails = ImportedAssetDetailRegistry()
+    @ObservationIgnored private var nativePreparationTask: Task<Void, any Error>?
+    @ObservationIgnored private var nativePreparationID: UUID?
     #if os(iOS)
     @ObservationIgnored private var tapRelay: SceneTapGestureRelay?
     #endif
@@ -214,6 +217,7 @@ public final class SceneController {
     }
 
     public func disconnect() {
+        nativePreparationTask?.cancel()
         cancelActiveRequest(reason: "The scene connection was closed.")
         transport.disconnect()
         connectionDeadlineTask?.cancel()
@@ -359,6 +363,7 @@ public final class SceneController {
     }
 
     public func stop() {
+        nativePreparationTask?.cancel()
         cancelActiveRequest(reason: "The scene request was stopped.")
         let epoch = acceptedScene.advanceIntentEpoch()
         installedRequestIDs.removeAll(keepingCapacity: true)
@@ -468,11 +473,22 @@ public final class SceneController {
         try loadScene(state)
     }
 
+    /// Makes the next authored level discoverable without decoding its meshes.
+    /// Resources are immutable and host-approved; model input contains no URLs.
+    public func registerAssetDetails(_ templates: [ImportedAssetDetailTemplate],
+                                     resources: [ImportedAssetDescriptor], cacheDirectory: URL? = nil) throws {
+        try assetDetails.register(templates, resources: resources, cacheDirectory: cacheDirectory)
+    }
+
+    public var availableAssetDetails: [AvailableAssetDetail] {
+        assetDetails.available(in: acceptedScene.document)
+    }
+
     /// Loads a host-approved asset lazily, then installs through the same scene authority as procedural edits.
     @discardableResult
     public func loadImportedAsset(
         _ descriptor: ImportedAssetDescriptor,
-        rootNodeID: String = "rack01",
+        rootNodeID: String = "asset.root",
         scale: Double = 1,
         cacheDirectory: URL? = nil,
         progress: @escaping @MainActor (ImportedAssetLoadPhase) -> Void = { _ in }
@@ -658,7 +674,9 @@ public final class SceneController {
                 DiagnosticsLog.shared.record("handshake.accepted", component: "scene.controller", correlationID: sessionID)
             case "generation.begin", "generation.batch", "generation.finish", "scene.patch":
                 let message = try wireDecoder.decodeMessage(from: data)
-                let result = applyIncoming(message)
+                let receivedSessionID = sessionID
+                let result = await applyIncoming(message)
+                guard sessionID == receivedSessionID else { return }
                 DiagnosticsLog.shared.record("scene.reduced", component: "scene.controller", correlationID: result.receipt.sceneIdentity.requestID, fields: ["document_changed": "\(result.documentChanged)"])
                 lastReceipt = result.receipt
                 if case let .scene(receipt) = result.receipt, receipt.status == .installed {
@@ -732,7 +750,10 @@ public final class SceneController {
         }
     }
 
-    private func applyIncoming(_ message: ClientMessage) -> IncomingResult {
+    private func applyIncoming(_ message: ClientMessage) async -> IncomingResult {
+        let startingSceneID = acceptedScene.sceneId
+        let startingSessionID = sessionID
+        let startingExecutionToken = activeRequest?.executionToken
         let startingRevision = acceptedScene.revision
         let startingEpoch = acceptedScene.intentEpoch
         let startingDocument = acceptedScene.document
@@ -741,11 +762,49 @@ public final class SceneController {
         DiagnosticsLog.shared.record("native.prepare_started", component: "scene.controller", correlationID: message.sceneIdentity.requestID, fields: ["revision": "\(startingRevision)", "intent_epoch": "\(startingEpoch)"])
 
         let prepared: PreparedScene?
+        var preparedAssetIDs: [String] = []
+        defer {
+            for assetID in preparedAssetIDs { renderer.finishImportedAssetPreparation(assetID: assetID) }
+        }
         if previewReceipt.installedScene, candidate.document != startingDocument {
             do {
+                let preparationID = UUID()
+                let preparationTask = Task { @MainActor in
+                    try await self.renderer.prepareImportedResources(for: candidate.document,
+                        approved: assetDetails.resources, cacheDirectory: assetDetails.cacheDirectory,
+                        didPrepare: { preparedAssetIDs.append($0) }, progress: { [weak self] phase in
+                            guard let self, self.acceptedScene.sceneId == startingSceneID,
+                                  self.acceptedScene.revision == startingRevision,
+                                  self.acceptedScene.intentEpoch == startingEpoch,
+                                  self.sessionID == startingSessionID,
+                                  startingExecutionToken == nil || self.activeRequest?.executionToken == startingExecutionToken else { return }
+                            self.activity = phase == .downloading ? "downloading_asset" : "loading_asset"
+                            DiagnosticsLog.shared.record("asset.detail_preparing", component: "scene.controller",
+                                correlationID: message.sceneIdentity.requestID, fields: ["phase": phase.rawValue])
+                        })
+                }
+                nativePreparationTask?.cancel()
+                nativePreparationTask = preparationTask
+                nativePreparationID = preparationID
+                defer {
+                    if nativePreparationID == preparationID {
+                        nativePreparationTask = nil
+                        nativePreparationID = nil
+                    }
+                }
+                try await preparationTask.value
+                try Task.checkCancellation()
                 prepared = try renderer.prepareScene(candidate.document)
                 DiagnosticsLog.shared.record("native.prepare_finished", component: "scene.controller", correlationID: message.sceneIdentity.requestID, fields: ["node_count": "\(candidate.document.nodes.count)"])
             } catch {
+                if error is CancellationError || acceptedScene.sceneId != startingSceneID
+                    || sessionID != startingSessionID || acceptedScene.revision != startingRevision
+                    || acceptedScene.intentEpoch != startingEpoch
+                    || (startingExecutionToken != nil && activeRequest?.executionToken != startingExecutionToken) {
+                    DiagnosticsLog.shared.record("native.prepare_cancelled", component: "scene.controller",
+                        correlationID: message.sceneIdentity.requestID)
+                    return IncomingResult(receipt: .scene(staleCommitRejection(for: message)), documentChanged: false)
+                }
                 DiagnosticsLog.shared.record("native.prepare_failed", component: "scene.controller", level: .error, correlationID: message.sceneIdentity.requestID, fields: ["error": error.localizedDescription])
                 return IncomingResult(
                     receipt: .scene(renderRejection(from: previewReceipt, error: error)),
@@ -756,7 +815,9 @@ public final class SceneController {
             prepared = nil
         }
 
-        guard acceptedScene.revision == startingRevision, acceptedScene.intentEpoch == startingEpoch else {
+        guard acceptedScene.sceneId == startingSceneID, sessionID == startingSessionID,
+              acceptedScene.revision == startingRevision, acceptedScene.intentEpoch == startingEpoch,
+              startingExecutionToken == nil || activeRequest?.executionToken == startingExecutionToken else {
             return IncomingResult(
                 receipt: .scene(staleCommitRejection(for: message)),
                 documentChanged: false
@@ -899,6 +960,7 @@ public final class SceneController {
     }
 
     private func cancelActiveRequest(reason: String) {
+        nativePreparationTask?.cancel()
         guard activeRequest != nil else { return }
         finishActiveRequest(status: .cancelled, error: reason)
     }
@@ -917,6 +979,7 @@ public final class SceneController {
         error: String? = nil
     ) {
         guard let activeRequest else { return }
+        if status != .completed { nativePreparationTask?.cancel() }
         requestSendTask?.cancel()
         requestSendTask = nil
         responseDeadlineTask?.cancel()
@@ -959,11 +1022,13 @@ public final class SceneController {
     }
 
     private func makeSnapshot() -> PhoneSnapshot {
-        PhoneSnapshot(
+        let details = availableAssetDetails
+        return PhoneSnapshot(
             sceneId: acceptedScene.sceneId,
             revision: acceptedScene.revision,
             intentEpoch: acceptedScene.intentEpoch,
-            document: acceptedScene.document
+            document: acceptedScene.document,
+            availableAssetDetails: details.isEmpty ? nil : details
         )
     }
 

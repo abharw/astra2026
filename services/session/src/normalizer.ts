@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { JsonObject, ProtocolError, asObject, isNumber, isString, requireArray, requireString } from "./json.js";
+import { AvailableAssetDetail } from "./asset-details.js";
 
 export interface AuthoringProposal {
   mode: "generation" | "patch" | "explanation";
@@ -20,9 +21,13 @@ export interface NormalizedProposal {
  * deliberately match the portable v1 contract; native code remains authority
  * for semantic validity and installation.
  */
-export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>, observedGeometryIds: Set<string> = new Set(), observedNodes: ReadonlyMap<string, JsonObject> = new Map()): NormalizedProposal {
+export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>, observedGeometryIds: Set<string> = new Set(), observedNodes: ReadonlyMap<string, JsonObject> = new Map(), availableAssetDetails: readonly AvailableAssetDetail[] = []): NormalizedProposal {
   const aliases = new Map<string, string>();
   const workingTransforms = new Map<string, JsonObject>();
+  const createdNodeIds = new Set<string>();
+  const changedGeometryNodeIds = new Set<string>();
+  const expandedNodeIds = new Set<string>();
+  const emittedDetailGeometries = new Set<string>();
   const operationCount = proposal.operations.length;
   if (operationCount > 128 || (proposal.mode === "explanation" && operationCount !== 0) || (proposal.mode !== "explanation" && operationCount === 0)) {
     throw new ProtocolError("explanations require zero operations; mutations require 1-128 operations", "proposal_rejected");
@@ -65,6 +70,8 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
       }
       case "node": {
         const nodeId = define(source.alias, "node");
+        if (observedNodeIds.has(nodeId) || createdNodeIds.has(nodeId)) throw new ProtocolError("created node ID collides with an existing node", "proposal_rejected");
+        createdNodeIds.add(nodeId);
         const node = asObject(source.node, "node.node");
         const parentAlias = node.parentAlias;
         const parentId = parentAlias === null || parentAlias === undefined ? null : resolve(parentAlias, "node", true);
@@ -108,7 +115,43 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
         break;
       }
       case "setGeometry": {
-        operations.push({ op: "set.geometry", nodeId: resolve(source.nodeRef, "node", true), geometryId: source.geometryAlias === null ? null : resolve(source.geometryAlias, "geometry", true) });
+        const nodeId = resolve(source.nodeRef, "node", true);
+        if (expandedNodeIds.has(nodeId)) throw new ProtocolError("cannot replace geometry of a node expanded in this proposal", "proposal_rejected");
+        changedGeometryNodeIds.add(nodeId);
+        operations.push({ op: "set.geometry", nodeId, geometryId: source.geometryAlias === null ? null : resolve(source.geometryAlias, "geometry", true) });
+        break;
+      }
+      case "expandDetail": {
+        if (proposal.mode !== "patch") throw new ProtocolError("expandDetail requires patch mode", "proposal_rejected");
+        const nodeId = resolve(source.nodeRef, "node", true);
+        const detailId = requireString(source, "detailId", 128);
+        const detail = availableAssetDetails.find((value) => value.detailId === detailId && value.targetNodeIds.includes(nodeId));
+        const observed = observedNodes.get(nodeId);
+        if (!observedNodeIds.has(nodeId) || !detail || !observed || !isString(observed.geometryId)) throw new ProtocolError("detail is not available for this observed node", "proposal_rejected");
+        if (expandedNodeIds.has(nodeId) || changedGeometryNodeIds.has(nodeId)) throw new ProtocolError("detail target was already expanded or its geometry changed", "proposal_rejected");
+        if (!detail.children.length || detail.children.length > 32) throw new ProtocolError("detail template must contain 1-32 immediate children", "proposal_rejected");
+        expandedNodeIds.add(nodeId);
+        // The instance remains the assembly: retain its ID, pose, visibility and
+        // existing child edges. Only its opaque exterior is replaced by children.
+        operations.push({ op: "set.geometry", nodeId, geometryId: null }, { op: "set.material", nodeId, materialId: null });
+        for (const child of detail.children) {
+          const childId = detailNodeId(nodeId, detailId, child.partID);
+          if (observedNodeIds.has(childId) || createdNodeIds.has(childId)) throw new ProtocolError("detail child ID collides with an existing node", "proposal_rejected");
+          createdNodeIds.add(childId);
+          const geometryId = stableId("geometry", detail.assetID, child.partID);
+          const recipe = { kind: "importedAsset", assetID: detail.assetID, partID: child.partID };
+          // Repeated instances share one immutable definition; native rejects a
+          // preexisting ID whose content differs, exactly as for all put.geometry.
+          if (!emittedDetailGeometries.has(geometryId)) {
+            operations.push({ op: "put.geometry", geometry: { geometryId, contentHash: geometryContentHash(recipe), recipe } });
+            emittedDetailGeometries.add(geometryId);
+          }
+          operations.push({ op: "create.node", node: {
+            nodeId: childId, parentId: nodeId, geometryId, materialId: null,
+            transform: canonicalTransform(child.transform), isVisible: true,
+            semantic: structuredClone(child.semantic), provenance: structuredClone(child.provenance)
+          } });
+        }
         break;
       }
       case "setMaterial": {
@@ -122,11 +165,17 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
       }
       default: throw new ProtocolError(`unsupported authoring operation: ${kind}`, "proposal_rejected");
     }
+    if (operations.length > 128) throw new ProtocolError("normalized proposal exceeds 128 operations; expand fewer instances per turn", "proposal_rejected");
   }
   if (proposal.mode === "generation" && proposal.scopeParentNodeId !== null && !observedNodeIds.has(proposal.scopeParentNodeId)) {
     throw new ProtocolError("generation scope parent was not observed", "proposal_rejected");
   }
   return { mode: proposal.mode, explanation: proposal.explanation, scopeParentNodeId: proposal.scopeParentNodeId ?? undefined, operations };
+}
+
+/** Stable across turns and resource cache state, and scoped to one selected instance. */
+export function detailNodeId(targetNodeId: string, detailId: string, partID: string): string {
+  return stableId("node", targetNodeId, `${detailId}\u0000${partID}`);
 }
 
 export function parseAuthoringProposal(value: unknown): AuthoringProposal {

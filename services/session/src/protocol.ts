@@ -1,4 +1,5 @@
 import { asObject, isObject, isString, JsonObject, JsonValue, ProtocolError, rejectUnknown, requireArray, requireInteger, requireString } from "./json.js";
+import { AvailableAssetDetail, parseAvailableAssetDetails } from "./asset-details.js";
 
 export const PROTOCOL_VERSION = 1;
 export const MAX_WIRE_BYTES = 256 * 1024;
@@ -23,6 +24,7 @@ export interface PhoneSnapshot {
   revision: number;
   intentEpoch: number;
   document: JsonObject;
+  availableAssetDetails?: AvailableAssetDetail[];
 }
 
 export interface UserRequest {
@@ -68,15 +70,18 @@ export function parseClientEnvelope(value: unknown): ClientEnvelope {
   const type = requireString(object, "type", 64);
   switch (type) {
     case "session.hello": return parseHello(object);
-    case "phone.snapshot":
-      rejectUnknown(object, ["type", "sceneId", "revision", "intentEpoch", "document"]);
+    case "phone.snapshot": {
+      rejectUnknown(object, ["type", "sceneId", "revision", "intentEpoch", "document", "availableAssetDetails"]);
+      const document = asObject(object.document, "document");
       return {
       type,
       sceneId: requireString(object, "sceneId", 256),
       revision: requireInteger(object, "revision"),
       intentEpoch: requireInteger(object, "intentEpoch"),
-      document: asObject(object.document, "document")
+      document,
+      ...(object.availableAssetDetails === undefined ? {} : { availableAssetDetails: parseAvailableAssetDetails(object.availableAssetDetails, document) })
     };
+    }
     case "user.request": return parseUserRequest(object);
     case "session.cancel":
       rejectUnknown(object, ["type", "requestId"]);

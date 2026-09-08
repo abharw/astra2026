@@ -68,13 +68,13 @@ Stop, Undo, scene replacement, disconnection, and superseding turns invalidate p
 
 **Astra generates structured geometry descriptions. Swift constructs meshes. RealityKit renders frames on the device GPU.** Cloud model inference does not mean cloud rendering.
 
-The implemented vocabulary is box, sphere, cylinder, cone, tube, and arrow recipes plus approved `importedAsset(assetID, partID)` references. Imported assets use host-owned descriptors and preserve their native PBR materials; the accepted Akeil rack asset exposes the frame and 18 server wrappers. Parent/child relationships preserve assemblies. Moving an assembled server changes its parent transform; moving a fan changes that component's transform. Neither operation requires regenerating the mesh. Undo restores the latest accepted transaction. The imported Akeil source is an exterior rack asset; its interior is not currently available to reveal.
+The implemented vocabulary is box, sphere, cylinder, cone, tube, and arrow recipes plus approved `importedAsset(assetID, partID)` references. Imported assets use host-owned descriptors and preserve their native PBR materials; the accepted Akeil rack asset exposes the frame and 18 server wrappers. Generic approved detail templates can expand one eligible instance into immediate child nodes while preserving its ID and pose; other instances remain unchanged. Parent/child relationships preserve assemblies. Moving an assembled server changes its parent transform; moving a fan changes that component's transform. Neither operation requires regenerating the mesh. Undo restores the latest accepted transaction. The imported Akeil source is an exterior rack asset; unavailable source interiors remain unavailable.
 
 The normalized scene is versioned UTF-8 JSON with metres, +Y-up coordinates, quaternion rotations, stable node IDs, semantics, and source provenance. Wire JSON and typed canonical hash bytes are intentionally different representations. The provider tool schema is an adapter, not the public scene contract. [Exact formats](contracts/README.md) · [Representation rationale](docs/data-formats.md).
 
 The active device's `SceneState` is authoritative. RealityKit entities are a derived projection; the service's acknowledged mirror is model context. SQLite saves normalized documents through manual checkpoint APIs. App Save/Open controls, autosave, and restoration of real-world anchors are future work; imported asset loading is implemented through the host descriptor catalog. [Storage](docs/storage.md).
 
-The current seed is bundled directly from `examples/server-rack/scene.json`; there is no duplicated app copy or special phrase-to-animation route. Geometry detail and sourced component names belong in that example. A live fan-generation acceptance run already uses the same contract without rack-specific code, although a public third-party SDK is not yet packaged.
+The default example is the source-derived exterior and internal assembly packages in `examples/imported-rack`. `DemoAssetLibrary` supplies approved resources and hierarchy bindings from that data. The earlier procedural seed remains bundled directly from `examples/server-rack/scene.json`; neither example has a phrase-to-animation route. A live fan-generation acceptance run uses the same contract without rack-specific code, although a public third-party SDK is not yet packaged.
 
 ## Why this stays editable
 
@@ -84,7 +84,7 @@ The current seed is bundled directly from `examples/server-rack/scene.json`; the
 - Selection and spoken-request locks are local UI/input state. They do not create scene revisions.
 - A successful installation receipt means native entities were installed. A screenshot or measured frame is separate evidence that they became visible.
 
-A later Blender worker can generate additional immutable hierarchical USDZ assets plus component mappings. The current Akeil USDZ loader verifies and cache-loads the approved bundled source and preserves named parts; no Blender worker, live Blender bridge, automatic LOD, or lazy interior-loading path exists. [Asset pipeline and deferred extensions](docs/asset-pipeline.md).
+A later Blender worker can generate additional immutable hierarchical USDZ assets plus component mappings. The current loader verifies approved assets, preserves named parts, and lazily prepares an interior package when Astra requests its advertised children. Offline Blender compilation produces those packages; a live Blender bridge and automatic visual LOD are future work. [Asset pipeline](docs/asset-pipeline.md) and [generic detail expansion](docs/generic-asset-detail-expansion.md).
 
 ## Read the code in order
 

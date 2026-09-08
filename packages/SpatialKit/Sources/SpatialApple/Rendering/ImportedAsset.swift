@@ -8,6 +8,49 @@ import simd
 import UIKit
 #endif
 
+/// Authored selection volumes in an extracted part's local coordinates, before its scene transform.
+public struct ImportedAssetSelectionBox: Codable, Sendable, Equatable {
+    public var center: Vec3
+    public var size: Vec3
+
+    public init(center: Vec3, size: Vec3) {
+        self.center = center
+        self.size = size
+    }
+}
+
+public enum ImportedAssetSelection: Codable, Sendable, Equatable {
+    case none
+    case boxes([ImportedAssetSelectionBox])
+
+    private enum CodingKeys: String, CodingKey { case kind, boxes }
+    private enum Kind: String, Codable { case none, boxes }
+
+    public init(from decoder: any Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        switch try values.decode(Kind.self, forKey: .kind) {
+        case .none:
+            guard !values.contains(.boxes) else {
+                throw DecodingError.dataCorruptedError(forKey: .boxes, in: values,
+                    debugDescription: "Disabled selection cannot contain boxes")
+            }
+            self = .none
+        case .boxes:
+            self = .boxes(try values.decode([ImportedAssetSelectionBox].self, forKey: .boxes))
+        }
+    }
+
+    public func encode(to encoder: any Encoder) throws {
+        var values = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .none: try values.encode(Kind.none, forKey: .kind)
+        case .boxes(let boxes):
+            try values.encode(Kind.boxes, forKey: .kind)
+            try values.encode(boxes, forKey: .boxes)
+        }
+    }
+}
+
 /// App-approved metadata. This is supplied by the host, never by scene/model JSON.
 public struct ImportedAssetPart: Codable, Sendable, Equatable {
     public var partID: String
@@ -17,13 +60,16 @@ public struct ImportedAssetPart: Codable, Sendable, Equatable {
     /// Exact, unique authored entity name; nil denotes the hierarchy left after extracting named parts.
     public var entityName: String?
     public var triangleCount: Int
+    /// Absent preserves the named-part bounding-box default; explicit policies override it.
+    public var selection: ImportedAssetSelection?
 
     public init(partID: String, name: String, entityName: String?, triangleCount: Int,
-                role: String? = nil, description: String? = nil) {
+                role: String? = nil, description: String? = nil, selection: ImportedAssetSelection? = nil) {
         self.partID = partID
         self.name = name
         self.role = role
         self.description = description
+        self.selection = selection
         self.entityName = entityName
         self.triangleCount = triangleCount
     }
@@ -212,6 +258,15 @@ final class ImportedAssetCatalog {
         }
     }
 
+    /// A candidate may need an unused cached asset alongside a new download.
+    /// Lease all such assets before any suspension can evict one of them.
+    func leaseCachedAsset(_ assetID: String) -> Bool {
+        guard assets[assetID] != nil else { return false }
+        stagedReferenceCounts[assetID, default: 0] += 1
+        touch(assetID)
+        return true
+    }
+
     func finishPreparing(_ assetID: String) {
         let remaining = stagedReferenceCounts[assetID, default: 0] - 1
         if remaining > 0 { stagedReferenceCounts[assetID] = remaining }
@@ -356,6 +411,20 @@ final class ImportedAssetCatalog {
               descriptor.name.map({ !$0.isEmpty && $0.utf8.count <= 256 }) ?? true,
               (descriptor.description?.utf8.count ?? 0) <= 4096
         else { throw ImportedAssetError.invalidDescriptor("part identities") }
+        var selectionShapeCount = 0
+        for part in descriptor.parts {
+            switch part.selection {
+            case nil: selectionShapeCount += part.entityName == nil ? 0 : 1
+            case .none?: break
+            case .boxes(let boxes)?:
+                guard (1...64).contains(boxes.count), boxes.allSatisfy({ box in
+                    [box.center.x, box.center.y, box.center.z].allSatisfy { $0.isFinite && abs($0) <= 1_000 }
+                        && [box.size.x, box.size.y, box.size.z].allSatisfy { $0.isFinite && $0 > 0 && $0 <= 1_000 }
+                }) else { throw ImportedAssetError.invalidDescriptor("selection boxes") }
+                selectionShapeCount += boxes.count
+            }
+        }
+        guard selectionShapeCount <= 128 else { throw ImportedAssetError.budgetExceeded("selection shapes") }
     }
 
     static func descendants(_ root: Entity) -> [Entity] {

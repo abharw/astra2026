@@ -137,6 +137,33 @@ public final class SceneRenderer {
         importedAssets.finishPreparing(assetID)
     }
 
+    /// Decode only newly referenced, host-approved packages. Leases stay pinned
+    /// across suspension until the caller either commits or rejects the patch.
+    func prepareImportedResources(for document: SceneDocument,
+                                  approved: [String: ImportedAssetDescriptor], cacheDirectory: URL?,
+                                  didPrepare: (String) -> Void,
+                                  progress: @escaping @MainActor (ImportedAssetLoadPhase) -> Void) async throws {
+        let requiredIDs = Set(document.geometryDefinitions.compactMap { definition -> String? in
+            guard case let .importedAsset(assetID, _) = definition.recipe else { return nil }
+            return assetID
+        })
+        // This first pass is synchronous: no required cached prototype can be
+        // evicted while another resource is downloaded or decoded below.
+        let missingIDs = requiredIDs.sorted().filter { assetID in
+            if importedAssets.leaseCachedAsset(assetID) {
+                didPrepare(assetID)
+                return false
+            }
+            return true
+        }
+        for assetID in missingIDs {
+            guard let descriptor = approved[assetID] else { throw ImportedAssetError.unknownReference(assetID) }
+            _ = try await importedAssets.prepare(descriptor, cacheDirectory: cacheDirectory,
+                replacingScene: true, progress: progress)
+            didPrepare(assetID)
+        }
+    }
+
     func prepareImportedAsset(_ descriptor: ImportedAssetDescriptor, rootNodeID: String, scale: Double,
                               cacheDirectory: URL?, progress: @escaping @MainActor (ImportedAssetLoadPhase) -> Void)
         async throws -> (SceneDocument, ImportedAssetLoadReport) {
@@ -233,8 +260,8 @@ public final class SceneRenderer {
                 if let geometryID = node.geometryId, let part = prepared.importedParts[geometryID] {
                     let wrapper = Entity()
                     wrapper.addChild(part.prototype.clone(recursive: true))
-                    if part.descriptor.entityName != nil {
-                        installImportedBounds(on: wrapper, nodeID: node.nodeId)
+                    if part.descriptor.entityName != nil || part.descriptor.selection != nil {
+                        installImportedBounds(on: wrapper, nodeID: node.nodeId, selection: part.descriptor.selection)
                     }
                     entity = wrapper
                 } else if let geometryID = node.geometryId, let mesh = prepared.meshes[geometryID] {
@@ -285,16 +312,23 @@ public final class SceneRenderer {
         return fallback
     }
 
-    /// One box per selectable imported part; no convex hull work on the imported mesh.
-    private func installImportedBounds(on wrapper: Entity, nodeID: String) {
+    /// Authored simple proxies avoid both CAD hull work and an enclosing group blocking its contents.
+    private func installImportedBounds(on wrapper: Entity, nodeID: String, selection: ImportedAssetSelection?) {
         let bounds = wrapper.visualBounds(relativeTo: wrapper)
-        let size = simd_max(bounds.extents, SIMD3<Float>(repeating: 0.001))
+        importedBounds[nodeID] = bounds
+        let shapes: [ShapeResource]
+        switch selection {
+        case .none?: return
+        case .boxes(let boxes)?:
+            shapes = boxes.map { ShapeResource.generateBox(size: $0.size.simdFloat).offsetBy(translation: $0.center.simdFloat) }
+        case nil:
+            let size = simd_max(bounds.extents, SIMD3<Float>(repeating: 0.001))
+            shapes = [ShapeResource.generateBox(size: size).offsetBy(translation: bounds.center)]
+        }
         let proxy = Entity()
         proxy.name = "astra.imported.bounds"
-        proxy.position = bounds.center
-        proxy.components.set(CollisionComponent(shapes: [.generateBox(size: size)]))
+        proxy.components.set(CollisionComponent(shapes: shapes))
         wrapper.addChild(proxy)
-        importedBounds[nodeID] = bounds
     }
 
     /// One lazily allocated outline follows selection; its twelve edges share one mesh resource.

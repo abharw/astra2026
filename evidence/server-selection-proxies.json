@@ -1,0 +1,1158 @@
+{
+  "schema": "astra-source-selection-proxies/v1",
+  "sourceSHA256": "1d086d872ff4e795b795aed3400e5bac98fa7872bd26c84dc0877788be5ee4d2",
+  "assetID": "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "assetSHA256": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "catalog": "runtime/processed-assets/server-teaching.catalog.json",
+  "coordinates": "Prototype local coordinates: inverse(sourceRestTransform) applied to source mesh bounds.",
+  "partCount": 9,
+  "boxCount": 76,
+  "parts": [
+    {
+      "partID": "server.teaching.storage",
+      "kind": "boxes",
+      "boxCount": 24,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-02470",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.29688289761543274,
+            -0.03547143470495939
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000019386410713
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02489",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.21158289909362793,
+            -0.035471430979669094
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000019386410713
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02508",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.12628290429711342,
+            -0.035471427254378796
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112489432096481,
+            0.016000019386410713
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02527",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.040982894992339425,
+            -0.0354714235290885
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112493078806438,
+            0.016000019386410713
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02546",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.29688289761543274,
+            -0.01837143301963806
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02565",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.21158289909362793,
+            -0.018371429294347763
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02584",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.12628290429711342,
+            -0.018371425569057465
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112489432096481,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02603",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.040982894992339425,
+            -0.018371421843767166
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112493078806438,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02622",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            0.04431708937045187,
+            -0.018371418118476868
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490107305348,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02641",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.29688289761543274,
+            -0.0012714299373328686
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000020317733288
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02660",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.21158289909362793,
+            -0.0012714262120425701
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000020317733288
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02679",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.12628290429711342,
+            -0.0012714224867522717
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112489432096481,
+            0.016000020317733288
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02698",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.040982894992339425,
+            -0.0012714187614619732
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112493078806438,
+            0.016000020317733288
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02717",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            0.04431708937045187,
+            -0.0012714150361716747
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490107305348,
+            0.016000020317733288
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02736",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.29688289761543274,
+            0.015828566160053015
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000022180378437
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02755",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.21158289909362793,
+            0.01582857361063361
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000022180378437
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02774",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.12628290429711342,
+            0.01582857361063361
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112489432096481,
+            0.016000022180378437
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02793",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.040982894992339425,
+            0.01582858106121421
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112493078806438,
+            0.016000022180378437
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02812",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            0.04431708937045187,
+            0.01582858106121421
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490107305348,
+            0.016000022180378437
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02831",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.29688289761543274,
+            0.03292856551706791
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02850",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.21158289909362793,
+            0.032928572967648506
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490177154541,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02869",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.12628290429711342,
+            0.032928572967648506
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112489432096481,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02888",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            -0.040982894992339425,
+            0.0329285804182291
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112493078806438,
+            0.016000021249055862
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02907",
+          "representedObjectCount": 16,
+          "center": [
+            0.07618097681552172,
+            0.04431708937045187,
+            0.0329285804182291
+          ],
+          "size": [
+            0.12284821830689907,
+            0.08112490107305348,
+            0.016000021249055862
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.fanwall",
+      "kind": "boxes",
+      "boxCount": 6,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-02932",
+          "representedObjectCount": 36,
+          "center": [
+            0.23049331456422806,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.06339190900325775,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02983",
+          "representedObjectCount": 36,
+          "center": [
+            0.1260933130979538,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.06339189410209656,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-03034",
+          "representedObjectCount": 36,
+          "center": [
+            0.0603933222591877,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.06339190155267715,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-03085",
+          "representedObjectCount": 36,
+          "center": [
+            -0.06040667463093996,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.063391899690032,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-03136",
+          "representedObjectCount": 36,
+          "center": [
+            -0.12610669061541557,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.06339190155267715,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-03187",
+          "representedObjectCount": 36,
+          "center": [
+            -0.23050669580698013,
+            0.01994553953409195,
+            0.0002018604427576065
+          ],
+          "size": [
+            0.06339190900325775,
+            0.23976998031139374,
+            0.08798431232571602
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.processors",
+      "kind": "boxes",
+      "boxCount": 2,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-00982",
+          "representedObjectCount": 97,
+          "center": [
+            -0.0817599967122078,
+            0.0,
+            5.071423947811127e-05
+          ],
+          "size": [
+            0.10999999940395355,
+            0.15000000596046448,
+            0.04931250959634781
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-01161",
+          "representedObjectCount": 97,
+          "center": [
+            0.0817599967122078,
+            0.0,
+            5.071423947811127e-05
+          ],
+          "size": [
+            0.10999999940395355,
+            0.15000000596046448,
+            0.04931250959634781
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.heatsinks",
+      "kind": "boxes",
+      "boxCount": 2,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-03418",
+          "representedObjectCount": 69,
+          "center": [
+            -0.08175999857485294,
+            -1.862645149230957e-09,
+            -3.28943133354187e-06
+          ],
+          "size": [
+            0.09100000187754631,
+            0.10000000521540642,
+            0.06800000369548798
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-03505",
+          "representedObjectCount": 69,
+          "center": [
+            0.08176000230014324,
+            -1.862645149230957e-09,
+            -3.28943133354187e-06
+          ],
+          "size": [
+            0.09099999442696571,
+            0.10000000521540642,
+            0.06800000369548798
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.network",
+      "kind": "boxes",
+      "boxCount": 1,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-01807",
+          "representedObjectCount": 2,
+          "center": [
+            -9.993091225624084e-06,
+            0.00017714500427246094,
+            -0.0026754760183393955
+          ],
+          "size": [
+            0.06799999997019768,
+            0.11640000343322754,
+            0.0143191022798419
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.power",
+      "kind": "boxes",
+      "boxCount": 9,
+      "clusters": [
+        {
+          "sourceRootID": "server.cad.node-09930",
+          "representedObjectCount": 1,
+          "center": [
+            0.07550835609436035,
+            0.27845701575279236,
+            0.003940007649362087
+          ],
+          "size": [
+            0.05500000715255737,
+            0.04460000991821289,
+            0.029700009152293205
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-00927",
+          "representedObjectCount": 1,
+          "center": [
+            -0.09378165006637573,
+            -0.10096299648284912,
+            -0.014810007531195879
+          ],
+          "size": [
+            0.015469998121261597,
+            0.02250000834465027,
+            0.004500000737607479
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-00929",
+          "representedObjectCount": 1,
+          "center": [
+            -0.04229164123535156,
+            -0.10096299648284912,
+            -0.014810007531195879
+          ],
+          "size": [
+            0.015470005571842194,
+            0.02250000834465027,
+            0.004500000737607479
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-00930",
+          "representedObjectCount": 1,
+          "center": [
+            0.0697383563965559,
+            -0.10096299648284912,
+            -0.014810007531195879
+          ],
+          "size": [
+            0.015470001846551895,
+            0.02250000834465027,
+            0.004500000737607479
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-00932",
+          "representedObjectCount": 1,
+          "center": [
+            0.12122835218906403,
+            -0.10096299648284912,
+            -0.014810007531195879
+          ],
+          "size": [
+            0.015469998121261597,
+            0.02250000834465027,
+            0.004500000737607479
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02121",
+          "representedObjectCount": 2,
+          "center": [
+            0.09705567359924316,
+            -0.08355298638343811,
+            -0.0019600065425038338
+          ],
+          "size": [
+            0.07999998331069946,
+            0.07580000162124634,
+            0.04426000453531742
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02124",
+          "representedObjectCount": 2,
+          "center": [
+            -0.06975436210632324,
+            -0.08363297581672668,
+            -0.0019600065425038338
+          ],
+          "size": [
+            0.07999998331069946,
+            0.07580000162124634,
+            0.04426000453531742
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02136",
+          "representedObjectCount": 2,
+          "center": [
+            -0.06230175495147705,
+            -0.27788200974464417,
+            4.983041435480118e-06
+          ],
+          "size": [
+            0.07999998331069946,
+            0.04575002193450928,
+            0.02513000089675188
+          ]
+        },
+        {
+          "sourceRootID": "server.cad.node-02139",
+          "representedObjectCount": 2,
+          "center": [
+            0.08956825733184814,
+            -0.27788200974464417,
+            4.983041435480118e-06
+          ],
+          "size": [
+            0.07999998331069946,
+            0.04575002193450928,
+            0.02513000089675188
+          ]
+        }
+      ]
+    },
+    {
+      "partID": "server.teaching.chassis",
+      "kind": "none",
+      "boxCount": 0
+    },
+    {
+      "partID": "server.teaching.motherboard",
+      "kind": "none",
+      "boxCount": 0
+    },
+    {
+      "partID": "server.teaching.memory",
+      "kind": "boxes",
+      "boxCount": 32,
+      "clusters": [
+        {
+          "sourceRootID": "server.memory.module.01",
+          "representedObjectCount": 38,
+          "center": [
+            -0.1592995747923851,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.02",
+          "representedObjectCount": 38,
+          "center": [
+            -0.1592995747923851,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.03",
+          "representedObjectCount": 38,
+          "center": [
+            -0.15064958482980728,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.04",
+          "representedObjectCount": 38,
+          "center": [
+            -0.15064958482980728,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.05",
+          "representedObjectCount": 38,
+          "center": [
+            -0.14199957996606827,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.06",
+          "representedObjectCount": 38,
+          "center": [
+            -0.14199957996606827,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.07",
+          "representedObjectCount": 38,
+          "center": [
+            -0.13334957510232925,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.08",
+          "representedObjectCount": 38,
+          "center": [
+            -0.13334957510232925,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004154995083808899,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.09",
+          "representedObjectCount": 38,
+          "center": [
+            -0.03014957346022129,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155006259679794,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.10",
+          "representedObjectCount": 38,
+          "center": [
+            -0.03014957346022129,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155006259679794,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.11",
+          "representedObjectCount": 38,
+          "center": [
+            -0.02149957697838545,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.0041550081223249435,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.12",
+          "representedObjectCount": 38,
+          "center": [
+            -0.02149957697838545,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.0041550081223249435,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.13",
+          "representedObjectCount": 38,
+          "center": [
+            -0.012849579565227032,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.0041550081223249435,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.14",
+          "representedObjectCount": 38,
+          "center": [
+            -0.012849579565227032,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.0041550081223249435,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.15",
+          "representedObjectCount": 38,
+          "center": [
+            -0.004199574585072696,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155007423833013,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.16",
+          "representedObjectCount": 38,
+          "center": [
+            -0.004199574585072696,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155007423833013,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.17",
+          "representedObjectCount": 38,
+          "center": [
+            0.004220421309582889,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155003698542714,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.18",
+          "representedObjectCount": 38,
+          "center": [
+            0.004220421309582889,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155003698542714,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.19",
+          "representedObjectCount": 38,
+          "center": [
+            0.012870422564446926,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.20",
+          "representedObjectCount": 38,
+          "center": [
+            0.012870422564446926,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.21",
+          "representedObjectCount": 38,
+          "center": [
+            0.021520419977605343,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.22",
+          "representedObjectCount": 38,
+          "center": [
+            0.021520419977605343,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.23",
+          "representedObjectCount": 38,
+          "center": [
+            0.030170421116054058,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.24",
+          "representedObjectCount": 38,
+          "center": [
+            0.030170421116054058,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155004397034645,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.25",
+          "representedObjectCount": 38,
+          "center": [
+            0.13337041437625885,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.26",
+          "representedObjectCount": 38,
+          "center": [
+            0.13337041437625885,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.27",
+          "representedObjectCount": 38,
+          "center": [
+            0.14202041923999786,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.28",
+          "representedObjectCount": 38,
+          "center": [
+            0.14202041923999786,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.29",
+          "representedObjectCount": 38,
+          "center": [
+            0.15067042410373688,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.30",
+          "representedObjectCount": 38,
+          "center": [
+            0.15067042410373688,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.31",
+          "representedObjectCount": 38,
+          "center": [
+            0.1593204289674759,
+            -0.0780000127851963,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        },
+        {
+          "sourceRootID": "server.memory.module.32",
+          "representedObjectCount": 38,
+          "center": [
+            0.1593204289674759,
+            0.07799998298287392,
+            0.0
+          ],
+          "size": [
+            0.004155009984970093,
+            0.13335000723600388,
+            0.03125
+          ]
+        }
+      ]
+    }
+  ],
+  "geometryModified": false,
+  "nativeSelectionVerified": false,
+  "sourceSpaceRayChecks": [
+    {
+      "processorSourceRootID": "server.cad.node-00982",
+      "worldSourceCenter": [
+        -0.14363999664783478,
+        0.34432998312493557,
+        0.024256261596012834
+      ],
+      "memoryClustersOnVerticalRay": []
+    },
+    {
+      "processorSourceRootID": "server.cad.node-01161",
+      "worldSourceCenter": [
+        0.01987999677658081,
+        0.34432998312493557,
+        0.024256261596012834
+      ],
+      "memoryClustersOnVerticalRay": []
+    }
+  ],
+  "sourceSpaceRayCheckExplanation": "Vertical source-Z rays through the two processor cluster centers intersect no memory proxy. This is a geometry check, not a RealityKit camera-ray or finger-tracking acceptance."
+}

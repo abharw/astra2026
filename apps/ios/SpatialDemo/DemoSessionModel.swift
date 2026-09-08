@@ -153,6 +153,8 @@ final class DemoSessionModel {
             case "thinking", "awaiting response": return .thinking
             case "generating", "repairing_proposal": return .generating
             case "awaiting_installation", "installing": return .constructing
+            case "downloading_asset": return .downloading
+            case "loading_asset": return .loadingAsset
             case "processing": return .processing
             default: return .processing
             }
@@ -212,18 +214,8 @@ final class DemoSessionModel {
                 }
             }
             do {
-                guard let catalogURL = Bundle.main.url(forResource: "app-catalog", withExtension: "json") else {
-                    throw ImportedAssetError.invalidDescriptor("the source catalog is not bundled")
-                }
-                var descriptor = try JSONDecoder().decode(ImportedAssetDescriptor.self, from: Data(contentsOf: catalogURL))
-                // Bundle resolution is a host concern; the SDK receives an approved file or network URL.
-                if descriptor.sourceURL.scheme == "bundle" {
-                    let name = descriptor.sourceURL.deletingPathExtension().lastPathComponent
-                    guard let file = Bundle.main.url(forResource: name, withExtension: "usdz") else {
-                        throw ImportedAssetError.invalidDescriptor("the approved asset is not bundled")
-                    }
-                    descriptor.sourceURL = file
-                }
+                let descriptor = try DemoAssetLibrary.descriptor(named: "app-catalog")
+                try DemoAssetLibrary.registerDetails(on: self.controller)
                 let report = try await self.controller.loadImportedAsset(
                     descriptor, rootNodeID: "rack01", scale: 0.6 / 2.21,
                     progress: { [weak self] phase in

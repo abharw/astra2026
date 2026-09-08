@@ -1,0 +1,543 @@
+{
+  "applicationIntegrated": false,
+  "assetFile": "runtime/processed-assets/server-teaching.usdz",
+  "byteCount": 8226964,
+  "catalogFile": "runtime/processed-assets/server-teaching.catalog.json",
+  "compactVsUnindexedNativeComparison": {
+    "groups": [
+      {
+        "entityName": "detail_storage",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 2,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_fanwall",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 1,
+        "normalMaximumComponentDelta": 1.965649425983429e-05,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_processors",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 4,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_heatsinks",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 2,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_network",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 1,
+        "normalMaximumComponentDelta": 1.56028509081807e-05,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_power",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 2,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_chassis",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 3,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_motherboard",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 17,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      },
+      {
+        "entityName": "detail_memory",
+        "localTransformsEqual": true,
+        "materialIndexMappingsEqual": true,
+        "nativeMeshPartCount": 3,
+        "normalMaximumComponentDelta": 0,
+        "pbrSlotValuesEqual": true,
+        "triangleCornerPositionsExactlyEqual": true
+      }
+    ],
+    "normalMaximumComponentTolerance": 5e-05,
+    "note": "Fanwall and network are reindexed by the native importer. Compare triangle-corner values, not raw vertex-buffer ordering. Positions match exactly; maximum corner-normal component difference is below 2e-5. Other groups match raw native buffers exactly.",
+    "referenceFile": "runtime/processed-assets/server-teaching-unindexed.usdz",
+    "referenceSHA256": "faff905149f108528b35a05385ef167cf12a7e43641646a8fb46a9b1c423fd19",
+    "status": "passed_with_normal_tolerance"
+  },
+  "coordinateContract": "Standalone loader preserves RealityKit Z-up conversion. Before attaching beneath a server wrapper that already has that rotation, use inverse(sourceToRealityKitRotation) * importedPartWorld as the child local transform; preserve the server wrapper transform.",
+  "finalProxyNativeValidation": {
+    "catalogSHA256": "22a40dd3c053a58a2d3da127a9970730c5c025648cac806e84995b5d350f2d90",
+    "collisionComponents": 7,
+    "collisionShapes": 76,
+    "coordinateContract": "Standalone loader preserves RealityKit Z-up conversion. Before attaching beneath a server wrapper that already has that rotation, use inverse(sourceToRealityKitRotation) * importedPartWorld as the child local transform; preserve the server wrapper transform.",
+    "measuredAt": "2026-09-08T21:04:34Z",
+    "nativeGroupTransformAndBoundsChecks": "passed",
+    "scope": "Native metadata validation and compound-shape installation only; no screen-space picking or physical-device hand gesture acceptance.",
+    "shapesByPart": {
+      "server.teaching.chassis": 0,
+      "server.teaching.fanwall": 6,
+      "server.teaching.heatsinks": 2,
+      "server.teaching.memory": 32,
+      "server.teaching.motherboard": 0,
+      "server.teaching.network": 1,
+      "server.teaching.power": 9,
+      "server.teaching.processors": 2,
+      "server.teaching.storage": 24
+    },
+    "sourceBoundsEvidence": "evidence/server-selection-proxies.json",
+    "status": "passed"
+  },
+  "limitations": [
+    "This gate does not integrate detail loading into the live tool or existing server hierarchy.",
+    "No rendered pixels or physical iPhone/iPad performance were measured.",
+    "Source representation is mixed: CAD-derived groups, reconstructed motherboard appearance, and supported-class RDIMM analogues; no removable cover exists.",
+    "Fanwall/network retain one steel material each. Matching the compact and unindexed exports does not establish full source CAD appearance.",
+    "Storage and power exceed requested optimization targets; measured costs are accurately declared.",
+    "Final compound colliders are installed and counted natively; actual screen-space picking and hand pointing have not been validated in this gate."
+  ],
+  "measuredAt": "2026-09-08T20:56:33Z",
+  "nativeEntityCount": 18,
+  "nativeInstallationSeconds": 0.00107575,
+  "nativeModelCount": 9,
+  "nativePreparationCacheState": "Measured after direct loading of the same package in this process; not a cold-load benchmark.",
+  "nativePreparationSeconds": 0.279370958,
+  "nativeTriangleCount": 381897,
+  "partBindingsCoverAllNativeModels": true,
+  "partBindingsHaveNoSharedDescendants": true,
+  "parts": [
+    {
+      "colliderCount": 1,
+      "entityName": "detail_storage",
+      "materialSlotCount": 2,
+      "nativeBoundsMaximumDeltaMeters": 4.470348358154297e-08,
+      "nativeMeshPartCount": 2,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 95853,
+      "partID": "server.teaching.storage",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        0.11180491000413895,
+        0.34874531626701355,
+        0.04647142067551613
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.2689591348171234,
+          0.09824521839618683,
+          0.044470012187957764
+        ],
+        "minimum": [
+          -0.04472074657678604,
+          -0.003573678433895111,
+          -0.7369296550750732
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_fanwall",
+      "materialSlotCount": 1,
+      "nativeBoundsMaximumDeltaMeters": 5.960464477539063e-08,
+      "nativeMeshPartCount": 1,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 29999,
+      "partID": "server.teaching.fanwall",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        1.6776649545136024e-06,
+        0.7489393949508667,
+        0.044606003910303116
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.26260924339294434,
+          0.08850645273923874,
+          -0.6092918515205383
+        ],
+        "minimum": [
+          -0.26261791586875916,
+          0.0006552077829837799,
+          -0.8887124061584473
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_processors",
+      "materialSlotCount": 4,
+      "nativeBoundsMaximumDeltaMeters": 7.450580596923828e-09,
+      "nativeMeshPartCount": 4,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 30000,
+      "partID": "server.teaching.processors",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.061879999935626984,
+        0.34432995319366455,
+        0.024205539375543594
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.07487999647855759,
+          0.048913463950157166,
+          -0.2693299651145935
+        ],
+        "minimum": [
+          -0.19863998889923096,
+          -0.0005014128983020782,
+          -0.4193299412727356
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_heatsinks",
+      "materialSlotCount": 2,
+      "nativeBoundsMaximumDeltaMeters": 3.725290298461914e-09,
+      "nativeMeshPartCount": 2,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 25000,
+      "partID": "server.teaching.heatsinks",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.061879999935626984,
+        0.34432998299598694,
+        0.05373629927635193
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.06527367979288101,
+          0.0877688080072403,
+          -0.2945605516433716
+        ],
+        "minimum": [
+          -0.1890355348587036,
+          0.01973302662372589,
+          -0.3940747082233429
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_network",
+      "materialSlotCount": 1,
+      "nativeBoundsMaximumDeltaMeters": 5.587935447692871e-09,
+      "nativeMeshPartCount": 1,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 11491,
+      "partID": "server.teaching.network",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.014360003173351288,
+        0.05438785254955292,
+        0.022145923227071762
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.02408657968044281,
+          0.03901001065969467,
+          0.0036350004374980927
+        ],
+        "minimum": [
+          -0.052806586027145386,
+          0.0052818413823843,
+          -0.11241070926189423
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_power",
+      "materialSlotCount": 2,
+      "nativeBoundsMaximumDeltaMeters": 3.3527612686157227e-08,
+      "nativeMeshPartCount": 2,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 64555,
+      "partID": "server.teaching.power",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.07550835609436035,
+        0.5205929279327393,
+        0.027560018002986908
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.06154733896255493,
+          0.051217831671237946,
+          -0.2277461588382721
+        ],
+        "minimum": [
+          -0.20558935403823853,
+          0.005187775939702988,
+          -0.8105869293212891
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_chassis",
+      "materialSlotCount": 3,
+      "nativeBoundsMaximumDeltaMeters": 5.960464477539063e-08,
+      "nativeMeshPartCount": 3,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 34999,
+      "partID": "server.teaching.chassis",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        0.00019804295152425766,
+        0.38392794132232666,
+        0.045978203415870667
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.27306655049324036,
+          0.09205009788274765,
+          0.039855509996414185
+        ],
+        "minimum": [
+          -0.27267009019851685,
+          -0.00013146176934242249,
+          -0.808046281337738
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_motherboard",
+      "materialSlotCount": 17,
+      "nativeBoundsMaximumDeltaMeters": 3.166496753692627e-08,
+      "nativeMeshPartCount": 17,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 55000,
+      "partID": "server.teaching.motherboard",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.06290056556463242,
+        0.2827397584915161,
+        0.023137880489230156
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.10184865444898605,
+          0.041545964777469635,
+          0.001522839069366455
+        ],
+        "minimum": [
+          -0.22762668132781982,
+          0.004733843728899956,
+          -0.5670099258422852
+        ]
+      }
+    },
+    {
+      "colliderCount": 1,
+      "entityName": "detail_memory",
+      "materialSlotCount": 3,
+      "nativeBoundsMaximumDeltaMeters": 1.862645149230957e-08,
+      "nativeMeshPartCount": 3,
+      "nativeModelCount": 1,
+      "nativeTransformMaximumDelta": 1.1920927533992653e-07,
+      "nativeTriangles": 35000,
+      "partID": "server.teaching.memory",
+      "sourceSpaceChildRotationQuaternion": [
+        5.104751110707184e-08,
+        0,
+        0,
+        1
+      ],
+      "sourceSpaceChildTranslationMeters": [
+        -0.06121791899204254,
+        0.34432998299598694,
+        0.028374992311000824
+      ],
+      "worldBoundsMeters": {
+        "maximum": [
+          0.10015298426151276,
+          0.044000044465065,
+          -0.19965499639511108
+        ],
+        "minimum": [
+          -0.2226000726222992,
+          0.012749994173645973,
+          -0.4890049695968628
+        ]
+      }
+    }
+  ],
+  "platform": "Version 26.5.2 (Build 25F84)",
+  "probeFiles": [
+    "packages/SpatialKit/Tests/SpatialAppleTests/ImportedAssetTests.swift",
+    "runtime/asset-probes/inspect-server-teaching.py",
+    "runtime/asset-probes/compare-detail-meshes.swift"
+  ],
+  "reproduce": "ASTRA_TEST_DETAIL_CATALOG=$PWD/runtime/processed-assets/server-teaching.catalog.json ASTRA_TEST_DETAIL_EVIDENCE=/tmp/server-detail-native-controller.json swift test --package-path packages/SpatialKit --filter serverDetailNativeExtraction",
+  "requestedBudgetMisses": [
+    {
+      "actualTriangles": 95853,
+      "partID": "server.teaching.storage",
+      "requestedTriangles": 45000
+    },
+    {
+      "actualTriangles": 64555,
+      "partID": "server.teaching.power",
+      "requestedTriangles": 25000
+    }
+  ],
+  "sceneNodeCount": 10,
+  "schema": "astra-server-detail-native-gate/v1",
+  "scope": "Independent macOS USD structure, native RealityKit buffers/materials, and standalone SceneController extraction. No rendered pixels, ARView, physical-device performance, or app/tool subtree integration.",
+  "selectionPolicyImplementation": {
+    "authoredNineGroupProxyDataAtMeasurement": "Final source-derived catalog validated and installed; see finalProxyNativeValidation.",
+    "coordinates": "Extracted prototype-local coordinates, before the accepted scene transform.",
+    "maximumBoxesPerPart": 64,
+    "maximumShapesPerCatalog": 128,
+    "nativeFixture": "Two offset box shapes share one CollisionComponent; disabled parts have no collider but can still display selection highlighting.",
+    "numericLimits": "Finite centers with absolute components <=1000 meters; finite positive size components <=1000 meters.",
+    "schema": {
+      "compoundBoxes": {
+        "boxes": [
+          {
+            "center": [
+              0,
+              0,
+              0
+            ],
+            "size": [
+              0.1,
+              0.1,
+              0.1
+            ]
+          }
+        ],
+        "kind": "boxes"
+      },
+      "disabled": {
+        "kind": "none"
+      }
+    },
+    "status": "implemented_and_native_fixture_tested"
+  },
+  "selectionProxyReadiness": {
+    "enclosures": [
+      {
+        "enclosedGroup": "server.teaching.heatsinks",
+        "enclosingGroup": "server.teaching.chassis"
+      },
+      {
+        "enclosedGroup": "server.teaching.network",
+        "enclosingGroup": "server.teaching.chassis"
+      },
+      {
+        "enclosedGroup": "server.teaching.motherboard",
+        "enclosingGroup": "server.teaching.chassis"
+      },
+      {
+        "enclosedGroup": "server.teaching.memory",
+        "enclosingGroup": "server.teaching.chassis"
+      }
+    ],
+    "measuredPolicy": "Initial structural gate used whole-group boxes; the final native gate installs76 source-derived local boxes in7CollisionComponents and no chassis/motherboard collider.",
+    "note": "Original enclosure findings are retained below as the reason for the policy change. They do not describe final compound colliders.",
+    "status": "whole-group enclosure addressed by source-derived proxy policy; screen-space/device picking remains unmeasured"
+  },
+  "semanticPartCount": 9,
+  "sha256": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "status": "passed",
+  "toolIntegrated": false,
+  "usdStage": {
+    "completeNonOverlappingMaterialFaceCoverage": true,
+    "defaultPrim": "/ServerTeaching",
+    "materialBindingNote": "Fanwall and network use a direct whole-mesh material binding; no subsets are required for complete coverage.",
+    "materialCount": 24,
+    "materialSubsetCount": 33,
+    "maximumBoundsDeltaMeters": 2.9802322387695312e-08,
+    "maximumSourceRestTranslationDeltaMeters": 2.5467727371442095e-08,
+    "meshCount": 9,
+    "meshOwnershipOverlaps": {},
+    "metersPerUnit": 1.0,
+    "overlappingBlenderObjects": {},
+    "overlappingSourcePartIDs": {},
+    "primCount": 101,
+    "sourceBlenderObjectAssignments": 4650,
+    "sourceUniqueBlenderObjects": 4650,
+    "unownedMeshes": [],
+    "upAxis": "Z"
+  }
+}

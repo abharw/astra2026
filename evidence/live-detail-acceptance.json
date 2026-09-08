@@ -1,0 +1,289 @@
+{
+  "schema": "astra-live-detail-acceptance/v1",
+  "date": "2026-09-08",
+  "surface": "iPhone17Pro iOS26.5 Simulator, production app, non-AR RealityKit",
+  "providers": [
+    "gpt-realtime-2.1",
+    "gpt-6-astra"
+  ],
+  "overviewAssetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+  "detailAssetID": "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "turns": [
+    {
+      "requestID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "request": "Move server9 out and open its available internal assemblies without scattering them. Explain main systems.",
+      "result": "Installed revision1;20\u219229nodes; selected parentpreserved,9authored childgroups loaded. Visually observed.",
+      "typedToInstalledSeconds": 10.085,
+      "typedToFinalSeconds": 11.968,
+      "nativePreparationAndInstallSeconds": 0.375,
+      "screenshot": "evidence/simulator-live-detail-expansion.png"
+    },
+    {
+      "requestID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "request": "Lift just the heatsinks and add a cyan arrow showing heat path; keep other groups in place.",
+      "result": "Installed revision2;30nodes; scoped heatsink movement plus generated arrow. Visually observed.",
+      "typedToInstalledSeconds": 11.652,
+      "typedToFinalSeconds": 12.819,
+      "nativePreparationAndInstallSeconds": 1.544,
+      "screenshot": "evidence/simulator-live-detail-followup.png"
+    }
+  ],
+  "events": [
+    {
+      "timestamp": "2026-09-08T21:04:06.692Z",
+      "event": "typed_turn_sent",
+      "component": "realtime.session",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "generation": "4",
+        "input_length": "150",
+        "target_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:08.084Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "thinking"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:11.472Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "generating"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.393Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "processing"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.402Z",
+      "event": "native.prepare_started",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b:patch",
+      "fields": {
+        "intent_epoch": "1",
+        "revision": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.771Z",
+      "event": "native.prepare_finished",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b:patch",
+      "fields": {
+        "node_count": "29"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.777Z",
+      "event": "native.installed",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b:patch",
+      "fields": {
+        "node_count": "29",
+        "revision": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.780Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "awaiting_installation"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.784Z",
+      "event": "tool.finished",
+      "component": "app",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "revision": "1",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:04:18.660Z",
+      "event": "final_response_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "fields": {
+        "assistant_length": "569",
+        "generation": "4",
+        "source": "typed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:41.267Z",
+      "event": "typed_turn_sent",
+      "component": "realtime.session",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "generation": "6",
+        "input_length": "165",
+        "target_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:42.542Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "thinking"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:44.705Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "generating"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:51.367Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "processing"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:51.375Z",
+      "event": "native.prepare_started",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e:patch",
+      "fields": {
+        "intent_epoch": "2",
+        "revision": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:52.914Z",
+      "event": "native.prepare_finished",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e:patch",
+      "fields": {
+        "node_count": "30"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:52.919Z",
+      "event": "native.installed",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e:patch",
+      "fields": {
+        "node_count": "30",
+        "revision": "2"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:52.923Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "awaiting_installation"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:52.927Z",
+      "event": "tool.finished",
+      "component": "app",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "revision": "2",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T21:05:54.086Z",
+      "event": "final_response_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "fields": {
+        "assistant_length": "331",
+        "generation": "6",
+        "source": "typed"
+      }
+    }
+  ],
+  "providerMetrics": [
+    {
+      "timestamp": "2026-09-08T21:04:08.084Z",
+      "component": "astra",
+      "event": "fetch_start",
+      "level": "info",
+      "requestId": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "inputBytes": 19103,
+      "sceneBytes": 20161,
+      "historyTurns": 0
+    },
+    {
+      "timestamp": "2026-09-08T21:04:16.391Z",
+      "component": "astra",
+      "event": "response_completed",
+      "level": "info",
+      "requestId": "turn_388ddafe-a257-43d8-a2cf-25365ac37f0b",
+      "durationMs": 8309,
+      "inputTokens": 8780,
+      "outputTokens": 229,
+      "cachedInputTokens": 0,
+      "cacheWriteTokens": 2663,
+      "reasoningTokens": 0
+    },
+    {
+      "timestamp": "2026-09-08T21:05:42.543Z",
+      "component": "astra",
+      "event": "fetch_start",
+      "level": "info",
+      "requestId": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "inputBytes": 27275,
+      "sceneBytes": 29300,
+      "historyTurns": 1
+    },
+    {
+      "timestamp": "2026-09-08T21:05:51.363Z",
+      "component": "astra",
+      "event": "response_completed",
+      "level": "info",
+      "requestId": "turn_fe692f2c-6d44-4e82-9f0e-62a04d3ee87e",
+      "durationMs": 8821,
+      "inputTokens": 11351,
+      "outputTokens": 358,
+      "cachedInputTokens": 2663,
+      "cacheWriteTokens": 0,
+      "reasoningTokens": 0
+    }
+  ],
+  "limitations": [
+    "Typed input; physical microphone, AR frame rate and hand picking not established.",
+    "Simulator build used default detail bounding-box selection; improved76-box metadata subsequently passed independent native gate.",
+    "Preparation timings include native install; single observations, not controlled benchmarks.",
+    "Later cache-lease/cancellation/reference-context hardening has separate deterministic tests."
+  ]
+}

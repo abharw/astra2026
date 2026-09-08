@@ -15,7 +15,7 @@ let package = Package(
         .target(name: "SpatialCore"),
         .target(name: "SpatialApple", dependencies: ["SpatialCore"], exclude: ["REFERENCES.md"], linkerSettings: [.linkedLibrary("sqlite3")]),
         .testTarget(name: "SpatialCoreTests", dependencies: ["SpatialCore"]),
-        .testTarget(name: "SpatialAppleTests", dependencies: ["SpatialApple", "SpatialCore"]),
+        .testTarget(name: "SpatialAppleTests", dependencies: ["SpatialApple", "SpatialCore"], resources: [.copy("Resources")]),
         .testTarget(name: "PointingTests", dependencies: ["SpatialApple", "SpatialCore"]),
         .testTarget(name: "StorageTests", dependencies: ["SpatialApple", "SpatialCore"]),
     ],

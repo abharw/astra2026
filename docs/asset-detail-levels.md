@@ -35,7 +35,7 @@ The source's detailed motherboard and memory collections are too broad for the f
 
 [export-asset-groups.py](../scripts/export-asset-groups.py) writes one pack with independently named group roots, a resource catalog, a portable semantic manifest and a source-membership index. All source object transforms are baked into the original asset-local basis; each group's geometry is centered at its own bounds and its rest translation restores the authored position. The source index retains the IDs represented by each merged group. Coalescing happens **inside** the configured manipulation boundary; it does not join the whole scene into one uneditable mesh.
 
-The source-derived server pack has been compiled and independently reopened with OpenUSD: **nine group roots, 381,897 triangles and 8,226,964 bytes**. The build took 377.16 seconds before the final storage pass. Seven groups met their configured triangle targets; storage and power exceeded theirs because Blender's collapse step could not simplify the remaining topology sufficiently. See [the build receipt](../evidence/server-detail-processing.json). Native selected-instance detail installation remains separate acceptance work.
+The source-derived server pack has been compiled and independently reopened with OpenUSD: **nine group roots, 381,897 triangles and 8,226,964 bytes**. The build took 377.16 seconds before the final storage pass. Seven groups met their configured triangle targets; storage and power exceeded theirs because Blender's collapse step could not simplify the remaining topology sufficiently. See [the build receipt](../evidence/server-detail-processing.json). Native selected-instance detail installation is now covered by the macOS controller probe; physical-device performance and interaction remain unverified.
 
 A format-only pass indexes repeated normal values, reducing the compiled pack from 17,178,641 to 8,226,964 bytes. It verifies identical points, topology, normal interpolation and expanded normal values before accepting the result. This lossless storage pass does not undo the earlier, explicitly approximate mesh simplification, and does not prove reduced GPU work. [asset_usd.py](../scripts/asset_usd.py) is shared format code with no rack-specific rules.
 
@@ -49,10 +49,19 @@ Run the offline compiler against the verified source binary:
 python3 scripts/export-asset-groups.py \
   --recipe examples/imported-rack/teaching-groups.json \
   --input runtime/detail-source/parts-library.blend
+python3 scripts/prepare-selection-proxies.py
 python3 scripts/check-asset-group-compiler.py
 ```
 
 Build outputs remain under ignored `runtime/processed-assets`; compact manifests and validation receipts are checked in. The compiler validates the source digest before opening Blender data and validates exported group identities and triangle totals afterward. Runtime delivery must use its approved catalog and digest rather than the compiler's local file URL.
+
+## Interaction boundaries can be smaller than a render group
+
+A single bounding box around all memory modules covers the empty processor gap. A box around the chassis covers almost every internal group. Those boxes make pointing inaccurate even if the rendered meshes and semantic hierarchy are correct.
+
+The optional selection policy is separate from rendering and meaning. It can disable selection for an enclosing group or provide several small boxes that all resolve to that group's same semantic ID. The sample recipe identifies source clusters; [prepare-selection-proxies.py](../scripts/prepare-selection-proxies.py) derives their actual represented geometry bounds in prototype-local coordinates. The script has no hardware-specific names or rules.
+
+The current sample uses 76 boxes: 24 storage carriers, six fan modules, two processor/socket assemblies, two heatsinks, one network adapter, nine power clusters and 32 memory modules. Chassis and motherboard are non-selectable through these proxies. Geometry and digest are unchanged. [Selection evidence](../evidence/server-selection-proxies.json) records every source cluster and its bounds. Native ray selection remains a separate check; proxy construction alone does not prove that a user's finger selects the intended visible part.
 
 ## Instance context and detail installation
 
@@ -78,3 +87,7 @@ The semantic manifest records the basis and each group's source rest transform. 
 - Source component identity is not live telemetry, electrical simulation, serial-number inventory or proof of installed hardware. [Source component guide](https://github.com/abharw/astra2026/blob/051c9d954292438fc8419661aa91451367961d86/datacenter-rack/docs/COMPONENT_GUIDE.md).
 
 Acceptance requires an intact-instance move with no detail resource load; a selected-instance reveal that preserves all other instances; a follow-up operation on a revealed child; restoring the parent without losing its identity; matching rendered and semantic transforms; and independent cancellation of a stale resource request. Exported bytes and unit tests alone do not establish those native behaviors.
+
+## Current implementation status
+
+The generic detail path is now implemented in the native controller and app catalog. `DemoAssetLibrary` registers host-approved templates for eligible instances and lazily matches the selected instance to a bundled detail resource. `expandDetail` preserves the target node ID, parent, current pose, visibility and unrelated instances, then installs the approved immediate children through the existing patch, receipt, Undo and cancellation fences. The passed macOS probe expands one of 18 instances from 20 to 29 nodes, adding nine children from the detail asset `sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0` (8,226,964 bytes; 381,897 triangles). This is native controller evidence, not physical-device performance or pointing acceptance. Arbitrary hierarchy bindings and lamp fixtures are covered by the generic tests; there are no fixed rack/server/processor levels.

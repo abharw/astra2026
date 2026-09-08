@@ -2,7 +2,7 @@
 
 This is the universal SwiftUI composition root for the spatial conversation demo. It targets iPhone and iPad from iOS 26.0 and consumes the local `SpatialKit` package through the two public products `SpatialCore` and `SpatialApple`.
 
-The view owns adaptive controls and permissions. `SpatialApple` owns the native scene controller and RealityKit surface. The authored rack is available offline; live scene requests and voice use the configured backend. Hand mode runs locally on the existing AR camera session and displays fingertip and stable-target feedback.
+The view owns adaptive controls and permissions. `SpatialApple` owns the native scene controller and RealityKit surface. The authored rack and approved detail packages are bundled; live scene requests and voice use the configured backend. Automatic hand detection runs locally on the existing AR camera session and displays fingertip and stable-target feedback. The composer has one persistent action that morphs from microphone to Send when text is entered.
 
 ## Build
 
@@ -18,10 +18,11 @@ xcodebuild -project AstraSpatialDemo.xcodeproj \
 
 For a development device launch, the Debug build reads `ASTRA_BACKEND_URL` and
 `ASTRA_SESSION_TOKEN` from the process environment when present. The connection
-settings sheet remains available for changing either value at runtime; release
-builds use the local URL default and never embed a token.
+settings sheet remains available for changing either value at runtime. The URL
+persists in preferences and its credential in Keychain. Physical devices require
+a configured reachable URL; they do not default to the phone's loopback address.
 
-The simulator renders a clearly labelled non-AR preview. It does not claim camera tracking or real AR. On a supported device the runtime can select the AR camera surface and must still report tracking availability at runtime.
+The simulator renders a non-AR RealityKit preview with a virtual camera. This tests layout and scene interaction, not AR tracking or Vision hand detection. Supported physical devices use the AR camera surface.
 
 ## Apple API references
 

@@ -2,6 +2,12 @@
 
 2026-09-08. These runs distinguish real provider calls, deterministic tests, and device observations. No API keys or ephemeral voice credentials are included. Local logs and device captures stay in ignored `evidence/local/`.
 
+## Generic detail expansion and live follow-up
+
+[Live detail acceptance](live-detail-acceptance.json) records two production app turns through Realtime and Astra: expand just one imported instance, then lift its heatsinks and add a generated arrow. The [expanded assembly](simulator-live-detail-expansion.png) and [child-level follow-up](simulator-live-detail-followup.png) were inspected in the iPhone simulator. Typed submission to final text took 11.968 and 12.819 seconds. These are single observations, not a speed benchmark.
+
+[Native installation](native-detail-installation.json) verifies 20→29 nodes, preserved target identity/current pose, unchanged other instances and Undo using the exact bundled packages. [Interior resource validation](server-detail-native.json) checks materials, bounds and 76 source-derived selection boxes. [Proxy evidence](server-selection-proxies.json) records their source membership and coordinate basis. Physical AR performance, microphone quality and screen-space hand selection remain separate checks.
+
 ## Real Astra → Swift reducer
 
 `tools/SceneLab` connected to the real local service, which called `gpt-6-astra`. The client used `SceneWireDecoder` and `SceneState` from the production Swift package, sent the resulting receipts, and waited for the backend explanation. It did not render, simulate AR, or measure display latency.
@@ -24,6 +30,8 @@ The app's default imported rack is the approved bundled Akeil USDZ described by 
 [The imported rack screenshot](simulator-imported-openrack.png) shows the 18-server rack in the production simulator app. This screenshot is rendering evidence, not a mobile frame-rate measurement. [Processing evidence](mobile-rack-validation.json) records derivative experiments; [processing instructions](../examples/imported-rack/PROCESSING.md) describe fidelity tradeoffs and licenses. The app intentionally defaults to the faithful bundled branch, not an automatically selected derivative.
 
 ## Unified Realtime text and voice
+
+The refined composer keeps the microphone control persistent while text is sent; [the keyboard-state capture](simulator-composer-keyboard.png) and [the refined composer capture](simulator-refined-composer.png) record this simulator UI behavior. They do not establish physical voice or gesture acceptance.
 
 [Native Realtime evidence](native-realtime-tool.json) records a real typed app turn through Realtime, Astra, a native scene installation receipt, and final Realtime text. This earlier acceptance used the procedural rack. [The provider tool smoke](realtime-tools-smoke.json) instead uses synthetic tool outputs and verifies text/audio protocol sequencing; it does not prove microphone or speaker behavior.
 

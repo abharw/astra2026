@@ -1,0 +1,390 @@
+[
+  {
+    "detailId": "barreleye-g2-evt3.teaching",
+    "name": "Internal assembly overview",
+    "description": "Source-derived major assemblies for one selected instance. Opens the joined exterior into its internal groups without scattering them. No removable cover is provided. The authored pack is a simplified CAD teaching representation; memory modules are class analogues. More detailed source CAD is not registered for runtime loading.",
+    "matches": [
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server01"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server02"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server03"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server04"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server05"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server06"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server07"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server08"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server09"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server10"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server11"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server12"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server13"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server14"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server15"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server16"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server17"
+      },
+      {
+        "assetID": "sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+        "partID": "rack01.server18"
+      }
+    ],
+    "assetID": "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+    "children": [
+      {
+        "partID": "server.teaching.storage",
+        "transform": {
+          "translation": [
+            0.11180490764495976,
+            0.3487453483965043,
+            0.046471426976997514
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Storage and drive carriers",
+          "role": "storage",
+          "description": "Drive carriers, storage backplane and expander connect the storage subsystem. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.fanwall",
+        "transform": {
+          "translation": [
+            1.6776649587602055e-06,
+            0.7489394800232388,
+            0.04460602061755076
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Cooling fan assembly",
+          "role": "fanwall",
+          "description": "Six source fan modules move air through the chassis; no airflow or RPM is simulated. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.processors",
+        "transform": {
+          "translation": [
+            -0.061879999935626984,
+            0.34432998312493557,
+            0.024205547356534723
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Processor and socket assemblies",
+          "role": "processors",
+          "description": "Two POWER9-family processor/socket/loading assemblies. U1 and U10 identify sockets, not CPU ordering codes. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.heatsinks",
+        "transform": {
+          "translation": [
+            -0.061879998072981834,
+            0.34433001259723695,
+            0.053736306153046885
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Processor heatsinks",
+          "role": "heatsinks",
+          "description": "Source Furukawa cooling assemblies conduct heat from the processor modules to passing air. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.network",
+        "transform": {
+          "translation": [
+            -0.01436000317071977,
+            0.05438785629853121,
+            0.02214592416539189
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Network adapter",
+          "role": "network",
+          "description": "Selected dual-port 25GbE OCP adapter and mounting hardware. Distinct from the management controller's network path. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.power",
+        "transform": {
+          "translation": [
+            -0.07550835350655545,
+            0.5205929882984733,
+            0.027560026954133454
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Power input and conversion",
+          "role": "power",
+          "description": "48 V input, selected board power conversion components and their cooling. No electrical simulation or live telemetry. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.chassis",
+        "transform": {
+          "translation": [
+            0.00019804294748854145,
+            0.3839279768451886,
+            0.04597821565569548
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Chassis and mounting structure",
+          "role": "chassis",
+          "description": "Supports and locates the server's internal assemblies. Representation: cad_derived."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.motherboard",
+        "transform": {
+          "translation": [
+            -0.06290056676471067,
+            0.2827397880745551,
+            0.023137887934068024
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Motherboard and board components",
+          "role": "motherboard",
+          "description": "EVT3 motherboard with source-derived component placements and reconstructed package appearance. Representation: source_derived_reconstruction."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      },
+      {
+        "partID": "server.teaching.memory",
+        "transform": {
+          "translation": [
+            -0.061217920186790314,
+            0.34432999789714813,
+            0.02837499976158142
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "semantic": {
+          "name": "Host memory modules",
+          "role": "memory",
+          "description": "32 supported-class RDIMM analogues at source socket positions. Installed module SKU and capacity are not established. Representation: supported_class_analogue."
+        },
+        "provenance": {
+          "origin": "imported",
+          "factualSupport": "referenceBased",
+          "sourceRefs": [
+            "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+            "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack"
+          ]
+        }
+      }
+    ]
+  }
+]

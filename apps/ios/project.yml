@@ -30,6 +30,12 @@ targets:
         buildPhase: resources
       - path: ../../examples/imported-rack/Assets/rack-exterior.usdz
         buildPhase: resources
+      - path: ../../examples/imported-rack/detail-catalog.json
+        buildPhase: resources
+      - path: ../../examples/imported-rack/detail-templates.json
+        buildPhase: resources
+      - path: ../../examples/imported-rack/Assets/server-teaching.usdz
+        buildPhase: resources
       - path: ../../examples/imported-rack/licenses
         buildPhase: resources
         type: folder

@@ -5,6 +5,7 @@ import { NormalizedProposal, normalizeProposal, parseAuthoringProposal, payloadH
 import { GenerationReceipt, PhoneSnapshot, PROTOCOL_VERSION, SceneReceipt, SessionHello, UserRequest } from "./protocol.js";
 import { DiagnosticLogger, safeError } from "./diagnostics.js";
 import { SceneConversation, TurnInput } from "./astra/conversation-context.js";
+import { AvailableAssetDetail } from "./asset-details.js";
 
 export interface SessionSink { send(message: JsonObject): void }
 
@@ -13,6 +14,7 @@ interface Snapshot {
   revision: number;
   intentEpoch: number;
   document: JsonObject;
+  availableAssetDetails: AvailableAssetDetail[];
 }
 
 interface PendingProposal {
@@ -76,7 +78,7 @@ export class AstraSession {
     if (previous && (message.intentEpoch < previous.intentEpoch || (message.intentEpoch === previous.intentEpoch && message.revision < previous.revision))) {
       throw new ProtocolError("snapshot cannot move epoch or revision backwards", "stale_snapshot");
     }
-    this.snapshot = { sceneId: message.sceneId, revision: message.revision, intentEpoch: message.intentEpoch, document: message.document };
+    this.snapshot = { sceneId: message.sceneId, revision: message.revision, intentEpoch: message.intentEpoch, document: message.document, availableAssetDetails: structuredClone(message.availableAssetDetails ?? []) };
     this.log("snapshot_received", { revision: message.revision, epoch: message.intentEpoch, nodeCount: observedNodeIds(message.document).size });
   }
 
@@ -101,14 +103,14 @@ export class AstraSession {
       let normalized: NormalizedProposal;
       try {
         this.send({ type: "session.progress", requestId: message.requestId, status: "processing", intentEpoch: admission.intentEpoch });
-        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document));
+        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document), admission.availableAssetDetails);
       } catch (error) {
         if (!(error instanceof ProtocolError) || error.code !== "proposal_rejected") throw error;
         this.log("normalize_repair", { requestId: message.requestId, reason: error.code, safeError: safeError(error) }, "warn");
         this.send({ type: "session.progress", requestId: message.requestId, status: "repairing_proposal", intentEpoch: admission.intentEpoch });
         functionCall = await this.collectFunctionCall(message, admission, controller.signal, `${message.text}\n\nThe previous scene proposal was rejected before device delivery: ${error.message}. Return one corrected proposal that satisfies the tool schema. Do not mention this repair to the user.`);
         this.assertAdmissionCurrent(admission);
-        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document));
+        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document), admission.availableAssetDetails);
       }
       if (controller.signal.aborted) return;
       if (normalized.mode === "explanation") {
@@ -145,7 +147,7 @@ export class AstraSession {
     const forwardAbort = () => streamController.abort();
     signal.addEventListener("abort", forwardAbort, { once: true });
     if (signal.aborted) streamController.abort();
-    const iterator = this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, recentTurns: this.conversation.context(observedNodeIds(admission.document)), signal: streamController.signal })[Symbol.asyncIterator]();
+    const iterator = this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, availableAssetDetails: admission.availableAssetDetails, recentTurns: this.conversation.context(observedNodeIds(admission.document)), signal: streamController.signal })[Symbol.asyncIterator]();
     this.log("astra_fetch_start", { requestId: message.requestId });
     let sawFirstEvent = false;
     let completed = false;

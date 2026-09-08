@@ -63,6 +63,28 @@ private func rackDescriptor(url: URL) -> ImportedAssetDescriptor {
     #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
 }
 
+@MainActor
+@Test func importedSelectionPolicyValidatesShapeBudgetsAndCoordinates() throws {
+    var descriptor = rackDescriptor(url: URL(fileURLWithPath: "/unused.usdz"))
+    let box = ImportedAssetSelectionBox(center: Vec3(0.1, 0, 0), size: Vec3(0.05, 0.1, 0.2))
+    descriptor.parts[0].selection = ImportedAssetSelection.none
+    descriptor.parts[1].selection = .boxes([box, .init(center: Vec3(-0.1, 0, 0), size: box.size)])
+    try ImportedAssetCatalog.validate(descriptor)
+    let decoded = try JSONDecoder().decode(ImportedAssetDescriptor.self, from: JSONEncoder().encode(descriptor))
+    #expect(decoded == descriptor)
+    descriptor.parts[1].selection = .boxes([.init(center: Vec3(.nan, 0, 0), size: box.size)])
+    #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
+    descriptor.parts[1].selection = .boxes([.init(center: box.center, size: Vec3(0, 1, 1))])
+    #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
+    descriptor.parts[1].selection = .boxes([])
+    #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
+    descriptor.parts[1].selection = .boxes(Array(repeating: box, count: 65))
+    #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
+    descriptor.parts[1].selection = .boxes(Array(repeating: box, count: 64))
+    descriptor.parts[2].selection = .boxes(Array(repeating: box, count: 64))
+    #expect(throws: ImportedAssetError.self) { try ImportedAssetCatalog.validate(descriptor) }
+}
+
 @Test func importedAssetPinsRetainRemovedPartsForUndo() throws {
     let assetID = "sha256:" + String(repeating: "a", count: 64)
     let importedRecipe = GeometryRecipe.importedAsset(assetID: assetID, partID: "part")
@@ -161,7 +183,7 @@ func actualRackImportPreservesPartsMaterialsCacheAndTransformEdits() async throw
     defer { try? FileManager.default.removeItem(at: directory) }
     let controller = SceneController(initialState: try SceneState(document: .init(documentId: "initial"),
         sceneId: "initial-scene"), transport: ImportedAssetTestTransport())
-    let report = try await controller.loadImportedAsset(descriptor, scale: 0.6 / 2.21, cacheDirectory: directory)
+    let report = try await controller.loadImportedAsset(descriptor, rootNodeID: "rack01", scale: 0.6 / 2.21, cacheDirectory: directory)
     if let documentPath = ProcessInfo.processInfo.environment["ASTRA_TEST_IMPORTED_DOCUMENT"] {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
@@ -250,13 +272,13 @@ func actualRackImportPreservesPartsMaterialsCacheAndTransformEdits() async throw
     var rebound = descriptor
     rebound.description = "Changed catalog semantics"
     do {
-        try await controller.loadImportedAsset(rebound, cacheDirectory: directory)
+        try await controller.loadImportedAsset(rebound, rootNodeID: "rack01", cacheDirectory: directory)
         Issue.record("A cached asset's approved semantic descriptor must not be rebound")
     } catch ImportedAssetError.invalidDescriptor {
         #expect(controller.acceptedScene.sceneId == existingSceneID)
     }
     do {
-        try await controller.loadImportedAsset(descriptor, cacheDirectory: directory) { phase in
+        try await controller.loadImportedAsset(descriptor, rootNodeID: "rack01", cacheDirectory: directory) { phase in
             if phase == .installing { controller.stop() }
         }
         Issue.record("A newer intent must fence the pending asset installation")
@@ -264,7 +286,7 @@ func actualRackImportPreservesPartsMaterialsCacheAndTransformEdits() async throw
         #expect(controller.acceptedScene.sceneId == existingSceneID)
         #expect(controller.renderer.entity(for: "explanation-marker") is ModelEntity)
     }
-    let repeated = try await controller.loadImportedAsset(descriptor, scale: 0.6 / 2.21, cacheDirectory: directory)
+    let repeated = try await controller.loadImportedAsset(descriptor, rootNodeID: "rack01", scale: 0.6 / 2.21, cacheDirectory: directory)
     #expect(repeated.usedEntityCache)
     let bounds = try #require(controller.renderer.entity(for: "rack01")).visualBounds(relativeTo: nil)
     print("ACTUAL_USDZ_IMPORT seconds=\(report.loadDurationSeconds) install_seconds=\(report.installDurationSeconds) cached_seconds=\(repeated.loadDurationSeconds) nodes=\(report.nodeIDs.count) native_entities=\(report.importedEntityCount) native_models=\(report.importedModelCount) triangles=\(report.expandedTriangleCount) server03_transform=\(changed.nodes[index].transform) bounds_min=\(bounds.min) bounds_max=\(bounds.max)")
@@ -307,6 +329,33 @@ func actualRackImportPreservesPartsMaterialsCacheAndTransformEdits() async throw
 }
 
 /// Native gate for a separately exported teaching pack. It does not add the pack to an app or tool catalog.
+@MainActor
+@Test(.enabled(if: ProcessInfo.processInfo.environment["ASTRA_TEST_DETAIL_CATALOG"] != nil))
+func importedSelectionPolicyBuildsOneCompoundCollider() async throws {
+    let path = try #require(ProcessInfo.processInfo.environment["ASTRA_TEST_DETAIL_CATALOG"])
+    var descriptor = try JSONDecoder().decode(ImportedAssetDescriptor.self,
+        from: Data(contentsOf: URL(fileURLWithPath: path)))
+    for index in descriptor.parts.indices { descriptor.parts[index].selection = ImportedAssetSelection.none }
+    descriptor.parts[0].selection = .boxes([
+        .init(center: Vec3(-0.1, 0, 0), size: Vec3(0.05, 0.1, 0.05)),
+        .init(center: Vec3(0.1, 0, 0), size: Vec3(0.05, 0.1, 0.05))
+    ])
+    let controller = SceneController(initialState: try SceneState(document: .init(documentId: "proxy-gate"),
+        sceneId: "proxy-gate"), transport: ImportedAssetTestTransport())
+    let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+    defer { try? FileManager.default.removeItem(at: directory) }
+    _ = try await controller.loadImportedAsset(descriptor, rootNodeID: "proxy-test", cacheDirectory: directory)
+    let root = try #require(controller.renderer.entity(for: "proxy-test"))
+    let colliders = ImportedAssetCatalog.descendants(root).compactMap { $0.components[CollisionComponent.self] }
+    #expect(colliders.count == 1)
+    #expect(colliders.first?.shapes.count == 2)
+    let disabledPartID = descriptor.parts[1].partID
+    controller.setSelection(.init(nodeIDs: [disabledPartID]))
+    let disabledPart = try #require(controller.renderer.entity(for: disabledPartID))
+    #expect(disabledPart.findEntity(named: "astra.imported.selection")?.isEnabled == true)
+    #expect(ImportedAssetCatalog.descendants(disabledPart).allSatisfy { $0.components[CollisionComponent.self] == nil })
+}
+
 @MainActor
 @Test(.enabled(if: ProcessInfo.processInfo.environment["ASTRA_TEST_DETAIL_CATALOG"] != nil))
 func serverDetailNativeExtractionPreservesGroupsAndCoordinates() async throws {
@@ -360,8 +409,15 @@ func serverDetailNativeExtractionPreservesGroupsAndCoordinates() async throws {
         #expect(boundsDelta < 0.00001)
         let transformDelta = matrixDelta(source.transformMatrix(relativeTo: nil), installed.transformMatrix(relativeTo: nil))
         #expect(transformDelta < 0.00001)
-        let collisionCount = ImportedAssetCatalog.descendants(installed).filter { $0.components[CollisionComponent.self] != nil }.count
-        #expect(collisionCount == 1)
+        let collisions = ImportedAssetCatalog.descendants(installed).compactMap { $0.components[CollisionComponent.self] }
+        let expectedShapeCount: Int
+        switch part.selection {
+        case nil: expectedShapeCount = 1
+        case .none?: expectedShapeCount = 0
+        case .boxes(let boxes)?: expectedShapeCount = boxes.count
+        }
+        #expect(collisions.count == (expectedShapeCount > 0 ? 1 : 0))
+        #expect(collisions.reduce(0, { $0 + $1.shapes.count }) == expectedShapeCount)
         var nativeTriangleCount = 0
         var materialCount = 0
         var meshPartCount = 0
@@ -389,7 +445,8 @@ func serverDetailNativeExtractionPreservesGroupsAndCoordinates() async throws {
         #expect(abs(sourceSpaceRotation.real) > 0.9999)
         partReports.append(["partID": part.partID, "entityName": part.entityName!, "nativeTriangles": nativeTriangleCount,
             "nativeModelCount": installedModels.count, "nativeMeshPartCount": meshPartCount,
-            "materialSlotCount": materialCount, "colliderCount": collisionCount,
+            "materialSlotCount": materialCount, "colliderCount": collisions.count,
+            "collisionShapeCount": expectedShapeCount,
             "worldBoundsMeters": ["minimum": coordinates(installedBounds.min), "maximum": coordinates(installedBounds.max)],
             "nativeTransformMaximumDelta": Double(transformDelta), "nativeBoundsMaximumDeltaMeters": Double(boundsDelta),
             "sourceSpaceChildTranslationMeters": [Double(childLocal.columns.3.x), Double(childLocal.columns.3.y), Double(childLocal.columns.3.z)],

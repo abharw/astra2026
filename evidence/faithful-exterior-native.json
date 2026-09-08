@@ -1,0 +1,70 @@
+{
+  "schema": "astra-faithful-native-validation/v1",
+  "comparisonScope": "RealityKit macOS imported server MeshResource contents comparison, no rendered pixels or iOS run",
+  "serverInstances": 18,
+  "meshPartsCompared": 36,
+  "localTransformsExactlyEqual": true,
+  "materialsExactlyEqual": true,
+  "positionsExactlyEqual": true,
+  "normalsExactlyEqual": true,
+  "indicesExactlyEqual": true,
+  "materialMapsEqual": true,
+  "maxPositionComponentDelta": 0,
+  "maxNormalComponentDelta": 0,
+  "controllerProbe": {
+    "acceptanceChecks": [
+      "18 stable server parts",
+      "authored material count preserved by selection",
+      "one lazy selection outline and one shared edge mesh",
+      "approved root and part semantics projected",
+      "cached semantic descriptor rebinding rejected",
+      "one collider per selectable server and none on enclosing frame",
+      "transform and hide through canonical ScenePatch",
+      "native entity and model identity retained",
+      "unsupported material override rejected atomically",
+      "procedural marker added alongside imported parts",
+      "excess imported triangles rejected atomically",
+      "superseded asset installation rejected",
+      "entity cache reused"
+    ],
+    "boundsMaximumMeters": [
+      0.08144797384738922,
+      0.5999999642372131,
+      0.14538870751857758
+    ],
+    "boundsMinimumMeters": [
+      -0.09271494299173355,
+      -8.63323457167553e-09,
+      -0.14484162628650665
+    ],
+    "byteCount": 13232052,
+    "cachedEntities": {
+      "installationSeconds": 0.001552125,
+      "preparationSeconds": 0.000992375,
+      "usedEntityCache": true,
+      "usedFileCache": false
+    },
+    "completedAt": "2026-09-08T20:46:56Z",
+    "expandedTriangleCount": 2989750,
+    "freshCatalog": {
+      "installationSeconds": 0.002359166,
+      "preparationSeconds": 2.0748832090000002,
+      "usedEntityCache": false,
+      "usedFileCache": false
+    },
+    "measurementLimits": [
+      "One macOS sample per variant; fresh process/controller and temporary asset cache",
+      "Local file import, no network download; OS file cache state is uncontrolled",
+      "No ARView or rendered frames; these are native preparation/installation times, not physical-device GPU FPS"
+    ],
+    "nativeEntityCount": 149,
+    "nativeModelCount": 55,
+    "platform": "Version 26.5.2 (Build 25F84)",
+    "scale": 0.27149321266968324,
+    "sceneNodeCount": 20,
+    "sha256": "b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+    "sourceFilename": "rack-exterior-faithful-v2.usdz",
+    "triangleCountBasis": "Independently measured USD topology, admitted through the approved descriptor; not GPU instrumentation",
+    "uniqueTriangleCount": 791123
+  }
+}

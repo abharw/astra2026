@@ -20,6 +20,7 @@ struct PhoneSnapshot: Encodable {
     var revision: UInt64
     var intentEpoch: UInt64
     var document: SceneDocument
+    var availableAssetDetails: [AvailableAssetDetail]? = nil
 }
 
 struct UserRequest: Encodable {

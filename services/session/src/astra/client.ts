@@ -4,6 +4,7 @@ import { ASTRA_SYSTEM_INSTRUCTIONS } from "./instructions.js";
 import { DiagnosticLogger, safeError } from "../diagnostics.js";
 import { RecentTurn } from "./conversation-context.js";
 import { sceneContext } from "./scene-context.js";
+import { AvailableAssetDetail } from "../asset-details.js";
 
 export interface ModelRequest {
   requestId: string;
@@ -11,6 +12,7 @@ export interface ModelRequest {
   selectionNodeIds: string[];
   scene: JsonObject;
   recentTurns?: RecentTurn[];
+  availableAssetDetails?: AvailableAssetDetail[];
   signal: AbortSignal;
 }
 
@@ -130,7 +132,7 @@ function parseProviderEvent(event: JsonObject): ModelEvent | undefined {
 export function formatUserInput(request: ModelRequest): string {
   // Every scene node remains present. The context factors repeated metadata; it
   // never truncates tail nodes or rounds transforms. Request identity stays in code.
-  return JSON.stringify({ userRequest: request.text, selectionNodeIds: request.selectionNodeIds, recentTurns: request.recentTurns ?? [], acceptedScene: sceneContext(request.scene) });
+  return JSON.stringify({ userRequest: request.text, selectionNodeIds: request.selectionNodeIds, recentTurns: request.recentTurns ?? [], acceptedScene: sceneContext(request.scene), availableAssetDetails: request.availableAssetDetails ?? [] });
 }
 
 function numeric(value: unknown): number | undefined { return typeof value === "number" && Number.isFinite(value) ? value : undefined; }

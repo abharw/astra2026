@@ -8,7 +8,7 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 
 - [Architecture](architecture.md): responsibilities, runtime loop, and future extension boundaries.
 - [APPROACH](APPROACH.md): chronological Arav/Astra collaboration log.
-- [Scene contract](contracts/README.md): exact data formats and acceptance rules; generated JSON Schema is planned under `contracts/schema/`.
+- [Scene contract](contracts/README.md): exact data formats and acceptance rules, with [JSON Schema](contracts/scene.schema.json).
 - [Apple references](docs/apple-references.md): source study and implementation implications.
 - [Hand-tracking references](docs/hand-tracking-references.md): Apple examples, real iOS apps, and platform/coordinate boundaries.
 - [Testing](docs/testing-harness.md) and [live evidence](evidence/README.md): what has actually been checked.
@@ -22,6 +22,7 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 | `apps/ios` | Universal iPhone/iPad SwiftUI app, audio I/O, Realtime connection, user controls |
 | `services/session` | Astra Responses calls, normalized proposals, accepted-scene mirror, ephemeral voice credentials |
 | `examples/server-rack` | Explicitly authored starting content, outside the framework |
+| `examples/imported-rack` | Source-derived Blender assets, hierarchy templates, selection proxies and provenance |
 | `tools/SceneLab` | Small Swift acceptance client using the production reducer |
 | `tools/PointingReplay` | Small synthetic pointing replay; no camera app or duplicate renderer |
 
@@ -60,7 +61,7 @@ python3 scripts/dev-session.py launch --device 'iPad'
 python3 scripts/dev-session.py launch --simulator-id <SIMULATOR_UDID>
 ```
 
-Open connection settings and connect. Load the bundled rack, then tap a tabletop to place it. On a physical device, the app samples hand pointing automatically in the foreground and shows the screen-aligned fingertip cursor when a hand is visible. Start the microphone explicitly for voice. These are separate actions; launching the app does not start microphone capture.
+The app connects automatically using its configured or saved backend. Settings lets you change the connection; physical devices require a reachable host. Load the bundled rack, then tap a tabletop to place it. On a physical device, hand pointing runs automatically in the foreground and shows a fingertip cursor when a hand is visible. The composer's single action starts the microphone when empty and becomes Send when text is entered. Launching the app does not start microphone capture.
 
 ## Checks
 
@@ -88,4 +89,4 @@ These live checks call OpenAI. Deterministic tests inject a test transport and d
 
 The native app builds for simulator and device and has been signed, installed, and launched on the physical iPad with its rear-camera view visible over USB. Arav confirmed that its fingertip ring tracks and turns green over a part after the detector fix. Live Astra creation, rack edits, read-only explanations, a native simulator edit/Undo interaction, and Realtime synthetic text-to-audio have passed separate checks. Phone usability is prioritized for audience participation using the same universal implementation. Measured pointing accuracy, microphone/playback quality, and the combined spoken interaction still need their device trial.
 
-The current authoring path accepts one complete bounded proposal per turn, with one repair attempt before delivery. It does not progressively install token fragments. Observed request times were about 10–24 seconds for the first small examples; this is a measured starting point, not a conversational-latency claim. The default Load rack path now uses the approved bundled Akeil USDZ catalog (`examples/imported-rack/app-catalog.json`), while the procedural six-shape path remains available for generated content. Manual SQLite checkpoint APIs exist; Save/Open UI and autosave are not connected yet. The [diagnostics contract](docs/diagnostics.md) explains JSONL/OSLog evidence and the boundaries of the Realtime tool smoke.
+The current authoring path accepts one complete bounded proposal per turn, with one repair attempt before delivery. It does not progressively install token fragments. Observed request times were about 10–24 seconds for the first small examples; this is a measured starting point, not a conversational-latency claim. The default Load rack path now uses the approved bundled Akeil USDZ catalog (`examples/imported-rack/app-catalog.json`), while the procedural six-shape path and generic approved detail expansion remain available for generated or revealed content. Manual SQLite checkpoint APIs exist; Save/Open UI and autosave are not connected yet. The [diagnostics contract](docs/diagnostics.md) explains JSONL/OSLog evidence and the boundaries of the Realtime tool smoke.
