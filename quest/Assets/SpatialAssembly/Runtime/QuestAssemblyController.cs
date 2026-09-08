@@ -59,7 +59,7 @@ namespace SpatialAssembly {
    if(VoiceButton)VoiceButton.text=Audio.Enabled||Audio.Starting?"Stop voice":"Start voice";
    if(PullButton)PullButton.text=Active&&Active.Extracted?"Return object":"Pull object";
   }
-  public void PositionPanel(){if(Panel&&Rig){Panel.position=Rig.centerEyeAnchor.position+Rig.centerEyeAnchor.forward*1.25f-Vector3.up*.12f;Panel.rotation=Quaternion.LookRotation(Panel.position-Rig.centerEyeAnchor.position,Vector3.up);}}
+  public void PositionPanel(){if(Panel&&Rig){var forward=Vector3.ProjectOnPlane(Rig.centerEyeAnchor.forward,Vector3.up);if(forward.sqrMagnitude<.01f)forward=Vector3.ProjectOnPlane(Rig.transform.forward,Vector3.up);forward.Normalize();Panel.position=Rig.centerEyeAnchor.position+forward*1.25f-Vector3.up*.12f;Panel.rotation=Quaternion.LookRotation(forward,Vector3.up);}}
   public void Reconstruct(){if(busy){Status="Already reconstructing. Cancel to stop.";return;}Capture(Guid.NewGuid().ToString(),false,"");}
   public void Refine(){if(!Active||busy){Status="Select a generated object first";return;}SyncScene();requestId=Guid.NewGuid().ToString();refiningObject=Active.ObjectId;busy=true;started=Time.realtimeSinceStartup;Status="Searching technical references to rebuild this object";Bridge.Send(new JObject{{"type","rebuild"},{"request_id",requestId},{"hint",selectedPart==null?"Improve the fidelity of this object using technical references":"Improve component "+selectedPart+" using references; retain other components"}});}
   public void Cancel(){Bridge.Send(new JObject{{"type","reconstruction.cancel"}});requestId=null;refiningObject=null;busy=false;Status="Cancelled";}
