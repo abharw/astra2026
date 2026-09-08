@@ -44,7 +44,7 @@ namespace SpatialAssembly {
   public void SettleInspectionForPreview(){foreach(var p in Data.parts)parts[p.id].localPosition=PartOffset(p.id);}
 #endif
   bool moving;float moveTime;Vector3 moveFrom,moveTo,scaleFrom,scaleTo;Quaternion rotationFrom,rotationTo;
-  HashSet<string> focusFamily=new();readonly Dictionary<string,PartData> partData=new();readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
+  HashSet<string> focusFamily=new();readonly Dictionary<string,PartData> partData=new();readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Vector3> inspectionLayout=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
   public void Build(AssemblyData data){
    data.Validate();Data=data;
    foreach(var p in data.parts){partData[p.id]=p;var group=new GameObject(p.name);group.transform.SetParent(transform,false);parts[p.id]=group.transform;
@@ -66,9 +66,22 @@ namespace SpatialAssembly {
   public HashSet<string> RelatedParts(string id){var ids=new HashSet<string>{id};bool changed=true;while(changed){changed=false;foreach(var part in Data.parts)if(!string.IsNullOrEmpty(part.parentPartId)&&ids.Contains(part.parentPartId)&&ids.Add(part.id))changed=true;}return ids;}
   Vector3 PartOffset(string id){if(partOffsets.TryGetValue(id,out var offset))return offset;var part=partData[id];if(id==FocusedPart)return focusOffset;if(focusFamily.Contains(id))return focusOffset+AssemblyData.V(part.explode)*(IsImportedRack?Mathf.Clamp01((Explosion-.2f)/.8f):.15f);return AssemblyData.V(part.explode)*Explosion;}
   public void RevealInternals(){InternalsRevealed=true;ShowInferred=true;SetExplosion(.25f);Restyle();}
-  public void FocusPart(string id,Transform head){var part=Data.parts.First(p=>p.id==id);foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
-  public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null){var related=RelatedParts(id);foreach(var child in related)if(parts.TryGetValue(child,out var group)){partOffsets[child]=Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(related.Contains(FocusedPart??"")){FocusedPart=null;focusFamily.Clear();}}Selected=null;Restyle();}
-  public void CloseHousing(){partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;focusFamily.Clear();InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
+  Vector3 PartCenter(string id){var data=partData[id];Vector3 center=Vector3.zero;foreach(var p in data.primitives)center+=AssemblyData.V(p.position);return center/data.primitives.Count;}
+  public Vector3 PartWorldCenter(string id)=>parts[id].TransformPoint(PartCenter(id));
+  public void FocusPartAtWorld(string id,Vector3 worldCenter,bool reveal=true){
+   foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;
+   var group=parts[id];focusOffset=transform.InverseTransformPoint(worldCenter)-group.localRotation*Vector3.Scale(group.localScale,PartCenter(id));
+   if(reveal){InternalsRevealed=true;ShowInferred=true;}Restyle();
+  }
+  public void RememberInspectionLayout(){inspectionLayout.Clear();foreach(var p in Data.parts)inspectionLayout[p.id]=PartOffset(p.id);}
+  public void FocusPart(string id,Transform head){
+   if(IsImportedRack){
+    if(partData[id].isInternal&&inspectionLayout.Count>0)foreach(var entry in inspectionLayout)if(parts.ContainsKey(entry.Key))partOffsets[entry.Key]=entry.Value;
+    FocusPartAtWorld(id,head.position+head.forward*(partData[id].isInternal?.75f:1.15f)-head.up*.16f);SetExplosion(.2f);return;
+   }
+   var part=Data.parts.First(p=>p.id==id);foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
+  public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null){var related=RelatedParts(id);foreach(var child in related)if(parts.TryGetValue(child,out var group)){partOffsets[child]=inspectionLayout.TryGetValue(child,out var resting)?resting:Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(related.Contains(FocusedPart??"")){FocusedPart=null;focusFamily.Clear();}}Selected=null;Restyle();}
+  public void CloseHousing(){inspectionLayout.Clear();partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;focusFamily.Clear();InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
   public bool ManipulatePart(string id,string action,float amount,Transform head){
    if(!parts.TryGetValue(id,out var group))return false;Selected=id;ShowInferred=true;var related=RelatedParts(id);var part=Data.parts.First(p=>p.id==id);Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var worldCenter=group.TransformPoint(center);
    if(action=="rotate"||action=="scale"){
@@ -81,6 +94,7 @@ namespace SpatialAssembly {
    }else return false;Restyle();return true;
   }
   public void CopyInspectionFrom(AssemblyVisual old){
+   foreach(var entry in old.inspectionLayout)if(parts.ContainsKey(entry.Key))inspectionLayout[entry.Key]=entry.Value;
    InternalsRevealed=old.InternalsRevealed;FocusedPart=parts.ContainsKey(old.FocusedPart??"")?old.FocusedPart:null;focusOffset=old.focusOffset;focusFamily=RelatedParts(FocusedPart??"");Selected=parts.ContainsKey(old.Selected??"")?old.Selected:null;
    foreach(var part in Data.parts){var next=parts[part.id];var sourceId=part.id;var seen=new HashSet<string>();while(!old.parts.ContainsKey(sourceId)&&seen.Add(sourceId)){var ancestor=Data.parts.FirstOrDefault(p=>p.id==sourceId);if(string.IsNullOrEmpty(ancestor?.parentPartId))break;sourceId=ancestor.parentPartId;}if(!old.parts.TryGetValue(sourceId,out var previous))continue;next.localPosition=previous.localPosition;next.localRotation=previous.localRotation;next.localScale=previous.localScale;
     if(old.partOffsets.TryGetValue(sourceId,out var offset))partOffsets[part.id]=offset;
@@ -101,6 +115,13 @@ namespace SpatialAssembly {
     if(material.HasProperty("_Glossiness"))material.SetFloat("_Glossiness",.28f);
     if(material.HasProperty("_EmissionColor")){material.EnableKeyword("_EMISSION");material.SetColor("_EmissionColor",Selected==x.part.id?new Color(.09f,.07f,.015f):Color.black);}
    }
+  }
+  public Vector3 TargetScale=>moving?scaleTo:transform.localScale;
+  public Vector3 HomeInspectionScale(float maxSize){var parentScale=transform.parent?transform.parent.lossyScale:Vector3.one;var world=Vector3.Scale(HomeScale,parentScale);float size=Mathf.Max(Mathf.Abs(world.x),Mathf.Abs(world.y),Mathf.Abs(world.z));return HomeScale*Mathf.Min(1,maxSize/Mathf.Max(.001f,size));}
+  public void ScaleInPlace(Vector3 targetScale){
+   StopMotion();var pivot=IsImportedRack?new Vector3(0,-.5f,0):Vector3.zero;var fixedPoint=transform.TransformPoint(pivot);
+   var offset=transform.localRotation*Vector3.Scale(targetScale,pivot);if(transform.parent)offset=transform.parent.TransformVector(offset);
+   moveTime=0;moveFrom=transform.position;moveTo=fixedPoint-offset;rotationFrom=rotationTo=transform.rotation;scaleFrom=transform.localScale;scaleTo=targetScale;moving=true;Extracted=true;
   }
   public Vector3 InspectionScale(float maxSize){float size=Mathf.Max(transform.lossyScale.x,transform.lossyScale.y,transform.lossyScale.z);return transform.localScale*Mathf.Min(1,maxSize/Mathf.Max(.001f,size));}
   public void StopMotion(){moving=false;}

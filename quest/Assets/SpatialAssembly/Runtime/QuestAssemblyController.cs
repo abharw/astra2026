@@ -25,6 +25,7 @@ namespace SpatialAssembly {
   }
   public Text StatusText,DetailText,HintText,VoiceButton,PullButton;public Transform Panel;
   AssemblyVisual grabbed;Vector3 grabOffset,desiredGrabOffset,grabVelocity,desiredGrabScale;Quaternion grabRotation;bool grabByPinch,lastGrip;
+  bool walkthroughActive;bool bHeld,bLong,bRack,bTest;float bPressedAt;int bSelection;
   bool waitForGripRelease;bool panelFollows=true;string voiceCaption="";
   public bool Busy=>jobs.Count>0;public int RunningJobs=>jobs.Count;public string SelectedPart=>selectedPart;public IEnumerable<AssemblyVisual> Objects=>objects.Where(v=>v);
   public string Status="Allow camera and spatial-data permissions. Point at an object.";
@@ -66,11 +67,13 @@ namespace SpatialAssembly {
    bool gripDown=grip&&!lastGrip;lastGrip=grip;
    bool leftGrip=OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,OVRInput.Controller.LTouch)>.5f;
    bool pressed=(pinch&&!lastPinch)||OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger,OVRInput.Controller.RTouch);lastPinch=pinch;
-   if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.LTouch)){if(leftGrip)Store.Restore();else if(Panel){Panel.gameObject.SetActive(!Panel.gameObject.activeSelf);if(Panel.gameObject.activeSelf)PositionPanel();}}
+   if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.LTouch)){if(leftGrip)Store.Restore();else ToggleSize();}
    if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.RTouch)&&Active){Bridge.Send(new JObject{{"type","walkthrough.cancel"}});selectionVersion++;if(leftGrip)BringToMe();else if(Active.Explosion>.05f)Active.CloseHousing();else Active.SetExplosion(1);SyncScene();}
-   if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.RTouch)){if(leftGrip&&TestControl)TestControl.ToggleTest();else Audio.Toggle();}
+   if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.RTouch)){bHeld=true;bLong=false;bPressedAt=Time.realtimeSinceStartup;bSelection=selectionVersion;bRack=Active&&Active.IsImportedRack&&!pointedTargetLocked;bTest=!bRack&&leftGrip&&TestControl;}
+   if(bHeld&&!bLong&&OVRInput.Get(OVRInput.Button.Two,OVRInput.Controller.RTouch)&&Time.realtimeSinceStartup-bPressedAt>=.55f){bLong=true;Audio.Toggle();}
+   if(bHeld&&OVRInput.GetUp(OVRInput.Button.Two,OVRInput.Controller.RTouch)){bHeld=false;if(!bLong){if(bRack){if(bSelection==selectionVersion&&Rack)_=Rack.PlayDemo();}else if(bTest&&TestControl)TestControl.ToggleTest();else Audio.Toggle();}}
    if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.LTouch)){if(leftGrip)DeleteSelected();else ExplainNext();}
-   if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.LTouch)){if(leftGrip||busy||(Rack&&Rack.IsDetailLoading))Cancel();else Refine();}
+   if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.LTouch)){if(leftGrip||busy||walkthroughActive||(Rack&&(Rack.IsDetailLoading||Rack.DemoPlaying)))Cancel();else Refine();}
    if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.RTouch)){if(pointedTargetLocked){Reconstruct();}else ReturnSelected();}
    if(!grip&&!pinch)waitForGripRelease=false;
    if(grabbed){
@@ -113,13 +116,22 @@ namespace SpatialAssembly {
    grabbed.transform.rotation=Quaternion.Slerp(grabbed.transform.rotation,hand.rotation*grabRotation,immediate?1:1-Mathf.Exp(-22*Time.deltaTime));
   }
   public void BringToMe(){selectionVersion++;if(!Active){Status="Trigger-select a generated item first";return;}if(grabbed){desiredGrabOffset=new Vector3(0,0,.6f);desiredGrabScale=grabbed.InspectionScale(.65f);}else Active.PullOut(Rig.centerEyeAnchor);pointedTargetLocked=false;Status="Bringing selected item within reach";SyncScene();Store.SaveCurrent();}
-  public void EndGrab(){grabbed=null;grabVelocity=Vector3.zero;SyncScene();Store.SaveCurrent();}
-  public void PlaceActive(Vector3 point,Vector3 surfaceNormal){selectionVersion++;if(grabbed)Active=grabbed;if(!Active)return;pointedTargetLocked=false;EndGrab();Active.Extracted=true;var size=AssemblyData.V(Active.Data.sizeMeters)/Active.Data.sizeMeters.Max();var scale=Active.transform.lossyScale;float support=(Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.right))*size.x*scale.x+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.up))*size.y*scale.y+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.forward))*size.z*scale.z)*.5f;Active.transform.position=point+surfaceNormal*Mathf.Max(.01f,support);Status="Placed • grip to move again, or say return object";SyncScene();Store.SaveCurrent();}
+  public void ToggleSize(){
+   if(!Active){Status="Select an object before changing its size";return;}
+   selectionVersion++;pointedTargetLocked=false;Bridge.Send(new JObject{{"type","walkthrough.cancel"}});Audio.InterruptPlayback();
+   var current=grabbed==Active?desiredGrabScale:Active.TargetScale;var original=Active.HomeScale;
+   bool toOriginal=Vector3.Distance(current,original)>Mathf.Max(.002f,original.magnitude*.025f);
+   var target=toOriginal?original:Active.HomeInspectionScale(.65f);
+   if(grabbed==Active){Active.StopMotion();desiredGrabScale=target;}else Active.ScaleInPlace(target);
+   Status=toOriginal?"Original size · placement retained":"Inspection size · placement retained";SyncScene();Store.SaveCurrent();
+  }
+  public void EndGrab(){var released=grabbed;grabbed=null;grabVelocity=Vector3.zero;if(released&&Vector3.Distance(released.transform.localScale,desiredGrabScale)>.0001f)released.ScaleInPlace(desiredGrabScale);SyncScene();Store.SaveCurrent();}
+  public void PlaceActive(Vector3 point,Vector3 surfaceNormal){selectionVersion++;if(grabbed)Active=grabbed;if(!Active)return;pointedTargetLocked=false;var placementScale=grabbed?desiredGrabScale:Active.TargetScale;EndGrab();Active.StopMotion();Active.transform.localScale=placementScale;Active.Extracted=true;var size=AssemblyData.V(Active.Data.sizeMeters)/Active.Data.sizeMeters.Max();var scale=Active.transform.lossyScale;float support=(Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.right))*size.x*scale.x+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.up))*size.y*scale.y+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.forward))*size.z*scale.z)*.5f;Active.transform.position=point+surfaceNormal*Mathf.Max(.01f,support);Status="Placed • grip to move again, or say return object";SyncScene();Store.SaveCurrent();}
   void UpdateStatus(){
    string state=!Bridge.Connected?"OFFLINE":!CameraAccess.IsPlaying?"CAMERA NOT READY":grabbed?"HOLDING OBJECT":Rack&&Rack.IsDetailLoading?"LOADING RACK PARTS":busy?"RECONSTRUCTING ×"+jobs.Count:pointedTargetLocked?"TARGET SELECTED":!string.IsNullOrEmpty(Audio.Error)?"VOICE ERROR":Audio.Speaking?"SPEAKING":Audio.Enabled?"LISTENING":Audio.Starting?"STARTING VOICE":"READY";
    string next=!Bridge.Connected?"Reconnecting automatically. Check Quest and Mac Wi-Fi.":!CameraAccess.IsPlaying?"Allow camera access in the headset.":grabbed?"Twist your wrist to rotate. Stick turns / moves closer. Release grip to drop.":Rack&&Rack.IsDetailLoading?"Loading the requested source parts. Y cancels.":busy?"Each scan has an amber marker. Confirm another target to add a job. Y cancels all.":pointedTargetLocked?"Right stick click confirms reconstruction. Trigger alone does not scan.":!string.IsNullOrEmpty(Audio.Error)?Audio.Error+" Press B to retry voice.":Audio.Speaking?"Reply is playing. Speak to interrupt or press B to stop voice.":Audio.Enabled?"Ask a question aloud. Your microphone is on.":Active?Active.Extracted?"Hold grip to bring the selected item to your hand. Stick turns it; right-stick click returns it.":"Trigger selects a part. Hold grip to bring it to you. A explodes.":hasTarget?"Trigger selects a target. Right stick click confirms the scan.":"Aim at a nearby real surface until the cyan target appears.";
    if(StatusText){StatusText.text=state+(busy?$"  •  {(int)(Time.realtimeSinceStartup-OldestStart)}s":"")+"\n"+next+"\n"+(busy?Status:pointedTargetLocked?"Target selected; awaiting your reconstruction request":Active?"Selected: "+Active.Data.name:Status);StatusText.color=!Bridge.Connected?new Color(1,.65f,.4f):Color.white;}
-   if(HintText)HintText.text="Trigger selects • Grip brings / holds • Release drops\nTwist wrist to rotate • Stick: turn / near–far\nLeft grip + stick up/down: tilt • Left grip + A: bring here\nA: explode • B: voice • X: explain • Y: load rack parts / improve\nRight stick click: confirm scan / return selected item\nLeft grip + X: delete • Holding + trigger: place\nLeft stick click: hide guide • + left grip: restore";
+   if(HintText)HintText.text="Trigger selects • Grip brings / holds • Release drops\nTwist wrist to rotate • Stick: turn / near–far\nLeft grip + stick up/down: tilt • Left grip + A: bring here\nA: explode • B: rack demo • Hold B: voice • X: explain • Y: load rack parts / improve\nRight stick click: confirm scan / return selected item\nLeft grip + X: delete • Holding + trigger: place\nLeft stick click: original / inspection size • + left grip: restore";
    if(VoiceButton)VoiceButton.text=Audio.Enabled||Audio.Starting?"Stop voice":"Start voice";
    if(PullButton)PullButton.text=Active&&Active.Extracted?"Return object":"Pull object";
   }
@@ -145,7 +157,7 @@ namespace SpatialAssembly {
    string id=Guid.NewGuid().ToString();try{AddJob(id,Active.ObjectId,true,null,Active.transform.parent.TransformPoint(Active.HomePosition));SyncScene();Status="Searching references to rebuild "+Active.Data.name;Bridge.Send(new JObject{{"type","rebuild"},{"epoch",generationEpoch},{"request_id",id},{"object_id",Active.ObjectId},{"hint",selectedPart==null?"Improve the fidelity of this object using technical references":"Improve component "+selectedPart+" using references; retain other components"}});}catch(Exception e){Status=e.Message;}
   }
   public void ReturnSelected(){Bridge.Send(new JObject{{"type","walkthrough.cancel"}});selectionVersion++;waitForGripRelease=true;if(!Active){Status="Trigger-select a generated item first";return;}EndGrab();pointedTargetLocked=false;Active.ReturnHome();Status="Returned to original anchored position";SyncScene();Store.SaveCurrent();}
-  public void Cancel(){if(Rack)Rack.Cancel();generationEpoch++;foreach(var id in jobs.Keys)cancelledJobs.Add(id);if(cancelledJobs.Count>128)cancelledJobs.Clear();Bridge.Send(new JObject{{"type","reconstruction.cancel"},{"epoch",generationEpoch}});ClearJobs();Status="All reconstructions cancelled";}
+  public void Cancel(){selectionVersion++;walkthroughActive=false;Bridge.Send(new JObject{{"type","walkthrough.cancel"}});Audio.InterruptPlayback();if(Rack)Rack.Cancel();generationEpoch++;foreach(var id in jobs.Keys)cancelledJobs.Add(id);if(cancelledJobs.Count>128)cancelledJobs.Clear();Bridge.Send(new JObject{{"type","reconstruction.cancel"},{"epoch",generationEpoch}});ClearJobs();Status="Demo / reconstruction cancelled";SyncScene();}
   public void PullOrReturn(){if(!Active){Status="Reconstruct an object before pulling it out.";return;}if(Active.Extracted)ReturnSelected();else BringToMe();SyncScene();Store.SaveCurrent();}
   public void DeleteSelected(){var result=DeleteActive();Status=result.message;}
   public (bool ok,string message) DeleteActive(){if(!Active)return(false,"No generated object selected");if(jobs.Values.Any(j=>j.objectId==Active.ObjectId))return(false,"Cancel this item’s reconstruction before deleting it");EndGrab();var removed=Active;string name=removed.Data.name;if(!Store.Delete(removed))return(false,Store.Status);if(removed.ObjectId==RackWorld.DefaultId){PlayerPrefs.SetInt("RackDefaultDeleted",1);PlayerPrefs.Save();}selectionVersion++;pointedTargetLocked=false;objects.Remove(removed);Active=objects.LastOrDefault(v=>v);selectedPart=null;if(DetailText)DetailText.text="Deleted generated object: "+name;SyncScene();return(true,"Deleted generated object: "+name);}
@@ -179,6 +191,7 @@ namespace SpatialAssembly {
   void OnMessage(JObject e){
    string type=(string)e["type"],messageId=(string)e["request_id"];
    if(type!="reconstruction.cancelled"&&type!="reconstruction.error"&&(type=="capture.request"||type=="rebuild.request"||type.StartsWith("reconstruction."))&&(((int?)e["epoch"]??0)<generationEpoch||(messageId!=null&&cancelledJobs.Contains(messageId))))return;
+   if(type=="walkthrough.started")walkthroughActive=true;else if(type=="walkthrough.stopped"||type=="voice.closed"||type=="disconnected")walkthroughActive=false;
    Audio.OnMessage(e);switch(type){
    case "connected":generationEpoch=0;cancelledJobs.Clear();SyncScene();break;
    case "reconstruction.cancelled":if((bool?)e["all"]==true&&Rack)Rack.Cancel();generationEpoch=Mathf.Max(generationEpoch,(int?)e["epoch"]??0);if((bool?)e["all"]==true){foreach(var old in jobs.Values.Where(j=>j.epoch<generationEpoch).ToArray()){cancelledJobs.Add(old.id);RemoveJob(old.id);}}if(e["request_ids"] is JArray cancelled){foreach(var id in cancelled){cancelledJobs.Add((string)id);RemoveJob((string)id);}}else if(!string.IsNullOrEmpty((string)e["request_id"]))RemoveJob((string)e["request_id"]);else ClearJobs();Status="Reconstruction cancelled";break;

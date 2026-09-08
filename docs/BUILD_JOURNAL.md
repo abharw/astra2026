@@ -280,3 +280,16 @@ Native Unity editor preview rendering covered the source exterior, direct proces
 Before these additions, the user requested a rollback point. The prior source is committed and remotely tagged `quest-before-rack` at `fe9be8a`; the previous recursive-detail APK is preserved separately.
 
 The final APK compiled, and every packaged mesh payload matched its catalog byte count and SHA-256. Installation returned Success, the matching voice backend restarted, and the app launch command succeeded. Saved app data was retained. These are delivery results, not headset acceptance.
+
+
+## 27. Voice status, button-driven rack demo and placement size controls
+
+The wearer could not tell whether B had enabled voice after removing the large guide panel. Added a small non-interactive microphone badge below the center of view with distinct labels for off, connecting, permission, listening, speaking, offline and error. Its input meter follows microphone samples. Startup times out after 25 seconds, and microphone initialization failures retain an error.
+
+The wearer then requested a fast controller demo and independent placement/size controls. A short B press on a rack/server runs local pull-out, bring-to-view, lazy-load and component spread stages, then brings the processors forward. A short B press on an internal group inspects just that group. Holding B toggles voice. The native demo can run offline; when voice becomes ready, a validated ordered walkthrough starts without asking the model to plan the opening animation. Spoken steps still wait for native command acknowledgments and headset playback completion. Inspection slots preserve the surrounding layout between component focuses.
+
+Right grip retains whole-assembly dragging and drop. Left-stick click now toggles the saved original scale and compact inspection scale at the current placement, including while held. A released rack resizes around its base; surface placement uses the final intended size. Right-stick click remains Return home. Thin frame hit volumes allow selecting the rack without covering server fronts. Selection versions and demo epochs prevent delayed actions from overriding new controller input; Y also cancels a running walkthrough.
+
+The wearer will connect the headset after all work is finished. The combined build is staged separately, preserving the previously installed rack APK and pre-rack rollback point. Compilation and source review do not establish visible or audible headset behavior; all runtime acceptance remains with the wearer.
+
+The final combined Android APK compiled successfully. All ten packaged rack payloads match the catalog byte counts and SHA-256 hashes, and the bridge JavaScript syntax check passed. Installation is pending the wearer reconnecting the headset.

@@ -97,6 +97,10 @@ namespace SpatialAssembly {
     if(part.assetPart!="rack01.frame"){
      var primitive=part.primitives[0];var hit=new GameObject(part.name+" selection");hit.transform.SetParent(transform,false);var collider=hit.AddComponent<BoxCollider>();collider.center=AssemblyData.V(primitive.position);collider.size=AssemblyData.V(primitive.size);
      var handle=hit.AddComponent<PartHandle>();handle.Owner=owner;handle.Part=part;
+    }else{
+     // Thin side/top/bottom hit volumes leave the rack opening clear for server selection.
+     var primitive=part.primitives[0];var center=AssemblyData.V(primitive.position);var size=AssemblyData.V(primitive.size);float thickness=.014f;
+     for(int edge=0;edge<4;edge++){bool side=edge<2;float sign=edge%2==0?-1:1;var hit=new GameObject("Rack frame selection");hit.transform.SetParent(transform,false);var collider=hit.AddComponent<BoxCollider>();collider.center=center+(side?Vector3.right:Vector3.up)*sign*((side?size.x:size.y)-thickness)*.5f;collider.size=side?new Vector3(thickness,size.y,size.z):new Vector3(size.x,thickness,size.z);var handle=hit.AddComponent<PartHandle>();handle.Owner=owner;handle.Part=part;}
     }
     Ready=true;Highlight(selected);Changed?.Invoke();
    }catch(Exception error){if(!destroyed){Error=error.Message;Debug.LogWarning("Rack part: "+Error);Changed?.Invoke();}}

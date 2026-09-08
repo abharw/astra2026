@@ -43,7 +43,7 @@ export function startBridge({key,token,port=8796,host='127.0.0.1',model='gpt-6-a
    const timer=setTimeout(()=>{if(pendingCommands.delete(id))done({ok:false,error:'Device did not acknowledge the command'});},args.action==='load_asset_detail'||args.action==='unload_asset_detail'?60000:12000);
    pendingCommands.set(id,{timer,done});send('command',{selection_version:latestControlVersion,object_id:activeObject,...args,call_id:id});
   }
-  function stopTour(){tour=null;}
+  function stopTour(){if(tour)send('walkthrough.stopped');tour=null;}
   function assetDetail(callId,args,unload=false){
    stopTour();const catalog=availableAssetDetails.find(c=>c.available&&Array.isArray(c.servers));
    if(!catalog){toolResult(callId,{ok:false,error:'Authored rack is unavailable or not yet localized',availableAssetDetails});return;}
@@ -57,6 +57,7 @@ export function startBridge({key,token,port=8796,host='127.0.0.1',model='gpt-6-a
    if(current.index>=current.parts.length){stopTour();updateVoiceScene();return;}
    const part=latestScene?.parts.find(p=>p.id===current.parts[current.index]);
    if(!part){stopTour();if(callId)toolResult(callId,{ok:false,error:'Part no longer exists'});return;}
+   if(!current.notified){current.notified=true;send('walkthrough.started',{object_id:current.objectId});}
    current.ready=false;current.responseId=null;selectedPart=part.id;
    queueCommand(callId||randomUUID(),{action:'focus_part',part:part.id,amount:0,object_id:current.objectId},result=>{
     if(tour!==current){if(callId)toolResult(callId,{ok:false,error:'Walkthrough interrupted'});return;}
@@ -192,6 +193,11 @@ export function startBridge({key,token,port=8796,host='127.0.0.1',model='gpt-6-a
      voice({type:'conversation.item.create',item:{type:'message',role:'user',content:[{type:'input_text',text:'Fresh device camera frame. Question: '+viewRequest.question},{type:'input_image',image_url:e.image}]}});clearTimeout(viewRequest.timer);toolResult(viewRequest.id,{ok:true,note:'Actual current image attached; it is a sampled camera frame, not continuous vision.'});viewRequest=null;
     }break;
    case 'voice.start':startVoice();break;
+   case 'walkthrough.start': {
+    const ids=Array.isArray(e.parts)?[...new Set(e.parts)]:[];
+    if(!voiceReady||e.object_id!==activeObject||e.selection_version!==latestControlVersion||latestScene?.assetId!=='arav-rack-v1'||!ids.length||ids.length>9||ids.some(id=>!latestScene.parts.some(p=>p.id===id&&p.parentPartId===e.server&&p.isInternal))){send('walkthrough.error',{message:'Voice or selected server changed before walkthrough'});break;}
+    stopTour();tour={objectId:activeObject,parts:ids,index:0,ready:false,responseId:null};tourStep();break;
+   }
    case 'walkthrough.cancel':stopTour();break;
    case 'voice.playback.ended':if(tour?.ready&&tour.responseId&&e.response_id===tour.responseId){tour.index++;tourStep();}break;
    case 'voice.stop':stopTour();upstream?.close();break;

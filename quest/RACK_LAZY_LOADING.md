@@ -1,16 +1,24 @@
 # Authored rack and on-demand parts
 
-The Quest environment adds the source-derived Open Rack V2 with 18 Barreleye G2 server instances. Its original height is 2.21 m. The rack starts in front of the wearer at a floor-level world anchor; an existing saved rack waits for anchor localization instead of spawning a duplicate. Ordinary camera reconstruction remains available alongside it. The black instruction canvas has been removed at the wearer's request.
+The Quest environment adds the source-derived Open Rack V2 with 18 Barreleye G2 server instances. Its original height is 2.21 m. The rack starts in front of the wearer at a floor-level world anchor; an existing saved rack waits for anchor localization instead of spawning a duplicate. Ordinary camera reconstruction remains available alongside it. The black instruction canvas has been removed at the wearer's request. A small microphone status badge below the center of view shows voice off, connecting, listening, speaking, microphone permission, offline or error. The badge is non-interactive and does not block pointer selection.
 
 ## Using the rack
 
-- Trigger selects a server or loaded component.
-- **Y** on a selected rack server loads its nine internal teaching groups. **Y** during a pending load cancels it.
+Hold **B on the right controller** for about half a second to enable or stop voice. When the badge says **Listening**, ask your question. Away from a rack selection, a short B press also toggles voice. A small level bar indicates microphone input. A voice connection that does not become ready within 25 seconds shows an error and can be retried by holding B.
+
+- Trigger selects the rack frame, a server or a loaded component.
+- **Tap B on the rack or a server** runs the native demo: slide a server out, bring it into view, open all nine source groups, spread them apart, then bring the processors forward. If the frame is selected, the app chooses a server near viewing height. Loading overlaps the initial movement. The animation needs no model response and works offline; the first cold detail load may take longer.
+- **Tap B on a loaded component** brings only that component into view and requests its explanation.
+- When voice is available, the full demo starts a deterministic nine-part walkthrough. Each part is highlighted and brought forward; the prior part returns to its inspection slot. The next step waits until speech playback finishes. The microphone permission prompt may need to be accepted on first use.
+- **Right grip** grabs and drags the selected whole assembly; release leaves it there. This applies to the entire rack, even when a component was selected. Part-specific placement remains available through voice controls.
+- **Left-stick click** toggles the whole assembly between its original/home scale and compact inspection scale without returning it home. While held, the size change follows the grab; after release, the rack keeps its base at the current placement. For generated models, original means the saved original fitted scale.
+- **Right-stick click** restores the original home pose and scale. **A** reassembles/explodes. **Y** cancels a running demo, walkthrough or load.
+- **Y** on a selected rack server loads its nine internal teaching groups. **Y** during a pending load or demo cancels it.
 - Voice can load a single group immediately: “Show the processors in server 3”, “Load the memory in server 8”, or “Show the fans in this server”.
 - “Unload the memory in server 8” releases that group's scene instance; resources are freed when no other instance uses them.
 - “Load all the parts in this server and float them” loads its nine groups and then explodes them into a separated 3-by-3 layout. **A** also toggles explosion/reassembly. Each group supports voice focus, move, rotation and scale. A full-server explanation loads the groups before walking through them.
 - “Explain this part” focuses it and explains its source information. “Return the object”, or right-stick click, restores the rack and closes its interior views. Closing a view retains its already loaded detail; unloading removes the detail.
-- Existing grip, rotation, scale, whole-object pull/return and generated-object controls remain. Part-specific voice movement affects that component and its descendants. Left grip + left-stick click still retries anchor restoration; the former guide toggle no longer shows a panel.
+- Existing grip, rotation, scale, whole-object pull/return and generated-object controls remain. Part-specific voice movement affects that component and its descendants. Left grip + left-stick click still retries anchor restoration; an unmodified left-stick click now changes size.
 
 Available groups are **storage, fans, processors, heatsinks, network, power, chassis, motherboard and memory**. These are the existing authored teaching groups. Exact installed RDIMM SKU/capacity, live telemetry, detailed circuits and finer source CAD are not established by this package.
 
@@ -21,6 +29,8 @@ Available groups are **storage, fans, processors, heatsinks, network, power, cha
 `load_asset_detail({server, part})` and `unload_asset_detail({server, part})` accept catalog server IDs such as `rack01.server03`. `part` is a group ID (`processors`, `memory`, `fanwall`, etc.) or `all`; an empty server resolves to the selected server. The backend checks the catalog and sends a request bound to the current selection version. It waits for native `command.result` before reporting success. A changed selection, deleted rack, cancelled load or missing catalog entry returns a truthful failure.
 
 The harness can ask for one group directly. It does not need to open a complete server first. Loaded semantic IDs use `rack01.server03.detail.processors`, preserving the real server instance association. The existing model-refinement tools preserve the authored rack and direct the harness to the approved loader; ordinary generated models retain their existing refinement path.
+
+The native demo sends `walkthrough.start` only after its source groups are present and voice is ready. The backend validates the rack object, server, existing internal IDs and current selection version, then uses the normal device-acknowledged tour steps directly. New selection, grabbing, resizing, Return or cancellation interrupts stale demo work. `walkthrough.started` / `walkthrough.stopped` keep the controller cancellation state in sync.
 
 ## Implementation
 
@@ -38,7 +48,7 @@ Gzip payloads use the `.rackbin` extension so Unity Android preserves their orig
 
 The compiler reflects Blender X and maps Z-up into Unity Y-up, then reverses triangle winding to retain outward normals. Meshes are normalized by 2.21 for the existing assembly renderer; the world root restores that scale. Shared server geometry remains instanced. Source materials retain base color, metalness and roughness; neutral reflection lighting is an approximation of the environment, not a captured room reflection.
 
-Compressed runtime geometry totals about 19.9 MB; only the exterior is initially decoded. The source exterior contains 791,123 unique triangles and about 2.99 million after the 18 server occurrences are expanded. The internal teaching package contains 381,897 triangles across its nine groups. These are content counts, not a measured Quest frame-rate result. Selectable components use bounded box colliders; the enclosing frame does not block server selection.
+Compressed runtime geometry totals about 19.9 MB; only the exterior is initially decoded. The source exterior contains 791,123 unique triangles and about 2.99 million after the 18 server occurrences are expanded. The internal teaching package contains 381,897 triangles across its nine groups. These are content counts, not a measured Quest frame-rate result. Selectable components use bounded box colliders; four thin frame hit volumes leave the front opening clear for server selection.
 
 The saved object contains source identity, loaded semantic parts, home/current pose and interior visibility. Meta anchor localization still gates restoration. Per-part inspection transforms remain session state, consistent with the pre-existing implementation. Delete records the default rack's removal so it does not reappear on every launch.
 
@@ -55,3 +65,5 @@ Native Unity preview rendering showed the exterior, a direct processor-only view
 The pre-addition source is preserved remotely at **`quest-before-rack`**, commit `fe9be8a`. It includes the earlier Quest features and architecture handoff, without this rack addition or panel removal. Keep the previous paired APK separately for an authorized binary rollback. Never commit pairing tokens or API keys.
 
 Delivery: the final Android APK built successfully, its ten catalog packages were verified inside the APK, installation returned Success, the matching backend was restarted and the app launch command succeeded. Saved models were retained. Headset acceptance remains with the wearer.
+
+The newer combined demo/indicator/size-control APK is staged as `spatial-assembly-quest-rack-demo.apk`. The wearer requested notification when finished and will reconnect the headset for installation. It has not yet replaced the installed rack build. No controller, voice or headset acceptance tests were run for these additions.
