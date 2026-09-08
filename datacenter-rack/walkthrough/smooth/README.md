@@ -1,5 +1,7 @@
 # Smooth, unlabelled data-center walkthrough
 
+[Watch the revised 1080p video](datacenter-maze-smooth.mp4) — 29.708 seconds at 24 fps. Reviewed 60 half-second overview records plus 36 dense junction records: moving turns, slower final pan and plain unlabelled walls. See [generation receipt and limits](generation-result.json).
+
 Revision prompted by the user finding the first maze camera robotic and asking for smoother motion/panning and no BAY labels.
 
 The same room now uses a continuous 21.94 m rounded walking path with left, right, left turns. Camera translation continues through the bends, with gentle heading anticipation. At 23.5 seconds it begins a slower 6.5-second, 160-degree look-around. All font objects and artificial colored wayfinding have been removed; ordinary neutral utility panels remain.

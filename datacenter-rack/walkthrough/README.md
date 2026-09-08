@@ -14,7 +14,7 @@ First version, rejected by the user for robotic motion and artificial labels: [1
 
 Use the final video alone as the mapper input. Withhold this folder's map, poses, prompts and landmark descriptions until scoring. A video generated from the Blender reference may introduce geometry drift; metric agreement is not established by conditioning alone. Ground truth is exact only for the deterministic Blender source and its direct renders.
 
-The [smooth revision](smooth/README.md) addresses that feedback with rounded continuous walking turns and no labels.
+Latest: [smooth unlabelled video](smooth/datacenter-maze-smooth.mp4), with rounded continuous walking turns and a slower final look-around. [Revision source and review](smooth/README.md).
 
 ## Reproduction
 

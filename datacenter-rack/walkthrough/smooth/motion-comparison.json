@@ -1,0 +1,16 @@
+{
+  "original": {
+    "max_pan_deg_s": 112.44214302555169,
+    "max_junction_pan_deg_s": 84.27739461263266,
+    "minimum_walking_speed_during_junction_rotation_m_s": 0.0,
+    "junction_rotating_samples": 126,
+    "stationary_rotating_samples": 126
+  },
+  "smooth": {
+    "max_pan_deg_s": 38.663142269646606,
+    "max_junction_pan_deg_s": 30.265733913968873,
+    "minimum_walking_speed_during_junction_rotation_m_s": 0.8384425974860258,
+    "junction_rotating_samples": 258,
+    "stationary_rotating_samples": 0
+  }
+}

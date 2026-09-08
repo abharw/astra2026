@@ -259,3 +259,5 @@ The user then expanded the shot into a maze-like straight → left → right →
 
 
 The user rejected the first maze's camera as robotic and requested smooth motion/panning with no BAY text. The [smooth revision](../datacenter-rack/walkthrough/smooth/README.md) replaces stops and stationary pivots with continuous rounded walking turns, removes all labels and colored wayfinding, and slows the final look-around. The first turn-order review was insufficient as a naturalism acceptance test; the correction and new checks are recorded in the journey.
+
+The revised 29.708-second 1080p output is complete. The half-second overview and frame-dense junction review show continuous rounded turns, the slower final pan and plain unlabelled walls. Original and revised media, camera sources and receipts are preserved; the updated floor map remains a separate answer key.
