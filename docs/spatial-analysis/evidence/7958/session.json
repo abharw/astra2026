@@ -1,0 +1,3329 @@
+{
+  "version": 1,
+  "source": {
+    "path": null,
+    "sha256": "36c0bbf81f46e464a6683f719c8382a85138639d3cf315a1a1a20e67fb7c033b",
+    "bytes": 249962109,
+    "mtime_ns": 1788845279000000000,
+    "stream_index": 0,
+    "duration": 57.791666666666664,
+    "metadata_duration": 57.791666666666664,
+    "packet_span_seconds": 57.791666666666664,
+    "origin_seconds": 0.0,
+    "time_base": "1/600",
+    "average_fps": 23.982696467195385,
+    "width": 3840,
+    "height": 2160,
+    "rotation": 0.0,
+    "sample_aspect_ratio": "1:1",
+    "audio_streams": [
+      {
+        "index": 1,
+        "start_time": "0.000000",
+        "sample_rate": "48000"
+      },
+      {
+        "index": 2,
+        "start_time": "0.000000",
+        "sample_rate": "48000"
+      }
+    ],
+    "color_transfer": "arib-std-b67",
+    "subtitle_streams": [],
+    "original_filename": "IMG_7958 2.MOV",
+    "original_video_in_repository": false
+  },
+  "question": "Independent single-video floor plan experiment: rooms, doorways, wall contents and camera route; distinguish observed from inferred.",
+  "created": 1788891889.6923058,
+  "requests": [
+    {
+      "id": "r0001",
+      "kind": "scan",
+      "start": 0,
+      "end": 57.791666666666664,
+      "fps": 0.2,
+      "all_frames": false,
+      "width": 960,
+      "crop": null,
+      "max_frames": 24,
+      "frame_ids": [
+        "r0001-f0001",
+        "r0001-f0002",
+        "r0001-f0003",
+        "r0001-f0004",
+        "r0001-f0005",
+        "r0001-f0006",
+        "r0001-f0007",
+        "r0001-f0008",
+        "r0001-f0009",
+        "r0001-f0010",
+        "r0001-f0011",
+        "r0001-f0012"
+      ],
+      "truncated": false,
+      "decoded_in_window": 1386,
+      "largest_selected_gap_seconds": 5.005000000000003,
+      "purpose": "Chronological overview: find room transitions, wall anchors and camera turns"
+    },
+    {
+      "id": "r0002",
+      "kind": "inspect",
+      "start": 0.0,
+      "end": 57.791666666666664,
+      "fps": 1.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 70,
+      "frame_ids": [
+        "r0002-f0001",
+        "r0002-f0002",
+        "r0002-f0003",
+        "r0002-f0004",
+        "r0002-f0005",
+        "r0002-f0006",
+        "r0002-f0007",
+        "r0002-f0008",
+        "r0002-f0009",
+        "r0002-f0010",
+        "r0002-f0011",
+        "r0002-f0012",
+        "r0002-f0013",
+        "r0002-f0014",
+        "r0002-f0015",
+        "r0002-f0016",
+        "r0002-f0017",
+        "r0002-f0018",
+        "r0002-f0019",
+        "r0002-f0020",
+        "r0002-f0021",
+        "r0002-f0022",
+        "r0002-f0023",
+        "r0002-f0024",
+        "r0002-f0025",
+        "r0002-f0026",
+        "r0002-f0027",
+        "r0002-f0028",
+        "r0002-f0029",
+        "r0002-f0030",
+        "r0002-f0031",
+        "r0002-f0032",
+        "r0002-f0033",
+        "r0002-f0034",
+        "r0002-f0035",
+        "r0002-f0036",
+        "r0002-f0037",
+        "r0002-f0038",
+        "r0002-f0039",
+        "r0002-f0040",
+        "r0002-f0041",
+        "r0002-f0042",
+        "r0002-f0043",
+        "r0002-f0044",
+        "r0002-f0045",
+        "r0002-f0046",
+        "r0002-f0047",
+        "r0002-f0048",
+        "r0002-f0049",
+        "r0002-f0050",
+        "r0002-f0051",
+        "r0002-f0052",
+        "r0002-f0053",
+        "r0002-f0054",
+        "r0002-f0055",
+        "r0002-f0056",
+        "r0002-f0057",
+        "r0002-f0058"
+      ],
+      "truncated": false,
+      "decoded_in_window": 1386,
+      "largest_selected_gap_seconds": 1.001666667000002,
+      "purpose": "Full chronological pass at one-second intervals to trace walls and room adjacency"
+    },
+    {
+      "id": "r0003",
+      "kind": "inspect",
+      "start": 28.0,
+      "end": 43.0,
+      "fps": 2.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 40,
+      "frame_ids": [
+        "r0003-f0001",
+        "r0003-f0002",
+        "r0003-f0003",
+        "r0003-f0004",
+        "r0003-f0005",
+        "r0003-f0006",
+        "r0003-f0007",
+        "r0003-f0008",
+        "r0003-f0009",
+        "r0003-f0010",
+        "r0003-f0011",
+        "r0003-f0012",
+        "r0003-f0013",
+        "r0003-f0014",
+        "r0003-f0015",
+        "r0003-f0016",
+        "r0003-f0017",
+        "r0003-f0018",
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0021",
+        "r0003-f0022",
+        "r0003-f0023",
+        "r0003-f0024",
+        "r0003-f0025",
+        "r0003-f0026",
+        "r0003-f0027",
+        "r0003-f0028",
+        "r0003-f0029",
+        "r0003-f0030"
+      ],
+      "truncated": false,
+      "decoded_in_window": 360,
+      "largest_selected_gap_seconds": 0.5016666670000021,
+      "purpose": "Resolve bathroom side, doorway reversal and bedroom across corridor; do not count reflected door as another room"
+    },
+    {
+      "id": "r0004",
+      "kind": "inspect",
+      "start": 47.0,
+      "end": 57.79,
+      "fps": 2.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 24,
+      "frame_ids": [
+        "r0004-f0001",
+        "r0004-f0002",
+        "r0004-f0003",
+        "r0004-f0004",
+        "r0004-f0005",
+        "r0004-f0006",
+        "r0004-f0007",
+        "r0004-f0008",
+        "r0004-f0009",
+        "r0004-f0010",
+        "r0004-f0011",
+        "r0004-f0012",
+        "r0004-f0013",
+        "r0004-f0014",
+        "r0004-f0015",
+        "r0004-f0016",
+        "r0004-f0017",
+        "r0004-f0018",
+        "r0004-f0019",
+        "r0004-f0020",
+        "r0004-f0021",
+        "r0004-f0022"
+      ],
+      "truncated": false,
+      "decoded_in_window": 258,
+      "largest_selected_gap_seconds": 0.5016666670000021,
+      "purpose": "Revisit final turn: dining-kitchen opening, peninsula, appliance wall and utility alcove"
+    }
+  ],
+  "frames": {
+    "r0001-f0001": {
+      "id": "r0001-f0001",
+      "time": 0.0,
+      "pts": 0,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0002": {
+      "id": "r0001-f0002",
+      "time": 5.003333333,
+      "pts": 3002,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0001-f0002.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0001-f0003": {
+      "id": "r0001-f0003",
+      "time": 10.006666667,
+      "pts": 6004,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0004": {
+      "id": "r0001-f0004",
+      "time": 15.011666667,
+      "pts": 9007,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0005": {
+      "id": "r0001-f0005",
+      "time": 20.015,
+      "pts": 12009,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0001-f0005.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0001-f0006": {
+      "id": "r0001-f0006",
+      "time": 25.018333333,
+      "pts": 15011,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0001-f0006.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0001-f0007": {
+      "id": "r0001-f0007",
+      "time": 30.021666667,
+      "pts": 18013,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0008": {
+      "id": "r0001-f0008",
+      "time": 35.025,
+      "pts": 21015,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0009": {
+      "id": "r0001-f0009",
+      "time": 40.03,
+      "pts": 24018,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0010": {
+      "id": "r0001-f0010",
+      "time": 45.033333333,
+      "pts": 27020,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0011": {
+      "id": "r0001-f0011",
+      "time": 50.036666667,
+      "pts": 30022,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0012": {
+      "id": "r0001-f0012",
+      "time": 55.04,
+      "pts": 33024,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0002-f0001": {
+      "id": "r0002-f0001",
+      "time": 0.0,
+      "pts": 0,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0001.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0002": {
+      "id": "r0002-f0002",
+      "time": 1.0,
+      "pts": 600,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0003": {
+      "id": "r0002-f0003",
+      "time": 2.001666667,
+      "pts": 1201,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0004": {
+      "id": "r0002-f0004",
+      "time": 3.001666667,
+      "pts": 1801,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0004.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0005": {
+      "id": "r0002-f0005",
+      "time": 4.003333333,
+      "pts": 2402,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0006": {
+      "id": "r0002-f0006",
+      "time": 5.003333333,
+      "pts": 3002,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0006.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0007": {
+      "id": "r0002-f0007",
+      "time": 6.005,
+      "pts": 3603,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0008": {
+      "id": "r0002-f0008",
+      "time": 7.005,
+      "pts": 4203,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0008.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0009": {
+      "id": "r0002-f0009",
+      "time": 8.005,
+      "pts": 4803,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0010": {
+      "id": "r0002-f0010",
+      "time": 9.006666667,
+      "pts": 5404,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0011": {
+      "id": "r0002-f0011",
+      "time": 10.006666667,
+      "pts": 6004,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0011.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0012": {
+      "id": "r0002-f0012",
+      "time": 11.008333333,
+      "pts": 6605,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0013": {
+      "id": "r0002-f0013",
+      "time": 12.008333333,
+      "pts": 7205,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0014": {
+      "id": "r0002-f0014",
+      "time": 13.01,
+      "pts": 7806,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0015": {
+      "id": "r0002-f0015",
+      "time": 14.01,
+      "pts": 8406,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0015.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0016": {
+      "id": "r0002-f0016",
+      "time": 15.011666667,
+      "pts": 9007,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0017": {
+      "id": "r0002-f0017",
+      "time": 16.011666667,
+      "pts": 9607,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0018": {
+      "id": "r0002-f0018",
+      "time": 17.011666667,
+      "pts": 10207,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0018.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0019": {
+      "id": "r0002-f0019",
+      "time": 18.013333333,
+      "pts": 10808,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0019.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0020": {
+      "id": "r0002-f0020",
+      "time": 19.013333333,
+      "pts": 11408,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0021": {
+      "id": "r0002-f0021",
+      "time": 20.015,
+      "pts": 12009,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0021.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0022": {
+      "id": "r0002-f0022",
+      "time": 21.015,
+      "pts": 12609,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0023": {
+      "id": "r0002-f0023",
+      "time": 22.016666667,
+      "pts": 13210,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0024": {
+      "id": "r0002-f0024",
+      "time": 23.016666667,
+      "pts": 13810,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0025": {
+      "id": "r0002-f0025",
+      "time": 24.016666667,
+      "pts": 14410,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0025.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0026": {
+      "id": "r0002-f0026",
+      "time": 25.018333333,
+      "pts": 15011,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0027": {
+      "id": "r0002-f0027",
+      "time": 26.018333333,
+      "pts": 15611,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0027.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0028": {
+      "id": "r0002-f0028",
+      "time": 27.02,
+      "pts": 16212,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0029": {
+      "id": "r0002-f0029",
+      "time": 28.02,
+      "pts": 16812,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0029.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0030": {
+      "id": "r0002-f0030",
+      "time": 29.021666667,
+      "pts": 17413,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0031": {
+      "id": "r0002-f0031",
+      "time": 30.021666667,
+      "pts": 18013,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0031.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0032": {
+      "id": "r0002-f0032",
+      "time": 31.023333333,
+      "pts": 18614,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0033": {
+      "id": "r0002-f0033",
+      "time": 32.023333333,
+      "pts": 19214,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0033.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0034": {
+      "id": "r0002-f0034",
+      "time": 33.023333333,
+      "pts": 19814,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0035": {
+      "id": "r0002-f0035",
+      "time": 34.025,
+      "pts": 20415,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0035.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0036": {
+      "id": "r0002-f0036",
+      "time": 35.025,
+      "pts": 21015,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s003"
+      ]
+    },
+    "r0002-f0037": {
+      "id": "r0002-f0037",
+      "time": 36.026666667,
+      "pts": 21616,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0037.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0038": {
+      "id": "r0002-f0038",
+      "time": 37.026666667,
+      "pts": 22216,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0038.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0039": {
+      "id": "r0002-f0039",
+      "time": 38.028333333,
+      "pts": 22817,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0039.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0040": {
+      "id": "r0002-f0040",
+      "time": 39.028333333,
+      "pts": 23417,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s004"
+      ]
+    },
+    "r0002-f0041": {
+      "id": "r0002-f0041",
+      "time": 40.03,
+      "pts": 24018,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0041.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0042": {
+      "id": "r0002-f0042",
+      "time": 41.03,
+      "pts": 24618,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0042.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0043": {
+      "id": "r0002-f0043",
+      "time": 42.03,
+      "pts": 25218,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0043.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0044": {
+      "id": "r0002-f0044",
+      "time": 43.031666667,
+      "pts": 25819,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s004"
+      ]
+    },
+    "r0002-f0045": {
+      "id": "r0002-f0045",
+      "time": 44.031666667,
+      "pts": 26419,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s004"
+      ]
+    },
+    "r0002-f0046": {
+      "id": "r0002-f0046",
+      "time": 45.033333333,
+      "pts": 27020,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s004"
+      ]
+    },
+    "r0002-f0047": {
+      "id": "r0002-f0047",
+      "time": 46.033333333,
+      "pts": 27620,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0047.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0048": {
+      "id": "r0002-f0048",
+      "time": 47.035,
+      "pts": 28221,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0048.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0049": {
+      "id": "r0002-f0049",
+      "time": 48.035,
+      "pts": 28821,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s005"
+      ]
+    },
+    "r0002-f0050": {
+      "id": "r0002-f0050",
+      "time": 49.035,
+      "pts": 29421,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0050.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0051": {
+      "id": "r0002-f0051",
+      "time": 50.036666667,
+      "pts": 30022,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s005"
+      ]
+    },
+    "r0002-f0052": {
+      "id": "r0002-f0052",
+      "time": 51.036666667,
+      "pts": 30622,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0052.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0053": {
+      "id": "r0002-f0053",
+      "time": 52.038333333,
+      "pts": 31223,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s005"
+      ]
+    },
+    "r0002-f0054": {
+      "id": "r0002-f0054",
+      "time": 53.038333333,
+      "pts": 31823,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0054.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0055": {
+      "id": "r0002-f0055",
+      "time": 54.04,
+      "pts": 32424,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0002-f0055.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0056": {
+      "id": "r0002-f0056",
+      "time": 55.04,
+      "pts": 33024,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0056.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0057": {
+      "id": "r0002-f0057",
+      "time": 56.041666667,
+      "pts": 33625,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0057.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0002-f0058": {
+      "id": "r0002-f0058",
+      "time": 57.0,
+      "pts": 34200,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0002-f0058.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0001": {
+      "id": "r0003-f0001",
+      "time": 28.02,
+      "pts": 16812,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0002": {
+      "id": "r0003-f0002",
+      "time": 28.52,
+      "pts": 17112,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0003": {
+      "id": "r0003-f0003",
+      "time": 29.021666667,
+      "pts": 17413,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0004": {
+      "id": "r0003-f0004",
+      "time": 29.521666667,
+      "pts": 17713,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0005": {
+      "id": "r0003-f0005",
+      "time": 30.021666667,
+      "pts": 18013,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0006": {
+      "id": "r0003-f0006",
+      "time": 30.521666667,
+      "pts": 18313,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0007": {
+      "id": "r0003-f0007",
+      "time": 31.023333333,
+      "pts": 18614,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0008": {
+      "id": "r0003-f0008",
+      "time": 31.523333333,
+      "pts": 18914,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0009": {
+      "id": "r0003-f0009",
+      "time": 32.023333333,
+      "pts": 19214,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0010": {
+      "id": "r0003-f0010",
+      "time": 32.523333333,
+      "pts": 19514,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0011": {
+      "id": "r0003-f0011",
+      "time": 33.023333333,
+      "pts": 19814,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0012": {
+      "id": "r0003-f0012",
+      "time": 33.525,
+      "pts": 20115,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0013": {
+      "id": "r0003-f0013",
+      "time": 34.025,
+      "pts": 20415,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0014": {
+      "id": "r0003-f0014",
+      "time": 34.525,
+      "pts": 20715,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0015": {
+      "id": "r0003-f0015",
+      "time": 35.025,
+      "pts": 21015,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0016": {
+      "id": "r0003-f0016",
+      "time": 35.526666667,
+      "pts": 21316,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0017": {
+      "id": "r0003-f0017",
+      "time": 36.026666667,
+      "pts": 21616,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0018": {
+      "id": "r0003-f0018",
+      "time": 36.526666667,
+      "pts": 21916,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0019": {
+      "id": "r0003-f0019",
+      "time": 37.026666667,
+      "pts": 22216,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0020": {
+      "id": "r0003-f0020",
+      "time": 37.526666667,
+      "pts": 22516,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0021": {
+      "id": "r0003-f0021",
+      "time": 38.028333333,
+      "pts": 22817,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0022": {
+      "id": "r0003-f0022",
+      "time": 38.528333333,
+      "pts": 23117,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0023": {
+      "id": "r0003-f0023",
+      "time": 39.028333333,
+      "pts": 23417,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0024": {
+      "id": "r0003-f0024",
+      "time": 39.528333333,
+      "pts": 23717,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0003-f0024.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0025": {
+      "id": "r0003-f0025",
+      "time": 40.03,
+      "pts": 24018,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0026": {
+      "id": "r0003-f0026",
+      "time": 40.53,
+      "pts": 24318,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0003-f0026.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0027": {
+      "id": "r0003-f0027",
+      "time": 41.03,
+      "pts": 24618,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0028": {
+      "id": "r0003-f0028",
+      "time": 41.53,
+      "pts": 24918,
+      "time_base": "1/600",
+      "path": "tour-evidence/7958/r0003-f0028.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0029": {
+      "id": "r0003-f0029",
+      "time": 42.03,
+      "pts": 25218,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0030": {
+      "id": "r0003-f0030",
+      "time": 42.531666667,
+      "pts": 25519,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0004-f0001": {
+      "id": "r0004-f0001",
+      "time": 47.035,
+      "pts": 28221,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0002": {
+      "id": "r0004-f0002",
+      "time": 47.535,
+      "pts": 28521,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0003": {
+      "id": "r0004-f0003",
+      "time": 48.035,
+      "pts": 28821,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0004": {
+      "id": "r0004-f0004",
+      "time": 48.535,
+      "pts": 29121,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0004-f0004.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0004-f0005": {
+      "id": "r0004-f0005",
+      "time": 49.035,
+      "pts": 29421,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0006": {
+      "id": "r0004-f0006",
+      "time": 49.536666667,
+      "pts": 29722,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0007": {
+      "id": "r0004-f0007",
+      "time": 50.036666667,
+      "pts": 30022,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0008": {
+      "id": "r0004-f0008",
+      "time": 50.536666667,
+      "pts": 30322,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0009": {
+      "id": "r0004-f0009",
+      "time": 51.036666667,
+      "pts": 30622,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0010": {
+      "id": "r0004-f0010",
+      "time": 51.538333333,
+      "pts": 30923,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0011": {
+      "id": "r0004-f0011",
+      "time": 52.038333333,
+      "pts": 31223,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0012": {
+      "id": "r0004-f0012",
+      "time": 52.538333333,
+      "pts": 31523,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0013": {
+      "id": "r0004-f0013",
+      "time": 53.038333333,
+      "pts": 31823,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0014": {
+      "id": "r0004-f0014",
+      "time": 53.538333333,
+      "pts": 32123,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0015": {
+      "id": "r0004-f0015",
+      "time": 54.04,
+      "pts": 32424,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0016": {
+      "id": "r0004-f0016",
+      "time": 54.54,
+      "pts": 32724,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0017": {
+      "id": "r0004-f0017",
+      "time": 55.04,
+      "pts": 33024,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0018": {
+      "id": "r0004-f0018",
+      "time": 55.54,
+      "pts": 33324,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0019": {
+      "id": "r0004-f0019",
+      "time": 56.041666667,
+      "pts": 33625,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0020": {
+      "id": "r0004-f0020",
+      "time": 56.5,
+      "pts": 33900,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0021": {
+      "id": "r0004-f0021",
+      "time": 57.0,
+      "pts": 34200,
+      "time_base": "1/600",
+      "path": "evidence/7958/r0004-f0021.png",
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0004-f0022": {
+      "id": "r0004-f0022",
+      "time": 57.5,
+      "pts": 34500,
+      "time_base": "1/600",
+      "path": null,
+      "full_display_size": [
+        3840,
+        2160
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    }
+  },
+  "sheets": {
+    "r0001-s001": {
+      "id": "r0001-s001",
+      "path": "evidence/7958/r0001-s001.jpg",
+      "frame_ids": [
+        "r0001-f0001",
+        "r0001-f0002",
+        "r0001-f0003",
+        "r0001-f0004",
+        "r0001-f0005",
+        "r0001-f0006",
+        "r0001-f0007",
+        "r0001-f0008",
+        "r0001-f0009",
+        "r0001-f0010",
+        "r0001-f0011",
+        "r0001-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s001": {
+      "id": "r0002-s001",
+      "path": "evidence/7958/r0002-s001.jpg",
+      "frame_ids": [
+        "r0002-f0001",
+        "r0002-f0002",
+        "r0002-f0003",
+        "r0002-f0004",
+        "r0002-f0005",
+        "r0002-f0006",
+        "r0002-f0007",
+        "r0002-f0008",
+        "r0002-f0009",
+        "r0002-f0010",
+        "r0002-f0011",
+        "r0002-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s002": {
+      "id": "r0002-s002",
+      "path": "evidence/7958/r0002-s002.jpg",
+      "frame_ids": [
+        "r0002-f0013",
+        "r0002-f0014",
+        "r0002-f0015",
+        "r0002-f0016",
+        "r0002-f0017",
+        "r0002-f0018",
+        "r0002-f0019",
+        "r0002-f0020",
+        "r0002-f0021",
+        "r0002-f0022",
+        "r0002-f0023",
+        "r0002-f0024"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s003": {
+      "id": "r0002-s003",
+      "path": "evidence/7958/r0002-s003.jpg",
+      "frame_ids": [
+        "r0002-f0025",
+        "r0002-f0026",
+        "r0002-f0027",
+        "r0002-f0028",
+        "r0002-f0029",
+        "r0002-f0030",
+        "r0002-f0031",
+        "r0002-f0032",
+        "r0002-f0033",
+        "r0002-f0034",
+        "r0002-f0035",
+        "r0002-f0036"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s004": {
+      "id": "r0002-s004",
+      "path": "evidence/7958/r0002-s004.jpg",
+      "frame_ids": [
+        "r0002-f0037",
+        "r0002-f0038",
+        "r0002-f0039",
+        "r0002-f0040",
+        "r0002-f0041",
+        "r0002-f0042",
+        "r0002-f0043",
+        "r0002-f0044",
+        "r0002-f0045",
+        "r0002-f0046",
+        "r0002-f0047",
+        "r0002-f0048"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s005": {
+      "id": "r0002-s005",
+      "path": "evidence/7958/r0002-s005.jpg",
+      "frame_ids": [
+        "r0002-f0049",
+        "r0002-f0050",
+        "r0002-f0051",
+        "r0002-f0052",
+        "r0002-f0053",
+        "r0002-f0054",
+        "r0002-f0055",
+        "r0002-f0056",
+        "r0002-f0057",
+        "r0002-f0058"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s001": {
+      "id": "r0003-s001",
+      "path": "evidence/7958/r0003-s001.jpg",
+      "frame_ids": [
+        "r0003-f0001",
+        "r0003-f0002",
+        "r0003-f0003",
+        "r0003-f0004",
+        "r0003-f0005",
+        "r0003-f0006",
+        "r0003-f0007",
+        "r0003-f0008",
+        "r0003-f0009",
+        "r0003-f0010",
+        "r0003-f0011",
+        "r0003-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s002": {
+      "id": "r0003-s002",
+      "path": "evidence/7958/r0003-s002.jpg",
+      "frame_ids": [
+        "r0003-f0013",
+        "r0003-f0014",
+        "r0003-f0015",
+        "r0003-f0016",
+        "r0003-f0017",
+        "r0003-f0018",
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0021",
+        "r0003-f0022",
+        "r0003-f0023",
+        "r0003-f0024"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s003": {
+      "id": "r0003-s003",
+      "path": "evidence/7958/r0003-s003.jpg",
+      "frame_ids": [
+        "r0003-f0025",
+        "r0003-f0026",
+        "r0003-f0027",
+        "r0003-f0028",
+        "r0003-f0029",
+        "r0003-f0030"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0004-s001": {
+      "id": "r0004-s001",
+      "path": "evidence/7958/r0004-s001.jpg",
+      "frame_ids": [
+        "r0004-f0001",
+        "r0004-f0002",
+        "r0004-f0003",
+        "r0004-f0004",
+        "r0004-f0005",
+        "r0004-f0006",
+        "r0004-f0007",
+        "r0004-f0008",
+        "r0004-f0009",
+        "r0004-f0010",
+        "r0004-f0011",
+        "r0004-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0004-s002": {
+      "id": "r0004-s002",
+      "path": "evidence/7958/r0004-s002.jpg",
+      "frame_ids": [
+        "r0004-f0013",
+        "r0004-f0014",
+        "r0004-f0015",
+        "r0004-f0016",
+        "r0004-f0017",
+        "r0004-f0018",
+        "r0004-f0019",
+        "r0004-f0020",
+        "r0004-f0021",
+        "r0004-f0022"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    }
+  },
+  "transcripts": {},
+  "audio": {},
+  "claims": [
+    {
+      "id": "c0001",
+      "kind": "observed",
+      "text": "Route seen: shelving-lined study, wide opening to sitting room, exit into long landing/hall, bathroom doorway on travel-left, bedroom doorway on travel-right, then dining room and adjoining kitchen. Bathroom includes sink and mirror, glass shower, toilet and window; bedroom is only viewed from threshold.",
+      "evidence": [
+        "r0002-s001",
+        "r0002-s002",
+        "r0002-s003",
+        "r0003-s001",
+        "r0003-s002",
+        "r0003-s003",
+        "r0004-s001",
+        "r0004-s002"
+      ],
+      "limitation": "Sampled video; dimensions and hidden wall extents are not measured."
+    },
+    {
+      "id": "c0002",
+      "kind": "observed",
+      "text": "Kitchen is on the right when entering dining from the hall: final turn places dining bay windows left and kitchen right; reverse view shows kitchen in fireplace mirror. Kitchen has range/hood cabinet wall, refrigerator to range-right, sink to range-left, peninsula toward dining and utility/laundry area to kitchen-left when facing range.",
+      "evidence": [
+        "r0004-f0004",
+        "r0004-f0021",
+        "r0002-f0050",
+        "r0002-f0055",
+        "r0004-s001",
+        "r0004-s002"
+      ],
+      "limitation": "Corrects initial left-side hypothesis. Mirror is a reflected view, not another room. Utility enclosure extent remains uncertain."
+    },
+    {
+      "id": "c0003",
+      "kind": "inferred",
+      "text": "Bookshelf and lamp glimpsed through the travel-right hall doorway around 24 seconds likely belong to the starting study, creating a second study access and a loop with the sitting room. A long narrow plan with side rooms and a locally bent hall fits the camera route.",
+      "evidence": [
+        "r0002-f0025",
+        "r0002-s001",
+        "r0002-s002"
+      ],
+      "limitation": "Second study doorway was not traversed; similar furniture could belong to a different room. Room footprints and overall alignment are schematic."
+    },
+    {
+      "id": "c0004",
+      "kind": "unresolved",
+      "text": "Unknown: actual dimensions, compass direction, hidden room walls, destinations behind closed doors, downstairs layout and whether the second bookshelf doorway is the same study. The clip cannot establish the complete property floor plan.",
+      "evidence": [
+        "r0002-s002",
+        "r0002-s003",
+        "r0002-s004",
+        "r0004-s002"
+      ],
+      "limitation": "User ground-truth check pending."
+    }
+  ],
+  "notes": []
+}
