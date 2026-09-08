@@ -21,6 +21,9 @@ import SwiftUI
   @Published var voiceOn = false
   @Published var voiceConnecting = false
   @Published var transcript = ""
+  @Published var question = ""
+  @Published var answering = false
+  private var pendingQuestion: String?
   @Published var macTestEnabled = false
   @Published var macTestStatus = "Mac camera test off"
   private let macTest = BridgeClient()
@@ -133,7 +136,9 @@ import SwiftUI
       "viewSize":[view.bounds.width,view.bounds.height],"bridgeConnected":bridge.connected,"voiceOn":voiceOn,
       "object":assembly?.name ?? "","objectID":assembly == nil ? "" : renderer.objectID.uuidString,
       "parts":assembly?.parts.map{["id":$0.id,"name":$0.name]} ?? [],"selectedPart":selectedID ?? "",
-      "explosion":explosion,"extracted":extracted,"error":error ?? "","macTestEnabled":macTestEnabled]
+      "explosion":explosion,"extracted":extracted,"error":error ?? "","macTestEnabled":macTestEnabled,"transcript":transcript,"answering":answering,
+      "homePose":renderer.snapshot()?.home ?? [],"currentPose":renderer.snapshot()?.pose ?? [],
+      "objects":objects().map{["id":$0.id.uuidString,"name":$0.assembly.name]}]
   }
   private func testCommand(_ e:[String:Any]) {
     guard macTestEnabled else { return }
@@ -154,6 +159,11 @@ import SwiftUI
       guard let x = e["x"] as? Double, let y = e["y"] as? Double, (0...1).contains(x), (0...1).contains(y), !busy, !restoringRoom else { reply(false,"Tap unavailable while busy/restoring or invalid coordinates"); return }
       tapObject(at:CGPoint(x:x*view.bounds.width,y:y*view.bounds.height)); reply(error == nil,"Invoked the same object-tap handler used on the phone")
     case "reconstruct": guard !busy else { reply(false,"Already reconstructing"); return }; reconstruct(); reply(busy,"Reconstruction requested; completion is reported separately")
+    case "drag":
+      guard !busy, extracted, let fx=e["fromX"] as? Double, let fy=e["fromY"] as? Double, let x=e["x"] as? Double, let y=e["y"] as? Double,
+        [fx,fy,x,y].allSatisfy({ $0.isFinite && (0...1).contains($0) }) else { reply(false,"Extract the model before dragging; use normalized coordinates"); return }
+      let ok=renderer.drag(from:CGPoint(x:fx*view.bounds.width,y:fy*view.bounds.height),to:CGPoint(x:x*view.bounds.width,y:y*view.bounds.height)); reply(ok,ok ? "Dragging selected model across the view" : "Drag projection unavailable")
+    case "ask": ask(e["question"] as? String ?? ""); reply(pendingQuestion != nil || answering || voiceOn,"Question submitted to the active object context")
     case "cancel": cancel(); reply(true,"Cancelled")
     case "manipulate":
       let result = command(["action":e["operation"] as? String ?? "","amount":e["amount"] as? Double ?? 0,"part":e["part"] as? String ?? ""]); reply(result.0,result.1)
@@ -608,8 +618,16 @@ import SwiftUI
     guard extracted else { error = "Pull out the model before rotating it."; return }
     renderer.rotate(30)
   }
+  func ask(_ text: String) {
+    let value=String(text.trimmingCharacters(in:.whitespacesAndNewlines).prefix(2000))
+    guard !value.isEmpty, bridge.connected else { error="Enter a question and connect the bridge"; return }
+    syncScene(); transcript=""
+    if voiceOn || (answering && !voiceConnecting) { bridge.send(["type":"voice.text","text":value]); return }
+    pendingQuestion=value
+    if !voiceConnecting { answering=true; voiceConnecting=true; bridge.send(["type":"voice.start"]) }
+  }
   func toggleVoice() {
-    if voiceOn || voiceConnecting {
+    if voiceOn || voiceConnecting || answering {
       stopVoice()
       return
     }
@@ -632,6 +650,7 @@ import SwiftUI
   func stopVoice() {
     voiceConnecting = false
     voiceOn = false
+    answering = false; pendingQuestion = nil
     audio.stop()
     bridge.send(["type": "voice.stop"])
   }
@@ -703,10 +722,11 @@ import SwiftUI
     case "voice.ready":
       guard voiceConnecting else { return }
       do {
-        try audio.start()
-        voiceOn = true
+        try audio.start(inputEnabled: !answering)
+        voiceOn = !answering
         voiceConnecting = false
-        transcript = "Listening. Try ‘reconstruct that’."
+        transcript = answering ? "Thinking…" : "Listening. Try ‘reconstruct that’."
+        if let pendingQuestion { self.pendingQuestion=nil; bridge.send(["type":"voice.text","text":pendingQuestion]) }
       } catch {
         self.error = error.localizedDescription
         stopVoice()
@@ -714,7 +734,7 @@ import SwiftUI
     case "voice.audio": if let audio = e["audio"] as? String { self.audio.play(audio) }
     case "voice.transcript.delta":
       if let text = e["text"] as? String {
-        if transcript == "Listening. Try ‘reconstruct that’." { transcript = "" }
+        if transcript == "Listening. Try ‘reconstruct that’." || transcript == "Thinking…" { transcript = "" }
         transcript += text
       }
     case "voice.transcript": transcript = e["text"] as? String ?? ""
@@ -722,6 +742,7 @@ import SwiftUI
       audio.interrupt()
       transcript = "Listening…"
     case "voice.closed":
+      answering = false; pendingQuestion = nil
       voiceOn = false
       voiceConnecting = false
       audio.stop()

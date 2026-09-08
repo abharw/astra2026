@@ -176,3 +176,7 @@ Changed the app so tapping a physical surface starts reconstruction by default, 
 ## 15. Direct camera/control workaround (September 8, 2026)
 
 After the user unlocked Mac authentication and locked the phone, Astra controlled the physical iPhone through Mirroring and opened Spatial Assembly. The system visibly rejected camera access, matching Apple's documentation. The user requested a workaround. Added an optional authenticated foreground-only camera/control link inside the app, with fresh ARView snapshots, shared object-tap handling, command acknowledgments and an explicit stop control. Three relay tests and the physical iPhone build passed; the build was installed and launched. See PHONE_COMPUTER_USE.md for setup, the exact distinction from OS computer use, and pending/live evidence.
+
+## 16. Resume control; add drag and typed questions (September 8, 2026)
+
+On resuming, the device reported three saved objects with a seven-part chair selected. Added app-level screen-space dragging after extraction and typed questions about the current object/part, with playback-only audio for typed input. Test state includes transcripts and original/current transforms. Builds and relay validation passed, but the physical device disconnected during installation; the new drag/question interaction has not yet been installed or tested on the phone. The camera-link and real mirrored UI results remain separately documented in PHONE_COMPUTER_USE.md.

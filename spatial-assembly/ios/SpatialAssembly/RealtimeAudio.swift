@@ -10,6 +10,7 @@ import Foundation
   private let inputFormat = AVAudioFormat(
     commonFormat: .pcmFormatInt16, sampleRate: 24000, channels: 1, interleaved: false)!
   private var running = false
+  private var recording = false
   var onAudio: ((String) -> Void)?
   var onError: ((String) -> Void)?
   func requestPermission() async -> Bool {
@@ -17,9 +18,16 @@ import Foundation
       AVAudioApplication.requestRecordPermission { cont.resume(returning: $0) }
     }
   }
-  func start() throws {
+  func start(inputEnabled: Bool = true) throws {
     guard !running else { return }
     let audio = AVAudioSession.sharedInstance()
+    if !inputEnabled {
+      try audio.setCategory(.playback, mode: .spokenAudio)
+      try audio.setActive(true)
+      engine.attach(player); engine.connect(player, to: engine.mainMixerNode, format: outputFormat)
+      engine.prepare(); try engine.start(); player.play(); running = true; recording = false
+      return
+    }
     try audio.setCategory(
       .playAndRecord, mode: .voiceChat, options: [.defaultToSpeaker, .allowBluetoothHFP])
     try audio.setActive(true)
@@ -37,6 +45,7 @@ import Foundation
     }
     converter = conv
     let format = inputFormat
+    recording = true
     input.installTap(onBus: 0, bufferSize: 2048, format: hardware) { [weak self] buffer, _ in
       let capacity = AVAudioFrameCount(
         Double(buffer.frameLength) * 24000 / hardware.sampleRate + 32)
@@ -92,7 +101,7 @@ import Foundation
   func stop() {
     guard running else { return }
     running = false
-    engine.inputNode.removeTap(onBus: 0)
+    if recording { engine.inputNode.removeTap(onBus: 0) }; recording = false
     engine.stop()
     player.stop()
     engine.detach(player)

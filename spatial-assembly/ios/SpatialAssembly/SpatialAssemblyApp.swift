@@ -36,7 +36,7 @@ struct AssemblyScreen: View {
       VStack(spacing: 0) {
         header
         Spacer()
-        if !ar.transcript.isEmpty && (ar.voiceOn || ar.voiceConnecting) {
+        if !ar.transcript.isEmpty && (ar.voiceOn || ar.voiceConnecting || ar.answering) {
           Text(ar.transcript).font(.subheadline).lineLimit(3).padding(12).frame(
             maxWidth: .infinity, alignment: .leading
           ).background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16)).padding(
@@ -217,11 +217,11 @@ struct AssemblyScreen: View {
     Button {
       ar.toggleVoice()
     } label: {
-      Image(systemName: ar.voiceConnecting ? "ellipsis" : ar.voiceOn ? "mic.fill" : "mic").font(
+      Image(systemName: ar.voiceConnecting ? "ellipsis" : ar.answering ? "stop.fill" : ar.voiceOn ? "mic.fill" : "mic").font(
         .title3
       ).frame(width: 35, height: 35)
-    }.buttonStyle(.bordered).tint(ar.voiceOn ? .red : cyan).accessibilityLabel(
-      ar.voiceOn ? "Stop voice" : "Start voice"
+    }.buttonStyle(.bordered).tint((ar.voiceOn || ar.answering) ? .red : cyan).accessibilityLabel(
+      ar.answering ? "Stop answer" : ar.voiceOn ? "Stop voice" : "Start voice"
     ).accessibilityIdentifier("voiceButton")
   }
   private var placesSheet: some View {
@@ -261,6 +261,12 @@ struct AssemblyScreen: View {
             Toggle(
               "Show inferred parts",
               isOn: Binding(get: { ar.inferred }, set: { ar.setInferred($0) }))
+          }
+          Section("Ask about this object or selected part") {
+            TextField("What would you like to know?", text: $ar.question)
+            Button("Ask") { ar.ask(ar.question) }
+            if !ar.transcript.isEmpty { Text(ar.transcript).font(.subheadline) }
+            Text("Typed questions play an answer without turning on the microphone.").font(.caption).foregroundStyle(.secondary)
           }
           Section("Improve this reconstruction") {
             TextField("Correction or part to improve", text: $ar.refinement)

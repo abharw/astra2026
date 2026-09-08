@@ -186,6 +186,23 @@ import simd
     t.translation += direction * step
     root.move(to: t, relativeTo: nil, duration: 0.3, timingFunction: .easeInOut)
   }
+  func drag(from: CGPoint, to: CGPoint) -> Bool {
+    guard let root, extracted, let view, let camera = view.session.currentFrame?.camera.transform,
+      let a = view.ray(through: from), let b = view.ray(through: to) else { return false }
+    let normal = SIMD3(camera.columns.2.x,camera.columns.2.y,camera.columns.2.z)
+    var pose = Transform(matrix: root.transformMatrix(relativeTo: nil))
+    func intersect(_ origin: SIMD3<Float>, _ direction: SIMD3<Float>) -> SIMD3<Float>? {
+      let denominator = simd_dot(direction, normal)
+      guard abs(denominator) > 0.001 else { return nil }
+      let distance = simd_dot(pose.translation-origin,normal)/denominator
+      guard distance > 0, distance < 10 else { return nil }
+      return origin + direction * distance
+    }
+    guard let start = intersect(a.origin,a.direction), let end = intersect(b.origin,b.direction), simd_distance(start,end) < 2 else { return false }
+    pose.translation += end-start
+    root.move(to:pose,relativeTo:nil,duration:0.6,timingFunction:.easeInOut)
+    return true
+  }
   func rotate(_ degrees: Float) {
     guard let root, extracted else { return }
     root.orientation = simd_quatf(angle: degrees * .pi / 180, axis: [0, 1, 0]) * root.orientation

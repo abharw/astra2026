@@ -15,9 +15,11 @@ export function startDeviceControl({deviceToken,adminToken,port=8798}){
   if(phone?.readyState!==WebSocket.OPEN){respond(409,{error:'Enable Mac camera test in the unlocked phone app'});return;}
   let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>16000){respond(413,{error:'Command too large'});return;}}
   let command;try{command=JSON.parse(raw);}catch{respond(400,{error:'Invalid JSON'});return;}
-  const allowed=['state','snapshot','tap','reconstruct','cancel','manipulate','voice.start','voice.stop','explain','refine'];
+  const allowed=['state','snapshot','drag','ask','tap','reconstruct','cancel','manipulate','voice.start','voice.stop','explain','refine'];
   if(!allowed.includes(command.action)){respond(400,{error:'Unsupported action'});return;}
   if(command.action==='tap'&&(!Number.isFinite(command.x)||!Number.isFinite(command.y)||command.x<0||command.x>1||command.y<0||command.y>1)){respond(400,{error:'Tap coordinates must be normalized 0–1'});return;}
+  if(command.action==='drag'&&![command.fromX,command.fromY,command.x,command.y].every(v=>Number.isFinite(v)&&v>=0&&v<=1)){respond(400,{error:'Drag coordinates must be normalized 0–1'});return;}
+  if(command.action==='ask'&&(typeof command.question!=='string'||!command.question.trim()||command.question.length>2000)){respond(400,{error:'Provide a question of 1–2000 characters'});return;}
   const id=randomUUID();const timer=setTimeout(()=>{pending.delete(id);respond(504,{error:'Phone acknowledgment timed out'});},15000);
   pending.set(id,{timer,respond});phone.send(JSON.stringify({...command,type:'test.command',id}));
  });

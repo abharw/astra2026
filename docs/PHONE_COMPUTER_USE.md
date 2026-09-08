@@ -57,3 +57,15 @@ Three relay tests passed: separate credential enforcement/disconnected response,
 The phone connected after a debug launch with `--mac-camera-test`. A requested ARView snapshot succeeded and was visually inspected: it showed the real backpack, floor, table, chairs and plants. The response reported a fresh camera frame (about 0.05 seconds old). Tracking transitioned from saved-room relocalization to Tracking ready. An app-level tap at normalized (0.37, 0.75), chosen from that actual image over the backpack, invoked the shared native tap handler and returned `busy: true` with reconstruction started. Generation and subsequent manipulation are still in progress at this entry. The raw image stays in private local evidence, not the public repository.
 
 The direct link subsequently disconnected before the backpack generation result could be inspected. No completed backpack reconstruction, drag, movement or Return result is claimed for this attempt. Further control actions were paused for clarification of the user’s computer-use instruction.
+
+### Resume, saved objects and drag/question extension
+
+After the user asked to continue, the app-level link reconnected. The device reported three saved objects, with a seven-part gray upholstered sled-base chair active and tracking ready. This was a state observation; we did not create or visually validate all three objects in this control run.
+
+Added normalized screen-space dragging for the selected extracted model. It intersects the start/end viewing rays with a plane through the model, moves by the resulting displacement and retains the original home transform. Moves longer than two metres and invalid coordinates are rejected. Native touch translation/rotation/scale gestures were already enabled after Pull out; the new command exposes dragging through the Mac test link.
+
+Added an Ask field in Parts and an app-level `ask --question` command. Typed questions synchronize the selected object/part into the existing Realtime context and play the answer without opening the microphone. A stop-answer control ends playback; spoken voice remains separately enabled. The test state now exposes transcript, object list and original/current transforms so later movement/Return checks can compare actual state with images.
+
+The extension's physical iPhone build passed. During installation the device connection closed and Xcode reported the phone unavailable, so installation of the drag/question extension and its live acceptance remain pending. The previous camera-link build had already installed and returned a real camera image. Relay tests also reject out-of-range drags and empty questions. Do not describe the untested extension as a completed physical drag or question demonstration.
+
+Example after reconnection: inspect a fresh snapshot, select the visible model, send `manipulate --operation extract`, then `drag --from-x 0.5 --from-y 0.5 --x 0.7 --y 0.5`, inspect another snapshot, and use Return. Ask uses `ask --question "What supports the backrest on this chair?"`; inspect the returned transcript before claiming an answer was heard or accurate.
