@@ -1,0 +1,25 @@
+{
+  "id": "def-00189",
+  "label": "0:1:1:250",
+  "name": "F01-LED-EVERLIGHT_1",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 336,
+  "triangles": 316,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.003000000026077032,
+      0.0010000000474974513,
+      0.0019992003217339516
+    ]
+  ],
+  "mesh_path": "meshes/def-00189.npz",
+  "mesh_sha256": "b6efbdddf3161f814d1e76c8447ed82c59a25b988fee5ca79120c29a66770686",
+  "tessellation_seconds": 0.008726959000341594
+}

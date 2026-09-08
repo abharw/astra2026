@@ -1,0 +1,84 @@
+{
+  "schema": "step-xcaf-blender-mesh/v1",
+  "source": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/reviews/converter-smoke/box.step",
+  "source_sha256": "46b10273b21ba3be4b3e311ec1d818b760c2ce2630ad4cf63f36301fe1bd44e5",
+  "units": "meters",
+  "occt_import_units": "millimeters",
+  "deflection_mm": 0.05,
+  "angular_deflection_rad": 0.16,
+  "nodes": [
+    {
+      "id": "node-00000",
+      "label": "0:1:1:1",
+      "name": "Open CASCADE STEP translator 8.0 1",
+      "definition_name": "Open CASCADE STEP translator 8.0 1",
+      "definition_id": "0:1:1:1",
+      "parent": null,
+      "assembly": false,
+      "matrix_local_m": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "color_rgba": null
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-00000",
+      "label": "0:1:1:1",
+      "name": "Open CASCADE STEP translator 8.0 1",
+      "color_rgba": null,
+      "topological_faces": 6,
+      "missing_faces": 0,
+      "vertices": 24,
+      "triangles": 12,
+      "bounds_m": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.009999999776482582,
+          0.019999999552965164,
+          0.029999999329447746
+        ]
+      ],
+      "mesh_path": "meshes/def-00000.npz",
+      "mesh_sha256": "c94f30d084d5c5cf7a9f250bbf59936dd3450343c4485a222ba8175f3cacc5c1",
+      "tessellation_seconds": 0.0080754169030115
+    }
+  ],
+  "status": "complete",
+  "timings": {
+    "read_transfer_structure_seconds": 0.033945541945286095,
+    "total_seconds": 0.05798991699703038
+  },
+  "totals": {
+    "unique_vertices": 24,
+    "unique_triangles": 12,
+    "missing_faces": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00025",
+  "label": "0:1:1:45",
+  "name": "1_MIDDLE-BALL_L_POWER9",
+  "color_rgba": null,
+  "topological_faces": 243,
+  "missing_faces": 0,
+  "vertices": 29654,
+  "triangles": 44054,
+  "bounds_m": [
+    [
+      -0.008949999697506428,
+      -0.017152290791273117,
+      0.005200000014156103
+    ],
+    [
+      0.00039999998989515007,
+      0.017152290791273117,
+      0.6462000012397766
+    ]
+  ],
+  "mesh_path": "meshes/def-00025.npz",
+  "mesh_sha256": "1110985790b14df846eb8888b84e5943542ef18a09cfe7b03ca5513b52349141",
+  "tessellation_seconds": 0.27109745901543647
+}

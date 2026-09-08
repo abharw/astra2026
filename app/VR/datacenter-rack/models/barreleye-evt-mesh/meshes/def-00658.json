@@ -1,0 +1,25 @@
+{
+  "id": "def-00658",
+  "label": "0:1:1:886",
+  "name": "8_LABLE-HDD-MAP_POWER9",
+  "color_rgba": null,
+  "topological_faces": 12,
+  "missing_faces": 0,
+  "vertices": 360,
+  "triangles": 336,
+  "bounds_m": [
+    [
+      -0.02500000037252903,
+      0.0008699999889358878,
+      -0.020999999716877937
+    ],
+    [
+      0.02500000037252903,
+      0.0010000000474974513,
+      0.020999999716877937
+    ]
+  ],
+  "mesh_path": "meshes/def-00658.npz",
+  "mesh_sha256": "11dfe11fc980395a589f037b3d04f629b416eb95d6b59363dd8ce15da8c51bbe",
+  "tessellation_seconds": 0.010932582896202803
+}

@@ -1,0 +1,402 @@
+{
+  "created_at": "2026-09-08T19:15:36.276021+00:00",
+  "scope": "rack frame/power specialist owned assets and retained evidence",
+  "sources": {
+    "standard.pdf": "https://www.opencompute.org/documents/openrack-standard-v20-overview",
+    "facebook-rack-v2.pdf": "https://www.opencompute.org/documents/open-rack-v2-specification-rev12-pdf",
+    "standard-v2.2.pdf": "https://www.opencompute.org/documents/rittal-open-rack-standard-v2-2-proposed-cl-2-pdf",
+    "ocphl-r-copyleft-v10.pdf": "https://www.opencompute.org/documents/ocphl-r-copyleft-v10",
+    "ocphl-permissive-v10.pdf": "https://www.opencompute.org/documents/ocphl-permissive-v10",
+    "ge-48v-shelf.pdf": "https://opencompute.org/files/OCP-Summit-GE-True-Three-Phase-380-480VAC-to-48VDC-Power-Shelf-V3.4.pdf",
+    "bel-spstet4-07.pdf": "https://www.belfuse.com/resources/datasheets/powersolutions/ds-bps-spstet-07.pdf",
+    "bel-tet4000-ra.pdf": "https://www.belfuse.com/resources/datasheets/powersolutions/ds-bps-tet4000-48-069ra.pdf"
+  },
+  "files": [
+    {
+      "path": "docs/RACK_FRAME.md",
+      "sha256": "1a86dbbaf9bfa480ba22b4dbad072af4e53b5fb550b1e90bdc64c88ef6aaff0e",
+      "bytes": 8096,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/OCP-Archive-tree.json",
+      "sha256": "af9a395205b8ab036fa03219c879e17b550755f42914abaf0aab4a9bcaaae60f",
+      "bytes": 790,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/OCP-RP-Rack-and-Power-tree.json",
+      "sha256": "449d791359e2c09571312ba203ca1ba3f5f738edd7ec1a1942804a76ecb6b30c",
+      "bytes": 820,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/PROVENANCE.md",
+      "sha256": "243066b0442932bfa1da3540f3d0485118467e9f8d9b53c5b2a41e4d8d7b9055",
+      "bytes": 4474,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/bel-11.png",
+      "sha256": "802a395427027ee4dc7efeca56c6324bb6cc212d1f6d3217b1531e41c5d9ba19",
+      "bytes": 264094,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-12.png",
+      "sha256": "ee9e0b5f3f2b2eb390a4fb03ad344fefa3782cd1ea71f7c544897f82e6d2cf6f",
+      "bytes": 232989,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-model3d.js",
+      "sha256": "8a81d712f0287cbacc9e952d9f6046b93dae726f363ccdb1363b4a3ce4b42650",
+      "bytes": 12536,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-partpage.js",
+      "sha256": "033d236fc4510f7ff6d067f50e175cd771fa01d3f2ef00259dbf215d0d671d33",
+      "bytes": 55352,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-spstet4-07.pdf",
+      "sha256": "1cf796cb2381517c885c1f91f055d66bc276f1788cb2890597ee7d0361f08d93",
+      "bytes": 812928,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only",
+      "source_url": "https://www.belfuse.com/resources/datasheets/powersolutions/ds-bps-spstet-07.pdf"
+    },
+    {
+      "path": "research/rack-frame/bel-spstet4-07.txt",
+      "sha256": "deabe56a215dfd4ce4c58e9bae1e04c90aeb4556ac3ecd33463c40f351815070",
+      "bytes": 42660,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-tet4000-product.html",
+      "sha256": "07230231812d4f1fa23704fa7df8b38dd50221de10c41d71ae905bae703b89cf",
+      "bytes": 220434,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/bel-tet4000-ra.pdf",
+      "sha256": "5fef99b764a452aa23c3bdeeadaac527ae4bff4f32a4620ea689051d8368f78d",
+      "bytes": 748827,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only",
+      "source_url": "https://www.belfuse.com/resources/datasheets/powersolutions/ds-bps-tet4000-48-069ra.pdf"
+    },
+    {
+      "path": "research/rack-frame/bel-tet4000-ra.txt",
+      "sha256": "ddc0f69b96f912801a690f11e9a5d4a64121fce542c29ee88f16310d73ebf908",
+      "bytes": 66049,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/cadenas-model3d.js",
+      "sha256": "d0df57cb671b5a609549bdb16a6d6b9fff1ab83a93cf30a52b969a6841399e57",
+      "bytes": 15608,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/clay-front.png",
+      "sha256": "49a69e03924eec1371ab71469204d6ac494245e9abe4dd626a2ff163237735b7",
+      "bytes": 1568974,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/clay-rear.png",
+      "sha256": "2509ec5ebf15293f78336c7dd97426a98adb9d4f42272a9b0e5e139191a70895",
+      "bytes": 1533308,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/cross-17.png",
+      "sha256": "54724890117363a57fb34c6d0eb01e6aa81280c4c82d271dede4915e65e06787",
+      "bytes": 228923,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/facebook-rack-v2.pdf",
+      "sha256": "5cbd8f24ed8adf62f00290307942162068dbc4c1a878065670075350237b69ec",
+      "bytes": 703437,
+      "kind": "retained_source_evidence",
+      "public_distribution": "preserve_applicable_OCP_license_and_attribution",
+      "source_url": "https://www.opencompute.org/documents/open-rack-v2-specification-rev12-pdf"
+    },
+    {
+      "path": "research/rack-frame/facebook-rack-v2.txt",
+      "sha256": "3cc263ab98304de54785ad8a9a2bea69353158b30e79c9f85b7175977516c962",
+      "bytes": 20094,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/foot-close.png",
+      "sha256": "e6c1cc9c6ca4a052dec02585c6827b56ccad86c0e6dfb2c4141103e341178b6d",
+      "bytes": 1583498,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/ge-48v-shelf.pdf",
+      "sha256": "298d0fb53f9d8610a66cfc766d2fc38bdb8805860760d7b7779d35e53e8595bf",
+      "bytes": 2308565,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only",
+      "source_url": "https://opencompute.org/files/OCP-Summit-GE-True-Three-Phase-380-480VAC-to-48VDC-Power-Shelf-V3.4.pdf"
+    },
+    {
+      "path": "research/rack-frame/ge-48v-shelf.txt",
+      "sha256": "e607aa724801b7a28596d20a919cfa9c35a826e5ea6e791db854f5ca3dbd8d6a",
+      "bytes": 10126,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/ge-slide-06.png",
+      "sha256": "b1649f5b54290ad2c9490823c3d8fd866dba7075d4874301d8f9ff28e995a0f9",
+      "bytes": 1503480,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/ge-slide-07.png",
+      "sha256": "c559115409d9b54b7a78266c0d0fb354fb916c2e221cb4291192de6ff3e32858",
+      "bytes": 1086342,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/ge-slide-08.png",
+      "sha256": "3b57516e5a51160064118064e2817ff5a3cea2b2e3c87e045eb7f13873c7192c",
+      "bytes": 1243635,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/license-index.html",
+      "sha256": "ef6bfccf67d9cfc2afa106c02663f2b4469901349ecebf86fca94e2f993c5103",
+      "bytes": 182389,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/ocphl-permissive-v10.pdf",
+      "sha256": "a0e8778556d192323fddccab9cfac0966fe34125e124abcc049f8cfd942c99f1",
+      "bytes": 92175,
+      "kind": "retained_source_evidence",
+      "public_distribution": "preserve_applicable_OCP_license_and_attribution",
+      "source_url": "https://www.opencompute.org/documents/ocphl-permissive-v10"
+    },
+    {
+      "path": "research/rack-frame/ocphl-r-copyleft-v10.pdf",
+      "sha256": "8743d9c690300de4c9397fa34b8f63e1cefa0f148c6b934f872803787e06f8fb",
+      "bytes": 93281,
+      "kind": "retained_source_evidence",
+      "public_distribution": "preserve_applicable_OCP_license_and_attribution",
+      "source_url": "https://www.opencompute.org/documents/ocphl-r-copyleft-v10"
+    },
+    {
+      "path": "research/rack-frame/ocpstagingweb2.html",
+      "sha256": "b808e88877b478de5c455c396a3cade048c6470eb4b2faa0731263cf88b1a3ce",
+      "bytes": 34377,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/power-close.png",
+      "sha256": "47fadf960963a9a0affa63486392f32671b61657489e7b1ec1d5be61da03093b",
+      "bytes": 1985576,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/power-rear-close.png",
+      "sha256": "670f5f3eef436a43986388ed8611eed770e77ff7ebb2c7a0e1182ecb9370f4bc",
+      "bytes": 2100769,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/rack-wiki.html",
+      "sha256": "ac0899ee38de81345194a0c14d6050622d585cb45787fe735a3ea839c08844ea",
+      "bytes": 40377,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/rail-close.png",
+      "sha256": "bfe52170ada514b3c03e732bbe6134a842003570250c83c2490d2f60459ea4d8",
+      "bytes": 1679524,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/standard-page-13.png",
+      "sha256": "d724882f9d4d5cd2040f4ec916528865cc587b79fdabd2a265df15f4761b882e",
+      "bytes": 284515,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/standard-page-14.png",
+      "sha256": "74dc2f07928b8f076738523a6b757c81f7643bcf5a1ac41beba0771913b3e7d8",
+      "bytes": 261581,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/standard-page-15.png",
+      "sha256": "9abcdf04b3d0b5cfe4c81561123ba731a2062ffd639b7e2c6f1a09326ee74888",
+      "bytes": 269238,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/standard-page-20.png",
+      "sha256": "7b74713750fa2ab3708f72b82bea5ddb6d93074afd1f4131bce7e938791e9ac3",
+      "bytes": 363844,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/standard-v2.2.pdf",
+      "sha256": "5af9a8c3ab8965d79a50918f7039215a13ecddd37f40a0d57a9ddf67154fd6b2",
+      "bytes": 2397363,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only",
+      "source_url": "https://www.opencompute.org/documents/rittal-open-rack-standard-v2-2-proposed-cl-2-pdf"
+    },
+    {
+      "path": "research/rack-frame/standard-v2.2.txt",
+      "sha256": "83455be102587b618c261dc8abc564cd7aafe4b1d48ccd04e041cf87dda5b236",
+      "bytes": 172311,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/standard.pdf",
+      "sha256": "177136f9899a214338f73bbf117e1e87efe1ec128895dc4b9b8ea99f4ab2f4f8",
+      "bytes": 1626326,
+      "kind": "retained_source_evidence",
+      "public_distribution": "preserve_applicable_OCP_license_and_attribution",
+      "source_url": "https://www.opencompute.org/documents/openrack-standard-v20-overview"
+    },
+    {
+      "path": "research/rack-frame/standard.txt",
+      "sha256": "4acc49ce05119ad945671a7d96366db34a255b563384cfac5ffe5183f4a48ec9",
+      "bytes": 143012,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/tet-14.png",
+      "sha256": "0cb4ba1850f64e5d0077fdf643447a941c84f17646b28ba7a3837351149db912",
+      "bytes": 49690,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/tet-15.png",
+      "sha256": "f59f73184c07b9db3dd4c16afa4039253256d4c84f583d43d098a3c1047a7065",
+      "bytes": 299652,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/tet-16.png",
+      "sha256": "d8a8bbbaef188aab0162e6a92a67867ad7243cc07bfac454d4008128f89283e9",
+      "bytes": 273930,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/v22-16.png",
+      "sha256": "754426a21d96ef857527383064281267ffca0df4c9cf42cf1cf826d6056df9da",
+      "bytes": 116580,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/v22-17.png",
+      "sha256": "852ba75e3a46b6b871b2abae6bc8c1fcee16efe29b4df60ee77469f45b8cb190",
+      "bytes": 193939,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/v22-18.png",
+      "sha256": "a6d108daeb042b8407405dba04096597f41f61c840a9d2b7e364a4aa79730b3d",
+      "bytes": 224842,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/v22-19.png",
+      "sha256": "7c3eb94a315dc99f22262c31bf3d708fbba66a755eb2a4647eb6559f0c5308ea",
+      "bytes": 263462,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/validate_and_preview.py",
+      "sha256": "d66590ab173bece83f7ecf9f56b260660a959fe549cc661ef100f65039865511",
+      "bytes": 4305,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/validation.json",
+      "sha256": "dd83d6d4b56d63432bedb5f7686c848a96a3a0589c9ae1663e575a637f156009",
+      "bytes": 4180,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "research/rack-frame/workshop.html",
+      "sha256": "c389c043b947cea2a0655d16c1e492c67e8e9e2d000af3cdd9a538c706f18b84",
+      "bytes": 168704,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "research/rack-frame/zaius-barreleye-g2-tree.json",
+      "sha256": "bf8f1f06702af435248f21fd74158f003f7ea99ae41b19f0866e3651327ed83c",
+      "bytes": 44392,
+      "kind": "retained_source_evidence",
+      "public_distribution": "local_evidence_only"
+    },
+    {
+      "path": "source/rack-frame.blend",
+      "sha256": "8809efbc875546556a7b47b6c8ccbcdd50c80e18aee3124f4ef2b7e1f3fc8797",
+      "bytes": 1093734,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    },
+    {
+      "path": "source/rack_frame.py",
+      "sha256": "82b8308ec2c34f85395c5a9a4f3f3048b9886406c97159f1b49f4369105b545a",
+      "bytes": 25550,
+      "kind": "authored",
+      "public_distribution": "review_source_notices"
+    }
+  ]
+}

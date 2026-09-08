@@ -1,0 +1,25 @@
+{
+  "id": "def-00017",
+  "label": "0:1:1:33",
+  "name": "1_SUS-IO_POWER9",
+  "color_rgba": null,
+  "topological_faces": 131,
+  "missing_faces": 0,
+  "vertices": 4206,
+  "triangles": 3964,
+  "bounds_m": [
+    [
+      -0.01600000075995922,
+      -0.02250000089406967,
+      -0.00530075840651989
+    ],
+    [
+      0.012319999746978283,
+      0.02250000089406967,
+      0.00019999999494757503
+    ]
+  ],
+  "mesh_path": "meshes/def-00017.npz",
+  "mesh_sha256": "61ce4f44aee048415b03751d34221d7e0a5b89df6a8df44429848efd515499ba",
+  "tessellation_seconds": 0.07142116699833423
+}

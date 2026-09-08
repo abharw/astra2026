@@ -1,5 +1,11 @@
 # Implementation handoff: repository, illustrations, native flows
 
+## AR/VR integration workspace
+
+The user requested independent `app/AR/` and `app/VR/` directories and explicitly asked to preserve both source branches. Integration work is on `codex/ar-vr-integration` in `/Users/aravb/Developer/astra2026-ar-vr`, based on Arav `d70f39f` and Akeil `81d85bc`. Do not commit this integration to `Arav`, `Akeil`, or `main`. The original Arav checkout is unchanged.
+
+The Apple app moved one directory deeper; its root-level backend, framework, assets and tools remain in place. `app/VR/` is the complete Akeil source tree with its independent bridge and all original relative paths. [Integration record](docs/ar-vr-integration.md) describes commands and verification. The stage history and earlier Arav workflow instructions below are retained as background; this integration-workspace instruction governs the combined tree.
+
 Updated September 8, 2026. Reorganization baseline: `ef10dcb` (primitive implementation baseline: `103f798`) on branch **`Arav`**. Arav explicitly selected this order for the next session:
 
 1. **Reorganize the repository.**

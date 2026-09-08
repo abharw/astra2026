@@ -1,0 +1,25 @@
+{
+  "id": "def-00438",
+  "label": "0:1:1:592",
+  "name": "ZAIUS-ADAPTER_EMP-20170220",
+  "color_rgba": null,
+  "topological_faces": 595,
+  "missing_faces": 0,
+  "vertices": 8622,
+  "triangles": 7536,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.00829995796084404
+    ],
+    [
+      0.07949996739625931,
+      0.13670000433921814,
+      0.012674854137003422
+    ]
+  ],
+  "mesh_path": "meshes/def-00438.npz",
+  "mesh_sha256": "4be2cf11d4934ff3f3482ef81a8ca33498cc30cc8a11f01474af39104f27a018",
+  "tessellation_seconds": 0.35396366694476455
+}

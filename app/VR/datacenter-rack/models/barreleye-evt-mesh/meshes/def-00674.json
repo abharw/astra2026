@@ -1,0 +1,25 @@
+{
+  "id": "def-00674",
+  "label": "0:1:1:909",
+  "name": "MANIFOLD_SOLID_BREP_26295",
+  "color_rgba": null,
+  "topological_faces": 30,
+  "missing_faces": 0,
+  "vertices": 1720,
+  "triangles": 1676,
+  "bounds_m": [
+    [
+      -0.045499999076128006,
+      0.008999999612569809,
+      -0.042500000447034836
+    ],
+    [
+      -0.01640000008046627,
+      0.010499999858438969,
+      0.042500000447034836
+    ]
+  ],
+  "mesh_path": "meshes/def-00674.npz",
+  "mesh_sha256": "da880b928370e718b75d55e635745435cf19ba2187ee0df50227084a4e6f3f79",
+  "tessellation_seconds": 0.03158570802770555
+}

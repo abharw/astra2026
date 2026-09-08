@@ -1,0 +1,25 @@
+{
+  "id": "def-00285",
+  "label": "0:1:1:374",
+  "name": "CAPACITOR-SMT_-_2_5KV_1",
+  "color_rgba": null,
+  "topological_faces": 44,
+  "missing_faces": 0,
+  "vertices": 3344,
+  "triangles": 4884,
+  "bounds_m": [
+    [
+      -0.0008500000112690032,
+      -4.999999873689376e-05,
+      -0.003100000089034438
+    ],
+    [
+      0.0008500000112690032,
+      0.001769999973475933,
+      0.0003000000142492354
+    ]
+  ],
+  "mesh_path": "meshes/def-00285.npz",
+  "mesh_sha256": "9939bfb11b5985ecf4efef4ca641c8c3c7bbc95af79026a9c36ef1c8f3ac35cb",
+  "tessellation_seconds": 0.04176649998407811
+}

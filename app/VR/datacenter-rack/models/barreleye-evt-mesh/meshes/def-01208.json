@@ -1,0 +1,25 @@
+{
+  "id": "def-01208",
+  "label": "0:1:1:1519",
+  "name": "HON_HAI_PRECISION_SKT_CONC-9076",
+  "color_rgba": null,
+  "topological_faces": 88,
+  "missing_faces": 0,
+  "vertices": 5460,
+  "triangles": 5332,
+  "bounds_m": [
+    [
+      -0.005080000031739473,
+      -0.0012700000079348683,
+      -0.0025400000158697367
+    ],
+    [
+      0.005080000031739473,
+      0.0012700000079348683,
+      0.0025400000158697367
+    ]
+  ],
+  "mesh_path": "meshes/def-01208.npz",
+  "mesh_sha256": "f2751a0b8fce361582d3d7f2f3939db1a7eed76406d13926910ff81416a60518",
+  "tessellation_seconds": 0.11643662501592189
+}

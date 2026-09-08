@@ -1,0 +1,25 @@
+{
+  "id": "def-00537",
+  "label": "0:1:1:717",
+  "name": "MSBR-18_1_2",
+  "color_rgba": null,
+  "topological_faces": 76,
+  "missing_faces": 0,
+  "vertices": 10716,
+  "triangles": 16978,
+  "bounds_m": [
+    [
+      -0.015399999916553497,
+      -0.004749999847263098,
+      0.0012000000569969416
+    ],
+    [
+      0.015399999916553497,
+      0.004749999847263098,
+      0.0074928016401827335
+    ]
+  ],
+  "mesh_path": "meshes/def-00537.npz",
+  "mesh_sha256": "24cead7e1c94a48c080e018ab8a3bb527f258a10805191acf74d5c048aa04eed",
+  "tessellation_seconds": 0.11292570806108415
+}

@@ -1,0 +1,32 @@
+# Downloaded reference originals stay local until redistribution rights are verified.
+research/originals/
+logs/raw/
+*.blend1
+*.blend2
+__pycache__/
+.runtime/
+
+# Local source downloads and regenerable intermediate caches.
+research/components/originals/
+research/cad-diagnostics/*.xbf
+research/cad-diagnostics/pristine-meshes/
+research/rack-frame/*.pdf
+research/rack-frame/*.png
+research/rack-frame/*.jpg
+research/rack-frame/*.html
+research/rack-frame/*.js
+research/rack-frame/*-pages/
+research/pcb-population/source-layers/
+research/pcb-population/normalized-layers/
+research/pcb-population/smoke-metadata.json
+research/pcb-population/*smoke*.blend
+models/barreleye-source-v001.blend
+models/datacenter-rack-v001.blend
+.harness/
+authorization.json
+
+research/components/pages/
+research/components/text/
+
+research/rack-frame/*.txt
+research/components/evt3-schematic.txt

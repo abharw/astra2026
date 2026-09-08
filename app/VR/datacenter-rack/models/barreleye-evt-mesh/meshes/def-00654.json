@@ -1,0 +1,25 @@
+{
+  "id": "def-00654",
+  "label": "0:1:1:882",
+  "name": "1_LP-IO-BRKT",
+  "color_rgba": null,
+  "topological_faces": 95,
+  "missing_faces": 0,
+  "vertices": 10131,
+  "triangles": 15274,
+  "bounds_m": [
+    [
+      -0.0035800000187009573,
+      -0.07919999957084656,
+      -0.011839999817311764
+    ],
+    [
+      0.018950000405311584,
+      0.0007999999797903001,
+      0.014299999922513962
+    ]
+  ],
+  "mesh_path": "meshes/def-00654.npz",
+  "mesh_sha256": "89bc84bea9e6e7ace0afae43366ecc3ac37fd28888831e33b5c060adce096231",
+  "tessellation_seconds": 0.11867008300032467
+}

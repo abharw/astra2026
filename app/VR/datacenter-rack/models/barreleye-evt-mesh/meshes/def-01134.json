@@ -1,0 +1,25 @@
+{
+  "id": "def-01134",
+  "label": "0:1:1:1420",
+  "name": "PSA_GLUE_0-15T_GREEN_COVER_1_P_",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.05849999934434891,
+      -0.003000000026077032,
+      0.0
+    ],
+    [
+      0.05849999934434891,
+      0.003000000026077032,
+      0.0001500000071246177
+    ]
+  ],
+  "mesh_path": "meshes/def-01134.npz",
+  "mesh_sha256": "e8b65e9238283bf0eeaca2fe382a0141ec1ee5fa0972934f7efa886365039461",
+  "tessellation_seconds": 0.005919666960835457
+}

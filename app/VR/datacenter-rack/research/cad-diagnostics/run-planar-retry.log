@@ -1,0 +1,16 @@
+True 0.05 4 0 {'area_mm2': 0.2975772490185332, 'estimated_relative_integration_error': 1.928297993753928e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] True
+True 0.005 4 0 {'area_mm2': 0.2975772490185332, 'estimated_relative_integration_error': 1.928297993753928e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] True
+True 0.0005 4 0 {'area_mm2': 0.2975772490185332, 'estimated_relative_integration_error': 1.928297993753928e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] True
+True 5e-05 128 329 {'area_mm2': 0.2975772490185332, 'estimated_relative_integration_error': 1.928297993753928e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] True
+False 0.05 6 0 {'area_mm2': -0.2975772490185331, 'estimated_relative_integration_error': 1.9282979937539288e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] False
+False 0.005 128 186 {'area_mm2': -0.2975772490185331, 'estimated_relative_integration_error': 1.9282979937539288e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] False
+False 0.0005 128 186 {'area_mm2': -0.2975772490185331, 'estimated_relative_integration_error': 1.9282979937539288e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] False
+False 5e-05 128 186 {'area_mm2': -0.2975772490185331, 'estimated_relative_integration_error': 1.9282979937539288e-16} [[ 0.9675677  -0.71220865  2.07      ]
+ [ 1.4         0.71220865  2.07      ]] False

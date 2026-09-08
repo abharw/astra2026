@@ -1,0 +1,25 @@
+{
+  "id": "def-00659",
+  "label": "0:1:1:887",
+  "name": "8_LABEL-L10SLED_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.01269999984651804,
+      -0.00634999992325902,
+      0.0028699999675154686
+    ],
+    [
+      0.01269999984651804,
+      0.00634999992325902,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00659.npz",
+  "mesh_sha256": "9b652133c05c7342b8c8b3f1d15a93ebf67391cda0eb1accf360ed1e21f3109a",
+  "tessellation_seconds": 0.009306624997407198
+}

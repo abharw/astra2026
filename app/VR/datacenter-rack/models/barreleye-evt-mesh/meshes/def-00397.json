@@ -1,0 +1,25 @@
+{
+  "id": "def-00397",
+  "label": "0:1:1:540",
+  "name": "COMPOUND",
+  "color_rgba": null,
+  "topological_faces": 1066,
+  "missing_faces": 0,
+  "vertices": 46592,
+  "triangles": 47298,
+  "bounds_m": [
+    [
+      0.0012700000079348683,
+      -0.006275000050663948,
+      -0.003687500022351742
+    ],
+    [
+      0.0697299987077713,
+      0.10877999663352966,
+      0.012287500314414501
+    ]
+  ],
+  "mesh_path": "meshes/def-00397.npz",
+  "mesh_sha256": "9c7da0d9f68c28c7d532721dc05a62db34d3c5188c7341b2d450b2b40b869f39",
+  "tessellation_seconds": 0.7614050409756601
+}

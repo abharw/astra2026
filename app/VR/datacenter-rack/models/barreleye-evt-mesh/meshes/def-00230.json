@@ -1,0 +1,25 @@
+{
+  "id": "def-00230",
+  "label": "0:1:1:296",
+  "name": "K2-OCP-2_0-BOARD_2_1",
+  "color_rgba": null,
+  "topological_faces": 34,
+  "missing_faces": 0,
+  "vertices": 2824,
+  "triangles": 2780,
+  "bounds_m": [
+    [
+      -0.020999999716877937,
+      0.0,
+      -0.11005000025033951
+    ],
+    [
+      0.05000000074505806,
+      0.0015699999639764428,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00230.npz",
+  "mesh_sha256": "e524adf4c070255a7b9f8720f2fbebfd369e862b9b76e94278767530e00553ec",
+  "tessellation_seconds": 0.03849787509534508
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01157",
+  "label": "0:1:1:1446",
+  "name": "85OHM_TWINAX_30AWG_11PAIR_T",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.01192499976605177,
+      -0.0010499999625608325,
+      0.0
+    ],
+    [
+      0.01192499976605177,
+      0.0010499999625608325,
+      0.0010000000474974513
+    ]
+  ],
+  "mesh_path": "meshes/def-01157.npz",
+  "mesh_sha256": "ddd9ef99b61cb73194d445ef57140ea4014da9d731d8b8c50f869974612d270f",
+  "tessellation_seconds": 0.007669958984479308
+}

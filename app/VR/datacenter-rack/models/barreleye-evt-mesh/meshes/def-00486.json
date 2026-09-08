@@ -1,0 +1,25 @@
+{
+  "id": "def-00486",
+  "label": "0:1:1:654",
+  "name": "ZAIUS-SINK-0C_20160826",
+  "color_rgba": null,
+  "topological_faces": 5894,
+  "missing_faces": 0,
+  "vertices": 157867,
+  "triangles": 199744,
+  "bounds_m": [
+    [
+      -0.045499999076128006,
+      0.0,
+      -0.05000000074505806
+    ],
+    [
+      0.045499999076128006,
+      0.04399999976158142,
+      0.05000000074505806
+    ]
+  ],
+  "mesh_path": "meshes/def-00486.npz",
+  "mesh_sha256": "4853415bc4920785a23811c2a25d1d24e58e26846f94ee4eb40126cdd09feb7e",
+  "tessellation_seconds": 3.9440224999561906
+}

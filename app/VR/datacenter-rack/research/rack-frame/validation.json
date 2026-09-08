@@ -1,0 +1,196 @@
+{
+  "time": "2026-09-08T19:06:24.204297+00:00",
+  "blender_version": "5.3.0 Alpha",
+  "objects": 827,
+  "mesh_objects": 728,
+  "mesh_vertices": 53194,
+  "metadata_missing": [],
+  "frame_bounds": {
+    "min": [
+      -0.30000001192092896,
+      -0.5335000157356262,
+      0.12150000035762787
+    ],
+    "max": [
+      0.30000001192092896,
+      0.5335000157356262,
+      2.2100000381469727
+    ],
+    "size": [
+      0.6000000238418579,
+      1.0670000314712524,
+      2.088500037789345
+    ]
+  },
+  "psu_01_origin": [
+    0.17749999463558197,
+    -0.4000000059604645,
+    1.9110000133514404
+  ],
+  "shelf_origin": [
+    0.0,
+    -0.4000000059604645,
+    1.9079999923706055
+  ],
+  "psu_01_lid_bbox": {
+    "min": [
+      0.14350000023841858,
+      -0.4000000059604645,
+      1.950600028038025
+    ],
+    "max": [
+      0.21149998903274536,
+      0.12839999794960022,
+      1.9515999555587769
+    ]
+  },
+  "anchors": {
+    "busbar_return_front": {
+      "position": [
+        0,
+        0.3971999999999999,
+        0.18
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "part": "rack.busbar.return",
+      "evidence_level": "integration_inference"
+    },
+    "busbar_power_front": {
+      "position": [
+        -0.006,
+        0.3986999999999999,
+        0.18
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "part": "rack.busbar.power_left",
+      "evidence_level": "integration_inference"
+    },
+    "shelf_output_return_end": {
+      "position": [
+        -0.01,
+        0.4595,
+        1.9309999999999998
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "part": "rack.power_shelf.output.return",
+      "evidence_level": "reference_reconstruction"
+    },
+    "shelf_output_positive_end": {
+      "position": [
+        0.01,
+        0.4595,
+        1.9309999999999998
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "part": "rack.power_shelf.output.positive",
+      "evidence_level": "reference_reconstruction"
+    },
+    "shelf_ac_J106": {
+      "position": [
+        -0.055,
+        0.21199999999999997,
+        1.9309999999999998
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "part": "rack.power_shelf.J106.body",
+      "evidence_level": "reference_reconstruction"
+    },
+    "shelf_ac_J107": {
+      "position": [
+        0.116,
+        0.21199999999999997,
+        1.9309999999999998
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "part": "rack.power_shelf.J107.body",
+      "evidence_level": "reference_reconstruction"
+    },
+    "shelf_nac_ethernet": {
+      "position": [
+        0.236,
+        -0.40480000000000005,
+        1.9329999999999998
+      ],
+      "axis": [
+        0,
+        -1,
+        0
+      ],
+      "part": "rack.power_shelf.nac.ethernet",
+      "evidence_level": "reference_reconstruction"
+    }
+  },
+  "geometric_interoperability": "pending_root_CAD_mating_check",
+  "checks": {
+    "closed_manifold_perforated_sheets": true,
+    "all_names_rack_prefix": true,
+    "metadata_complete": true,
+    "frame_width": true,
+    "frame_depth": true,
+    "frame_top_height": true,
+    "OU_pitch": true,
+    "psu_parent_origin": true
+  },
+  "perforation_meshes": {
+    "rack.rail.left.front.latch_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.left.front.screw_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.left.front.mounting_flange": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.left.rear.latch_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.left.rear.screw_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.left.rear.mounting_flange": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.front.latch_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.front.screw_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.front.mounting_flange": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.rear.latch_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.rear.screw_web": {
+      "non_manifold_edges": 0
+    },
+    "rack.rail.right.rear.mounting_flange": {
+      "non_manifold_edges": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01119",
+  "label": "0:1:1:1402",
+  "name": "097-0097-200-HP-D8T3_7-1_1_PRT_",
+  "color_rgba": null,
+  "topological_faces": 52,
+  "missing_faces": 0,
+  "vertices": 8902,
+  "triangles": 14161,
+  "bounds_m": [
+    [
+      0.01152000017464161,
+      -0.03392999991774559,
+      0.0011999999405816197
+    ],
+    [
+      0.060843102633953094,
+      0.042555831372737885,
+      0.004900000058114529
+    ]
+  ],
+  "mesh_path": "meshes/def-01119.npz",
+  "mesh_sha256": "e96e50966286cbb1d25ab9a72ac287758059a605e08e72cdd1221ae78affbe6d",
+  "tessellation_seconds": 0.10084562504198402
+}

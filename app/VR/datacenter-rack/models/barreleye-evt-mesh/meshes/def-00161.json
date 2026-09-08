@@ -1,0 +1,25 @@
+{
+  "id": "def-00161",
+  "label": "0:1:1:210",
+  "name": "AH588XX-T2XX1-3F",
+  "color_rgba": null,
+  "topological_faces": 1485,
+  "missing_faces": 0,
+  "vertices": 44681,
+  "triangles": 48576,
+  "bounds_m": [
+    [
+      -0.07946118712425232,
+      -0.009634842164814472,
+      -0.0031500025652348995
+    ],
+    [
+      0.07532024383544922,
+      0.012475158087909222,
+      0.0031500000040978193
+    ]
+  ],
+  "mesh_path": "meshes/def-00161.npz",
+  "mesh_sha256": "64dda96af9e7cd17a35b1bb1b80e6b7332490b2796701209eda59f22975acdc2",
+  "tessellation_seconds": 0.8377045419765636
+}

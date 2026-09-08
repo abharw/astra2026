@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "metadata_search": true,
+    "result_pointer": true,
+    "owning_assembly": true,
+    "explode_operator": true,
+    "world_changed": true,
+    "parents_unchanged_during_explode": true,
+    "restore_operator": true,
+    "world_restored_fixture.assembly": true,
+    "world_restored_fixture.child": true,
+    "world_restored_fixture.leaf": true,
+    "world_restored_fixture.second": true,
+    "manual_parent_change_restored": true,
+    "isolate_operator": true,
+    "unrelated_hidden": true,
+    "descendant_visible": true,
+    "show_all_operator": true,
+    "prior_hidden_preserved": true,
+    "prior_visible_restored": true,
+    "curve_edit": true,
+    "roundtrip_state_saved": true,
+    "register_unregister_cycle": true
+  },
+  "blender": "5.3.0 Alpha"
+}

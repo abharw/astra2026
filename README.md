@@ -1,5 +1,9 @@
 # Astra Spatial
 
+The hackathon workspace contains two independent apps: **[AR](app/AR/README.md)** for iPhone/iPad and **[VR](app/VR/quest/README.md)** for Quest. Arav's native app lives in `app/AR/`; Akeil's entire source tree lives in `app/VR/`. Their existing backends and data pipelines remain separate. [Integration record and run commands](docs/ar-vr-integration.md).
+
+The description below covers the AR application. For the Quest workflow, use [its preserved README](app/VR/README.md), running its commands from `app/VR/`.
+
 A native spatial conversation experiment for the Cerebral Valley / OpenAI hackathon. Ask for an explanation or a useful 3D structure, then point at parts and keep talking. The starting example is a server rack; the framework itself works with generic geometry and semantic components.
 
 **Astra authors scene descriptions in the cloud. Swift builds their meshes on the device. RealityKit renders them using the device GPU.** The model never sends executable Swift, GPU buffers, or SQL to the iPad. One Realtime conversation carries typed text and optional audio; its single forced `ask_astra` tool routes scene reasoning to Astra and returns a receipt-gated final text/audio response. There is no phrase-to-animation lookup in the model path.
@@ -28,8 +32,9 @@ The repository groups code and supporting material into app, backend, framework,
 | --- | --- |
 | `framework/Sources/SpatialCore` | Portable values, closed decoding, resource validation, canonical hashes, transactional scene reducer |
 | `framework/Sources/SpatialApple` | RealityKit resources and hierarchy, device execution, selection, Vision pointing, SQLite checkpoints |
-| `app` | Universal iPhone/iPad SwiftUI app, audio I/O, Realtime connection, user controls |
-| `backend` | Astra Responses calls, normalized proposals, accepted-scene mirror, image jobs/artifacts, ephemeral voice credentials |
+| `app/AR` | Universal iPhone/iPad SwiftUI app, audio I/O, Realtime connection, user controls |
+| `app/VR` | Complete Akeil tree: Quest app, its bridge, assets, earlier prototypes and documentation |
+| `backend` | AR Astra Responses calls, normalized proposals, accepted-scene mirror, image jobs/artifacts, ephemeral voice credentials |
 | `assets/server-rack` | Explicitly authored starting content, outside the framework |
 | `assets/imported-rack` | Source-derived Blender assets, hierarchy templates, selection proxies and provenance |
 | `tools/Sources/SceneLab` | Small Swift acceptance client using the production reducer |
@@ -38,7 +43,7 @@ The repository groups code and supporting material into app, backend, framework,
 | `docs` | Architecture, product decisions, references, and dated evidence |
 | `.local` | Ignored development credentials, logs, downloaded sources, and build output |
 
-The app targets iOS/iPadOS 26. The primary device is an iPad Air 13-inch (M4) on iPadOS 26.5. Xcode 26.6 and Swift 6.3.3 were used here. Quest is a future renderer adapter, not an implemented target.
+The app targets iOS/iPadOS 26. The primary device is an iPad Air 13-inch (M4) on iPadOS 26.5. Xcode 26.6 and Swift 6.3.3 were used here. The independently implemented Quest app is preserved in `app/VR/quest`; it uses its own bridge and protocol.
 
 The Apple package separates `Rendering`, `Input`, `Transport`, `Storage`, `Illustrations`, and `Diagnostics`; the app separates `UI` and `Conversation`. Provider-specific code lives under `backend/src/astra`. Demo hardware content remains outside those runtime modules. The [rack seed](assets/server-rack/README.md) contains 179 named nodes, references actual Dell service diagrams, and is bundled from its single canonical JSON file.
 
@@ -63,7 +68,7 @@ python3 tools/dev-session.py serve
 
 This binds port 8788 to the Mac's Wi-Fi address and creates a temporary session token in the ignored `.local` directory with owner-only permissions. The iPad must reach that address. The authenticated HTTPS endpoint described in [backend-endpoint.md](docs/backend-endpoint.md) is a separately verified development route; it does not make the headless `SceneLab` harness a product backend or replace the local runtime configuration when that route is used.
 
-Build the app in Xcode by opening `app/AstraSpatialDemo.xcodeproj`, selecting your development team and device, and running. XcodeGen's source is `app/project.yml`; regenerate from that directory with `xcodegen generate` after editing it. Device builds require Developer Mode and a trusted development profile. Simulator builds disable signing.
+Build the app in Xcode by opening `app/AR/AstraSpatialDemo.xcodeproj`, selecting your development team and device, and running. XcodeGen's source is `app/AR/project.yml`; regenerate from that directory with `xcodegen generate` after editing it. Device builds require Developer Mode and a trusted development profile. Simulator builds disable signing.
 
 After installing a Debug app, launch it with the local backend settings prefilled, without printing the token:
 

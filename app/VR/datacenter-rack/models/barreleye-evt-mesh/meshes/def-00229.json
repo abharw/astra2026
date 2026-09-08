@@ -1,0 +1,25 @@
+{
+  "id": "def-00229",
+  "label": "0:1:1:294",
+  "name": "M-FS1-Z38-X0Z6-10-REVG1_1",
+  "color_rgba": null,
+  "topological_faces": 528,
+  "missing_faces": 0,
+  "vertices": 10908,
+  "triangles": 10120,
+  "bounds_m": [
+    [
+      -0.009100000374019146,
+      -0.0009399999980814755,
+      -0.013269999995827675
+    ],
+    [
+      0.009100000374019146,
+      0.00559999980032444,
+      2.0316650380276802e-13
+    ]
+  ],
+  "mesh_path": "meshes/def-00229.npz",
+  "mesh_sha256": "17faf32755aec65c8ff83eccbf4b5f8bb0cc9d5009807a7a926a13b6460e2a02",
+  "tessellation_seconds": 0.2799726249650121
+}

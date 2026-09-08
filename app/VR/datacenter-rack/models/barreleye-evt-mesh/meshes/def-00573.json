@@ -1,0 +1,25 @@
+{
+  "id": "def-00573",
+  "label": "0:1:1:756",
+  "name": "HM3509E-HP1",
+  "color_rgba": null,
+  "topological_faces": 2184,
+  "missing_faces": 0,
+  "vertices": 41940,
+  "triangles": 38660,
+  "bounds_m": [
+    [
+      -0.02891699969768524,
+      -0.00622999994084239,
+      -0.0034000000450760126
+    ],
+    [
+      0.013244999572634697,
+      0.00482999999076128,
+      0.012880000285804272
+    ]
+  ],
+  "mesh_path": "meshes/def-00573.npz",
+  "mesh_sha256": "924673ae6ea06936cf5395f3da8e01a573c79643804f48b3c6d6116a1f4b61a7",
+  "tessellation_seconds": 1.4702060830313712
+}

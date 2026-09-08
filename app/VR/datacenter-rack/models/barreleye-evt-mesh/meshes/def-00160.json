@@ -1,0 +1,25 @@
+{
+  "id": "def-00160",
+  "label": "0:1:1:209",
+  "name": "ZAIUS-MB_EMP-20161223",
+  "color_rgba": null,
+  "topological_faces": 21321,
+  "missing_faces": 0,
+  "vertices": 170204,
+  "triangles": 127562,
+  "bounds_m": [
+    [
+      -0.0015242539811879396,
+      -0.0052699921652674675,
+      -0.00277012400329113
+    ],
+    [
+      0.3301999866962433,
+      0.5638800263404846,
+      0.03415893763303757
+    ]
+  ],
+  "mesh_path": "meshes/def-00160.npz",
+  "mesh_sha256": "08ecb21e21a4a0735f0920e48a9187b807e412c1d0b40253fef307451f11dd45",
+  "tessellation_seconds": 10.737760583055206
+}

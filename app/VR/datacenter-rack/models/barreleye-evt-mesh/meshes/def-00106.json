@@ -1,0 +1,25 @@
+{
+  "id": "def-00106",
+  "label": "0:1:1:154",
+  "name": "ADDR0052_3D_160705",
+  "color_rgba": null,
+  "topological_faces": 3597,
+  "missing_faces": 0,
+  "vertices": 52070,
+  "triangles": 50147,
+  "bounds_m": [
+    [
+      -0.023595547303557396,
+      -0.021987948566675186,
+      -0.015650000423192978
+    ],
+    [
+      -0.017095547169446945,
+      0.14001205563545227,
+      0.009349999949336052
+    ]
+  ],
+  "mesh_path": "meshes/def-00106.npz",
+  "mesh_sha256": "32c472c95ca0fbf31ba420c1cf3fcdef8e87a6268cfbbab91a419b75dbe740f5",
+  "tessellation_seconds": 1.7263241249602288
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00556",
+  "label": "0:1:1:736",
+  "name": "CABLE_3",
+  "color_rgba": null,
+  "topological_faces": 4,
+  "missing_faces": 0,
+  "vertices": 324,
+  "triangles": 316,
+  "bounds_m": [
+    [
+      -0.002749999985098839,
+      -0.002749999985098839,
+      -0.03454999998211861
+    ],
+    [
+      0.002749999985098839,
+      0.002749999985098839,
+      -0.009549999609589577
+    ]
+  ],
+  "mesh_path": "meshes/def-00556.npz",
+  "mesh_sha256": "d6ec78b0d681122492466bad9b605bfa4d24d1978f6c5c43d8e6529b9101b54e",
+  "tessellation_seconds": 0.00546399992890656
+}

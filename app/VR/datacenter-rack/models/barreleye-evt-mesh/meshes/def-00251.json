@@ -1,0 +1,25 @@
+{
+  "id": "def-00251",
+  "label": "0:1:1:322",
+  "name": "LED_PIN-72342_1",
+  "color_rgba": null,
+  "topological_faces": 42,
+  "missing_faces": 0,
+  "vertices": 512,
+  "triangles": 428,
+  "bounds_m": [
+    [
+      -0.0015699999639764428,
+      0.006630000192672014,
+      -0.00494999997317791
+    ],
+    [
+      0.0015699999639764428,
+      0.009999999776482582,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00251.npz",
+  "mesh_sha256": "fb47e8e59bd1fda3f1687293c1eddca157a3ea859f5cb0289c3c584b5297006d",
+  "tessellation_seconds": 0.02309529099147767
+}

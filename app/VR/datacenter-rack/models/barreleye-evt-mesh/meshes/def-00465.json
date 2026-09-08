@@ -1,0 +1,25 @@
+{
+  "id": "def-00465",
+  "label": "0:1:1:627",
+  "name": "M2_W22-L80-D5_STRYPER",
+  "color_rgba": null,
+  "topological_faces": 38,
+  "missing_faces": 0,
+  "vertices": 1748,
+  "triangles": 1672,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.003100000089034438
+    ],
+    [
+      0.07999999821186066,
+      0.02199999988079071,
+      0.002300000051036477
+    ]
+  ],
+  "mesh_path": "meshes/def-00465.npz",
+  "mesh_sha256": "c58ea8d7af7f77a45a1924b740478ef2b9d0aabd074d6b49b3b3b1159eb01fad",
+  "tessellation_seconds": 0.030535708065144718
+}

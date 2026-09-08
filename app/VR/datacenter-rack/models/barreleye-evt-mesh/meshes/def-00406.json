@@ -1,0 +1,25 @@
+{
+  "id": "def-00406",
+  "label": "0:1:1:553",
+  "name": "F07-MEZZ-LATCH-RIGHT-12MM_1",
+  "color_rgba": null,
+  "topological_faces": 340,
+  "missing_faces": 0,
+  "vertices": 47460,
+  "triangles": 79029,
+  "bounds_m": [
+    [
+      -0.00400002533569932,
+      -0.005296726245433092,
+      -0.004999998491257429
+    ],
+    [
+      0.004000036045908928,
+      0.016232162714004517,
+      0.010661671869456768
+    ]
+  ],
+  "mesh_path": "meshes/def-00406.npz",
+  "mesh_sha256": "bd21337e3f7d9c90274587283399f43a955effece4fa2a471fa936a04f2231c2",
+  "tessellation_seconds": 0.4698687499621883
+}

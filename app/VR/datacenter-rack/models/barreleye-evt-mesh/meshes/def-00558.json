@@ -1,0 +1,25 @@
+{
+  "id": "def-00558",
+  "label": "0:1:1:739",
+  "name": "4_FAN-BOARD_POWER9",
+  "color_rgba": null,
+  "topological_faces": 118,
+  "missing_faces": 0,
+  "vertices": 14784,
+  "triangles": 14692,
+  "bounds_m": [
+    [
+      -0.15240000188350677,
+      -9.999999747378752e-05,
+      -0.029999999329447746
+    ],
+    [
+      0.15240000188350677,
+      0.0017000000225380063,
+      0.12314999848604202
+    ]
+  ],
+  "mesh_path": "meshes/def-00558.npz",
+  "mesh_sha256": "466dcb1d64b24ac44d1202542f053459d9582250ab8740af4aabbd877d7e53a7",
+  "tessellation_seconds": 0.17135408299509436
+}

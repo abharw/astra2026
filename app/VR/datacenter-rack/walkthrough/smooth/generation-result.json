@@ -1,0 +1,44 @@
+{
+  "job_id": "e8eeb6a2-c882-419e-9945-baed360e800b",
+  "model": "seedance_2_5",
+  "mode_requested": "video_edit",
+  "status": "completed",
+  "video": "datacenter-maze-smooth.mp4",
+  "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GpkK2uEF1cooePDhkwCcejo5qJ/hf_20260908_214748_e8eeb6a2-c882-419e-9945-baed360e800b.mp4",
+  "sha256": "1753565a81a9318d71af3fd3cb8312b7ac814e19450734a4ee35b8a620178f56",
+  "bytes": 59761070,
+  "width": 1920,
+  "height": 1080,
+  "frame_rate": "24/1",
+  "decoded_frames": 713,
+  "duration_seconds": 29.708333,
+  "review": {
+    "status": "reviewed",
+    "overview_frame_records": 60,
+    "dense_junction_frame_records": 36,
+    "dense_ranges_s": [
+      [
+        5.5,
+        6
+      ],
+      [
+        11,
+        11.5
+      ],
+      [
+        17,
+        17.5
+      ]
+    ],
+    "wall_panel_detail_s": 4.5,
+    "motion": "Continuous forward movement during the left-right-left bends; slower 23.5-second-onward final pan",
+    "labels": "No BAY text or colored wayfinding in reviewed images; plain gray utility panels and door",
+    "appearance": "Detailed silver equipment and blue cables, practical neutral lighting; still a synthetic authored environment",
+    "limits": [
+      "96 sampled frame records including overlaps, not every frame",
+      "713 output frames versus 720-frame reference",
+      "Metric fidelity of the generated footage is not calibrated",
+      "Audio was not listened to"
+    ]
+  }
+}

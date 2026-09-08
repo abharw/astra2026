@@ -1,0 +1,25 @@
+{
+  "id": "def-00667",
+  "label": "0:1:1:898",
+  "name": "CU-BLOCK_4",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.03500000014901161,
+      0.0,
+      -0.03500000014901161
+    ],
+    [
+      0.03500000014901161,
+      0.0012000000569969416,
+      0.03500000014901161
+    ]
+  ],
+  "mesh_path": "meshes/def-00667.npz",
+  "mesh_sha256": "40fb3698ce84fe5f2cf357b7fbe1575d263917bfba1b63f5ae4e39b02b5e8242",
+  "tessellation_seconds": 0.009116875007748604
+}

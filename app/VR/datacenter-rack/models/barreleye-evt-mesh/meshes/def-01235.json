@@ -1,0 +1,25 @@
+{
+  "id": "def-01235",
+  "label": "0:1:1:1560",
+  "name": "PIN_POWER9",
+  "color_rgba": null,
+  "topological_faces": 71,
+  "missing_faces": 0,
+  "vertices": 11125,
+  "triangles": 17812,
+  "bounds_m": [
+    [
+      -0.003099334891885519,
+      -0.003099334891885519,
+      -0.00774999987334013
+    ],
+    [
+      0.003099334891885519,
+      0.003099334891885519,
+      0.003949999809265137
+    ]
+  ],
+  "mesh_path": "meshes/def-01235.npz",
+  "mesh_sha256": "036cbb8e890c9c08e73f16f69c912bd9d116da5537e395870f13769bd241e36c",
+  "tessellation_seconds": 0.1300332919927314
+}

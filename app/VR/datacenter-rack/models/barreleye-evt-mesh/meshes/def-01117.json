@@ -1,0 +1,25 @@
+{
+  "id": "def-01117",
+  "label": "0:1:1:1400",
+  "name": "097-0097-200-BASE-EHP-B_1_PRT_1",
+  "color_rgba": null,
+  "topological_faces": 220,
+  "missing_faces": 0,
+  "vertices": 39766,
+  "triangles": 65096,
+  "bounds_m": [
+    [
+      -0.08525814116001129,
+      -0.03824995830655098,
+      -0.0029800012707710266
+    ],
+    [
+      0.06361810117959976,
+      0.04757000133395195,
+      0.004900350701063871
+    ]
+  ],
+  "mesh_path": "meshes/def-01117.npz",
+  "mesh_sha256": "48b4a514753eea013e0c2ce41984ec8455c1d868f3b42a067f14bdcecee49e37",
+  "tessellation_seconds": 0.5022772500524297
+}

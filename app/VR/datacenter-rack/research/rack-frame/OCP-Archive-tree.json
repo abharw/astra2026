@@ -1,0 +1,23 @@
+{
+  "sha": "33980ad7ac345207d8ba777f1f483fb91b170af6",
+  "url": "https://api.github.com/repos/opencomputeproject/OCP-Archive/git/trees/33980ad7ac345207d8ba777f1f483fb91b170af6",
+  "tree": [
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3dc7b020e14097639482cb508dbaf196e6a358d8",
+      "size": 1077,
+      "url": "https://api.github.com/repos/opencomputeproject/OCP-Archive/git/blobs/3dc7b020e14097639482cb508dbaf196e6a358d8"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21fa444319321bc7304478944e6bf8b5bb215c45",
+      "size": 13,
+      "url": "https://api.github.com/repos/opencomputeproject/OCP-Archive/git/blobs/21fa444319321bc7304478944e6bf8b5bb215c45"
+    }
+  ],
+  "truncated": false
+}

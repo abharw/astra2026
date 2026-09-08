@@ -1,0 +1,25 @@
+{
+  "id": "def-01226",
+  "label": "0:1:1:1550",
+  "name": "LED000015_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 48,
+  "triangles": 28,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0015999999595806003,
+      0.0012499999720603228,
+      0.000699999975040555
+    ]
+  ],
+  "mesh_path": "meshes/def-01226.npz",
+  "mesh_sha256": "5c90ab85a493d0111071c645bfafc16ecae9082dcc797890800982cf2d0986b7",
+  "tessellation_seconds": 0.011833333992399275
+}

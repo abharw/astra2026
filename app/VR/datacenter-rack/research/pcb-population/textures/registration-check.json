@@ -1,0 +1,43 @@
+{
+  "check": "ODB EDA pin positions projected to independent Gerber soldermask texture; radius2pixels (0.138mm) tolerance",
+  "side_stats": {
+    "top": {
+      "pins_checked": 30709,
+      "mask_opening_near_pin_center": 30676
+    },
+    "bottom": {
+      "pins_checked": 6201,
+      "mask_opening_near_pin_center": 6201
+    }
+  },
+  "examples": {
+    "J110": {
+      "side": "top",
+      "center_mm": [
+        195.3768,
+        117.1829
+      ],
+      "pins_checked": 2,
+      "mask_opening_near_pin_center": 2
+    },
+    "U1": {
+      "side": "top",
+      "center_mm": [
+        84.360004,
+        341.199978
+      ],
+      "pins_checked": 3909,
+      "mask_opening_near_pin_center": 3909
+    },
+    "U10": {
+      "side": "top",
+      "center_mm": [
+        247.87986999999998,
+        341.199978
+      ],
+      "pins_checked": 3909,
+      "mask_opening_near_pin_center": 3909
+    }
+  },
+  "interpretation": "Checks registration only. Some source pins may be mask-covered, non-electrical, or have offset apertures; absence is not automatically a conversion fault."
+}

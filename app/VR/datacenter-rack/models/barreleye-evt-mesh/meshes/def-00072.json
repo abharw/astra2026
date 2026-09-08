@@ -1,0 +1,25 @@
+{
+  "id": "def-00072",
+  "label": "0:1:1:111",
+  "name": "8_MYLAR-HDD-BP-BACK_POWER9",
+  "color_rgba": null,
+  "topological_faces": 144,
+  "missing_faces": 0,
+  "vertices": 3680,
+  "triangles": 3416,
+  "bounds_m": [
+    [
+      -0.2475000023841858,
+      -5.099929458008734e-17,
+      -0.021513376384973526
+    ],
+    [
+      0.2326499968767166,
+      0.002630000002682209,
+      0.06290337443351746
+    ]
+  ],
+  "mesh_path": "meshes/def-00072.npz",
+  "mesh_sha256": "903303353d522f3887a14eb36beeda5acc30244a1698e2d7328e9c8170105eec",
+  "tessellation_seconds": 0.07876008306629956
+}

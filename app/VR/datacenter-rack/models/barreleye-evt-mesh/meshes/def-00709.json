@@ -1,0 +1,25 @@
+{
+  "id": "def-00709",
+  "label": "0:1:1:963",
+  "name": "8KC3-0726-XXX_IGES_POWER9",
+  "color_rgba": null,
+  "topological_faces": 3726,
+  "missing_faces": 0,
+  "vertices": 57762,
+  "triangles": 51979,
+  "bounds_m": [
+    [
+      0.007000373210757971,
+      -0.021774999797344208,
+      -0.002937600016593933
+    ],
+    [
+      0.03762495145201683,
+      0.09522499889135361,
+      0.005912399850785732
+    ]
+  ],
+  "mesh_path": "meshes/def-00709.npz",
+  "mesh_sha256": "7aa2cb6a321cb58b1aa398bc285e97c9bbde20b6675db00848941451999649e7",
+  "tessellation_seconds": 2.740293415961787
+}

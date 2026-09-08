@@ -1,0 +1,25 @@
+{
+  "id": "def-00094",
+  "label": "0:1:1:138",
+  "name": "MOLEX_050579406_1",
+  "color_rgba": null,
+  "topological_faces": 253,
+  "missing_faces": 0,
+  "vertices": 1538,
+  "triangles": 1088,
+  "bounds_m": [
+    [
+      -0.007607299834489822,
+      -0.007619999814778566,
+      -0.004178300034254789
+    ],
+    [
+      0.007607299834489822,
+      0.007619999814778566,
+      0.002273299964144826
+    ]
+  ],
+  "mesh_path": "meshes/def-00094.npz",
+  "mesh_sha256": "c76c51c306a4dbaadd1fa5e8b787774e83136c7be178f60657cae7850e131985",
+  "tessellation_seconds": 0.10928850003983825
+}

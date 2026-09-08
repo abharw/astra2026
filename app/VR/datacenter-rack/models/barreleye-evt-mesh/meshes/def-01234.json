@@ -1,0 +1,25 @@
+{
+  "id": "def-01234",
+  "label": "0:1:1:1559",
+  "name": "CLOSE_POWER9",
+  "color_rgba": null,
+  "topological_faces": 13,
+  "missing_faces": 0,
+  "vertices": 34661,
+  "triangles": 66292,
+  "bounds_m": [
+    [
+      -0.0032999999821186066,
+      -0.0032999999821186066,
+      -0.0002500000118743628
+    ],
+    [
+      0.0032999999821186066,
+      0.0032999999821186066,
+      0.002749999985098839
+    ]
+  ],
+  "mesh_path": "meshes/def-01234.npz",
+  "mesh_sha256": "7f71fc7bf70d964c7b4ce8ad22bd2edc731b5c1019322b89a928827acf620667",
+  "tessellation_seconds": 0.4811184999998659
+}

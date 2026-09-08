@@ -1,0 +1,25 @@
+{
+  "id": "def-00027",
+  "label": "0:1:1:48",
+  "name": "9_MO-BALL-1U_AGLAIA",
+  "color_rgba": null,
+  "topological_faces": 2,
+  "missing_faces": 0,
+  "vertices": 1760,
+  "triangles": 3352,
+  "bounds_m": [
+    [
+      -0.006197799928486347,
+      -0.001500000013038516,
+      -0.001500000013038516
+    ],
+    [
+      -0.003202199935913086,
+      0.001500000013038516,
+      0.001500000013038516
+    ]
+  ],
+  "mesh_path": "meshes/def-00027.npz",
+  "mesh_sha256": "1bdf781e97681e86fa7337fa70c895524db1a9ce4ed809f761dd9238217a7c12",
+  "tessellation_seconds": 0.016112082987092435
+}

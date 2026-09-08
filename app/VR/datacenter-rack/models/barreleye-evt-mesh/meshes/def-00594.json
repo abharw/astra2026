@@ -1,0 +1,25 @@
+{
+  "id": "def-00594",
+  "label": "0:1:1:783",
+  "name": "2_FOXCONN-LEVER_AGLAIA",
+  "color_rgba": null,
+  "topological_faces": 750,
+  "missing_faces": 0,
+  "vertices": 92662,
+  "triangles": 144114,
+  "bounds_m": [
+    [
+      -0.0537399984896183,
+      -0.0076500000432133675,
+      -0.0076896375976502895
+    ],
+    [
+      0.010399898514151573,
+      0.0076500000432133675,
+      0.009770000353455544
+    ]
+  ],
+  "mesh_path": "meshes/def-00594.npz",
+  "mesh_sha256": "a6743bd199d58acb3866c30c8d9607a9f30456495bbd1f24c33093851cfe7202",
+  "tessellation_seconds": 0.999885042081587
+}

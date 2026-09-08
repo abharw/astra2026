@@ -1,0 +1,25 @@
+{
+  "id": "def-00388",
+  "label": "0:1:1:527",
+  "name": "CN120_GPN2_0-8_SMD_H_F-E1_1",
+  "color_rgba": null,
+  "topological_faces": 898,
+  "missing_faces": 0,
+  "vertices": 9397,
+  "triangles": 9134,
+  "bounds_m": [
+    [
+      -0.026900000870227814,
+      -0.003000000026077032,
+      -0.0006495316629298031
+    ],
+    [
+      0.026900000870227814,
+      0.003000000026077032,
+      0.0037000246811658144
+    ]
+  ],
+  "mesh_path": "meshes/def-00388.npz",
+  "mesh_sha256": "d60ae5b707ab58b302626133dd24f35b37327e7109e596cd221ad2a16ca8296b",
+  "tessellation_seconds": 0.48281499999575317
+}

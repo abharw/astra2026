@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "saved_transform_state_loaded": true,
+    "saved_isolation_state_loaded": true,
+    "renamed_pointer_loaded": true,
+    "restore_after_reopen": true,
+    "world_restored_fixture.assembly": true,
+    "world_restored_fixture.child": true,
+    "world_restored_fixture.second": true,
+    "world_restored_fixture.leaf.renamed": true,
+    "show_all_after_reopen": true,
+    "prior_hidden_stays_hidden": true,
+    "prior_visible_restored": true,
+    "parents_preserved": true
+  },
+  "blender": "5.3.0 Alpha"
+}

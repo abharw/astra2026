@@ -1,0 +1,25 @@
+{
+  "id": "def-00466",
+  "label": "0:1:1:628",
+  "name": "2_ULCO6_6-3_1_ZUS",
+  "color_rgba": null,
+  "topological_faces": 185,
+  "missing_faces": 0,
+  "vertices": 28930,
+  "triangles": 46916,
+  "bounds_m": [
+    [
+      -0.02800000086426735,
+      -0.005350000225007534,
+      -0.003000000026077032
+    ],
+    [
+      0.0029499568045139313,
+      0.016249999403953552,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00466.npz",
+  "mesh_sha256": "08bd25bde9ce7ca0c344f8ea18ff13fe46b6473362cb7daafc6ffc0c217fdcb1",
+  "tessellation_seconds": 0.27002891700249165
+}

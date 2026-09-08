@@ -1,0 +1,18 @@
+{
+  "component_records": 7867,
+  "package_records": 198,
+  "max_pin_alignment_error_mm": 0.00010668000003527522,
+  "above_0_01mm": 0,
+  "orientation_counts": {
+    "('top', False)": 4616,
+    "('bottom', True)": 1637,
+    "('bottom', False)": 1614
+  },
+  "population_counts": {
+    "PWA-BOM-listed": 6663,
+    "unresolved": 198,
+    "depop-listed": 1006
+  },
+  "output_bytes": 20794403,
+  "sha256": "39ae63bde056a836c0d7a2f5d4d14607a3884e959f843b6ba6134a492306d223"
+}

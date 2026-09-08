@@ -1,0 +1,11 @@
+{
+  "source_face_sha256": "051d2339a796bd7df69a74b722b1d7e5bb5ff691d1872816bfeea2b225504957",
+  "method": "isolated unchanged source face copy; linear deflection0.00005mm, angle0.02rad",
+  "triangles": 584,
+  "valid": true,
+  "source_bounds_exactly_unchanged": true,
+  "source_area_mm2": 0.2975772490185332,
+  "triangle_area_mm2": 0.2975597315799161,
+  "patch": "patches/def-00186-face-00010.npz",
+  "patch_sha256": "4c734ae56690c48663cf623b419737ed46298b767520da5d6c71c4cd62ac205f"
+}

@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "external_count": true,
+    "patch_ports": true,
+    "curves_editable_bezier": true,
+    "endpoint_metadata": true,
+    "inferred_routing_tagged": true,
+    "body_front_clearance_control_points": true,
+    "finite_control_points": true
+  },
+  "metadata": {
+    "external_cables": 18,
+    "internal_cables": 1,
+    "patch_ports": 36,
+    "panel_ou": 39,
+    "patch_panel_status": "Generic passive inferred patch panel; no active network switch SKU",
+    "source_odb_sha256": "39ae63bde056a836c0d7a2f5d4d14607a3884e959f843b6ba6134a492306d223",
+    "source_cad_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1",
+    "warnings": [
+      "Internal 48V routes have source-bound endpoints but require integrated collision/mating review before acceptance.",
+      "No new internal data cable inferred. CAD already contains HDMI/VGA cable geometry; SAS-style J28/J30/J31/J33 are NVLINK, not storage ports. Counterpart mapping remains open."
+    ],
+    "route_status": "editable visual reconstruction; not collision-certified or an electrical wiring plan"
+  },
+  "objects": 792,
+  "internal_endpoints": {
+    "cable.ou01.48V_input_to_J27": {
+      "from": [
+        0.0,
+        0.39905003309249876,
+        0.21150000050663947
+      ],
+      "to": [
+        -0.203841044,
+        0.14109996799999996,
+        0.211499958
+      ],
+      "source_cad_part": "server.cad.node-09930",
+      "source_pcb_part": "pcb.J27"
+    }
+  }
+}

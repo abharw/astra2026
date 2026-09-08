@@ -1,0 +1,25 @@
+{
+  "id": "def-00665",
+  "label": "0:1:1:896",
+  "name": "1126828_STANDARD-PART__J13069_1",
+  "color_rgba": null,
+  "topological_faces": 20,
+  "missing_faces": 0,
+  "vertices": 1074,
+  "triangles": 1034,
+  "bounds_m": [
+    [
+      -0.00279999990016222,
+      -0.0023927665315568447,
+      0.0
+    ],
+    [
+      0.002798827365040779,
+      0.002798827365040779,
+      0.00039999998989515007
+    ]
+  ],
+  "mesh_path": "meshes/def-00665.npz",
+  "mesh_sha256": "8ef82ae593618c740f4896bfe0293799ecbb289869c2a1a960670f253c685962",
+  "tessellation_seconds": 0.021121124969795346
+}

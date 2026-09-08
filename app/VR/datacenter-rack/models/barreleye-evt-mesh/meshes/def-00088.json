@@ -1,0 +1,25 @@
+{
+  "id": "def-00088",
+  "label": "0:1:1:128",
+  "name": "1_MEZZ-PANEL-DUMMY_POWER9",
+  "color_rgba": null,
+  "topological_faces": 442,
+  "missing_faces": 0,
+  "vertices": 9190,
+  "triangles": 9984,
+  "bounds_m": [
+    [
+      -0.034790001809597015,
+      -0.016499999910593033,
+      -0.0016700000269338489
+    ],
+    [
+      0.03500000014901161,
+      0.01489999983459711,
+      0.002400000113993883
+    ]
+  ],
+  "mesh_path": "meshes/def-00088.npz",
+  "mesh_sha256": "44e81125124529ed0d47740dd9ec5d29010299d2e8d2567582e634950b756f7d",
+  "tessellation_seconds": 0.23469041602220386
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00462",
+  "label": "0:1:1:624",
+  "name": "TSM_102_04_S_SH_BODY_1",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 120,
+  "triangles": 84,
+  "bounds_m": [
+    [
+      -0.0025400000158697367,
+      -0.0015239999629557133,
+      -0.0012700000079348683
+    ],
+    [
+      0.0025400000158697367,
+      0.0015239999629557133,
+      0.0012700000079348683
+    ]
+  ],
+  "mesh_path": "meshes/def-00462.npz",
+  "mesh_sha256": "051c3864c058f1d3d677842c7d47dd7b3a8e6aa39238bd5cd56f94275b1117bd",
+  "tessellation_seconds": 0.014655916951596737
+}

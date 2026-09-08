@@ -1,0 +1,25 @@
+{
+  "id": "def-01139",
+  "label": "0:1:1:1425",
+  "name": "367-P2405-COVER-TRANSP_POWER9",
+  "color_rgba": null,
+  "topological_faces": 151,
+  "missing_faces": 0,
+  "vertices": 14644,
+  "triangles": 16680,
+  "bounds_m": [
+    [
+      -0.020748309791088104,
+      0.02164265885949135,
+      0.03240000084042549
+    ],
+    [
+      0.21271631121635437,
+      0.08709733933210373,
+      0.034901030361652374
+    ]
+  ],
+  "mesh_path": "meshes/def-01139.npz",
+  "mesh_sha256": "1bd246f91fd206dd3987c13276c0c93d749f4ca1c5b4dbaf6a525ef331c0bf91",
+  "tessellation_seconds": 0.2510694159427658
+}

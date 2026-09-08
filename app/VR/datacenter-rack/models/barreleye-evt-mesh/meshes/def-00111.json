@@ -1,0 +1,25 @@
+{
+  "id": "def-00111",
+  "label": "0:1:1:159",
+  "name": "7_M-U10-K074-XXBX-REVT1_ZUS",
+  "color_rgba": null,
+  "topological_faces": 1612,
+  "missing_faces": 0,
+  "vertices": 34039,
+  "triangles": 34520,
+  "bounds_m": [
+    [
+      -0.006149999797344208,
+      -0.007699999958276749,
+      -0.024000000208616257
+    ],
+    [
+      0.011350000277161598,
+      0.0,
+      0.0005000000237487257
+    ]
+  ],
+  "mesh_path": "meshes/def-00111.npz",
+  "mesh_sha256": "d7ec2ad48b39d7fda440001cdf1510141511bdd3e2c0fb6c5428e591da11c499",
+  "tessellation_seconds": 0.7927593749482185
+}

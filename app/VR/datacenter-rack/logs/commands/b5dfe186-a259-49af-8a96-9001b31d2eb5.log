@@ -1,0 +1,8 @@
+/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/source/import_cad.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(key);m.diffuse_color=rgba;m.use_nodes=True
+00:56.684  render           | Saved: '/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/models/barreleye-source-v001.png'
+Info: Saved as "barreleye-source-v001.blend"
+{"schema": "blender-cad-import/v1", "source_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1", "blender_version": "5.3.0 Alpha", "occurrences": 9940, "unique_meshes": 1220, "world_bounds_m": [[-0.2757088840007782, -0.21742679178714752, -0.8887699842453003], [0.27287742495536804, 0.1012127473950386, 0.49503669142723083]], "bounds_note": "transformed local AABB envelopes; exact vertex bounds checked separately", "seconds": 12.595413874951191}
+Blender 5.3.0 Alpha (hash baf26f9a6b9b built 2026-09-07 01:31:10)
+
+Blender quit

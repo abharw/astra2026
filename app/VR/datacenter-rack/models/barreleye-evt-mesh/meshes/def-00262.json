@@ -1,0 +1,25 @@
+{
+  "id": "def-00262",
+  "label": "0:1:1:341",
+  "name": "R26-C130_R26-C130000X_____1",
+  "color_rgba": null,
+  "topological_faces": 28,
+  "missing_faces": 0,
+  "vertices": 292,
+  "triangles": 236,
+  "bounds_m": [
+    [
+      0.0006500000017695129,
+      -0.008449999615550041,
+      -0.0003000000142492354
+    ],
+    [
+      0.0012499999720603228,
+      -0.004050000105053186,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00262.npz",
+  "mesh_sha256": "48da45b4c609b78ecd4c5ff23f1bd98ee8f1651cdf43639163c40a19b48501a2",
+  "tessellation_seconds": 0.015514208003878593
+}

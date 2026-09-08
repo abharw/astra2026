@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {validateAssembly,validateCommand} from '../schema.mjs';
+const model=()=>({name:'Test assembly',bounds:[.1,.1,.9,.9],sizeMeters:[1,1,1],parts:[{id:'part-a',name:'Part',evidence:'observed',explode:[0,.5,0],primitives:[{kind:'box',position:[0,0,0],size:[1,1,.1],rotation:[0,0,0],color:[.5,.5,.5]}]}]});
+test('accepts bounded, editable geometry',()=>assert.equal(validateAssembly(model()).parts.length,1));
+test('rejects non-finite positions before renderer',()=>{const s=model();s.parts[0].primitives[0].position[0]=Infinity;assert.throws(()=>validateAssembly(s));});
+test('rejects unbounded dimensions',()=>{const s=model();s.sizeMeters[0]=1e12;assert.throws(()=>validateAssembly(s));});
+test('rejects reversed detection bounds',()=>{const s=model();s.bounds=[.9,.1,.1,.9];assert.throws(()=>validateAssembly(s));});
+test('rejects duplicate part identities',()=>{const s=model();s.parts.push(structuredClone(s.parts[0]));assert.throws(()=>validateAssembly(s));});
+test('rejects executable and unrecognized primitives',()=>{const s=model();s.parts[0].primitives[0].kind='eval';assert.throws(()=>validateAssembly(s));});
+test('rejects unrecognized evidence labels',()=>{const s=model();s.parts[0].evidence='verified internal';assert.throws(()=>validateAssembly(s));});
+test('only permits enumerated manipulation commands',()=>{assert.equal(validateCommand({action:'explode',amount:1,part:''}).action,'explode');assert.throws(()=>validateCommand({action:'execute_shell'}));assert.throws(()=>validateCommand({action:'scale',amount:NaN}));});
+
+test('allows explicit deletion of a generated object',()=>assert.equal(validateCommand({action:'delete',amount:0,part:''}).action,'delete'));

@@ -1,0 +1,25 @@
+{
+  "id": "def-00721",
+  "label": "0:1:1:981",
+  "name": "GP100-400-A1_1_1_PRT_1",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 108,
+  "triangles": 68,
+  "bounds_m": [
+    [
+      -0.0276000015437603,
+      -0.02759999968111515,
+      0.0003299999516457319
+    ],
+    [
+      0.02759999968111515,
+      0.0276000015437603,
+      0.0030320000369101763
+    ]
+  ],
+  "mesh_path": "meshes/def-00721.npz",
+  "mesh_sha256": "ceef64fb2994f086cceadcbe4a857aeba0f69e8f28f6c0ff894e67595200f91c",
+  "tessellation_seconds": 0.01800437504425645
+}

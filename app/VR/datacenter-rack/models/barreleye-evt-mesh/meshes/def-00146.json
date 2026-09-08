@@ -1,0 +1,25 @@
+{
+  "id": "def-00146",
+  "label": "0:1:1:195",
+  "name": "2_KTSC-62_ZUS",
+  "color_rgba": null,
+  "topological_faces": 30,
+  "missing_faces": 0,
+  "vertices": 2560,
+  "triangles": 3904,
+  "bounds_m": [
+    [
+      -0.0022499999031424522,
+      -0.005499999970197678,
+      -0.0022499999031424522
+    ],
+    [
+      0.0022499999031424522,
+      0.0,
+      0.0022499999031424522
+    ]
+  ],
+  "mesh_path": "meshes/def-00146.npz",
+  "mesh_sha256": "41ac7ba67f48c5bf639a5a85c4d2d6807df086837c751136db294778d8bc1556",
+  "tessellation_seconds": 0.03173899999819696
+}

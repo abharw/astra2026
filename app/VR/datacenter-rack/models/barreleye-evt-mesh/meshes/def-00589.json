@@ -1,0 +1,25 @@
+{
+  "id": "def-00589",
+  "label": "0:1:1:776",
+  "name": "3D_VISUAL_SASF313014XXX_UPDATE",
+  "color_rgba": null,
+  "topological_faces": 1244,
+  "missing_faces": 0,
+  "vertices": 19602,
+  "triangles": 17604,
+  "bounds_m": [
+    [
+      -0.022872500121593475,
+      -0.003074999898672104,
+      -0.0029500029049813747
+    ],
+    [
+      0.02287749946117401,
+      0.0029750000685453415,
+      0.007899999618530273
+    ]
+  ],
+  "mesh_path": "meshes/def-00589.npz",
+  "mesh_sha256": "8af410a7dfef3aa370008b9e5d8f8f1fa3ff6ce4c0de6941688281938f578af1",
+  "tessellation_seconds": 0.7603042919654399
+}

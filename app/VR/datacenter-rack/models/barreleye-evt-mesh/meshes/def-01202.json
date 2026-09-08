@@ -1,0 +1,25 @@
+{
+  "id": "def-01202",
+  "label": "0:1:1:1510",
+  "name": "O-RING_5S91008600_1",
+  "color_rgba": null,
+  "topological_faces": 36,
+  "missing_faces": 0,
+  "vertices": 1006,
+  "triangles": 988,
+  "bounds_m": [
+    [
+      -0.004749999847263098,
+      0.0006000000284984708,
+      -0.004749999847263098
+    ],
+    [
+      0.004749999847263098,
+      0.0015999999595806003,
+      0.004749999847263098
+    ]
+  ],
+  "mesh_path": "meshes/def-01202.npz",
+  "mesh_sha256": "9e2d7d19edeafb98f6089e2f4acbcc8b4b9ea60c6f9468452773328af50fef7a",
+  "tessellation_seconds": 0.03837358299642801
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00427",
+  "label": "0:1:1:580",
+  "name": "PROWL-MICRO-USB20-PLUG",
+  "color_rgba": null,
+  "topological_faces": 2090,
+  "missing_faces": 0,
+  "vertices": 117133,
+  "triangles": 157535,
+  "bounds_m": [
+    [
+      -0.0052999998442828655,
+      -0.005400000140070915,
+      -0.003650000086054206
+    ],
+    [
+      0.005300000309944153,
+      0.03999999910593033,
+      0.003650000086054206
+    ]
+  ],
+  "mesh_path": "meshes/def-00427.npz",
+  "mesh_sha256": "4aa75cfb56f54ac47091335166a69cfd449266ff704e4ef5ceb8c2c0f310ca02",
+  "tessellation_seconds": 1.6888996670022607
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00060",
+  "label": "0:1:1:96",
+  "name": "WC-3L-D9B",
+  "color_rgba": null,
+  "topological_faces": 27,
+  "missing_faces": 0,
+  "vertices": 998,
+  "triangles": 952,
+  "bounds_m": [
+    [
+      0.0,
+      -0.003999496344476938,
+      -0.000750000006519258
+    ],
+    [
+      0.08665376901626587,
+      0.003999496344476938,
+      0.000750000006519258
+    ]
+  ],
+  "mesh_path": "meshes/def-00060.npz",
+  "mesh_sha256": "ec1d9923fcfd030087bc75e102644c8c383808438fb7decb62695cdc7733f558",
+  "tessellation_seconds": 0.017603416927158833
+}

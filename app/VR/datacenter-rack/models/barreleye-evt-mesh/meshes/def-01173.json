@@ -1,0 +1,25 @@
+{
+  "id": "def-01173",
+  "label": "0:1:1:1473",
+  "name": "MEG_ARRAY_74221C_1",
+  "color_rgba": null,
+  "topological_faces": 474,
+  "missing_faces": 0,
+  "vertices": 15168,
+  "triangles": 20220,
+  "bounds_m": [
+    [
+      -0.027499999850988388,
+      -0.0005000000237487257,
+      -0.008220000192523003
+    ],
+    [
+      0.027499999850988388,
+      0.0033499998971819878,
+      0.008220000192523003
+    ]
+  ],
+  "mesh_path": "meshes/def-01173.npz",
+  "mesh_sha256": "f7f7c10484ad12923a056f505ef7c78ebb9f2cd6311be31571bcef4c54c0f523",
+  "tessellation_seconds": 0.4325663330964744
+}

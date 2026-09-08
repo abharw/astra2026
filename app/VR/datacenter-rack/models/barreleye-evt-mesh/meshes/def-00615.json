@@ -1,0 +1,25 @@
+{
+  "id": "def-00615",
+  "label": "0:1:1:825",
+  "name": "8_FAN-CAGE-HANDLE_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 64,
+  "missing_faces": 0,
+  "vertices": 8916,
+  "triangles": 14622,
+  "bounds_m": [
+    [
+      -0.020500000566244125,
+      -0.0017500000540167093,
+      -0.008999999612569809
+    ],
+    [
+      0.0,
+      0.005950000137090683,
+      0.008999999612569809
+    ]
+  ],
+  "mesh_path": "meshes/def-00615.npz",
+  "mesh_sha256": "3d8c0950be0c20f7e4d6304911027defcf4b3c6396d5d7070728cb026ccb8bf8",
+  "tessellation_seconds": 0.10476925002876669
+}

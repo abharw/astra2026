@@ -1,0 +1,25 @@
+{
+  "id": "def-01138",
+  "label": "0:1:1:1424",
+  "name": "PSA_GLUE_0-25T_WINDOW_COVER_1__",
+  "color_rgba": null,
+  "topological_faces": 14,
+  "missing_faces": 0,
+  "vertices": 388,
+  "triangles": 360,
+  "bounds_m": [
+    [
+      0.08073683828115463,
+      -0.03257764130830765,
+      0.0
+    ],
+    [
+      0.11658220738172531,
+      0.032577041536569595,
+      0.0002500000118743628
+    ]
+  ],
+  "mesh_path": "meshes/def-01138.npz",
+  "mesh_sha256": "3156fa9d156110009bc5175b3f341d312e70e3fe5b93bed845ca4af811fd99a2",
+  "tessellation_seconds": 0.01699041691608727
+}

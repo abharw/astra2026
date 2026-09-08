@@ -1,0 +1,25 @@
+{
+  "id": "def-00074",
+  "label": "0:1:1:114",
+  "name": "9_STANDOFF-TOP-COVER_GI",
+  "color_rgba": null,
+  "topological_faces": 17,
+  "missing_faces": 0,
+  "vertices": 3258,
+  "triangles": 4788,
+  "bounds_m": [
+    [
+      -0.0032500000670552254,
+      -0.004000000189989805,
+      -0.0032500000670552254
+    ],
+    [
+      0.0032500000670552254,
+      0.0,
+      0.0032500000670552254
+    ]
+  ],
+  "mesh_path": "meshes/def-00074.npz",
+  "mesh_sha256": "f4a7e79f01d4525105eca2a766215ac8b8be6a2bfa908edd41ccbe377d698180",
+  "tessellation_seconds": 0.029606458032503724
+}

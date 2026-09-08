@@ -1,0 +1,25 @@
+{
+  "id": "def-00602",
+  "label": "0:1:1:792",
+  "name": "CINDY_LOU_K8398-CONN-SAS-2",
+  "color_rgba": null,
+  "topological_faces": 185,
+  "missing_faces": 0,
+  "vertices": 1012,
+  "triangles": 648,
+  "bounds_m": [
+    [
+      -0.02287999913096428,
+      -0.00405499991029501,
+      -0.006800000090152025
+    ],
+    [
+      0.02287999913096428,
+      0.0016749999485909939,
+      0.005200000014156103
+    ]
+  ],
+  "mesh_path": "meshes/def-00602.npz",
+  "mesh_sha256": "820bb9704df1d4e3f3e2f050106a4ce1a767884505e5d2355cf22a6bcf590369",
+  "tessellation_seconds": 0.10983737499918789
+}

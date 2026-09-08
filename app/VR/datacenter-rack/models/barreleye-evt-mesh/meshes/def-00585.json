@@ -1,0 +1,25 @@
+{
+  "id": "def-00585",
+  "label": "0:1:1:772",
+  "name": "M-U10-B074-X2XX-REVT2_POWER9",
+  "color_rgba": null,
+  "topological_faces": 1939,
+  "missing_faces": 0,
+  "vertices": 33725,
+  "triangles": 33374,
+  "bounds_m": [
+    [
+      -0.012249999679625034,
+      -0.005900000222027302,
+      -0.006899999920278788
+    ],
+    [
+      0.012249999679625034,
+      0.008899999782443047,
+      0.0007999999797903001
+    ]
+  ],
+  "mesh_path": "meshes/def-00585.npz",
+  "mesh_sha256": "288ecdea97143219bd79cac94d625735878ca5f45bc6053dbb02d9bfb09bf74d",
+  "tessellation_seconds": 1.2072904999367893
+}

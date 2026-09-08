@@ -1,0 +1,25 @@
+{
+  "id": "def-00387",
+  "label": "0:1:1:526",
+  "name": "FCI_61082_081402LF",
+  "color_rgba": null,
+  "topological_faces": 646,
+  "missing_faces": 0,
+  "vertices": 5452,
+  "triangles": 4382,
+  "bounds_m": [
+    [
+      -0.01889999955892563,
+      -4.999999873689376e-05,
+      -0.003000000026077032
+    ],
+    [
+      0.01889999955892563,
+      0.0036500082351267338,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00387.npz",
+  "mesh_sha256": "2a56c8828780cd5f3c563007f0c5eef797f04419fe31eb931fbaa81b876a20a6",
+  "tessellation_seconds": 0.3393351670820266
+}

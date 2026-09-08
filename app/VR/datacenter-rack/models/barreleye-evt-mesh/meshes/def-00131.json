@@ -1,0 +1,25 @@
+{
+  "id": "def-00131",
+  "label": "0:1:1:179",
+  "name": "7_KPT-1608CGCK-TW_ZUS",
+  "color_rgba": null,
+  "topological_faces": 37,
+  "missing_faces": 0,
+  "vertices": 346,
+  "triangles": 272,
+  "bounds_m": [
+    [
+      0.16120944917201996,
+      1.6837661266326904,
+      -9.999999747378752e-05
+    ],
+    [
+      0.1628294587135315,
+      1.6845661401748657,
+      0.0006528698140755296
+    ]
+  ],
+  "mesh_path": "meshes/def-00131.npz",
+  "mesh_sha256": "90b22adf9e7fee74c03e5a52309f1bc4a19ca173fbbf5eaee007a0fa6a5223d9",
+  "tessellation_seconds": 0.019430625019595027
+}

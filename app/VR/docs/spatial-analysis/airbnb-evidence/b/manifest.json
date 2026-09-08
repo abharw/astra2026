@@ -1,0 +1,207 @@
+{
+  "listing_url": "https://www.airbnb.com/rooms/18981477",
+  "title": "Pac Heights 3-rm suite. Private, safe, quiet.",
+  "photos": [
+    {
+      "id": "B01",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/7b761997-e5c6-4e17-bd48-6af4355fe703.jpeg?im_w=1200",
+      "source_name": "7b761997-e5c6-4e17-bd48-6af4355fe703.jpeg",
+      "source_sha256": "8284b2a165d92f3428f33cc87ef275719f48509f9b67c741fdafbfc5f3d9d76f",
+      "path": "airbnb-evidence/b/B01.png",
+      "size": [
+        1200,
+        800
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Fireplace, shelving and chairs; French doors at left show sofa room."
+      ]
+    },
+    {
+      "id": "B02",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/648f71d5-e19c-4843-83e8-9bef4c9449b2.jpeg?im_w=720",
+      "source_name": "648f71d5-e19c-4843-83e8-9bef4c9449b2.jpeg",
+      "source_sha256": "d7d75debff9f46ee6986cc1375657ab1a27735fbf16a51129d467fe25f07327b",
+      "path": "airbnb-evidence/b/B02.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Same fireplace room also contains bed, bay seat/windows and dresser."
+      ]
+    },
+    {
+      "id": "B03",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/4c70cc35-aa3d-4e25-8b09-d740a71ef815.jpeg?im_w=720",
+      "source_name": "4c70cc35-aa3d-4e25-8b09-d740a71ef815.jpeg",
+      "source_sha256": "53e64effc0f8b4275f1ab6dead75a49684af5ef2cc37aef92ccdab0bcdb66e7b",
+      "path": "airbnb-evidence/b/B03.png",
+      "size": [
+        720,
+        479
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Reverse view ties bed to fireplace and bay window in one room."
+      ]
+    },
+    {
+      "id": "B04",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/5d6c9eb8-c8e0-4092-b5dc-c2336105088c.jpeg?im_w=1200",
+      "source_name": "5d6c9eb8-c8e0-4092-b5dc-c2336105088c.jpeg",
+      "source_sha256": "28a24f36e9fe8513ceadd7158a8754021b98131cde26ea6c57d767061e9bf611",
+      "path": "airbnb-evidence/b/B04.png",
+      "size": [
+        1200,
+        800
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Sofa, dining table, TV and French doors to fireplace room."
+      ]
+    },
+    {
+      "id": "B05",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/4dd824a7-6dda-4733-a8e6-e073e1ebfcc2.jpeg?im_w=720",
+      "source_name": "4dd824a7-6dda-4733-a8e6-e073e1ebfcc2.jpeg",
+      "source_sha256": "767e2e7cc31ad84021d0185977b067deebb5f0103b41fa747997b368c2177f95",
+      "path": "airbnb-evidence/b/B05.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet",
+        "individual_image"
+      ],
+      "observations": [
+        "Reverse sofa/dining view reveals doorway toward tiled bathroom steps."
+      ]
+    },
+    {
+      "id": "B06",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/e84a9faf-b1c3-4fc3-8b98-cfe808693e68.jpeg?im_w=720",
+      "source_name": "e84a9faf-b1c3-4fc3-8b98-cfe808693e68.jpeg",
+      "source_sha256": "176ab00a287baa34526b80dc20845bc60b3798fa19ad4b548379dfe4ff668cdd",
+      "path": "airbnb-evidence/b/B06.png",
+      "size": [
+        720,
+        477
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Double basin, large mirror, shelves and tiled steps/shower area; mirror not an extra room."
+      ]
+    },
+    {
+      "id": "B07",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/3db78944-b1ff-4fe7-91c1-fa4cbfe595d4.jpeg?im_w=1200",
+      "source_name": "3db78944-b1ff-4fe7-91c1-fa4cbfe595d4.jpeg",
+      "source_sha256": "44d258d9b8fac15e25e922e6ac6209626f0036a97896df4e18efa581b695e19a",
+      "path": "airbnb-evidence/b/B07.png",
+      "size": [
+        1200,
+        799
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Walk-in storage with shelves and robes; access location not shown."
+      ]
+    },
+    {
+      "id": "B08",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/df44d5ed-debf-487a-8b13-568bbed6403f.jpeg?im_w=720",
+      "source_name": "df44d5ed-debf-487a-8b13-568bbed6403f.jpeg",
+      "source_sha256": "d23b7146b0283db37873267fcbe34cdd589f2bbaf19beebbe31044a2473cd24e",
+      "path": "airbnb-evidence/b/B08.png",
+      "size": [
+        720,
+        479
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Ceiling light detail; no room-connection evidence."
+      ]
+    },
+    {
+      "id": "B09",
+      "source_url": "https://a0.muscache.com/im/pictures/miso/Hosting-18981477/original/4aa3676c-2639-437f-9e47-c21e6cf27fd1.jpeg?im_w=720",
+      "source_name": "4aa3676c-2639-437f-9e47-c21e6cf27fd1.jpeg",
+      "source_sha256": "96ca962113b9e43caa12d0edf4931722c4809efb6bd8de82a14da9b44fab2fa8",
+      "path": "airbnb-evidence/b/B09.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Microwave, coffee maker and mini-fridge in windowed alcove; access location not shown."
+      ]
+    },
+    {
+      "id": "B10",
+      "source_url": "https://a0.muscache.com/im/pictures/2de6ec33-e018-49c1-a727-01f480abaee3.jpg?im_w=720",
+      "source_name": "2de6ec33-e018-49c1-a727-01f480abaee3.jpg",
+      "source_sha256": "857718722525fcfad89bac6d69655186cc1e274ab305432c76079c97893ddbec",
+      "path": "airbnb-evidence/b/B10.png",
+      "size": [
+        720,
+        604
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Welcome graphic; no spatial evidence."
+      ]
+    },
+    {
+      "id": "B11",
+      "source_url": "https://a0.muscache.com/im/pictures/3c56c11f-b0bb-47cc-865a-48eb0c610fe3.jpg?im_w=720",
+      "source_name": "3c56c11f-b0bb-47cc-865a-48eb0c610fe3.jpg",
+      "source_sha256": "17088842a11bb37d86d0b4942addc1dd6db35f50bfe97ec918434255ae8a23ab",
+      "path": "airbnb-evidence/b/B11.png",
+      "size": [
+        720,
+        677
+      ],
+      "viewed": true,
+      "viewed_as": [
+        "contact_sheet"
+      ],
+      "observations": [
+        "Travel-score graphic; no indoor spatial evidence."
+      ]
+    }
+  ],
+  "blind_image_only": false,
+  "metadata_exposure": "Listing title, room counts and gallery labels seen; second listing also exposed descriptive text in DOM snapshot. Spatial claims cite visible photo anchors; no blind benchmark claim."
+}

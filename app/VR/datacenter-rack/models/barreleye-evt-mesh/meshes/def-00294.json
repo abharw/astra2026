@@ -1,0 +1,25 @@
+{
+  "id": "def-00294",
+  "label": "0:1:1:386",
+  "name": "GD2-P120-73739_1",
+  "color_rgba": null,
+  "topological_faces": 400,
+  "missing_faces": 0,
+  "vertices": 2286,
+  "triangles": 1536,
+  "bounds_m": [
+    [
+      -0.00032500000088475645,
+      -0.0002500000118743628,
+      0.0007999999797903001
+    ],
+    [
+      0.014999999664723873,
+      0.01425000000745058,
+      0.008899999782443047
+    ]
+  ],
+  "mesh_path": "meshes/def-00294.npz",
+  "mesh_sha256": "832078d8119919b786bc97edbfb449ca56ba8f72c118260d2366ed9da97be2eb",
+  "tessellation_seconds": 0.19763083301950246
+}

@@ -1,0 +1,3617 @@
+{
+  "version": 1,
+  "assetId": "arav-rack-v1",
+  "height": 2.21,
+  "sizeMeters": [
+    0.6414999961853027,
+    2.2100000381469727,
+    1.0690150260925293
+  ],
+  "sourceCenter": [
+    0.020750001072883606,
+    1.1050000190734863,
+    0.0010074973106384277
+  ],
+  "sourceCommit": "ef10dcbd5160b05205d61f5080a31ef117cfa900",
+  "sourceHashes": {
+    "exterior": "b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+    "teaching": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0"
+  },
+  "parts": [
+    {
+      "partID": "rack01.frame",
+      "name": "Open Rack V2 frame and power equipment",
+      "entityName": null,
+      "triangleCount": 661792,
+      "role": "rack frame",
+      "description": "Frame and power equipment remainder from the source hierarchy."
+    },
+    {
+      "partID": "rack01.server01",
+      "name": "Barreleye G2 server 1",
+      "entityName": "rack01_server01",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server02",
+      "name": "Barreleye G2 server 2",
+      "entityName": "rack01_server02",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server03",
+      "name": "Barreleye G2 server 3",
+      "entityName": "rack01_server03",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server04",
+      "name": "Barreleye G2 server 4",
+      "entityName": "rack01_server04",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server05",
+      "name": "Barreleye G2 server 5",
+      "entityName": "rack01_server05",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server06",
+      "name": "Barreleye G2 server 6",
+      "entityName": "rack01_server06",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server07",
+      "name": "Barreleye G2 server 7",
+      "entityName": "rack01_server07",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server08",
+      "name": "Barreleye G2 server 8",
+      "entityName": "rack01_server08",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server09",
+      "name": "Barreleye G2 server 9",
+      "entityName": "rack01_server09",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server10",
+      "name": "Barreleye G2 server 10",
+      "entityName": "rack01_server10",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server11",
+      "name": "Barreleye G2 server 11",
+      "entityName": "rack01_server11",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server12",
+      "name": "Barreleye G2 server 12",
+      "entityName": "rack01_server12",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server13",
+      "name": "Barreleye G2 server 13",
+      "entityName": "rack01_server13",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server14",
+      "name": "Barreleye G2 server 14",
+      "entityName": "rack01_server14",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server15",
+      "name": "Barreleye G2 server 15",
+      "entityName": "rack01_server15",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server16",
+      "name": "Barreleye G2 server 16",
+      "entityName": "rack01_server16",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server17",
+      "name": "Barreleye G2 server 17",
+      "entityName": "rack01_server17",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    },
+    {
+      "partID": "rack01.server18",
+      "name": "Barreleye G2 server 18",
+      "entityName": "rack01_server18",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "The original representation is a joined Barreleye G2 exterior. Current child nodes, if present, describe installed internal assemblies. To move this entire instance out of the rack, increase its position.z in the rack parent coordinates and preserve rotation and scale. The instance retains the source basis conversion: internal child-local axes are +X right, +Y front-to-rear, +Z up, in source metres before ancestor scaling."
+    }
+  ],
+  "groups": [
+    {
+      "id": "storage",
+      "name": "Storage and drive carriers",
+      "description": "Drive carriers, storage backplane and expander connect the storage subsystem. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "fanwall",
+      "name": "Cooling fan assembly",
+      "description": "Six source fan modules move air through the chassis; no airflow or RPM is simulated. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "processors",
+      "name": "Processor and socket assemblies",
+      "description": "Two POWER9-family processor/socket/loading assemblies. U1 and U10 identify sockets, not CPU ordering codes. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "heatsinks",
+      "name": "Processor heatsinks",
+      "description": "Source Furukawa cooling assemblies conduct heat from the processor modules to passing air. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "network",
+      "name": "Network adapter",
+      "description": "Selected dual-port 25GbE OCP adapter and mounting hardware. Distinct from the management controller's network path. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "power",
+      "name": "Power input and conversion",
+      "description": "48 V input, selected board power conversion components and their cooling. No electrical simulation or live telemetry. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "chassis",
+      "name": "Chassis and mounting structure",
+      "description": "Supports and locates the server's internal assemblies. Representation: cad_derived.",
+      "representation": "cad_derived"
+    },
+    {
+      "id": "motherboard",
+      "name": "Motherboard and board components",
+      "description": "EVT3 motherboard with source-derived component placements and reconstructed package appearance. Representation: source_derived_reconstruction.",
+      "representation": "source_derived_reconstruction"
+    },
+    {
+      "id": "memory",
+      "name": "Host memory modules",
+      "description": "32 supported-class RDIMM analogues at source socket positions. Installed module SKU and capacity are not established. Representation: supported_class_analogue.",
+      "representation": "supported_class_analogue"
+    }
+  ],
+  "serverPositions": {
+    "rack01.server01": [
+      -0.009389140643179417,
+      -0.418552041053772,
+      0.1805395931005478
+    ],
+    "rack01.server02": [
+      -0.009389140643179417,
+      -0.3751131296157837,
+      0.1805395931005478
+    ],
+    "rack01.server03": [
+      -0.009389140643179417,
+      -0.3316742181777954,
+      0.1805395931005478
+    ],
+    "rack01.server04": [
+      -0.009389140643179417,
+      -0.28823530673980713,
+      0.1805395931005478
+    ],
+    "rack01.server05": [
+      -0.009389140643179417,
+      -0.24479638040065765,
+      0.1805395931005478
+    ],
+    "rack01.server06": [
+      -0.009389140643179417,
+      -0.20135746896266937,
+      0.1805395931005478
+    ],
+    "rack01.server07": [
+      -0.009389140643179417,
+      -0.15791857242584229,
+      0.1805395931005478
+    ],
+    "rack01.server08": [
+      -0.009389140643179417,
+      -0.11447964608669281,
+      0.1805395931005478
+    ],
+    "rack01.server09": [
+      -0.009389140643179417,
+      -0.07104072719812393,
+      0.1805395931005478
+    ],
+    "rack01.server10": [
+      -0.009389140643179417,
+      -0.027601804584264755,
+      0.1805395931005478
+    ],
+    "rack01.server11": [
+      -0.009389140643179417,
+      0.015837088227272034,
+      0.1805395931005478
+    ],
+    "rack01.server12": [
+      -0.009389140643179417,
+      0.05927598476409912,
+      0.1805395931005478
+    ],
+    "rack01.server13": [
+      -0.009389140643179417,
+      0.10271493345499039,
+      0.1805395931005478
+    ],
+    "rack01.server14": [
+      -0.009389140643179417,
+      0.14615382254123688,
+      0.1805395931005478
+    ],
+    "rack01.server15": [
+      -0.009389140643179417,
+      0.18959277868270874,
+      0.1805395931005478
+    ],
+    "rack01.server16": [
+      -0.009389140643179417,
+      0.23303167521953583,
+      0.1805395931005478
+    ],
+    "rack01.server17": [
+      -0.009389140643179417,
+      0.2764705717563629,
+      0.1805395931005478
+    ],
+    "rack01.server18": [
+      -0.009389140643179417,
+      0.3199095129966736,
+      0.1805395931005478
+    ]
+  },
+  "packages": {
+    "exterior": {
+      "file": "exterior.rackbin",
+      "sha256": "bf21adbc557e77ebcd4b00f4c71073ec2aa13ca810bf02cc1f69ac20d2b69bba",
+      "bytes": 9800520,
+      "decodedBytes": 25726952,
+      "meshes": [
+        {
+          "name": "cable_ou01_BMC_LAN1_to_patch01_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou03_BMC_LAN1_to_patch02_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou05_BMC_LAN1_to_patch03_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou07_BMC_LAN1_to_patch04_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou09_BMC_LAN1_to_patch05_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou11_BMC_LAN1_to_patch06_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou13_BMC_LAN1_to_patch07_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou15_BMC_LAN1_to_patch08_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou17_BMC_LAN1_to_patch09_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou19_BMC_LAN1_to_patch10_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou21_BMC_LAN1_to_patch11_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou23_BMC_LAN1_to_patch12_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou25_BMC_LAN1_to_patch13_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou27_BMC_LAN1_to_patch14_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou29_BMC_LAN1_to_patch15_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou31_BMC_LAN1_to_patch16_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou33_BMC_LAN1_to_patch17_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "cable_ou35_BMC_LAN1_to_patch18_route_001",
+          "vertices": 1470,
+          "triangles": 2896,
+          "materials": [
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        },
+        {
+          "name": "rack01_hardware_mesh",
+          "vertices": 11280,
+          "triangles": 15416,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_labels_mesh",
+          "vertices": 62272,
+          "triangles": 59636,
+          "materials": [
+            {
+              "name": "rack_material_silkscreen",
+              "color": [
+                0.800000011920929,
+                0.8299999833106995,
+                0.8600000143051147,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.5299999713897705
+            }
+          ]
+        },
+        {
+          "name": "rack01_management_patch_panel_and_plugs_mesh",
+          "vertices": 104502,
+          "triangles": 111708,
+          "materials": [
+            {
+              "name": "cable_material_black",
+              "color": [
+                0.01600000075995922,
+                0.019999999552965164,
+                0.026000000536441803,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.4399999976158142
+            },
+            {
+              "name": "cable_material_gray",
+              "color": [
+                0.18000000715255737,
+                0.20000000298023224,
+                0.2199999988079071,
+                1.0
+              ],
+              "metallic": 0.800000011920929,
+              "roughness": 0.2800000011920929
+            },
+            {
+              "name": "cable_material_white",
+              "color": [
+                0.8600000143051147,
+                0.8899999856948853,
+                0.9300000071525574,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.5
+            },
+            {
+              "name": "cable_material_plug",
+              "color": [
+                0.550000011920929,
+                0.6200000047683716,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.20000000298023224
+            },
+            {
+              "name": "cable_material_blue",
+              "color": [
+                0.012000000104308128,
+                0.07000000029802322,
+                0.4000000059604645,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "cable_material_gold",
+              "color": [
+                0.5799999833106995,
+                0.3100000023841858,
+                0.07500000298023224,
+                1.0
+              ],
+              "metallic": 0.8999999761581421,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_power_mesh",
+          "vertices": 74810,
+          "triangles": 104592,
+          "materials": [
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_powder_coat_RAL9005",
+              "color": [
+                0.014000000432133675,
+                0.017000000923871994,
+                0.020999999716877937,
+                1.0
+              ],
+              "metallic": 0.2199999988079071,
+              "roughness": 0.4000000059604645
+            },
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            },
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_01_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_01_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_02_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_02_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_03_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_03_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_04_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_04_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_05_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_05_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_06_mesh",
+          "vertices": 240,
+          "triangles": 328,
+          "materials": [
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            }
+          ]
+        },
+        {
+          "name": "rack01_psu_06_mesh_001",
+          "vertices": 7282,
+          "triangles": 10680,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "rack_material_insulator_black",
+              "color": [
+                0.014000000432133675,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.44999998807907104
+            },
+            {
+              "name": "rack_material_status_green",
+              "color": [
+                0.054999999701976776,
+                0.36000001430511475,
+                0.10000000149011612,
+                1.0
+              ],
+              "metallic": 0.10000000149011612,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "rack_material_silver_busbar_plating",
+              "color": [
+                0.7200000286102295,
+                0.7400000095367432,
+                0.75,
+                1.0
+              ],
+              "metallic": 0.9700000286102295,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "rack_material_contact_gold",
+              "color": [
+                0.6200000047683716,
+                0.3799999952316284,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.2199999988079071
+            }
+          ]
+        },
+        {
+          "name": "rack01_retention_mesh",
+          "vertices": 151576,
+          "triangles": 215120,
+          "materials": [
+            {
+              "name": "rack_material_powder_coat_RAL9005",
+              "color": [
+                0.014000000432133675,
+                0.017000000923871994,
+                0.020999999716877937,
+                1.0
+              ],
+              "metallic": 0.2199999988079071,
+              "roughness": 0.4000000059604645
+            }
+          ]
+        },
+        {
+          "name": "rack01_structure_mesh",
+          "vertices": 20640,
+          "triangles": 28936,
+          "materials": [
+            {
+              "name": "rack_material_powder_coat_RAL9005",
+              "color": [
+                0.014000000432133675,
+                0.017000000923871994,
+                0.020999999716877937,
+                1.0
+              ],
+              "metallic": 0.2199999988079071,
+              "roughness": 0.4000000059604645
+            },
+            {
+              "name": "rack_material_caster_tread",
+              "color": [
+                0.00800000037997961,
+                0.008999999612569809,
+                0.012000000104308128,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.6800000071525574
+            },
+            {
+              "name": "rack_material_stainless_fasteners",
+              "color": [
+                0.6200000047683716,
+                0.6499999761581421,
+                0.6899999976158142,
+                1.0
+              ],
+              "metallic": 0.949999988079071,
+              "roughness": 0.23999999463558197
+            },
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            }
+          ]
+        },
+        {
+          "name": "rack01_supports_mesh",
+          "vertices": 7296,
+          "triangles": 8208,
+          "materials": [
+            {
+              "name": "rack_material_zinc_plated_steel",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8500000238418579,
+              "roughness": 0.30000001192092896
+            }
+          ]
+        },
+        {
+          "name": "server_exterior_surface_mesh",
+          "vertices": 172401,
+          "triangles": 129331,
+          "materials": [
+            {
+              "name": "Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "rack01.frame",
+          "mesh": 0,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 1,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 2,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 3,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 4,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 5,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 6,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 7,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 8,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 9,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 10,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 11,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 12,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 13,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 14,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 15,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 16,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 17,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 18,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 19,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 20,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 21,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 22,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 23,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 24,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 25,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 26,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 27,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 28,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 29,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 30,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 31,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 32,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 33,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 34,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 35,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.frame",
+          "mesh": 36,
+          "position": [
+            -0.009389140643179417,
+            -0.5,
+            -0.0004558811488095671
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server01",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.418552041053772,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server02",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.3751131296157837,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server03",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.3316742181777954,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server04",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.28823530673980713,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server05",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.24479638040065765,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server06",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.20135746896266937,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server07",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.15791857242584229,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server08",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.11447964608669281,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server09",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.07104072719812393,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server10",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            -0.027601804584264755,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server11",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.015837088227272034,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server12",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.05927598476409912,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server13",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.10271493345499039,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server14",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.14615382254123688,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server15",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.18959277868270874,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server16",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.23303167521953583,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server17",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.2764705717563629,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "part": "rack01.server18",
+          "mesh": 37,
+          "position": [
+            -0.009389140643179417,
+            0.3199095129966736,
+            0.1805395931005478
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "rack01.frame": [
+          [
+            -0.145135760307312,
+            -0.5,
+            -0.2418586164712906
+          ],
+          [
+            0.14513574540615082,
+            0.5,
+            0.2418586015701294
+          ]
+        ],
+        "rack01.server01": [
+          [
+            -0.13286414742469788,
+            -0.41995179653167725,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.37677714228630066,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server02": [
+          [
+            -0.13286414742469788,
+            -0.37651288509368896,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.3333382308483124,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server03": [
+          [
+            -0.13286414742469788,
+            -0.3330739736557007,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.2898993194103241,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server04": [
+          [
+            -0.13286414742469788,
+            -0.2896350622177124,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.24646039307117462,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server05": [
+          [
+            -0.13286414742469788,
+            -0.24619612097740173,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.20302146673202515,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server06": [
+          [
+            -0.13286414742469788,
+            -0.20275720953941345,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.15958255529403687,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server07": [
+          [
+            -0.13286414742469788,
+            -0.15931831300258636,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.11614365875720978,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server08": [
+          [
+            -0.13286414742469788,
+            -0.11587939411401749,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.0727047324180603,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server09": [
+          [
+            -0.13286414742469788,
+            -0.07244047522544861,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            -0.029265817254781723,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server10": [
+          [
+            -0.13286414742469788,
+            -0.029001548886299133,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.014173105359077454,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server11": [
+          [
+            -0.13286414742469788,
+            0.014437343925237656,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.05761199817061424,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server12": [
+          [
+            -0.13286414742469788,
+            0.05787624046206474,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.10105089843273163,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server13": [
+          [
+            -0.13286414742469788,
+            0.10131518542766571,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.1444898396730423,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server14": [
+          [
+            -0.13286414742469788,
+            0.1447540819644928,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.18792873620986938,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server15": [
+          [
+            -0.13286414742469788,
+            0.18819303810596466,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.23136769235134125,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server16": [
+          [
+            -0.13286414742469788,
+            0.23163193464279175,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.27480658888816833,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server17": [
+          [
+            -0.13286414742469788,
+            0.27507081627845764,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.31824547052383423,
+            0.19863328337669373
+          ]
+        ],
+        "rack01.server18": [
+          [
+            -0.13286414742469788,
+            0.3185097575187683,
+            -0.22243501245975494
+          ],
+          [
+            0.1138785108923912,
+            0.3616844117641449,
+            0.19863328337669373
+          ]
+        ]
+      }
+    },
+    "storage": {
+      "file": "storage.rackbin",
+      "sha256": "9929165e6b32f94abb8f8ddd2cb861cafa4d2af4a8a60bea71fbc25fc0d2adcf",
+      "bytes": 2445751,
+      "decodedBytes": 7796344,
+      "meshes": [
+        {
+          "name": "detail_storage_mesh",
+          "vertices": 276920,
+          "triangles": 95853,
+          "materials": [
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Teaching_Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "storage",
+          "mesh": 0,
+          "position": [
+            -0.050590455532073975,
+            0.02102779597043991,
+            -0.15780332684516907
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "storage": [
+          [
+            -0.1217009648680687,
+            -0.0016170293092727661,
+            -0.33345237374305725
+          ],
+          [
+            0.020235635340213776,
+            0.04445481300354004,
+            0.020122185349464417
+          ]
+        ]
+      }
+    },
+    "fanwall": {
+      "file": "fanwall.rackbin",
+      "sha256": "d70dbba96db697fbb6c586a3fcd01c540a415f0fced4932060e67187e01398a9",
+      "bytes": 752614,
+      "decodedBytes": 2317620,
+      "meshes": [
+        {
+          "name": "detail_fanwall_mesh",
+          "vertices": 81567,
+          "triangles": 29999,
+          "materials": [
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "fanwall",
+          "mesh": 0,
+          "position": [
+            -7.591244184368406e-07,
+            0.02018371969461441,
+            -0.3388866186141968
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "fanwall": [
+          [
+            -0.1188277155160904,
+            0.0002964641898870468,
+            -0.4021323025226593
+          ],
+          [
+            0.11883163452148438,
+            0.04004814475774765,
+            -0.2756977081298828
+          ]
+        ]
+      }
+    },
+    "processors": {
+      "file": "processors.rackbin",
+      "sha256": "264229c2fa45f9e80cb7ae42b89b9ff3f4de2debfd71862d1a14d1fb543157b2",
+      "bytes": 750786,
+      "decodedBytes": 2168340,
+      "meshes": [
+        {
+          "name": "detail_processors_mesh",
+          "vertices": 75346,
+          "triangles": 30000,
+          "materials": [
+            {
+              "name": "Teaching_Contact_gold",
+              "color": [
+                0.550000011920929,
+                0.3199999928474426,
+                0.06499999761581421,
+                1.0
+              ],
+              "metallic": 0.9200000166893005,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "Teaching_Auxiliary_PCB_solder_mask",
+              "color": [
+                0.02500000037252903,
+                0.17000000178813934,
+                0.10999999940395355,
+                1.0
+              ],
+              "metallic": 0.15000000596046448,
+              "roughness": 0.3400000035762787
+            },
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Teaching_Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "processors",
+          "mesh": 0,
+          "position": [
+            0.02800000086426735,
+            0.010952736251056194,
+            -0.15580542385578156
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "processors": [
+          [
+            -0.033882349729537964,
+            -0.00022688694298267365,
+            -0.1897420734167099
+          ],
+          [
+            0.08988235145807266,
+            0.02213277481496334,
+            -0.12186877429485321
+          ]
+        ]
+      }
+    },
+    "heatsinks": {
+      "file": "heatsinks.rackbin",
+      "sha256": "29a1571ba0df55d676799648d14f9fd7913c3e08d7d8ec4ff0fd66229a0a5b58",
+      "bytes": 573398,
+      "decodedBytes": 1646332,
+      "meshes": [
+        {
+          "name": "detail_heatsinks_mesh",
+          "vertices": 56096,
+          "triangles": 25000,
+          "materials": [
+            {
+              "name": "Teaching_C1100_copper_thermal_assembly",
+              "color": [
+                0.5199999809265137,
+                0.2199999988079071,
+                0.10499999672174454,
+                1.0
+              ],
+              "metallic": 0.9599999785423279,
+              "roughness": 0.27000001072883606
+            },
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "heatsinks",
+          "mesh": 0,
+          "position": [
+            0.02800000086426735,
+            0.02431507036089897,
+            -0.15580543875694275
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "heatsinks": [
+          [
+            -0.029535602778196335,
+            0.008928963914513588,
+            -0.17831435799598694
+          ],
+          [
+            0.08553645014762878,
+            0.03971438109874725,
+            -0.13328534364700317
+          ]
+        ]
+      }
+    },
+    "network": {
+      "file": "network.rackbin",
+      "sha256": "7b003e0fd906760b3470ddafad1fe09ec60cd5ae29ab027f36602bf2ba0c5977",
+      "bytes": 301917,
+      "decodedBytes": 835740,
+      "meshes": [
+        {
+          "name": "detail_network_mesh",
+          "vertices": 29076,
+          "triangles": 11491,
+          "materials": [
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "network",
+          "mesh": 0,
+          "position": [
+            0.006497738882899284,
+            0.010020780377089977,
+            -0.024609889835119247
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "network": [
+          [
+            -0.010898904874920845,
+            0.0023899758234620094,
+            -0.050864577293395996
+          ],
+          [
+            0.023894382640719414,
+            0.01765158399939537,
+            0.001644795760512352
+          ]
+        ]
+      }
+    },
+    "power": {
+      "file": "power.rackbin",
+      "sha256": "73719db82173370c7c08766ad4506a7074478596a6df4f17642a3b10f9a87a85",
+      "bytes": 2145828,
+      "decodedBytes": 5244184,
+      "meshes": [
+        {
+          "name": "detail_power_mesh",
+          "vertices": 186229,
+          "triangles": 64555,
+          "materials": [
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Teaching_Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "power",
+          "mesh": 0,
+          "position": [
+            0.03416667878627777,
+            0.012470601126551628,
+            -0.23556244373321533
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "power": [
+          [
+            -0.0278494730591774,
+            0.0023474199697375298,
+            -0.36678144335746765
+          ],
+          [
+            0.09302686154842377,
+            0.023175453767180443,
+            -0.10305258631706238
+          ]
+        ]
+      }
+    },
+    "chassis": {
+      "file": "chassis.rackbin",
+      "sha256": "91287b9473a3f6585adf15482fcdbd7e5e1397837dddc1939b8bd4aa32f5540c",
+      "bytes": 883913,
+      "decodedBytes": 2706428,
+      "meshes": [
+        {
+          "name": "detail_chassis_mesh",
+          "vertices": 95267,
+          "triangles": 34999,
+          "materials": [
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Teaching_Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            },
+            {
+              "name": "Teaching_cable_material_black",
+              "color": [
+                0.01600000075995922,
+                0.019999999552965164,
+                0.026000000536441803,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.4399999976158142
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "chassis",
+          "mesh": 0,
+          "position": [
+            -8.96121928235516e-05,
+            0.020804621279239655,
+            -0.17372307181358337
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "chassis": [
+          [
+            -0.12355953454971313,
+            -5.946308374404907e-05,
+            -0.3656318485736847
+          ],
+          [
+            0.12338012456893921,
+            0.04165158420801163,
+            0.018034175038337708
+          ]
+        ]
+      }
+    },
+    "motherboard": {
+      "file": "motherboard.rackbin",
+      "sha256": "87d6af8f18f3bc72b726d9e8f40ba64ce3b61496f1255b337aaf675a2db404ea",
+      "bytes": 1381943,
+      "decodedBytes": 4361560,
+      "meshes": [
+        {
+          "name": "detail_motherboard_mesh",
+          "vertices": 154228,
+          "triangles": 55000,
+          "materials": [
+            {
+              "name": "Teaching_PCB_EVT3___Resistor_body",
+              "color": [
+                0.02800000086426735,
+                0.03099999949336052,
+                0.03500000014901161,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.38999998569488525
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Tin_plated_terminal_reconstruction",
+              "color": [
+                0.5600000023841858,
+                0.5899999737739563,
+                0.6100000143051147,
+                1.0
+              ],
+              "metallic": 0.9300000071525574,
+              "roughness": 0.23000000417232513
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Discrete_semiconductor_body",
+              "color": [
+                0.026000000536441803,
+                0.029999999329447746,
+                0.03500000014901161,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.4000000059604645
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Ceramic_capacitor_body",
+              "color": [
+                0.3799999952316284,
+                0.23000000417232513,
+                0.11500000208616257,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3700000047683716
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Molded_IC_body",
+              "color": [
+                0.020999999716877937,
+                0.02500000037252903,
+                0.02800000086426735,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.46000000834465027
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Polymer_capacitor_body",
+              "color": [
+                0.10999999940395355,
+                0.0949999988079071,
+                0.07999999821186066,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.36000001430511475
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Ferrite_magnetic_body",
+              "color": [
+                0.07400000095367432,
+                0.07900000363588333,
+                0.08500000089406967,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.5199999809265137
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Connector_housing",
+              "color": [
+                0.04600000008940697,
+                0.04899999871850014,
+                0.052000001072883606,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.3799999952316284
+            },
+            {
+              "name": "Teaching_Black_engineering_polymer",
+              "color": [
+                0.013000000268220901,
+                0.017999999225139618,
+                0.023000000044703484,
+                1.0
+              ],
+              "metallic": 0.029999999329447746,
+              "roughness": 0.3400000035762787
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Fuse_body",
+              "color": [
+                0.47999998927116394,
+                0.44999998807907104,
+                0.36000001430511475,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.47999998927116394
+            },
+            {
+              "name": "Teaching_Brushed_zinc_steel",
+              "color": [
+                0.41999998688697815,
+                0.4699999988079071,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.8700000047683716,
+              "roughness": 0.3199999928474426
+            },
+            {
+              "name": "Teaching_PCB_EVT3___LED_package_body",
+              "color": [
+                0.2800000011920929,
+                0.33000001311302185,
+                0.1899999976158142,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.28999999165534973
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Timing_device_case",
+              "color": [
+                0.4699999988079071,
+                0.5,
+                0.5199999809265137,
+                1.0
+              ],
+              "metallic": 0.7200000286102295,
+              "roughness": 0.28999999165534973
+            },
+            {
+              "name": "Teaching_PCB_EVT3___Converter_module_body",
+              "color": [
+                0.07999999821186066,
+                0.08500000089406967,
+                0.09000000357627869,
+                1.0
+              ],
+              "metallic": 0.25,
+              "roughness": 0.3499999940395355
+            },
+            {
+              "name": "Teaching_EVT3_red_OSP_PCB___top",
+              "color": [
+                0.23999999463558197,
+                0.012000000104308128,
+                0.020999999716877937,
+                1.0
+              ],
+              "metallic": 0.05000000074505806,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "Teaching_EVT3_red_OSP_PCB___bottom",
+              "color": [
+                0.23999999463558197,
+                0.012000000104308128,
+                0.020999999716877937,
+                1.0
+              ],
+              "metallic": 0.05000000074505806,
+              "roughness": 0.30000001192092896
+            },
+            {
+              "name": "Teaching_PCB_cut_edges",
+              "color": [
+                0.20000000298023224,
+                0.10999999940395355,
+                0.06499999761581421,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.6000000238418579
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "motherboard",
+          "mesh": 0,
+          "position": [
+            0.028461795300245285,
+            0.010469632223248482,
+            -0.12793655693531036
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "motherboard": [
+          [
+            -0.04608536139130592,
+            0.0021420251578092575,
+            -0.2565656304359436
+          ],
+          [
+            0.1029985100030899,
+            0.01879904977977276,
+            0.0006890743970870972
+          ]
+        ]
+      }
+    },
+    "memory": {
+      "file": "memory.rackbin",
+      "sha256": "f557c791d8718e4b8ee7ce14a087bad7ccd6583e1860af5f147042ac40b11a30",
+      "bytes": 836319,
+      "decodedBytes": 2587520,
+      "meshes": [
+        {
+          "name": "detail_memory_mesh",
+          "vertices": 90312,
+          "triangles": 35000,
+          "materials": [
+            {
+              "name": "Teaching_Molded_semiconductor_package",
+              "color": [
+                0.014000000432133675,
+                0.017000000923871994,
+                0.02199999988079071,
+                1.0
+              ],
+              "metallic": 0.05000000074505806,
+              "roughness": 0.4000000059604645
+            },
+            {
+              "name": "Teaching_Identification_white",
+              "color": [
+                0.8199999928474426,
+                0.8700000047683716,
+                0.8799999952316284,
+                1.0
+              ],
+              "metallic": 0.0,
+              "roughness": 0.5
+            },
+            {
+              "name": "Teaching_RDIMM_green_substrate",
+              "color": [
+                0.013000000268220901,
+                0.09000000357627869,
+                0.03500000014901161,
+                1.0
+              ],
+              "metallic": 0.07999999821186066,
+              "roughness": 0.30000001192092896
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+          "part": "memory",
+          "mesh": 0,
+          "position": [
+            0.02770041674375534,
+            0.012839366681873798,
+            -0.15580543875694275
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "bounds": {
+        "memory": [
+          [
+            -0.04531808942556381,
+            0.005769230891019106,
+            -0.22126924991607666
+          ],
+          [
+            0.10072401911020279,
+            0.019909502938389778,
+            -0.09034163504838943
+          ]
+        ]
+      }
+    }
+  },
+  "limits": [
+    "The detail library omits the removable cover; switching to this open interior does not recover or detach an authored cover.",
+    "Hardware below2.5mm and individual memory contacts are omitted in this sample overview recipe.",
+    "RDIMMs are supported-class analogues; exact installed SKU/capacity are not established.",
+    "Source relationships describe design evidence, not live measurements or simulated circuits.",
+    "Separate detailed component and illustrative processor study exports are not included."
+  ]
+}

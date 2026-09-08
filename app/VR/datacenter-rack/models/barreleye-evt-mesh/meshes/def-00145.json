@@ -1,0 +1,25 @@
+{
+  "id": "def-00145",
+  "label": "0:1:1:194",
+  "name": "7_DTSA-644_ZUS",
+  "color_rgba": null,
+  "topological_faces": 254,
+  "missing_faces": 0,
+  "vertices": 9732,
+  "triangles": 11552,
+  "bounds_m": [
+    [
+      -0.004249872639775276,
+      -0.007499999832361937,
+      -0.006550000049173832
+    ],
+    [
+      0.004250061698257923,
+      0.0031999999191612005,
+      0.003599999938160181
+    ]
+  ],
+  "mesh_path": "meshes/def-00145.npz",
+  "mesh_sha256": "650b7cfd3c7816fc22d2a17204bd06c81f935f9f8a690f4a8585bd1b5202aa38",
+  "tessellation_seconds": 0.15799425006844103
+}

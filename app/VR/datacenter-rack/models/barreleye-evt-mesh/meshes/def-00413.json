@@ -1,0 +1,25 @@
+{
+  "id": "def-00413",
+  "label": "0:1:1:562",
+  "name": "OCP_MEZZ_X4_QSFP_KEEPOUT_PS",
+  "color_rgba": null,
+  "topological_faces": 44,
+  "missing_faces": 0,
+  "vertices": 1940,
+  "triangles": 1856,
+  "bounds_m": [
+    [
+      0.0010000000474974513,
+      0.01092000026255846,
+      0.0
+    ],
+    [
+      0.10904999822378159,
+      0.07692000269889832,
+      0.0044999998062849045
+    ]
+  ],
+  "mesh_path": "meshes/def-00413.npz",
+  "mesh_sha256": "6cf942409656e4ef96f3776024121052f530365652aa364cc60b885fc8177bd7",
+  "tessellation_seconds": 0.03741899994201958
+}

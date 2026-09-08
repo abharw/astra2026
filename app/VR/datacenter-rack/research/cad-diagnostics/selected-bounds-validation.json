@@ -1,0 +1,63 @@
+{
+  "configuration_id": "evt3-2ou-no-gpu-25gbe-furukawa",
+  "source_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1",
+  "dependency_full_bounds_sha256": "dbd2fc1bc947891cc53ffd2dfa4523093dd7f6500a377693a9f80515eb51a715",
+  "method": "Uses rotation-transformed native BREP bounds audited by independent source hierarchy traversal; adds source-verified translations. Mesh extrema use actual occurrence-transformed vertices, including finalized repaired replacements.",
+  "source_brep_bounds_mm": [
+    [
+      -272.4817431709228,
+      -0.39999999999999947,
+      -888.7700000910022
+    ],
+    [
+      272.877714698249,
+      92.30000009999999,
+      40.03671193509
+    ]
+  ],
+  "assembled_mesh_vertex_bounds_mm": [
+    [
+      -272.4815720286502,
+      -0.3999998472630972,
+      -888.7700005662441
+    ],
+    [
+      272.87741010561587,
+      92.30000004749745,
+      40.03671159148217
+    ]
+  ],
+  "source_extents_mm": [
+    545.3594578691718,
+    92.7000001,
+    928.8067120260922
+  ],
+  "mesh_extents_mm": [
+    545.3589821342661,
+    92.69999989476055,
+    928.8067121577262
+  ],
+  "absolute_bound_endpoint_errors_mm": [
+    [
+      0.0001711422726202727,
+      1.5273690229244963e-07,
+      4.752419044962153e-07
+    ],
+    [
+      0.0003045926331424198,
+      5.250254275779298e-08,
+      3.436078301888301e-07
+    ]
+  ],
+  "absolute_upper_bound_error_per_axis_mm": [
+    0.0003045926331424198,
+    1.5273690229244963e-07,
+    4.752419044962153e-07
+  ],
+  "mesh_occurrences": 2022,
+  "vertices_processed_over_occurrences": 26750634,
+  "limitations": [
+    "Bounds agreement is not a surface Hausdorff-distance proof.",
+    "Only selected source CAD geometry is measured; separately authored PCB reconstruction and study geometry are excluded."
+  ]
+}

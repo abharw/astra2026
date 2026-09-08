@@ -17,7 +17,10 @@ SOURCE_PATHS = [
     "app/SpatialDemo/Conversation/PCMCodec.swift",
     "app/SpatialDemo/Conversation/ConversationModels.swift",
 ]
-CURRENT_SOURCE_PATHS = SOURCE_PATHS + ["app/SpatialDemo/Conversation/RealtimeDependencies.swift"]
+# Historical commits use SOURCE_PATHS; the current AR app lives one level deeper.
+CURRENT_SOURCE_PATHS = [path.replace("app/", "app/AR/", 1) for path in SOURCE_PATHS] + [
+    "app/AR/SpatialDemo/Conversation/RealtimeDependencies.swift"
+]
 CALLBACKS = {
     "inputTap": "closure #1 in AudioIOController.installInputTap(input:)",
     "playbackCompletion": "closure #1 in AudioIOController.enqueuePlayback(_:itemID:contentIndex:)",

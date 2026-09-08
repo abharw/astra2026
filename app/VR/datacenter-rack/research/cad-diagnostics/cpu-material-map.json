@@ -1,0 +1,519 @@
+{
+  "source_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1",
+  "drawing": "research/components/pages/G2-CPU HSK-Furukawa-HS855600.png",
+  "drawing_title": "HS855600-A (2016-08-16)",
+  "assembly": "HS855600-G2-A_ASM",
+  "assembly_definition_label": "0:1:1:889",
+  "rows": [
+    {
+      "definition_id": "def-00661",
+      "definition_label": "0:1:1:891",
+      "name": "GG-BASE_4",
+      "count_per_heatsink": 1,
+      "suggested_material": "ADC10 aluminum alloy",
+      "evidence": "Furukawa HS855600-A drawing p1 Sink-base ADC10 and source GG-BASE name/dimensions",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          0.2,
+          -50.0
+        ],
+        [
+          45.5,
+          9.0,
+          50.0
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00662",
+      "definition_label": "0:1:1:893",
+      "name": "00FV785_COPY-OTHER__N36840_1",
+      "count_per_heatsink": 1,
+      "suggested_material": "unspecified mounting metal",
+      "evidence": "geometry/name inference; drawing rack material blank",
+      "confidence": "inferred",
+      "source_geometry_bounds_mm": [
+        [
+          -50.0,
+          -1.5,
+          -16.3
+        ],
+        [
+          50.0,
+          18.5,
+          16.3
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00663",
+      "definition_label": "0:1:1:894",
+      "name": "00FX852_COPY-OTHER__N45321_1",
+      "count_per_heatsink": 4,
+      "suggested_material": "unspecified mounting metal",
+      "evidence": "geometry/name inference; drawing rack material blank",
+      "confidence": "inferred",
+      "source_geometry_bounds_mm": [
+        [
+          -49.5,
+          0.0,
+          -14.4908
+        ],
+        [
+          49.5,
+          1.532,
+          14.4908
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00664",
+      "definition_label": "0:1:1:895",
+      "name": "39J2248_H89773_1",
+      "count_per_heatsink": 2,
+      "suggested_material": "unspecified mounting metal",
+      "evidence": "geometry/name inference; drawing rack material blank",
+      "confidence": "inferred",
+      "source_geometry_bounds_mm": [
+        [
+          -2.5,
+          -1.0,
+          -2.499
+        ],
+        [
+          2.499,
+          25.0,
+          2.4997
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00665",
+      "definition_label": "0:1:1:896",
+      "name": "1126828_STANDARD-PART__J13069_1",
+      "count_per_heatsink": 2,
+      "suggested_material": "unspecified mounting metal",
+      "evidence": "geometry/name inference; drawing rack material blank",
+      "confidence": "inferred",
+      "source_geometry_bounds_mm": [
+        [
+          -2.8,
+          -2.3928,
+          0.0
+        ],
+        [
+          2.7988,
+          2.7988,
+          0.4
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00666",
+      "definition_label": "0:1:1:897",
+      "name": "00FV787_COPY-OTHER__N36840_1",
+      "count_per_heatsink": 1,
+      "suggested_material": "unspecified mounting metal",
+      "evidence": "geometry/name inference; drawing rack material blank",
+      "confidence": "inferred",
+      "source_geometry_bounds_mm": [
+        [
+          -4.5,
+          -4.5,
+          -6.0
+        ],
+        [
+          4.5,
+          4.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00667",
+      "definition_label": "0:1:1:898",
+      "name": "CU-BLOCK_4",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -35.0,
+          0.0,
+          -35.0
+        ],
+        [
+          35.0,
+          1.2,
+          35.0
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00668",
+      "definition_label": "0:1:1:899",
+      "name": "G2-PIPE-A1_6",
+      "count_per_heatsink": 2,
+      "suggested_material": "copper heat pipe, water working fluid",
+      "evidence": "Furukawa HS855600-A drawing p1 Pipe-1/Pipe-2 CU/W, source G2-PIPE names",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -30.4993,
+          1.2,
+          -11.9993
+        ],
+        [
+          30.4993,
+          68.0,
+          -0.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00669",
+      "definition_label": "0:1:1:900",
+      "name": "G2-PIPE-A2_5",
+      "count_per_heatsink": 2,
+      "suggested_material": "copper heat pipe, water working fluid",
+      "evidence": "Furukawa HS855600-A drawing p1 Pipe-1/Pipe-2 CU/W, source G2-PIPE names",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -30.4999,
+          1.2,
+          -28.9999
+        ],
+        [
+          30.4999,
+          68.0,
+          -9.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00670",
+      "definition_label": "0:1:1:903",
+      "name": "MANIFOLD_SOLID_BREP_22211",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00671",
+      "definition_label": "0:1:1:904",
+      "name": "MANIFOLD_SOLID_BREP_23193",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00672",
+      "definition_label": "0:1:1:906",
+      "name": "MANIFOLD_SOLID_BREP_24255",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00673",
+      "definition_label": "0:1:1:907",
+      "name": "MANIFOLD_SOLID_BREP_25237",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00674",
+      "definition_label": "0:1:1:909",
+      "name": "MANIFOLD_SOLID_BREP_26295",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00675",
+      "definition_label": "0:1:1:910",
+      "name": "MANIFOLD_SOLID_BREP_27277",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00676",
+      "definition_label": "0:1:1:912",
+      "name": "MANIFOLD_SOLID_BREP_28336",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00677",
+      "definition_label": "0:1:1:913",
+      "name": "MANIFOLD_SOLID_BREP_29318",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00678",
+      "definition_label": "0:1:1:915",
+      "name": "MANIFOLD_SOLID_BREP_30376",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00679",
+      "definition_label": "0:1:1:916",
+      "name": "MANIFOLD_SOLID_BREP_31358",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00680",
+      "definition_label": "0:1:1:918",
+      "name": "MANIFOLD_SOLID_BREP_32473",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00681",
+      "definition_label": "0:1:1:919",
+      "name": "MANIFOLD_SOLID_BREP_33511",
+      "count_per_heatsink": 1,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00682",
+      "definition_label": "0:1:1:921",
+      "name": "MANIFOLD_SOLID_BREP_34625",
+      "count_per_heatsink": 8,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          9.0,
+          -42.5
+        ],
+        [
+          -16.4,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00683",
+      "definition_label": "0:1:1:922",
+      "name": "MANIFOLD_SOLID_BREP_35663",
+      "count_per_heatsink": 8,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          16.4,
+          9.0,
+          -42.5
+        ],
+        [
+          45.5,
+          10.5,
+          42.5
+        ]
+      ]
+    },
+    {
+      "definition_id": "def-00684",
+      "definition_label": "0:1:1:923",
+      "name": "FIN-A2_8",
+      "count_per_heatsink": 25,
+      "suggested_material": "C1100 copper",
+      "evidence": "Furukawa HS855600-A drawing p1 CU-BLOCK and Fin-ASSY C1100; source CU-BLOCK/FIN hierarchy",
+      "confidence": "drawing material with source component match",
+      "source_geometry_bounds_mm": [
+        [
+          -45.5,
+          30.0,
+          -42.5
+        ],
+        [
+          45.5,
+          31.5,
+          42.5
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "CAD assembly suffix G2-A and drawing suffix A are recorded separately; dimensional/component correspondence supports this mapping.",
+    "Socket children def-00103 COMPOUND and def-00104 SHELL are unnamed; no source-confirmed split between polymer/contact metal/IHS is available from names alone. Do not color the whole compound gold by inferred function.",
+    "01AF117-001 def-00105 material/function is unverified. Do not silently label an integrated heat spreader.",
+    "Source does not specify surface plating/oxidation/roughness. Render finishes remain authored approximations."
+  ]
+}

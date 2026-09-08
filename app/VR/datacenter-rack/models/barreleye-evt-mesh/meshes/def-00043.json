@@ -1,0 +1,25 @@
+{
+  "id": "def-00043",
+  "label": "0:1:1:73",
+  "name": "1_CHASSIS-LOCK-LATCH-NEW_BARR",
+  "color_rgba": null,
+  "topological_faces": 278,
+  "missing_faces": 0,
+  "vertices": 12011,
+  "triangles": 15904,
+  "bounds_m": [
+    [
+      -0.03210581839084625,
+      0.0,
+      -0.008500000461935997
+    ],
+    [
+      0.04430000111460686,
+      0.00800000037997961,
+      0.008999999612569809
+    ]
+  ],
+  "mesh_path": "meshes/def-00043.npz",
+  "mesh_sha256": "4f6a09eb5820c44a2910663e6ae1fda4f5c5774fe29bf6e9e646e27ae1d7706f",
+  "tessellation_seconds": 0.18029899999964982
+}

@@ -1,0 +1,13 @@
+{
+  "submitted_at": "2026-09-08T21:27:57.090710+00:00",
+  "model": "seedance_2_5",
+  "mode": "video_edit",
+  "duration": 30,
+  "resolution": "1080p",
+  "video_sha256": "0d630a2afd58f9775a4019a5c1af0cf065bc4bf7dd592bd18ecac95c27613e31",
+  "image_sha256": "2714e29c3bc561ef8e14589f481df000feb09658e581dad8eb0885ff2d2bd8b4",
+  "prompt_sha256": "0ee17da2cb182ed279d7b170065853f52b0e002884140a64c11ba0e7efb62744",
+  "status": "completed",
+  "job_id": "89ad0a4d-f5c7-4748-9d92-072beceb39e9",
+  "created_at": "2026-09-08T21:28:17.37289Z"
+}

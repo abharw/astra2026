@@ -1,0 +1,125 @@
+{
+  "source": {
+    "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/walkthrough/smooth/datacenter-maze-smooth.mp4",
+    "sha256": "1753565a81a9318d71af3fd3cb8312b7ac814e19450734a4ee35b8a620178f56",
+    "bytes": 59761070,
+    "mtime_ns": 1788904665383525965,
+    "stream_index": 0,
+    "duration": 29.708333333333336,
+    "metadata_duration": 29.708333333333332,
+    "packet_span_seconds": 29.708333333333336,
+    "origin_seconds": 0.0,
+    "time_base": "1/90000",
+    "average_fps": 24.0,
+    "width": 1920,
+    "height": 1080,
+    "rotation": 0.0,
+    "sample_aspect_ratio": "1:1",
+    "audio_streams": [
+      {
+        "index": 1,
+        "start_time": "0.000000",
+        "sample_rate": "32000"
+      }
+    ],
+    "color_transfer": "bt709",
+    "subtitle_streams": []
+  },
+  "question": "Does this revision show smooth continuously moving left-right-left turns and slow final pan, photoreal surfaces and no BAY labels or colored wayfinding?",
+  "frames_extracted": 96,
+  "frames_marked_viewed": 96,
+  "individual_frames_viewed": 1,
+  "cues": 0,
+  "cues_read": 0,
+  "requests": [
+    {
+      "id": "r0001",
+      "kind": "inspect",
+      "start": 0.0,
+      "end": 29.708333,
+      "fps": 2.0,
+      "all_frames": false,
+      "width": 1280,
+      "crop": null,
+      "max_frames": 64,
+      "truncated": false,
+      "decoded_in_window": 713,
+      "largest_selected_gap_seconds": 0.5,
+      "purpose": "Whole-clip half-second review including every turn and final pan",
+      "frame_count": 60,
+      "viewed_frames": 60
+    },
+    {
+      "id": "r0002",
+      "kind": "inspect",
+      "start": 11.0,
+      "end": 11.5,
+      "fps": null,
+      "all_frames": true,
+      "width": 1280,
+      "crop": null,
+      "max_frames": 16,
+      "truncated": false,
+      "decoded_in_window": 12,
+      "largest_selected_gap_seconds": 0.041666666999999435,
+      "purpose": "Frame-dense turn check for incremental motion without snap or cut",
+      "frame_count": 12,
+      "viewed_frames": 12
+    },
+    {
+      "id": "r0003",
+      "kind": "inspect",
+      "start": 5.5,
+      "end": 6.0,
+      "fps": null,
+      "all_frames": true,
+      "width": 1280,
+      "crop": null,
+      "max_frames": 16,
+      "truncated": false,
+      "decoded_in_window": 12,
+      "largest_selected_gap_seconds": 0.041666667000000324,
+      "purpose": "Frame-dense turn check for incremental motion without snap or cut",
+      "frame_count": 12,
+      "viewed_frames": 12
+    },
+    {
+      "id": "r0004",
+      "kind": "inspect",
+      "start": 17.0,
+      "end": 17.5,
+      "fps": null,
+      "all_frames": true,
+      "width": 1280,
+      "crop": null,
+      "max_frames": 16,
+      "truncated": false,
+      "decoded_in_window": 12,
+      "largest_selected_gap_seconds": 0.04166666700000121,
+      "purpose": "Frame-dense turn check for incremental motion without snap or cut",
+      "frame_count": 12,
+      "viewed_frames": 12
+    }
+  ],
+  "claims": [
+    {
+      "id": "c0001",
+      "kind": "observed",
+      "text": "Half-second overview shows the requested left-right-left route, continuous translation during corner rotation and slower final look-around. Dense 24 fps samples at 5.5-6, 11-11.5 and 17-17.5 show incremental motion without a snap or cut. Visible wall panels are plain neutral gray, with no BAY signage or colored wayfinding in the reviewed frames; the 4.5-second panel was also examined at 1280x720. Metal server detail and practical lighting replace the blocking materials.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002",
+        "r0001-s003",
+        "r0001-s004",
+        "r0001-s005",
+        "r0002-s001",
+        "r0003-s001",
+        "r0004-s001",
+        "r0001-f0010"
+      ],
+      "limitation": "96 frame records reviewed, including overlaps, not every frame. Photographic appearance is subjective and the scene remains synthetic. Exact metric geometry and audio are unverified; output is 713 frames versus 720 reference frames."
+    }
+  ],
+  "notes": [],
+  "warning": "Viewed is a caller attestation; sampled intervals are not continuous observed coverage. No token savings or accuracy claim is measured."
+}

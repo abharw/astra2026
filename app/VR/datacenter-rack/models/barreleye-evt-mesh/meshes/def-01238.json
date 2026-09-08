@@ -1,0 +1,25 @@
+{
+  "id": "def-01238",
+  "label": "0:1:1:1563",
+  "name": "2204793-2CVM_1208",
+  "color_rgba": null,
+  "topological_faces": 518,
+  "missing_faces": 0,
+  "vertices": 13060,
+  "triangles": 12712,
+  "bounds_m": [
+    [
+      -0.027499999850988388,
+      -0.021800000220537186,
+      -0.015350000001490116
+    ],
+    [
+      0.027499999850988388,
+      0.02280000038444996,
+      0.014349999837577343
+    ]
+  ],
+  "mesh_path": "meshes/def-01238.npz",
+  "mesh_sha256": "b3146426e1d9af45ae53305d5e84fef60223ef4bfc0e16ac44fca1944ebe7924",
+  "tessellation_seconds": 0.47084708302281797
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01223",
+  "label": "0:1:1:1543",
+  "name": "8_RUBBER-POST-CARD_POWER9",
+  "color_rgba": null,
+  "topological_faces": 54,
+  "missing_faces": 0,
+  "vertices": 2708,
+  "triangles": 3588,
+  "bounds_m": [
+    [
+      -0.009549999609589577,
+      -0.005049999803304672,
+      -1.8190819944113867e-13
+    ],
+    [
+      0.009549999609589577,
+      0.005049999803304672,
+      0.012400000356137753
+    ]
+  ],
+  "mesh_path": "meshes/def-01223.npz",
+  "mesh_sha256": "49451b71961b2e927be3ac25ed732caf004b6bd4144eddb54de3b5168d931841",
+  "tessellation_seconds": 0.06947824999224395
+}

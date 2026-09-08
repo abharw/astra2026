@@ -1,0 +1,25 @@
+{
+  "id": "def-00650",
+  "label": "0:1:1:876",
+  "name": "9_SCREW-M5-L6_POWER9",
+  "color_rgba": null,
+  "topological_faces": 58,
+  "missing_faces": 0,
+  "vertices": 9676,
+  "triangles": 12712,
+  "bounds_m": [
+    [
+      -0.0033585785422474146,
+      -0.005499999970197678,
+      -0.0033585785422474146
+    ],
+    [
+      0.0033585785422474146,
+      0.0010000000474974513,
+      0.0033585785422474146
+    ]
+  ],
+  "mesh_path": "meshes/def-00650.npz",
+  "mesh_sha256": "3b79e722c7e8c8cdd19df38fd411e9babc63b15f94d19dd5ed698fcdc81f55ca",
+  "tessellation_seconds": 0.09899495798163116
+}

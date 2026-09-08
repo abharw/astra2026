@@ -1,0 +1,25 @@
+{
+  "id": "def-00489",
+  "label": "0:1:1:657",
+  "name": "6_HDMI19-R003_ZUS",
+  "color_rgba": null,
+  "topological_faces": 1673,
+  "missing_faces": 0,
+  "vertices": 43749,
+  "triangles": 47058,
+  "bounds_m": [
+    [
+      -0.008999999612569809,
+      -0.004999999888241291,
+      -0.027009999379515648
+    ],
+    [
+      0.008999999612569809,
+      0.024000000208616257,
+      1.2634338147289224e-16
+    ]
+  ],
+  "mesh_path": "meshes/def-00489.npz",
+  "mesh_sha256": "a3c8233e8b9515059794107ddedbfdb2c2479adb67d7b961b3532c1b1db567e0",
+  "tessellation_seconds": 1.0855530829867348
+}

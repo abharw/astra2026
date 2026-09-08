@@ -1,0 +1,25 @@
+{
+  "id": "def-00422",
+  "label": "0:1:1:575",
+  "name": "4_PCBA_OCP_ADAPTER-ZUS",
+  "color_rgba": null,
+  "topological_faces": 43,
+  "missing_faces": 0,
+  "vertices": 2706,
+  "triangles": 2636,
+  "bounds_m": [
+    [
+      -0.04050000011920929,
+      0.0,
+      -0.0820000022649765
+    ],
+    [
+      0.039000000804662704,
+      0.0015699999639764428,
+      0.05469999834895134
+    ]
+  ],
+  "mesh_path": "meshes/def-00422.npz",
+  "mesh_sha256": "d0b188849bd9b8468475cd466024ed2fa4f14264e49d4e286def75b0811747f3",
+  "tessellation_seconds": 0.04459133301861584
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00410",
+  "label": "0:1:1:559",
+  "name": "OCP_F01-LED-EVERLIGHT_ANY",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 340,
+  "triangles": 320,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.003000000026077032,
+      0.0010000000474974513,
+      0.0020000000949949026
+    ]
+  ],
+  "mesh_path": "meshes/def-00410.npz",
+  "mesh_sha256": "74927be87cd3747739aacf6b4f4e9552eeed48d3c76177871d5e3ef0222e2275",
+  "tessellation_seconds": 0.00922537490259856
+}

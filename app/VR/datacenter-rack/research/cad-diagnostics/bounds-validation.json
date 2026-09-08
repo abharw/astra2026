@@ -1,0 +1,158 @@
+{
+  "source_sha256": "823c119e2f7eebae3eda204590c4e6d54e0b990a43e4406987e476bbf41813a1",
+  "method": "Independent recursive XCAF free-root traversal. OCCT AddOptimal(useTriangulation=False,useShapeTolerance=False) on each rotation-transformed native BREP definition, cached by definition+rotation, then translated. Compared with all actual transformed mesh vertices. No rotated AABB corners.",
+  "empty_source_definitions": [
+    {
+      "definition_id": "def-00152",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00153",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00155",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00156",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00158",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00159",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00430",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00431",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00433",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00434",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00436",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00437",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00441",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00443",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00444",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00446",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00447",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00578",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00640",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00641",
+      "source_void_bounds": true
+    },
+    {
+      "definition_id": "def-00694",
+      "source_void_bounds": true
+    }
+  ],
+  "source_traversal_nodes": 9940,
+  "source_leaf_occurrences": 8741,
+  "rotated_native_bounds_computed": 1603,
+  "source_brep_bounds_mm": [
+    [
+      -272.4817431709228,
+      -217.42679539257,
+      -888.7700000910022
+    ],
+    [
+      272.877714698249,
+      101.21274150055999,
+      495.03671193509
+    ]
+  ],
+  "assembled_mesh_vertex_bounds_mm": [
+    [
+      -272.4815720286502,
+      -217.42679538676543,
+      -888.7700005662441
+    ],
+    [
+      272.87741010561587,
+      101.21274196147918,
+      495.0367115914822
+    ]
+  ],
+  "source_extents_mm": [
+    545.3594578691718,
+    318.63953689312996,
+    1383.806712026092
+  ],
+  "mesh_extents_mm": [
+    545.3589821342661,
+    318.63953734824463,
+    1383.8067121577262
+  ],
+  "absolute_bound_endpoint_errors_mm": [
+    [
+      0.0001711422726202727,
+      5.8045657169714104e-09,
+      4.752419044962153e-07
+    ],
+    [
+      0.0003045926331424198,
+      4.609191961435499e-07,
+      3.436078372942575e-07
+    ]
+  ],
+  "absolute_upper_bound_error_per_axis_mm": [
+    0.0003045926331424198,
+    4.609191961435499e-07,
+    4.752419044962153e-07
+  ],
+  "local_translation_max_abs_error_mm": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "local_rotation_max_abs_error": 1.1102230246251565e-16,
+  "vertices_processed_over_occurrences": 58962221,
+  "local_definition_errors": [],
+  "worst_local_definition_bounds": [],
+  "limitations": [
+    "Bounds agreement does not prove surface Hausdorff error or detect missing interior faces.",
+    "Native bounds derive from source CAD numerical surfaces; no physical measurement asserted."
+  ],
+  "mesh_occurrences": 8720
+}

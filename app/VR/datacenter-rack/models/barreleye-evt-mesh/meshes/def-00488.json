@@ -1,0 +1,25 @@
+{
+  "id": "def-00488",
+  "label": "0:1:1:656",
+  "name": "7_CABLE-HDMI_ZUS",
+  "color_rgba": null,
+  "topological_faces": 52,
+  "missing_faces": 0,
+  "vertices": 4196,
+  "triangles": 6116,
+  "bounds_m": [
+    [
+      -0.009999999776482582,
+      -0.004999999888241291,
+      -0.049800001084804535
+    ],
+    [
+      0.009999999776482582,
+      0.004999999888241291,
+      0.009499999694526196
+    ]
+  ],
+  "mesh_path": "meshes/def-00488.npz",
+  "mesh_sha256": "d8aeca608bf157e8c42ad1a1c2cfefcca6a34d48019e55b1e6095a0524c0b2b9",
+  "tessellation_seconds": 0.054789875051938
+}

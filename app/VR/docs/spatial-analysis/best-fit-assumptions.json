@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "meaning": "Best-fit schematic choices; no metric survey or generated panoramas/3D",
+  "assumptions": [
+    {
+      "id": "H1",
+      "source_id": "7958",
+      "gap": "Study-to-hall loop",
+      "selected_hypothesis": "The shelving doorway opens back into the starting study.",
+      "basis_evidence_ids": [
+        "r0002-s001",
+        "r0002-s003"
+      ],
+      "rationale": "Matching shelving and lamp plus nearby route position.",
+      "alternative": "A second similarly furnished room.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show the shelving doorway opens back into the starting study.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "H1"
+      ]
+    },
+    {
+      "id": "H2",
+      "source_id": "7958",
+      "gap": "Bath/bed offsets and room outlines",
+      "selected_hypothesis": "Bath and bedroom face a slightly staggered section of the same hall; other room outlines continue simply.",
+      "basis_evidence_ids": [
+        "r0003-s001",
+        "r0003-s002"
+      ],
+      "rationale": "Opposite doorway approaches and a small camera turn favor staggered entries.",
+      "alternative": "A sharper hall dogleg with larger offsets.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show bath and bedroom face a slightly staggered section of the same hall; other room outlines continue simply.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "H2"
+      ]
+    },
+    {
+      "id": "H3",
+      "source_id": "7958",
+      "gap": "Utility extent",
+      "selected_hypothesis": "Utility is an open alcove beside kitchen, with no added dividing door.",
+      "basis_evidence_ids": [
+        "r0004-s001",
+        "r0004-s002"
+      ],
+      "rationale": "Short pan shows appliance zone without a crossed door.",
+      "alternative": "A deeper enclosed utility room outside view.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show utility is an open alcove beside kitchen, with no added dividing door.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "H3"
+      ]
+    },
+    {
+      "id": "H4",
+      "source_id": "7958",
+      "gap": "Closed doors and downstairs",
+      "selected_hypothesis": "Closed doors lead to minimal storage/access volumes; stairs end in an undetailed lower landing placeholder.",
+      "basis_evidence_ids": [
+        "r0002-s002",
+        "r0002-s003"
+      ],
+      "rationale": "Fewest invented spaces while allowing access beyond visible openings.",
+      "alternative": "Closed doors lead to additional full rooms; stairs reach a large lower floor.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show closed doors lead to minimal storage/access volumes; stairs end in an undetailed lower landing placeholder.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "H4"
+      ]
+    },
+    {
+      "id": "H5",
+      "source_id": "7958",
+      "gap": "Curtained and dining bays",
+      "selected_hypothesis": "Use shallow three-sided window bays and continue concealed wall/floor planes.",
+      "basis_evidence_ids": [
+        "r0002-s001",
+        "r0004-s001"
+      ],
+      "rationale": "Curtains and oblique window views suggest recesses, without calibrated angles.",
+      "alternative": "Flat glazing or a curved/deeper bay.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show use shallow three-sided window bays and continue concealed wall/floor planes.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "H5"
+      ]
+    },
+    {
+      "id": "E1",
+      "source_id": "7960",
+      "gap": "Hall perimeter",
+      "selected_hypothesis": "Use one rectangular tall hall, stage opposite braced glazing.",
+      "basis_evidence_ids": [
+        "r0002-s001",
+        "r0002-s002",
+        "r0002-s003",
+        "r0002-s004"
+      ],
+      "rationale": "Repeated pans link four wall zones.",
+      "alternative": "Slightly skewed perimeter or local wall recesses.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show use one rectangular tall hall, stage opposite braced glazing.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "E1"
+      ]
+    },
+    {
+      "id": "E2",
+      "source_id": "7960",
+      "gap": "Service doors and stage exit",
+      "selected_hypothesis": "Place a shallow access/preparation strip behind the service wall and a small access landing beside stage.",
+      "basis_evidence_ids": [
+        "r0002-s001",
+        "r0002-s002"
+      ],
+      "rationale": "Door/counter positions permit a minimal service band.",
+      "alternative": "Doors open into separate larger rooms or exterior space.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show place a shallow access/preparation strip behind the service wall and a small access landing beside stage.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "E2"
+      ]
+    },
+    {
+      "id": "E3",
+      "source_id": "7960",
+      "gap": "Upper glazing and hidden surfaces",
+      "selected_hypothesis": "Use an undetailed upper access zone behind glazing; continue floor and wall bases behind furniture.",
+      "basis_evidence_ids": [
+        "r0002-s003",
+        "r0002-s004"
+      ],
+      "rationale": "Upper glazing is visible; occupied function is not.",
+      "alternative": "Upper glazing belongs to separate offices or an exterior wall.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show use an undetailed upper access zone behind glazing; continue floor and wall bases behind furniture.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "E3"
+      ]
+    },
+    {
+      "id": "S1",
+      "source_id": "youtube",
+      "gap": "Bathroom/entry connection",
+      "selected_hypothesis": "Place bathroom and closet off a short service vestibule at the kitchen end.",
+      "basis_evidence_ids": [
+        "r0001-s001",
+        "r0001-s003"
+      ],
+      "rationale": "Keeps exterior window end free and groups service functions with minimal circulation.",
+      "alternative": "Bathroom enters from a different side of the main room.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show place bathroom and closet off a short service vestibule at the kitchen end.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "S1"
+      ]
+    },
+    {
+      "id": "S2",
+      "source_id": "youtube",
+      "gap": "Sleeping zone",
+      "selected_hypothesis": "Place the folding wall bed on the fireplace-side wall near the window end.",
+      "basis_evidence_ids": [
+        "r0004-s001",
+        "r0004-s002"
+      ],
+      "rationale": "The deployment sequence directly reveals the bed.",
+      "alternative": "Earlier unresolved sleeping arrangement is superseded.",
+      "confidence": "high",
+      "contradictions": [],
+      "test_prediction": "A linking view should show place the folding wall bed on the fireplace-side wall near the window end.",
+      "test_result": "Observed in 161\u2013175 s targeted rewatch; dimensions still inferred.",
+      "status": "observed_after_recheck",
+      "affected_plan_elements": [
+        "S2"
+      ]
+    },
+    {
+      "id": "S3",
+      "source_id": "youtube",
+      "gap": "Window end and boundaries",
+      "selected_hypothesis": "Keep the center panel between windows as a mirror; use a simple rectangular studio footprint.",
+      "basis_evidence_ids": [
+        "r0004-s001",
+        "r0004-s002"
+      ],
+      "rationale": "Reflected furnishings identify mirror; wide room views support simple envelope.",
+      "alternative": "A shallow wall offset or recess changes the envelope.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show keep the center panel between windows as a mirror; use a simple rectangular studio footprint.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "S3"
+      ]
+    },
+    {
+      "id": "A1",
+      "source_id": "airbnb-a",
+      "gap": "Missing join between bedroom and living groups",
+      "selected_hypothesis": "A short central passage joins living to gray bedroom/workspace and bath.",
+      "basis_evidence_ids": [
+        "A02",
+        "A03",
+        "A04",
+        "A11",
+        "A12",
+        "A19",
+        "A20"
+      ],
+      "rationale": "Entrance/living anchors and bedroom openings permit one compact connecting spine.",
+      "alternative": "Separate branches or another unseen room intervene.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show a short central passage joins living to gray bedroom/workspace and bath.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "A1"
+      ]
+    },
+    {
+      "id": "A2",
+      "source_id": "airbnb-a",
+      "gap": "Bedroom connection",
+      "selected_hypothesis": "Gray bedroom leads through the French-door passage to wood-bed bedroom.",
+      "basis_evidence_ids": [
+        "A12",
+        "A14",
+        "A21"
+      ],
+      "rationale": "Matching opposite bedroom views favor tandem connection.",
+      "alternative": "Similar doors connect each bedroom to a shared hall.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show gray bedroom leads through the French-door passage to wood-bed bedroom.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "A2"
+      ]
+    },
+    {
+      "id": "A3",
+      "source_id": "airbnb-a",
+      "gap": "Bathroom placement",
+      "selected_hypothesis": "Place bath beside kitchen, opening onto proposed central passage.",
+      "basis_evidence_ids": [
+        "A05",
+        "A06",
+        "A16"
+      ],
+      "rationale": "Unlinked bath photos require placement; compact wet-area grouping is a weak architectural prior.",
+      "alternative": "Bathroom sits beside bedrooms on the opposite side.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show place bath beside kitchen, opening onto proposed central passage.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "A3"
+      ]
+    },
+    {
+      "id": "A4",
+      "source_id": "airbnb-a",
+      "gap": "Garden access and exterior wrap",
+      "selected_hypothesis": "Wood-bed glazed door leads toward garden; a side path returns to the main entrance.",
+      "basis_evidence_ids": [
+        "A15",
+        "A17",
+        "A18",
+        "A20",
+        "A22"
+      ],
+      "rationale": "Glazed exit and garden/path views fit this compact arrangement.",
+      "alternative": "Garden is reached from another door and paths do not connect.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show wood-bed glazed door leads toward garden; a side path returns to the main entrance.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "A4"
+      ]
+    },
+    {
+      "id": "A5",
+      "source_id": "airbnb-a",
+      "gap": "Workspace boundaries",
+      "selected_hypothesis": "Workspace is an alcove adjoining gray bedroom.",
+      "basis_evidence_ids": [
+        "A04",
+        "A11",
+        "A12"
+      ],
+      "rationale": "Repeated arched mirror and botanical art link the views.",
+      "alternative": "Workspace is a separate room reached through a short hall.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show workspace is an alcove adjoining gray bedroom.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "A5"
+      ]
+    },
+    {
+      "id": "B1",
+      "source_id": "airbnb-b",
+      "gap": "Kitchenette and closet placement",
+      "selected_hypothesis": "A short vestibule between sofa/dining and bath holds kitchenette and side closet.",
+      "basis_evidence_ids": [
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B09"
+      ],
+      "rationale": "Bathroom opening is seen beyond sofa room; unplaced service spaces fit a compact extension.",
+      "alternative": "Kitchenette and closet occupy separate branches of the suite.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show a short vestibule between sofa/dining and bath holds kitchenette and side closet.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "B1"
+      ]
+    },
+    {
+      "id": "B2",
+      "source_id": "airbnb-b",
+      "gap": "Entry and patio placement",
+      "selected_hypothesis": "Entry/patio access joins sofa/dining opposite the French doors.",
+      "basis_evidence_ids": [
+        "B01",
+        "B04",
+        "B05",
+        "B10",
+        "B11"
+      ],
+      "rationale": "Keeps observed bed-to-sofa connection and provides a minimal independent entrance. Exterior graphics do not establish the join.",
+      "alternative": "Entry is through the bed room or bath-side vestibule.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show entry/patio access joins sofa/dining opposite the French doors.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "B2"
+      ]
+    },
+    {
+      "id": "B3",
+      "source_id": "airbnb-b",
+      "gap": "Suite envelope",
+      "selected_hypothesis": "Use two main rectangles joined by French doors, with a shallow bay in the bed/fireplace room.",
+      "basis_evidence_ids": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "rationale": "Shared fixtures and reverse views support two main volumes.",
+      "alternative": "Room edges contain additional recesses or larger offsets.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show use two main rectangles joined by French doors, with a shallow bay in the bed/fireplace room.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "B3"
+      ]
+    },
+    {
+      "id": "R1",
+      "source_id": "apartment-test",
+      "gap": "Shared bathroom versus en-suite",
+      "selected_hypothesis": "Bedroom 1 and bath 1 open separately from common hall.",
+      "basis_evidence_ids": [
+        "r0003-s001",
+        "r0003-s002",
+        "r0003-s003"
+      ],
+      "rationale": "Recheck traverses bedroom-to-hall-to-bath.",
+      "alternative": "Bathroom is private to bedroom 1.",
+      "confidence": "high",
+      "contradictions": [],
+      "test_prediction": "A linking view should show bedroom 1 and bath 1 open separately from common hall.",
+      "test_result": "APT-1 supported by targeted recheck.",
+      "status": "observed_after_recheck",
+      "affected_plan_elements": [
+        "R1"
+      ]
+    },
+    {
+      "id": "R2",
+      "source_id": "apartment-test",
+      "gap": "Bedroom 2 service rooms",
+      "selected_hypothesis": "Bedroom 2 has its own internal bath and walk-in closet.",
+      "basis_evidence_ids": [
+        "r0004-s003",
+        "r0006-s001",
+        "r0006-s002"
+      ],
+      "rationale": "Doorway sequence and reverse view place bathroom within bedroom approach.",
+      "alternative": "Bathroom enters from common hall.",
+      "confidence": "high",
+      "contradictions": [],
+      "test_prediction": "A linking view should show bedroom 2 has its own internal bath and walk-in closet.",
+      "test_result": "APT-2 supported by targeted recheck.",
+      "status": "observed_after_recheck",
+      "affected_plan_elements": [
+        "R2"
+      ]
+    },
+    {
+      "id": "R3",
+      "source_id": "apartment-test",
+      "gap": "Laundry location",
+      "selected_hypothesis": "Laundry opens separately from common living circulation.",
+      "basis_evidence_ids": [
+        "r0005-s001",
+        "r0005-s002",
+        "r0005-s003"
+      ],
+      "rationale": "Return route leaves bedroom before entering laundry.",
+      "alternative": "Laundry opens within bedroom 2.",
+      "confidence": "high",
+      "contradictions": [],
+      "test_prediction": "A linking view should show laundry opens separately from common living circulation.",
+      "test_result": "APT-3 supported by targeted recheck.",
+      "status": "observed_after_recheck",
+      "affected_plan_elements": [
+        "R3"
+      ]
+    },
+    {
+      "id": "R4",
+      "source_id": "apartment-test",
+      "gap": "Overall geometry and utility closed door",
+      "selected_hypothesis": "Place bedroom wings on opposite sides of living; utility closed door leads to a minimal service cupboard.",
+      "basis_evidence_ids": [
+        "r0001-s001",
+        "r0001-s002",
+        "r0005-s003"
+      ],
+      "rationale": "Repeated living returns support separate wings; cupboard minimizes unsupported extra rooms.",
+      "alternative": "Wings have larger offsets; utility door leads to another access space.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show place bedroom wings on opposite sides of living; utility closed door leads to a minimal service cupboard.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "R4"
+      ]
+    },
+    {
+      "id": "J1",
+      "source_id": "house-test",
+      "gap": "Bedroom order and shared hall",
+      "selected_hypothesis": "Use one corridor with bedroom 1 at its far end and bedrooms 2/3 on side branches.",
+      "basis_evidence_ids": [
+        "r0003-s004",
+        "r0005-s001",
+        "r0005-s002",
+        "r0005-s003"
+      ],
+      "rationale": "Repeated trim and corridor views support one spine; edits leave exact order uncertain.",
+      "alternative": "Bedrooms 2 and 3 are swapped or offset on the same corridor.",
+      "confidence": "moderate",
+      "contradictions": [],
+      "test_prediction": "A linking view should show use one corridor with bedroom 1 at its far end and bedrooms 2/3 on side branches.",
+      "test_result": "HOUSE-1 partly supported; exact arrangement remains inferred.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "J1"
+      ]
+    },
+    {
+      "id": "J2",
+      "source_id": "house-test",
+      "gap": "Bathroom compartments",
+      "selected_hypothesis": "Shared tub compartment joins separate bedroom-side and hall-side WC/vanity areas.",
+      "basis_evidence_ids": [
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0027",
+        "r0003-f0028"
+      ],
+      "rationale": "Distinct toilets and through-door views resolve the split bath.",
+      "alternative": "One ordinary bath seen in reverse.",
+      "confidence": "high",
+      "contradictions": [],
+      "test_prediction": "A linking view should show shared tub compartment joins separate bedroom-side and hall-side WC/vanity areas.",
+      "test_result": "HOUSE-2 refined: toilets belong in outer compartments, not shared tub room.",
+      "status": "observed_after_recheck",
+      "affected_plan_elements": [
+        "J2"
+      ]
+    },
+    {
+      "id": "J3",
+      "source_id": "house-test",
+      "gap": "Utility connection",
+      "selected_hypothesis": "Utility opens from kitchen beside refrigerator and exits to concrete side patio.",
+      "basis_evidence_ids": [
+        "r0003-s001",
+        "r0004-s002"
+      ],
+      "rationale": "Kitchen doorway co-visibility contradicts the original fireplace-side join.",
+      "alternative": "Initial fireplace-to-utility-to-deck guess.",
+      "confidence": "high",
+      "contradictions": [
+        "Original fireplace-side placement conflicts with kitchen view."
+      ],
+      "test_prediction": "A linking view should show utility opens from kitchen beside refrigerator and exits to concrete side patio.",
+      "test_result": "HOUSE-3 contradicted and revised.",
+      "status": "revised",
+      "affected_plan_elements": [
+        "J3"
+      ]
+    },
+    {
+      "id": "J4",
+      "source_id": "house-test",
+      "gap": "Deck access and outline",
+      "selected_hypothesis": "Fireplace-side exterior door opens toward rear wooden deck; other hidden hall doors are shallow closets.",
+      "basis_evidence_ids": [
+        "r0001-s001",
+        "r0001-s003",
+        "r0005-s003"
+      ],
+      "rationale": "Exterior chimney/deck location fits living door; no continuous traversal establishes join.",
+      "alternative": "Deck is reached through another exterior route.",
+      "confidence": "low",
+      "contradictions": [],
+      "test_prediction": "A linking view should show fireplace-side exterior door opens toward rear wooden deck; other hidden hall doors are shallow closets.",
+      "test_result": "Not tested: needs a linking view or owner confirmation.",
+      "status": "inferred",
+      "affected_plan_elements": [
+        "J4"
+      ]
+    }
+  ],
+  "tour_gap_completions": [
+    {
+      "id": "home-study-gap-1",
+      "point_id": "home-study",
+      "gap": "Entrance-side perimeter behind initial camera",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0004",
+        "r0002-f0006"
+      ],
+      "assumption_ids": [
+        "H1",
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-study-gap-2",
+      "point_id": "home-study",
+      "gap": "Floor beneath furniture and upper wall joins",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0004",
+        "r0002-f0006"
+      ],
+      "assumption_ids": [
+        "H1",
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-sitting-gap-1",
+      "point_id": "home-sitting",
+      "gap": "Curtained window geometry",
+      "selected_completion": "Choose a shallow three-sided window recess, with inferred angles and depth.",
+      "basis_evidence_ids": [
+        "r0002-f0008",
+        "r0002-f0011",
+        "r0002-f0015",
+        "r0002-f0019"
+      ],
+      "assumption_ids": [
+        "H4",
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-sitting-gap-2",
+      "point_id": "home-sitting",
+      "gap": "Wall behind camera at a single fixed position",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0008",
+        "r0002-f0011",
+        "r0002-f0015",
+        "r0002-f0019"
+      ],
+      "assumption_ids": [
+        "H4",
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-sitting-gap-3",
+      "point_id": "home-sitting",
+      "gap": "Destination of closed door",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H4, H5.",
+      "basis_evidence_ids": [
+        "r0002-f0008",
+        "r0002-f0011",
+        "r0002-f0015",
+        "r0002-f0019"
+      ],
+      "assumption_ids": [
+        "H4",
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-hall-near-gap-1",
+      "point_id": "home-hall-near",
+      "gap": "Downstairs and stair void depth",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H1, H4.",
+      "basis_evidence_ids": [
+        "r0002-f0021",
+        "r0002-f0025",
+        "r0002-f0027"
+      ],
+      "assumption_ids": [
+        "H1",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-hall-near-gap-2",
+      "point_id": "home-hall-near",
+      "gap": "Closed-door destinations",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H1, H4.",
+      "basis_evidence_ids": [
+        "r0002-f0021",
+        "r0002-f0025",
+        "r0002-f0027"
+      ],
+      "assumption_ids": [
+        "H1",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-hall-near-gap-3",
+      "point_id": "home-hall-near",
+      "gap": "Whether shelving doorway returns to study",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H1, H4.",
+      "basis_evidence_ids": [
+        "r0002-f0021",
+        "r0002-f0025",
+        "r0002-f0027"
+      ],
+      "assumption_ids": [
+        "H1",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-hall-bath-gap-1",
+      "point_id": "home-hall-bath",
+      "gap": "Exact doorway offset and corridor bend dimensions",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H2.",
+      "basis_evidence_ids": [
+        "r0002-f0029",
+        "r0002-f0031",
+        "r0002-f0039",
+        "r0002-f0041",
+        "r0002-f0043"
+      ],
+      "assumption_ids": [
+        "H2"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-hall-bath-gap-2",
+      "point_id": "home-hall-bath",
+      "gap": "Occluded wall strips",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0029",
+        "r0002-f0031",
+        "r0002-f0039",
+        "r0002-f0041",
+        "r0002-f0043"
+      ],
+      "assumption_ids": [
+        "H2"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bath-gap-1",
+      "point_id": "home-bath",
+      "gap": "Behind shower enclosure",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0033",
+        "r0002-f0035",
+        "r0002-f0037",
+        "r0002-f0038"
+      ],
+      "assumption_ids": [
+        "H2"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bath-gap-2",
+      "point_id": "home-bath",
+      "gap": "Entry-side wall and floor occlusions",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0033",
+        "r0002-f0035",
+        "r0002-f0037",
+        "r0002-f0038"
+      ],
+      "assumption_ids": [
+        "H2"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bath-gap-3",
+      "point_id": "home-bath",
+      "gap": "Mirror must not be used as a real doorway",
+      "selected_completion": "Represent a reflective plane on the observed wall; do not add an opening or duplicate room behind it.",
+      "basis_evidence_ids": [
+        "r0002-f0033",
+        "r0002-f0035",
+        "r0002-f0037",
+        "r0002-f0038"
+      ],
+      "assumption_ids": [
+        "H2"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bedroom-gap-1",
+      "point_id": "home-bedroom",
+      "gap": "Most entrance-side and leftmost wall",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0003-f0024",
+        "r0003-f0026",
+        "r0003-f0028"
+      ],
+      "assumption_ids": [
+        "H2",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bedroom-gap-2",
+      "point_id": "home-bedroom",
+      "gap": "Hidden floor, closet status and room depth",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0003-f0024",
+        "r0003-f0026",
+        "r0003-f0028"
+      ],
+      "assumption_ids": [
+        "H2",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-bedroom-gap-3",
+      "point_id": "home-bedroom",
+      "gap": "No interior turn at a room-center station",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0003-f0024",
+        "r0003-f0026",
+        "r0003-f0028"
+      ],
+      "assumption_ids": [
+        "H2",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-dining-gap-1",
+      "point_id": "home-dining",
+      "gap": "Window bay angles",
+      "selected_completion": "Choose a shallow three-sided window recess, with inferred angles and depth.",
+      "basis_evidence_ids": [
+        "r0002-f0047",
+        "r0004-f0004",
+        "r0002-f0057",
+        "r0002-f0058"
+      ],
+      "assumption_ids": [
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-dining-gap-2",
+      "point_id": "home-dining",
+      "gap": "Single-center reverse view and ceiling/floor coverage",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0047",
+        "r0004-f0004",
+        "r0002-f0057",
+        "r0002-f0058"
+      ],
+      "assumption_ids": [
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-dining-gap-3",
+      "point_id": "home-dining",
+      "gap": "Kitchen in fireplace mirror is reflected evidence only",
+      "selected_completion": "Represent a reflective plane on the observed wall; do not add an opening or duplicate room behind it.",
+      "basis_evidence_ids": [
+        "r0002-f0047",
+        "r0004-f0004",
+        "r0002-f0057",
+        "r0002-f0058"
+      ],
+      "assumption_ids": [
+        "H5"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-kitchen-gap-1",
+      "point_id": "home-kitchen",
+      "gap": "Right recess extent",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H3.",
+      "basis_evidence_ids": [
+        "r0002-f0050",
+        "r0002-f0052",
+        "r0002-f0054"
+      ],
+      "assumption_ids": [
+        "H3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-kitchen-gap-2",
+      "point_id": "home-kitchen",
+      "gap": "Hidden counter and appliance surfaces",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0050",
+        "r0002-f0052",
+        "r0002-f0054"
+      ],
+      "assumption_ids": [
+        "H3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-kitchen-gap-3",
+      "point_id": "home-kitchen",
+      "gap": "No verified fixed-center panorama",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0050",
+        "r0002-f0052",
+        "r0002-f0054"
+      ],
+      "assumption_ids": [
+        "H3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-utility-gap-1",
+      "point_id": "home-utility",
+      "gap": "Alcove versus enclosed room",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H3, H4.",
+      "basis_evidence_ids": [
+        "r0002-f0055",
+        "r0002-f0056"
+      ],
+      "assumption_ids": [
+        "H3",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-utility-gap-2",
+      "point_id": "home-utility",
+      "gap": "Hidden exit destinations",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in H3, H4.",
+      "basis_evidence_ids": [
+        "r0002-f0055",
+        "r0002-f0056"
+      ],
+      "assumption_ids": [
+        "H3",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "home-utility-gap-3",
+      "point_id": "home-utility",
+      "gap": "Reverse wall and floor",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0055",
+        "r0002-f0056"
+      ],
+      "assumption_ids": [
+        "H3",
+        "H4"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "hall-pan-station-gap-1",
+      "point_id": "hall-pan-station",
+      "gap": "Floor beneath tables/people and near camera",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0008",
+        "r0002-f0013",
+        "r0002-f0021",
+        "r0002-f0029",
+        "r0002-f0034",
+        "r0002-f0040",
+        "r0002-f0045",
+        "r0002-f0048"
+      ],
+      "assumption_ids": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "hall-pan-station-gap-2",
+      "point_id": "hall-pan-station",
+      "gap": "Occluded wall bases",
+      "selected_completion": "Continue the nearest observed wall/floor/ceiling plane behind occluders; use a simple room envelope with no additional unseen furniture or openings.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0008",
+        "r0002-f0013",
+        "r0002-f0021",
+        "r0002-f0029",
+        "r0002-f0034",
+        "r0002-f0040",
+        "r0002-f0045",
+        "r0002-f0048"
+      ],
+      "assumption_ids": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "hall-pan-station-gap-3",
+      "point_id": "hall-pan-station",
+      "gap": "Door destinations and upper-level uses",
+      "selected_completion": "Use the topology and minimal placeholder volumes selected in E1, E2, E3.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0008",
+        "r0002-f0013",
+        "r0002-f0021",
+        "r0002-f0029",
+        "r0002-f0034",
+        "r0002-f0040",
+        "r0002-f0045",
+        "r0002-f0048"
+      ],
+      "assumption_ids": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    },
+    {
+      "id": "hall-pan-station-gap-4",
+      "point_id": "hall-pan-station",
+      "gap": "Exact camera-center drift and spherical coverage",
+      "selected_completion": "Use the filmed route as a candidate stop only; pose, yaw and coverage remain unset. Re-capture at a fixed center before panorama assembly.",
+      "basis_evidence_ids": [
+        "r0002-f0001",
+        "r0002-f0008",
+        "r0002-f0013",
+        "r0002-f0021",
+        "r0002-f0029",
+        "r0002-f0034",
+        "r0002-f0040",
+        "r0002-f0045",
+        "r0002-f0048"
+      ],
+      "assumption_ids": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "alternative": "Concealed recess, different depth or additional opening; obtain the missing view to resolve.",
+      "status": "planning assumption, not observed coverage"
+    }
+  ]
+}

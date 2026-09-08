@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-09-08T19:20:28.869354+00:00",
+  "nodes": 9940,
+  "leaf_occurrences": 8741,
+  "min_det": 0.9999999999999999,
+  "max_det": 1.0000000000000002,
+  "max_orthogonality_error": 2.220446049250313e-16,
+  "reflection_nodes": [],
+  "method": "Pure derivative hierarchy sanity only; independent source comparison pending"
+}

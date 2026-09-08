@@ -1,0 +1,25 @@
+{
+  "id": "def-00037",
+  "label": "0:1:1:65",
+  "name": "9_STD_HDD-SLID_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 28,
+  "missing_faces": 0,
+  "vertices": 2912,
+  "triangles": 3020,
+  "bounds_m": [
+    [
+      -0.0035000001080334187,
+      0.0,
+      -0.0035000001080334187
+    ],
+    [
+      0.0035000001080334187,
+      0.0064500002190470695,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00037.npz",
+  "mesh_sha256": "f2d9c3f862a13ad643342bd6ba72ceab66d37626360b8db0bba243a39bf06c02",
+  "tessellation_seconds": 0.026439207955263555
+}

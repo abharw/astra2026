@@ -1,0 +1,25 @@
+{
+  "id": "def-01213",
+  "label": "0:1:1:1526",
+  "name": "_ESQ-104-33-L-D_SOCKET",
+  "color_rgba": null,
+  "topological_faces": 82,
+  "missing_faces": 0,
+  "vertices": 432,
+  "triangles": 284,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.002476500114426017
+    ],
+    [
+      0.01066800020635128,
+      0.008508999831974506,
+      0.002476500114426017
+    ]
+  ],
+  "mesh_path": "meshes/def-01213.npz",
+  "mesh_sha256": "cd32917a82a6e430fd8f7c65b41a9a45d6696f80ca9d9035be979a0fe8b46cb7",
+  "tessellation_seconds": 0.06911308295093477
+}

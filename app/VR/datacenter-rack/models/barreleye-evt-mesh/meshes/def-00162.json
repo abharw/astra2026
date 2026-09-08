@@ -1,0 +1,25 @@
+{
+  "id": "def-00162",
+  "label": "0:1:1:213",
+  "name": "DAVE_01AF117-001_1",
+  "color_rgba": null,
+  "topological_faces": 134,
+  "missing_faces": 0,
+  "vertices": 20760,
+  "triangles": 20748,
+  "bounds_m": [
+    [
+      -0.054999999701976776,
+      -0.005900000222027302,
+      -0.07500000298023224
+    ],
+    [
+      0.054999999701976776,
+      0.0,
+      0.07500000298023224
+    ]
+  ],
+  "mesh_path": "meshes/def-00162.npz",
+  "mesh_sha256": "4495abe6e78f766a2405295f446024714c7fd10b51c5874053d4bb2f01be80a8",
+  "tessellation_seconds": 0.27433062496129423
+}

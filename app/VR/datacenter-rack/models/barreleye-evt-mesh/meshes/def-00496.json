@@ -1,0 +1,25 @@
+{
+  "id": "def-00496",
+  "label": "0:1:1:664",
+  "name": "2_MSPD-9L_ZUS",
+  "color_rgba": null,
+  "topological_faces": 92,
+  "missing_faces": 0,
+  "vertices": 15861,
+  "triangles": 26228,
+  "bounds_m": [
+    [
+      -0.004000000189989805,
+      0.0029999995604157448,
+      -0.004000000189989805
+    ],
+    [
+      0.004000000189989805,
+      0.021849999204277992,
+      0.004000000189989805
+    ]
+  ],
+  "mesh_path": "meshes/def-00496.npz",
+  "mesh_sha256": "d0f7e07530395dd338a9721f8ae18a0bb2e19d0d4a329bd502b5d2857b7245c5",
+  "tessellation_seconds": 0.1470365000423044
+}

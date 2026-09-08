@@ -1,0 +1,25 @@
+{
+  "id": "def-00472",
+  "label": "0:1:1:635",
+  "name": "5_PCI-E-CARD-LP-HL-X16-DS",
+  "color_rgba": null,
+  "topological_faces": 866,
+  "missing_faces": 0,
+  "vertices": 5448,
+  "triangles": 3732,
+  "bounds_m": [
+    [
+      -0.05714999884366989,
+      -0.009349999949336052,
+      -0.004240000154823065
+    ],
+    [
+      0.11050000041723251,
+      0.04255000129342079,
+      0.03480000048875809
+    ]
+  ],
+  "mesh_path": "meshes/def-00472.npz",
+  "mesh_sha256": "013c9c91e7cb4158950f7b1f2192f41b556016b816a2ff84dbaed33612b0656d",
+  "tessellation_seconds": 0.46370029204990715
+}

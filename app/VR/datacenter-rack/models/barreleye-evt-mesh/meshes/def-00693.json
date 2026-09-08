@@ -1,0 +1,25 @@
+{
+  "id": "def-00693",
+  "label": "0:1:1:937",
+  "name": "4_GPU_K80_PCIE-POWER9",
+  "color_rgba": null,
+  "topological_faces": 48,
+  "missing_faces": 0,
+  "vertices": 3048,
+  "triangles": 2968,
+  "bounds_m": [
+    [
+      -9.999999747378752e-05,
+      -0.00774999987334013,
+      -0.06270000338554382
+    ],
+    [
+      0.0016700000269338489,
+      0.00774999987334013,
+      0.06650000065565109
+    ]
+  ],
+  "mesh_path": "meshes/def-00693.npz",
+  "mesh_sha256": "70671fe1ffa1270e148cbdfdff6328e9a9d3c4b4586160479359ed89ea823907",
+  "tessellation_seconds": 0.04965529195033014
+}

@@ -48,7 +48,7 @@ The [artifact store](../backend/src/illustrations/store.ts) keeps immutable chec
 
 The [native loader](../framework/Sources/SpatialApple/Illustrations/IllustrationArtifactLoader.swift) fetches only the canonical artifact route on the configured authenticated backend, rejects redirects, and verifies the checksum, actual byte count, dimensions, and full PNG decode. Downloads have 30-second request/resource deadlines and a 32 MiB disk cache. A wire `ready` event is followed by a local download; the UI becomes ready only after that verification succeeds.
 
-The app's [illustration panel and sheet](../app/SpatialDemo/UI/IllustrationPanel.swift) show actual generating/downloading/retrying states, Stop, Retry, a ready thumbnail, full-image viewing, and dismissal. The inline panel leaves conversation and scene controls available during generation. The full-image sheet temporarily takes over interaction; it does not place a textured plane in AR or replace editable geometry.
+The app's [illustration panel and sheet](../app/AR/SpatialDemo/UI/IllustrationPanel.swift) show actual generating/downloading/retrying states, Stop, Retry, a ready thumbnail, full-image viewing, and dismissal. The inline panel leaves conversation and scene controls available during generation. The full-image sheet temporarily takes over interaction; it does not place a textured plane in AR or replace editable geometry.
 
 ## Real provider and wire results
 

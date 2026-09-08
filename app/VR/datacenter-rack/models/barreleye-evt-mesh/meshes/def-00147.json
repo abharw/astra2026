@@ -1,0 +1,25 @@
+{
+  "id": "def-00147",
+  "label": "0:1:1:196",
+  "name": "CVM_1--1840484-8_REVF",
+  "color_rgba": null,
+  "topological_faces": 472,
+  "missing_faces": 0,
+  "vertices": 13358,
+  "triangles": 14160,
+  "bounds_m": [
+    [
+      -0.009879999794065952,
+      -0.009955000132322311,
+      -0.028119999915361404
+    ],
+    [
+      0.009879999794065952,
+      0.008234609849750996,
+      0.0003486287605483085
+    ]
+  ],
+  "mesh_path": "meshes/def-00147.npz",
+  "mesh_sha256": "1070d31f92e5c51b69320b8e9aa91c7f426b0e4450610f13dafb897552ead495",
+  "tessellation_seconds": 0.2638002081075683
+}

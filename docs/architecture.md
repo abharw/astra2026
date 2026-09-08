@@ -1,13 +1,15 @@
 # Architecture
 
+This document describes the AR application in `app/AR/`. The independently running Quest application and its bridge are preserved in `app/VR/`; see [the integration record](ar-vr-integration.md).
+
 Astra Spatial is a universal iPhone/iPad app for exploring editable 3D structures through conversation and pointing. The rack is example content. The reusable code is a scene reducer, procedural geometry compiler, native renderer, and input adapters.
 
 ## Code boundaries
 
 | Directory | Responsibility | Does not own |
 | --- | --- | --- |
-| `app/SpatialDemo/UI` | Product controls, status, local diagnostic viewer | Network and scene execution |
-| `app/SpatialDemo/Conversation` | Realtime text/audio turns, function-call lifecycle, native audio I/O | Scene operations or rack-specific behavior |
+| `app/AR/SpatialDemo/UI` | Product controls, status, local diagnostic viewer | Network and scene execution |
+| `app/AR/SpatialDemo/Conversation` | Realtime text/audio turns, function-call lifecycle, native audio I/O | Scene operations or rack-specific behavior |
 | `framework/Sources/SpatialCore` | Scene values, validation, immutable request hashes, pure transactional reducer | Apple graphics, network connections, server hardware knowledge |
 | `framework/Sources/SpatialApple/Rendering` | Mesh/material compilation, entity hierarchy, AR/preview surfaces | Semantic scene authority |
 | `framework/Sources/SpatialApple/Input` | Touch selection and camera-fingertip mapping, dwell and speech locks | Model inference or geometry edits |
@@ -23,7 +25,7 @@ Astra Spatial is a universal iPhone/iPad app for exploring editable 3D structure
 
 ## Product app versus test tools
 
-There is no separate iOS harness implementation. `app` is the real application. On hardware it uses the AR camera; in Simulator it uses RealityKit's non-AR surface. The reducer, compiler, networking, and controls are shared. Simulator cannot prove camera tracking or physical pointing.
+There is no separate iOS harness implementation. `app/AR` is the real application. On hardware it uses the AR camera; in Simulator it uses RealityKit's non-AR surface. The reducer, compiler, networking, and controls are shared. Simulator cannot prove camera tracking or physical pointing.
 
 The former Mac harness is a command-line pointing replay in `tools/Sources/PointingReplay`. It supplies synthetic landmarks and a two-region hit-test stub to the same mapper/resolver that the app uses, then checks the results. It needs no camera or second scene implementation. `tools/Sources/SceneLab` separately proves the real backend-to-Swift contract without a renderer. [Testing and evidence boundaries](testing-harness.md).
 
@@ -90,11 +92,11 @@ A later Blender worker can generate additional immutable hierarchical USDZ asset
 
 ## Read the code in order
 
-1. [App entry](../app/SpatialDemo/SpatialDemoApp.swift) and [app session](../app/SpatialDemo/DemoSessionModel.swift).
+1. [App entry](../app/AR/SpatialDemo/SpatialDemoApp.swift) and [app session](../app/AR/SpatialDemo/DemoSessionModel.swift).
 2. [Scene coordinator](../framework/Sources/SpatialApple/SceneController.swift).
 3. [Pure reducer](../framework/Sources/SpatialCore/SceneState.swift) and [closed decoder](../framework/Sources/SpatialCore/SceneWireDecoder.swift).
 4. [Native projection](../framework/Sources/SpatialApple/Rendering/SceneRenderer.swift) and [mesh compiler](../framework/Sources/SpatialApple/Rendering/GeometryCompiler.swift).
 5. [Backend session](../backend/src/session.ts), [Astra adapter](../backend/src/astra/client.ts), and [normalizer](../backend/src/normalizer.ts).
-6. [Pointing resolver](../framework/Sources/SpatialApple/Input/PointingResolver.swift) and [voice integration](../app/SpatialDemo/Conversation/README.md).
+6. [Pointing resolver](../framework/Sources/SpatialApple/Input/PointingResolver.swift) and [voice integration](../app/AR/SpatialDemo/Conversation/README.md).
 
 [Evidence](evidence/README.md) separates synthetic tests, live provider acceptance, native simulator rendering, and physical-device observations. [APPROACH.md](../APPROACH.md) records how Arav and Astra built and tested the project together. [Apple references](apple-references.md) and [hand-tracking source study](hand-tracking-references.md) connect implementation choices to primary documentation.

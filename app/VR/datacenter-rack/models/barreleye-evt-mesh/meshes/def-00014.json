@@ -1,0 +1,25 @@
+{
+  "id": "def-00014",
+  "label": "0:1:1:30",
+  "name": "SOLID",
+  "color_rgba": null,
+  "topological_faces": 3915,
+  "missing_faces": 0,
+  "vertices": 91353,
+  "triangles": 96518,
+  "bounds_m": [
+    [
+      -0.2442999929189682,
+      -0.06459999829530716,
+      -0.010999999940395355
+    ],
+    [
+      0.13689999282360077,
+      0.025499999523162842,
+      0.01600000075995922
+    ]
+  ],
+  "mesh_path": "meshes/def-00014.npz",
+  "mesh_sha256": "b3537712109065c290c5bda0062b0466ba2bfe43f94eae6d463fc8920dca5839",
+  "tessellation_seconds": 2.5275670420378447
+}

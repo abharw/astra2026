@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-09-08T19:15:54.782641+00:00",
+  "stage": "After viewed overview, before targeted rechecks; source titles exposed, no external ground-truth floorplan consulted",
+  "predictions": [
+    {
+      "id": "APT-1",
+      "source": "apartment-test",
+      "selected_hypothesis": "Bedroom 1 and bathroom 1 are separate doors off a short common hall near the entry, not a private en-suite.",
+      "alternative": "Bathroom 1 is reachable only through bedroom 1.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002"
+      ],
+      "test_prediction": "The 58\u2013100 s route should leave the bedroom, return to hard-floor circulation and enter bathroom from the same short hall.",
+      "confidence": "moderate"
+    },
+    {
+      "id": "APT-2",
+      "source": "apartment-test",
+      "selected_hypothesis": "Bedroom 2 has an internal dressing/closet approach to its own bathroom on the opposite side of living from bedroom 1.",
+      "alternative": "The second bathroom is another common-hall bathroom.",
+      "evidence": [
+        "r0001-s002",
+        "r0001-s003"
+      ],
+      "test_prediction": "The 117\u2013160 s sequence should cross from living into bedroom 2 and show its closet/bath entry within that bedroom rather than returning to common circulation.",
+      "confidence": "moderate"
+    },
+    {
+      "id": "APT-3",
+      "source": "apartment-test",
+      "selected_hypothesis": "Laundry is a separate utility room off common living/entry circulation rather than either bedroom.",
+      "alternative": "Laundry is within bedroom 2 or its closet.",
+      "evidence": [
+        "r0001-s003"
+      ],
+      "test_prediction": "The 164\u2013180 s return should leave bedroom 2 and enter a separate common-area door before showing machines.",
+      "confidence": "moderate"
+    },
+    {
+      "id": "HOUSE-1",
+      "source": "house-test",
+      "selected_hypothesis": "Three bedrooms branch from a single narrow corridor beside living; the bathroom complex is reached from this corridor.",
+      "alternative": "The bathroom is private to one bedroom and the bedroom sequence is stitched across separate hallways.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002"
+      ],
+      "test_prediction": "The 44\u201395 s route should repeatedly return to the same corridor, with matching trim and doorway order.",
+      "confidence": "moderate"
+    },
+    {
+      "id": "HOUSE-2",
+      "source": "house-test",
+      "selected_hypothesis": "The bath includes a shared tub/toilet compartment between hall-side and bedroom-side vanity/access areas.",
+      "alternative": "Only one standard bathroom exists, and reversed views give the impression of extra access.",
+      "evidence": [
+        "r0001-s002"
+      ],
+      "test_prediction": "The 60\u201385 s sequence should show whether the tub area has another doorway and whether its exit opens toward a bedroom.",
+      "confidence": "low"
+    },
+    {
+      "id": "HOUSE-3",
+      "source": "house-test",
+      "selected_hypothesis": "Laundry is a rear utility passage beside the living fireplace, connecting to the deck.",
+      "alternative": "Laundry is reached from the bedroom corridor independently of the fireplace door.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002",
+        "r0001-s003"
+      ],
+      "test_prediction": "The 90\u2013110 s sequence should tie utility room to the fireplace-side door and then to the exterior deck.",
+      "confidence": "moderate"
+    }
+  ]
+}

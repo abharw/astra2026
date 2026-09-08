@@ -1,0 +1,25 @@
+{
+  "id": "def-00124",
+  "label": "0:1:1:172",
+  "name": "C-1840855-5-D-3D_ZUS",
+  "color_rgba": null,
+  "topological_faces": 825,
+  "missing_faces": 0,
+  "vertices": 36362,
+  "triangles": 43242,
+  "bounds_m": [
+    [
+      -0.009879925288259983,
+      -0.01703999936580658,
+      -0.028119999915361404
+    ],
+    [
+      0.009879925288259983,
+      0.013788987882435322,
+      0.0004001773486379534
+    ]
+  ],
+  "mesh_path": "meshes/def-00124.npz",
+  "mesh_sha256": "8d33952d6737dff501b03b4e2b8df0b92bc4d5e6b312f369178d97cf3c1171ad",
+  "tessellation_seconds": 0.5478472500108182
+}

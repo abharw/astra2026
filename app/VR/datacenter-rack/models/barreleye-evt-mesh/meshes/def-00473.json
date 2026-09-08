@@ -1,0 +1,25 @@
+{
+  "id": "def-00473",
+  "label": "0:1:1:637",
+  "name": "BRKT_PCIE_1",
+  "color_rgba": null,
+  "topological_faces": 61,
+  "missing_faces": 0,
+  "vertices": 2150,
+  "triangles": 2036,
+  "bounds_m": [
+    [
+      -0.009207500144839287,
+      -0.008137083612382412,
+      -0.020320000126957893
+    ],
+    [
+      0.009207500144839287,
+      0.0055244998075068,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00473.npz",
+  "mesh_sha256": "4c754be111baca497184e7d4dffadd9c94becab9f51d989fc60b2dc0c142e400",
+  "tessellation_seconds": 0.04347045801114291
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-01124",
+  "label": "0:1:1:1408",
+  "name": "097-0097-200_FINS-2-3RD_1_PRT_1",
+  "color_rgba": null,
+  "topological_faces": 83,
+  "missing_faces": 0,
+  "vertices": 2480,
+  "triangles": 2314,
+  "bounds_m": [
+    [
+      -0.14737610518932343,
+      0.0,
+      -0.00020000003860332072
+    ],
+    [
+      0.0,
+      0.01940000057220459,
+      0.005200000014156103
+    ]
+  ],
+  "mesh_path": "meshes/def-01124.npz",
+  "mesh_sha256": "42c6698b8398c0f0afa07d0150b2a3716bdcd53f19d382423aa82f6a91603ea0",
+  "tessellation_seconds": 0.07815129205118865
+}

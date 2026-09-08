@@ -190,7 +190,7 @@ Finish physical point-and-speak and flow/image acceptance, improve image fidelit
 
 ## Source guide
 
-- [App and conversation coordination](../app/SpatialDemo/DemoSessionModel.swift), [Realtime implementation](../app/SpatialDemo/Conversation/RealtimeSession.swift), [current product UI](../app/SpatialDemo/UI/SpatialDemoView.swift).
+- [App and conversation coordination](../app/AR/SpatialDemo/DemoSessionModel.swift), [Realtime implementation](../app/AR/SpatialDemo/Conversation/RealtimeSession.swift), [current product UI](../app/AR/SpatialDemo/UI/SpatialDemoView.swift).
 - [Scene coordinator](../framework/Sources/SpatialApple/SceneController.swift), [transactional state](../framework/Sources/SpatialCore/SceneState.swift), [contract and limits](../framework/contract/README.md).
 - [Native renderer](../framework/Sources/SpatialApple/Rendering/SceneRenderer.swift), [flow rendering](../framework/Sources/SpatialApple/Rendering/FlowRenderer.swift), [pointing](../framework/Sources/SpatialApple/Input/PointingResolver.swift).
 - [Backend session](../backend/src/session.ts), [Astra adapter](../backend/src/astra/client.ts), [proposal normalization](../backend/src/normalizer.ts), [illustration jobs](../backend/src/illustrations/jobs.ts).

@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "bounds_mm": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      330.2,
+      563.88
+    ]
+  ],
+  "pixel_dimensions": [
+    4797,
+    8192
+  ],
+  "uv_mapping": "u=x_mm/330.2, v=y_mm/563.88. PNG row0 is maximum ODB y. Both sides use identical XY; do not mirror bottom u.",
+  "channel_meaning": "white=source dark polarity feature; black=no feature. Mask white means mask opening, not green mask.",
+  "source_profile": "13.0 x 22.2 inch ODB cad profile bounds; final mesh must follow source profile/cutouts.",
+  "limitation": "maps crop fabrication legends outside board bounds; rectangular maps do not themselves cut the board outline or drill holes.",
+  "renderer": "Gerbonara 1.6.3 + CairoSVG 2.9.1; grayscale PNG",
+  "layers": [
+    {
+      "layer": "top-copper",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-CMP.ART",
+      "source_sha256": "f3ea4f7ff3eb829015c0e918b050fe42fad0e63038433299da362376b42a4fde",
+      "primitive22_to21_count": 60,
+      "object_count": 238692,
+      "original_feature_bounds_mm": [
+        [
+          -11.231118,
+          0.764921
+        ],
+        [
+          501.7135,
+          563.5741691526887
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/top-copper.png",
+      "bytes": 3641354,
+      "sha256": "40d72646f055fa52b1f50bbaedf02b5b58ea420a5cfe9e3535dded6c629b05e5",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        0,
+        4,
+        4790,
+        8181
+      ],
+      "seconds": 28.73571349994745
+    },
+    {
+      "layer": "bottom-copper",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-SLD.ART",
+      "source_sha256": "5df1034390c52e35ddbb05d87a76166c6d4a469f77cdd9bb947a3b7a4149c65c",
+      "primitive22_to21_count": 29,
+      "object_count": 611263,
+      "original_feature_bounds_mm": [
+        [
+          -11.400789999999999,
+          0.764921
+        ],
+        [
+          501.7135,
+          563.118
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/bottom-copper.png",
+      "bytes": 3270417,
+      "sha256": "f17f92d3b3f5972cc2b4512526e0578062e214bd35a7fb71dae715133e498cea",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        14,
+        11,
+        4794,
+        8181
+      ],
+      "seconds": 55.25034616701305
+    },
+    {
+      "layer": "top-mask-openings",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-TMK.ART",
+      "source_sha256": "985777ca3a75aaff991d29f1155ac4ef6f079c987b9ea4814b467d0bd1b5dbcc",
+      "primitive22_to21_count": 76,
+      "object_count": 73811,
+      "original_feature_bounds_mm": [
+        [
+          -9.508489999999998,
+          0.7014210000000001
+        ],
+        [
+          501.7135,
+          562.0258
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/top-mask-openings.png",
+      "bytes": 2659896,
+      "sha256": "7976dda0189b76b61490c3033c95b0c45b226d9bbb5a311359c5700df54a51d2",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        13,
+        27,
+        4785,
+        8182
+      ],
+      "seconds": 10.121640958008356
+    },
+    {
+      "layer": "bottom-mask-openings",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-BMK.ART",
+      "source_sha256": "02e26ba465a7c89588d7b1f5ceb003161b3c255889e4679e4e9c141551e0deff",
+      "primitive22_to21_count": 20,
+      "object_count": 49265,
+      "original_feature_bounds_mm": [
+        [
+          -9.508489999999998,
+          0.7014210000000001
+        ],
+        [
+          501.7135,
+          562.0384999999999
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/bottom-mask-openings.png",
+      "bytes": 1861233,
+      "sha256": "9dab02218a15a1489f8da7106ffe0eb9b20f472c0249c5c4072e8a84d1479708",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        13,
+        26,
+        4785,
+        8182
+      ],
+      "seconds": 8.069932625046931
+    },
+    {
+      "layer": "top-silkscreen",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-TSK.ART",
+      "source_sha256": "0aaf915202c7ccefd2fc292e29f5f216444a0044b87d1ca098aae8ab28b9c5e2",
+      "primitive22_to21_count": 0,
+      "object_count": 320281,
+      "original_feature_bounds_mm": [
+        [
+          -10.259949,
+          -4.470019
+        ],
+        [
+          501.7135,
+          563.558182
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/top-silkscreen.png",
+      "bytes": 2945408,
+      "sha256": "fef7439c276b7d41527fae0007f14e35cb35011771104266d27520d746ef2192",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        0,
+        4,
+        4797,
+        8192
+      ],
+      "seconds": 16.785297750029713
+    },
+    {
+      "layer": "bottom-silkscreen",
+      "source_file": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-BSK.ART",
+      "source_sha256": "84ae8809f97d3a8b0fb27ebcebbcf9abe214a41809799bb81d1fcc0a922673a1",
+      "primitive22_to21_count": 0,
+      "object_count": 219853,
+      "original_feature_bounds_mm": [
+        [
+          -0.354203,
+          0.6303009999999928
+        ],
+        [
+          501.7135,
+          563.771542
+        ]
+      ],
+      "path": "/Users/akeilsmith/Documents/Codex/2026-09-04/is-x20/outputs/astra2026-rack/datacenter-rack/research/pcb-population/textures/bottom-silkscreen.png",
+      "bytes": 1781981,
+      "sha256": "02011edcda87c07f5c25b0a3220b17755a2c3f59d0a664b74db393281f1f109d",
+      "extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixel_bbox": [
+        0,
+        1,
+        4795,
+        8183
+      ],
+      "seconds": 11.25137316598557
+    }
+  ]
+}

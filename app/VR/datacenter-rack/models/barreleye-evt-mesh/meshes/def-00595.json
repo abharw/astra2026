@@ -1,0 +1,25 @@
+{
+  "id": "def-00595",
+  "label": "0:1:1:784",
+  "name": "1_25HDD-CARRIER-BKT_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 1082,
+  "missing_faces": 0,
+  "vertices": 75707,
+  "triangles": 99190,
+  "bounds_m": [
+    [
+      -0.059566348791122437,
+      -0.00039999998989515007,
+      -0.007600000128149986
+    ],
+    [
+      0.047200001776218414,
+      0.07709570974111557,
+      0.008200000040233135
+    ]
+  ],
+  "mesh_path": "meshes/def-00595.npz",
+  "mesh_sha256": "db073e58af2fa965ddd4b90f7a51fc9e1d6799c273e407da9f4f7e4f23e8d341",
+  "tessellation_seconds": 1.1011415839893743
+}

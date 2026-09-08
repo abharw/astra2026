@@ -1,0 +1,25 @@
+{
+  "id": "def-00054",
+  "label": "0:1:1:88",
+  "name": "1_25HDD-BKT-REAR-2OU_POWER9",
+  "color_rgba": null,
+  "topological_faces": 1432,
+  "missing_faces": 0,
+  "vertices": 31430,
+  "triangles": 36381,
+  "bounds_m": [
+    [
+      -0.061900001019239426,
+      -0.002099999925121665,
+      -0.11276999861001968
+    ],
+    [
+      0.006500000134110451,
+      0.08659999817609787,
+      0.009469999931752682
+    ]
+  ],
+  "mesh_path": "meshes/def-00054.npz",
+  "mesh_sha256": "0b354ab632c4e91edeeef64a7ae3ebfb5146e85b97f23d782b03780279d15091",
+  "tessellation_seconds": 0.7210826249793172
+}

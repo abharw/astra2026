@@ -1,0 +1,25 @@
+{
+  "id": "def-00702",
+  "label": "0:1:1:952",
+  "name": "1_DN2_K80-GPU-REAR-BKT",
+  "color_rgba": null,
+  "topological_faces": 96,
+  "missing_faces": 0,
+  "vertices": 5811,
+  "triangles": 6872,
+  "bounds_m": [
+    [
+      -1.9191492839354396e-09,
+      0.0,
+      -0.013100000098347664
+    ],
+    [
+      0.04529999941587448,
+      0.09769999980926514,
+      1.9688870533940417e-09
+    ]
+  ],
+  "mesh_path": "meshes/def-00702.npz",
+  "mesh_sha256": "e5c8e804c347b3f7909926ac77685c4423bcd03a5b8a047382a17935d6ec5dfc",
+  "tessellation_seconds": 0.09425391699187458
+}

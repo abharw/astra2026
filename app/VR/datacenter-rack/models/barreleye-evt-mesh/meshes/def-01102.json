@@ -1,0 +1,25 @@
+{
+  "id": "def-01102",
+  "label": "0:1:1:1384",
+  "name": "094-0086-100_FIN-2_5-2_AF3_1_P_",
+  "color_rgba": null,
+  "topological_faces": 119,
+  "missing_faces": 0,
+  "vertices": 3484,
+  "triangles": 3246,
+  "bounds_m": [
+    [
+      -0.08799999952316284,
+      0.0,
+      -0.00039999998989515007
+    ],
+    [
+      0.0,
+      0.025780390948057175,
+      0.004800000227987766
+    ]
+  ],
+  "mesh_path": "meshes/def-01102.npz",
+  "mesh_sha256": "917577a0068eb64c9200beaf0715b0c6d5eb88d5ff36a01361ff14c029027f9e",
+  "tessellation_seconds": 0.1080197918927297
+}

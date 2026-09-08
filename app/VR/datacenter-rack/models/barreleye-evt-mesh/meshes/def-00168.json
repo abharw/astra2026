@@ -1,0 +1,25 @@
+{
+  "id": "def-00168",
+  "label": "0:1:1:223",
+  "name": "_____S__-FOXCONN_HYBRID38-19939",
+  "color_rgba": null,
+  "topological_faces": 11,
+  "missing_faces": 0,
+  "vertices": 1851,
+  "triangles": 2630,
+  "bounds_m": [
+    [
+      0.030035000294446945,
+      0.030035000294446945,
+      -0.0015399999683722854
+    ],
+    [
+      0.031964998692274094,
+      0.031964998692274094,
+      0.003010000102221966
+    ]
+  ],
+  "mesh_path": "meshes/def-00168.npz",
+  "mesh_sha256": "461ec6f291235bf63943868fef36b811c6cba4ce490c638267779220c004303d",
+  "tessellation_seconds": 0.01739162497688085
+}

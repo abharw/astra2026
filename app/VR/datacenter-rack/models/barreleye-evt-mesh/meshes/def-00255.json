@@ -1,0 +1,25 @@
+{
+  "id": "def-00255",
+  "label": "0:1:1:329",
+  "name": "GD2-C130_________-72686_1",
+  "color_rgba": null,
+  "topological_faces": 84,
+  "missing_faces": 0,
+  "vertices": 4348,
+  "triangles": 4208,
+  "bounds_m": [
+    [
+      -1.4992832236619613e-17,
+      -0.005985000170767307,
+      -0.00019999999494757503
+    ],
+    [
+      0.027332574129104614,
+      0.007300000172108412,
+      5.412337377396536e-17
+    ]
+  ],
+  "mesh_path": "meshes/def-00255.npz",
+  "mesh_sha256": "5005122a17cbdfb79892b6fcffcc2b31a7c863c08cb0fcf29126b1d2e274db4b",
+  "tessellation_seconds": 0.07004787493497133
+}

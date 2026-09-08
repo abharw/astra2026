@@ -1,0 +1,25 @@
+{
+  "id": "def-00032",
+  "label": "0:1:1:55",
+  "name": "1_MI-AIDING-LOCK_BE",
+  "color_rgba": null,
+  "topological_faces": 63,
+  "missing_faces": 0,
+  "vertices": 2252,
+  "triangles": 2210,
+  "bounds_m": [
+    [
+      -0.027982352301478386,
+      -0.0070500001311302185,
+      -0.0010000000474974513
+    ],
+    [
+      -0.0010000000474974513,
+      0.005249999929219484,
+      0.003100000089034438
+    ]
+  ],
+  "mesh_path": "meshes/def-00032.npz",
+  "mesh_sha256": "612b9cee415d17982db102402bba88f91426cc8aadeaa8954dbed23cbbd737b3",
+  "tessellation_seconds": 0.03856266604270786
+}

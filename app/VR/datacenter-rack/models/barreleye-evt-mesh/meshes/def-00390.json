@@ -1,0 +1,25 @@
+{
+  "id": "def-00390",
+  "label": "0:1:1:529",
+  "name": "F06-MEZZ-LATCH-RIGHT-8MM_1",
+  "color_rgba": null,
+  "topological_faces": 321,
+  "missing_faces": 0,
+  "vertices": 46226,
+  "triangles": 77274,
+  "bounds_m": [
+    [
+      -0.004000032786279917,
+      -0.005297045689076185,
+      -0.004999999888241291
+    ],
+    [
+      0.004000031389296055,
+      0.012232162058353424,
+      0.010661671869456768
+    ]
+  ],
+  "mesh_path": "meshes/def-00390.npz",
+  "mesh_sha256": "033c89bfa3a53be38436d2b9432d1a2b41c70a7150b17ee9afb0cbedda14b8c9",
+  "tessellation_seconds": 0.45815795799717307
+}

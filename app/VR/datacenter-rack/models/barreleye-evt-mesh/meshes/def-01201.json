@@ -1,0 +1,25 @@
+{
+  "id": "def-01201",
+  "label": "0:1:1:1509",
+  "name": "SPRING_1_POWER9",
+  "color_rgba": null,
+  "topological_faces": 26,
+  "missing_faces": 0,
+  "vertices": 31911,
+  "triangles": 59056,
+  "bounds_m": [
+    [
+      -0.003700000001117587,
+      0.004200065974146128,
+      -0.0036993823014199734
+    ],
+    [
+      0.003700000001117587,
+      0.015599934384226799,
+      0.0036993823014199734
+    ]
+  ],
+  "mesh_path": "meshes/def-01201.npz",
+  "mesh_sha256": "00fc5b2c641e0236b5dedd107e441bfc3def643bff26921b72defc3716c37797",
+  "tessellation_seconds": 0.2773567910771817
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00626",
+  "label": "0:1:1:838",
+  "name": "G40H42_ASM-1X2_20130913",
+  "color_rgba": null,
+  "topological_faces": 4210,
+  "missing_faces": 0,
+  "vertices": 78864,
+  "triangles": 71288,
+  "bounds_m": [
+    [
+      -0.01907999999821186,
+      -0.0019000000320374966,
+      -0.004379999823868275
+    ],
+    [
+      0.007079999893903732,
+      0.014419999904930592,
+      0.010430002585053444
+    ]
+  ],
+  "mesh_path": "meshes/def-00626.npz",
+  "mesh_sha256": "2cc458a7b1c2302d2e38c52941524dc82fe1c3b3bd6c4b8c6dd78bb87a04c17e",
+  "tessellation_seconds": 2.719923416036181
+}

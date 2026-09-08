@@ -1,0 +1,25 @@
+{
+  "id": "def-01096",
+  "label": "0:1:1:1377",
+  "name": "094-0086-100_FIN-STACK_5-2_HP1_",
+  "color_rgba": null,
+  "topological_faces": 55,
+  "missing_faces": 0,
+  "vertices": 10471,
+  "triangles": 17107,
+  "bounds_m": [
+    [
+      -0.03585568070411682,
+      -4.4198162924696804e-13,
+      -0.04696999862790108
+    ],
+    [
+      0.030700000002980232,
+      0.003000000026077032,
+      0.03603000193834305
+    ]
+  ],
+  "mesh_path": "meshes/def-01096.npz",
+  "mesh_sha256": "bff2b708fa9b66ff2887c2d797ea7cab6eb2e039783b7db9f4cbd219e24db6e1",
+  "tessellation_seconds": 0.11477345903404057
+}

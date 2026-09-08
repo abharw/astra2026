@@ -1,0 +1,25 @@
+{
+  "id": "def-00177",
+  "label": "0:1:1:234",
+  "name": "00E7423_FLEXED_1",
+  "color_rgba": null,
+  "topological_faces": 16,
+  "missing_faces": 0,
+  "vertices": 28527,
+  "triangles": 54432,
+  "bounds_m": [
+    [
+      -0.002652399940416217,
+      -0.004032030701637268,
+      -0.006032399833202362
+    ],
+    [
+      0.0011023599654436111,
+      0.0020824000239372253,
+      0.007338555995374918
+    ]
+  ],
+  "mesh_path": "meshes/def-00177.npz",
+  "mesh_sha256": "3f9c9a5db317a5dedce95ef8946f5df935411b68123a8b4916c4949ef6e639a4",
+  "tessellation_seconds": 0.3494788339594379
+}

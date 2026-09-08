@@ -1,0 +1,25 @@
+{
+  "id": "def-00136",
+  "label": "0:1:1:184",
+  "name": "VTM_ZUS",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.007734999991953373,
+      0.0,
+      -0.011250000447034836
+    ],
+    [
+      0.007734999991953373,
+      0.0044999998062849045,
+      0.011250000447034836
+    ]
+  ],
+  "mesh_path": "meshes/def-00136.npz",
+  "mesh_sha256": "794ec69eb45e2b87f789de1e0e89283ea78c6abded0cc051edeef494502005f6",
+  "tessellation_seconds": 0.00735829200129956
+}

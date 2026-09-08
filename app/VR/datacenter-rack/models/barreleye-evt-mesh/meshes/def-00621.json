@@ -1,0 +1,25 @@
+{
+  "id": "def-00621",
+  "label": "0:1:1:831",
+  "name": "8_LABLE-FAN-MODULE_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      0.0,
+      -0.005549999885261059,
+      -0.00634999992325902
+    ],
+    [
+      0.0003000000142492354,
+      0.005549999885261059,
+      0.00634999992325902
+    ]
+  ],
+  "mesh_path": "meshes/def-00621.npz",
+  "mesh_sha256": "248d6b6d882e61947914dacccba38bc339dc7b265abfbb02c06b7050d4ae7daa",
+  "tessellation_seconds": 0.009364750003442168
+}

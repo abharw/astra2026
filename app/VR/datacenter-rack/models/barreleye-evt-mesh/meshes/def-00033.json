@@ -1,0 +1,25 @@
+{
+  "id": "def-00033",
+  "label": "0:1:1:56",
+  "name": "1_EAR-LATCH-RIGHT-NEW_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 146,
+  "missing_faces": 0,
+  "vertices": 4734,
+  "triangles": 4908,
+  "bounds_m": [
+    [
+      -0.04469159618020058,
+      -0.005577410105615854,
+      -0.0070500001311302185
+    ],
+    [
+      0.008200000040233135,
+      0.005799999926239252,
+      0.006949999835342169
+    ]
+  ],
+  "mesh_path": "meshes/def-00033.npz",
+  "mesh_sha256": "254f27fb3f65f843febbec69f8d43210feea5c3b4a096156f02492ab6d55f836",
+  "tessellation_seconds": 0.07882495794910938
+}

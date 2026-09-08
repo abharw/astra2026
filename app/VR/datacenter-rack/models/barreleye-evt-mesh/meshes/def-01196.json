@@ -1,0 +1,25 @@
+{
+  "id": "def-01196",
+  "label": "0:1:1:1502",
+  "name": "P2_MIR_1",
+  "color_rgba": null,
+  "topological_faces": 54,
+  "missing_faces": 0,
+  "vertices": 5901,
+  "triangles": 9136,
+  "bounds_m": [
+    [
+      -0.014999941922724247,
+      0.0008999713463708758,
+      -0.07849989086389542
+    ],
+    [
+      -0.0038349959068000317,
+      0.03589994087815285,
+      0.07900018990039825
+    ]
+  ],
+  "mesh_path": "meshes/def-01196.npz",
+  "mesh_sha256": "1a1f0e9fbef162f2947094eb706138784ad92f5d8b538a4b0ed905033bd4455b",
+  "tessellation_seconds": 0.08497845800593495
+}

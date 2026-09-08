@@ -1,0 +1,25 @@
+{
+  "id": "def-00016",
+  "label": "0:1:1:32",
+  "name": "9_KHSTD-FOR-TRAY_POWER9",
+  "color_rgba": null,
+  "topological_faces": 22,
+  "missing_faces": 0,
+  "vertices": 2226,
+  "triangles": 2304,
+  "bounds_m": [
+    [
+      -0.0035000001080334187,
+      0.0,
+      -0.0035000001080334187
+    ],
+    [
+      0.0035000001080334187,
+      0.0074000004678964615,
+      0.0035000001080334187
+    ]
+  ],
+  "mesh_path": "meshes/def-00016.npz",
+  "mesh_sha256": "c58dc31b4fd77432f14cec90aba6293bc4da755d2eb40ddc14c60114cbf37ea9",
+  "tessellation_seconds": 0.020097082946449518
+}

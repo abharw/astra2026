@@ -1,5 +1,7 @@
 # Repository consolidation
 
+**Current layout update:** the subsequent AR/VR integration moved the Apple app from `app/` to `app/AR/` and preserved Akeil's complete tree in `app/VR/`. Root backend/framework/assets/tools remain in place. See [the integration record](ar-vr-integration.md). The migration and evidence below describe the earlier `ef10dcb` consolidation.
+
 Status: directory migration implemented, verified, committed and pushed as `ef10dcb`. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the baseline. Public Swift module names and the wire format are unchanged.
 
 The product has three code owners: one native app, one reusable spatial framework, and one deployable backend. The former `apps/ios`, `packages/SpatialKit`, and `services/session` wrappers added navigation without representing additional applications, packages, or services.

@@ -1,0 +1,25 @@
+{
+  "id": "def-00068",
+  "label": "0:1:1:105",
+  "name": "9_RIVET-SKK3030PT",
+  "color_rgba": null,
+  "topological_faces": 14,
+  "missing_faces": 0,
+  "vertices": 1494,
+  "triangles": 1660,
+  "bounds_m": [
+    [
+      -0.0027940000873059034,
+      -0.0026034999173134565,
+      -0.0026034999173134565
+    ],
+    [
+      0.0,
+      0.0026034999173134565,
+      0.0026034999173134565
+    ]
+  ],
+  "mesh_path": "meshes/def-00068.npz",
+  "mesh_sha256": "433d3a7bc76ff933d2443cdae6a0e89482dcc3228fe28c61c2a3bdba7470a7ee",
+  "tessellation_seconds": 0.015214583952911198
+}

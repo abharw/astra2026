@@ -1,11 +1,12 @@
 # Codebase map
 
-This is the current repository map. It distinguishes the runnable product from its contract tests, reproducibility tools, and hackathon evidence; it is not a claim that every directory is a public SDK.
+This map covers the AR runtime and supporting code. The complete Akeil source tree is preserved separately in `app/VR/`; see [the integration record](ar-vr-integration.md). It distinguishes the runnable product from its contract tests, reproducibility tools, and hackathon evidence; it is not a claim that every directory is a public SDK.
 
 | Path | Current role |
 | --- | --- |
-| `app` | Shipping universal iPhone/iPad app. `project.yml` is the XcodeGen source; the tracked Xcode project is the generated project opened by Xcode. |
-| `backend` | Local or authenticated-development session service: Realtime credentials, Astra proposal authoring, normalization, and acknowledged scene mirror. |
+| `app/AR` | Shipping universal iPhone/iPad app. `project.yml` is the XcodeGen source; the tracked Xcode project is the generated project opened by Xcode. |
+| `app/VR` | Independent Quest app, bridge, source assets, prototypes and historical records preserved from Akeil. |
+| `backend` | AR local or authenticated-development session service: Realtime credentials, Astra proposal authoring, normalization, and acknowledged scene mirror. |
 | `framework` | Shared Swift implementation. `SpatialCore` is the portable contract/reducer; `SpatialApple` is the RealityKit, input, transport, diagnostics, and storage adapter. |
 | `assets` | App-bundled demo content and its provenance. `server-rack` is the authored procedural fallback; `imported-rack` is the default imported asset, its catalogs, assets, and notices. |
 | `framework/contract` | Normative wire schema and portable fixtures shared by Swift and TypeScript checks. |

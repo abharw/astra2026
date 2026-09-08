@@ -1,0 +1,50 @@
+# Local secrets, pairing data, and captures
+.env
+.env.*
+!.env.example
+**/private/
+**/Connection.plist
+**/reference.jpeg
+**/device-room-*.json
+**/evidence/
+# Generated build and hosting output
+**/node_modules/
+**/build/
+**/test-build/
+**/dist/
+**/.next/
+**/.openai/
+**/.wrangler/
+**/*.tsbuildinfo
+**/*.xcuserstate
+**/xcuserdata/
+**/*.xcodeproj/
+.DS_Store
+# Local CAD runtime and large source-download originals; provenance is tracked.
+.cad-venv/
+research/ocp-candidates/originals/
+research/ocp-candidates/inspection/extracted/
+
+# Local full-text/raster research captures; source registers remain tracked.
+research/ocp-candidates/inspection/*.txt
+research/ocp-candidates/inspection/*.png
+research/ocp-candidates/inspection/*.html
+research/ocp-candidates/inspection/*.pdf
+
+**/.venv/
+**/__pycache__/
+
+# Unity cache and private headset pairing
+quest/Library/
+quest/Temp/
+quest/Logs/
+quest/obj/
+quest/UserSettings/
+quest/Assets/StreamingAssets/connection.json*
+*.apk
+
+**/__pycache__/
+quest/.utmp/
+
+quest/Assets/StreamingAssets/control.json
+quest/Assets/StreamingAssets/control.json.meta

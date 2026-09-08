@@ -1,0 +1,25 @@
+{
+  "id": "def-00046",
+  "label": "0:1:1:77",
+  "name": "LED3-7",
+  "color_rgba": null,
+  "topological_faces": 88,
+  "missing_faces": 0,
+  "vertices": 1790,
+  "triangles": 1685,
+  "bounds_m": [
+    [
+      -0.002749999985098839,
+      -0.00559999980032444,
+      -0.002749999985098839
+    ],
+    [
+      0.002749999985098839,
+      0.0,
+      0.002749999985098839
+    ]
+  ],
+  "mesh_path": "meshes/def-00046.npz",
+  "mesh_sha256": "ce4d5e1ef48af3de5eb9611a45d4a45b334b3c2093de4aeeced3371297efae17",
+  "tessellation_seconds": 0.045134417014196515
+}

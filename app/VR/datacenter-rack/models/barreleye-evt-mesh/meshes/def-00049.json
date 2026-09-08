@@ -1,0 +1,25 @@
+{
+  "id": "def-00049",
+  "label": "0:1:1:80",
+  "name": "1_HDD-MODLE-LATCH-NEW_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 252,
+  "missing_faces": 0,
+  "vertices": 12514,
+  "triangles": 16584,
+  "bounds_m": [
+    [
+      -0.048700001090765,
+      0.0,
+      -0.008500000461935997
+    ],
+    [
+      0.01889999955892563,
+      0.007899999618530273,
+      0.008999999612569809
+    ]
+  ],
+  "mesh_path": "meshes/def-00049.npz",
+  "mesh_sha256": "9e73ff45b5a730b50b3ee647a4b20dc1f21150a3b4dd1c109a30946d3533cc38",
+  "tessellation_seconds": 0.16825112502556294
+}

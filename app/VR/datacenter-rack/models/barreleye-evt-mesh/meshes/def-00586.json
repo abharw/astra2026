@@ -1,0 +1,25 @@
+{
+  "id": "def-00586",
+  "label": "0:1:1:773",
+  "name": "8_MYLAR-HDD-BP-FRONT_POWER9",
+  "color_rgba": null,
+  "topological_faces": 341,
+  "missing_faces": 0,
+  "vertices": 3282,
+  "triangles": 2860,
+  "bounds_m": [
+    [
+      -0.03999999910593033,
+      0.0,
+      -0.10000000149011612
+    ],
+    [
+      0.04814999923110008,
+      0.00013000000035390258,
+      0.37049999833106995
+    ]
+  ],
+  "mesh_path": "meshes/def-00586.npz",
+  "mesh_sha256": "0123d1fd8688f4497962499d19c69126ebd1d00a45cb6ae56955188d2ff1aec7",
+  "tessellation_seconds": 0.20729195792227983
+}

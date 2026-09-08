@@ -1,0 +1,25 @@
+{
+  "id": "def-01200",
+  "label": "0:1:1:1508",
+  "name": "SCREW_1_POWER9",
+  "color_rgba": null,
+  "topological_faces": 39,
+  "missing_faces": 0,
+  "vertices": 2696,
+  "triangles": 2632,
+  "bounds_m": [
+    [
+      -0.004000000189989805,
+      -0.0035000001080334187,
+      -0.003999427426606417
+    ],
+    [
+      0.003998345695436001,
+      0.01810000091791153,
+      0.003998345695436001
+    ]
+  ],
+  "mesh_path": "meshes/def-01200.npz",
+  "mesh_sha256": "92cc30e73e67cc6bfe09c47f489e5fbd27f5356ee23ddf8a9d30ab72a62ac4ba",
+  "tessellation_seconds": 0.0457790830405429
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00082",
+  "label": "0:1:1:122",
+  "name": "8_GASKET-PCIE_POWER9",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.032499998807907104,
+      0.0,
+      -0.0008999999845400453
+    ],
+    [
+      0.032499998807907104,
+      0.0007999999797903001,
+      0.0008999999845400453
+    ]
+  ],
+  "mesh_path": "meshes/def-00082.npz",
+  "mesh_sha256": "0c3639176127de577aeb4899b9b2ae12f1e3f9632d6ab4107b15a68c8006b4e9",
+  "tessellation_seconds": 0.0036904170410707593
+}

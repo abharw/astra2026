@@ -1,0 +1,25 @@
+{
+  "id": "def-00660",
+  "label": "0:1:1:888",
+  "name": "8_LABEL-BMC-MAC_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.01875000074505806,
+      -0.0044999998062849045,
+      0.0028699999675154686
+    ],
+    [
+      0.01875000074505806,
+      0.0044999998062849045,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00660.npz",
+  "mesh_sha256": "1d02bea81b4553b91f513cf0e23a825a9f6e34a521d9ff01c93aa84b64378840",
+  "tessellation_seconds": 0.008766458020545542
+}

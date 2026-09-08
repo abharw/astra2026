@@ -1,0 +1,25 @@
+{
+  "id": "def-00011",
+  "label": "0:1:1:23",
+  "name": "1_EAR-LATCH-LEFT_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 216,
+  "missing_faces": 0,
+  "vertices": 9661,
+  "triangles": 12108,
+  "bounds_m": [
+    [
+      -0.007000000216066837,
+      -0.0006000000284984708,
+      -0.010083623230457306
+    ],
+    [
+      0.013000000268220901,
+      0.029377153143286705,
+      0.06259925663471222
+    ]
+  ],
+  "mesh_path": "meshes/def-00011.npz",
+  "mesh_sha256": "3a8041985a4df00f3ec443261368b391eda331141f319ae3ab08019d465975f8",
+  "tessellation_seconds": 0.13077175000216812
+}

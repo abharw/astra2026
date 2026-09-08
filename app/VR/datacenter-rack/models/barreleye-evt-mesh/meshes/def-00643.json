@@ -1,0 +1,25 @@
+{
+  "id": "def-00643",
+  "label": "0:1:1:867",
+  "name": "A-JN18-1-W-37DP",
+  "color_rgba": null,
+  "topological_faces": 257,
+  "missing_faces": 0,
+  "vertices": 11196,
+  "triangles": 13498,
+  "bounds_m": [
+    [
+      -0.00648805545642972,
+      -0.005549999885261059,
+      -0.0243500005453825
+    ],
+    [
+      0.013000000268220901,
+      0.001449999981559813,
+      0.024250000715255737
+    ]
+  ],
+  "mesh_path": "meshes/def-00643.npz",
+  "mesh_sha256": "86979f085ff5e0e154a1c388cae211bbffbd307879d6613d7736730ab8956851",
+  "tessellation_seconds": 0.21396570897195488
+}

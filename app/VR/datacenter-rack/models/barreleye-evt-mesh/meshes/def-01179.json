@@ -1,0 +1,25 @@
+{
+  "id": "def-01179",
+  "label": "0:1:1:1482",
+  "name": "320-4055-000_POWER9",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.027499999850988388,
+      0.0,
+      -0.027499999850988388
+    ],
+    [
+      0.027499999850988388,
+      0.0032999999821186066,
+      0.027499999850988388
+    ]
+  ],
+  "mesh_path": "meshes/def-01179.npz",
+  "mesh_sha256": "59c24066c43e2c4fc96e8d1ca65e3b1881686e430962df17973f755bec572672",
+  "tessellation_seconds": 0.005890625063329935
+}

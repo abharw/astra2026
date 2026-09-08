@@ -1,0 +1,4 @@
+<linker>
+  <!-- JSON fields and toolbar SendMessage targets must survive IL2CPP stripping. -->
+  <assembly fullname="Assembly-CSharp" preserve="all" />
+</linker>

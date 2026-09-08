@@ -1,0 +1,25 @@
+{
+  "id": "def-00417",
+  "label": "0:1:1:568",
+  "name": "PART224_OCP_MEZZ-40G-CARD-ASSY_",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.020896000787615776,
+      -0.030700000002980232,
+      -0.004100000020116568
+    ],
+    [
+      0.01844616048038006,
+      0.021925000473856926,
+      0.0034000000450760126
+    ]
+  ],
+  "mesh_path": "meshes/def-00417.npz",
+  "mesh_sha256": "63cc7c9b215421edd47d1f60a40b95195cf3db7694c727bb2f20a11a58d72940",
+  "tessellation_seconds": 0.004077916033565998
+}

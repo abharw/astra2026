@@ -1,0 +1,25 @@
+{
+  "id": "def-01141",
+  "label": "0:1:1:1427",
+  "name": "INSERT_INJECTED_M2_NUT_1-5T_1__",
+  "color_rgba": null,
+  "topological_faces": 204,
+  "missing_faces": 0,
+  "vertices": 2668,
+  "triangles": 2344,
+  "bounds_m": [
+    [
+      -0.002140383468940854,
+      -0.002140383468940854,
+      -0.0005000000237487257
+    ],
+    [
+      0.002140383468940854,
+      0.002140383468940854,
+      0.0010000000474974513
+    ]
+  ],
+  "mesh_path": "meshes/def-01141.npz",
+  "mesh_sha256": "40886652a8de1823765f378ad599a990add7416b1b4d818363d4175ef90257ce",
+  "tessellation_seconds": 0.17848179198335856
+}

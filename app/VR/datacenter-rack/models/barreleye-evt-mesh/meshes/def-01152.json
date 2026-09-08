@@ -1,0 +1,25 @@
+{
+  "id": "def-01152",
+  "label": "0:1:1:1441",
+  "name": "PTH_TOOLING",
+  "color_rgba": null,
+  "topological_faces": 6,
+  "missing_faces": 0,
+  "vertices": 24,
+  "triangles": 12,
+  "bounds_m": [
+    [
+      -0.06174999848008156,
+      -0.006049999967217445,
+      0.0
+    ],
+    [
+      0.06174999848008156,
+      0.005450000055134296,
+      0.0010000000474974513
+    ]
+  ],
+  "mesh_path": "meshes/def-01152.npz",
+  "mesh_sha256": "8713244ae46a560f720b47e5e3862f058f3efc309e67260d0b6ff7cea1f404b3",
+  "tessellation_seconds": 0.008743000100366771
+}

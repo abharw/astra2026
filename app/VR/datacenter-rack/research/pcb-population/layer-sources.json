@@ -1,0 +1,44 @@
+[
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-BMK.ART",
+    "bytes": 1039606,
+    "sha256": "02e26ba465a7c89588d7b1f5ceb003161b3c255889e4679e4e9c141551e0deff",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-BMK.ART"
+  },
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-BSK.ART",
+    "bytes": 4645807,
+    "sha256": "84ae8809f97d3a8b0fb27ebcebbcf9abe214a41809799bb81d1fcc0a922673a1",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-BSK.ART"
+  },
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-CMP.ART",
+    "bytes": 6653684,
+    "sha256": "f3ea4f7ff3eb829015c0e918b050fe42fad0e63038433299da362376b42a4fde",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-CMP.ART"
+  },
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-SLD.ART",
+    "bytes": 22140728,
+    "sha256": "5df1034390c52e35ddbb05d87a76166c6d4a469f77cdd9bb947a3b7a4149c65c",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-SLD.ART"
+  },
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-TMK.ART",
+    "bytes": 1601753,
+    "sha256": "985777ca3a75aaff991d29f1155ac4ef6f079c987b9ea4814b467d0bd1b5dbcc",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-TMK.ART"
+  },
+  {
+    "file": "outputs/astra2026-rack/datacenter-rack/research/pcb-population/source-layers/MB-TSK.ART",
+    "bytes": 6826703,
+    "sha256": "0aaf915202c7ccefd2fc292e29f5f216444a0044b87d1ca098aae8ab28b9c5e2",
+    "archive": "outputs/astra2026-rack/research/ocp-candidates/originals/zaius-barreleye-g2/HW/EE/GBR/EVT/MB/Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final.zip",
+    "member": "Zaius-EVT3-LAYOUT-MB-GBR-X02-20161226-Final/Zaius-EVT3-MB-MDF.zip!Zaius-EVT3-MB-MDF/MB-TSK.ART"
+  }
+]

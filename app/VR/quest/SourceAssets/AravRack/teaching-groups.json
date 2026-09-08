@@ -1,0 +1,327 @@
+{
+  "schema": "astra-asset-group-recipe/v1",
+  "source": {
+    "repository": "https://github.com/abharw/astra2026",
+    "commit": "051c9d954292438fc8419661aa91451367961d86",
+    "path": "datacenter-rack/models/lazy/parts-library.blend",
+    "sha256": "1d086d872ff4e795b795aed3400e5bac98fa7872bd26c84dc0877788be5ee4d2"
+  },
+  "templateID": "barreleye-g2-evt3-server",
+  "rootEntityName": "ServerTeaching",
+  "collections": [
+    "DETAIL \u00b7 server.mechanical",
+    "DETAIL \u00b7 server.motherboard",
+    "DETAIL \u00b7 server.memory"
+  ],
+  "partIDPrefix": "server.teaching.",
+  "fallbackGroup": "chassis",
+  "collectionFallbacks": {
+    "DETAIL \u00b7 server.memory": "memory",
+    "DETAIL \u00b7 server.motherboard": "motherboard"
+  },
+  "exclusions": [
+    {
+      "group": "memory",
+      "partIDContains": ".contact.",
+      "reason": "individual_memory_contacts"
+    },
+    {
+      "maximumDimensionBelowMeters": 0.0025,
+      "reason": "below_2_5mm_overview_detail"
+    }
+  ],
+  "groups": [
+    {
+      "id": "storage",
+      "name": "Storage and drive carriers",
+      "description": "Drive carriers, storage backplane and expander connect the storage subsystem.",
+      "representation": "cad_derived",
+      "triangleBudget": 45000,
+      "ancestorPartIDs": [
+        "server.cad.node-00276",
+        "server.cad.node-00594",
+        "server.cad.node-02307",
+        "server.cad.node-02470",
+        "server.cad.node-02489",
+        "server.cad.node-02508",
+        "server.cad.node-02527",
+        "server.cad.node-02546",
+        "server.cad.node-02565",
+        "server.cad.node-02584",
+        "server.cad.node-02603",
+        "server.cad.node-02622",
+        "server.cad.node-02641",
+        "server.cad.node-02660",
+        "server.cad.node-02679",
+        "server.cad.node-02698",
+        "server.cad.node-02717",
+        "server.cad.node-02736",
+        "server.cad.node-02755",
+        "server.cad.node-02774",
+        "server.cad.node-02793",
+        "server.cad.node-02812",
+        "server.cad.node-02831",
+        "server.cad.node-02850",
+        "server.cad.node-02869",
+        "server.cad.node-02888",
+        "server.cad.node-02907",
+        "server.cad.node-03238",
+        "server.cad.node-03326"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-02470",
+          "server.cad.node-02489",
+          "server.cad.node-02508",
+          "server.cad.node-02527",
+          "server.cad.node-02546",
+          "server.cad.node-02565",
+          "server.cad.node-02584",
+          "server.cad.node-02603",
+          "server.cad.node-02622",
+          "server.cad.node-02641",
+          "server.cad.node-02660",
+          "server.cad.node-02679",
+          "server.cad.node-02698",
+          "server.cad.node-02717",
+          "server.cad.node-02736",
+          "server.cad.node-02755",
+          "server.cad.node-02774",
+          "server.cad.node-02793",
+          "server.cad.node-02812",
+          "server.cad.node-02831",
+          "server.cad.node-02850",
+          "server.cad.node-02869",
+          "server.cad.node-02888",
+          "server.cad.node-02907"
+        ]
+      }
+    },
+    {
+      "id": "fanwall",
+      "name": "Cooling fan assembly",
+      "description": "Six source fan modules move air through the chassis; no airflow or RPM is simulated.",
+      "representation": "cad_derived",
+      "triangleBudget": 30000,
+      "ancestorPartIDs": [
+        "server.cad.node-00644",
+        "server.cad.node-00645",
+        "server.cad.node-00646",
+        "server.cad.node-00647",
+        "server.cad.node-00648",
+        "server.cad.node-00649",
+        "server.cad.node-02222",
+        "server.cad.node-02926",
+        "server.cad.node-02927",
+        "server.cad.node-02928",
+        "server.cad.node-02929",
+        "server.cad.node-02930",
+        "server.cad.node-02931",
+        "server.cad.node-02932",
+        "server.cad.node-02983",
+        "server.cad.node-03034",
+        "server.cad.node-03085",
+        "server.cad.node-03136",
+        "server.cad.node-03187"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-02932",
+          "server.cad.node-02983",
+          "server.cad.node-03034",
+          "server.cad.node-03085",
+          "server.cad.node-03136",
+          "server.cad.node-03187"
+        ]
+      }
+    },
+    {
+      "id": "processors",
+      "name": "Processor and socket assemblies",
+      "description": "Two POWER9-family processor/socket/loading assemblies. U1 and U10 identify sockets, not CPU ordering codes.",
+      "representation": "cad_derived",
+      "triangleBudget": 30000,
+      "ancestorPartIDs": [
+        "server.cad.node-00982",
+        "server.cad.node-01161"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-00982",
+          "server.cad.node-01161"
+        ]
+      }
+    },
+    {
+      "id": "heatsinks",
+      "name": "Processor heatsinks",
+      "description": "Source Furukawa cooling assemblies conduct heat from the processor modules to passing air.",
+      "representation": "cad_derived",
+      "triangleBudget": 25000,
+      "ancestorPartIDs": [
+        "server.cad.node-03418",
+        "server.cad.node-03505"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-03418",
+          "server.cad.node-03505"
+        ]
+      }
+    },
+    {
+      "id": "network",
+      "name": "Network adapter",
+      "description": "Selected dual-port 25GbE OCP adapter and mounting hardware. Distinct from the management controller's network path.",
+      "representation": "cad_derived",
+      "triangleBudget": 20000,
+      "ancestorPartIDs": [
+        "server.cad.node-00723",
+        "server.cad.node-01807",
+        "server.cad.node-01816",
+        "server.cad.node-01817",
+        "server.cad.node-01818",
+        "server.cad.node-01819"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-01807"
+        ]
+      }
+    },
+    {
+      "id": "power",
+      "name": "Power input and conversion",
+      "description": "48 V input, selected board power conversion components and their cooling. No electrical simulation or live telemetry.",
+      "representation": "cad_derived",
+      "triangleBudget": 25000,
+      "ancestorPartIDs": [
+        "server.cad.node-00927",
+        "server.cad.node-00929",
+        "server.cad.node-00930",
+        "server.cad.node-00932",
+        "server.cad.node-00961",
+        "server.cad.node-02121",
+        "server.cad.node-02124",
+        "server.cad.node-02136",
+        "server.cad.node-02139",
+        "server.cad.node-09929",
+        "server.cad.node-09930",
+        "server.cad.node-09931",
+        "server.cad.node-09932"
+      ],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.cad.node-09930",
+          "server.cad.node-00927",
+          "server.cad.node-00929",
+          "server.cad.node-00930",
+          "server.cad.node-00932",
+          "server.cad.node-02121",
+          "server.cad.node-02124",
+          "server.cad.node-02136",
+          "server.cad.node-02139"
+        ]
+      }
+    },
+    {
+      "id": "chassis",
+      "name": "Chassis and mounting structure",
+      "description": "Supports and locates the server's internal assemblies.",
+      "representation": "cad_derived",
+      "triangleBudget": 35000,
+      "ancestorPartIDs": [],
+      "selection": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "motherboard",
+      "name": "Motherboard and board components",
+      "description": "EVT3 motherboard with source-derived component placements and reconstructed package appearance.",
+      "representation": "source_derived_reconstruction",
+      "triangleBudget": 55000,
+      "ancestorPartIDs": [],
+      "selection": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "memory",
+      "name": "Host memory modules",
+      "description": "32 supported-class RDIMM analogues at source socket positions. Installed module SKU and capacity are not established.",
+      "representation": "supported_class_analogue",
+      "triangleBudget": 35000,
+      "ancestorPartIDs": [],
+      "selection": {
+        "kind": "sourceClusters",
+        "roots": [
+          "server.memory.module.01",
+          "server.memory.module.02",
+          "server.memory.module.03",
+          "server.memory.module.04",
+          "server.memory.module.05",
+          "server.memory.module.06",
+          "server.memory.module.07",
+          "server.memory.module.08",
+          "server.memory.module.09",
+          "server.memory.module.10",
+          "server.memory.module.11",
+          "server.memory.module.12",
+          "server.memory.module.13",
+          "server.memory.module.14",
+          "server.memory.module.15",
+          "server.memory.module.16",
+          "server.memory.module.17",
+          "server.memory.module.18",
+          "server.memory.module.19",
+          "server.memory.module.20",
+          "server.memory.module.21",
+          "server.memory.module.22",
+          "server.memory.module.23",
+          "server.memory.module.24",
+          "server.memory.module.25",
+          "server.memory.module.26",
+          "server.memory.module.27",
+          "server.memory.module.28",
+          "server.memory.module.29",
+          "server.memory.module.30",
+          "server.memory.module.31",
+          "server.memory.module.32"
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "The detail library omits the removable cover; switching to this open interior does not recover or detach an authored cover.",
+    "Hardware below2.5mm and individual memory contacts are omitted in this sample overview recipe.",
+    "RDIMMs are supported-class analogues; exact installed SKU/capacity are not established.",
+    "Source relationships describe design evidence, not live measurements or simulated circuits.",
+    "Separate detailed component and illustrative processor study exports are not included."
+  ],
+  "coordinates": {
+    "units": "meters",
+    "sourceUpAxis": "Z",
+    "sourceAxes": {
+      "x": "right",
+      "y": "front_to_rear",
+      "z": "up"
+    },
+    "sourceToRealityKitRotationQuaternion": [
+      -0.7071067811865476,
+      0,
+      0,
+      0.7071067811865476
+    ],
+    "sourceOrigin": "Original server local origin, matching source server.exterior geometry.",
+    "attachmentRule": "Native server wrapper already contains source-to-RealityKit rotation R. Remove imported pack R from each extracted part world transform before parenting to that wrapper: childLocal = inverse(R) * importedPartWorld. Preserve the server instance current transform."
+  },
+  "name": "Barreleye G2 server interior",
+  "description": "Source-derived open server with individually editable teaching assemblies. RDIMMs are supported-class analogues; no removable cover is included."
+}

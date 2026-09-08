@@ -1,0 +1,25 @@
+{
+  "id": "def-00130",
+  "label": "0:1:1:178",
+  "name": "7_HF2803E-P1_RUS",
+  "color_rgba": null,
+  "topological_faces": 84,
+  "missing_faces": 0,
+  "vertices": 1089,
+  "triangles": 1016,
+  "bounds_m": [
+    [
+      -0.002859999891370535,
+      -0.00482999999076128,
+      0.0
+    ],
+    [
+      0.002859999891370535,
+      0.00875999964773655,
+      0.007619999814778566
+    ]
+  ],
+  "mesh_path": "meshes/def-00130.npz",
+  "mesh_sha256": "0671dcc8be97fe28b327b6184170e0f994cc5d965677ef08f1a70f2f561b2e20",
+  "tessellation_seconds": 0.04254866694100201
+}

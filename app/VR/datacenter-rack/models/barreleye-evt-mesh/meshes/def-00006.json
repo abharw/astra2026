@@ -1,0 +1,25 @@
+{
+  "id": "def-00006",
+  "label": "0:1:1:16",
+  "name": "SHELL",
+  "color_rgba": null,
+  "topological_faces": 2,
+  "missing_faces": 0,
+  "vertices": 164,
+  "triangles": 160,
+  "bounds_m": [
+    [
+      -0.001752499956637621,
+      -0.006200000178068876,
+      -0.001752499956637621
+    ],
+    [
+      0.001752499956637621,
+      0.0,
+      0.001752499956637621
+    ]
+  ],
+  "mesh_path": "meshes/def-00006.npz",
+  "mesh_sha256": "e3402f4e1707d19560f2ba83a2cc2a711dbd3be7fb1b4c663ac24a0b87280a47",
+  "tessellation_seconds": 0.002850124961696565
+}

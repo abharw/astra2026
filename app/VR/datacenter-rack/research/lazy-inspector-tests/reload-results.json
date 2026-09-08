@@ -1,0 +1,7 @@
+{
+  "register_idempotent": true,
+  "state_survives_repeated_registration": true,
+  "new_module_registration_preserves_state": true,
+  "reload_never_appends": true,
+  "one_load_handler": true
+}

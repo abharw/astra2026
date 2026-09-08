@@ -1,0 +1,25 @@
+{
+  "id": "def-00656",
+  "label": "0:1:1:884",
+  "name": "8_LABEL-EMC_POWER9",
+  "color_rgba": null,
+  "topological_faces": 10,
+  "missing_faces": 0,
+  "vertices": 352,
+  "triangles": 332,
+  "bounds_m": [
+    [
+      -0.05000000074505806,
+      0.0008500000112690032,
+      -0.03999999910593033
+    ],
+    [
+      0.05000000074505806,
+      0.0010000000474974513,
+      0.03999999910593033
+    ]
+  ],
+  "mesh_path": "meshes/def-00656.npz",
+  "mesh_sha256": "b6a2d33e469647edf1c5c67ad5aea9e7e58572ea7d094d1a251e7f0a761dc1fe",
+  "tessellation_seconds": 0.008805375080555677
+}

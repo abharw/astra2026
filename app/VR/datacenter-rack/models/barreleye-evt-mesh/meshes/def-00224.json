@@ -1,0 +1,25 @@
+{
+  "id": "def-00224",
+  "label": "0:1:1:289",
+  "name": "P4-TOP-KEEPOUT-4_5MM-3_1",
+  "color_rgba": null,
+  "topological_faces": 13,
+  "missing_faces": 0,
+  "vertices": 430,
+  "triangles": 404,
+  "bounds_m": [
+    [
+      0.03810499981045723,
+      -0.0044999998062849045,
+      -0.03631436079740524
+    ],
+    [
+      0.04899999871850014,
+      0.0,
+      -0.0010000000474974513
+    ]
+  ],
+  "mesh_path": "meshes/def-00224.npz",
+  "mesh_sha256": "85c50f8285d04b1b882a5e3672e6f130c5b7db5660279ab9781a3a52ae401cd1",
+  "tessellation_seconds": 0.009822459076531231
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00048",
+  "label": "0:1:1:79",
+  "name": "MWS-43",
+  "color_rgba": null,
+  "topological_faces": 18,
+  "missing_faces": 0,
+  "vertices": 548,
+  "triangles": 512,
+  "bounds_m": [
+    [
+      0.0,
+      0.0,
+      -0.002199999988079071
+    ],
+    [
+      0.004000000189989805,
+      0.006000000052154064,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00048.npz",
+  "mesh_sha256": "3e0db29fc72ba49a982edd4736f6ff8b5c5fef315e079b247e63ca8c060c518d",
+  "tessellation_seconds": 0.01195187505800277
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00661",
+  "label": "0:1:1:891",
+  "name": "GG-BASE_4",
+  "color_rgba": null,
+  "topological_faces": 106,
+  "missing_faces": 0,
+  "vertices": 2716,
+  "triangles": 2536,
+  "bounds_m": [
+    [
+      -0.045499999076128006,
+      0.00019999999494757503,
+      -0.05000000074505806
+    ],
+    [
+      0.045499999076128006,
+      0.008999999612569809,
+      0.05000000074505806
+    ]
+  ],
+  "mesh_path": "meshes/def-00661.npz",
+  "mesh_sha256": "7f103bad86c6f28368805cbf93bf7b37b0b5c3f81a5b7403a87112d30b5ec480",
+  "tessellation_seconds": 0.08208404202014208
+}

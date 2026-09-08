@@ -1,0 +1,25 @@
+{
+  "id": "def-00081",
+  "label": "0:1:1:121",
+  "name": "1_LOW-PROFILE_BKT_BARRELEYE",
+  "color_rgba": null,
+  "topological_faces": 388,
+  "missing_faces": 0,
+  "vertices": 38815,
+  "triangles": 58802,
+  "bounds_m": [
+    [
+      -0.013969999738037586,
+      -0.07923205196857452,
+      -0.011582399718463421
+    ],
+    [
+      0.008030000142753124,
+      0.000859999970998615,
+      0.001117600011639297
+    ]
+  ],
+  "mesh_path": "meshes/def-00081.npz",
+  "mesh_sha256": "df9b3219144957dfbac2e81da3ad155d31957c04fc54747805f6f2115e5a8148",
+  "tessellation_seconds": 0.3983425829792395
+}

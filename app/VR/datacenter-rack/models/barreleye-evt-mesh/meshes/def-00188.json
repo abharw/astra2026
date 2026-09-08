@@ -1,0 +1,25 @@
+{
+  "id": "def-00188",
+  "label": "0:1:1:249",
+  "name": "FCI-P61083-124X2XXX_2_1",
+  "color_rgba": null,
+  "topological_faces": 2373,
+  "missing_faces": 0,
+  "vertices": 15468,
+  "triangles": 11084,
+  "bounds_m": [
+    [
+      -0.026900000870227814,
+      -4.999999873689376e-05,
+      -0.003000000026077032
+    ],
+    [
+      0.026900000870227814,
+      0.0076500000432133675,
+      0.003000000026077032
+    ]
+  ],
+  "mesh_path": "meshes/def-00188.npz",
+  "mesh_sha256": "c94c2ec03259f1342cc6b2c658d9ad1cc95683d5d075f0f3cc0067287512e365",
+  "tessellation_seconds": 1.0893378329928964
+}

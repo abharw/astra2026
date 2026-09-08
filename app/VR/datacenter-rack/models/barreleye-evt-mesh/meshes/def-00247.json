@@ -1,0 +1,25 @@
+{
+  "id": "def-00247",
+  "label": "0:1:1:316",
+  "name": "GD-P110__1X4_1",
+  "color_rgba": null,
+  "topological_faces": 1196,
+  "missing_faces": 0,
+  "vertices": 6968,
+  "triangles": 4608,
+  "bounds_m": [
+    [
+      -0.03104499913752079,
+      -0.008750000037252903,
+      -0.027899999171495438
+    ],
+    [
+      0.03104499913752079,
+      0.006049999967217445,
+      0.0
+    ]
+  ],
+  "mesh_path": "meshes/def-00247.npz",
+  "mesh_sha256": "add1172af598006b65638a864c64cc971a9c584b826fb87f722d21336fccf22c",
+  "tessellation_seconds": 0.5584599169669673
+}

@@ -1,0 +1,25 @@
+{
+  "id": "def-00095",
+  "label": "0:1:1:139",
+  "name": "TPL_34_0_12_5X47_5_5LS_1",
+  "color_rgba": null,
+  "topological_faces": 63,
+  "missing_faces": 0,
+  "vertices": 8624,
+  "triangles": 12408,
+  "bounds_m": [
+    [
+      -0.0062500000931322575,
+      0.0,
+      -0.0062500000931322575
+    ],
+    [
+      0.0062500000931322575,
+      0.049800001084804535,
+      0.0062500000931322575
+    ]
+  ],
+  "mesh_path": "meshes/def-00095.npz",
+  "mesh_sha256": "2578541a4bf5a75e805aa352db88ad297055e4ec49adc98836eae3888929bf78",
+  "tessellation_seconds": 0.07531720900442451
+}

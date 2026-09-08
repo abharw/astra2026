@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "instance_transformed_min": true,
+    "instance_transformed_max": true,
+    "nested_instance_min": true,
+    "nested_instance_max": true,
+    "studio_floor_excluded": true,
+    "instance_searchable": true,
+    "processor_link_absent": true,
+    "inspect_server_operator": true,
+    "scene_camera_view": true,
+    "overlays_preserved": true,
+    "rack_scene_operator": true,
+    "frame_instance_operator": true,
+    "temporary_objects_removed": true,
+    "frame_selection_preserved": true,
+    "frame_uses_instance_extent": true
+  },
+  "blender": "5.3.0 Alpha"
+}

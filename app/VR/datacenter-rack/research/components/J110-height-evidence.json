@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-09-08T19:00:59.220656+00:00",
+  "part": "Samtec ASP-195607-01",
+  "refdes": "J110",
+  "exact_custom_datasheet": "not_acquired",
+  "search_queries": [
+    "ASP-195607-01 Samtec",
+    "site.samtec.com ASP-195607",
+    "site.samtec.com TSM-102-01 height"
+  ],
+  "failed_public_endpoints": [
+    "https://www.samtec.com/products/asp-195607-01",
+    "https://suddendocs.samtec.com/prints/asp-195607-01-mkt.pdf",
+    "https://suddendocs.samtec.com/prints/asp-195607-01.pdf"
+  ],
+  "evidence": "Other35 placements with same BOM part and package index81 carry10.100056mm EDA height.",
+  "recommendation": "Optional inherited EDA envelope labeled supported reconstruction; retain original missing height.",
+  "not_evidence": "Do not decode PH10_1A package-label text as dimensional proof; generic TSM variants are not custom ASP dimensional authority."
+}
