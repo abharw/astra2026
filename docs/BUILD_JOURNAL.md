@@ -180,3 +180,16 @@ After the user unlocked Mac authentication and locked the phone, Astra controlle
 ## 16. Resume control; add drag and typed questions (September 8, 2026)
 
 On resuming, the device reported three saved objects with a seven-part chair selected. Added app-level screen-space dragging after extraction and typed questions about the current object/part, with playback-only audio for typed input. Test state includes transcripts and original/current transforms. Builds and relay validation passed. The initial installation lost the device connection, then installation and launch succeeded after reconnection. A live snapshot from the updated app succeeded; it showed a close-up gray surface during relocalization. Drag and question acceptance remain pending a useful camera view. The camera-link and real mirrored UI results remain separately documented in PHONE_COMPUTER_USE.md.
+
+## 2026-09-08 — Best-fit spatial completion and additional tours
+
+Discovery used web search followed by yt-dlp flat JSON YouTube search; candidate lists are retained under work/new-*-candidates*.jsonl. Selected real interior footage from RentVision and HomeJab, excluding rendered-house examples. Downloaded with yt-dlp, registered independent agentic-video sessions, and viewed initial overview sheets. Saved six predictions in outputs/best-fit-tests/predictions-before-recheck.json before opening targeted checks. Request manifests preserve actual times, PTS, sampling parameters and source hashes.
+
+Targeted rechecks used the installed `video inspect --session ... --start ... --end ... --fps ...` command, then actual model viewing and `video mark`. Separate source decoding used local Python threads, not delegated agents. A denser house recheck separated edited bedroom shots. Four native bathroom frames distinguished two toilets from a reflection. All 171 apartment and 134 house extracted records were viewed; none of these requests was truncated. The studio received 22 more viewed records and three individual reopens, bringing its total to 68.
+
+All three apartment predictions were supported. House corridor topology was partly supported; bathroom compartment interpretation was corrected; fireplace-side laundry placement was rejected in favor of kitchen-to-utility-to-concrete-patio. Studio rewatch revealed a folding wall bed and identified the center window panel as a mirror. These are within-source checks, without a measured ground-truth floor plan.
+
+Created seven best-fit schematics, 27 assumption records and selected completions for all 29 supplied-video gaps. Retained earlier conservative diagrams. Inspected the atlas and fixed cramped labels; validated cited evidence IDs/viewed state and gap coverage. Updated aggregate evidence counts, framework, report and download bundle. The plots are unmeasured diagram coordinates, not recovered geometry. No panorama/3D generation ran. A shell attempt using `python` failed because only `python3` was available; reran successfully with python3.
+
+
+[Reusable workflow](SPATIAL_WORKFLOW.md) · [Test report and public-source plans](SPATIAL_BEST_FIT_TESTS.md).

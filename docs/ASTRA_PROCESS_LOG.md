@@ -10,7 +10,7 @@ Read the existing development journal and repository import notes after cloning 
 
 ## 2. Video evidence acquisition and interpretation
 
-The installed launcher was `~/.codex/skills/agentic-video/scripts/video`. Its runtime uses local PyAV/Pillow and FFmpeg. Source initialization collected hashes, dimensions, duration, packet timing and stream metadata. Each video received its own session; no geometry was transferred between the two different places.
+The installed launcher was `/Users/akeilsmith/.codex/skills/agentic-video/scripts/video`. Its runtime uses local PyAV/Pillow and FFmpeg. Source initialization collected hashes, dimensions, duration, packet timing and stream metadata. Each video received its own session; no geometry was transferred between the two different places.
 
 | Source | Actual requested visual evidence | Viewed result |
 |---|---|---|
@@ -60,10 +60,28 @@ The first journal publication used GitHub's Git Data API after `git push` failed
 
 Private source videos, home/hall images and detailed room data remain local, following the repository's existing import practice. Public documents include method, aggregate results, public-listing relationships and source links. Logs omit credentials and incidental account data. This task does not establish a measured plan, complete building coverage, calibrated 3D reconstruction or an accuracy score.
 
-## Published companion records
+## Local evidence index
 
-- [Video experiment](VIDEO_FLOOR_PLAN_EXPERIMENT.md)
-- [Airbnb comparison and tour-data protocol](PHOTO_AND_TOUR_EXPERIMENT.md)
-- [Sanitized actual video command ledger](video-experiment/command-ledger.json)
+- [Video findings and diagrams](floor-plan-experiment.md)
+- [Video evidence counts, claims and source hashes](experiment-evidence.json)
+- [Home session](evidence/7958/session.json) and [action ledger](evidence/7958/actions.jsonl)
+- [Hall session](evidence/7960/session.json) and [action ledger](evidence/7960/actions.jsonl)
+- [Public-video session](evidence/youtube/session.json) and [action ledger](evidence/youtube/actions.jsonl)
+- [Airbnb findings](airbnb-experiment.md), [relationships](airbnb-spatial-data.json), [A manifest](airbnb-evidence/a/manifest.json), [B manifest](airbnb-evidence/b/manifest.json)
+- [Guided-tour plan](guided-tour-plan.md) and [JSON](guided-tour-data.json)
 
-The private 10-point/40-reference JSON, video images, source manifests, and detailed spatial diagrams are retained in the local deliverables. Browser photo IDs/source URLs and observations are available locally; public diagrams contain only the inferred topology.
+## Follow-up: floor-plan sheets for every source
+
+The user requested floor plans for every analyzed video and Airbnb listing. Retained the three existing video plans and drew two Airbnb plans with Python/Pillow/SVG: a garden-flat candidate arrangement with unverified circulation explicitly labeled, and a partial suite layout plus unplaced closet/kitchenette/entry inset. Room outlines remain unmeasured hypotheses. This adds schematic geometry, not new recovered evidence. Inspected the images, corrected a title overlap, and assembled all five places into an overview and PNG/SVG download bundle.
+
+## Follow-up: best-fit reasoning and two more real tours
+
+The user asked to reason through all unresolved areas, add that reasoning to the reusable framework, and test more apartment/house videos. Read the installed agentic-video instructions and writing-for-agents guidance. No subagents or external inference model were used.
+
+Discovery used web search followed by yt-dlp flat JSON YouTube search; candidate lists are retained under work/new-*-candidates*.jsonl. Selected real interior footage from RentVision and HomeJab, excluding rendered-house examples. Downloaded with yt-dlp, registered independent agentic-video sessions, and viewed initial overview sheets. Saved six predictions in outputs/best-fit-tests/predictions-before-recheck.json before opening targeted checks. Request manifests preserve actual times, PTS, sampling parameters and source hashes.
+
+Targeted rechecks used the installed `video inspect --session ... --start ... --end ... --fps ...` command, then actual model viewing and `video mark`. Separate source decoding used local Python threads, not delegated agents. A denser house recheck separated edited bedroom shots. Four native bathroom frames distinguished two toilets from a reflection. All 171 apartment and 134 house extracted records were viewed; none of these requests was truncated. The studio received 22 more viewed records and three individual reopens, bringing its total to 68.
+
+All three apartment predictions were supported. House corridor topology was partly supported; bathroom compartment interpretation was corrected; fireplace-side laundry placement was rejected in favor of kitchen-to-utility-to-concrete-patio. Studio rewatch revealed a folding wall bed and identified the center window panel as a mirror. These are within-source checks, without a measured ground-truth floor plan.
+
+Created seven best-fit schematics, 27 assumption records and selected completions for all 29 supplied-video gaps. Retained earlier conservative diagrams. Inspected the atlas and fixed cramped labels; validated cited evidence IDs/viewed state and gap coverage. Updated aggregate evidence counts, framework, report and download bundle. The plots are unmeasured diagram coordinates, not recovered geometry. No panorama/3D generation ran. A shell attempt using `python` failed because only `python3` was available; reran successfully with python3.

@@ -64,3 +64,5 @@ No credentials, camera captures, or room maps are committed. Room recognition de
 The Quest client implements hand/controller pointing, real passthrough camera capture, environment-depth targeting, spatial anchors, part selection, explanations, rebuild and Realtime voice. Source-assisted research and voice have passed real API probes. Headset runtime acceptance is pending USB connection; do not interpret implementation or compilation as an observed headset result.
 
 The source-photo probe returned 11 parts, 37 primitives including 2 custom meshes, and three similar-product manufacturer references. The photograph did not establish an exact model. This is approximate generated geometry, not a high-fidelity CAD scan. See the verification record for the boundaries of the evidence.
+
+- [Best-fit spatial workflow](docs/SPATIAL_WORKFLOW.md) and [two additional tour tests](docs/SPATIAL_BEST_FIT_TESTS.md).
