@@ -16,6 +16,8 @@ The private APK embeds a scoped bridge credential, never the OpenAI API key. Do 
 
 ## Controls
 
+- Hold trigger/pinch on the panel header to move it, or hold the right grip while aiming anywhere on the panel. Release to place it. While moving, the right stick adjusts its distance. Click the left thumbstick to bring the panel back in front of you.
+- The panel shows Ready, Listening, Speaking, Reconstructing, Starting voice, Camera not ready or Offline, with elapsed generation time and the next action. Start/Stop voice and Pull/Return labels reflect current state.
 - Point the right controller or tracked right hand at a real surface; trigger/pinch captures it.
 - Trigger/pinch a generated component to select and toggle explosion.
 - **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** researches and rebuilds the active object.
