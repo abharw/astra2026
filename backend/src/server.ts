@@ -6,6 +6,10 @@ import { ModelTransport, OpenAIResponsesTransport } from "./astra/client.js";
 import { AstraSession, SessionSink } from "./session.js";
 import { ClientEnvelope, MAX_OUTGOING_BUFFER_BYTES, MAX_WIRE_BYTES, SessionHello, parseWireText } from "./protocol.js";
 import { DiagnosticLogger, JsonlLogger, safeError } from "./diagnostics.js";
+import { IllustrationService } from "./illustrations/jobs.js";
+import { IllustrationArtifactStore } from "./illustrations/store.js";
+import { IllustrationProvider, OpenAIImageProvider } from "./illustrations/provider.js";
+import { fileURLToPath } from "node:url";
 
 export interface ServiceOptions {
   host: string;
@@ -15,6 +19,8 @@ export interface ServiceOptions {
   model?: ModelTransport;
   fetchImpl?: typeof fetch;
   logger?: DiagnosticLogger;
+  illustrationProvider?: IllustrationProvider;
+  illustrationDirectory?: string;
 }
 
 export class SessionServer {
@@ -25,12 +31,15 @@ export class SessionServer {
   private readonly model: ModelTransport;
   private readonly logger: DiagnosticLogger;
   private closePromise?: Promise<void>;
+  private readonly illustrations?: IllustrationService;
 
   constructor(private readonly options: ServiceOptions) {
     if (!isLoopback(options.host) && !options.accessToken) throw new Error("SESSION_ACCESS_TOKEN is required when listening beyond loopback");
     this.fetchImpl = options.fetchImpl ?? fetch;
     this.logger = options.logger ?? new JsonlLogger();
     this.model = options.model ?? new OpenAIResponsesTransport(requireApiKey(options.apiKey), this.fetchImpl, this.logger);
+    const imageProvider = options.illustrationProvider ?? (options.apiKey ? new OpenAIImageProvider(options.apiKey, this.fetchImpl) : undefined);
+    if (imageProvider) this.illustrations = new IllustrationService(imageProvider, new IllustrationArtifactStore({ directory: options.illustrationDirectory ?? fileURLToPath(new URL("../../.local/illustrations", import.meta.url)) }));
     this.http = createServer((request, response) => { void this.handleHttp(request, response); });
     this.http.on("upgrade", (request, socket, head) => {
       if (new URL(request.url ?? "/", "http://localhost").pathname !== "/session") { socket.destroy(); return; }
@@ -108,7 +117,7 @@ export class SessionServer {
           // A reconnect starts a fresh protocol session. Dispose the previous owner
           // before replacing its map entry so its provider fetch cannot outlive A.
           this.sessions.get(message.sessionId)?.dispose();
-          session = new AstraSession(this.model, sink, { logger: this.logger, sessionId: message.sessionId });
+          session = new AstraSession(this.model, sink, { logger: this.logger, sessionId: message.sessionId, illustrations: this.illustrations });
           this.sessions.set(message.sessionId, session);
           session.acceptHello(message);
           return;
@@ -128,6 +137,8 @@ export class SessionServer {
       switch (message.type) {
         case "phone.snapshot": session.updateSnapshot(message); break;
         case "user.request": await session.request(message); break;
+        case "illustration.cancel": session.cancelIllustration(message.jobId); break;
+        case "illustration.retry": session.retryIllustration(message.jobId); break;
         case "session.cancel": session.cancel(message.requestId); break;
         case "user.stop": case "user.undo": session.fence(message.sceneId, message.intentEpoch); break;
         case "scene.receipt": session.receiveReceipt(message); break;
@@ -145,6 +156,21 @@ export class SessionServer {
     const path = new URL(request.url ?? "/", "http://localhost").pathname;
     if (request.method === "GET" && path === "/health") {
       this.respondJson(response, 200, { status: "ok", openaiConfigured: Boolean(this.options.apiKey), protocolVersion: 1 });
+      return;
+    }
+    if (request.method === "GET" && path.startsWith("/illustrations/artifacts/")) {
+      try {
+        this.authorizeHeader(request.headers.authorization);
+        const match = /^\/illustrations\/artifacts\/([a-f0-9]{64})\.png$/.exec(path);
+        if (!match || !this.illustrations) { this.respondJson(response, 404, { error: { code: "not_found", message: "Illustration not found." } }); return; }
+        const bytes = await this.illustrations.store.readArtifact(`sha256:${match[1]}`);
+        if (!bytes) { this.respondJson(response, 404, { error: { code: "not_found", message: "Illustration not found." } }); return; }
+        response.writeHead(200, { "content-type": "image/png", "content-length": bytes.length, "cache-control": "private, max-age=31536000, immutable", "etag": `"sha256:${match[1]}"`, "x-content-type-options": "nosniff" });
+        response.end(bytes);
+      } catch (error) {
+        const unauthorized = error instanceof ProtocolError && error.code === "unauthorized";
+        this.respondJson(response, unauthorized ? 401 : 500, { error: { code: unauthorized ? "unauthorized" : "illustration_read_failed", message: unauthorized ? "Invalid session token." : "Illustration could not be read." } });
+      }
       return;
     }
     if (request.method === "POST" && path === "/realtime/client-secret") {

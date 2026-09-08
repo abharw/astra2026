@@ -63,7 +63,9 @@ export interface GenerationReceipt {
   rejection?: JsonObject;
 }
 
-export type ClientEnvelope = SessionHello | PhoneSnapshot | UserRequest | CancelRequest | UserStop | UserUndo | SceneReceipt | GenerationReceipt;
+export interface IllustrationControl { type: "illustration.cancel" | "illustration.retry"; jobId: string }
+
+export type ClientEnvelope = IllustrationControl | SessionHello | PhoneSnapshot | UserRequest | CancelRequest | UserStop | UserUndo | SceneReceipt | GenerationReceipt;
 
 export function parseClientEnvelope(value: unknown): ClientEnvelope {
   const object = asObject(value, "message");
@@ -83,6 +85,9 @@ export function parseClientEnvelope(value: unknown): ClientEnvelope {
     };
     }
     case "user.request": return parseUserRequest(object);
+    case "illustration.cancel": case "illustration.retry":
+      rejectUnknown(object, ["type", "jobId"]);
+      return { type, jobId: requireString(object, "jobId", 128) };
     case "session.cancel":
       rejectUnknown(object, ["type", "requestId"]);
       return { type, requestId: requireString(object, "requestId", 256) };

@@ -6,7 +6,8 @@ A native spatial conversation experiment for the Cerebral Valley / OpenAI hackat
 
 ## Read the project
 
-- [Next-work handoff](HANDOFF.md): reorganize the repo, integrate generated images, then improve native geometry.
+- [Work handoff](HANDOFF.md): completed repository and image stages, followed by native flow geometry.
+- [Generated illustrations](docs/images-2.5-integration-status.md): real Flare integration, native panels, measured latency and fidelity limits.
 - [Architecture](docs/architecture.md): responsibilities, runtime loop, and future extension boundaries.
 - [Product](docs/product.md): current interaction and accessibility constraints.
 - [APPROACH](APPROACH.md): chronological Arav/Astra collaboration log.
@@ -27,7 +28,7 @@ The repository groups code and supporting material into app, backend, framework,
 | `framework/Sources/SpatialCore` | Portable values, closed decoding, resource validation, canonical hashes, transactional scene reducer |
 | `framework/Sources/SpatialApple` | RealityKit resources and hierarchy, device execution, selection, Vision pointing, SQLite checkpoints |
 | `app` | Universal iPhone/iPad SwiftUI app, audio I/O, Realtime connection, user controls |
-| `backend` | Astra Responses calls, normalized proposals, accepted-scene mirror, ephemeral voice credentials |
+| `backend` | Astra Responses calls, normalized proposals, accepted-scene mirror, image jobs/artifacts, ephemeral voice credentials |
 | `assets/server-rack` | Explicitly authored starting content, outside the framework |
 | `assets/imported-rack` | Source-derived Blender assets, hierarchy templates, selection proxies and provenance |
 | `tools/Sources/SceneLab` | Small Swift acceptance client using the production reducer |
@@ -38,7 +39,7 @@ The repository groups code and supporting material into app, backend, framework,
 
 The app targets iOS/iPadOS 26. The primary device is an iPad Air 13-inch (M4) on iPadOS 26.5. Xcode 26.6 and Swift 6.3.3 were used here. Quest is a future renderer adapter, not an implemented target.
 
-The Apple package separates `Rendering`, `Input`, `Transport`, `Storage`, and `Diagnostics`; the app separates `UI` and `Conversation`. Provider-specific code lives under `backend/src/astra`. Demo hardware content remains outside those runtime modules. The [rack seed](assets/server-rack/README.md) contains 179 named nodes, references actual Dell service diagrams, and is bundled from its single canonical JSON file.
+The Apple package separates `Rendering`, `Input`, `Transport`, `Storage`, `Illustrations`, and `Diagnostics`; the app separates `UI` and `Conversation`. Provider-specific code lives under `backend/src/astra`. Demo hardware content remains outside those runtime modules. The [rack seed](assets/server-rack/README.md) contains 179 named nodes, references actual Dell service diagrams, and is bundled from its single canonical JSON file.
 
 ## Run locally
 
@@ -104,3 +105,5 @@ The native app builds for simulator and device and has been signed, installed, a
 The current authoring path accepts one complete bounded proposal per turn, with one repair attempt before delivery. It does not progressively install token fragments. Observed request times were about 10–24 seconds for the first small examples; this is a measured starting point, not a conversational-latency claim. The default Load rack path now uses the approved bundled Akeil USDZ catalog (`assets/imported-rack/app-catalog.json`), while the procedural six-shape path and generic approved detail expansion remain available for generated or revealed content. Manual SQLite checkpoint APIs exist; Save/Open UI and autosave are not connected yet. The [diagnostics contract](docs/diagnostics.md) explains JSONL/OSLog evidence and the boundaries of the Realtime tool smoke.
 
 Arav has also completed a three-turn typed interaction on the physical iPhone: pull-out, explanation and arrows. [Event evidence](docs/evidence/iphone-heat-flow-session.json) verifies installations and final responses; his visual feedback motivates [richer spatial explanations and Images 2.5 research](docs/images-and-spatial-explanations.md).
+
+Astra can request a generated 2D teaching illustration through the existing proposal tool. Images appear in a separate explanation panel while the editable scene remains available; follow-ups can refine the previous image. Generation, cancellation, retry, authenticated downloads and bounded caches are implemented. Real model/provider checks and both simulator layouts pass; exact visual fidelity and this stage’s physical-device rendering are still qualified in the [integration record](docs/images-2.5-integration-status.md).

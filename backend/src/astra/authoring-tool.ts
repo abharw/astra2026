@@ -84,3 +84,29 @@ export const ASTRA_AUTHORING_TOOL = {
     }
   }
 } as unknown as JsonObject;
+
+/** The legacy tool stays byte-for-byte stable for clients without illustrations. */
+export function authoringTool(illustrationEnabled = false): JsonObject {
+  if (!illustrationEnabled) return ASTRA_AUTHORING_TOOL;
+  const tool = structuredClone(ASTRA_AUTHORING_TOOL);
+  const parameters = tool.parameters as JsonObject;
+  const properties = parameters.properties as JsonObject;
+  parameters.required = [...parameters.required as string[], "illustration"];
+  properties.illustration = {
+    description: "A generated teaching illustration for observed components, or null. Only use with explanation mode, zero operations and null scopeParentNodeId. An illustration is not a measured observation or an installed scene edit.",
+    anyOf: [
+      {
+        type: "object",
+        additionalProperties: false,
+        required: ["brief", "componentNodeIds", "sourceArtifactId"],
+        properties: {
+          brief: { type: "string", minLength: 1, maxLength: 2_000, description: "At most 2000 UTF-8 bytes. Describe the teaching objective, diagram or cutaway composition, labels and any requested refinement. Distinguish general illustrative content from observed source facts." },
+          componentNodeIds: { type: "array", minItems: 1, maxItems: 16, items: { type: "string", minLength: 1, maxLength: 128 }, description: "One to sixteen unique exact node IDs observed in acceptedScene. Bind the illustration to the relevant selected components, never invented internal parts." },
+          sourceArtifactId: { anyOf: [{ type: "string", minLength: 1, maxLength: 128 }, { type: "null" }], description: "For refinement, the exact artifactId from recentIllustrations. Otherwise null. Never use a URL, file path or an invented artifact ID." }
+        }
+      },
+      { type: "null" }
+    ]
+  };
+  return tool;
+}

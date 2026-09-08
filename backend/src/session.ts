@@ -6,6 +6,7 @@ import { GenerationReceipt, PhoneSnapshot, PROTOCOL_VERSION, SceneReceipt, Sessi
 import { DiagnosticLogger, safeError } from "./diagnostics.js";
 import { SceneConversation, TurnInput } from "./astra/conversation-context.js";
 import { AvailableAssetDetail } from "./asset-details.js";
+import { IllustrationService, SessionIllustrations } from "./illustrations/jobs.js";
 
 export interface SessionSink { send(message: JsonObject): void }
 
@@ -30,13 +31,16 @@ interface PendingProposal {
 
 interface ActiveRun { controller: AbortController; startedAt: number; timedOut: boolean; deadline: ReturnType<typeof setTimeout> }
 
-export interface SessionOptions { modelTimeoutMs?: number; receiptTimeoutMs?: number; logger?: DiagnosticLogger; sessionId?: string; }
+export interface SessionOptions { modelTimeoutMs?: number; receiptTimeoutMs?: number; logger?: DiagnosticLogger; sessionId?: string; illustrations?: IllustrationService; }
 const DEFAULT_MODEL_TIMEOUT_MS = 45_000;
 const DEFAULT_RECEIPT_TIMEOUT_MS = 30_000;
 
 export class AstraSession {
   private hello?: SessionHello;
   private snapshot?: Snapshot;
+  private snapshotSynchronized = false;
+  private illustrations?: SessionIllustrations;
+  private readonly illustrationService?: IllustrationService;
   private readonly active = new Map<string, ActiveRun>();
   private readonly pending = new Map<string, PendingProposal>();
   private readonly completed = new Set<string>();
@@ -51,6 +55,7 @@ export class AstraSession {
     this.receiptTimeoutMs = options.receiptTimeoutMs ?? DEFAULT_RECEIPT_TIMEOUT_MS;
     this.logger = options.logger;
     this.sessionId = options.sessionId;
+    this.illustrationService = options.illustrations;
   }
 
   acceptHello(hello: SessionHello): void {
@@ -64,9 +69,13 @@ export class AstraSession {
       this.installedProposalIds.clear();
     }
     this.hello = hello;
+    if (this.illustrationService && hello.capabilities.includes("illustration.v1")) {
+      this.illustrations = new SessionIllustrations(this.illustrationService, () => this.snapshotSynchronized ? this.snapshot : undefined, message => this.send(message), this.logger);
+    }
     this.log("handshake_accepted", { sessionId: hello.sessionId });
     this.snapshot = undefined;
-    this.send({ type: "session.accepted", protocolVersion: PROTOCOL_VERSION, sessionId: hello.sessionId, sceneSchemaVersion: 1, geometrySemanticsVersion: 1 });
+    this.snapshotSynchronized = false;
+    this.send({ type: "session.accepted", protocolVersion: PROTOCOL_VERSION, sessionId: hello.sessionId, sceneSchemaVersion: 1, geometrySemanticsVersion: 1, illustrationEnabled: Boolean(this.illustrations) });
   }
 
   updateSnapshot(message: PhoneSnapshot): void {
@@ -77,15 +86,22 @@ export class AstraSession {
       throw new ProtocolError("snapshot cannot move epoch or revision backwards", "stale_snapshot");
     }
     this.snapshot = { sceneId: message.sceneId, revision: message.revision, intentEpoch: message.intentEpoch, document: message.document, availableAssetDetails: structuredClone(message.availableAssetDetails ?? []) };
+    this.snapshotSynchronized = true;
+    this.illustrations?.sceneChanged();
     this.log("snapshot_received", { revision: message.revision, epoch: message.intentEpoch, nodeCount: observedNodeIds(message.document).size });
   }
 
   async request(message: UserRequest): Promise<void> {
     this.ensureHello();
     const admission = this.requireSnapshot();
+    if (!this.snapshotSynchronized) {
+      this.error(message.requestId, new ProtocolError("Waiting for the device's accepted scene snapshot.", "scene_snapshot_pending"));
+      return;
+    }
     if (this.completed.has(message.requestId) || this.active.has(message.requestId)) { this.log("user_request_stale", { requestId: message.requestId, reason: "duplicate" }, "warn"); return; }
     const controller = new AbortController();
     const input: TurnInput = { userRequest: message.text, selectionNodeIds: [...(message.selection?.nodeIds ?? [])] };
+    const admittedIllustrations = this.illustrations?.recent() ?? [];
     const startedAt = Date.now();
     const run: ActiveRun = { controller, startedAt, timedOut: false, deadline: undefined as unknown as ReturnType<typeof setTimeout> };
     run.deadline = setTimeout(() => { run.timedOut = true; controller.abort(); }, this.modelTimeoutMs);
@@ -95,7 +111,7 @@ export class AstraSession {
     this.send({ type: "session.progress", requestId: message.requestId, status: "thinking", intentEpoch: admission.intentEpoch });
     let deliveryStarted = false;
     try {
-      let functionCall = await this.collectFunctionCall(message, admission, controller.signal, message.text);
+      let functionCall = await this.collectFunctionCall(message, admission, controller.signal, message.text, admittedIllustrations);
       if (controller.signal.aborted) return;
       this.assertAdmissionCurrent(admission);
       let normalized: NormalizedProposal;
@@ -106,11 +122,17 @@ export class AstraSession {
         if (!(error instanceof ProtocolError) || error.code !== "proposal_rejected") throw error;
         this.log("normalize_repair", { requestId: message.requestId, reason: error.code, safeError: safeError(error) }, "warn");
         this.send({ type: "session.progress", requestId: message.requestId, status: "repairing_proposal", intentEpoch: admission.intentEpoch });
-        functionCall = await this.collectFunctionCall(message, admission, controller.signal, `${message.text}\n\nThe previous scene proposal was rejected before device delivery: ${error.message}. Return one corrected proposal that satisfies the tool schema. Do not mention this repair to the user.`);
+        functionCall = await this.collectFunctionCall(message, admission, controller.signal, `${message.text}\n\nThe previous scene proposal was rejected before device delivery: ${error.message}. Return one corrected proposal that satisfies the tool schema. Do not mention this repair to the user.`, admittedIllustrations);
         this.assertAdmissionCurrent(admission);
         normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document), admission.availableAssetDetails);
       }
       if (controller.signal.aborted) return;
+      if (normalized.illustration) {
+        if (!this.illustrations) throw new ProtocolError("This client does not support illustration generation.", "illustration_unavailable");
+        if (!this.snapshotSynchronized) throw new ProtocolError("Waiting for the accepted scene snapshot before generating an illustration.", "illustration_scene_pending");
+        if (normalized.illustration.sourceArtifactId && !admittedIllustrations.some(item => item.artifactId === normalized.illustration!.sourceArtifactId)) throw new ProtocolError("The reference illustration was not available when this request began.", "illustration_source_unavailable");
+        this.illustrations.start(message.requestId, admission, normalized.illustration);
+      }
       if (normalized.mode === "explanation") {
         this.conversation.append(input, { status: "answered", explanation: normalized.explanation, affectedNodeIds: [] });
         this.completed.add(message.requestId);
@@ -139,13 +161,13 @@ export class AstraSession {
     }
   }
 
-  private async collectFunctionCall(message: UserRequest, admission: Snapshot, signal: AbortSignal, text: string): Promise<string> {
+  private async collectFunctionCall(message: UserRequest, admission: Snapshot, signal: AbortSignal, text: string, recentIllustrations: import("./astra/client.js").RecentIllustration[]): Promise<string> {
     let functionCall: string | undefined;
     const streamController = new AbortController();
     const forwardAbort = () => streamController.abort();
     signal.addEventListener("abort", forwardAbort, { once: true });
     if (signal.aborted) streamController.abort();
-    const iterator = this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, availableAssetDetails: admission.availableAssetDetails, recentTurns: this.conversation.context(observedNodeIds(admission.document)), signal: streamController.signal })[Symbol.asyncIterator]();
+    const iterator = this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, illustrationEnabled: Boolean(this.illustrations), recentIllustrations, availableAssetDetails: admission.availableAssetDetails, recentTurns: this.conversation.context(observedNodeIds(admission.document)), signal: streamController.signal })[Symbol.asyncIterator]();
     this.log("astra_fetch_start", { requestId: message.requestId });
     let sawFirstEvent = false;
     let completed = false;
@@ -185,6 +207,8 @@ export class AstraSession {
     if (receipt.revision < snapshot.revision) throw new ProtocolError("receipt revision is stale", "stale_receipt");
     // A receipt is evidence only. The following phone.snapshot updates the mirror document.
     this.snapshot = { ...snapshot, revision: receipt.revision };
+    if (receipt.revision !== snapshot.revision) this.snapshotSynchronized = false;
+    this.illustrations?.sceneChanged();
     if (receipt.status === "installed") this.installedProposalIds.add(receipt.requestId);
     for (const pending of this.pending.values()) {
       if (!pending.proposalRequestIds.includes(receipt.requestId)) continue;
@@ -214,6 +238,8 @@ export class AstraSession {
     if (receipt.protocolVersion !== PROTOCOL_VERSION || receipt.sceneId !== snapshot.sceneId) throw new ProtocolError("generation receipt protocol or scene mismatch", "receipt_rejected");
     if (receipt.revision < snapshot.revision) throw new ProtocolError("generation receipt revision is stale", "stale_receipt");
     this.snapshot = { ...snapshot, revision: receipt.revision };
+    if (receipt.revision !== snapshot.revision) this.snapshotSynchronized = false;
+    this.illustrations?.sceneChanged();
     if (receipt.status !== "rejected") return;
     const pending = [...this.pending.values()].find((item) => receipt.requestId.startsWith(`${item.requestId}:`));
     if (pending) {
@@ -230,7 +256,15 @@ export class AstraSession {
     this.log("user_request_cancel", { requestId });
   }
 
+  cancelIllustration(jobId: string): void { this.illustrations?.cancel(jobId); }
+  retryIllustration(jobId: string): void {
+    if (!this.illustrations) throw new ProtocolError("Illustrations are unavailable.", "illustration_unavailable");
+    this.illustrations.retry(jobId);
+  }
+
   dispose(): void {
+    this.illustrations?.dispose();
+    this.illustrations = undefined;
     for (const active of this.active.values()) { clearTimeout(active.deadline); active.controller.abort(); }
     this.active.clear();
     for (const pending of this.pending.values()) this.clearPending(pending);

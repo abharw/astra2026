@@ -19,7 +19,7 @@ This is the current repository map. It distinguishes the runnable product from i
 
 The earlier `examples/` directory became `content/`; the repository consolidation now places this data in `assets/`. Current source, test, tool, and documentation paths use `assets/`. Historical evidence JSON payloads retain their recorded paths and hashes.
 
-The repository consolidation is implemented and verified in the working tree; its commit and push are pending. Backend, framework, headless tools, app builds, bundle resources, and an ordinary saved-endpoint iPhone launch passed. [The structure record](repository-structure-plan.md) preserves ownership rules and migration acceptance criteria.
+The repository consolidation is implemented, verified, committed and pushed as `ef10dcb`. Backend, framework, headless tools, app builds, bundle resources, and an ordinary saved-endpoint iPhone launch passed. [The structure record](repository-structure-plan.md) preserves ownership rules and migration acceptance criteria.
 
 `assets/imported-rack/source-catalog.json` remains repository provenance, but it is no longer copied into the iOS app bundle: no shipped code reads it. The app reads `app-catalog`, `detail-catalog`, and `detail-templates`; license notices remain bundled because the source review requires their retention.
 

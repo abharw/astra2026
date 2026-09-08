@@ -17,7 +17,7 @@ Run the loopback-only development service with Doppler. `OPENAI_API_KEY` must co
 doppler run --project backend --config dev --only-secrets OPENAI_API_KEY -- npm start
 ```
 
-The default endpoints are `GET http://127.0.0.1:8787/health` and `ws://127.0.0.1:8787/session`. `ASTRA_SESSION_HOST` and `ASTRA_SESSION_PORT` configure the listener. A non-loopback host requires `SESSION_ACCESS_TOKEN`; native supplies it only in `session.hello.authToken` and the realtime credential HTTP Authorization header. The health response intentionally reports only whether an OpenAI credential exists.
+The default endpoints are `GET http://127.0.0.1:8787/health` and `ws://127.0.0.1:8787/session`. `ASTRA_SESSION_HOST` and `ASTRA_SESSION_PORT` configure the listener. A non-loopback host requires `SESSION_ACCESS_TOKEN`; native supplies it in `session.hello.authToken` and the Authorization bearer header for realtime credentials and illustration downloads. The health response intentionally reports only whether an OpenAI credential exists.
 
 ```sh
 npm run typecheck
@@ -34,10 +34,13 @@ Build the included container from this directory. It compiles TypeScript, listen
 docker build -t astra-session .
 docker run --rm -p 8787:8787 \
   -e OPENAI_API_KEY -e SESSION_ACCESS_TOKEN \
+  -v astra-illustrations:/app/.local/illustrations \
   -e PORT=8787 astra-session
 ```
 
-Use an HTTPS/WSS-capable proxy or platform ingress in front of the container. It must pass WebSocket upgrades through to `/session`, expose `GET /health` for liveness, and keep the authenticated `POST /realtime/client-secret` route reachable. Do not deploy more than one replica until session affinity and reconnect ownership are designed explicitly.
+`ASTRA_ILLUSTRATION_DIR` selects the illustration store. Development defaults to the repository's ignored `.local/illustrations`; the container uses an owned `/app/.local/illustrations` directory. Mount a persistent volume there to retain cached images and immutable provenance across restarts; a host bind mount must be writable by the container's `node` user. Storage is capped at 128 MiB and 64 PNG artifacts, with bounded generation receipts/cache keys. Eviction removes the oldest retained artifacts and their receipts. Sessions and in-flight jobs remain in memory and are intentionally discarded on reconnect.
+
+Use an HTTPS/WSS-capable proxy or platform ingress in front of the container. It must pass WebSocket upgrades through to `/session`, expose `GET /health` for liveness, and keep the authenticated `POST /realtime/client-secret` and `GET /illustrations/artifacts/<sha256>.png` routes reachable. Do not deploy more than one replica until session affinity and reconnect ownership are designed explicitly.
 
 ## Session wire
 
@@ -52,6 +55,10 @@ The service makes one direct strict function call (`propose_scene`) per text req
 `POST /realtime/client-secret` accepts `{ "sessionId": "..." }` and creates an OpenAI GA ephemeral credential for a direct native `gpt-realtime-2.1` WebSocket. The native conversation adapter sends typed text and local speech through one Realtime session. Realtime calls the app-bound `ask_astra` tool; the app then invokes the scene service and returns its terminal result as `function_call_output` before requesting the final text or audio response. This service still never relays raw audio or owns native scene installation.
 
 ## Current limits
+
+Clients advertise `illustration.v1` separately from geometry capabilities. With an image provider configured, `session.accepted.illustrationEnabled` is true and the existing single `propose_scene` schema gains a nullable illustration intent. Only an explanation with zero scene operations may request an image. The backend supplements the bounded brief with admitted component semantics; it generates one 1024 × 1024 medium-quality PNG with `gpt-image-2.5-flare`, or refines a retained image through the direct edits API. The ordinary explanation completes immediately while independent `illustration.state` events report generating, ready, failed, cancelled, or stale.
+
+Image work has its own 150-second deadline, at most two provider calls globally and one active job per session. PNG validation permits at most 2048 pixels per dimension and 12 MiB; bytes, checksums, MIME type and immutable generation provenance live in the artifact store rather than scene snapshots. Identical admitted requests reuse cache entries without a provider call. A changed scene ID, document or revision fences late completion; an ordinary conversational epoch advance preserves the image job. `illustration.cancel` explicitly cancels image work, while `illustration.retry` starts a new image-only job from a retained failed/cancelled admission and never repeats scene authoring or mutation. Refinement metadata is limited to four retained images from the current scene.
 
 The direct authoring normalizer supports geometry, material, node, transform/material/geometry/visibility changes. Aliases are bounded opaque text and resolve to stable IDs derived from the immutable user request ID and model aliases. The service computes the same typed binary request hash as `SpatialCore` (Astra Canonical Request v1). A rejected pre-delivery proposal is retained only as a bounded local stderr audit record before its single repair attempt; it is never sent to the scene executor or replayed. Relationship authoring, multi-batch streaming, persistence, reconnect replay, and PTC remain outside this first live path; the Realtime app tool is implemented at the conversation boundary and is not a second authoring normalizer.
 

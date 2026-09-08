@@ -10,7 +10,8 @@ struct SessionHello: Encodable {
     var intentEpoch: UInt64
     let sceneSchemaVersions = [1]
     let geometrySemanticsVersions = [1]
-    let capabilities = SceneCapability.allCases
+    // Illustration delivery is independent of the editable geometry contract.
+    let capabilities = SceneCapability.allCases.map(\.rawValue) + ["illustration.v1"]
     var authToken: String?
 }
 
@@ -48,6 +49,7 @@ struct SessionAccepted: Decodable {
     var sessionId: String
     var sceneSchemaVersion: Int
     var geometrySemanticsVersion: Int
+    var illustrationEnabled: Bool?
 }
 
 struct SessionExplanation: Decodable {

@@ -1,0 +1,751 @@
+{
+  "schema": "astra-images-2.5-integration-evidence/v1",
+  "recordedAt": "2026-09-08",
+  "implementationBaseline": "ef10dcb repository migration; image changes in working tree",
+  "status": "implemented_with_partial_acceptance",
+  "scope": "Existing backend and universal native app explanation images; no generated 3D asset or AR image plane.",
+  "redaction": "No credentials, endpoint hostnames, raw prompts, image base64, or full diagnostic traces. Generated PNGs and raw receipts remain ignored local files; SHA-256 references identify inspected artifacts.",
+  "provider": {
+    "model": "gpt-image-2.5-flare",
+    "fallbackUsed": false,
+    "generationEndpoint": "POST /v1/images/generations",
+    "refinementEndpoint": "POST /v1/images/edits",
+    "settings": {
+      "n": 1,
+      "size": "1024x1024",
+      "quality": "medium",
+      "output_format": "png"
+    },
+    "streamedPreviewImplemented": false,
+    "deadlineMS": 150000
+  },
+  "sourceReceipts": {
+    "initialLive": {
+      "path": ".local/illustration-acceptance/live/receipt.json",
+      "sha256": "835521438bdaf96a965bb7f9a3af726d5010dd1d008bdead3350faf603514411"
+    },
+    "injectedAuthoring": {
+      "path": ".local/illustration-acceptance/injected/receipt.json",
+      "sha256": "9cb12794673bcd707130c1846fc2cca26c7cb7358e4cf0cd2ccc487a140569b2"
+    },
+    "finalFidelityLive": {
+      "path": ".local/illustration-acceptance/fidelity-final/receipt.json",
+      "sha256": "8e0864cfce92fd40408b261274859768e5c5df0e3606c1dd32da63c72da91054"
+    }
+  },
+  "initialLive": {
+    "startedAt": "2026-09-08T22:17:08.262Z",
+    "wireStatus": "passed",
+    "mode": "live",
+    "inputBoundary": "Synthetic phone snapshots from a repository rack fixture and an inline illustrative lamp fixture.",
+    "authoringBoundary": "Real model chooses propose_scene over the running product wire.",
+    "scenarios": [
+      {
+        "name": "rack",
+        "status": "passed",
+        "requestId": "rack-07c516ae-b096-4464-95a7-a8d5c7109fde",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-e2ce545b-2406-4219-9d13-b51f6df78709",
+        "sceneRevision": 7,
+        "intentEpoch": 2,
+        "authoring": "live-model-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 5167,
+        "finalStateLatencyMS": 19024,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 5170,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+          "sha256": "00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1191145,
+          "sourceRevision": 7,
+          "sourceArtifactId": null,
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 35,
+          "savedPath": ".local/illustration-acceptance/live/00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": null,
+        "providerDispatchDelayMS": 0,
+        "higherIntentEpochSnapshotSentBeforeReady": true,
+        "epochSnapshotAcceptanceObserved": false,
+        "immutableProvenance": {
+          "sceneId": "illustration-acceptance-e2ce545b-2406-4219-9d13-b51f6df78709",
+          "documentHash": "76a80ab33775f2c1cbb92a1d187a8ceb1687ae2d4fba6d6f4deb3ffb94b91d92",
+          "requestId": "rack-07c516ae-b096-4464-95a7-a8d5c7109fde",
+          "intentEpoch": 2,
+          "componentNodeIds": [
+            "rack01.server01"
+          ],
+          "promptSha256": "5c04aa9f9ab4ab1c40ccd8a7ce6926ce2f5d2140222c36e17b9437e66eecb6dd"
+        }
+      },
+      {
+        "name": "refine",
+        "status": "passed",
+        "requestId": "refine-d2298125-145c-4d29-a372-007986f06a3f",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-e2ce545b-2406-4219-9d13-b51f6df78709",
+        "sceneRevision": 7,
+        "intentEpoch": 4,
+        "authoring": "live-model-propose_scene",
+        "sourceArtifactId": "sha256:00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+        "firstStateLatencyMS": 2963,
+        "finalStateLatencyMS": 15689,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 2963,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:f1da463f6b82e9f2b118ecdcd793ddc93909e54326a8c55ba23ddce0beefce91",
+          "sha256": "f1da463f6b82e9f2b118ecdcd793ddc93909e54326a8c55ba23ddce0beefce91",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1200817,
+          "sourceRevision": 7,
+          "sourceArtifactId": "sha256:00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 18,
+          "savedPath": ".local/illustration-acceptance/live/f1da463f6b82e9f2b118ecdcd793ddc93909e54326a8c55ba23ddce0beefce91.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": null,
+        "providerDispatchDelayMS": 0,
+        "immutableProvenance": {
+          "sceneId": "illustration-acceptance-e2ce545b-2406-4219-9d13-b51f6df78709",
+          "documentHash": "76a80ab33775f2c1cbb92a1d187a8ceb1687ae2d4fba6d6f4deb3ffb94b91d92",
+          "requestId": "refine-d2298125-145c-4d29-a372-007986f06a3f",
+          "intentEpoch": 4,
+          "componentNodeIds": [
+            "rack01.server01"
+          ],
+          "promptSha256": "8155924fdaffd6b0c3307191b99879d4f26b7614981dab39a7255c94e3dc22d4"
+        }
+      },
+      {
+        "name": "lamp",
+        "status": "passed",
+        "requestId": "lamp-418ff681-0165-43a9-ae8c-96e0dbcba199",
+        "fixture": "inline:synthetic-teaching-lamp",
+        "fixtureSHA256": "493e6548a38cbd220f9870c87614f584c585c15bc77997f482839c93d2ab6cd1",
+        "selectedNodeIds": [
+          "lamp.bulb"
+        ],
+        "sceneId": "illustration-acceptance-3d989ca8-9bf1-4a03-ba0b-0ec12d8ed293",
+        "sceneRevision": 7,
+        "intentEpoch": 2,
+        "authoring": "live-model-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 2430,
+        "finalStateLatencyMS": 16665,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 2431,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:2dca882847913c2396edd4ed010abdac1faa29dfe0e528c6463c3f27c8f055d9",
+          "sha256": "2dca882847913c2396edd4ed010abdac1faa29dfe0e528c6463c3f27c8f055d9",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 985000,
+          "sourceRevision": 7,
+          "sourceArtifactId": null,
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 15,
+          "savedPath": ".local/illustration-acceptance/live/2dca882847913c2396edd4ed010abdac1faa29dfe0e528c6463c3f27c8f055d9.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": null,
+        "providerDispatchDelayMS": 0,
+        "immutableProvenance": {
+          "sceneId": "illustration-acceptance-3d989ca8-9bf1-4a03-ba0b-0ec12d8ed293",
+          "documentHash": "b87a446fc21449027ce4bad27bb35130a7028696ff5d9668a0201b9cd7ef67c9",
+          "requestId": "lamp-418ff681-0165-43a9-ae8c-96e0dbcba199",
+          "intentEpoch": 2,
+          "componentNodeIds": [
+            "lamp.bulb"
+          ],
+          "promptSha256": "7524f1a34e614c8f9c0e0dcbe25663e0777b5369d398f846961e1d498e6c9413"
+        }
+      }
+    ]
+  },
+  "injectedAuthoring": {
+    "startedAt": "2026-09-08T22:17:08.613Z",
+    "wireStatus": "passed",
+    "mode": "injected-authoring",
+    "inputBoundary": "Synthetic phone snapshots from a repository rack fixture and an inline illustrative lamp fixture.",
+    "authoringBoundary": "Exact injected propose_scene; does not establish real model selection. Image generation/edit calls use the real provider.",
+    "scenarios": [
+      {
+        "name": "rack",
+        "status": "passed",
+        "requestId": "rack-6034a973-def4-4c50-9bb7-c7f326a33346",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-f40b1f70-0a5d-418c-af33-2beec9872727",
+        "sceneRevision": 7,
+        "intentEpoch": 2,
+        "authoring": "injected-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 10,
+        "finalStateLatencyMS": 17410,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 10,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64",
+          "sha256": "1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1161651,
+          "sourceRevision": 7,
+          "sourceArtifactId": null,
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 20,
+          "savedPath": ".local/illustration-acceptance/injected/1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": 1,
+        "providerDispatchDelayMS": 0,
+        "higherIntentEpochSnapshotSentBeforeReady": true,
+        "epochSnapshotAcceptanceObserved": false
+      },
+      {
+        "name": "cache",
+        "status": "passed",
+        "requestId": "cache-1bac0987-96d2-467d-95c5-c2b8d3629b9c",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-f40b1f70-0a5d-418c-af33-2beec9872727",
+        "sceneRevision": 7,
+        "intentEpoch": 4,
+        "authoring": "injected-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 1,
+        "finalStateLatencyMS": 13,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 1,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64",
+          "sha256": "1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1161651,
+          "sourceRevision": 7,
+          "sourceArtifactId": null,
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 13,
+          "savedPath": ".local/illustration-acceptance/injected/1425f71316b2c7bec21265f8e7b7201938b7556152dcbc98bd27a123f0378c64.png"
+        },
+        "cacheHit": true,
+        "providerDispatchCount": 0,
+        "sameArtifactAsRack": true,
+        "cacheReuseVerified": true,
+        "zeroProviderDispatchesVerified": true,
+        "providerDispatchDelayMS": 0
+      },
+      {
+        "name": "cancel",
+        "status": "passed",
+        "requestId": "cancel-c495fee3-43f5-43c7-a44a-c7ae1e6b46e1",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-f40b1f70-0a5d-418c-af33-2beec9872727",
+        "sceneRevision": 7,
+        "intentEpoch": 5,
+        "authoring": "injected-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 2,
+        "finalStateLatencyMS": 2,
+        "terminalStatus": "cancelled",
+        "providerDispatchCount": 0,
+        "providerDispatchDelayMS": 1000,
+        "lateReadyObservationMS": 2000,
+        "lateReadyObserved": false,
+        "longDelayCompletionFenceVerified": false
+      },
+      {
+        "name": "stale",
+        "status": "passed",
+        "requestId": "stale-7d886c9b-e61a-4bc9-981c-5ce205753be6",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-f40b1f70-0a5d-418c-af33-2beec9872727",
+        "sceneRevision": 7,
+        "intentEpoch": 6,
+        "authoring": "injected-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 2,
+        "finalStateLatencyMS": 2,
+        "terminalStatus": "stale",
+        "providerDispatchCount": 0,
+        "providerDispatchDelayMS": 1000,
+        "lateReadyObservationMS": 2000,
+        "lateReadyObserved": false,
+        "longDelayCompletionFenceVerified": false
+      }
+    ]
+  },
+  "finalFidelityLive": {
+    "startedAt": "2026-09-08T22:19:49.938Z",
+    "wireStatus": "passed",
+    "mode": "live",
+    "inputBoundary": "Synthetic phone snapshots from a repository rack fixture and an inline illustrative lamp fixture.",
+    "authoringBoundary": "Real model chooses propose_scene over the running product wire.",
+    "scenarios": [
+      {
+        "name": "rack",
+        "status": "passed",
+        "requestId": "rack-67907187-12d6-48e7-bfcf-468c4d50bebc",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-5f6cb041-dee4-4459-b6ec-3af915caeb2a",
+        "sceneRevision": 7,
+        "intentEpoch": 2,
+        "authoring": "live-model-propose_scene",
+        "sourceArtifactId": null,
+        "firstStateLatencyMS": 3298,
+        "finalStateLatencyMS": 16108,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 3299,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+          "sha256": "dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1031789,
+          "sourceRevision": 7,
+          "sourceArtifactId": null,
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 30,
+          "savedPath": ".local/illustration-acceptance/fidelity-final/dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": null,
+        "providerDispatchDelayMS": 0,
+        "higherIntentEpochSnapshotSentBeforeReady": true,
+        "epochSnapshotAcceptanceObserved": false,
+        "immutableProvenance": {
+          "sceneId": "illustration-acceptance-5f6cb041-dee4-4459-b6ec-3af915caeb2a",
+          "documentHash": "76a80ab33775f2c1cbb92a1d187a8ceb1687ae2d4fba6d6f4deb3ffb94b91d92",
+          "requestId": "rack-67907187-12d6-48e7-bfcf-468c4d50bebc",
+          "intentEpoch": 2,
+          "componentNodeIds": [
+            "rack01.server01"
+          ],
+          "promptSha256": "a12d7e59a3df4f2ee5f9cbd85f501bc83dea0d3fa688f44403ef2cb7a6e3b0c9"
+        }
+      },
+      {
+        "name": "refine",
+        "status": "passed",
+        "requestId": "refine-7bacfb96-56a6-4e78-881d-9eba8ed0d902",
+        "fixture": "framework/contract/fixtures/accepted/imported_rack_document.json",
+        "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+        "selectedNodeIds": [
+          "rack01.server01"
+        ],
+        "sceneId": "illustration-acceptance-5f6cb041-dee4-4459-b6ec-3af915caeb2a",
+        "sceneRevision": 7,
+        "intentEpoch": 4,
+        "authoring": "live-model-propose_scene",
+        "sourceArtifactId": "sha256:dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+        "firstStateLatencyMS": 3217,
+        "finalStateLatencyMS": 18200,
+        "terminalStatus": "ready",
+        "explanationLatencyMS": 3218,
+        "explanationIndependentOfImage": true,
+        "artifact": {
+          "artifactId": "sha256:f6120531870f960a6994c878c0cb5fac2dfd028d54437a8df9e59dee230c3dfe",
+          "sha256": "f6120531870f960a6994c878c0cb5fac2dfd028d54437a8df9e59dee230c3dfe",
+          "model": "gpt-image-2.5-flare",
+          "mimeType": "image/png",
+          "width": 1024,
+          "height": 1024,
+          "byteCount": 1054229,
+          "sourceRevision": 7,
+          "sourceArtifactId": "sha256:dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+          "authenticatedGET": true,
+          "missingAndInvalidTokenRejected": true,
+          "httpStatus": 200,
+          "downloadMS": 16,
+          "savedPath": ".local/illustration-acceptance/fidelity-final/f6120531870f960a6994c878c0cb5fac2dfd028d54437a8df9e59dee230c3dfe.png"
+        },
+        "cacheHit": false,
+        "providerDispatchCount": null,
+        "providerDispatchDelayMS": 0,
+        "immutableProvenance": {
+          "sceneId": "illustration-acceptance-5f6cb041-dee4-4459-b6ec-3af915caeb2a",
+          "documentHash": "76a80ab33775f2c1cbb92a1d187a8ceb1687ae2d4fba6d6f4deb3ffb94b91d92",
+          "requestId": "refine-7bacfb96-56a6-4e78-881d-9eba8ed0d902",
+          "intentEpoch": 4,
+          "componentNodeIds": [
+            "rack01.server01"
+          ],
+          "promptSha256": "f0e77efbbc08c89e8aa4dad04c410cfd18044db77647020c0b5c9ac70b6dd1f7"
+        }
+      }
+    ]
+  },
+  "startupFailure": {
+    "source": {
+      "path": ".local/illustration-acceptance/fidelity/receipt.json",
+      "sha256": "b909534931fab8bf900e1efd054e1419499601556242387370a0e52a0999ecf8"
+    },
+    "startedAt": "2026-09-08T22:19:44.982Z",
+    "status": "failed",
+    "failureCode": "websocket_open_failed",
+    "elapsedMS": 13,
+    "interpretation": "Attempt began immediately during service restart. Backend readiness was then checked and finalFidelityLive passed."
+  },
+  "visualInspection": {
+    "method": "Assistant inspection of decoded local PNGs; no pixel-level CAD comparison or physical scene observation.",
+    "initialRack": {
+      "sha256": "00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+      "readableLabels": true,
+      "blueIntakeRedExhaustDirectionsUseful": true,
+      "componentFidelity": "partial",
+      "failures": [
+        "Invented 2.0 m height conflicts with fixture 2.210 m value.",
+        "Arbitrary server slot highlighted; exact selected-instance position not established.",
+        "Source-backed exterior claim unsupported by rendered reference; provider received semantics only."
+      ]
+    },
+    "initialRefinement": {
+      "sha256": "f1da463f6b82e9f2b118ecdcd793ddc93909e54326a8c55ba23ddce0beefce91",
+      "sourceSHA256": "00eef837d2d5597ec0e513871d46fade2952541ff30a4a8d6ee0fcc97945c5b3",
+      "compositionPreserved": true,
+      "exhaustArrowsOrange": true,
+      "legendExhaustSwatchStillRed": true,
+      "requestedEditConsistency": "partial"
+    },
+    "lamp": {
+      "sha256": "2dca882847913c2396edd4ed010abdac1faa29dfe0e528c6463c3f27c8f055d9",
+      "readableEnergyLightHeatLabels": true,
+      "directionsUseful": true,
+      "observed": "Illustrative incandescent-style bulb; does not establish exact fixture appearance, bulb type, or circuit."
+    },
+    "finalRack": {
+      "sha256": "dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+      "unrequestedDimensionsAbsent": true,
+      "schematicQualificationPresent": true,
+      "leftIntakeRightExhaust": true,
+      "remainingLimitation": "Tiny rack inset still highlights an arbitrary slot. Exact selected-instance position and exterior fidelity remain unverified without an assembly render."
+    },
+    "finalRefinement": {
+      "sha256": "f6120531870f960a6994c878c0cb5fac2dfd028d54437a8df9e59dee230c3dfe",
+      "sourceSHA256": "dce552a787ba7b72ea91381274179284418943c4ab543c489356f9c33657e8e7",
+      "exhaustArrowsHotAirLabelAndLegendOrange": true,
+      "layoutLabelsAndBlueIntakePreserved": true,
+      "requestedEditConsistency": "passed_for_this_pair",
+      "generality": "One inspected pair after strengthened prompting; not a guarantee for future images."
+    }
+  },
+  "nativeSimulator": {
+    "platform": "iOSSimulator",
+    "surface": "nonAR",
+    "observation": "Computer control of the actual universal app in an iPhone simulator.",
+    "uiChecks": {
+      "readyThumbnail": true,
+      "openFullImageSheet": true,
+      "doneReturnsToScene": true,
+      "rackRemainedVisibleAndUnchanged": true,
+      "laterConversationPreservedImage": true,
+      "conversationOverlapDuringGenerationVerified": false
+    },
+    "sceneNodeCount": 20,
+    "revision": 0,
+    "requestId": "turn_49f6ca4f-8ccf-4e1c-8eb4-928bcf54f7d2",
+    "artifact": {
+      "artifactId": "sha256:6721750b7458fe0713d9bb04df14c8394a86273df8d536b4ebe322b5be153653",
+      "width": 1024,
+      "height": 1024,
+      "byteCount": 1110219,
+      "sha256": "6721750b7458fe0713d9bb04df14c8394a86273df8d536b4ebe322b5be153653",
+      "mimeType": "image/png",
+      "model": "gpt-image-2.5-flare",
+      "sourceRevision": 0,
+      "path": "/illustrations/artifacts/6721750b7458fe0713d9bb04df14c8394a86273df8d536b4ebe322b5be153653.png",
+      "createdAt": "2026-09-08T22:18:27.971Z"
+    },
+    "provenance": {
+      "sceneId": "scene_b5341528-04cf-4003-8fb2-b0ab4ec2eaa6",
+      "documentHash": "93914e85c7199e5f2882dc66cf894ad7b2ceae7ac2d9e0e7cececcf524ff1ade",
+      "requestId": "turn_49f6ca4f-8ccf-4e1c-8eb4-928bcf54f7d2",
+      "intentEpoch": 1,
+      "componentNodeIds": [
+        "rack01"
+      ],
+      "promptSha256": "9b448d664796251ba9929419b11a7a8ca2160f88501fc3016229d751e4131426"
+    },
+    "requestToVerifiedLocalImageMS": 23730,
+    "followupRequestId": "turn_401121f7-5fa2-40aa-8c25-875fa6404d55",
+    "followupExplanationLatencyMS": 5522,
+    "overlapLimit": "Image was backend-ready before the follow-up request was admitted. This run does not prove native conversational overlap during generation.",
+    "diagnosticsSource": {
+      "path": ".local/diagnostics/20260908T221929Z-1FBF9DD9-FBE2-453F-9EDB-65B9FEBCDCFA/events.jsonl",
+      "sha256": "629d6accba2cf767e603ce17814db0a0c07beb24a6e9d9a90f24d4d8084e0fa0"
+    },
+    "redactedEvents": [
+      {
+        "component": "scene.controller",
+        "correlationID": "turn_49f6ca4f-8ccf-4e1c-8eb4-928bcf54f7d2",
+        "event": "request.sent",
+        "fields": {
+          "intent_epoch": "1"
+        },
+        "level": "info",
+        "runID": "f0ea335f-7622-45f2-84ac-ea243a4702aa",
+        "sequence": 150,
+        "timestamp": "2026-09-08T22:18:04.296Z",
+        "uptimeMs": 248446298.3865
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_75847eca-8a39-496e-b845-0436bdb77e20",
+        "event": "illustration.state",
+        "fields": {
+          "revision": "0",
+          "status": "generating"
+        },
+        "level": "info",
+        "runID": "f0ea335f-7622-45f2-84ac-ea243a4702aa",
+        "sequence": 163,
+        "timestamp": "2026-09-08T22:18:14.666Z",
+        "uptimeMs": 248456667.85504168
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_75847eca-8a39-496e-b845-0436bdb77e20",
+        "event": "illustration.state",
+        "fields": {
+          "revision": "0",
+          "status": "ready"
+        },
+        "level": "info",
+        "runID": "f0ea335f-7622-45f2-84ac-ea243a4702aa",
+        "sequence": 190,
+        "timestamp": "2026-09-08T22:18:27.994Z",
+        "uptimeMs": 248469996.78537503
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_75847eca-8a39-496e-b845-0436bdb77e20",
+        "event": "illustration.ready",
+        "fields": {
+          "bytes": "1110219",
+          "sha256": "6721750b7458fe0713d9bb04df14c8394a86273df8d536b4ebe322b5be153653"
+        },
+        "level": "info",
+        "runID": "f0ea335f-7622-45f2-84ac-ea243a4702aa",
+        "sequence": 191,
+        "timestamp": "2026-09-08T22:18:28.026Z",
+        "uptimeMs": 248470028.77641666
+      },
+      {
+        "component": "scene.controller",
+        "correlationID": "turn_401121f7-5fa2-40aa-8c25-875fa6404d55",
+        "event": "request.sent",
+        "fields": {
+          "intent_epoch": "2"
+        },
+        "level": "info",
+        "runID": "f0ea335f-7622-45f2-84ac-ea243a4702aa",
+        "sequence": 259,
+        "timestamp": "2026-09-08T22:18:36.125Z",
+        "uptimeMs": 248478127.1115417
+      }
+    ],
+    "savedScreenshots": [],
+    "captureBoundary": "Visual observations came from computer-control screenshots. No saved screenshot artifact is claimed."
+  },
+  "verification": {
+    "backendTests": 173,
+    "nativeSwiftTestingCases": 91,
+    "nativeXCTestCases": 6,
+    "nativeExplicitEnvironmentResourceSkips": 5,
+    "simulatorBuild": "passed",
+    "signedDeviceBuild": "passed",
+    "physicalInstallation": {
+      "iPhone": "installed",
+      "iPad": "installed"
+    },
+    "physicalImagePanelAcceptance": "not_verified_locked_screens",
+    "sourceAudit": "Tests cover late provider completion, retry without scene replay, receipt/snapshot races, cache concurrency, authenticated downloads, corruption, bounds, and eviction. These are deterministic results, separate from provider/wire/native observations."
+  },
+  "limits": {
+    "wireInputsAreSynthetic": true,
+    "liveWireProviderDispatchCountsInstrumented": false,
+    "cacheZeroExtraDispatchVerifiedOnlyWithInjectedAuthoring": true,
+    "cancelStaleObservationMS": 2000,
+    "cancelStaleProviderDispatchDelayedMS": 1000,
+    "cancelStaleAlreadyRunningProviderCancellationVerified": false,
+    "providerComputeOrBillingCancellationVerified": false,
+    "wireHigherEpochSnapshotAcknowledgementObserved": false,
+    "firstPreviewLatencyMeasured": false,
+    "physicalARPerformanceMeasured": false,
+    "exactVisualAssemblyFidelityVerified": false,
+    "nativeConversationOverlapDuringGenerationVerified": false
+  },
+  "reproduction": {
+    "live": "node tools/checks/check-illustrations.mjs --scenarios rack,refine,lamp --out .local/illustration-acceptance/live",
+    "injected": [
+      "npm --prefix backend run build",
+      "doppler run --project backend --config dev --only-secrets OPENAI_API_KEY -- node tools/checks/check-illustrations.mjs --mode injected-authoring --scenarios rack,cache,cancel,stale --out .local/illustration-acceptance/injected"
+    ],
+    "boundary": "Real provider calls. Live mode uses configured backend credentials silently; injected mode injects authoring only and counts real image-provider dispatches."
+  },
+  "nativeTabletSimulator": {
+    "platform": "iOSSimulator",
+    "device": "iPad Air 11-inch (M4)",
+    "surface": "nonAR",
+    "sceneNodeCount": 20,
+    "revision": 0,
+    "observation": "Computer control of the actual universal app: ready panel with the rack visible, full image sheet opened, readable 18-server explanation with blue intake and orange exhaust and illustrative footer.",
+    "uiChecks": {
+      "readyPanel": true,
+      "rackVisibleBehindPanel": true,
+      "openFullImageSheet": true,
+      "readableFlowLabels": true,
+      "illustrativeQualificationVisible": true
+    },
+    "requestId": "turn_1fc2e685-d5b1-4990-a800-0e220c7a82a7",
+    "requestToVerifiedLocalImageMS": 19055,
+    "artifact": {
+      "artifactId": "sha256:722377f93e534377056338f18cd26c92ff377566364ef077556d17004268fc45",
+      "width": 1024,
+      "height": 1024,
+      "byteCount": 910751,
+      "sha256": "722377f93e534377056338f18cd26c92ff377566364ef077556d17004268fc45",
+      "mimeType": "image/png",
+      "model": "gpt-image-2.5-flare",
+      "sourceRevision": 0,
+      "path": "/illustrations/artifacts/722377f93e534377056338f18cd26c92ff377566364ef077556d17004268fc45.png",
+      "createdAt": "2026-09-08T22:20:47.064Z"
+    },
+    "provenance": {
+      "sceneId": "scene_295259b5-dad3-4eed-bd4c-1fb61446c1b0",
+      "documentHash": "7124c2e7a94b3fc9441819c4ffdf2ae7567c36497f743a6ea1d1f0291ee4e0a2",
+      "requestId": "turn_1fc2e685-d5b1-4990-a800-0e220c7a82a7",
+      "intentEpoch": 1,
+      "componentNodeIds": [
+        "rack01"
+      ],
+      "promptSha256": "ffdc130fdc5c4588ce1a83c78104c6335599abc47d620a14c3b9ea81cc8af046"
+    },
+    "diagnosticsSource": {
+      "path": ".local/diagnostics/20260908T222118Z-564C0D96-3E0F-491B-8592-910A7DAEECEA/events.jsonl",
+      "sha256": "738fc776146560defb3b325a346fc382cb4f2702aed427dadb276c0484a0ef67"
+    },
+    "redactedEvents": [
+      {
+        "component": "scene.controller",
+        "correlationID": "turn_1fc2e685-d5b1-4990-a800-0e220c7a82a7",
+        "event": "request.sent",
+        "fields": {
+          "intent_epoch": "1"
+        },
+        "level": "info",
+        "runID": "6727655e-739c-490e-ab18-fa924c408fd2",
+        "sequence": 118,
+        "timestamp": "2026-09-08T22:20:28.062Z",
+        "uptimeMs": 248590064.3329167
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_460df842-30e1-4325-80ef-a721f49a4e50",
+        "event": "illustration.state",
+        "fields": {
+          "revision": "0",
+          "status": "generating"
+        },
+        "level": "info",
+        "runID": "6727655e-739c-490e-ab18-fa924c408fd2",
+        "sequence": 130,
+        "timestamp": "2026-09-08T22:20:33.665Z",
+        "uptimeMs": 248595667.18908337
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_460df842-30e1-4325-80ef-a721f49a4e50",
+        "event": "illustration.state",
+        "fields": {
+          "revision": "0",
+          "status": "ready"
+        },
+        "level": "info",
+        "runID": "6727655e-739c-490e-ab18-fa924c408fd2",
+        "sequence": 156,
+        "timestamp": "2026-09-08T22:20:47.083Z",
+        "uptimeMs": 248609085.05091667
+      },
+      {
+        "component": "scene.illustration",
+        "correlationID": "illustration_460df842-30e1-4325-80ef-a721f49a4e50",
+        "event": "illustration.ready",
+        "fields": {
+          "bytes": "910751",
+          "sha256": "722377f93e534377056338f18cd26c92ff377566364ef077556d17004268fc45"
+        },
+        "level": "info",
+        "runID": "6727655e-739c-490e-ab18-fa924c408fd2",
+        "sequence": 157,
+        "timestamp": "2026-09-08T22:20:47.117Z",
+        "uptimeMs": 248609119.32287502
+      }
+    ],
+    "savedScreenshots": [],
+    "captureBoundary": "Visual observations came from computer-control screenshots. No saved screenshot artifact is claimed."
+  }
+}

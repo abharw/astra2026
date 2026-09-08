@@ -1,12 +1,12 @@
 # Next work: organization, generated visuals, richer geometry
 
-Updated September 8, 2026. Implementation baseline: `103f798` on branch **`Arav`**. Arav explicitly selected this order for the next session:
+Updated September 8, 2026. Reorganization baseline: `ef10dcb` (primitive implementation baseline: `103f798`) on branch **`Arav`**. Arav explicitly selected this order for the next session:
 
 1. **Reorganize the repository.**
 2. **Integrate and evaluate Images 2.5 for generated visuals, starting with 2D.**
 3. **Improve the native geometry and visual vocabulary Astra can generate.**
 
-This handoff records the current implementation work. Stage 1 is implemented and verified; its commit and push are pending. Image and flow features are not implemented. Follow this order even though the earlier visual research suggested improving native flows first.
+This handoff records the current implementation work. Stage 1 is implemented, verified, committed and pushed as `ef10dcb`. Image integration is implemented and verified through real model/provider calls and both simulator layouts, with physical-device acceptance pending locked screens. Flow features are next. Follow this order even though the earlier visual research suggested improving native flows first.
 
 ## Goal and current behavior
 
@@ -44,7 +44,7 @@ APPROACH.md
 HANDOFF.md
 ```
 
-The working tree moves `apps/ios` → `app`, `services/session` → `backend`, `packages/SpatialKit` → `framework`, `contracts` → `framework/contract`, and `content` → `assets`. Development scripts are grouped under `tools/assets`, `tools/checks`, and `tools/dev-session.py`; evidence and architecture/product/research documents are under `docs`. The three entry documents above remain at the root.
+The migration moved `apps/ios` → `app`, `services/session` → `backend`, `packages/SpatialKit` → `framework`, `contracts` → `framework/contract`, and `content` → `assets`. Development scripts are grouped under `tools/assets`, `tools/checks`, and `tools/dev-session.py`; evidence and architecture/product/research documents are under `docs`. The three entry documents above remain at the root.
 
 SceneLab and PointingReplay are separate executable targets in one `tools/Package.swift`. PointingReplay's MainActor isolation is preserved in the SwiftPM settings. The public Swift products remain `SpatialCore` and `SpatialApple`; directory names do not require renaming the modules.
 
@@ -58,11 +58,13 @@ Migration details covered by verification:
 - Preserve the existing private development token when moving `runtime` into `.local`. Existing server processes may still write to old paths; coordinate their restart rather than deleting active runtime state.
 - Update current commands and Markdown links, including this handoff. Preserve historical evidence payload paths and hashes as original observations.
 
-**Acceptance passed:** backend typecheck/tests/production build, framework tests, both headless tools, simulator and signed-device builds, bundle digest checks, and an ordinary iPhone launch using the saved endpoint. Commit and push the reorganization before starting image integration.
+**Acceptance passed:** backend typecheck/tests/production build, framework tests, both headless tools, simulator and signed-device builds, bundle digest checks, and an ordinary iPhone launch using the saved endpoint. The reorganization was committed and pushed as `ef10dcb` before image integration began.
 
 Backend verification passed typecheck, 115 tests, production build, and the context check. Framework verification passed 69 Swift Testing cases plus six XCTest cases, with four explicit environment-gated skips; the approved app-detail resource case passed. SceneLab validated 179 nodes and 32 geometries; all six pointing replay cases passed. Both app builds passed; all 11 checked bundle resources match the baseline, and the source catalog is excluded. Historical evidence payloads and the private token were preserved byte-for-byte. Both devices have the updated app installed. A fresh ordinary iPhone launch, with no environment injection, reached `connection.finished` with `ready=true` using its saved HTTPS endpoint and Keychain credential. The iPad launch remains unverified because its screen was locked; this does not change the verified iPhone launch. [Migration receipt](docs/evidence/repository-migration.json).
 
 ## 2. Integrate the new image API
+
+**Implemented:** exact Flare generation and refinement run as independent jobs in the existing backend. The native panel verifies authenticated PNG artifacts and preserves them across ordinary conversation; accepted scene changes retire them. The single `propose_scene` contract now has a capability-gated illustration intent. Backend typecheck/build and 173 tests pass; framework checks pass 91 Swift Testing cases plus six XCTest cases, with five explicit environment-gated skips. Simulator and signed-device builds pass. Real rack, refinement and non-rack lamp requests passed; both iPhone and iPad simulator panels and expanded views were observed. Both physical devices received the build, but locked screens prevented this stage’s physical launch/render checks. [Integration evidence and fidelity limits](docs/images-2.5-integration-status.md).
 
 Read [Images 2.5 research](docs/images-and-spatial-explanations.md), then verify current official API docs and account access. As last verified, `gpt-image-2.5-flare` and `gpt-image-2.5-sunburst` output **raster images**. Start with Flare. Arav is happy with 2D visuals; 3D output is optional if a documented, working capability actually provides it. A 2D image placed on an AR plane is still a 2D illustration. Do not delay this stage for a speculative 3D conversion pipeline.
 
@@ -115,4 +117,4 @@ swift run --package-path tools --scratch-path .local/build/tools PointingReplay 
 python3 tools/dev-session.py doctor
 ```
 
-Commit and push the verified stage 1 before starting image integration. Independent review, image API study and geometry design can proceed in parallel while edits remain assigned to clear owners. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.
+Stage 1 was committed and pushed before image implementation. Commit the verified image stage before starting native flow implementation. Continue independent reviews and bounded acceptance in parallel with clear file ownership. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.

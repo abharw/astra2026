@@ -1,6 +1,6 @@
 # Repository consolidation
 
-Status: directory migration implemented and verified in the working tree; commit and push are pending. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the baseline. Public Swift module names and the wire format are unchanged.
+Status: directory migration implemented, verified, committed and pushed as `ef10dcb`. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the baseline. Public Swift module names and the wire format are unchanged.
 
 The product has three code owners: one native app, one reusable spatial framework, and one deployable backend. The former `apps/ios`, `packages/SpatialKit`, and `services/session` wrappers added navigation without representing additional applications, packages, or services.
 
@@ -71,7 +71,7 @@ Keep the app, backend and framework as distinct modules. They have different dep
 
 ## Migration acceptance checklist
 
-All migration checks below passed against the reorganized tree. The ordinary launch check passed on iPhone using its saved HTTPS endpoint and Keychain credential; the iPad has the updated app installed but its locked screen prevented launch verification. The migration remains pending commit and push. [Verification receipt](evidence/repository-migration.json).
+All migration checks below passed against the reorganized tree. The ordinary launch check passed on iPhone using its saved HTTPS endpoint and Keychain credential; the iPad has the updated app installed but its locked screen prevented launch verification. The migration was committed and pushed as `ef10dcb`. [Verification receipt](evidence/repository-migration.json).
 
 1. Move tracked paths with history; update XcodeGen package/resource references and regenerate the app project.
 2. Update SwiftPM local package identity separately from public module names. Update fixture locators in Swift and TypeScript, and Python/JavaScript repository-root discovery.

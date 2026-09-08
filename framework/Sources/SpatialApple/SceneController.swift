@@ -90,6 +90,8 @@ public final class SceneController {
     public private(set) var activity: String?
     public private(set) var lastReceipt: ApplyReceipt?
     public private(set) var pointingUpdate: PointingResolverUpdate?
+    public private(set) var illustrationEnabled = false
+    public var illustration: IllustrationPresentation? { illustrationSession.presentation }
 
     @ObservationIgnored public let renderer: SceneRenderer
     @ObservationIgnored public var onExplanation: (@MainActor (String) -> Void)?
@@ -113,6 +115,7 @@ public final class SceneController {
     @ObservationIgnored private var assetDetails = ImportedAssetDetailRegistry()
     @ObservationIgnored private var nativePreparationTask: Task<Void, any Error>?
     @ObservationIgnored private var nativePreparationID: UUID?
+    @ObservationIgnored private let illustrationSession = IllustrationSession()
     #if os(iOS)
     @ObservationIgnored private var tapRelay: SceneTapGestureRelay?
     #endif
@@ -159,6 +162,8 @@ public final class SceneController {
     }
 
     public func connect(url: URL, authToken: String? = nil) {
+        illustrationSession.retire()
+        illustrationEnabled = false
         cancelActiveRequest(reason: "The scene connection was replaced.")
         guard let socketURL = websocketURL(from: url) else {
             lastError = "The session URL must use http, https, ws, or wss."
@@ -185,6 +190,8 @@ public final class SceneController {
                 switch state {
                 case .disconnected:
                     self.connectionState = .disconnected
+                    self.illustrationSession.retire()
+                    self.illustrationEnabled = false
                     self.cancelActiveRequest(reason: "The scene connection closed.")
                 case .connecting:
                     if self.connectionState != .connected {
@@ -197,6 +204,8 @@ public final class SceneController {
                     }
                 case let .failed(message):
                     self.connectionState = .failed(message)
+                    self.illustrationSession.retire()
+                    self.illustrationEnabled = false
                     self.lastError = message
                     self.activity = nil
                     self.failActiveRequest(message)
@@ -217,6 +226,8 @@ public final class SceneController {
     }
 
     public func disconnect() {
+        illustrationSession.retire()
+        illustrationEnabled = false
         nativePreparationTask?.cancel()
         cancelActiveRequest(reason: "The scene connection was closed.")
         transport.disconnect()
@@ -300,6 +311,7 @@ public final class SceneController {
             acceptedScene.document.nodes.contains { $0.nodeId == requestedID }
         }
         let epoch = acceptedScene.advanceIntentEpoch()
+        illustrationSession.register(requestID: resolvedRequestID, scene: acceptedScene)
         installedRequestIDs.removeAll(keepingCapacity: true)
         let fenceRequestID = "supersede_\(UUID().uuidString.lowercased())"
         let request = UserRequest(
@@ -363,6 +375,11 @@ public final class SceneController {
     }
 
     public func stop() {
+        cancelIllustration()
+        stopSceneRequest()
+    }
+
+    private func stopSceneRequest() {
         nativePreparationTask?.cancel()
         cancelActiveRequest(reason: "The scene request was stopped.")
         let epoch = acceptedScene.advanceIntentEpoch()
@@ -385,6 +402,40 @@ public final class SceneController {
                 try await self.transport.send(snapshot, using: self.encoder)
             } catch {
                 self.report(error)
+            }
+        }
+    }
+
+    public func cancelIllustration() {
+        guard let jobID = illustrationSession.cancel() else { return }
+        sendIllustrationControl(type: "illustration.cancel", jobID: jobID)
+    }
+
+    public func retryIllustration() {
+        guard illustrationEnabled, connectionState == .connected,
+              let serverURL = lastConnectedURL else { return }
+        guard let jobID = illustrationSession.retry(scene: acceptedScene,
+            serverURL: serverURL, authToken: sessionAuthToken) else { return }
+        sendIllustrationControl(type: "illustration.retry", jobID: jobID)
+    }
+
+    public func dismissIllustration() {
+        illustrationSession.dismiss()
+    }
+
+    private func sendIllustrationControl(type: String, jobID: String) {
+        guard connectionState == .connected, transport.state == .connected else { return }
+        let sendingSessionID = sessionID
+        Task { [weak self] in
+            guard let self, self.sessionID == sendingSessionID else { return }
+            if type == "illustration.retry" {
+                guard self.illustration?.jobID == jobID, self.illustration?.phase == .retrying else { return }
+            }
+            do {
+                try await self.transport.send(IllustrationControl(type: type, jobId: jobID), using: self.encoder)
+            } catch {
+                guard self.sessionID == sendingSessionID else { return }
+                self.illustrationSession.controlFailed(jobID: jobID)
             }
         }
     }
@@ -416,6 +467,7 @@ public final class SceneController {
         }
         let receipt = acceptedScene.undo(requestId: requestID)
         if receipt.status == .installed, let prepared {
+            illustrationSession.retire()
             renderer.installPreparedScene(acceptedScene.document, prepared: prepared)
             renderer.setImportedAssetPins(acceptedScene.retainedImportedAssetIDs)
             lastExplanation = nil
@@ -454,6 +506,7 @@ public final class SceneController {
         let reconnectURL = connectionState == .disconnected ? nil : lastConnectedURL
         let prepared = try renderer.prepareScene(state.document)
         renderer.installPreparedScene(state.document, prepared: prepared)
+        illustrationSession.retire()
         acceptedScene = state
         renderer.setImportedAssetPins(state.retainedImportedAssetIDs)
         installedRequestIDs.removeAll()
@@ -670,8 +723,20 @@ public final class SceneController {
                     throw SessionRuntimeError.incompatibleHandshake
                 }
                 connectionState = .connected
+                illustrationEnabled = accepted.illustrationEnabled == true
                 connectionDeadlineTask?.cancel()
                 DiagnosticsLog.shared.record("handshake.accepted", component: "scene.controller", correlationID: sessionID)
+            case "illustration.state":
+                // Image ingress must never fail or satisfy a scene receipt.
+                guard illustrationEnabled, connectionState == .connected,
+                      let serverURL = lastConnectedURL else { return }
+                do {
+                    let event = try decoder.decode(IllustrationStateEvent.self, from: data)
+                    illustrationSession.receive(event, scene: acceptedScene,
+                        serverURL: serverURL, authToken: sessionAuthToken)
+                } catch {
+                    DiagnosticsLog.shared.record("illustration.invalid_state", component: "scene.illustration", level: .warning)
+                }
             case "generation.begin", "generation.batch", "generation.finish", "scene.patch":
                 let message = try wireDecoder.decodeMessage(from: data)
                 let receivedSessionID = sessionID
@@ -732,6 +797,10 @@ public final class SceneController {
                 break
             case "session.error":
                 let serviceError = try decoder.decode(SessionErrorMessage.self, from: data)
+                if serviceError.code.hasPrefix("illustration_"), serviceError.requestId?.isEmpty != false {
+                    illustrationSession.controlRejected(serviceError.message)
+                    return
+                }
                 if let requestID = serviceError.requestId,
                    requestID != activeRequest?.requestID {
                     DiagnosticsLog.shared.record("service.error_stale", component: "scene.controller", level: .warning, correlationID: requestID, fields: ["code": serviceError.code])
@@ -825,6 +894,9 @@ public final class SceneController {
         }
 
         let receipt = acceptedScene.apply(message)
+        if acceptedScene.revision != startingRevision || acceptedScene.document != startingDocument {
+            illustrationSession.retire()
+        }
         let documentChanged = receipt.installedScene && acceptedScene.document != startingDocument
         if documentChanged, let prepared {
             renderer.installPreparedScene(acceptedScene.document, prepared: prepared)
@@ -969,7 +1041,7 @@ public final class SceneController {
         guard activeRequest?.requestID == requestID,
               activeRequest?.executionToken == executionToken else { return }
         cancelActiveRequest(reason: "The scene request was cancelled.")
-        stop()
+        stopSceneRequest()
     }
 
     private func finishActiveRequest(

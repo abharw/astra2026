@@ -1,10 +1,18 @@
 import { JsonObject, isObject } from "../json.js";
-import { ASTRA_AUTHORING_TOOL } from "./authoring-tool.js";
-import { ASTRA_SYSTEM_INSTRUCTIONS } from "./instructions.js";
+import { authoringTool } from "./authoring-tool.js";
+import { ASTRA_ILLUSTRATION_INSTRUCTIONS, ASTRA_SYSTEM_INSTRUCTIONS } from "./instructions.js";
 import { DiagnosticLogger, safeError } from "../diagnostics.js";
 import { RecentTurn } from "./conversation-context.js";
 import { sceneContext } from "./scene-context.js";
 import { AvailableAssetDetail } from "../asset-details.js";
+
+/** Only completed, admitted artifacts from the current scene enter model context. */
+export interface RecentIllustration {
+  artifactId: string;
+  componentNodeIds: string[];
+  sourceRevision: number;
+  brief: string;
+}
 
 export interface ModelRequest {
   requestId: string;
@@ -13,6 +21,8 @@ export interface ModelRequest {
   scene: JsonObject;
   recentTurns?: RecentTurn[];
   availableAssetDetails?: AvailableAssetDetail[];
+  illustrationEnabled?: boolean;
+  recentIllustrations?: RecentIllustration[];
   signal: AbortSignal;
 }
 
@@ -52,9 +62,9 @@ export class OpenAIResponsesTransport implements ModelTransport {
         parallel_tool_calls: false,
         max_output_tokens: 4_096,
         prompt_cache_options: { mode: "explicit", ttl: "30m" },
-        tools: [ASTRA_AUTHORING_TOOL],
+        tools: [authoringTool(request.illustrationEnabled)],
         input: [
-          { role: "developer", content: [{ type: "input_text", text: ASTRA_SYSTEM_INSTRUCTIONS, prompt_cache_breakpoint: { mode: "explicit" } }] },
+          { role: "developer", content: [{ type: "input_text", text: request.illustrationEnabled ? `${ASTRA_SYSTEM_INSTRUCTIONS}\n\n${ASTRA_ILLUSTRATION_INSTRUCTIONS}` : ASTRA_SYSTEM_INSTRUCTIONS, prompt_cache_breakpoint: { mode: "explicit" } }] },
           { role: "user", content: [{ type: "input_text", text: input }] }
         ]
       })
@@ -132,7 +142,11 @@ function parseProviderEvent(event: JsonObject): ModelEvent | undefined {
 export function formatUserInput(request: ModelRequest): string {
   // Every scene node remains present. The context factors repeated metadata; it
   // never truncates tail nodes or rounds transforms. Request identity stays in code.
-  return JSON.stringify({ userRequest: request.text, selectionNodeIds: request.selectionNodeIds, recentTurns: request.recentTurns ?? [], acceptedScene: sceneContext(request.scene), availableAssetDetails: request.availableAssetDetails ?? [] });
+  return JSON.stringify({
+    userRequest: request.text, selectionNodeIds: request.selectionNodeIds, recentTurns: request.recentTurns ?? [],
+    acceptedScene: sceneContext(request.scene), availableAssetDetails: request.availableAssetDetails ?? [],
+    ...(request.illustrationEnabled ? { recentIllustrations: (request.recentIllustrations ?? []).slice(-4).map(({ artifactId, componentNodeIds, sourceRevision, brief }) => ({ artifactId, componentNodeIds, sourceRevision, brief })) } : {})
+  });
 }
 
 function numeric(value: unknown): number | undefined { return typeof value === "number" && Number.isFinite(value) ? value : undefined; }

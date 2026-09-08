@@ -8,6 +8,7 @@ struct SpatialDemoView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @FocusState private var isComposerFocused: Bool
     @State private var isResponsePresented = false
+    @State private var isIllustrationPresented = false
 
     var body: some View {
         ZStack {
@@ -58,6 +59,9 @@ struct SpatialDemoView: View {
         .sheet(isPresented: $isResponsePresented) {
             AssistantResponseSheet(text: session.assistantText ?? "")
         }
+        .sheet(isPresented: $isIllustrationPresented) {
+            IllustrationSheet(controller: session.controller)
+        }
         .alert("Astra", isPresented: Binding(
             get: { session.runtimeUnavailableReason != nil },
             set: { if !$0 { session.runtimeUnavailableReason = nil } }
@@ -77,6 +81,9 @@ struct SpatialDemoView: View {
         }
         .onChange(of: isComposerFocused) { _, _ in
             recordPresentation()
+        }
+        .onChange(of: session.controller.illustration?.jobID) { _, jobID in
+            if jobID == nil { isIllustrationPresented = false }
         }
     }
 
@@ -135,6 +142,19 @@ struct SpatialDemoView: View {
                 retry: session.retryLastAction,
                 openResponse: { isResponsePresented = true }
             )
+            if let illustration = session.controller.illustration {
+                IllustrationPanel(
+                    illustration: illustration,
+                    isCompact: isCompactLandscape || isComposerFocused,
+                    cancel: session.controller.cancelIllustration,
+                    retry: session.controller.retryIllustration,
+                    dismiss: session.controller.dismissIllustration,
+                    open: {
+                        isComposerFocused = false
+                        isIllustrationPresented = true
+                    }
+                )
+            }
             ConversationComposer(
                 text: $session.composerText,
                 isFocused: $isComposerFocused,
@@ -156,10 +176,14 @@ struct SpatialDemoView: View {
     private var isCompactLandscape: Bool { verticalSizeClass == .compact }
 
     private var isCameraInteractionActive: Bool {
-        scenePhase == .active && !session.isSettingsPresented && !isResponsePresented
+        scenePhase == .active && !session.isSettingsPresented && !isResponsePresented && !isIllustrationPresented
     }
 
     private var showsResponse: Bool {
+        // Leave room for the image action and composer above a landscape keyboard.
+        if isCompactLandscape && isComposerFocused && session.controller.illustration != nil {
+            return false
+        }
         switch session.presentationPhase {
         case .ready, .listening, .responding: return true
         default: return false

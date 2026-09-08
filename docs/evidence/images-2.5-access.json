@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-09-08T22:08:06.662952+00:00",
+  "probe": "exact-model direct Image API generation",
+  "endpoint": "https://api.openai.com/v1/images/generations",
+  "request": {
+    "model": "gpt-image-2.5-flare",
+    "prompt": "Create a clean educational diagram on a white background showing three blue rounded blocks labeled INPUT, PROCESS, OUTPUT, connected left to right by two blue arrows. Place no other words or objects.",
+    "n": 1,
+    "size": "1024x1024",
+    "quality": "medium",
+    "output_format": "png"
+  },
+  "timeoutSeconds": 150,
+  "maximumResponseBytes": 12582912,
+  "maximumImageBytes": 8388608,
+  "fallbackUsed": false,
+  "attempts": 1,
+  "httpStatus": 200,
+  "requestId": "req_8503a277f93348ea86a2e5a52606464c",
+  "responseBytes": 1015125,
+  "outcome": "generated",
+  "usage": {
+    "input_tokens": 43,
+    "output_tokens": 439,
+    "total_tokens": 482,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 43
+    }
+  },
+  "elapsedMs": 10898,
+  "artifact": {
+    "id": "sha256:bdf16bf37e155afca7cd324a96a97319c4472c59b358f45c5fe10f196c524e3b",
+    "sha256": "bdf16bf37e155afca7cd324a96a97319c4472c59b358f45c5fe10f196c524e3b",
+    "mimeType": "image/png",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 761013,
+    "path": ".local/illustration-probe/bdf16bf37e155afca7cd324a96a97319c4472c59b358f45c5fe10f196c524e3b.png",
+    "model": "gpt-image-2.5-flare",
+    "source": "fixed API access probe; not live scene context"
+  },
+  "credentialSource": "Doppler project backend, config dev, selected OPENAI_API_KEY; key never recorded",
+  "visualInspection": {
+    "method": "view_image of actual local generated PNG",
+    "labels": [
+      "INPUT",
+      "PROCESS",
+      "OUTPUT"
+    ],
+    "labelOrderCorrect": true,
+    "arrowCount": 2,
+    "arrowDirection": "left to right",
+    "subjectCount": 3,
+    "subjectAppearance": "blue rounded blocks",
+    "scope": "fixed access probe, not live scene context or component fidelity acceptance"
+  },
+  "earlierReadOnlyProbes": {
+    "timing": "Earlier in the same September 8, 2026 session, before the definitive generation request",
+    "credentialSource": "same Doppler backend/dev OPENAI_API_KEY",
+    "models": [
+      {
+        "path": "/v1/models/gpt-image-2.5-flare",
+        "httpStatus": 404,
+        "errorType": "invalid_request_error",
+        "errorCode": "model_not_found",
+        "errorMessage": "The model 'gpt-image-2.5-flare' does not exist",
+        "elapsedMs": 648,
+        "requestId": "a666905a-d725-4602-b9ac-fda7b2fb7d3e"
+      },
+      {
+        "path": "/v1/models/gpt-image-2.5-sunburst",
+        "httpStatus": 404,
+        "errorType": "invalid_request_error",
+        "errorCode": "model_not_found",
+        "errorMessage": "The model 'gpt-image-2.5-sunburst' does not exist",
+        "elapsedMs": 870,
+        "requestId": "7f699c1c-b7ac-49dd-93d6-118ec6e621cb"
+      }
+    ],
+    "list": {
+      "path": "/v1/models",
+      "httpStatus": 200,
+      "modelCount": 131,
+      "requestedMatchingModels": [
+        "gpt-6-astra"
+      ],
+      "image25Models": [],
+      "requestId": "fc30b48a-56cf-48af-a54b-cb11a8422999"
+    },
+    "conclusion": "Model lookup and listing were not authoritative for Image API access; the subsequent exact Flare generation succeeded."
+  }
+}

@@ -2,11 +2,18 @@ import { createHash } from "node:crypto";
 import { JsonObject, ProtocolError, asObject, isNumber, isString, requireArray, requireString } from "./json.js";
 import { AvailableAssetDetail } from "./asset-details.js";
 
+export interface IllustrationIntent {
+  brief: string;
+  componentNodeIds: string[];
+  sourceArtifactId: string | null;
+}
+
 export interface AuthoringProposal {
   mode: "generation" | "patch" | "explanation";
   explanation: string;
   scopeParentNodeId: string | null;
   operations: JsonObject[];
+  illustration?: IllustrationIntent | null;
 }
 
 export interface NormalizedProposal {
@@ -14,6 +21,7 @@ export interface NormalizedProposal {
   explanation: string;
   scopeParentNodeId?: string;
   operations: JsonObject[];
+  illustration?: IllustrationIntent;
 }
 
 /**
@@ -33,6 +41,12 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
     throw new ProtocolError("explanations require zero operations; mutations require 1-128 operations", "proposal_rejected");
   }
   if (proposal.mode === "explanation" && proposal.scopeParentNodeId !== null) throw new ProtocolError("explanations cannot reserve a generation scope", "proposal_rejected");
+  let illustration: IllustrationIntent | undefined;
+  if (proposal.illustration !== undefined && proposal.illustration !== null) {
+    if (proposal.mode !== "explanation") throw new ProtocolError("illustrations require explanation mode with zero operations", "proposal_rejected");
+    illustration = parseIllustrationIntent(proposal.illustration);
+    if (illustration.componentNodeIds.some((nodeId) => !observedNodeIds.has(nodeId))) throw new ProtocolError("illustration components must be observed node IDs", "proposal_rejected");
+  }
   const resolve = (value: unknown, kind: "node" | "geometry" | "material", allowObserved = false): string => {
     if (!isString(value) || value.length === 0 || value.length > 128) throw new ProtocolError(`invalid ${kind} reference`, "proposal_rejected");
     const observedIds = kind === "node" ? observedNodeIds : kind === "geometry" ? observedGeometryIds : undefined;
@@ -170,7 +184,7 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
   if (proposal.mode === "generation" && proposal.scopeParentNodeId !== null && !observedNodeIds.has(proposal.scopeParentNodeId)) {
     throw new ProtocolError("generation scope parent was not observed", "proposal_rejected");
   }
-  return { mode: proposal.mode, explanation: proposal.explanation, scopeParentNodeId: proposal.scopeParentNodeId ?? undefined, operations };
+  return { mode: proposal.mode, explanation: proposal.explanation, scopeParentNodeId: proposal.scopeParentNodeId ?? undefined, operations, ...(illustration ? { illustration } : {}) };
 }
 
 /** Stable across turns and resource cache state, and scoped to one selected instance. */
@@ -186,7 +200,21 @@ export function parseAuthoringProposal(value: unknown): AuthoringProposal {
   const scope = object.scopeParentNodeId;
   if (scope !== null && !isString(scope)) throw new ProtocolError("scopeParentNodeId must be string or null", "proposal_rejected");
   const operations = requireArray(object, "operations", 128).map((item) => asObject(item, "proposal operation"));
-  return { mode, explanation, scopeParentNodeId: scope, operations };
+  const illustration = object.illustration === undefined || object.illustration === null ? object.illustration : parseIllustrationIntent(object.illustration);
+  return { mode, explanation, scopeParentNodeId: scope, operations, ...(illustration !== undefined ? { illustration } : {}) };
+}
+
+function parseIllustrationIntent(value: unknown): IllustrationIntent {
+  const object = asObject(value, "illustration");
+  const allowed = new Set(["brief", "componentNodeIds", "sourceArtifactId"]);
+  if (Object.keys(object).some((key) => !allowed.has(key))) throw new ProtocolError("unknown illustration property", "proposal_rejected");
+  const brief = object.brief;
+  if (typeof brief !== "string" || brief.trim().length === 0 || Buffer.byteLength(brief, "utf8") > 2_000) throw new ProtocolError("illustration brief must be non-empty and at most 2000 UTF-8 bytes", "proposal_rejected");
+  const componentNodeIds = object.componentNodeIds;
+  if (!Array.isArray(componentNodeIds) || componentNodeIds.length < 1 || componentNodeIds.length > 16 || !componentNodeIds.every((nodeId): nodeId is string => typeof nodeId === "string" && nodeId.length > 0 && nodeId.length <= 128) || new Set(componentNodeIds).size !== componentNodeIds.length) throw new ProtocolError("illustration components must be 1-16 unique node IDs", "proposal_rejected");
+  const sourceArtifactId = object.sourceArtifactId;
+  if (sourceArtifactId !== null && (typeof sourceArtifactId !== "string" || sourceArtifactId.length === 0 || sourceArtifactId.length > 128)) throw new ProtocolError("illustration sourceArtifactId must be a non-empty string up to 128 characters or null", "proposal_rejected");
+  return { brief: brief.trim(), componentNodeIds: [...componentNodeIds], sourceArtifactId };
 }
 
 export function payloadHash(envelopeWithoutHash: JsonObject): string {
