@@ -39,6 +39,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F1FC81240D6BD3CA66125081"
+               BuildableName = "RealtimeSessionTests.xctest"
+               BlueprintName = "RealtimeSessionTests"
+               ReferencedContainer = "container:AstraSpatialDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

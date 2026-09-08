@@ -1,6 +1,8 @@
 import Foundation
 
 enum RealtimeWire {
+    static let inputPrefixPaddingMS: Int64 = 300
+
     static func sessionUpdate() -> [String: Any] {
         [
             "type": "session.update",
@@ -32,8 +34,8 @@ enum RealtimeWire {
                         "transcription": ["model": "gpt-live-transcribe"],
                         "turn_detection": [
                             "type": "server_vad", "threshold": 0.5,
-                            "prefix_padding_ms": 300, "silence_duration_ms": 450,
-                            "create_response": false, "interrupt_response": true,
+                            "prefix_padding_ms": inputPrefixPaddingMS, "silence_duration_ms": 450,
+                            "create_response": false, "interrupt_response": false,
                         ],
                     ],
                     "output": [
@@ -47,6 +49,10 @@ enum RealtimeWire {
 
     static func appendAudio(_ data: Data) -> [String: Any] {
         ["type": "input_audio_buffer.append", "audio": data.base64EncodedString()]
+    }
+
+    static func clearInputAudio() -> [String: Any] {
+        ["type": "input_audio_buffer.clear"]
     }
 
     static func textInput(_ text: String, eventID: String) -> [String: Any] {
@@ -110,7 +116,7 @@ enum RealtimeWire {
     }
 
     private static func finalInstructions(for result: RealtimeSceneToolResult) -> String {
-        let presentation = "Use only the latest ask_astra function output. Present its explanation clearly in two to four concise sentences, speaking directly as Astra. If clarification is needed, ask the question directly; do not refer to another model or say that it needs clarification. Do not mention internal IDs, receipts, tool calls, or protocol details."
+        let presentation = "Use only the ask_astra function output whose requestID is \(result.requestID). Other outputs may belong to interrupted requests. Present its explanation clearly in two to four concise sentences, speaking directly as Astra. If clarification is needed, ask the question directly; do not refer to another model or say that it needs clarification. Do not mention internal IDs, receipts, tool calls, or protocol details."
         switch result.outcome {
         case .confirmedInstalled:
             return "The trusted app result confirms that the requested edit is installed in the scene. Describe it as completed. Installation does not prove that a part is visible in the current camera view. If the explanation uses pre-install words such as proposal, proposed, would, could, or recommendation for that edit, rephrase them to the actual installed state. Do not call the installed edit a proposal. \(presentation)"

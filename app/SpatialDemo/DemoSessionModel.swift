@@ -72,6 +72,19 @@ final class DemoSessionModel {
                 return RealtimeSceneToolResult(status: "cancelled", requestID: request.requestID, error: "The app session ended.")
             }
             return await self.executeSceneTool(request)
+        },
+        selectionSnapshotProvider: { [weak self] in
+            guard let self else { return nil }
+            let now = ProcessInfo.processInfo.systemUptime
+            if self.isPointingEnabled,
+               let cursor = self.controller.pointingUpdate?.cursor,
+               now - cursor.timestamp <= 0.35 {
+                guard let hover = self.controller.pointingUpdate?.stableHover,
+                      hover.isStable, now - hover.cursor.timestamp <= 0.35
+                else { return [] }
+                return [hover.target.nodeID]
+            }
+            return self.controller.selection?.nodeIDs ?? []
         }
     )
 

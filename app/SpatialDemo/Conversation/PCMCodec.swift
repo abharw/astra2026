@@ -1,8 +1,8 @@
 import Foundation
 
 enum PCMCodec {
-    static let sampleRate = 24_000
-    static let bytesPerFrame = 2
+    nonisolated static let sampleRate = 24_000
+    nonisolated static let bytesPerFrame = 2
 
     static func frameCount(inPCM16 data: Data) throws -> Int {
         guard data.count.isMultiple(of: bytesPerFrame) else {
@@ -16,26 +16,24 @@ enum PCMCodec {
 /// can be verified without a device audio route.
 struct PlaybackAccounting: Equatable, Sendable {
     private(set) var scheduledFrameCount = 0
-    private(set) var startSampleTime: Int64?
+    private(set) var playedFrameCount = 0
 
-    mutating func begin(at sampleTime: Int64) {
+    mutating func begin() {
         scheduledFrameCount = 0
-        startSampleTime = sampleTime
+        playedFrameCount = 0
     }
 
     mutating func append(frameCount: Int) {
         scheduledFrameCount += max(0, frameCount)
     }
 
-    func playedFrameCount(at sampleTime: Int64) -> Int {
-        guard let startSampleTime else { return 0 }
-        let elapsed = max(0, sampleTime - startSampleTime)
-        return min(scheduledFrameCount, Int(elapsed))
+    mutating func complete(frameCount: Int) {
+        playedFrameCount = min(scheduledFrameCount, playedFrameCount + max(0, frameCount))
     }
 
-    func playedMilliseconds(at sampleTime: Int64) -> Int {
-        playedFrameCount(at: sampleTime) * 1_000 / PCMCodec.sampleRate
-    }
+    /// Only completed buffers count as heard. A player clock also advances
+    /// through underrun gaps, so it cannot safely determine truncation offsets.
+    var playedMilliseconds: Int { playedFrameCount * 1_000 / PCMCodec.sampleRate }
 }
 
 struct PlaybackCut: Equatable, Sendable {
@@ -44,9 +42,15 @@ struct PlaybackCut: Equatable, Sendable {
     let playedMilliseconds: Int
 }
 
-enum VoiceOnsetTransition: Equatable, Sendable {
+nonisolated enum VoiceOnsetTransition: Equatable, Sendable {
     case began
     case ended
+}
+
+nonisolated struct VoiceOnsetDetection: Equatable, Sendable {
+    let transition: VoiceOnsetTransition
+    /// Frames consumed in this chunk when the analysis window completed.
+    let frameOffset: Int
 }
 
 /// A deliberately small local onset gate used only to timestamp and bind the
@@ -55,76 +59,84 @@ enum VoiceOnsetTransition: Equatable, Sendable {
 struct VoiceOnsetDetector: Sendable {
     private let beginRMS: Double
     private let endRMS: Double
-    private let voicedChunksRequired: Int
-    private let quietChunksRequired: Int
+    private let voicedFramesRequired: Int
+    private let quietFramesRequired: Int
+    private static let analysisWindowFrames = PCMCodec.sampleRate / 100
     private(set) var isSpeaking = false
-    private var voicedChunks = 0
-    private var quietChunks = 0
+    private var voicedFrames = 0
+    private var quietFrames = 0
+    private var windowFrames = 0
+    private var windowSquareSum = 0.0
+
+    var onsetWindowToleranceFrames: Int {
+        ((voicedFramesRequired + Self.analysisWindowFrames - 1) / Self.analysisWindowFrames + 1)
+            * Self.analysisWindowFrames
+    }
 
     init(
         beginRMS: Double = 0.028,
         endRMS: Double = 0.016,
-        voicedChunksRequired: Int = 2,
-        quietChunksRequired: Int = 10
+        minimumVoicedDuration: TimeInterval = 0.04,
+        minimumQuietDuration: TimeInterval = 0.2
     ) {
+        precondition(minimumVoicedDuration.isFinite && minimumVoicedDuration > 0)
+        precondition(minimumQuietDuration.isFinite && minimumQuietDuration > 0)
         self.beginRMS = beginRMS
         self.endRMS = endRMS
-        self.voicedChunksRequired = voicedChunksRequired
-        self.quietChunksRequired = quietChunksRequired
+        voicedFramesRequired = Int(ceil(minimumVoicedDuration * Double(PCMCodec.sampleRate)))
+        quietFramesRequired = Int(ceil(minimumQuietDuration * Double(PCMCodec.sampleRate)))
     }
 
-    mutating func process(pcm16 data: Data) -> VoiceOnsetTransition? {
-        let rms = Self.rms(pcm16: data)
-        if isSpeaking {
-            if rms < endRMS {
-                quietChunks += 1
-                if quietChunks >= quietChunksRequired {
-                    isSpeaking = false
-                    quietChunks = 0
-                    voicedChunks = 0
-                    return .ended
-                }
-            } else {
-                quietChunks = 0
-            }
-            return nil
-        }
+    /// Analyze fixed 10ms windows across callback boundaries. A large callback
+    /// can contain more than one transition, so no boundary is discarded.
+    mutating func process(pcm16 data: Data) -> [VoiceOnsetTransition] {
+        processTimed(pcm16: data).map(\.transition)
+    }
 
-        if rms >= beginRMS {
-            voicedChunks += 1
-            if voicedChunks >= voicedChunksRequired {
-                isSpeaking = true
-                voicedChunks = 0
-                quietChunks = 0
-                return .began
+    mutating func processTimed(pcm16 data: Data) -> [VoiceOnsetDetection] {
+        guard data.count.isMultiple(of: PCMCodec.bytesPerFrame) else { return [] }
+        var detections: [VoiceOnsetDetection] = []
+        data.withUnsafeBytes { bytes in
+            for offset in stride(from: 0, to: data.count, by: PCMCodec.bytesPerFrame) {
+                let raw = bytes.loadUnaligned(fromByteOffset: offset, as: Int16.self)
+                let sample = Double(Int16(littleEndian: raw)) / 32_768.0
+                windowSquareSum += sample * sample
+                windowFrames += 1
+                guard windowFrames == Self.analysisWindowFrames else { continue }
+                let rms = sqrt(windowSquareSum / Double(windowFrames))
+                if isSpeaking {
+                    quietFrames = rms < endRMS ? quietFrames + windowFrames : 0
+                    if quietFrames >= quietFramesRequired {
+                        isSpeaking = false
+                        quietFrames = 0
+                        voicedFrames = 0
+                        detections.append(VoiceOnsetDetection(
+                            transition: .ended, frameOffset: offset / PCMCodec.bytesPerFrame + 1
+                        ))
+                    }
+                } else {
+                    voicedFrames = rms >= beginRMS ? voicedFrames + windowFrames : 0
+                    if voicedFrames >= voicedFramesRequired {
+                        isSpeaking = true
+                        voicedFrames = 0
+                        quietFrames = 0
+                        detections.append(VoiceOnsetDetection(
+                            transition: .began, frameOffset: offset / PCMCodec.bytesPerFrame + 1
+                        ))
+                    }
+                }
+                windowFrames = 0
+                windowSquareSum = 0
             }
-        } else {
-            voicedChunks = 0
         }
-        return nil
+        return detections
     }
 
     mutating func reset() {
-        self = VoiceOnsetDetector(
-            beginRMS: beginRMS,
-            endRMS: endRMS,
-            voicedChunksRequired: voicedChunksRequired,
-            quietChunksRequired: quietChunksRequired
-        )
-    }
-
-    static func rms(pcm16 data: Data) -> Double {
-        let frameCount = data.count / PCMCodec.bytesPerFrame
-        guard frameCount > 0 else { return 0 }
-        let sum = data.withUnsafeBytes { bytes -> Double in
-            var total = 0.0
-            for offset in stride(from: 0, to: frameCount * 2, by: 2) {
-                let raw = bytes.loadUnaligned(fromByteOffset: offset, as: Int16.self)
-                let normalized = Double(Int16(littleEndian: raw)) / 32_768.0
-                total += normalized * normalized
-            }
-            return total
-        }
-        return sqrt(sum / Double(frameCount))
+        isSpeaking = false
+        voicedFrames = 0
+        quietFrames = 0
+        windowFrames = 0
+        windowSquareSum = 0
     }
 }

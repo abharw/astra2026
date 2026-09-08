@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-08T23:20:01.943505+00:00",
+  "scope": "Native microphone crash, response cancellation, and single Realtime conversation regression evidence",
+  "status": "regressions_passed_user_reported_reply_further_voice_investigation_paused",
+  "crash": {
+    "artifact": {
+      "path": ".local/flow-acceptance/iphone-astra-20260908T224815.ips",
+      "sha256": "c26d948534b9466e5e3c9e3717a365b6f78f2621ce529b157850ded5a8d1f768"
+    },
+    "capturedAt": "2026-09-08T22:48:14.804Z",
+    "exception": "EXC_BREAKPOINT / SIGTRAP",
+    "queue": "RealtimeMessenger.mServiceQueue",
+    "cause": "The AVAudioEngine input-tap closure inherited MainActor isolation and asserted its executor on the audio callback queue.",
+    "isolationChecker": {
+      "path": ".local/audio-callback-isolation/receipt.json",
+      "sha256": "ec6b6c1549ebbb43adb95c915433b138284e3e79b6e16b2226f39d7f57cfc200"
+    },
+    "checks": {
+      "allAudioEntriesNonisolated": true,
+      "noAudioEntryExecutorAssertion": true,
+      "sdkCallbacksExplicitlySendable": true,
+      "playbackUIHopRemainsMainActor": true,
+      "beforeInputTapHasMainActorAssertion": true,
+      "beforeEncoderWasMainActor": true
+    }
+  },
+  "physicalCaptureBeforeResponseFix": {
+    "runID": "0dec75e8-e31f-4ce2-9198-9403633ed35e",
+    "artifact": {
+      "path": ".local/diagnostics/audio-raw-20260908T231331Z/events.jsonl",
+      "sha256": "337f7dd1da5f5d58164889ad1c129aa4be805b592b6a5cb60c35f7510295b650"
+    },
+    "permissionGranted": true,
+    "hardwareSampleRate": 48000,
+    "wireSampleRate": 24000,
+    "channels": 1,
+    "counters": {
+      "tap_buffer_count": 75,
+      "tap_frame_count": 360000,
+      "converted_buffer_count": 75,
+      "converted_frame_count": 179704,
+      "empty_conversion_count": 0,
+      "conversion_failure_count": 0,
+      "stale_conversion_count": 0
+    },
+    "serializedWireFrames": 179704,
+    "serializedWireDurationMS": 7487.666666666667,
+    "serverUtterances": 2,
+    "transcriptionCompletionEventsArrived": 2,
+    "acceptedTranscriptionCompletions": 0,
+    "executedSceneTools": 0,
+    "audioReplies": 0,
+    "sequence": [
+      {
+        "timestamp": "2026-09-08T23:13:15.402Z",
+        "event": "microphone_permission_resolved",
+        "fields": {
+          "granted": "true"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:16.246Z",
+        "event": "remote_speech_bound",
+        "fields": {
+          "audio_start_ms": "0",
+          "capture_floor_ms": "0",
+          "item_id": "item_ELzI4TjaJ669pfcFEgX61",
+          "target_count": "0"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:18.479Z",
+        "event": "voice_turn_committed",
+        "fields": {
+          "generation": "6",
+          "item_id": "item_ELzI4TjaJ669pfcFEgX61",
+          "target_count": "0"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:18.580Z",
+        "event": "response_created",
+        "fields": {
+          "generation": "6",
+          "phase": "tool",
+          "response_id": "resp_ELzI6wy7iupcnzTxSAYvJ"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:18.748Z",
+        "event": "turn_cancelled",
+        "fields": {
+          "generation": "6",
+          "phase": "tool"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:18.849Z",
+        "event": "response_done_ignored",
+        "fields": {
+          "reason": "stale_or_unfenced"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:21.069Z",
+        "event": "remote_speech_bound",
+        "fields": {
+          "audio_start_ms": "4756",
+          "capture_floor_ms": "0",
+          "item_id": "item_ELzI9xc7q3l0cU5oMkS9W",
+          "target_count": "0"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:22.064Z",
+        "event": "voice_turn_committed",
+        "fields": {
+          "generation": "9",
+          "item_id": "item_ELzI9xc7q3l0cU5oMkS9W",
+          "target_count": "0"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:22.149Z",
+        "event": "response_created",
+        "fields": {
+          "generation": "9",
+          "phase": "tool",
+          "response_id": "resp_ELzIA1AbB6Dds788ydZjF"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:22.446Z",
+        "event": "turn_cancelled",
+        "fields": {
+          "generation": "9",
+          "phase": "tool"
+        }
+      },
+      {
+        "timestamp": "2026-09-08T23:13:22.532Z",
+        "event": "response_done_ignored",
+        "fields": {
+          "reason": "stale_or_unfenced"
+        }
+      }
+    ],
+    "finding": "Both committed voice turns were cancelled by a new local energy onset while awaiting the tool response. This happened before microphone disable. Raw energy is not proof of a new spoken utterance."
+  },
+  "implementation": [
+    "Audio callbacks and PCM conversion are nonisolated; checked Sendable Mutex-owned state protects conversion and capture IDs.",
+    "A bounded stream permits eight PCM chunks of at most 32 KiB, consumed by one task. Overflow is a terminal capture error.",
+    "Typed text and microphone PCM share the same Realtime socket, serialized writer, turn ownership, tool execution and final response path.",
+    "Server VAD has automatic response creation and interruption disabled. Only an owned timestamp-validated provider speech event can interrupt work or playback; raw local energy records selection hints only.",
+    "Selection history covers at most 10 seconds/512 ranges of forwarded PCM. It resolves speech without a local energy transition and avoids substituting a later selection when provider events are delayed.",
+    "Input clears fence old capture IDs and session-relative sample timestamps. Interrupted admitted tools still return their actual terminal result once, without a stale final response.",
+    "Audio interruptions, route recovery and media-services reset invalidate obsolete capture and playback ownership."
+  ],
+  "regressions": {
+    "artifact": {
+      "path": ".local/realtime-session-tests-acceptance.log",
+      "sha256": "57ee16e86279fea1f34caeeac311b38816d57491001d39b2c0d2df8da15cfaa6"
+    },
+    "testFunctions": 33,
+    "suites": 3,
+    "status": "passed",
+    "boundary": "Unhosted iOS simulator tests compile the actual production Conversation sources with deterministic I/O. No physical microphone, playback or real scene-service result is simulated as device acceptance."
+  },
+  "liveProviderClock": {
+    "artifact": {
+      "path": ".local/realtime-audio-clock/1788908641572.json",
+      "sha256": "b9f7c765fa5bcb3b2bf001b430f2b0ac43851e0631e1b0550447f470d4ce9ed4"
+    },
+    "status": "passed",
+    "model": "gpt-realtime-2.1",
+    "clearBoundaryMS": 4250,
+    "beforeStartMS": 404,
+    "afterStartMS": 4660,
+    "analysis": {
+      "explicitClearAcknowledged": true,
+      "postClearStartAtOrBeyondSentFloor": true,
+      "postClearEndAtOrBeyondSentFloor": true,
+      "relativeStartBeforeMS": 404,
+      "relativeStartAfterMS": 410,
+      "relativeStartDifferenceMS": 6,
+      "noAutomaticResponse": true,
+      "scope": "One generated-PCM replay per side of explicit clear; no native capture, playback, or arbitrary asynchronous-event barrier proof."
+    },
+    "boundary": "Generated PCM replay against one real provider session; no native capture or playback."
+  },
+  "build": {
+    "signedDeviceBuildLog": {
+      "path": ".local/audio-response-device-build.log",
+      "sha256": "0eb8fcff594d593b62447e6ded83e1fefc7bac35fade5e77c33ee74a273bd761"
+    },
+    "bundleID": "com.astra.spatialdemo",
+    "microphoneUsageDescriptionPresent": true,
+    "executable": {
+      "path": ".local/build/flow-device/Build/Products/Debug-iphoneos/Astra Spatial Demo.app/Astra Spatial Demo",
+      "sha256": "46bf8387d6f06aa5e3bff8565dfd90fc0c22421307d550b5db21d4ab9ae959d9"
+    },
+    "simulatorAppAndTestsLog": {
+      "path": ".local/realtime-session-tests-acceptance.log",
+      "sha256": "57ee16e86279fea1f34caeeac311b38816d57491001d39b2c0d2df8da15cfaa6"
+    },
+    "installedOn": [
+      "physical iPhone 15 Pro",
+      "physical iPad Air 13 M4",
+      "iPhone 17 Pro simulator",
+      "iPad Air 11 M4 simulator"
+    ],
+    "automatedIPhoneLaunch": "Blocked by device lock; app installation succeeded."
+  },
+  "sources": [
+    {
+      "path": "app/SpatialDemo/Conversation/AudioIOController.swift",
+      "sha256": "df5b0eb916d86662679ca095e8d7fa9743c0221c0336bab8aa17e5c155e5883b"
+    },
+    {
+      "path": "app/SpatialDemo/Conversation/ConversationModels.swift",
+      "sha256": "b7f9b91d29ebf25e22200bb66e0bad83e678a09de12e7c89a8e0e04ac6c88df1"
+    },
+    {
+      "path": "app/SpatialDemo/Conversation/PCMCodec.swift",
+      "sha256": "0652b5c9aa71dc7b2c096c43d2f88817106bce4b311acd7e8a9ee3a20a0803a9"
+    },
+    {
+      "path": "app/SpatialDemo/Conversation/RealtimeDependencies.swift",
+      "sha256": "ca90abd0a125b76efb303869c32155f0871a15e194fb4c72c748ead767c7c6a0"
+    },
+    {
+      "path": "app/SpatialDemo/Conversation/RealtimeSession.swift",
+      "sha256": "a7d39398acba6954c78cf6ea49c7bfff30469991803da45e0ba3235875821053"
+    },
+    {
+      "path": "app/SpatialDemo/Conversation/RealtimeWire.swift",
+      "sha256": "176b4d98b0c81548f6fbe5f7e31773ded7c24e4d1b64d3264489a6a9c17dff6c"
+    },
+    {
+      "path": "app/SpatialDemo/DemoSessionModel.swift",
+      "sha256": "ca50ada687aedfa6c87cf167218ef04947d9dea8598ed6dc6372793658804bab"
+    }
+  ],
+  "physicalReplyAfterFix": {
+    "status": "user_reported_response",
+    "observation": "Arav confirmed that the installed app responded, but said it did not feel realtime. He then chose text and requested that all current work be committed and pushed.",
+    "boundary": "User observation confirms an audible reply. Detailed native reply/playback logs and end-to-end latency were not correlated before the investigation was paused."
+  },
+  "exclusions": [
+    "No raw audio, user prompts, transcript text, credentials or full native logs are included.",
+    "No physical AR visual, pointing-accuracy, acoustic-quality, GPU or thermal result is claimed by these checks."
+  ]
+}

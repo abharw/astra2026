@@ -8,6 +8,12 @@ Updated September 8, 2026. Reorganization baseline: `ef10dcb` (primitive impleme
 
 This handoff records the completed implementation stages and remaining acceptance. Stage 1 is committed and pushed as `ef10dcb`. Image integration is committed and pushed as `8d93cb3`, verified through real model/provider calls and both simulator layouts. Native flows pass automated checks, real-model rack/lamp edits, a live native rack visual check and 0/1/8/32-flow measurements on the simulator and physical iPhone. Both physical devices have the build installed. Physical AR visual acceptance and iPad performance remain unverified.
 
+## Current microphone repair
+
+Arav cancelled the technical-brief request and asked to fix microphone crashes and missing replies. The device crash report identified a MainActor assertion inside the AVAudioEngine input tap. Explicit nonisolated, Sendable audio callbacks remove that assertion. A later physical trial confirmed granted permission, 360,000 input frames, 179,704 converted PCM frames, and two provider utterances; local amplitude detection then cancelled both pending responses before tool execution. Only validated provider speech now interrupts work. Bounded PCM selection history also handles continuous background energy and delayed provider events without selecting the component currently under the pointer.
+
+The actual production conversation passes 33 iOS simulator test functions across three suites; signed-device and simulator app builds pass. The updated build is installed on both physical devices. Arav subsequently confirmed that the phone spoke, but said the interaction did not feel realtime. He chose to use text and stop further voice investigation for now. Detailed physical latency and playback-event correlation remain unverified. Text and speech retain one Realtime conversation and the existing scene executor. [Audio evidence](docs/evidence/native-realtime-audio.json).
+
 ## Goal and current behavior
 
 Astra Spatial is a generic framework for exploring structures through live conversation and AR. The server rack is its first application, not a special command vocabulary. Arav wants Astra to choose the useful level of detail, generate explanations on demand, and keep context across follow-ups. Avoid hardcoded interpretations of rack/heat/fan phrases or scripted demo animations.

@@ -31,6 +31,8 @@ The app's default imported rack is the approved bundled Akeil USDZ described by 
 
 ## Unified Realtime text and voice
 
+[Native microphone repair](native-realtime-audio.json) records the physical callback crash, successful permission and PCM delivery, and the local-onset cancellation that suppressed replies. The repaired production conversation passes 33 iOS simulator test functions. Arav reported hearing a reply from the installed fix, then paused further voice investigation in favor of text; detailed latency/playback correlation remains unverified.
+
 The refined composer keeps the microphone control persistent while text is sent; [the keyboard-state capture](simulator-composer-keyboard.png) and [the refined composer capture](simulator-refined-composer.png) record this simulator UI behavior. They do not establish physical voice or gesture acceptance.
 
 [Native Realtime evidence](native-realtime-tool.json) records a real typed app turn through Realtime, Astra, a native scene installation receipt, and final Realtime text. This earlier acceptance used the procedural rack. [The provider tool smoke](realtime-tools-smoke.json) instead uses synthetic tool outputs and verifies text/audio protocol sequencing; it does not prove microphone or speaker behavior.

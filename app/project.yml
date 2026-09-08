@@ -66,5 +66,26 @@ targets:
       - package: SpatialKit
         product: SpatialApple
     scheme:
-      testTargets: []
+      testTargets:
+        - RealtimeSessionTests
       gatherCoverageData: false
+  RealtimeSessionTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: SpatialDemo/Conversation
+        excludes:
+          - README.md
+      - path: Tests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.astra.spatialdemo.realtime-tests
+        CODE_SIGNING_ALLOWED: NO
+        CODE_SIGNING_REQUIRED: NO
+        TEST_HOST: ""
+        BUNDLE_LOADER: ""
+    dependencies:
+      - package: SpatialKit
+        product: SpatialCore
+      - package: SpatialKit
+        product: SpatialApple

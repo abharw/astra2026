@@ -2,25 +2,24 @@ import Foundation
 import Observation
 import SpatialApple
 import os
+import Synchronization
 
-private final class WebSocketSendGate: @unchecked Sendable {
-    nonisolated private let lock = NSLock()
-    nonisolated(unsafe) private var continuation: CheckedContinuation<Void, Error>?
+nonisolated private final class WebSocketSendGate: Sendable {
+    private let continuation: Mutex<CheckedContinuation<Void, Error>?>
 
-    nonisolated init(_ continuation: CheckedContinuation<Void, Error>) {
-        self.continuation = continuation
+    init(_ continuation: CheckedContinuation<Void, Error>) {
+        self.continuation = Mutex(continuation)
     }
 
     @discardableResult
-    nonisolated func resolve(_ result: Result<Void, Error>) -> Bool {
-        lock.lock()
-        guard let continuation else {
-            lock.unlock()
-            return false
+    func resolve(_ result: Result<Void, Error>) -> Bool {
+        let pending = continuation.withLock { continuation in
+            let pending = continuation
+            continuation = nil
+            return pending
         }
-        self.continuation = nil
-        lock.unlock()
-        continuation.resume(with: result)
+        guard let pending else { return false }
+        pending.resume(with: result)
         return true
     }
 }
@@ -48,31 +47,47 @@ final class RealtimeSession {
 
     @ObservationIgnored private let logger = Logger(subsystem: "com.astra.spatialdemo", category: "realtime-session")
     @ObservationIgnored private let selectionProvider: @MainActor () -> [String]?
+    @ObservationIgnored private let selectionSnapshotProvider: @MainActor () -> [String]?
     @ObservationIgnored private let onSpeechStarted: @MainActor (VoiceSpeechBinding) -> Void
     @ObservationIgnored private let onSpeechDiscarded: @MainActor (VoiceSpeechBinding) -> Void
     @ObservationIgnored private let executeScene: @MainActor (RealtimeSceneToolRequest) async -> RealtimeSceneToolResult
-    @ObservationIgnored private let urlSession: URLSession
+    @ObservationIgnored private let dependencies: RealtimeDependencies
 
-    @ObservationIgnored private var webSocket: URLSessionWebSocketTask?
+    @ObservationIgnored private var webSocket: (any RealtimeSocket)?
     @ObservationIgnored private var receiveTask: Task<Void, Never>?
     @ObservationIgnored private var outboundTask: Task<Void, Never>?
     @ObservationIgnored private var handshakeTimeoutTask: Task<Void, Never>?
     @ObservationIgnored private var sceneExecutionTask: Task<Void, Never>?
     @ObservationIgnored private var responseDeadlineTask: Task<Void, Never>?
+    @ObservationIgnored private var microphoneTask: Task<Void, Never>?
+    @ObservationIgnored private var inputClearDeadlineTask: Task<Void, Never>?
+    @ObservationIgnored private var audioSessionID: UUID?
+    @ObservationIgnored private var isAudioReady = false
+    @ObservationIgnored private var inputClearPending = false
+    @ObservationIgnored private var inputAudioFrameCount: Int64 = 0
+    @ObservationIgnored private var inputCaptureFloorMS: Int64 = 0
     @ObservationIgnored private var connectWaiters: [CheckedContinuation<Bool, Never>] = []
-    @ObservationIgnored private var outboundMessages: [String] = []
+    @ObservationIgnored private var outboundMessages: [OutboundMessage] = []
     @ObservationIgnored private var outboundHead = 0
     @ObservationIgnored private var outboundByteCount = 0
     @ObservationIgnored private var didSendSessionConfiguration = false
     @ObservationIgnored private var onsetDetector = VoiceOnsetDetector()
-    @ObservationIgnored private var pendingLocalBindings: [VoiceSpeechBinding] = []
+    @ObservationIgnored private var pendingLocalBindings: [SpeechHint] = []
+    @ObservationIgnored private var selectionHistory: [SelectionSample] = []
+    @ObservationIgnored private var discardedHintThroughFrame: Int64?
+    @ObservationIgnored private var lastAdmittedSpeechStartMS: Int64?
+    @ObservationIgnored private var transcriptItem: (itemID: String, requestID: String, captureID: UUID)?
     @ObservationIgnored private var speechBindingsByItemID: [String: VoiceSpeechBinding] = [:]
+    @ObservationIgnored private var speechCaptureIDs: [String: UUID] = [:]
+    @ObservationIgnored private var consumedSpeechItemIDs = Set<String>()
+    @ObservationIgnored private var consumedSpeechItemOrder: [String] = []
     @ObservationIgnored private var generation = 0
     @ObservationIgnored private var connectionAttemptID = UUID()
     @ObservationIgnored private var microphoneEnableID = UUID()
     @ObservationIgnored private var outboundDrainID = UUID()
     @ObservationIgnored private var activeTurn: ActiveTurn?
     @ObservationIgnored private var executedCallIDs = Set<String>()
+    @ObservationIgnored private var pendingCalls: [String: PendingCall] = [:]
     @ObservationIgnored private var sessionCorrelationID = UUID().uuidString
     @ObservationIgnored private var receivedFirstOutputAudio = false
     @ObservationIgnored private var socketEventCounts: [String: Int] = [:]
@@ -80,11 +95,43 @@ final class RealtimeSession {
     @ObservationIgnored private var lastSocketSummaryAt = Date()
     @ObservationIgnored private var outboundEventCounts: [String: Int] = [:]
     @ObservationIgnored private var lastOutboundSummaryAt = Date()
+    @ObservationIgnored private var microphoneBufferCount = 0
+    @ObservationIgnored private var microphoneFrameCount = 0
+    @ObservationIgnored private var lastMicrophoneSummaryAt = Date()
 
     private enum ResponsePhase: String {
         case requestingTool = "tool"
         case executingTool = "executing_tool"
         case final
+    }
+
+    private struct OutboundMessage {
+        enum Kind {
+            case control
+            case audio(captureID: UUID, frameCount: Int)
+            case clearAudio
+        }
+        let text: String
+        let kind: Kind
+        var byteCount: Int { text.utf8.count }
+    }
+
+    private struct PendingCall {
+        let connectionID: UUID
+        let turn: ActiveTurn
+    }
+
+    private struct SpeechHint {
+        let binding: VoiceSpeechBinding
+        let captureID: UUID
+        let onsetFrame: Int64
+    }
+
+    private struct SelectionSample {
+        let captureID: UUID
+        var startFrame: Int64
+        var endFrame: Int64
+        let nodeIDs: [String]?
     }
 
     private struct ActiveTurn {
@@ -101,33 +148,24 @@ final class RealtimeSession {
         var playbackFinished: Bool
     }
 
-    @ObservationIgnored private lazy var audioIO = AudioIOController(
-        onMicrophonePCM: { [weak self] data in
-            Task { @MainActor [weak self] in self?.enqueueMicrophonePCM(data) }
-        },
-        onMicrophoneFailure: { [weak self] _ in
-            Task { @MainActor [weak self] in
-                self?.handleMicrophoneFailure(VoiceSessionError.microphoneUnavailable)
-            }
-        },
-        onEvent: { [weak self] event in self?.handleAudioEvent(event) }
-    )
+    @ObservationIgnored private lazy var audioIO = dependencies.makeAudioIO {
+        [weak self] event in self?.handleAudioEvent(event)
+    }
 
     init(
         selectionProvider: @escaping @MainActor () -> [String]?,
         onSpeechStarted: @escaping @MainActor (VoiceSpeechBinding) -> Void,
         onSpeechDiscarded: @escaping @MainActor (VoiceSpeechBinding) -> Void = { _ in },
-        executeScene: @escaping @MainActor (RealtimeSceneToolRequest) async -> RealtimeSceneToolResult
+        executeScene: @escaping @MainActor (RealtimeSceneToolRequest) async -> RealtimeSceneToolResult,
+        selectionSnapshotProvider: (@MainActor () -> [String]?)? = nil,
+        dependencies: RealtimeDependencies = .live
     ) {
         self.selectionProvider = selectionProvider
+        self.selectionSnapshotProvider = selectionSnapshotProvider ?? selectionProvider
         self.onSpeechStarted = onSpeechStarted
         self.onSpeechDiscarded = onSpeechDiscarded
         self.executeScene = executeScene
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.waitsForConnectivity = false
-        configuration.timeoutIntervalForRequest = 20
-        configuration.timeoutIntervalForResource = 30
-        urlSession = URLSession(configuration: configuration)
+        self.dependencies = dependencies
     }
 
     func connect(configuration: VoiceSessionConfiguration) async -> Bool {
@@ -169,7 +207,9 @@ final class RealtimeSession {
     func sendText(_ text: String, nodeIDs: [String], requestID: String) -> Bool {
         let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard isConnected, !text.isEmpty, text.utf8.count <= 20_000 else { return false }
-        interrupt()
+        resetInputCapture()
+        retireActiveTurn()
+        lastError = nil
         let turn = beginTurn(requestID: requestID, nodeIDs: nodeIDs, source: .typed, binding: nil)
         do {
             try enqueue(RealtimeWire.textInput(text, eventID: "turn_\(turn.generation)_input"))
@@ -193,11 +233,12 @@ final class RealtimeSession {
         if !enabled {
             microphoneEnableID = UUID()
             guard isMicrophoneEnabled else { return true }
-            if activeTurn?.source == .voice { interrupt() }
+            if activeTurn?.source == .voice { retireActiveTurn() }
+            invalidateAudioCapture()
             audioIO.stop()
             isMicrophoneEnabled = false
-            discardOutstandingSpeechBindings()
-            activity = isConnected ? .ready : .idle
+            resetInputCapture()
+            activity = currentTurnActivity
             diagnostic("microphone_disabled")
             return true
         }
@@ -208,7 +249,7 @@ final class RealtimeSession {
         let connectionID = connectionAttemptID
         activity = .requestingPermission
         diagnostic("microphone_permission_requested")
-        let granted = await AudioIOController.requestMicrophonePermission()
+        let granted = await dependencies.requestMicrophonePermission()
         guard !Task.isCancelled, isConnected, microphoneEnableID == enableID, connectionAttemptID == connectionID else {
             diagnostic("microphone_permission_callback_ignored", level: .warning)
             return false
@@ -216,14 +257,20 @@ final class RealtimeSession {
         diagnostic("microphone_permission_resolved", fields: ["granted": String(granted)])
         guard granted else {
             lastError = VoiceSessionError.microphoneDenied.errorDescription
-            activity = .ready
+            activity = currentTurnActivity
             return false
         }
         do {
-            let route = try audioIO.start()
+            let capture = try audioIO.start()
             isMicrophoneEnabled = true
-            audioRouteSummary = route.summary
-            activity = .listening
+            isAudioReady = true
+            audioSessionID = capture.sessionID
+            audioRouteSummary = capture.route.summary
+            lastError = nil
+            resetInputCapture()
+            guard isConnected, isMicrophoneEnabled else { return false }
+            consumeMicrophone(capture)
+            activity = currentTurnActivity
             return true
         } catch {
             handleMicrophoneFailure(error)
@@ -231,11 +278,39 @@ final class RealtimeSession {
         }
     }
 
-    func interrupt() {
-        interrupt(sendResponseCancel: true)
+    private func consumeMicrophone(_ capture: AudioCapture) {
+        microphoneTask?.cancel()
+        microphoneTask = Task { [weak self] in
+            do {
+                for try await chunk in capture.stream {
+                    guard !Task.isCancelled, let self,
+                          self.audioSessionID == capture.sessionID else { return }
+                    self.enqueueMicrophonePCM(chunk)
+                }
+                guard !Task.isCancelled, let self, self.audioSessionID == capture.sessionID else { return }
+                self.handleMicrophoneFailure(VoiceSessionError.microphoneUnavailable)
+            } catch {
+                guard !Task.isCancelled, let self, self.audioSessionID == capture.sessionID else { return }
+                self.handleMicrophoneFailure(error)
+            }
+        }
     }
 
-    private func interrupt(sendResponseCancel: Bool) {
+    private func invalidateAudioCapture() {
+        audioSessionID = nil
+        isAudioReady = false
+        microphoneTask?.cancel()
+        microphoneTask = nil
+        inputClearDeadlineTask?.cancel()
+        inputClearDeadlineTask = nil
+    }
+
+    func interrupt() {
+        resetInputCapture()
+        retireActiveTurn()
+    }
+
+    private func retireActiveTurn() {
         generation &+= 1
         let interrupted = activeTurn
         sceneExecutionTask?.cancel()
@@ -247,7 +322,7 @@ final class RealtimeSession {
         receivedFirstOutputAudio = false
         lastAssistantText = ""
         do {
-            if sendResponseCancel, let interrupted, interrupted.providerResponsePending {
+            if let interrupted, interrupted.providerResponsePending {
                 try enqueue(RealtimeWire.cancelResponse(responseID: interrupted.responseID))
             }
             if let cut = audioIO.interruptPlayback() { try enqueueTruncation(cut) }
@@ -264,7 +339,7 @@ final class RealtimeSession {
         diagnostic("disconnect_requested")
         connectionAttemptID = UUID()
         microphoneEnableID = UUID()
-        interrupt()
+        retireActiveTurn()
         isConnecting = false
         isConnected = false
         resolveConnectWaiters(false)
@@ -287,7 +362,7 @@ final class RealtimeSession {
         }
         request.httpBody = try JSONSerialization.data(withJSONObject: ["sessionId": configuration.sessionID])
         diagnostic("credential_fetch_started")
-        let (data, response) = try await urlSession.data(for: request)
+        let (data, response) = try await dependencies.fetchCredentialData(request)
         guard let http = response as? HTTPURLResponse else { throw VoiceSessionError.malformedCredentialResponse }
         diagnostic("credential_fetch_http_status", level: http.statusCode < 300 ? .info : .warning, fields: [
             "status_code": String(http.statusCode), "response_bytes": String(data.count),
@@ -309,7 +384,7 @@ final class RealtimeSession {
         var request = URLRequest(url: url)
         request.setValue("Bearer \(clientSecret)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = 30
-        let socket = urlSession.webSocketTask(with: request)
+        let socket = dependencies.makeSocket(request)
         socket.maximumMessageSize = 16 * 1_024 * 1_024
         webSocket = socket
         activity = .connecting
@@ -323,7 +398,7 @@ final class RealtimeSession {
         }
     }
 
-    private func beginReceiving(from socket: URLSessionWebSocketTask) {
+    private func beginReceiving(from socket: any RealtimeSocket) {
         receiveTask?.cancel()
         receiveTask = Task { [weak self, weak socket] in
             guard let socket else { return }
@@ -374,13 +449,21 @@ final class RealtimeSession {
             diagnostic("realtime_session_configuration_acknowledged")
             resolveConnectWaiters(true)
         case "input_audio_buffer.speech_started":
-            interrupt(sendResponseCancel: false)
-            liveTranscript = ""
             bindRemoteSpeechItem(event)
+        case "input_audio_buffer.speech_stopped":
+            finishRemoteSpeech(event)
+        case "input_audio_buffer.cleared":
+            guard inputClearPending else { return }
+            inputClearPending = false
+            inputClearDeadlineTask?.cancel()
+            inputClearDeadlineTask = nil
+            diagnostic("input_audio_clear_acknowledged", fields: ["capture_floor_ms": String(inputCaptureFloorMS)])
         case "input_audio_buffer.committed":
             startCommittedVoiceTurn(event)
         case "conversation.item.input_audio_transcription.delta":
-            if let delta = event["delta"] as? String { liveTranscript += delta }
+            if ownsSpeechTranscript(event), let delta = event["delta"] as? String {
+                liveTranscript += delta
+            }
         case "conversation.item.input_audio_transcription.completed":
             handleTranscriptionCompleted(event)
         case "conversation.item.input_audio_transcription.failed":
@@ -433,6 +516,7 @@ final class RealtimeSession {
             outputItemID: nil, playbackFinished: false
         )
         activeTurn = turn
+        lastError = nil
         lastAssistantText = ""
         receivedFirstOutputAudio = false
         activity = .waitingForAstra
@@ -441,11 +525,14 @@ final class RealtimeSession {
 
     private func startCommittedVoiceTurn(_ event: [String: Any]) {
         guard let itemID = event["item_id"] as? String,
-              let binding = speechBindingsByItemID[itemID]
+              !consumedSpeechItemIDs.contains(itemID),
+              let binding = ownedSpeechBinding(for: event)
         else {
             diagnostic("voice_commit_ignored", level: .warning, fields: ["reason": "missing_binding"])
             return
         }
+        rememberConsumedSpeechItem(itemID)
+        retireActiveTurn()
         let turn = beginTurn(
             requestID: binding.requestID, nodeIDs: binding.nodeIDs,
             source: .voice, binding: binding
@@ -519,6 +606,7 @@ final class RealtimeSession {
             executing.responseID = nil
             executing.providerResponsePending = false
             activeTurn = executing
+            pendingCalls[call.callID] = PendingCall(connectionID: connectionAttemptID, turn: executing)
             activity = .waitingForAstra
             executeTool(requestText: requestText, turn: executing)
         case .executingTool:
@@ -557,24 +645,18 @@ final class RealtimeSession {
         sceneExecutionTask = Task { [weak self] in
             guard let self else { return }
             let result = await self.executeScene(request)
-            guard !Task.isCancelled, let current = self.activeTurn,
-                  current.generation == turn.generation,
-                  current.phase == .executingTool, current.callID == turn.callID
-            else {
-                self.diagnostic("ask_astra_result_ignored", level: .warning, correlationID: turn.requestID, fields: [
-                    "reason": "cancelled_or_stale", "generation": String(turn.generation),
-                ])
-                return
-            }
-            self.finishTool(result: result, turn: current)
+            self.finishTool(result: result, turn: turn)
         }
     }
 
     private func finishTool(result: RealtimeSceneToolResult, turn: ActiveTurn) {
-        guard result.requestID == turn.requestID, let callID = turn.callID else {
-            failTurn(VoiceSessionError.invalidToolCall, generation: turn.generation)
-            return
-        }
+        guard let callID = turn.callID, let pending = pendingCalls[callID],
+              pending.connectionID == connectionAttemptID,
+              pending.turn.generation == turn.generation,
+              pending.turn.requestID == turn.requestID, isConnected else { return }
+        let terminalResult = result.requestID == turn.requestID ? result : RealtimeSceneToolResult(
+            status: "failed", requestID: turn.requestID,
+            error: "The scene result did not match this request. Its outcome is unconfirmed.")
         diagnostic("ask_astra_completed", correlationID: turn.requestID, fields: [
             "generation": String(turn.generation), "status": result.status,
             "scene_id": result.sceneID ?? "", "revision": result.revision.map(String.init) ?? "",
@@ -583,7 +665,13 @@ final class RealtimeSession {
         ])
         if let binding = turn.binding { releaseBinding(binding) }
         do {
-            try enqueue(RealtimeWire.functionOutput(callID: callID, result: result))
+            try enqueue(RealtimeWire.functionOutput(callID: callID, result: terminalResult))
+            pendingCalls.removeValue(forKey: callID)
+            guard let current = activeTurn, current.generation == turn.generation,
+                  current.phase == .executingTool, current.callID == callID else {
+                diagnostic("superseded_tool_output_returned", correlationID: turn.requestID)
+                return
+            }
             var final = turn
             final.phase = .final
             final.responseID = nil
@@ -596,12 +684,12 @@ final class RealtimeSession {
                 generation: final.generation,
                 requestID: final.requestID,
                 source: final.source,
-                result: result
+                result: terminalResult
             ))
             scheduleResponseDeadline(for: final)
             sceneExecutionTask = nil
             activity = .delivering
-        } catch { failTurn(error, generation: turn.generation) }
+        } catch { failConnection(error) }
     }
 
     private struct ToolCall { let name: String; let callID: String; let arguments: String }
@@ -649,7 +737,8 @@ final class RealtimeSession {
     }
 
     private func handleAudioDelta(_ event: [String: Any]) throws {
-        guard var turn = activeTurn, turn.phase == .final, turn.source == .voice,
+        guard isMicrophoneEnabled, isAudioReady,
+              var turn = activeTurn, turn.phase == .final, turn.source == .voice,
               event["response_id"] as? String == turn.responseID,
               let encoded = event["delta"] as? String,
               let data = Data(base64Encoded: encoded),
@@ -676,17 +765,46 @@ final class RealtimeSession {
         activity = .delivering
     }
 
-    private func enqueueMicrophonePCM(_ data: Data) {
-        guard isConnected, isMicrophoneEnabled else { return }
-        if onsetDetector.process(pcm16: data) == .began {
-            interrupt()
+    private var acceptsMicrophoneInput: Bool {
+        isConnected && isMicrophoneEnabled && isAudioReady && !inputClearPending
+            && audioSessionID != nil && audioIO.currentCaptureID != nil
+    }
+
+    private func enqueueMicrophonePCM(_ chunk: MicrophoneChunk) {
+        guard acceptsMicrophoneInput, chunk.captureID == audioIO.currentCaptureID else { return }
+        microphoneBufferCount += 1
+        microphoneFrameCount += chunk.data.count / PCMCodec.bytesPerFrame
+        if Date().timeIntervalSince(lastMicrophoneSummaryAt) >= 1 {
+            diagnostic("microphone_pcm_summary", fields: [
+                "buffer_count": String(microphoneBufferCount),
+                "frame_count": String(microphoneFrameCount),
+                "byte_count": String(microphoneFrameCount * PCMCodec.bytesPerFrame),
+            ])
+            microphoneBufferCount = 0
+            microphoneFrameCount = 0
+            lastMicrophoneSummaryAt = Date()
+        }
+        let queuedAudioFrames = outboundMessages.dropFirst(outboundHead).reduce(Int64(0)) { total, message in
+            if case .audio(_, let frames) = message.kind { return total + Int64(frames) }
+            return total
+        }
+        let frameBase = inputAudioFrameCount + queuedAudioFrames
+        recordSelection(
+            captureID: chunk.captureID, startFrame: frameBase,
+            frameCount: chunk.data.count / PCMCodec.bytesPerFrame)
+        for detection in onsetDetector.processTimed(pcm16: chunk.data) where detection.transition == .began {
             if let nodeIDs = selectionProvider() {
+                // Energy detects selection timing, not an interruption. Wait for
+                // owned provider VAD before cancelling work or audible output.
                 let binding = VoiceSpeechBinding(
                     requestID: UUID().uuidString, nodeIDs: nodeIDs, beganAt: Date()
                 )
-                pendingLocalBindings.append(binding)
-                while pendingLocalBindings.count > 3 {
-                    releaseBinding(pendingLocalBindings.removeFirst())
+                pendingLocalBindings.append(SpeechHint(
+                    binding: binding, captureID: chunk.captureID,
+                    onsetFrame: frameBase + Int64(detection.frameOffset)))
+                speechCaptureIDs[binding.requestID] = chunk.captureID
+                while pendingLocalBindings.count > 16 {
+                    discardLostHint(pendingLocalBindings.removeFirst())
                 }
                 onSpeechStarted(binding)
                 diagnostic("local_speech_onset", correlationID: binding.requestID, fields: [
@@ -696,44 +814,121 @@ final class RealtimeSession {
                 diagnostic("local_speech_onset_ambiguous", level: .warning)
             }
         }
-        do { try enqueue(RealtimeWire.appendAudio(data)) }
+        do {
+            try enqueue(
+                RealtimeWire.appendAudio(chunk.data),
+                kind: .audio(captureID: chunk.captureID, frameCount: chunk.data.count / PCMCodec.bytesPerFrame))
+        }
         catch { handleMicrophoneFailure(error) }
     }
 
     private func bindRemoteSpeechItem(_ event: [String: Any]) {
-        guard let itemID = event["item_id"] as? String else {
-            discardPendingLocalBindings()
-            diagnostic("remote_speech_ignored", level: .warning, fields: ["reason": "missing_item_id"])
+        guard acceptsMicrophoneInput, let captureID = audioIO.currentCaptureID,
+              let itemID = event["item_id"] as? String,
+              !consumedSpeechItemIDs.contains(itemID), speechBindingsByItemID[itemID] == nil,
+              let audioStartMS = event["audio_start_ms"] as? Int64,
+              audioStartMS >= inputCaptureFloorMS,
+              audioStartMS <= inputAudioFrameCount * 1_000 / Int64(PCMCodec.sampleRate),
+              lastAdmittedSpeechStartMS.map({ audioStartMS > $0 }) ?? true else {
+            diagnostic("remote_speech_ignored", level: .warning, fields: [
+                "reason": "unowned_or_before_capture", "capture_floor_ms": String(inputCaptureFloorMS),
+                "audio_start_ms": (event["audio_start_ms"] as? NSNumber)?.stringValue ?? "missing",
+            ])
             return
         }
         let now = Date()
-        let expired = pendingLocalBindings.filter { now.timeIntervalSince($0.beganAt) > 5 }
-        pendingLocalBindings.removeAll { now.timeIntervalSince($0.beganAt) > 5 }
-        for binding in expired { releaseBinding(binding) }
-        guard pendingLocalBindings.count == 1 else {
-            diagnostic("remote_speech_binding_ambiguous", level: .warning, fields: [
-                "item_id": itemID, "candidate_count": String(pendingLocalBindings.count),
-                "expired_count": String(expired.count),
+        let expired = pendingLocalBindings.filter { now.timeIntervalSince($0.binding.beganAt) > 5 }
+        pendingLocalBindings.removeAll { now.timeIntervalSince($0.binding.beganAt) > 5 }
+        for hint in expired { discardLostHint(hint) }
+        discardPendingHints { $0.onsetFrame * 1_000 < audioStartMS * Int64(PCMCodec.sampleRate) }
+        let canUseHint = discardedHintThroughFrame.map {
+            audioStartMS * Int64(PCMCodec.sampleRate) > $0 * 1_000
+        } ?? true
+        let latestHintFrame = (audioStartMS + RealtimeWire.inputPrefixPaddingMS)
+            * Int64(PCMCodec.sampleRate) / 1_000 + Int64(onsetDetector.onsetWindowToleranceFrames)
+        let hint: SpeechHint
+        let bindingSource: String
+        if canUseHint, let index = pendingLocalBindings.firstIndex(where: {
+            $0.captureID == captureID && $0.onsetFrame <= latestHintFrame
+        }) {
+            hint = pendingLocalBindings.remove(at: index)
+            bindingSource = "local_onset"
+        } else if let historical = historicalSpeechHint(audioStartMS: audioStartMS, captureID: captureID) {
+            hint = historical
+            bindingSource = "selection_history"
+        } else {
+            diagnostic("remote_speech_binding_missing", level: .warning, fields: [
+                "item_id": itemID, "audio_start_ms": String(audioStartMS),
             ])
-            discardPendingLocalBindings()
             return
         }
-        let binding = pendingLocalBindings.removeFirst()
+        let binding = hint.binding
+        guard speechCaptureIDs[binding.requestID] == captureID else {
+            releaseBinding(binding)
+            return
+        }
+        retireActiveTurn()
         if let replaced = speechBindingsByItemID.updateValue(binding, forKey: itemID) {
             releaseBinding(replaced)
         }
+        lastAdmittedSpeechStartMS = audioStartMS
+        transcriptItem = (itemID, binding.requestID, captureID)
+        liveTranscript = ""
         diagnostic("remote_speech_bound", correlationID: binding.requestID, fields: [
             "item_id": itemID, "target_count": String(binding.nodeIDs.count),
+            "audio_start_ms": String(audioStartMS), "capture_floor_ms": String(inputCaptureFloorMS),
+            "local_onset_ms": String(hint.onsetFrame * 1_000 / Int64(PCMCodec.sampleRate)),
+            "binding_source": bindingSource,
         ])
+    }
+
+    private func recordSelection(captureID: UUID, startFrame: Int64, frameCount: Int) {
+        guard frameCount > 0 else { return }
+        let endFrame = startFrame + Int64(frameCount)
+        let nodeIDs = selectionSnapshotProvider()
+        if let last = selectionHistory.last, last.captureID == captureID,
+           last.endFrame == startFrame, last.nodeIDs == nodeIDs {
+            selectionHistory[selectionHistory.count - 1].endFrame = endFrame
+        } else {
+            selectionHistory.append(SelectionSample(
+                captureID: captureID, startFrame: startFrame, endFrame: endFrame, nodeIDs: nodeIDs))
+        }
+        let floor = max(0, endFrame - Int64(PCMCodec.sampleRate) * 10)
+        selectionHistory.removeAll { $0.endFrame <= floor }
+        if selectionHistory.count > 512 { selectionHistory.removeFirst(selectionHistory.count - 512) }
+        if !selectionHistory.isEmpty { selectionHistory[0].startFrame = max(selectionHistory[0].startFrame, floor) }
+    }
+
+    private func historicalSpeechHint(audioStartMS: Int64, captureID: UUID) -> SpeechHint? {
+        // Server VAD includes the configured prefix padding in audio_start_ms.
+        // A local energy edge is optional: steady noise can span real speech.
+        let onsetFrame = (audioStartMS + RealtimeWire.inputPrefixPaddingMS) * Int64(PCMCodec.sampleRate) / 1_000
+        guard onsetFrame < inputAudioFrameCount,
+              let sample = selectionHistory.last(where: {
+                  $0.captureID == captureID && $0.startFrame <= onsetFrame && onsetFrame < $0.endFrame
+              }), let nodeIDs = sample.nodeIDs else { return nil }
+        let binding = VoiceSpeechBinding(requestID: UUID().uuidString, nodeIDs: nodeIDs, beganAt: Date())
+        speechCaptureIDs[binding.requestID] = captureID
+        onSpeechStarted(binding)
+        return SpeechHint(binding: binding, captureID: captureID, onsetFrame: onsetFrame)
+    }
+
+    private func finishRemoteSpeech(_ event: [String: Any]) {
+        guard ownedSpeechBinding(for: event) != nil,
+              let audioEndMS = event["audio_end_ms"] as? Int64, audioEndMS >= inputCaptureFloorMS,
+              audioEndMS <= inputAudioFrameCount * 1_000 / Int64(PCMCodec.sampleRate) else { return }
+        // Provider silence can contain several local energy onsets. They belong
+        // to this utterance; hints after its end remain available to the next one.
+        discardPendingHints { $0.onsetFrame * 1_000 <= audioEndMS * Int64(PCMCodec.sampleRate) }
     }
 
     private func handleTranscriptionCompleted(_ event: [String: Any]) {
         guard let itemID = event["item_id"] as? String,
+              ownsSpeechTranscript(event),
               let transcript = event["transcript"] as? String
         else { return }
         liveTranscript = transcript.trimmingCharacters(in: .whitespacesAndNewlines)
-        let binding = speechBindingsByItemID[itemID]
-        diagnostic("transcription_completed", correlationID: binding?.requestID, fields: [
+        diagnostic("transcription_completed", correlationID: transcriptItem?.requestID, fields: [
             "item_id": itemID, "text_bytes": String(transcript.utf8.count),
             "text_length": String(transcript.count),
         ])
@@ -748,26 +943,103 @@ final class RealtimeSession {
     }
 
     private func releaseBinding(_ binding: VoiceSpeechBinding) {
-        pendingLocalBindings.removeAll { $0.requestID == binding.requestID }
+        pendingLocalBindings.removeAll { $0.binding.requestID == binding.requestID }
+        for (itemID, existing) in speechBindingsByItemID where existing.requestID == binding.requestID {
+            rememberConsumedSpeechItem(itemID)
+        }
         speechBindingsByItemID = speechBindingsByItemID.filter { $0.value.requestID != binding.requestID }
+        speechCaptureIDs.removeValue(forKey: binding.requestID)
         onSpeechDiscarded(binding)
-    }
-
-    private func discardPendingLocalBindings() {
-        let bindings = pendingLocalBindings
-        pendingLocalBindings.removeAll(keepingCapacity: true)
-        for binding in bindings { onSpeechDiscarded(binding) }
     }
 
     private func discardOutstandingSpeechBindings() {
         var seen = Set<String>()
-        let bindings = pendingLocalBindings + Array(speechBindingsByItemID.values)
+        let bindings = pendingLocalBindings.map(\.binding) + Array(speechBindingsByItemID.values)
+        for itemID in speechBindingsByItemID.keys { rememberConsumedSpeechItem(itemID) }
         pendingLocalBindings.removeAll(keepingCapacity: false)
         speechBindingsByItemID.removeAll(keepingCapacity: false)
+        speechCaptureIDs.removeAll(keepingCapacity: false)
         for binding in bindings where seen.insert(binding.requestID).inserted { onSpeechDiscarded(binding) }
     }
 
-    private func enqueue(_ object: [String: Any]) throws {
+    private func discardPendingHints(where predicate: (SpeechHint) -> Bool) {
+        let retired = pendingLocalBindings.filter(predicate)
+        pendingLocalBindings.removeAll(where: predicate)
+        for hint in retired { releaseBinding(hint.binding) }
+    }
+
+    private func discardLostHint(_ hint: SpeechHint) {
+        discardedHintThroughFrame = max(discardedHintThroughFrame ?? 0, hint.onsetFrame)
+        releaseBinding(hint.binding)
+    }
+
+    private func ownedSpeechBinding(for event: [String: Any]) -> VoiceSpeechBinding? {
+        guard acceptsMicrophoneInput, let captureID = audioIO.currentCaptureID,
+              let itemID = event["item_id"] as? String,
+              let binding = speechBindingsByItemID[itemID],
+              speechCaptureIDs[binding.requestID] == captureID else { return nil }
+        return binding
+    }
+
+    private func ownsSpeechTranscript(_ event: [String: Any]) -> Bool {
+        guard acceptsMicrophoneInput, let transcriptItem else { return false }
+        return event["item_id"] as? String == transcriptItem.itemID
+            && audioIO.currentCaptureID == transcriptItem.captureID
+    }
+
+    private func rememberConsumedSpeechItem(_ itemID: String) {
+        guard consumedSpeechItemIDs.insert(itemID).inserted else { return }
+        consumedSpeechItemOrder.append(itemID)
+        if consumedSpeechItemOrder.count > 128 {
+            consumedSpeechItemIDs.remove(consumedSpeechItemOrder.removeFirst())
+        }
+    }
+
+    /// A clear acknowledges buffer bytes, not every asynchronous speech event.
+    /// The serialized sample clock below also fences older speech timestamps.
+    private func resetInputCapture() {
+        _ = audioIO.rotateCaptureID()
+        onsetDetector.reset()
+        discardOutstandingSpeechBindings()
+        selectionHistory.removeAll(keepingCapacity: false)
+        discardedHintThroughFrame = nil
+        transcriptItem = nil
+        liveTranscript = ""
+        dropQueuedMicrophoneAudio()
+        guard isConnected else { return }
+        if !inputClearPending {
+            inputClearPending = true
+            do { try enqueue(RealtimeWire.clearInputAudio(), kind: .clearAudio) }
+            catch { failConnection(error); return }
+        }
+        scheduleInputClearDeadline()
+    }
+
+    private func scheduleInputClearDeadline() {
+        guard inputClearPending, isMicrophoneEnabled, inputClearDeadlineTask == nil else { return }
+        let connectionID = connectionAttemptID
+        inputClearDeadlineTask = Task { [weak self] in
+            try? await Task.sleep(for: .seconds(5))
+            guard !Task.isCancelled, let self, self.connectionAttemptID == connectionID,
+                  self.inputClearPending, self.isMicrophoneEnabled else { return }
+            self.inputClearDeadlineTask = nil
+            self.handleMicrophoneFailure(
+                VoiceSessionError.realtime("The microphone input reset was not acknowledged. Reconnect and try again."),
+                resetInput: false)
+        }
+    }
+
+    private func dropQueuedMicrophoneAudio() {
+        let pending = outboundMessages.dropFirst(outboundHead).filter {
+            if case .audio = $0.kind { return false }
+            return true
+        }
+        outboundMessages = Array(pending)
+        outboundHead = 0
+        outboundByteCount = outboundMessages.reduce(0) { $0 + $1.byteCount }
+    }
+
+    private func enqueue(_ object: [String: Any], kind: OutboundMessage.Kind = .control) throws {
         guard webSocket != nil else { throw VoiceSessionError.disconnected }
         let eventType = object["type"] as? String ?? "unknown"
         let message = try RealtimeWire.encode(object)
@@ -775,7 +1047,7 @@ final class RealtimeSession {
         guard outboundByteCount + bytes <= 4 * 1_024 * 1_024 else {
             throw VoiceSessionError.realtime("The connection cannot keep up with outgoing audio.")
         }
-        outboundMessages.append(message)
+        outboundMessages.append(OutboundMessage(text: message, kind: kind))
         outboundByteCount += bytes
         outboundEventCounts[eventType, default: 0] += 1
         recordOutboundSummaryIfNeeded()
@@ -789,7 +1061,7 @@ final class RealtimeSession {
         }
     }
 
-    private func drainOutboundMessages(socket: URLSessionWebSocketTask, drainID: UUID) async {
+    private func drainOutboundMessages(socket: any RealtimeSocket, drainID: UUID) async {
         defer {
             if outboundDrainID == drainID {
                 outboundMessages.removeAll(keepingCapacity: true)
@@ -803,8 +1075,22 @@ final class RealtimeSession {
                 guard !Task.isCancelled, outboundDrainID == drainID, webSocket === socket else { return }
                 let message = outboundMessages[outboundHead]
                 outboundHead += 1
-                outboundByteCount -= message.utf8.count
-                try await send(message, through: socket)
+                outboundByteCount -= message.byteCount
+                switch message.kind {
+                case .audio(let captureID, let frameCount):
+                    guard captureID == audioIO.currentCaptureID else { continue }
+                    inputAudioFrameCount += Int64(frameCount)
+                case .clearAudio:
+                    inputCaptureFloorMS = (inputAudioFrameCount * 1_000 + Int64(PCMCodec.sampleRate) - 1)
+                        / Int64(PCMCodec.sampleRate)
+                    diagnostic("input_audio_clear_sent", fields: [
+                        "frame_count": String(inputAudioFrameCount), "capture_floor_ms": String(inputCaptureFloorMS),
+                    ])
+                case .control:
+                    break
+                }
+                try await send(message.text, through: socket)
+                guard !Task.isCancelled, outboundDrainID == drainID, webSocket === socket else { return }
                 if outboundHead >= 128, outboundHead * 2 >= outboundMessages.count {
                     outboundMessages.removeFirst(outboundHead)
                     outboundHead = 0
@@ -816,15 +1102,18 @@ final class RealtimeSession {
         }
     }
 
-    private func send(_ message: String, through socket: URLSessionWebSocketTask) async throws {
+    private func send(_ message: String, through socket: any RealtimeSocket) async throws {
+        var timeoutTask: Task<Void, Never>?
+        defer { timeoutTask?.cancel() }
         try await withCheckedThrowingContinuation { continuation in
             let gate = WebSocketSendGate(continuation)
-            socket.send(.string(message)) { error in
+            socket.send(.string(message)) { @Sendable error in
                 if let error { gate.resolve(.failure(error)) }
                 else { gate.resolve(.success(())) }
             }
-            Task {
+            timeoutTask = Task {
                 try? await Task.sleep(for: .seconds(10))
+                guard !Task.isCancelled else { return }
                 guard gate.resolve(.failure(VoiceSessionError.realtime("The socket send timed out."))) else {
                     return
                 }
@@ -844,20 +1133,39 @@ final class RealtimeSession {
         do {
             switch event {
             case let .interruptionBegan(cut):
+                isAudioReady = false
+                if activeTurn?.source == .voice { retireActiveTurn() }
                 if let cut { try enqueueTruncation(cut) }
-                activity = .interrupted
+                resetInputCapture()
+                activity = activeTurn == nil ? .interrupted : currentTurnActivity
             case .interruptionEnded:
-                activity = activeTurn == nil ? .listening : .delivering
+                guard isMicrophoneEnabled else { return }
+                isAudioReady = audioIO.currentCaptureID != nil
+                lastError = nil
+                resetInputCapture()
+                activity = currentTurnActivity
             case let .routeChanged(cut, route):
+                if activeTurn?.source == .voice { retireActiveTurn() }
                 if let cut { try enqueueTruncation(cut) }
+                guard isMicrophoneEnabled else { return }
+                isAudioReady = audioIO.currentCaptureID != nil
                 audioRouteSummary = route.summary
-                activity = activeTurn == nil ? .listening : .delivering
+                lastError = nil
+                resetInputCapture()
+                activity = currentTurnActivity
             case let .configurationChangeBegan(cut):
+                isAudioReady = false
+                if activeTurn?.source == .voice { retireActiveTurn() }
                 if let cut { try enqueueTruncation(cut) }
-                activity = .reconfiguringAudio
+                resetInputCapture()
+                activity = activeTurn == nil ? .reconfiguringAudio : currentTurnActivity
             case let .configurationChangeEnded(route):
+                guard isMicrophoneEnabled else { return }
+                isAudioReady = audioIO.currentCaptureID != nil
                 audioRouteSummary = route.summary
-                activity = activeTurn == nil ? .listening : .delivering
+                lastError = nil
+                resetInputCapture()
+                activity = currentTurnActivity
             case let .playbackFinished(itemID):
                 guard var turn = activeTurn, turn.phase == .final, turn.source == .voice,
                       turn.outputItemID == itemID
@@ -877,21 +1185,38 @@ final class RealtimeSession {
                     activeTurn = nil
                     activity = isMicrophoneEnabled ? .listening : .ready
                 }
-            case .failure:
+            case let .failure(_, cut):
+                if let cut { try enqueueTruncation(cut) }
                 handleMicrophoneFailure(VoiceSessionError.microphoneUnavailable)
             }
         } catch { handleMicrophoneFailure(error) }
     }
 
-    private func handleMicrophoneFailure(_ error: Error) {
+    private var currentTurnActivity: RealtimeActivity {
+        if let turn = activeTurn {
+            return turn.phase == .final ? .delivering : .waitingForAstra
+        }
+        return isMicrophoneEnabled ? .listening : (isConnected ? .ready : .idle)
+    }
+
+    private func handleMicrophoneFailure(_ error: Error, resetInput: Bool = true) {
         diagnostic("microphone_failed", level: .error, fields: [
             "error_type": String(describing: type(of: error)),
         ])
+        if activeTurn?.source == .voice { retireActiveTurn() }
+        invalidateAudioCapture()
         audioIO.stop()
         isMicrophoneEnabled = false
-        discardOutstandingSpeechBindings()
+        inputClearDeadlineTask?.cancel()
+        inputClearDeadlineTask = nil
+        if resetInput { resetInputCapture() }
+        else {
+            onsetDetector.reset()
+            discardOutstandingSpeechBindings()
+            dropQueuedMicrophoneAudio()
+        }
         lastError = (error as? LocalizedError)?.errorDescription ?? "Microphone unavailable."
-        activity = isConnected ? .ready : .failed(lastError ?? "Microphone unavailable")
+        activity = isConnected ? currentTurnActivity : .failed(lastError ?? "Microphone unavailable")
     }
 
     private func failTurn(_ error: Error, generation failedGeneration: Int) {
@@ -945,6 +1270,16 @@ final class RealtimeSession {
 
     private func resetTransport() {
         microphoneEnableID = UUID()
+        invalidateAudioCapture()
+        inputClearDeadlineTask?.cancel()
+        inputClearDeadlineTask = nil
+        inputClearPending = false
+        inputAudioFrameCount = 0
+        inputCaptureFloorMS = 0
+        selectionHistory.removeAll(keepingCapacity: false)
+        discardedHintThroughFrame = nil
+        lastAdmittedSpeechStartMS = nil
+        transcriptItem = nil
         sceneExecutionTask?.cancel()
         sceneExecutionTask = nil
         responseDeadlineTask?.cancel()
@@ -961,11 +1296,14 @@ final class RealtimeSession {
         outboundByteCount = 0
         webSocket?.cancel(with: .goingAway, reason: nil)
         webSocket = nil
-        if isMicrophoneEnabled { audioIO.stop() }
+        audioIO.stop()
         isMicrophoneEnabled = false
         didSendSessionConfiguration = false
         onsetDetector.reset()
         discardOutstandingSpeechBindings()
+        consumedSpeechItemIDs.removeAll(keepingCapacity: false)
+        consumedSpeechItemOrder.removeAll(keepingCapacity: false)
+        pendingCalls.removeAll(keepingCapacity: false)
         activeTurn = nil
         receivedFirstOutputAudio = false
         socketEventCounts.removeAll(keepingCapacity: false)
@@ -974,6 +1312,9 @@ final class RealtimeSession {
         outboundEventCounts.removeAll(keepingCapacity: false)
         lastOutboundSummaryAt = Date()
         executedCallIDs.removeAll(keepingCapacity: false)
+        microphoneBufferCount = 0
+        microphoneFrameCount = 0
+        lastMicrophoneSummaryAt = Date()
     }
 
     private func scheduleResponseDeadline(for turn: ActiveTurn) {

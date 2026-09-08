@@ -54,3 +54,7 @@ python3 tools/checks/check-flow-metrics.py --device <DEVICE_ID> \
 ```
 
 Use a new output directory. The explicit Debug launch setting `ASTRA_FLOW_ACCEPTANCE_COUNT` selects a synthetic fixture; ordinary launches do not. Reports measure marker-loop CPU wall time, bounded resources, and scene-update callback cadence. Simulator results never establish physical AR, GPU time, thermal behavior, or visual correctness; physical runs require an unlocked device.
+
+### Realtime audio checks
+
+`python3 tools/checks/check-audio-callback-isolation.py --before-ref 8d93cb3` compiles the actual conversation sources to SIL with app isolation settings and checks the audio callback boundary. `node tools/checks/check-realtime-audio-clock.mjs` replays generated PCM against one real Realtime session before and after clearing the input buffer. It silently uses the local development session configuration, makes provider calls, and writes redacted receipts under `.local/realtime-audio-clock`; it does not record or play the native microphone.
