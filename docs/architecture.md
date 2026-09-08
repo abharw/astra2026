@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the AR application in `app/AR/`. The independently running Quest application and its bridge are preserved in `app/VR/`; see [the integration record](ar-vr-integration.md).
+This document describes the AR application in `app/AR/`. The independently running Quest application and its bridge are preserved in `app/VR/`; see [the root README](../README.md).
 
 Astra Spatial is a universal iPhone/iPad app for exploring editable 3D structures through conversation and pointing. The rack is example content. The reusable code is a scene reducer, procedural geometry compiler, native renderer, and input adapters.
 

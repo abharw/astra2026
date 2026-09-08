@@ -2,7 +2,7 @@
 
 September 8, 2026. Research and proposed integration; Images 2.5 has not been called or integrated in this app.
 
-Arav's subsequent implementation order is repository reorganization → image API integration → richer native geometry. [HANDOFF.md](../HANDOFF.md) is the execution guide; the comparison below explains the separate roles of generated images and native flows.
+Arav's subsequent implementation order is repository reorganization → image API integration → richer native geometry. The [image integration record](images-2.5-integration-status.md) and [native flow record](native-flow-integration.md) describe the implementation; the comparison below explains their separate roles.
 
 ## What the current session proves
 
