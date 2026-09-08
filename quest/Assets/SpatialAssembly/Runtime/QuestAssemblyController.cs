@@ -12,7 +12,7 @@ namespace SpatialAssembly {
   public OVRCameraRig Rig;public OVRHand RightHand;public PassthroughCameraAccess CameraAccess;public EnvironmentRaycastManager Depth;
   public QuestTestControl TestControl;public BridgeConnection Bridge;public RealtimeAudio Audio;public SavedAssemblies Store;
   public Text StatusText,DetailText,HintText,VoiceButton,PullButton;public Transform Panel;
-  AssemblyVisual grabbed;Vector3 grabOffset;Quaternion grabRotation;bool grabByPinch;Transform scanMarker;TextMesh scanLabel;
+  AssemblyVisual grabbed;Vector3 grabOffset,desiredGrabOffset,grabVelocity,desiredGrabScale;Quaternion grabRotation;bool grabByPinch,lastGrip;Transform scanMarker;TextMesh scanLabel;
   bool waitForGripRelease;bool panelFollows=true;string voiceCaption="";
   public bool Busy=>busy;public string SelectedPart=>selectedPart;public IEnumerable<AssemblyVisual> Objects=>objects.Where(v=>v);
   public string Status="Allow camera and spatial-data permissions. Point at an object.";
@@ -33,8 +33,10 @@ namespace SpatialAssembly {
    while(!CameraAccess.IsPlaying){Status="Waiting for passthrough camera permission / camera feed";yield return null;}
    Status="Point with your hand or controller. Trigger selects. Right stick click confirms a scan.";PositionPanel();
   }
-  Ray PointingRay(){if(RightHand&&RightHand.IsTracked&&RightHand.IsPointerPoseValid&&RightHand.HandConfidence==OVRHand.TrackingConfidence.High)return new Ray(RightHand.PointerPose.position,RightHand.PointerPose.forward);return new Ray(Rig.rightControllerAnchor.position,Rig.rightControllerAnchor.forward);}
-  Pose HandPose(){var ray=PointingRay();return new Pose(ray.origin,RightHand&&RightHand.IsTracked&&RightHand.IsPointerPoseValid?RightHand.PointerPose.rotation:Rig.rightControllerAnchor.rotation);}
+  bool HandPointerAvailable()=>RightHand&&RightHand.IsTracked&&RightHand.IsPointerPoseValid&&RightHand.HandConfidence==OVRHand.TrackingConfidence.High;
+  bool UsingHandPointer()=>HandPointerAvailable()&&(OVRInput.GetActiveController()&OVRInput.Controller.Touch)==0;
+  Ray PointingRay(){var t=UsingHandPointer()?RightHand.PointerPose:Rig.rightControllerAnchor;return new Ray(t.position,t.forward);}
+  Pose HandPose(){var t=grabbed?(grabByPinch?RightHand.PointerPose:Rig.rightControllerAnchor):(UsingHandPointer()?RightHand.PointerPose:Rig.rightControllerAnchor);return new Pose(t.position,t.rotation);}
   void Update(){
    if(!Rig||!CameraAccess)return;
    if(panelFollows&&Panel&&Panel.gameObject.activeSelf)PlacePanelAtEyeHeight(false);
@@ -44,32 +46,65 @@ namespace SpatialAssembly {
    bool virtualHit=Physics.Raycast(ray,out var selected,6);var part=virtualHit?selected.collider.GetComponent<PartHandle>():null;
    if(marker){marker.gameObject.SetActive(hasTarget||part);marker.position=part?selected.point:target;}
    if(pointer){pointer.SetPosition(0,ray.origin);pointer.SetPosition(1,part?selected.point:hasTarget?target:ray.GetPoint(1));}
-   bool pinch=RightHand&&RightHand.IsTracked&&RightHand.IsPointerPoseValid&&RightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
+   bool pinch=UsingHandPointer()&&RightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
    bool grip=OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,OVRInput.Controller.RTouch)>.5f;
+   bool gripDown=grip&&!lastGrip;lastGrip=grip;
    bool leftGrip=OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,OVRInput.Controller.LTouch)>.5f;
    bool pressed=(pinch&&!lastPinch)||OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger,OVRInput.Controller.RTouch);lastPinch=pinch;
    if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.LTouch)){if(leftGrip)Store.Restore();else {Panel.gameObject.SetActive(!Panel.gameObject.activeSelf);if(Panel.gameObject.activeSelf)PositionPanel();}}
-   if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.RTouch)&&Active)Active.SetExplosion(Active.Explosion>.05f?0:1);
+   if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.RTouch)&&Active){if(leftGrip)BringToMe();else Active.SetExplosion(Active.Explosion>.05f?0:1);}
    if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.RTouch)){if(leftGrip&&TestControl)TestControl.ToggleTest();else Audio.Toggle();}
    if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.LTouch)){if(leftGrip)DeleteSelected();else ExplainNext();}
    if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.LTouch)){if(leftGrip||busy)Cancel();else Refine();}
    if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.RTouch)){if(pointedTargetLocked){if(!busy)Reconstruct();}else ReturnSelected();}
    if(!grip&&!pinch)waitForGripRelease=false;
-   if(grabbed){if(pressed&&!pinch&&hasTarget){PlaceActive(target,normal);waitForGripRelease=true;UpdateStatus();return;}if(grabByPinch?pinch:grip){var stick=OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.Controller.RTouch);grabOffset.z=Mathf.Clamp(grabOffset.z+stick.y*Time.deltaTime*.6f,.15f,5);MoveGrab(HandPose(),false);}else EndGrab();UpdateStatus();return;}
-   if(!waitForGripRelease&&part&&(grip||(pinch&&pressed))&&(!busy||refiningObject==null)){selectedPart=part.Part.id;BeginGrab(part.Owner,HandPose());grabByPinch=pinch;Active.Select(selectedPart);ShowPart(part.Part);UpdateStatus();return;}
+   if(grabbed){
+    if(grabByPinch&&!HandPointerAvailable()){EndGrab();waitForGripRelease=true;UpdateStatus();return;}
+    if(pressed&&!pinch&&hasTarget){PlaceActive(target,normal);waitForGripRelease=true;UpdateStatus();return;}
+    if(grabByPinch?pinch:grip){
+     var hand=HandPose();var stick=OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.Controller.RTouch);
+     float horizontal=StickValue(stick.x),vertical=StickValue(stick.y);
+     if(leftGrip)grabRotation=Quaternion.AngleAxis(-vertical*90*Time.deltaTime,Vector3.right)*grabRotation;
+     else desiredGrabOffset.z=Mathf.Clamp(desiredGrabOffset.z+vertical*Time.deltaTime*1.6f,.25f,5);
+     var worldUpInHand=Quaternion.Inverse(hand.rotation)*Vector3.up;
+     grabRotation=Quaternion.AngleAxis(horizontal*110*Time.deltaTime,worldUpInHand)*grabRotation;
+     MoveGrab(hand,false);
+    }else EndGrab();UpdateStatus();return;
+   }
+   if(!waitForGripRelease&&(!busy||refiningObject==null)){
+    var item=part?part.Owner:(!pointedTargetLocked?Active:null);
+    if(item&&((part&&pinch&&pressed)||gripDown)){
+     if(part)selectedPart=part.Part.id;grabByPinch=pinch;BeginGrab(item,HandPose());
+     Active.Select(selectedPart);if(part)ShowPart(part.Part);UpdateStatus();return;
+    }
+   }
    if(pressed){if(part){pointedTargetLocked=false;Active=part.Owner;selectedPart=part.Part.id;Active.Select(selectedPart);ShowPart(part.Part);SyncScene();}else if(hasTarget){LockPoint(target,normal);Status="Target selected • right stick click to scan, or explicitly ask to reconstruct";}}
-   if(Active&&Active.Extracted&&!busy){var stick=OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.Controller.RTouch);Active.transform.position+=Rig.centerEyeAnchor.forward*stick.y*Time.deltaTime*.5f;Active.transform.Rotate(Vector3.up,stick.x*60*Time.deltaTime,Space.World);}
+   if(Active&&Active.Extracted&&!busy){var stick=OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick,OVRInput.Controller.RTouch);if(!pointedTargetLocked){float x=StickValue(stick.x),y=StickValue(stick.y);if(x!=0||y!=0)Active.StopMotion();if(leftGrip)Active.transform.Rotate(Rig.centerEyeAnchor.right,-y*90*Time.deltaTime,Space.World);else Active.transform.position+=Rig.centerEyeAnchor.forward*y*Time.deltaTime*1.2f;Active.transform.Rotate(Vector3.up,x*110*Time.deltaTime,Space.World);}}
    UpdateStatus();
   }
-  public void BeginGrab(AssemblyVisual item,Pose hand){pointedTargetLocked=false;grabbed=item;Active=item;item.Extracted=true;grabOffset=Quaternion.Inverse(hand.rotation)*(item.transform.position-hand.position);grabRotation=Quaternion.Inverse(hand.rotation)*item.transform.rotation;SyncScene();}
-  public void MoveGrab(Pose hand,bool immediate){if(!grabbed)return;float blend=immediate?1:1-Mathf.Exp(-30*Time.deltaTime);grabbed.transform.position=Vector3.Lerp(grabbed.transform.position,hand.position+hand.rotation*grabOffset,blend);grabbed.transform.rotation=Quaternion.Slerp(grabbed.transform.rotation,hand.rotation*grabRotation,blend);}
-  public void EndGrab(){grabbed=null;SyncScene();Store.SaveCurrent();}
+  static float StickValue(float value)=>Mathf.Abs(value)<.18f?0:Mathf.Sign(value)*(Mathf.Abs(value)-.18f)/.82f;
+  public void BeginGrab(AssemblyVisual item,Pose hand){
+   pointedTargetLocked=false;grabbed=item;Active=item;item.StopMotion();item.Extracted=true;grabVelocity=Vector3.zero;
+   grabOffset=Quaternion.Inverse(hand.rotation)*(item.transform.position-hand.position);desiredGrabOffset=grabOffset;
+   grabRotation=Quaternion.Inverse(hand.rotation)*item.transform.rotation;desiredGrabScale=item.transform.localScale;
+   if(grabOffset.magnitude>1.05f){desiredGrabOffset=new Vector3(0,0,.6f);desiredGrabScale=item.InspectionScale(.65f);}
+   Status="Holding • twist your wrist or use the stick to rotate";SyncScene();
+  }
+  public void MoveGrab(Pose hand,bool immediate){
+   if(!grabbed)return;float blend=immediate?1:1-Mathf.Exp(-14*Time.deltaTime);
+   grabOffset=Vector3.Lerp(grabOffset,desiredGrabOffset,blend);grabbed.transform.localScale=Vector3.Lerp(grabbed.transform.localScale,desiredGrabScale,blend);
+   var position=hand.position+hand.rotation*grabOffset;
+   grabbed.transform.position=immediate?position:Vector3.SmoothDamp(grabbed.transform.position,position,ref grabVelocity,.045f,12,Time.deltaTime);
+   grabbed.transform.rotation=Quaternion.Slerp(grabbed.transform.rotation,hand.rotation*grabRotation,immediate?1:1-Mathf.Exp(-22*Time.deltaTime));
+  }
+  public void BringToMe(){if(!Active){Status="Trigger-select a generated item first";return;}if(grabbed){desiredGrabOffset=new Vector3(0,0,.6f);desiredGrabScale=grabbed.InspectionScale(.65f);}else Active.PullOut(Rig.centerEyeAnchor);pointedTargetLocked=false;Status="Bringing selected item within reach";SyncScene();Store.SaveCurrent();}
+  public void EndGrab(){grabbed=null;grabVelocity=Vector3.zero;SyncScene();Store.SaveCurrent();}
   public void PlaceActive(Vector3 point,Vector3 surfaceNormal){if(grabbed)Active=grabbed;if(!Active)return;pointedTargetLocked=false;EndGrab();Active.Extracted=true;var size=AssemblyData.V(Active.Data.sizeMeters)/Active.Data.sizeMeters.Max();var scale=Active.transform.lossyScale;float support=(Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.right))*size.x*scale.x+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.up))*size.y*scale.y+Mathf.Abs(Vector3.Dot(surfaceNormal,Active.transform.forward))*size.z*scale.z)*.5f;Active.transform.position=point+surfaceNormal*Mathf.Max(.01f,support);Status="Placed • grip to move again, or say return object";SyncScene();Store.SaveCurrent();}
   void UpdateStatus(){
    string state=!Bridge.Connected?"OFFLINE":!CameraAccess.IsPlaying?"CAMERA NOT READY":grabbed?"HOLDING OBJECT":busy?"RECONSTRUCTING":pointedTargetLocked?"TARGET SELECTED":!string.IsNullOrEmpty(Audio.Error)?"VOICE ERROR":Audio.Speaking?"SPEAKING":Audio.Enabled?"LISTENING":Audio.Starting?"STARTING VOICE":"READY";
-   string next=!Bridge.Connected?"Reconnecting automatically. Check Quest and Mac Wi-Fi.":!CameraAccess.IsPlaying?"Allow camera access in the headset.":grabbed?"Move your hand/controller. Release grip to drop; trigger places on a surface.":busy?"Captured target is amber. Press Y to cancel immediately.":pointedTargetLocked?"Right stick click confirms reconstruction. Trigger alone does not scan.":!string.IsNullOrEmpty(Audio.Error)?Audio.Error+" Press B to retry voice.":Audio.Speaking?"Reply is playing. Speak to interrupt or press B to stop voice.":Audio.Enabled?"Ask a question aloud. Your microphone is on.":Active?Active.Extracted?"Grip the model to move it. While holding, trigger places it on a surface.":"Grip a model to move it. Trigger selects a part. A explodes.":hasTarget?"Trigger selects a target. Right stick click confirms the scan.":"Aim at a nearby real surface until the cyan target appears.";
+   string next=!Bridge.Connected?"Reconnecting automatically. Check Quest and Mac Wi-Fi.":!CameraAccess.IsPlaying?"Allow camera access in the headset.":grabbed?"Twist your wrist to rotate. Stick turns / moves closer. Release grip to drop.":busy?"Captured target is amber. Press Y to cancel immediately.":pointedTargetLocked?"Right stick click confirms reconstruction. Trigger alone does not scan.":!string.IsNullOrEmpty(Audio.Error)?Audio.Error+" Press B to retry voice.":Audio.Speaking?"Reply is playing. Speak to interrupt or press B to stop voice.":Audio.Enabled?"Ask a question aloud. Your microphone is on.":Active?Active.Extracted?"Hold grip to bring the selected item to your hand. Stick turns it; right-stick click returns it.":"Trigger selects a part. Hold grip to bring it to you. A explodes.":hasTarget?"Trigger selects a target. Right stick click confirms the scan.":"Aim at a nearby real surface until the cyan target appears.";
    if(StatusText){StatusText.text=state+(busy?$"  •  {(int)(Time.realtimeSinceStartup-started)}s":"")+"\n"+next+"\n"+(busy?Status:pointedTargetLocked?"Target selected; awaiting your reconstruction request":Active?"Selected: "+Active.Data.name:Status);StatusText.color=!Bridge.Connected?new Color(1,.65f,.4f):Color.white;}
-   if(HintText)HintText.text="Trigger: select only • Grip: grab / drop\nA: explode • B: voice • X: explain\nY: cancel while scanning / improve while idle\nLeft grip + X: delete • Left grip + Y: cancel\nRight stick click: scan target / return selected model\nWhile holding: trigger places on surface\nLeft stick click: hide / show guide • hold left grip to restore"+(TestControl?"\nMac test: "+TestControl.Link.Status+" • left grip + B: toggle":"");
+   if(HintText)HintText.text="Trigger selects • Grip brings / holds • Release drops\nTwist wrist to rotate • Stick: turn / near–far\nLeft grip + stick up/down: tilt • Left grip + A: bring here\nA: explode • B: voice • X: explain • Y: cancel / improve\nRight stick click: confirm scan / return selected item\nLeft grip + X: delete • Holding + trigger: place\nLeft stick click: hide guide • + left grip: restore";
    if(VoiceButton)VoiceButton.text=Audio.Enabled||Audio.Starting?"Stop voice":"Start voice";
    if(PullButton)PullButton.text=Active&&Active.Extracted?"Return object":"Pull object";
   }
@@ -79,7 +114,7 @@ namespace SpatialAssembly {
   public void Refine(){if(!Active||busy){Status="Select a generated object first";return;}SyncScene();requestId=Guid.NewGuid().ToString();refiningObject=Active.ObjectId;busy=true;started=Time.realtimeSinceStartup;Status="Searching technical references to rebuild this object";Bridge.Send(new JObject{{"type","rebuild"},{"request_id",requestId},{"hint",selectedPart==null?"Improve the fidelity of this object using technical references":"Improve component "+selectedPart+" using references; retain other components"}});}
   public void ReturnSelected(){waitForGripRelease=true;if(!Active){Status="Trigger-select a generated item first";return;}EndGrab();pointedTargetLocked=false;Active.ReturnHome();Status="Returned to original anchored position";SyncScene();Store.SaveCurrent();}
   public void Cancel(){Bridge.Send(new JObject{{"type","reconstruction.cancel"}});requestId=null;refiningObject=null;busy=false;Status="Cancelled";}
-  public void PullOrReturn(){if(!Active){Status="Reconstruct an object before pulling it out.";return;}if(Active.Extracted)Active.ReturnHome();else Active.PullOut(Rig.centerEyeAnchor);SyncScene();Store.SaveCurrent();}
+  public void PullOrReturn(){if(!Active){Status="Reconstruct an object before pulling it out.";return;}if(Active.Extracted)ReturnSelected();else BringToMe();SyncScene();Store.SaveCurrent();}
   public void DeleteSelected(){var result=DeleteActive();Status=result.message;}
   public (bool ok,string message) DeleteActive(){if(!Active)return(false,"No generated object selected");if(busy)return(false,"Cancel the current reconstruction before deleting");EndGrab();var removed=Active;string name=removed.Data.name;if(!Store.Delete(removed))return(false,Store.Status);pointedTargetLocked=false;objects.Remove(removed);Active=objects.LastOrDefault(v=>v);selectedPart=null;if(DetailText)DetailText.text="Deleted generated object: "+name;SyncScene();return(true,"Deleted generated object: "+name);}
   public bool SelectObject(string id){var found=objects.FirstOrDefault(v=>v&&v.ObjectId==id);if(!found)return false;pointedTargetLocked=false;Active=found;selectedPart=null;SyncScene();return true;}
@@ -134,8 +169,8 @@ namespace SpatialAssembly {
    var center=Point((b[0]+b[2])/2,(b[1]+b[3])/2)-forward*(data.sizeMeters[2]/max*scale*.5f);
    var anchor=new GameObject("Object source anchor");anchor.transform.SetPositionAndRotation(center,rotation);anchor.AddComponent<OVRSpatialAnchor>();var child=new GameObject(data.name);child.transform.SetParent(anchor.transform,false);child.transform.localScale=Vector3.one*scale;var visual=child.AddComponent<AssemblyVisual>();visual.ObjectId=id;visual.HomeScale=child.transform.localScale;visual.Build(data);objects.Add(visual);if(!grabbed){Active=visual;selectedPart=null;pointedTargetLocked=false;}Store.Register(visual);
   }
-  void ReplaceActive(AssemblyData data){var old=Active;var go=new GameObject(data.name);go.transform.SetParent(old.transform.parent,false);go.transform.localPosition=old.transform.localPosition;go.transform.localRotation=old.transform.localRotation;go.transform.localScale=old.transform.localScale;var next=go.AddComponent<AssemblyVisual>();next.ObjectId=old.ObjectId;next.HomePosition=old.HomePosition;next.HomeRotation=old.HomeRotation;next.HomeScale=old.HomeScale;next.Explosion=old.Explosion;next.Extracted=old.Extracted;next.Hologram=old.Hologram;next.ShowInferred=old.ShowInferred;try{next.Build(data);}catch{Destroy(go);throw;}objects.Remove(old);objects.Add(next);Active=next;selectedPart=null;pointedTargetLocked=false;Destroy(old.gameObject);Store.Register(next);}
-  public (bool ok,string message) Command(JObject e){if(!Active)return(false,"No generated object selected");string action=(string)e["action"]??"";pointedTargetLocked=false;float amount=(float?)e["amount"]??0;switch(action){case "delete":return DeleteActive();case "explode":Active.SetExplosion(amount>0?amount:1);break;case "assemble":Active.SetExplosion(0);break;case "extract":Active.PullOut(Rig.centerEyeAnchor);break;case "return":ReturnSelected();break;case "select":string q=((string)e["part"]??"").ToLowerInvariant();var p=Active.Data.parts.FirstOrDefault(p=>p.id.ToLowerInvariant()==q||p.name.ToLowerInvariant().Contains(q));if(p==null)return(false,"Part not found");selectedPart=p.id;Active.Select(p.id);ShowPart(p);break;case "hologram":Active.Hologram=true;Active.Restyle();break;case "solid":Active.Hologram=false;Active.Restyle();break;case "show_inferred":Active.ShowInferred=true;Active.Restyle();break;case "hide_inferred":Active.ShowInferred=false;Active.Restyle();break;case "rotate":if(!Active.Extracted)return(false,"Extract first");Active.transform.Rotate(Vector3.up,amount==0?30:amount,Space.World);break;case "scale":if(!Active.Extracted)return(false,"Extract first");Active.transform.localScale*=Mathf.Clamp(amount==0?1.2f:amount,.25f,3);break;default:if(!action.StartsWith("move_"))return(false,"Unknown command");if(!Active.Extracted)return(false,"Extract first");Vector3 direction=action=="move_left"?-Rig.centerEyeAnchor.right:action=="move_right"?Rig.centerEyeAnchor.right:action=="move_up"?Vector3.up:action=="move_down"?Vector3.down:action=="move_back"?Rig.centerEyeAnchor.forward:-Rig.centerEyeAnchor.forward;Active.transform.position+=direction*Mathf.Clamp(Mathf.Abs(amount==0?.2f:amount),.05f,1);break;}Store.SaveCurrent();return(true,"Applied "+action);}
+  void ReplaceActive(AssemblyData data){var old=Active;var go=new GameObject(data.name);go.transform.SetParent(old.transform.parent,false);go.transform.localPosition=old.transform.localPosition;go.transform.localRotation=old.transform.localRotation;go.transform.localScale=old.transform.localScale;var next=go.AddComponent<AssemblyVisual>();next.ObjectId=old.ObjectId;next.HomePosition=old.HomePosition;next.HomeRotation=old.HomeRotation;next.HomeScale=old.HomeScale;next.Explosion=old.Explosion;next.Extracted=old.Extracted;next.Hologram=old.Hologram;next.ShowInferred=old.ShowInferred;try{next.Build(data);}catch{Destroy(go);throw;}objects.Remove(old);objects.Add(next);Active=next;if(grabbed==old)grabbed=next;selectedPart=null;pointedTargetLocked=false;Destroy(old.gameObject);Store.Register(next);}
+  public (bool ok,string message) Command(JObject e){if(!Active)return(false,"No generated object selected");string action=(string)e["action"]??"";pointedTargetLocked=false;float amount=(float?)e["amount"]??0;switch(action){case "delete":return DeleteActive();case "explode":Active.SetExplosion(amount>0?amount:1);break;case "assemble":Active.SetExplosion(0);break;case "extract":BringToMe();break;case "return":ReturnSelected();break;case "select":string q=((string)e["part"]??"").ToLowerInvariant();var p=Active.Data.parts.FirstOrDefault(p=>p.id.ToLowerInvariant()==q||p.name.ToLowerInvariant().Contains(q));if(p==null)return(false,"Part not found");selectedPart=p.id;Active.Select(p.id);ShowPart(p);break;case "hologram":Active.Hologram=true;Active.Restyle();break;case "solid":Active.Hologram=false;Active.Restyle();break;case "show_inferred":Active.ShowInferred=true;Active.Restyle();break;case "hide_inferred":Active.ShowInferred=false;Active.Restyle();break;case "rotate":if(grabbed){grabRotation=Quaternion.AngleAxis(amount==0?30:amount,Quaternion.Inverse(HandPose().rotation)*Vector3.up)*grabRotation;break;}if(!Active.Extracted)return(false,"Extract first");Active.StopMotion();Active.transform.Rotate(Vector3.up,amount==0?30:amount,Space.World);break;case "scale":if(grabbed){desiredGrabScale*=Mathf.Clamp(amount==0?1.2f:amount,.25f,3);break;}if(!Active.Extracted)return(false,"Extract first");Active.StopMotion();Active.transform.localScale*=Mathf.Clamp(amount==0?1.2f:amount,.25f,3);break;default:if(!action.StartsWith("move_"))return(false,"Unknown command");if(!Active.Extracted)return(false,"Extract first");Vector3 direction=action=="move_left"?-Rig.centerEyeAnchor.right:action=="move_right"?Rig.centerEyeAnchor.right:action=="move_up"?Vector3.up:action=="move_down"?Vector3.down:action=="move_back"?Rig.centerEyeAnchor.forward:-Rig.centerEyeAnchor.forward;var movement=direction*Mathf.Clamp(Mathf.Abs(amount==0?.2f:amount),.05f,1);if(grabbed)desiredGrabOffset+=Quaternion.Inverse(HandPose().rotation)*movement;else{Active.StopMotion();Active.transform.position+=movement;}break;}Store.SaveCurrent();return(true,"Applied "+action);}
   void OnDestroy(){if(Bridge)Bridge.Message-=OnMessage;}
  }
  public class PanelHandle:MonoBehaviour {}

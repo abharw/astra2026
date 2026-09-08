@@ -33,8 +33,9 @@ namespace SpatialAssembly {
  public class PartHandle:MonoBehaviour {public PartData Part; public AssemblyVisual Owner;}
  public class AssemblyVisual:MonoBehaviour {
   public AssemblyData Data {get;private set;} public string ObjectId=Guid.NewGuid().ToString();
-  public float Explosion;public bool Extracted,Hologram=true,ShowInferred=true; public string Selected;
+  public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;
   public Vector3 HomePosition,HomeScale=Vector3.one;public Quaternion HomeRotation=Quaternion.identity;
+  bool moving;float moveTime;Vector3 moveFrom,moveTo,scaleFrom,scaleTo;Quaternion rotationFrom,rotationTo;
   readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
   public void Build(AssemblyData data){
    data.Validate();Data=data;
@@ -51,14 +52,22 @@ namespace SpatialAssembly {
    Restyle();SetExplosion(Explosion);
   }
   public void SetExplosion(float value){Explosion=Mathf.Clamp01(value);}
-  void Update(){foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,AssemblyData.V(p.explode)*Explosion,1-Mathf.Exp(-12*Time.deltaTime));}}
+  void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,AssemblyData.V(p.explode)*Explosion,1-Mathf.Exp(-12*Time.deltaTime));}}
   public void Select(string id){Selected=id;Restyle();}
   public void Restyle(){
    foreach(var p in Data.parts)parts[p.id].gameObject.SetActive(ShowInferred||p.evidence!="inferred");
-   foreach(var x in surfaces){var c=Selected==x.part.id?Color.white:Hologram?(x.part.evidence=="inferred"?new Color(1,.55f,.15f):new Color(.08f,.85f,1)):new Color(x.primitive.color[0],x.primitive.color[1],x.primitive.color[2]);x.renderer.material.color=c;if(x.renderer.material.HasProperty("_Metallic"))x.renderer.material.SetFloat("_Metallic",.12f);}
+   foreach(var x in surfaces){
+    var c=Hologram?(x.part.evidence=="inferred"?new Color(1,.55f,.15f):new Color(.08f,.85f,1)):new Color(x.primitive.color[0],x.primitive.color[1],x.primitive.color[2]);
+    var material=x.renderer.material;material.color=c;
+    if(material.HasProperty("_Metallic"))material.SetFloat("_Metallic",0);
+    if(material.HasProperty("_Glossiness"))material.SetFloat("_Glossiness",.28f);
+    if(material.HasProperty("_EmissionColor")){material.EnableKeyword("_EMISSION");material.SetColor("_EmissionColor",Selected==x.part.id?new Color(.09f,.07f,.015f):Color.black);}
+   }
   }
-  public void PullOut(Transform head){Extracted=true;transform.position=head.position+head.forward*.8f-head.up*.12f;}
-  public void ReturnHome(){Extracted=false;transform.localPosition=HomePosition;transform.localRotation=HomeRotation;transform.localScale=HomeScale;SetExplosion(0);}
+  public Vector3 InspectionScale(float maxSize){float size=Mathf.Max(transform.lossyScale.x,transform.lossyScale.y,transform.lossyScale.z);return transform.localScale*Mathf.Min(1,maxSize/Mathf.Max(.001f,size));}
+  public void StopMotion(){moving=false;}
+  public void PullOut(Transform head){Extracted=true;moveTime=0;moveFrom=transform.position;rotationFrom=transform.rotation;scaleFrom=transform.localScale;moveTo=head.position+head.forward*.75f-head.up*.12f;rotationTo=transform.rotation;scaleTo=InspectionScale(.65f);moving=true;}
+  public void ReturnHome(){StopMotion();Extracted=false;transform.localPosition=HomePosition;transform.localRotation=HomeRotation;transform.localScale=HomeScale;SetExplosion(0);}
   void OnDestroy(){foreach(var x in surfaces){if(x.renderer){Geometry.Release(x.renderer.material);var f=x.renderer.GetComponent<MeshFilter>();if(f)Geometry.Release(f.sharedMesh);}}}
  }
  public static class Geometry {

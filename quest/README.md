@@ -20,13 +20,13 @@ The panel is an instruction/status guide with no interactive buttons. It follows
 
 - **Right trigger** on a real surface locks that physical referent only. It does not start a scan. On a generated component it selects that component without exploding it. Voice receives this explicit selection.
 - **Right thumbstick click** confirms a scan of a selected physical target; with a generated item selected, it returns that item to its original anchored position, rotation and scale. An explicit voice request can also start reconstruction.
-- **Right grip** over a generated component grabs the model without jumping it to a new position. Move the controller and release to drop. While holding, trigger places the held model against the measured surface. After release, trigger can select another object.
+- **Right grip** over a generated component grabs the model. A distant selection eases toward the hand, so you do not need to drag it across the room. You can also select once, aim elsewhere, then hold grip to bring that selection closer. Move the controller and release to drop. While holding, trigger places the held model against the measured surface. After release, trigger can select another object.
 - Tracked right-hand pinch selects targets; pinching a generated model grabs it until release.
 - **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** immediately cancels while reconstructing; while idle it researches and rebuilds the selected object.
 - **Left grip + X** deletes the selected generated object and its saved record. **Left grip + Y** cancels reconstruction.
 - **Left stick click** hides/shows the guide. **Left grip + left stick click** retries saved-anchor restoration.
-- While holding, the right stick adjusts distance. After release, it moves/rotates an extracted model. Say “return the object” to restore its saved source pose.
-- The main bridge reconnects automatically. Voice displays errors and B retries. **Left grip + B** toggles the optional paired Mac test connection.
+- Twist the held controller/hand to rotate freely. Right stick left/right turns the model; up/down adjusts distance. Hold left grip and use up/down to tilt. **Left grip + A** brings the selected item within reach without holding it. Large objects are reduced to an inspection size; Return restores their original scale as well as position. After release, the stick can still move/rotate the selected extracted model. Say “return the object” to restore its saved source pose.
+- The main bridge reconnects automatically. Voice displays errors and B retries. The optional Mac test connection starts disabled in the current build. **Left grip + B** can explicitly toggle it; the agent must not use it without renewed authorization.
 - Say “explode this,” “explain this part,” “reconstruct that,” or “find a schematic and improve it.” Actions report success only after the app acknowledges them.
 
 These controls are implemented and build-checked. Physical grip comfort and input acceptance on the latest build remain pending; see the test record for the last observed runtime state.
@@ -35,7 +35,7 @@ These controls are implemented and build-checked. Physical grip comfort and inpu
 
 The pointing ray intersects Meta environment depth. The target is projected into the physical camera image using the image-associated camera pose and calibrated API projection. Capture freezes the target, normal, pose and corner rays; later head movement does not change that capture. The returned bounds are fitted onto the captured surface plane. Runtime tracking, component interaction and spatial anchors run locally.
 
-Generated shape and hidden details remain approximate. Search retains actual web-tool source URLs, labels exact versus similar matches, and cannot verify exact internals from a similar product. Rebuild retains the object identity and original/current poses. Color-coded “hologram” styling currently uses opaque material; optical see-through is not implemented.
+Generated shape and hidden details remain approximate. Search retains actual web-tool source URLs, labels exact versus similar matches, and cannot verify exact internals from a similar product. Rebuild retains the object identity and original/current poses. Solid material colors from the generated component data are the default. Selection adds a subtle highlight without replacing the base color. Color accuracy is limited by the supplied image and generated model; it is not a recovered photographic texture. Optional hologram styling remains available through an explicit voice command.
 
 The agent receives sampled camera frames when a tool requests them, not a continuous video stream. This is a stationary world anchor, not tracking of a physical object someone moves. Search-assisted generation took about 145 seconds in one real API probe; latency varies.
 

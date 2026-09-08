@@ -16,7 +16,7 @@ namespace SpatialAssembly {
   public event Action<JObject> Message;
   ClientWebSocket socket;CancellationTokenSource cancel;readonly ConcurrentQueue<JObject> received=new();readonly ConcurrentQueue<byte[]> outgoing=new();bool sending;
   public string Url,Token;public string ConfigFile="connection.json";public bool ForegroundOnly;public bool UserEnabled=true;bool paused,connecting,configured,destroyed;float retryAt;int retryCount;
-  IEnumerator Start(){using(var req=UnityWebRequest.Get(Application.streamingAssetsPath+"/"+ConfigFile)){yield return req.SendWebRequest();if(req.result!=UnityWebRequest.Result.Success){Status="Pair this headset using configure.py before building";yield break;}try{var c=JObject.Parse(req.downloadHandler.text);Url=(string)c["url"];Token=(string)c["token"];}catch{Status="Invalid pairing configuration";yield break;}}configured=true;Connect();}
+  IEnumerator Start(){using(var req=UnityWebRequest.Get(Application.streamingAssetsPath+"/"+ConfigFile)){yield return req.SendWebRequest();if(req.result!=UnityWebRequest.Result.Success){Status="Pair this headset using configure.py before building";yield break;}try{var c=JObject.Parse(req.downloadHandler.text);Url=(string)c["url"];Token=(string)c["token"];}catch{Status="Invalid pairing configuration";yield break;}}configured=true;if(!UserEnabled)Status="Off";Connect();}
   public async void Connect(){
    if(destroyed||!configured||connecting||!UserEnabled||Connected||(ForegroundOnly&&paused))return;
    connecting=true;ClientWebSocket current=null;

@@ -230,3 +230,10 @@ The wearer objected to unsolicited reconstruction and requested click-to-select 
 
 
 The wearer then took over all testing and revoked independent remote tests. Stopped app-level test activity and force-stopped the Quest app to reset pending work, preserving saved models. Only the pending control-fix build/install/relaunch handoff continued. Latest physical selection, confirmation, cancellation and stable Return acceptance are the wearer's tests; no further automated generation or remote validation was performed.
+
+
+## 21. Smooth bring-to-me controls, material colors, and reset
+
+Implemented damped distant-object grabbing, grip on the current selection without re-aiming, wrist/stick rotation, distance and tilt controls, and left grip + A bring-to-me. Large models fit within reach and Return retains the original source transform. Switched default rendering to generated component colors with a subtle selection highlight. Optional remote test connection starts off. Preserved explicit scan confirmation, Y cancel, deletion and Return controls.
+
+At the wearer's repeated reset request, moved the saved assembly record into an on-device backup and reopened an empty scene. No remote tests ran. The updated build/install handoff is separate from the wearer's pending runtime acceptance.
