@@ -1,0 +1,22 @@
+# Local secrets, pairing data, and captures
+.env
+.env.*
+!.env.example
+**/private/
+**/Connection.plist
+**/reference.jpeg
+**/device-room-*.json
+**/evidence/
+# Generated build and hosting output
+**/node_modules/
+**/build/
+**/test-build/
+**/dist/
+**/.next/
+**/.openai/
+**/.wrangler/
+**/*.tsbuildinfo
+**/*.xcuserstate
+**/xcuserdata/
+**/*.xcodeproj/
+.DS_Store

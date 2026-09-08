@@ -1,0 +1,8 @@
+{
+  "same_room": true,
+  "saved_again_after_relaunch": true,
+  "same_object_ids": true,
+  "same_generated_geometry": true,
+  "maximum_pose_difference": 6.99999999298484e-07,
+  "same_explosion": true
+}
