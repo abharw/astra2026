@@ -89,3 +89,26 @@ The Android build passed and installed, and all 21 shared backend tests passed. 
 7. Briefly restart the Mac bridge with the app awake; verify automatic recovery, cancellation of old pending work, and B voice restart.
 
 Raw camera images and private credentials remain outside Git. The repository record preserves observed results and limitations without publishing the room's people or screens.
+
+
+### Launch retry after the wearer cleared the dialog
+
+On the wearer's “try again,” the final controller build launched: OpenXR reported Focused, the actual test link connected, camera frames were fresh, and both the speaker and whiteboard restored. The deleted chair remained absent. A USB stereo screenshot showed real passthrough, generated geometry, and the new controller guide; the browser casting page was waiting for the wearer to resume casting. The guide was partly occluded by nearby large geometry in this view, so readability/placement still needs acceptance.
+
+A typed request entered the actual Realtime voice-tool path to explode the whiteboard. Device state changed from explosion 0 to 0.7 while the voice connection reported Listening and queued playback. This establishes the applied model change, not audible output. The wearer also interacted during the test: selections, transforms and explosion values changed, so these are not an isolated timing or movement-accuracy benchmark. A request to extract/move was submitted, but its exact displacement cannot be attributed separately from wearer input.
+
+The stale snapshot guard rejected an expired target. A fresh image then successfully started a scan aimed at the small light-colored wall-mounted item below the speaker, using the inspected JPEG and pose with current environment depth. Its final result is recorded below when available. No Unity exception was found in the sampled application log after launch.
+
+
+### Explicit reconstruction and easy return (wearer correction)
+
+The wearer objected that reconstructions started without an explicit request and that cancellation was difficult. Two causes were distinguished: the agent had initiated an independent scan under the earlier testing request, and controller trigger presses also automatically scanned. The agent cancelled the running scan; the actual app acknowledged Cancelled with busy=false. The additional small wall-object scan was therefore cancelled, not counted as a completed second new object.
+
+Changed trigger/pinch to selection only. A physical target displays Target selected and waits for right-thumbstick confirmation or an explicit voice reconstruction request. Selecting a generated item then clicking the right thumbstick returns its original anchored position, rotation, scale and assembled state. Y cancels an active reconstruction without a modifier. Added a cancel_reconstruction voice tool; reference questions and pointing updates do not authorize generation. Backend cancellation immediately acknowledges, aborts current work, rejects cancelled pending captures and permits another request without waiting for stale work to finish. The 22-test backend suite includes late-result rejection and immediate cancellation/new-request recovery. No further independent scan will be initiated in this session without a fresh explicit request.
+
+
+### Wearer takes over all testing
+
+The wearer explicitly instructed Codex to stop remote tests and let them run all tests. Remote application commands and inspection stopped at that point. Codex force-stopped the app to cancel active work, retained saved generated objects, and completed only the pending installation/reset handoff. No further scan, manipulation, camera inspection, voice question, or remote test is authorized by the earlier independent-testing request. The latest confirmation/cancel/return controls require wearer acceptance.
+
+Before that instruction, an app Return command acknowledged success, but subsequent saved state had already changed while the wearer continued interacting. This did not prove stable return under held grip. The shared Return handler was updated to release an active grab and wait for grip release before allowing another grab. A bridge restart was followed by a connected main-link state; this does not prove all pending-work recovery behavior.

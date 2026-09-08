@@ -26,3 +26,18 @@ test('refinement freezes source assembly while selection changes during research
  const result=await f.wait('reconstruction.complete','refine-frozen');
  assert.equal(captured.name,'Box');assert.equal(result.assembly.revision,2);assert.equal(result.object_id,'original');
 });
+
+
+test('cancel acknowledges immediately and a new request is not blocked by late work',async t=>{
+ let release, entered=false, first=true;
+ const f=await fixture(t,async body=>{
+  if(body.text.format.name==='ar_assembly'&&first){first=false;entered=true;await new Promise(r=>release=r);}
+  return normal(body);
+ });
+ f.send({type:'reconstruct',request_id:'old',image:'data:image/jpeg;base64,AA=='});
+ while(!entered)await new Promise(r=>setTimeout(r,5));
+ f.send({type:'reconstruction.cancel'});await f.wait('reconstruction.cancelled');
+ f.send({type:'reconstruct',request_id:'new',image:'data:image/jpeg;base64,AA=='});
+ await f.wait('reconstruction.complete','new');release();await f.wait('reconstruction.error','old');
+ assert.equal(f.queue.some(e=>e.type==='reconstruction.complete'&&e.request_id==='old'),false);
+});

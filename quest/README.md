@@ -18,10 +18,11 @@ The private APK embeds a scoped bridge credential, never the OpenAI API key. Do 
 
 The panel is an instruction/status guide with no interactive buttons. It follows the wearer with a positional dead zone and smoothing. See the [live headset and casting test record](../docs/QUEST_LIVE_TESTING.md).
 
-- **Right trigger** on a real surface locks that physical referent and starts a scan when idle. On a generated component it selects that component without exploding it. Voice receives this explicit selection.
-- **Right grip** over a generated component grabs the model without jumping it to a new position. Move the controller and release to drop. While holding, trigger places the held model against the measured surface. After release, trigger can scan another object.
-- Tracked right-hand pinch selects/scans; pinching a generated model grabs it until release.
-- **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** researches and rebuilds the selected object.
+- **Right trigger** on a real surface locks that physical referent only. It does not start a scan. On a generated component it selects that component without exploding it. Voice receives this explicit selection.
+- **Right thumbstick click** confirms a scan of a selected physical target; with a generated item selected, it returns that item to its original anchored position, rotation and scale. An explicit voice request can also start reconstruction.
+- **Right grip** over a generated component grabs the model without jumping it to a new position. Move the controller and release to drop. While holding, trigger places the held model against the measured surface. After release, trigger can select another object.
+- Tracked right-hand pinch selects targets; pinching a generated model grabs it until release.
+- **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** immediately cancels while reconstructing; while idle it researches and rebuilds the selected object.
 - **Left grip + X** deletes the selected generated object and its saved record. **Left grip + Y** cancels reconstruction.
 - **Left stick click** hides/shows the guide. **Left grip + left stick click** retries saved-anchor restoration.
 - While holding, the right stick adjusts distance. After release, it moves/rotates an extracted model. Say “return the object” to restore its saved source pose.
