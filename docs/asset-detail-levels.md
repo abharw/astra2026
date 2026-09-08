@@ -31,7 +31,7 @@ The source's detailed motherboard and memory collections are too broad for the f
 
 ## Sample grouping is data
 
-[teaching-groups.json](../examples/imported-rack/teaching-groups.json) configures the current example's nine manipulation boundaries: chassis, storage, cooling fans, processor/socket assemblies, processor heatsinks, motherboard, memory, network adapter and power input/conversion. The compiler follows configured source ancestry and collection membership. It has no prompt keywords, fixed hardware hierarchy or hidden model routing rules.
+[teaching-groups.json](../content/imported-rack/teaching-groups.json) configures the current content's nine manipulation boundaries: chassis, storage, cooling fans, processor/socket assemblies, processor heatsinks, motherboard, memory, network adapter and power input/conversion. The compiler follows configured source ancestry and collection membership. It has no prompt keywords, fixed hardware hierarchy or hidden model routing rules.
 
 [export-asset-groups.py](../scripts/export-asset-groups.py) writes one pack with independently named group roots, a resource catalog, a portable semantic manifest and a source-membership index. All source object transforms are baked into the original asset-local basis; each group's geometry is centered at its own bounds and its rest translation restores the authored position. The source index retains the IDs represented by each merged group. Coalescing happens **inside** the configured manipulation boundary; it does not join the whole scene into one uneditable mesh.
 
@@ -47,7 +47,7 @@ Run the offline compiler against the verified source binary:
 
 ```sh
 python3 scripts/export-asset-groups.py \
-  --recipe examples/imported-rack/teaching-groups.json \
+  --recipe content/imported-rack/teaching-groups.json \
   --input runtime/detail-source/parts-library.blend
 python3 scripts/prepare-selection-proxies.py
 python3 scripts/check-asset-group-compiler.py

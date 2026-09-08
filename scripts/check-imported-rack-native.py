@@ -22,7 +22,7 @@ def main() -> None:
     parser.add_argument("--variant", action="append", choices=["source", "conservative", "distance"])
     parser.add_argument("--output", type=Path, default=root / "evidence/imported-rack-native.json")
     args = parser.parse_args()
-    manifest_path = root / "examples/imported-rack/native-validation-catalogs.json"
+    manifest_path = root / "content/imported-rack/native-validation-catalogs.json"
     manifest = json.loads(manifest_path.read_text())
     variants = [item for item in manifest["variants"] if not args.variant or item["name"] in args.variant]
     records = []

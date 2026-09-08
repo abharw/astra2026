@@ -28,7 +28,7 @@ interface PendingProposal {
   affectedNodeIds: Set<string>;
 }
 
-interface ActiveRun { controller: AbortController; requestId: string; admission: Snapshot; startedAt: number; timedOut: boolean; deadline: ReturnType<typeof setTimeout> }
+interface ActiveRun { controller: AbortController; startedAt: number; timedOut: boolean; deadline: ReturnType<typeof setTimeout> }
 
 export interface SessionOptions { modelTimeoutMs?: number; receiptTimeoutMs?: number; logger?: DiagnosticLogger; sessionId?: string; }
 const DEFAULT_MODEL_TIMEOUT_MS = 45_000;
@@ -52,8 +52,6 @@ export class AstraSession {
     this.logger = options.logger;
     this.sessionId = options.sessionId;
   }
-
-  attachSink(sink: SessionSink): void { this.sink = sink; }
 
   acceptHello(hello: SessionHello): void {
     if (hello.protocolVersion !== PROTOCOL_VERSION || !hello.sceneSchemaVersions.includes(1) || !hello.geometrySemanticsVersions.includes(1)) {
@@ -89,7 +87,7 @@ export class AstraSession {
     const controller = new AbortController();
     const input: TurnInput = { userRequest: message.text, selectionNodeIds: [...(message.selection?.nodeIds ?? [])] };
     const startedAt = Date.now();
-    const run: ActiveRun = { controller, requestId: message.requestId, admission, startedAt, timedOut: false, deadline: undefined as unknown as ReturnType<typeof setTimeout> };
+    const run: ActiveRun = { controller, startedAt, timedOut: false, deadline: undefined as unknown as ReturnType<typeof setTimeout> };
     run.deadline = setTimeout(() => { run.timedOut = true; controller.abort(); }, this.modelTimeoutMs);
     run.deadline.unref();
     this.active.set(message.requestId, run);

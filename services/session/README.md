@@ -1,6 +1,6 @@
 # Astra session service
 
-This is the development-Mac coordinator between the native app and OpenAI. It uses `gpt-6-astra` through the Responses API to author a bounded scene proposal, then sends only exact portable scene envelopes to the device. `gpt-realtime-2.1` is reserved for the native voice session; this service mints its short-lived credential and never relays raw audio.
+This is the network service between the native app and OpenAI. It can run on the development Mac or a WebSocket-capable host. It uses `gpt-6-astra` through the Responses API to author a bounded scene proposal, then sends only portable scene envelopes to the device. `gpt-realtime-2.1` carries native text and voice turns; this service mints its short-lived credential and never relays raw audio.
 
 ## Run
 
@@ -23,6 +23,22 @@ The default endpoints are `GET http://127.0.0.1:8787/health` and `ws://127.0.0.1
 npm run typecheck
 npm test
 ```
+
+## Deployment
+
+This is a stateful, long-lived WebSocket service, not a generic serverless route. Run one replica for the current protocol: each connected editor owns in-memory admitted snapshots, active model work, pending receipts, and bounded conversation context. A reconnect intentionally starts a fresh session.
+
+Build the included container from this directory. It compiles TypeScript, listens on `0.0.0.0`, and honors the standard `PORT` environment variable (with `ASTRA_SESSION_PORT` taking precedence). Because that binding is non-loopback, `SESSION_ACCESS_TOKEN` is required at process startup. Inject `OPENAI_API_KEY` and `SESSION_ACCESS_TOKEN` through the deployment secret manager; never bake them into an image or app bundle. The OpenAI key stays server-side; provision the demo session token privately into the app's Keychain. The service closes open WebSockets during `SIGTERM`/`SIGINT`, aborts active model work, and has a bounded forced-close fallback so deployment shutdown does not wait indefinitely for a client.
+
+```sh
+cd services/session
+docker build -t astra-session .
+docker run --rm -p 8787:8787 \
+  -e OPENAI_API_KEY -e SESSION_ACCESS_TOKEN \
+  -e PORT=8787 astra-session
+```
+
+Use an HTTPS/WSS-capable proxy or platform ingress in front of the container. It must pass WebSocket upgrades through to `/session`, expose `GET /health` for liveness, and keep the authenticated `POST /realtime/client-secret` route reachable. Do not deploy more than one replica until session affinity and reconnect ownership are designed explicitly.
 
 ## Session wire
 

@@ -41,7 +41,7 @@ The recorded native samples are **macOS preparation/installation measurements**,
 
 ## Documentation and code readability
 
-Keep `SpatialCore` as the accepted-data boundary and `SpatialApple` as its native projection. Keep example-specific names, part bindings and teaching metadata in `examples/imported-rack`; keep tool aliases and compact context in `services/session/src/astra`. An asset-detail coordinator should orchestrate existing preparation and scene edits, not introduce another scene store or reducer. A public SDK package is unnecessary to prove these boundaries; the existing second generated example is the useful generality test.
+Keep `SpatialCore` as the accepted-data boundary and `SpatialApple` as its native projection. Keep content-specific names, part bindings and teaching metadata in `content/imported-rack`; keep tool aliases and compact context in `services/session/src/astra`. An asset-detail coordinator should orchestrate existing preparation and scene edits, not introduce another scene store or reducer. A public SDK package is unnecessary to prove these boundaries; the existing second generated example is the useful generality test.
 
 The baseline docs contained material drift; current resolution is:
 

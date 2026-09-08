@@ -210,8 +210,8 @@ public final class SceneController {
             guard !Task.isCancelled, let self, self.sessionID == connectingSessionID,
                   self.connectionState == .connecting else { return }
             self.transport.disconnect()
-            self.connectionState = .failed("Connecting to the scene backend timed out. Check the backend and try Connect again.")
-            self.report("Connecting to the scene backend timed out. Check the backend and try Connect again.")
+            self.connectionState = .failed("The session server did not respond. Check its address and availability, then retry.")
+            self.report("The session server did not respond. Check its address and availability, then retry.")
             DiagnosticsLog.shared.record("connect.timeout", component: "scene.controller", level: .error, correlationID: connectingSessionID)
         }
     }

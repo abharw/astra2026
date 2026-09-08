@@ -23,7 +23,6 @@
 		791C7C42447E52329A57F744 /* DemoSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */; };
 		860016852EC6BC98B28E8E23 /* server-teaching.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6748C4309654BDB963F5A187 /* server-teaching.usdz */; };
 		87BE92F783534EA05D8B1886 /* ConnectionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509376F797FBEFFBD79FB710 /* ConnectionSettingsView.swift */; };
-		8AD12B2C8A42605939345DC3 /* source-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 436E396126B9115EB2938B67 /* source-catalog.json */; };
 		8C0E7CC80CB4EF6BAE272CFD /* licenses in Resources */ = {isa = PBXBuildFile; fileRef = 965BEC1D2406601C16CD10D1 /* licenses */; };
 		8DF6DECC9B4CFD751561D2C7 /* PCMCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AF52106FC23EDE9770B763 /* PCMCodec.swift */; };
 		B8C971C89DE591F4E62BF647 /* SpatialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0568E5C6B67C28FBB9D2C8A4 /* SpatialDemoView.swift */; };
@@ -45,7 +44,6 @@
 		3D096F4160DEB58075A13E7C /* SessionConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionConfigurationStore.swift; sourceTree = "<group>"; };
 		3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeARView.swift; sourceTree = "<group>"; };
 		3ED52579FBB8CA199B1F2E0C /* SpatialKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpatialKit; path = ../../packages/SpatialKit; sourceTree = SOURCE_ROOT; };
-		436E396126B9115EB2938B67 /* source-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "source-catalog.json"; sourceTree = "<group>"; };
 		4DD54CC7344D9A424145A065 /* AstraSpatialDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AstraSpatialDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509376F797FBEFFBD79FB710 /* ConnectionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSettingsView.swift; sourceTree = "<group>"; };
 		53AF52106FC23EDE9770B763 /* PCMCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMCodec.swift; sourceTree = "<group>"; };
@@ -56,7 +54,7 @@
 		6EEDC7420DDB271037A687F7 /* detail-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "detail-catalog.json"; sourceTree = "<group>"; };
 		7322DF28EEBA6B7CEDBC4843 /* RealtimeWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeWire.swift; sourceTree = "<group>"; };
 		94F01EF42D92507FE83BDE90 /* ConversationComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationComposer.swift; sourceTree = "<group>"; };
-		965BEC1D2406601C16CD10D1 /* licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; name = licenses; path = "../../examples/imported-rack/licenses"; sourceTree = SOURCE_ROOT; };
+		965BEC1D2406601C16CD10D1 /* licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; name = licenses; path = "../../content/imported-rack/licenses"; sourceTree = SOURCE_ROOT; };
 		AED48390268EED22994556DB /* SpatialDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialDemoApp.swift; sourceTree = "<group>"; };
 		BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSessionModel.swift; sourceTree = "<group>"; };
 		CBE7D727ACF5ADE5E4869B15 /* RealtimeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeSession.swift; sourceTree = "<group>"; };
@@ -115,10 +113,9 @@
 				DA8A73B488726C75602D94C8 /* app-catalog.json */,
 				6EEDC7420DDB271037A687F7 /* detail-catalog.json */,
 				E0D59DC30F61FF318120876B /* detail-templates.json */,
-				436E396126B9115EB2938B67 /* source-catalog.json */,
 			);
 			name = "imported-rack";
-			path = "../../examples/imported-rack";
+			path = "../../content/imported-rack";
 			sourceTree = "<group>";
 		};
 		933259BD496D024DC875C1F3 /* UI */ = {
@@ -140,7 +137,7 @@
 				323E938DBF004EF68FAE077D /* scene.json */,
 			);
 			name = "server-rack";
-			path = "../../examples/server-rack";
+			path = "../../content/server-rack";
 			sourceTree = "<group>";
 		};
 		D1491F19113EF39C2176B366 /* Conversation */ = {
@@ -163,7 +160,7 @@
 				6748C4309654BDB963F5A187 /* server-teaching.usdz */,
 			);
 			name = Assets;
-			path = "../../examples/imported-rack/Assets";
+			path = "../../content/imported-rack/Assets";
 			sourceTree = "<group>";
 		};
 		FE8C4BCCF7DAAB0A6ED483ED /* SpatialDemo */ = {
@@ -251,7 +248,6 @@
 				64C89544E262D66CBF384230 /* rack-exterior.usdz in Resources */,
 				3D2143EE43C695B564AF7604 /* scene.json in Resources */,
 				860016852EC6BC98B28E8E23 /* server-teaching.usdz in Resources */,
-				8AD12B2C8A42605939345DC3 /* source-catalog.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

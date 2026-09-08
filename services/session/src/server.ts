@@ -24,6 +24,7 @@ export class SessionServer {
   private readonly fetchImpl: typeof fetch;
   private readonly model: ModelTransport;
   private readonly logger: DiagnosticLogger;
+  private closePromise?: Promise<void>;
 
   constructor(private readonly options: ServiceOptions) {
     if (!isLoopback(options.host) && !options.accessToken) throw new Error("SESSION_ACCESS_TOKEN is required when listening beyond loopback");
@@ -45,7 +46,30 @@ export class SessionServer {
   }
 
   async close(): Promise<void> {
-    await new Promise<void>((resolve, reject) => this.wss.close((error) => error ? reject(error) : resolve()));
+    this.closePromise ??= this.shutdown();
+    await this.closePromise;
+  }
+
+  private async shutdown(): Promise<void> {
+    for (const session of this.sessions.values()) session.dispose();
+    this.sessions.clear();
+
+    // WebSocketServer.close waits for its clients. Ask every live client to
+    // leave, then force-close a peer that does not complete the close handshake.
+    const clients = [...this.wss.clients];
+    for (const client of clients) client.close(1001, "server shutting down");
+    let forceClose: ReturnType<typeof setTimeout> | undefined;
+    if (clients.length > 0) {
+      forceClose = setTimeout(() => {
+        for (const client of clients) client.terminate();
+      }, 1_000);
+      forceClose.unref();
+    }
+    try {
+      await new Promise<void>((resolve, reject) => this.wss.close((error) => error ? reject(error) : resolve()));
+    } finally {
+      if (forceClose) clearTimeout(forceClose);
+    }
     await new Promise<void>((resolve, reject) => this.http.close((error) => error ? reject(error) : resolve()));
   }
 
@@ -85,7 +109,6 @@ export class SessionServer {
           // before replacing its map entry so its provider fetch cannot outlive A.
           this.sessions.get(message.sessionId)?.dispose();
           session = new AstraSession(this.model, sink, { logger: this.logger, sessionId: message.sessionId });
-          session.attachSink(sink);
           this.sessions.set(message.sessionId, session);
           session.acceptHello(message);
           return;

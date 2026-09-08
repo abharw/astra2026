@@ -22,21 +22,19 @@ targets:
     platform: iOS
     sources:
       - path: SpatialDemo
-      - path: ../../examples/server-rack/scene.json
+      - path: ../../content/server-rack/scene.json
         buildPhase: resources
-      - path: ../../examples/imported-rack/source-catalog.json
+      - path: ../../content/imported-rack/app-catalog.json
         buildPhase: resources
-      - path: ../../examples/imported-rack/app-catalog.json
+      - path: ../../content/imported-rack/Assets/rack-exterior.usdz
         buildPhase: resources
-      - path: ../../examples/imported-rack/Assets/rack-exterior.usdz
+      - path: ../../content/imported-rack/detail-catalog.json
         buildPhase: resources
-      - path: ../../examples/imported-rack/detail-catalog.json
+      - path: ../../content/imported-rack/detail-templates.json
         buildPhase: resources
-      - path: ../../examples/imported-rack/detail-templates.json
+      - path: ../../content/imported-rack/Assets/server-teaching.usdz
         buildPhase: resources
-      - path: ../../examples/imported-rack/Assets/server-teaching.usdz
-        buildPhase: resources
-      - path: ../../examples/imported-rack/licenses
+      - path: ../../content/imported-rack/licenses
         buildPhase: resources
         type: folder
     settings:

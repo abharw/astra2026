@@ -99,8 +99,8 @@
   },
   "pipeline": "scripts/prepare-mobile-rack.py",
   "validation": "scripts/validate-mobile-rack.py",
-  "instructions": "examples/imported-rack/PROCESSING.md",
-  "license_notices": "examples/imported-rack/licenses",
+  "instructions": "content/imported-rack/PROCESSING.md",
+  "license_notices": "content/imported-rack/licenses",
   "detail_status": "Mechanical, motherboard, memory, and processor-study Blender libraries are not converted to native assets.",
   "visual_comparison": {
     "renderer": "Blender 5.2.1 Workbench, identical cameras, actual USD imports",

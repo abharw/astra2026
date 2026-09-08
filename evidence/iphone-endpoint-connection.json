@@ -1,0 +1,53 @@
+{
+  "schema": "astra-device-connection-acceptance/v1",
+  "date": "2026-09-08",
+  "device": "iPhone 15 Pro, iOS 26.6.1",
+  "appCommit": "6d2d992",
+  "experiment": "Same signed app, service, and token; change direct LAN origin to authenticated HTTPS/WSS forwarding origin.",
+  "directLAN": {
+    "serverHealthFromMac": 200,
+    "serverReceivedPhoneConnection": false,
+    "deviceErrors": [
+      "The Internet connection appears to be offline.",
+      "Could not connect to the server."
+    ],
+    "userConfirmedLocalNetworkPermission": true,
+    "userConfirmedSameWiFi": true,
+    "macFirewallEnabled": false
+  },
+  "httpsRoute": {
+    "unauthenticatedCredentialHTTPStatus": 401,
+    "unauthenticatedSceneHandshake": "session.error unauthorized",
+    "authenticatedSceneHandshake": "session.accepted",
+    "sceneConnectRequestedAt": "2026-09-08T21:27:18.475Z",
+    "realtimeCredentialHTTPStatus": 200,
+    "realtimeConfigurationAcknowledgedAt": "2026-09-08T21:27:20.672Z",
+    "connectionReadyAt": "2026-09-08T21:27:20.687Z",
+    "connectionReady": true,
+    "connectToReadyMs": 2212
+  },
+  "conclusion": "The direct phone-to-Mac route failed; the same application and service connected through HTTPS. The exact LAN network cause is not proven.",
+  "limits": [
+    "Temporary tunnel still forwards to the development Mac.",
+    "This connection check does not prove a completed model turn, microphone quality, or physical AR performance."
+  ],
+  "localRawEvidence": "runtime/diagnostics/20260908T212740Z-680F68D7-112E-5849-B2CC-C92EE8D3D8DA/events.jsonl (ignored, bounded diagnostics)",
+  "credentialsAndEphemeralHostnameOmitted": true,
+  "cleanupBuildVerification": {
+    "installedAndLaunchedOn": "iPhone 15 Pro",
+    "configurationSource": "saved",
+    "configurationLoadedAt": "2026-09-08T21:34:27.798Z",
+    "connectionReadyAt": "2026-09-08T21:34:29.763Z",
+    "connectionReady": true,
+    "launchEnvironmentOverride": false,
+    "scope": "Cleanup build after initial 6d2d992 experiment, before final log metadata/timeout-copy refinement; ordinary launch uses saved preferences and Keychain."
+  },
+  "failedRouteRegression": {
+    "platform": "iPhone Simulator",
+    "setup": "Unreachable loopback development port, intentionally injected",
+    "waitingEventAt": "2026-09-08T21:34:37.279Z",
+    "deadlineErrorAt": "2026-09-08T21:34:52.328Z",
+    "deadlineMsApproximately": 15049,
+    "outcome": "Finite connection deadline reached; UI presents session-server cause. Simulator restored to HTTPS afterward."
+  }
+}

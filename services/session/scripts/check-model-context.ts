@@ -7,7 +7,7 @@ import { sceneContext } from "../src/astra/scene-context.js";
 const root = new URL("../../../", import.meta.url);
 const bytes = (value: unknown): number => Buffer.byteLength(JSON.stringify(value), "utf8");
 const reduction = (before: number, after: number): number => Math.round((1 - after / before) * 10_000) / 100;
-const samples = ["contracts/fixtures/accepted/imported_rack_document.json", "examples/server-rack/scene.json"].map((path) => {
+const samples = ["contracts/fixtures/accepted/imported_rack_document.json", "content/server-rack/scene.json"].map((path) => {
   const file = readFileSync(new URL(path, root));
   const document = JSON.parse(file.toString("utf8")) as JsonObject;
   const context = sceneContext(document);

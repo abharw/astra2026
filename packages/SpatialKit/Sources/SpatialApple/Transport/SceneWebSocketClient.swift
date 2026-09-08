@@ -81,9 +81,15 @@ public final class SceneWebSocketClient: SceneTransport {
         self.connectionID = connectionID
         let delegate = WebSocketDelegate(
             onOpen: { [weak self] in self?.socketDidOpen(connectionID: connectionID) },
-            onClose: { [weak self] reason in self?.socketDidClose(connectionID: connectionID, reason: reason) }
+            onClose: { [weak self] reason in self?.socketDidClose(connectionID: connectionID, reason: reason) },
+            onWaitingForConnectivity: { [weak self] in self?.socketIsWaitingForConnectivity(connectionID: connectionID) }
         )
-        let session = URLSession(configuration: .default, delegate: delegate, delegateQueue: nil)
+        let configuration = URLSessionConfiguration.default
+        // iOS may need to present the local-network permission prompt before a
+        // direct LAN WebSocket can start. SceneController's 15-second deadline
+        // remains the single bound for this wait.
+        configuration.waitsForConnectivity = true
+        let session = URLSession(configuration: configuration, delegate: delegate, delegateQueue: nil)
         let socket = session.webSocketTask(with: url)
         socket.maximumMessageSize = maximumMessageBytes
         self.delegate = delegate
@@ -91,7 +97,11 @@ public final class SceneWebSocketClient: SceneTransport {
         self.socket = socket
         socket.resume()
 
-        DiagnosticsLog.shared.record("connect.started", component: "scene.transport", fields: ["url_host": url.host ?? "unknown"])
+        DiagnosticsLog.shared.record("connect.started", component: "scene.transport", fields: [
+            "url_host": url.host ?? "unknown",
+            "url_scheme": url.scheme ?? "unknown",
+            "url_port": String(url.port ?? (url.scheme == "wss" ? 443 : 80)),
+        ])
 
         receiveTask = Task { [weak self] in
             await self?.receiveMessages(from: socket)
@@ -194,7 +204,10 @@ public final class SceneWebSocketClient: SceneTransport {
             self.session?.invalidateAndCancel()
             self.session = nil
             self.delegate = nil
-            DiagnosticsLog.shared.record("receive.failed", component: "scene.transport", level: .error, fields: ["error": error.localizedDescription])
+            DiagnosticsLog.shared.record(
+                "receive.failed", component: "scene.transport", level: .error,
+                fields: Self.diagnosticFields(for: error)
+            )
             setState(.failed(error.localizedDescription))
         }
     }
@@ -216,6 +229,25 @@ public final class SceneWebSocketClient: SceneTransport {
         delegate = nil
         DiagnosticsLog.shared.record("connect.closed", component: "scene.transport", level: .warning, fields: ["reason": reason])
         setState(.failed(reason))
+    }
+
+    private func socketIsWaitingForConnectivity(connectionID: UUID) {
+        guard self.connectionID == connectionID, socket != nil else { return }
+        DiagnosticsLog.shared.record("connect.waiting_for_connectivity", component: "scene.transport", level: .warning)
+    }
+
+    private static func diagnosticFields(for error: Error) -> [String: String] {
+        let nsError = error as NSError
+        var fields = [
+            "error": nsError.localizedDescription,
+            "error_domain": nsError.domain,
+            "error_code": String(nsError.code),
+        ]
+        if let underlying = nsError.userInfo[NSUnderlyingErrorKey] as? NSError {
+            fields["underlying_error_domain"] = underlying.domain
+            fields["underlying_error_code"] = String(underlying.code)
+        }
+        return fields
     }
 
     private static func frameType(in data: Data) -> String {
@@ -264,13 +296,16 @@ private final class WebSocketSendGate: @unchecked Sendable {
 private final class WebSocketDelegate: NSObject, URLSessionWebSocketDelegate, @unchecked Sendable {
     private let onOpen: @MainActor @Sendable () -> Void
     private let onClose: @MainActor @Sendable (String) -> Void
+    private let onWaitingForConnectivity: @MainActor @Sendable () -> Void
 
     init(
         onOpen: @escaping @MainActor @Sendable () -> Void,
-        onClose: @escaping @MainActor @Sendable (String) -> Void
+        onClose: @escaping @MainActor @Sendable (String) -> Void,
+        onWaitingForConnectivity: @escaping @MainActor @Sendable () -> Void
     ) {
         self.onOpen = onOpen
         self.onClose = onClose
+        self.onWaitingForConnectivity = onWaitingForConnectivity
     }
     nonisolated func urlSession(
         _ session: URLSession,
@@ -288,5 +323,9 @@ private final class WebSocketDelegate: NSObject, URLSessionWebSocketDelegate, @u
     ) {
         let summary = "WebSocket closed (code \(closeCode.rawValue))."
         Task { @MainActor in onClose(summary) }
+    }
+
+    nonisolated func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
+        Task { @MainActor in onWaitingForConnectivity() }
     }
 }

@@ -34,12 +34,12 @@ def run():
     parser.add_argument(
         "--recipe",
         type=Path,
-        default=ROOT / "examples/imported-rack/teaching-groups.json",
+        default=ROOT / "content/imported-rack/teaching-groups.json",
     )
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=ROOT / "examples/imported-rack/detail-levels.json",
+        default=ROOT / "content/imported-rack/detail-levels.json",
     )
     parser.add_argument(
         "--index",

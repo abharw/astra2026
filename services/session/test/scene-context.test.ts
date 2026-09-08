@@ -39,7 +39,7 @@ function authoringFacts(document: JsonObject): JsonObject {
 
 for (const [name, path] of [
   ["actual native imported rack", "contracts/fixtures/accepted/imported_rack_document.json"],
-  ["179-node procedural rack", "examples/server-rack/scene.json"]
+  ["179-node procedural rack", "content/server-rack/scene.json"]
 ]) test(`compact context exactly retains every authoring fact in ${name}`, () => {
   const document = fixture(path!);
   const original = structuredClone(document);

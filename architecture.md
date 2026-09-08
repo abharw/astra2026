@@ -15,7 +15,7 @@ Astra Spatial is a universal iPhone/iPad app for exploring editable 3D structure
 | `packages/SpatialKit/Sources/SpatialApple/Storage` | Manual SQLite document checkpoints | Autosave policy or GPU resources |
 | `packages/SpatialKit/Sources/SpatialApple/Diagnostics` | Bounded local event recorder and export | Conversation content or credentials |
 | `services/session` | OpenAI credentials, Astra authoring, proposal normalization, acknowledged scene mirror | Native entity state or rendering |
-| `examples/server-rack` | Authored starting assembly, component descriptions and references | Special rack commands or a separate executor |
+| `content/server-rack` | Authored starting assembly, component descriptions and references | Special rack commands or a separate executor |
 | `tools/SceneLab` | Seed generation and headless live-model acceptance using the production reducer | Rendering or camera testing |
 | `tools/PointingReplay` | Synthetic input replay using the production pointing resolver | A second product app, Vision inference, or a renderer |
 
@@ -76,7 +76,7 @@ The app preserves authored physical size: the rack is 2.21 metres tall at root s
 
 The active device's `SceneState` is authoritative. RealityKit entities are a derived projection; the service's acknowledged mirror is model context. SQLite saves normalized documents through manual checkpoint APIs. App Save/Open controls, autosave, and restoration of real-world anchors are future work; imported asset loading is implemented through the host descriptor catalog. [Storage](docs/storage.md).
 
-The default example is the source-derived exterior and internal assembly packages in `examples/imported-rack`. `DemoAssetLibrary` supplies approved resources and hierarchy bindings from that data. The earlier procedural seed remains bundled directly from `examples/server-rack/scene.json`; neither example has a phrase-to-animation route. A live fan-generation acceptance run uses the same contract without rack-specific code, although a public third-party SDK is not yet packaged.
+The default content is the source-derived exterior and internal assembly packages in `content/imported-rack`. `DemoAssetLibrary` supplies approved resources and hierarchy bindings from that data. The earlier procedural seed remains bundled directly from `content/server-rack/scene.json`; neither content package has a phrase-to-animation route. A live fan-generation acceptance run uses the same contract without rack-specific code, although a public third-party SDK is not yet packaged.
 
 ## Why this stays editable
 

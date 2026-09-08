@@ -1,11 +1,11 @@
-# Rack build-time derivatives
+# Offline rack build-time derivative experiments
 
-The default candidate is `runtime/processed-assets/rack-exterior-mobile.usdz`, using the **conservative** profile. The optional `rack-exterior-distance.usdz` profile reduces geometry further, with visible loss of perforation detail. Neither is a close-up replacement for the original asset or its Blender detail libraries.
+The offline processing pipeline's default candidate is `runtime/processed-assets/rack-exterior-mobile.usdz`, using the **conservative** profile. The shipped app instead bundles the faithful `Assets/rack-exterior.usdz` catalog; it does not select either derivative automatically. The optional `rack-exterior-distance.usdz` profile reduces geometry further, with visible loss of perforation detail. Neither is a close-up replacement for the original asset or its Blender detail libraries.
 
 | Asset | USDZ bytes | Authored triangles | Expanded visible triangles | Triangles per shared server |
 | --- | ---: | ---: | ---: | ---: |
 | Pinned source | 25,786,225 | 791,123 | 2,989,750 | 129,331 |
-| Conservative, default | 10,549,419 | 233,060 | 1,107,642 | 51,446 |
+| Conservative, offline pipeline default | 10,549,419 | 233,060 | 1,107,642 | 51,446 |
 | Distance, optional | 9,334,783 | 205,273 | 607,476 | 23,659 |
 
 “Expanded” counts the server mesh 18 times, plus 181,614 rack triangles in either derivative. The source contains polygons; its triangle equivalents are `sum(faceVertexCount - 2)`. Derivatives are explicitly triangulated. Geometry counts do not establish GPU time, memory, or device frame rate.

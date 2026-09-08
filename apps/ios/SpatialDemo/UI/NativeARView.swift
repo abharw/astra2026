@@ -14,8 +14,8 @@ struct NativeARView: UIViewRepresentable {
 
     init(
         controller: SceneController,
-        pointingEnabled: Binding<Bool> = .constant(true),
-        isActive: Bool = true
+        pointingEnabled: Binding<Bool>,
+        isActive: Bool
     ) {
         self.controller = controller
         self._pointingEnabled = pointingEnabled

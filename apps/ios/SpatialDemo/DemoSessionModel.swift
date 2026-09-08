@@ -98,7 +98,6 @@ final class DemoSessionModel {
     private var interactionError: String?
     private(set) var assetLoadStatus: String?
     private(set) var assetLoadPhase: ImportedAssetLoadPhase?
-    private(set) var loadedAssetName: String?
     private(set) var isEstablishingConnection = false
     private(set) var isSubmitting = false
     private(set) var isRequestingMicrophone = false
@@ -127,16 +126,6 @@ final class DemoSessionModel {
     var assistantText: String? {
         conversation.lastAssistantText.isEmpty ? controller.lastExplanation : conversation.lastAssistantText
     }
-    var activityText: String? {
-        if let assetLoadStatus { return assetLoadStatus }
-        if let activity = controller.activity { return activity }
-        switch conversation.activity {
-        case .fetchingCredential, .connecting, .requestingPermission, .waitingForAstra, .delivering, .reconfiguringAudio:
-            return conversation.statusText
-        default: return nil
-        }
-    }
-
     var presentationPhase: DemoPresentationPhase {
         if isConnecting { return .connecting }
         if let assetLoadPhase {
@@ -182,15 +171,6 @@ final class DemoSessionModel {
         controller.acceptedScene.document.nodes.first(where: { $0.nodeId == nodeID })?.semantic.name ?? nodeID
     }
 
-    func togglePointing() {
-        #if targetEnvironment(simulator)
-        runtimeUnavailableReason = "Hand pointing requires a physical iPhone or iPad camera. Touch selection remains available in the simulator."
-        #else
-        isPointingEnabled.toggle()
-        DiagnosticsLog.shared.record("pointing.toggled", component: "app", fields: ["enabled": String(isPointingEnabled)])
-        #endif
-    }
-
     func loadRack() {
         cancelPendingInput()
         assetLoadTask?.cancel()
@@ -234,7 +214,6 @@ final class DemoSessionModel {
                     }
                 )
                 guard !Task.isCancelled, self.assetLoadAttempt == attempt else { return }
-                self.loadedAssetName = "Akeil · Open Rack V2 · 18 servers"
                 DiagnosticsLog.shared.record("import.finished", component: "app", correlationID: attempt.uuidString, fields: [
                     "asset_id": report.assetID, "source": "Akeil/051c9d9",
                     "seconds": String(report.loadDurationSeconds), "bytes": String(report.byteCount),
@@ -264,7 +243,6 @@ final class DemoSessionModel {
         do {
             let document = try JSONDecoder().decode(SceneDocument.self, from: Data(contentsOf: url))
             try controller.loadScene(document)
-            loadedAssetName = "Procedural hardware example"
             interactionError = nil
             DiagnosticsLog.shared.record("example.loaded", component: "app", fields: ["node_count": String(document.nodes.count)])
         } catch {
@@ -295,7 +273,11 @@ final class DemoSessionModel {
 
     func appDidEnterBackground() {
         isAppActive = false
-        disconnect()
+        // A queued typed request has not crossed the scene boundary. Stop its
+        // in-flight connection work while retaining the exact snapshot for an
+        // explicit retry after foregrounding; never replay it automatically.
+        cancelPendingInput(preservingFailedSubmission: true)
+        resetConnection()
         DiagnosticsLog.shared.record("app.background", component: "app")
     }
 
@@ -364,7 +346,8 @@ final class DemoSessionModel {
             }
             guard !Task.isCancelled, self.connectionAttempt == attempt, self.isAppActive else { return false }
             guard self.controller.connectionState == .connected else {
-                self.reportConnectionFailure("Couldn’t reach Astra. Check the connection and retry.")
+                let cause = self.controller.lastError ?? "The scene backend did not accept the connection."
+                self.reportConnectionFailure("Couldn’t reach Astra. \(cause)")
                 return false
             }
             let connected = await self.conversation.connect(configuration: configuration)
@@ -500,12 +483,12 @@ final class DemoSessionModel {
         }
     }
 
-    private func cancelPendingInput() {
+    private func cancelPendingInput(preservingFailedSubmission: Bool = false) {
         submissionAttempt = UUID()
         submissionTask?.cancel()
         submissionTask = nil
         isSubmitting = false
-        failedSubmission = nil
+        if !preservingFailedSubmission { failedSubmission = nil }
         microphoneAttempt = UUID()
         microphoneTask?.cancel()
         microphoneTask = nil

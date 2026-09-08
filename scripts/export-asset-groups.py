@@ -28,7 +28,7 @@ def arguments():
     parser.add_argument(
         "--recipe",
         type=Path,
-        default=ROOT / "examples/imported-rack/teaching-groups.json",
+        default=ROOT / "content/imported-rack/teaching-groups.json",
     )
     parser.add_argument(
         "--blender", default="/Applications/Blender.app/Contents/MacOS/Blender"
@@ -44,7 +44,7 @@ def arguments():
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=ROOT / "examples/imported-rack/detail-levels.json",
+        default=ROOT / "content/imported-rack/detail-levels.json",
     )
     parser.add_argument(
         "--evidence", type=Path, default=ROOT / "evidence/server-detail-processing.json"

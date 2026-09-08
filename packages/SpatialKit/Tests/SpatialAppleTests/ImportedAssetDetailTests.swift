@@ -340,7 +340,7 @@ private func detailEventually(_ condition: @escaping @MainActor () -> Bool) asyn
 @Test(.enabled(if: ProcessInfo.processInfo.environment["ASTRA_TEST_DETAIL_APP_ROOT"] != nil))
 func approvedAppDetailResourcesExpandOneInstanceThroughExistingPatch() async throws {
     let path = try #require(ProcessInfo.processInfo.environment["ASTRA_TEST_DETAIL_APP_ROOT"])
-    let directory = URL(fileURLWithPath: path).appendingPathComponent("examples/imported-rack")
+    let directory = URL(fileURLWithPath: path).appendingPathComponent("content/imported-rack")
     func resource(_ name: String) throws -> ImportedAssetDescriptor {
         var value = try JSONDecoder().decode(ImportedAssetDescriptor.self,
             from: Data(contentsOf: directory.appendingPathComponent(name).appendingPathExtension("json")))
