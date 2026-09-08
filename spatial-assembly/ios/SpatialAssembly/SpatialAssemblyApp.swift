@@ -132,7 +132,7 @@ struct AssemblyScreen: View {
       }
       Text(
         ar.progressParts == 0
-          ? "GPT‑6 is reading the selected camera frame…"
+          ? (ar.researchProgress.isEmpty ? "GPT‑6 is reading the selected camera frame…" : ar.researchProgress)
           : "\(ar.progressParts) components described so far…"
       ).font(.subheadline).foregroundStyle(.secondary)
       Text("Your capture is fixed in the room.").font(.caption).foregroundStyle(.secondary)
@@ -176,6 +176,10 @@ struct AssemblyScreen: View {
           Label("Parts", systemImage: "square.stack.3d.up").frame(maxWidth: .infinity)
         }.buttonStyle(.bordered)
       }
+      HStack(spacing: 10) {
+        Button("Research & rebuild") { ar.refine() }.buttonStyle(.bordered)
+        Button("Explain part") { ar.explainSelected(); showParts = true }.buttonStyle(.bordered)
+      }.font(.caption)
       HStack(spacing: 14) {
         Button {
           ar.moveCloser()
@@ -256,6 +260,26 @@ struct AssemblyScreen: View {
               "Show inferred parts",
               isOn: Binding(get: { ar.inferred }, set: { ar.setInferred($0) }))
           }
+          Section("Improve this reconstruction") {
+            TextField("Correction or part to improve", text: $ar.refinement)
+            Button("Find references and rebuild") { ar.refine(); showParts = false }
+          }
+          if !ar.partExplanation.isEmpty { Section("Part explanation") { Text(ar.partExplanation) } }
+          if let research = ar.assembly?.research {
+            Section("Technical references") {
+              Text(research.summary).font(.subheadline)
+              ForEach(research.sources) { source in
+                VStack(alignment: .leading, spacing: 5) {
+                  if let url = URL(string: source.url), ["https","http"].contains(url.scheme ?? "") {
+                    Link(source.title, destination: url)
+                  }
+                  Text(source.match == "exact" ? "Exact-model reference" : "Similar/general reference · not proof of this object's internals").font(.caption).foregroundStyle(source.match == "exact" ? .cyan : .orange)
+                  Text(source.findings).font(.caption)
+                }
+              }
+              ForEach(research.gaps, id: \.self) { Text($0).font(.caption).foregroundStyle(.secondary) }
+            }
+          }
           Section("Select a component") {
             ForEach(model.parts) { p in
               Button {
@@ -267,7 +291,7 @@ struct AssemblyScreen: View {
                     .foregroundStyle(cyan)
                   VStack(alignment: .leading, spacing: 4) {
                     Text(p.name).foregroundStyle(.primary)
-                    Text(p.description).font(.caption).foregroundStyle(.secondary)
+                    Text(p.function ?? p.description).font(.caption).foregroundStyle(.secondary)
                     Text(p.evidence.uppercased()).font(.caption2.monospaced()).foregroundStyle(
                       p.evidence == "inferred" ? .orange : cyan)
                   }

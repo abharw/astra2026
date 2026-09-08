@@ -102,3 +102,21 @@ The requested empty GitHub repository was initialized with the README-only `firs
 ## Continuing this journal
 
 For each future change, append a dated entry with: the concrete user-visible problem, the implementation and rationale, tests or device evidence, and any remaining uncertainty. Keep proposals clearly separate from implemented behavior. Do not equate a successful build, generated API output, or matching saved matrices with a visually correct AR experience.
+
+## September 8 — technical references and Quest POV
+
+Added a two-stage research path: read visible product identity, then request web search for manuals, schematics, parts diagrams and related technical references. Source URLs must be present in the web tool result. Exact-model labels require readable identifying information; similar-model sources cannot promote hidden geometry to documented evidence. Search failure is visible and falls back to image-only geometry.
+
+Expanded the assembly format with component functions, uncertainties, source IDs and bounded custom triangle meshes. The iPhone Parts panel exposes references, explanations and a correction/rebuild action. Revisions retain object identity and original/current placement. Restored scenes synchronize with the bridge for voice context. The bridge adds fresh-camera inspection, part explanation and reference-assisted refinement tools; it freezes revision input during asynchronous research and handles cancellation and device command acknowledgments.
+
+Built a native Unity/OpenXR Quest client around Meta passthrough camera access and environment raycasting. Hand/controller pointing is projected using the camera-associated pose, then frozen for source-plane placement when generation returns. The client implements selection, explosion, pull/return, voice, rebuilding and local Meta spatial-anchor persistence. The original XR configuration was adapted from Meta's public passthrough sample and attributed in quest/NOTICE.md.
+
+A real speaker-photo probe searched manufacturer materials and returned eleven components with 37 primitives, including two custom meshes. The three sources were similar-product references (JBL AC16, JBL AE bracket guidance, Yamaha VXS); the image did not verify an exact model. Search took roughly 35 seconds and the complete pipeline roughly 145 seconds. A real Realtime API probe then explained the selected grille, supplied audio and stated the exact model was unconfirmed. Its device selection acknowledgment was simulated; it is not a headset runtime proof.
+
+Seventeen backend tests passed, including source grounding, mesh validation, restored scene context, search fallback, cancellation and a selection-change race during refinement. Six iPhone XCTest tests passed, covering the prior storage checks plus mesh validation/backward decoding. The research-enabled iPhone app built, installed and launched. Visual fidelity and the new reference/rebuild flow on the physical device remain acceptance work.
+
+Build diagnosis: OpenXR required explicit EditorBuildSettings configuration registration before BuildPipeline; adding this resolved its late-initialization failure. On this Mac, Xcode's clang macro-introspection command can block when verbose output fills its capture path; a local wrapper removes only `-v` for `-dM` invocations. It is not part of portable source requirements and the compiler itself was not modified.
+
+Quest headset acceptance remains pending a USB-authorized Quest 3. The implementation is a generated approximate assembly with sampled POV frames, not an accurate CAD scan, continuous omniscient vision, or a tracker for a moved physical object.
+
+Final software checks: the Quest APK built successfully with camera/scene/anchor/hand/audio/network permissions. Unity checked the real 11-part, 37-primitive response, calibrated capture-ray orientation and return pose. The final pass also guarded concurrent captures and preserved JSON/toolbar members under IL2CPP stripping. No Quest was listed by adb at delivery; hardware acceptance remains pending. Sanitized metrics and public reference links are in RESEARCH_QUEST_VERIFICATION.json.

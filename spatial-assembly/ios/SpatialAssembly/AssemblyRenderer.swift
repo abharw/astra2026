@@ -11,6 +11,7 @@ import simd
   private var meshes: [String: [(ModelEntity, Primitive)]] = [:]
   var objectID = UUID()
   private(set) var explosionAmount: Float = 0
+  var sourcePosition: SIMD3<Float> { home.translation }
   private var home = matrix_identity_float4x4
   private(set) var extracted = false
   private var selected: String?
@@ -45,6 +46,7 @@ import simd
       for primitive in part.primitives {
         let geometry: MeshResource
         switch primitive.kind {
+        case "mesh": geometry = try Self.customMesh(primitive)
         case "sphere": geometry = .generateSphere(radius: 0.5)
         case "cylinder": geometry = .generateCylinder(height: 1, radius: 0.5)
         case "cone": geometry = try Self.cone()
@@ -212,6 +214,28 @@ import simd
     hologram = saved.hologram
     showInferred = saved.inferred
     explode(saved.explosion)
+  }
+  func rebuild(_ spec: Assembly) throws {
+    guard var saved = snapshot() else { throw AssemblyError.invalid }
+    saved.assembly = try spec.validated()
+    // Validate the replacement before clearing the existing assembly; preserve source and current pose.
+    try restore(saved)
+  }
+  private static func customMesh(_ primitive: Primitive) throws -> MeshResource {
+    guard let vectors = primitive.vertices, let faces = primitive.triangles else { throw AssemblyError.invalid }
+    let points = vectors.map(\.vector)
+    var normals = Array(repeating: SIMD3<Float>.zero, count: points.count)
+    for i in stride(from: 0, to: faces.count, by: 3) {
+      let a = faces[i], b = faces[i+1], c = faces[i+2]
+      let cross = simd_cross(points[b]-points[a], points[c]-points[a])
+      guard simd_length(cross) > 0.000000001 else { throw AssemblyError.invalid }
+      normals[a] += cross; normals[b] += cross; normals[c] += cross
+    }
+    var descriptor = MeshDescriptor(name: "generated-custom-mesh")
+    descriptor.positions = MeshBuffer(points)
+    descriptor.normals = MeshBuffer(normals.map { simd_length($0) > 0.000000001 ? simd_normalize($0) : SIMD3<Float>(0,1,0) })
+    descriptor.primitives = .triangles(faces.map(UInt32.init))
+    return try MeshResource.generate(from: [descriptor])
   }
   private static func cone() throws -> MeshResource {
     var positions: [SIMD3<Float>] = []

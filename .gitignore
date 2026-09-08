@@ -20,3 +20,15 @@
 **/xcuserdata/
 **/*.xcodeproj/
 .DS_Store
+
+# Unity cache and private headset pairing
+quest/Library/
+quest/Temp/
+quest/Logs/
+quest/obj/
+quest/UserSettings/
+quest/Assets/StreamingAssets/connection.json*
+*.apk
+
+**/__pycache__/
+quest/.utmp/
