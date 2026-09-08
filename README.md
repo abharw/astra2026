@@ -19,6 +19,7 @@ The physical phone saved a six-part speaker, then restored and autosaved the sam
 ## Start here
 
 - [Development journal: how we assembled this](docs/BUILD_JOURNAL.md)
+- [Video-to-floor-plan experiment](docs/VIDEO_FLOOR_PLAN_EXPERIMENT.md)
 - [Architecture and file walkthrough](docs/ARCHITECTURE.md)
 - [Verification and remaining acceptance checks](docs/VERIFICATION.md)
 - [Known limitations and next steps](docs/NEXT_STEPS.md)
