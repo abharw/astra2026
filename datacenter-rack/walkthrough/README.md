@@ -2,7 +2,7 @@
 
 A regular 30-second POV route: straight, left, right, left, then a look back. The purpose is to test video-to-floor-map inference against a fixed authored source.
 
-Delivered: [1080p maze walkthrough](datacenter-maze-walkthrough.mp4), 29.708 seconds. Sampled visual review confirms the requested turn sequence and fixed junction landmarks. [Generation receipt and limits](generation-result.json).
+First version, rejected by the user for robotic motion and artificial labels: [1080p maze walkthrough](datacenter-maze-walkthrough.mp4), 29.708 seconds. Sampled visual review confirms the requested turn sequence and fixed junction landmarks. [Generation receipt and limits](generation-result.json).
 
 - `datacenter-world.blend`: complete editable source with source-based rack exteriors.
 - `floor-plan.json`: metric gallery union, wall/rack bounds, landmarks and all 720 camera poses.
@@ -13,6 +13,8 @@ Delivered: [1080p maze walkthrough](datacenter-maze-walkthrough.mp4), 29.708 sec
 - `attempts/`: previous prompts and sanitized generation receipts.
 
 Use the final video alone as the mapper input. Withhold this folder's map, poses, prompts and landmark descriptions until scoring. A video generated from the Blender reference may introduce geometry drift; metric agreement is not established by conditioning alone. Ground truth is exact only for the deterministic Blender source and its direct renders.
+
+The [smooth revision](smooth/README.md) addresses that feedback with rounded continuous walking turns and no labels.
 
 ## Reproduction
 

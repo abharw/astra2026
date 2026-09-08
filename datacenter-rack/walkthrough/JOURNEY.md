@@ -92,3 +92,10 @@ Observed: the amber/cyan/red/green landmark sequence and the straight → left �
 This result is accepted for the requested visual maze demo. Exact per-pixel geometry, calibrated metric correspondence, unseen rooms and every-frame artifact freedom were not established. The authored map remains exact for the Blender reference; the generated clip supports a reviewed qualitative topology comparison. Audio is present in the original container but was not listened to or assessed.
 
 Copied the unchanged generated MP4 to `datacenter-maze-walkthrough.mp4` in this package and to the Desktop, with the floor-plan image as a separate Desktop file. The video contains no floor-map overlay. The input-only video can be supplied to the user's mapping system while withholding the answer key and prompts. No claim is made that the user's mapping system was run in this task.
+
+
+## 2026-09-08 — User correction: natural motion and no wall labels
+
+The first maze render met the left/right/left topology but the user judged it robotic and insufficiently real, and asked for smoother motion/panning and no BAY labels on walls. The source had explicitly stopped for each pivot; that choreography was the root of the mechanical movement. Acceptance of turn order did not establish naturalism.
+
+The revised source in `smooth/` retains the same room and rack footprints, removes every font object, and changes the colored routing panels to neutral unlabelled utility panels and a maintenance door. It replaces stop/pivot phases with 1.6 m rounded corners, continuous translation during rotation, gentle heading anticipation and a slower 6.5-second final 160-degree look-around. The rounded camera route is 21.94 m; room dimensions are unchanged. All 720 camera poses clear the authored walls and racks with a 0.25 m camera radius. Final photoreal output and review pending.
