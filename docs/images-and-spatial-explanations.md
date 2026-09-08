@@ -6,13 +6,13 @@ Arav's subsequent implementation order is repository reorganization → image AP
 
 ## What the current session proves
 
-Arav reported pulling out one server, asking about heat flow and requesting arrows. The matching physical-iPhone session contains three successful native installations and three completed typed Realtime responses. Node counts progress 20 → 20 → 29 → 33, with scene revisions 0 → 1 → 2 → 3. The last turn took 18.984 seconds from native text submission to final response, and 15.460 seconds from backend admission to receipt-gated explanation. [Redacted session evidence](../evidence/iphone-heat-flow-session.json).
+Arav reported pulling out one server, asking about heat flow and requesting arrows. The matching physical-iPhone session contains three successful native installations and three completed typed Realtime responses. Node counts progress 20 → 20 → 29 → 33, with scene revisions 0 → 1 → 2 → 3. The last turn took 18.984 seconds from native text submission to final response, and 15.460 seconds from backend admission to receipt-gated explanation. [Redacted session evidence](evidence/iphone-heat-flow-session.json).
 
 Those logs confirm execution and continuity. They do not retain raw prompts, mesh recipes or rendered frames. The mapping of individual requests to “pull out,” “explain” and “arrows” follows Arav's description and their sequence; it is not reconstructed from logged message text.
 
 ## The model's current visual vocabulary
 
-The [authoring tool](../services/session/src/astra/authoring-tool.ts) exposes a straight shaft/cone arrow and a static polyline tube, with solid opaque colors, roughness and metallic properties. It has no label, gradient, animation, smooth flow-arrow, generated texture or source/target attachment operation. The [native material compiler](../packages/SpatialKit/Sources/SpatialApple/Rendering/MaterialCompiler.swift) uses physically based shading, so annotation colors respond to scene lighting.
+The [authoring tool](../backend/src/astra/authoring-tool.ts) exposes a straight shaft/cone arrow and a static polyline tube, with solid opaque colors, roughness and metallic properties. It has no label, gradient, animation, smooth flow-arrow, generated texture or source/target attachment operation. The [native material compiler](../framework/Sources/SpatialApple/Rendering/MaterialCompiler.swift) uses physically based shading, so annotation colors respond to scene lighting.
 
 Astra can reason about the assembly but cannot request visual capabilities that the contract does not expose. Adding more mesh segments alone would not supply meaningful flow motion, readable labels or endpoints that follow moved components. Current imported-asset context also lacks explicit measured bounds and attachment points; including bounded host-derived geometry context would reduce spatial guesswork.
 

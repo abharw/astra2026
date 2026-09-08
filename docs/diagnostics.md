@@ -6,7 +6,7 @@ Diagnostics are evidence about state transitions, not proof that a physical inte
 
 The current conversation path is one Realtime session. Typed text or local speech onset binds the authoritative selected node IDs in the app. Realtime is forced to call `ask_astra` exactly once with `{request:string}`; the app executes that call only after a completed response, awaits the terminal scene-service result for the same request ID and epoch, sends `function_call_output`, and requests the final response. The final response is delivered as text for typed turns or audio plus transcript for spoken turns.
 
-The current service uses a fresh HTTP Responses request and one complete `propose_scene` result. PTC, steering, and progressive multi-batch streaming are future experiments. The smoke artifact `evidence/realtime-tools-smoke.json` proves the forced-tool sequence with a synthetic scene result; it does not prove native scene installation, pointing accuracy, microphone quality, or end-to-end physical voice behavior.
+The current service uses a fresh HTTP Responses request and one complete `propose_scene` result. PTC, steering, and progressive multi-batch streaming are future experiments. The smoke artifact `docs/evidence/realtime-tools-smoke.json` proves the forced-tool sequence with a synthetic scene result; it does not prove native scene installation, pointing accuracy, microphone quality, or end-to-end physical voice behavior.
 
 When a request appears stuck, inspect the exported event sequence before changing UI behavior. A disconnected submission, missing `response.done`, tool-call argument mismatch, deadline expiry, stale scene/epoch fence, or final response rejection should each be visible as a distinct event. Do not infer success from a spinner or a single provider log line.
 
@@ -30,8 +30,8 @@ Native logs live in the app's `Documents/AstraDiagnostics`: at most two rotating
 Collect logs from a development device without relying on its network connection:
 
 ```sh
-python3 scripts/dev-session.py logs --device 'iPad'
-python3 scripts/dev-session.py logs --simulator-id 564C0D96-3E0F-491B-8592-910A7DAEECEA
+python3 tools/dev-session.py logs --device 'iPad'
+python3 tools/dev-session.py logs --simulator-id 564C0D96-3E0F-491B-8592-910A7DAEECEA
 ```
 
-Copies go under ignored `runtime/diagnostics`. `dev-session.py serve` sets backend logs under ignored `runtime/logs/backend-8788` and reuses the local access token for the same URL. Use `--rotate-token` only when intentionally replacing it; subsequently relaunch devices to inject the new token. Logs and exported app files must not be committed as raw traces. Check a small evidence summary for scope and secret/content exclusions before adding it to `evidence/`.
+Copies go under ignored `.local/diagnostics`. `dev-session.py serve` sets backend logs under ignored `.local/logs/backend-8788` and reuses the local access token for the same URL. Use `--rotate-token` only when intentionally replacing it; subsequently relaunch devices to inject the new token. Logs and exported app files must not be committed as raw traces. Check a small evidence summary for scope and secret/content exclusions before adding it to `docs/evidence/`.

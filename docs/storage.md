@@ -132,7 +132,7 @@ Referenced source files must be protected from cache eviction and garbage collec
 
 ## 6. Hashes, versions, and caching
 
-Hash normalized recipes using the typed binary `astra-geometry-v1` encoding defined in [the contract](../contracts/README.md), while the wire document remains UTF-8 JSON. Shared Swift/TypeScript fixtures verify identical hashes; do not substitute a platform JSON serializer for this encoding. Include the geometry semantics version in hashed source. Exclude node IDs, labels, placement transforms, and material bindings from geometry content hashes.
+Hash normalized recipes using the typed binary `astra-geometry-v1` encoding defined in [the contract](../framework/contract/README.md), while the wire document remains UTF-8 JSON. Shared Swift/TypeScript fixtures verify identical hashes; do not substitute a platform JSON serializer for this encoding. Include the geometry semantics version in hashed source. Exclude node IDs, labels, placement transforms, and material bindings from geometry content hashes.
 
 ```text
 futureMeshCacheKey = SHA256(

@@ -1,8 +1,8 @@
-# Proposed repository consolidation
+# Repository consolidation
 
-Status: selected next-work direction; the directory migration has not been applied. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the current baseline. Public Swift module names and the wire format do not need to change.
+Status: directory migration implemented and verified in the working tree; commit and push are pending. [HANDOFF.md](../HANDOFF.md) records Arav's implementation order and the baseline. Public Swift module names and the wire format are unchanged.
 
-The product has three code owners: one native app, one reusable spatial framework, and one deployable backend. The current `apps/ios`, `packages/SpatialKit`, and `services/session` wrappers add navigation without representing additional applications, packages, or services.
+The product has three code owners: one native app, one reusable spatial framework, and one deployable backend. The former `apps/ios`, `packages/SpatialKit`, and `services/session` wrappers added navigation without representing additional applications, packages, or services.
 
 ```text
 astra2026/
@@ -51,9 +51,9 @@ astra2026/
 
 `framework/contract` groups the shared protocol with the framework that defines its semantics. This does not turn JSON Schema into Swift-only data: the TypeScript backend still validates against those shared fixtures. Provider-specific tool schemas remain in `backend/src/astra` because they are an adapter to the portable contract.
 
-## What consolidates
+## Migrated paths
 
-| Current | Proposed |
+| Previous | Current |
 | --- | --- |
 | `apps/ios` | `app` |
 | `services/session` | `backend` |
@@ -65,11 +65,13 @@ astra2026/
 | Root architecture/product/research documents | `docs` |
 | Ignored `runtime`, `build`, derived data | `.local` |
 
-There is one useful build-system consolidation: make SceneLab and PointingReplay executable targets of one tools Swift package. PointingReplay currently carries a generated Xcode project despite being a command-line program with no UI, camera or renderer. Preserve its MainActor isolation when replacing the Xcode settings with SwiftPM settings or explicit source annotations.
+SceneLab and PointingReplay are now executable targets of one tools Swift package. PointingReplay's generated Xcode project is replaced by SwiftPM settings that preserve its MainActor isolation. It remains a command-line program with no UI, camera or renderer.
 
 Keep the app, backend and framework as distinct modules. They have different dependencies and deployment responsibilities. A folder migration also should not split the scene coordinator's transaction/revision/cancellation ordering across new managers.
 
-## Migration checks
+## Migration acceptance checklist
+
+All migration checks below passed against the reorganized tree. The ordinary launch check passed on iPhone using its saved HTTPS endpoint and Keychain credential; the iPad has the updated app installed but its locked screen prevented launch verification. The migration remains pending commit and push. [Verification receipt](evidence/repository-migration.json).
 
 1. Move tracked paths with history; update XcodeGen package/resource references and regenerate the app project.
 2. Update SwiftPM local package identity separately from public module names. Update fixture locators in Swift and TypeScript, and Python/JavaScript repository-root discovery.

@@ -11,8 +11,8 @@ dist/
 .cache/
 *.xcuserstate
 xcuserdata/
-evidence/local/
-runtime/
+docs/evidence/local/
+.local/
 .vscode/
 .derived-data/
 *.log

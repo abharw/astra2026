@@ -16,7 +16,7 @@ The current system already has the right separation, but the original model inte
 4. The device sends its accepted semantic document to the service. The binary meshes never enter the model prompt. The service now builds a smaller authoring view of that document.
 5. Astra emits one bounded `propose_scene`. Normalization resolves aliases and derived values. Native validation and resource preparation precede an atomic semantic/native installation. Its receipt determines whether the conversation may report a completed change.
 
-The source rack currently exposes **20 semantic nodes and 19 geometry definitions: an assembly root, a frame remainder and 18 joined server exteriors**. That is a useful assembly interface, but it is not a complete component-level representation of the Blender authoring source. A joined exterior does not magically contain addressable processors, fan blades or boards. The separate source detail libraries need their own verified export and host bindings before they can be revealed as actual imported detail. Existing rendering fidelity and semantic granularity are separate questions. See [native fixture](../contracts/fixtures/accepted/imported_rack_document.json) and [intake review](imported-rack-review.md).
+The source rack currently exposes **20 semantic nodes and 19 geometry definitions: an assembly root, a frame remainder and 18 joined server exteriors**. That is a useful assembly interface, but it is not a complete component-level representation of the Blender authoring source. A joined exterior does not magically contain addressable processors, fan blades or boards. The separate source detail libraries need their own verified export and host bindings before they can be revealed as actual imported detail. Existing rendering fidelity and semantic granularity are separate questions. See [native fixture](../framework/contract/fixtures/accepted/imported_rack_document.json) and [intake review](imported-rack-review.md).
 
 ## Implemented model context
 
@@ -80,7 +80,7 @@ The client now distinguishes the first raw provider event, first function-argume
 
 ## Local measurements
 
-The repeatable script is `cd services/session && npm run check:context`. [Measured evidence](../evidence/model-context-optimization.json) pins the fixture and implementation hashes.
+The repeatable script is `cd backend && npm run check:context`. [Measured evidence](evidence/model-context-optimization.json) pins the fixture and implementation hashes.
 
 | Measurement | Before | After | Reduction |
 | --- | ---: | ---: | ---: |

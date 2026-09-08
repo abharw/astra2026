@@ -1,6 +1,6 @@
 # Data formats
 
-2026-09-08 · Format design and implemented v1 boundary. Swift/TypeScript hashes, strict decoding, semantic validation, and live generation-to-reducer acceptance are verified. Native builds pass; physical pointing/voice acceptance is in progress. The normative current shape is [the contract](../contracts/README.md). Numeric limits below are initial engineering limits to test, not measured device capabilities.
+2026-09-08 · Format design and implemented v1 boundary. Swift/TypeScript hashes, strict decoding, semantic validation, and live generation-to-reducer acceptance are verified. Native builds pass; physical pointing/voice acceptance is in progress. The normative current shape is [the contract](../framework/contract/README.md). Numeric limits below are initial engineering limits to test, not measured device capabilities.
 
 ## 1. Three representations
 
@@ -23,7 +23,7 @@ Expose the same generic operations through direct tool calls and programmatic to
 
 The model supplies local aliases for new objects and observed references for existing objects. Backend normalization resolves aliases, assigns persistent IDs, normalizes defaults and checks references. Bounded linear/radial array expansion remains an unimplemented authoring capability; the device currently receives explicit nodes and generic geometry recipes, without expressions or control flow. The backend assigns transport IDs and populates revision/epoch fields from the request's immutable admission record, never from the newest session state when a delayed result arrives. The model cannot grant itself a newer revision or choose an installation epoch.
 
-Use [the contract README](../contracts/README.md) and [scene.schema.json](../contracts/scene.schema.json) as the current format references. The schema uses JSON Schema 2020-12 with closed tagged variants. Keep the provider-facing strict tool schema separate: a provider's supported schema subset is an adapter constraint, not the definition of the portable format. Schema checks establish structure; semantic checks establish acyclic hierarchy, valid references, affordable geometry and valid numbers. Additional JSON properties are allowed unless explicitly prohibited, so close each wire object deliberately. [JSON Schema object rules](https://json-schema.org/understanding-json-schema/reference/object).
+Use [the contract README](../framework/contract/README.md) and [scene.schema.json](../framework/contract/scene.schema.json) as the current format references. The schema uses JSON Schema 2020-12 with closed tagged variants. Keep the provider-facing strict tool schema separate: a provider's supported schema subset is an adapter constraint, not the definition of the portable format. Schema checks establish structure; semantic checks establish acyclic hierarchy, valid references, affordable geometry and valid numbers. Additional JSON properties are allowed unless explicitly prohibited, so close each wire object deliberately. [JSON Schema object rules](https://json-schema.org/understanding-json-schema/reference/object).
 
 ## 3. Identity and document structure
 

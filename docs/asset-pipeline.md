@@ -1,6 +1,6 @@
 # Asset generation: the complete pipeline
 
-2026-09-08. Current direct Astra-to-Swift path plus clearly marked future design. One fresh HTTP Responses request returns one complete `propose_scene` JSON proposal; [evidence](../evidence/README.md) records 10–24 second request-to-explanation times and distinguishes them from device display latency. Read alongside [architecture.md](../architecture.md), [data formats](data-formats.md), and [storage](storage.md).
+2026-09-08. Current direct Astra-to-Swift path plus clearly marked future design. One fresh HTTP Responses request returns one complete `propose_scene` JSON proposal; [evidence](evidence/README.md) records 10–24 second request-to-explanation times and distinguishes them from device display latency. Read alongside [architecture.md](architecture.md), [data formats](data-formats.md), and [storage](storage.md).
 
 ## The decision
 

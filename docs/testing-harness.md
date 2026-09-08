@@ -8,7 +8,7 @@ Use three complementary lanes:
 
 1. Run the universal app on the physical iPad Air M4 and iPhone for camera, Vision pointing, and ARKit behavior. Observe the iPad through AirPlay or QuickTime USB Screen input without starting a recording. Screen observation is evidence capture only; it does not give the Mac interactive control of iPadOS.
 2. Run the universal app in iPad and iPhone simulators for layout, native scene compilation, the live backend/UI loop, accessibility, and screenshots.
-3. Run `tools/PointingReplay` only as a headless synthetic-landmark replay over the product's shared viewport mapper and pointing resolver.
+3. Run `tools/Sources/PointingReplay` only as a headless synthetic-landmark replay over the product's shared viewport mapper and pointing resolver.
 
 Do not route the Mac camera into Simulator and call the result an AR test. Apple's current AVCam documentation says Simulator has no access to device cameras. Apple's Xcode documentation also warns that hardware-specific features may be unavailable in Simulator and requires physical devices to verify those features. In the installed Xcode 26.6 toolchain, `simctl io` exposes screen enumeration, screen recording, and screenshots; it has no camera-input operation. The installed `simctl privacy` command also has no camera permission service.
 
@@ -26,7 +26,7 @@ Primary sources:
 
 ## What the replay diagnostic exercises
 
-`tools/PointingReplay` is an XcodeGen command-line project. It feeds named normalized samples through `SpatialApple.PointingViewportTransform` and `SpatialApple.PointingResolver`, then emits a provenance-labeled JSON receipt.
+`PointingReplay` is an executable target in the shared `tools/Package.swift` package, with sources in `tools/Sources/PointingReplay`. It feeds named normalized samples through `SpatialApple.PointingViewportTransform` and `SpatialApple.PointingResolver`, then emits a provenance-labeled JSON receipt. Its SwiftPM settings preserve MainActor isolation.
 
 It uses a deterministic two-region hit-test stub with stable semantic IDs. Therefore it proves resolver behavior for exact samples; it does not prove RealityKit entity picking. RealityKit picking and highlight feedback belong in the universal app's Simulator and device lanes.
 
@@ -39,26 +39,19 @@ The diagnostic must not fork image-to-viewport math, smoothing, staleness, or se
 
 ## Run it
 
-Generate, build, and run all cases:
+Build and run all cases from the repository root:
 
 ```sh
-cd tools/PointingReplay
-xcodegen generate
-xcodebuild \
-  -project AstraPointingReplay.xcodeproj \
-  -scheme AstraPointingReplay \
-  -destination 'platform=macOS' \
-  -derivedDataPath .derived-data \
-  build
-.derived-data/Build/Products/Debug/astra-pointing-replay \
+mkdir -p .local/evidence
+swift run --package-path tools --scratch-path .local/build/tools PointingReplay \
   --all \
-  --output pointing-replay.json
+  --output .local/evidence/pointing-replay.json
 ```
 
 Run one case and write the receipt to standard output:
 
 ```sh
-.derived-data/Build/Products/Debug/astra-pointing-replay \
+swift run --package-path tools --scratch-path .local/build/tools PointingReplay \
   --case stable-target-lock
 ```
 
@@ -90,7 +83,8 @@ UDID 564C0D96-3E0F-491B-8592-910A7DAEECEA
 The simulator automatically uses the non-AR surface. After installing and launching, tap Load rack; connect to the local service for live model tests. Named replay cases belong to the separate CLI, not app launch arguments. Capture output with:
 
 ```sh
-xcrun simctl io 564C0D96-3E0F-491B-8592-910A7DAEECEA screenshot evidence/local/simulator-ipad-fixture.png
+mkdir -p .local/evidence
+xcrun simctl io 564C0D96-3E0F-491B-8592-910A7DAEECEA screenshot .local/evidence/simulator-ipad-fixture.png
 ```
 
 Simulator evidence must be labeled `iOSSimulator` and `nonAR`. It can establish that the universal app lays out correctly, installs the expected semantic scene, exposes stable accessibility identifiers, and responds to deterministic input. It cannot establish camera capture, ARKit tracking, physical placement, or real hand pointing.

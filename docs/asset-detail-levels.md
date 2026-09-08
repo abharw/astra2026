@@ -31,37 +31,37 @@ The source's detailed motherboard and memory collections are too broad for the f
 
 ## Sample grouping is data
 
-[teaching-groups.json](../content/imported-rack/teaching-groups.json) configures the current content's nine manipulation boundaries: chassis, storage, cooling fans, processor/socket assemblies, processor heatsinks, motherboard, memory, network adapter and power input/conversion. The compiler follows configured source ancestry and collection membership. It has no prompt keywords, fixed hardware hierarchy or hidden model routing rules.
+[teaching-groups.json](../assets/imported-rack/teaching-groups.json) configures the current content's nine manipulation boundaries: chassis, storage, cooling fans, processor/socket assemblies, processor heatsinks, motherboard, memory, network adapter and power input/conversion. The compiler follows configured source ancestry and collection membership. It has no prompt keywords, fixed hardware hierarchy or hidden model routing rules.
 
-[export-asset-groups.py](../scripts/export-asset-groups.py) writes one pack with independently named group roots, a resource catalog, a portable semantic manifest and a source-membership index. All source object transforms are baked into the original asset-local basis; each group's geometry is centered at its own bounds and its rest translation restores the authored position. The source index retains the IDs represented by each merged group. Coalescing happens **inside** the configured manipulation boundary; it does not join the whole scene into one uneditable mesh.
+[export-asset-groups.py](../tools/assets/export-asset-groups.py) writes one pack with independently named group roots, a resource catalog, a portable semantic manifest and a source-membership index. All source object transforms are baked into the original asset-local basis; each group's geometry is centered at its own bounds and its rest translation restores the authored position. The source index retains the IDs represented by each merged group. Coalescing happens **inside** the configured manipulation boundary; it does not join the whole scene into one uneditable mesh.
 
-The source-derived server pack has been compiled and independently reopened with OpenUSD: **nine group roots, 381,897 triangles and 8,226,964 bytes**. The build took 377.16 seconds before the final storage pass. Seven groups met their configured triangle targets; storage and power exceeded theirs because Blender's collapse step could not simplify the remaining topology sufficiently. See [the build receipt](../evidence/server-detail-processing.json). Native selected-instance detail installation is now covered by the macOS controller probe; physical-device performance and interaction remain unverified.
+The source-derived server pack has been compiled and independently reopened with OpenUSD: **nine group roots, 381,897 triangles and 8,226,964 bytes**. The build took 377.16 seconds before the final storage pass. Seven groups met their configured triangle targets; storage and power exceeded theirs because Blender's collapse step could not simplify the remaining topology sufficiently. See [the build receipt](evidence/server-detail-processing.json). Native selected-instance detail installation is now covered by the macOS controller probe; physical-device performance and interaction remain unverified.
 
-A format-only pass indexes repeated normal values, reducing the compiled pack from 17,178,641 to 8,226,964 bytes. It verifies identical points, topology, normal interpolation and expanded normal values before accepting the result. This lossless storage pass does not undo the earlier, explicitly approximate mesh simplification, and does not prove reduced GPU work. [asset_usd.py](../scripts/asset_usd.py) is shared format code with no rack-specific rules.
+A format-only pass indexes repeated normal values, reducing the compiled pack from 17,178,641 to 8,226,964 bytes. It verifies identical points, topology, normal interpolation and expanded normal values before accepting the result. This lossless storage pass does not undo the earlier, explicitly approximate mesh simplification, and does not prove reduced GPU work. [asset_usd.py](../tools/assets/asset_usd.py) is shared format code with no rack-specific rules.
 
 The sample recipe omits individual memory contacts and objects smaller than 2.5 mm from its overview representation. Its triangle budgets and material policy are explicit build choices, not proof of fidelity or device frame rate. The original source remains available for later more detailed exports. The output uses untextured PBR material values; it does not claim to preserve fabrication texture maps.
 
-The compiler's JSON recipe is reusable. A non-rack lamp fixture exercises different IDs, nested source ancestry and grouping through the same compiler. Its output has three groups, 112 triangles and approximately 5.6 KB; the check verifies source IDs, world bounds, root names, parents, units and digests. See [the fixture receipt](../evidence/asset-group-fixture.json). This tests interchange and identity, not native rendering.
+The compiler's JSON recipe is reusable. A non-rack lamp fixture exercises different IDs, nested source ancestry and grouping through the same compiler. Its output has three groups, 112 triangles and approximately 5.6 KB; the check verifies source IDs, world bounds, root names, parents, units and digests. See [the fixture receipt](evidence/asset-group-fixture.json). This tests interchange and identity, not native rendering.
 
 Run the offline compiler against the verified source binary:
 
 ```sh
-python3 scripts/export-asset-groups.py \
-  --recipe content/imported-rack/teaching-groups.json \
-  --input runtime/detail-source/parts-library.blend
-python3 scripts/prepare-selection-proxies.py
-python3 scripts/check-asset-group-compiler.py
+python3 tools/assets/export-asset-groups.py \
+  --recipe assets/imported-rack/teaching-groups.json \
+  --input .local/detail-source/parts-library.blend
+python3 tools/assets/prepare-selection-proxies.py
+python3 tools/checks/check-asset-group-compiler.py
 ```
 
-Build outputs remain under ignored `runtime/processed-assets`; compact manifests and validation receipts are checked in. The compiler validates the source digest before opening Blender data and validates exported group identities and triangle totals afterward. Runtime delivery must use its approved catalog and digest rather than the compiler's local file URL.
+Build outputs remain under ignored `.local/processed-assets`; compact manifests and validation receipts are checked in. The compiler validates the source digest before opening Blender data and validates exported group identities and triangle totals afterward. Runtime delivery must use its approved catalog and digest rather than the compiler's local file URL.
 
 ## Interaction boundaries can be smaller than a render group
 
 A single bounding box around all memory modules covers the empty processor gap. A box around the chassis covers almost every internal group. Those boxes make pointing inaccurate even if the rendered meshes and semantic hierarchy are correct.
 
-The optional selection policy is separate from rendering and meaning. It can disable selection for an enclosing group or provide several small boxes that all resolve to that group's same semantic ID. The sample recipe identifies source clusters; [prepare-selection-proxies.py](../scripts/prepare-selection-proxies.py) derives their actual represented geometry bounds in prototype-local coordinates. The script has no hardware-specific names or rules.
+The optional selection policy is separate from rendering and meaning. It can disable selection for an enclosing group or provide several small boxes that all resolve to that group's same semantic ID. The sample recipe identifies source clusters; [prepare-selection-proxies.py](../tools/assets/prepare-selection-proxies.py) derives their actual represented geometry bounds in prototype-local coordinates. The script has no hardware-specific names or rules.
 
-The current sample uses 76 boxes: 24 storage carriers, six fan modules, two processor/socket assemblies, two heatsinks, one network adapter, nine power clusters and 32 memory modules. Chassis and motherboard are non-selectable through these proxies. Geometry and digest are unchanged. [Selection evidence](../evidence/server-selection-proxies.json) records every source cluster and its bounds. Native ray selection remains a separate check; proxy construction alone does not prove that a user's finger selects the intended visible part.
+The current sample uses 76 boxes: 24 storage carriers, six fan modules, two processor/socket assemblies, two heatsinks, one network adapter, nine power clusters and 32 memory modules. Chassis and motherboard are non-selectable through these proxies. Geometry and digest are unchanged. [Selection evidence](evidence/server-selection-proxies.json) records every source cluster and its bounds. Native ray selection remains a separate check; proxy construction alone does not prove that a user's finger selects the intended visible part.
 
 ## Instance context and detail installation
 

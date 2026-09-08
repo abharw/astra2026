@@ -1,0 +1,39 @@
+# Server rack starting scene
+
+`scene.json` is generated from the repository root by:
+
+```sh
+swift run --package-path tools --scratch-path .local/build/tools SceneLab seed assets/server-rack/scene.json
+```
+
+It is an authored, schematic teaching asset. It is not a scan, manufacturer CAD,
+or evidence that Astra generated geometry at runtime. The open frame is compressed
+to a 0.60 m tabletop presentation. The hardware keeps useful relative proportions,
+but small parts are enlarged for visibility and the 12U presentation is not a
+scaled APC AR3100.
+
+## Reference-based facts
+
+- Dell's PowerEdge R760 manual specifies a 2U chassis: 482.0 mm overall front
+  width including ears, 434.0 mm chassis width, 86.8 mm height, and 700.7 mm from
+  rack ear to rear wall. [Chassis dimensions](https://www.dell.com/support/manuals/en-us/oth-r760/per760_ism_pub/chassis-dimensions?guid=guid-04578793-7445-43f5-acc4-a0b11f85eb5f&lang=en-us)
+- Dell documents front configurations including 8 x 2.5-inch drives. This scene
+  depicts that variant, including the control-panel areas and service tag.
+  [Front view](https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/front-view-of-the-system?guid=guid-4a6be6c8-ea4c-4649-9697-f03416912b67&lang=en-us)
+- Dell documents two processors, 32 DDR5 DIMM sockets, two redundant PSUs, and
+  rear expansion options. [System overview](https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/system-overview?guid=guid-76d1f6a6-2a97-4b55-bef5-9db0afcce302&lang=en-us)
+- Dell's internal diagram establishes the front backplane, transverse fan cage,
+  processor and memory area, four rear riser groups, two rear PSUs, and system
+  board. [Inside the system](https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/inside-the-system?guid=guid-043d9f52-a16e-4494-a65a-128c47fd4ea4&lang=en-us)
+- Dell specifies up to six hot-plug cooling fans. [Cooling fan specifications](https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/cooling-fan-specifications?guid=guid-2c8f1828-b243-46f9-99de-cb92f7575da4&lang=en-us)
+- APC specifies the NetShelter SX AR3100 as a 42U, 1991 x 600 x 1070 mm
+  enclosure. [AR3100 product page](https://www.se.com/us/en/product/AR3100/apc-netshelter-sx-server-rack-enclosure-42u-black-1991h-x-600w-x-1070d-mm-taa/)
+
+## Schematic choices
+
+The rail-hole markers summarize rack-unit positions rather than reproducing the
+EIA hole pattern. Internal part dimensions, port geometry, cable routes, the
+half-populated 16-DIMM configuration, second server, switch, and PDU are
+illustrative. The R760 cover is lifted and the chassis is pulled forward to expose
+the motherboard, CPU heat sinks, DIMM banks, fan wall, drives, risers, and PSUs in
+the initial teaching view.

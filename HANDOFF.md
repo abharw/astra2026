@@ -6,7 +6,7 @@ Updated September 8, 2026. Implementation baseline: `103f798` on branch **`Arav`
 2. **Integrate and evaluate Images 2.5 for generated visuals, starting with 2D.**
 3. **Improve the native geometry and visual vocabulary Astra can generate.**
 
-This handoff records the next implementation work. The folder migration and image/flow features are not implemented. Follow this order even though the earlier visual research suggested improving native flows first.
+This handoff records the current implementation work. Stage 1 is implemented and verified; its commit and push are pending. Image and flow features are not implemented. Follow this order even though the earlier visual research suggested improving native flows first.
 
 ## Goal and current behavior
 
@@ -14,7 +14,7 @@ Astra Spatial is a generic framework for exploring structures through live conve
 
 The universal iPhone/iPad app uses one Realtime conversation for typed text and voice. Its `ask_astra` call routes to the backend's Astra authoring path. The native framework validates and installs structured scene changes, acknowledges them, and then releases the final explanation. Imported parts and generated primitives share that scene authority.
 
-Arav successfully pulled out a server, requested a heat-flow explanation and generated arrows on the physical iPhone. Logs confirm three installed edits and completed typed responses, with node counts 20 → 20 → 29 → 33. He reported that the arrows looked low-fidelity. The logs do not retain their exact mesh recipes or images. [Session evidence](evidence/iphone-heat-flow-session.json).
+Arav successfully pulled out a server, requested a heat-flow explanation and generated arrows on the physical iPhone. Logs confirm three installed edits and completed typed responses, with node counts 20 → 20 → 29 → 33. He reported that the arrows looked low-fidelity. The logs do not retain their exact mesh recipes or images. [Session evidence](docs/evidence/iphone-heat-flow-session.json).
 
 Already completed at the baseline:
 
@@ -27,7 +27,7 @@ Already completed at the baseline:
 
 ## 1. Reorganize the repository
 
-Implement the [structure plan](docs/repository-structure-plan.md), with six visible owned directories:
+The [structure plan](docs/repository-structure-plan.md) has been applied, with six visible owned directories:
 
 ```text
 app/                     # Universal native product: UI, conversation, audio
@@ -44,13 +44,13 @@ APPROACH.md
 HANDOFF.md
 ```
 
-Move `apps/ios` → `app`, `services/session` → `backend`, `packages/SpatialKit` → `framework`, `contracts` → `framework/contract`, and `content` → `assets`. Consolidate `scripts` under `tools`, move `evidence` under `docs`, and move architecture/product/research documents into `docs`. Keep the three entry documents above at the root.
+The working tree moves `apps/ios` → `app`, `services/session` → `backend`, `packages/SpatialKit` → `framework`, `contracts` → `framework/contract`, and `content` → `assets`. Development scripts are grouped under `tools/assets`, `tools/checks`, and `tools/dev-session.py`; evidence and architecture/product/research documents are under `docs`. The three entry documents above remain at the root.
 
-Combine SceneLab and PointingReplay as separate executable targets in one `tools/Package.swift`. Preserve PointingReplay's MainActor isolation, currently supplied by Xcode settings. The public Swift products remain `SpatialCore` and `SpatialApple`; directory names do not require renaming the modules.
+SceneLab and PointingReplay are separate executable targets in one `tools/Package.swift`. PointingReplay's MainActor isolation is preserved in the SwiftPM settings. The public Swift products remain `SpatialCore` and `SpatialApple`; directory names do not require renaming the modules.
 
 Ownership rules: the app owns interaction; the framework owns accepted scenes and native execution; the backend owns model calls and credentials; assets are data; tools exercise production modules. Preserve these boundaries during the move. Do not turn this into a scene-controller rewrite or introduce new processes just to populate folders.
 
-Migration details that need deliberate handling:
+Migration details covered by verification:
 
 - Update XcodeGen dependency/resource paths and regenerate the tracked Xcode project.
 - Update SwiftPM local package identity, fixture parent-directory walks, Python root discovery and JavaScript dependency paths.
@@ -58,7 +58,9 @@ Migration details that need deliberate handling:
 - Preserve the existing private development token when moving `runtime` into `.local`. Existing server processes may still write to old paths; coordinate their restart rather than deleting active runtime state.
 - Update current commands and Markdown links, including this handoff. Preserve historical evidence payload paths and hashes as original observations.
 
-**Acceptance:** backend typecheck/tests/production build, framework tests, both headless tools, simulator and signed-device builds, bundle digest checks, and an ordinary device launch using the saved endpoint all pass. Commit and push the reorganization before starting image integration.
+**Acceptance passed:** backend typecheck/tests/production build, framework tests, both headless tools, simulator and signed-device builds, bundle digest checks, and an ordinary iPhone launch using the saved endpoint. Commit and push the reorganization before starting image integration.
+
+Backend verification passed typecheck, 115 tests, production build, and the context check. Framework verification passed 69 Swift Testing cases plus six XCTest cases, with four explicit environment-gated skips; the approved app-detail resource case passed. SceneLab validated 179 nodes and 32 geometries; all six pointing replay cases passed. Both app builds passed; all 11 checked bundle resources match the baseline, and the source catalog is excluded. Historical evidence payloads and the private token were preserved byte-for-byte. Both devices have the updated app installed. A fresh ordinary iPhone launch, with no environment injection, reached `connection.finished` with `ready=true` using its saved HTTPS endpoint and Keychain credential. The iPad launch remains unverified because its screen was locked; this does not change the verified iPhone launch. [Migration receipt](docs/evidence/repository-migration.json).
 
 ## 2. Integrate the new image API
 
@@ -96,20 +98,21 @@ Apple references and API choices are collected in [the visual research](docs/ima
 ## Working environment and first actions
 
 - Canonical checkout: `/Users/aravb/Developer/astra2026`; the earlier Documents/ChatGPT path is a symlink. Verify the checkout, branch and dirty state before editing. Continue committing and pushing to **`Arav`**, as Arav requested.
-- OpenAI key: use Doppler CLI, project `backend`, config `dev`, selecting `OPENAI_API_KEY`. Never print credentials or add them to commits. The local session token is separate and currently stored in ignored `runtime/dev-session.json` plus device Keychain.
+- OpenAI key: use Doppler CLI, project `backend`, config `dev`, selecting `OPENAI_API_KEY`. Never print credentials or add them to commits. The local session token is separate and now stored in ignored `.local/dev-session.json` plus device Keychain.
 - The direct phone-to-Mac LAN route failed. An authenticated HTTPS/WSS tunnel to the same service succeeded. This remains a temporary Mac-dependent route, not a deployed cloud backend. Inspect running processes and saved configuration on resume; do not assume an old tunnel URL or PID remains valid. [Endpoint notes](docs/backend-endpoint.md).
 - Devices: iPhone 15 Pro and iPad Air 13-inch M4, with developer trust already configured. Both use the same universal app. The last baseline rollout encountered locked screens; verify availability rather than repeating trust setup. The last primitive-fix builds passed but their physical visual recheck is pending.
-- Last verified checks: 115 backend tests; the Swift run reported 69 Swift Testing tests and six XCTest tests, with five explicit environment/resource-gated skips. Both app builds passed. Docker deployment files exist; the image was not built because the daemon was unavailable.
+- Current migration checks: 115 backend tests; 69 Swift Testing cases and six XCTest cases, with four explicit environment-gated skips. Both app builds and the ordinary iPhone launch passed. Docker deployment files exist; the image has not been built because the daemon was unavailable.
 
-Baseline commands **before migration**:
+Current commands from the repository root:
 
 ```sh
-swift test --package-path packages/SpatialKit
-npm --prefix services/session run typecheck
-npm --prefix services/session test
-npm --prefix services/session run build
-swift run --package-path tools/SceneLab SceneLab validate content/server-rack/scene.json
-python3 scripts/dev-session.py doctor
+swift test --package-path framework --scratch-path .local/build/framework
+npm --prefix backend run typecheck
+npm --prefix backend test
+npm --prefix backend run build
+swift run --package-path tools --scratch-path .local/build/tools SceneLab validate assets/server-rack/scene.json
+swift run --package-path tools --scratch-path .local/build/tools PointingReplay --all
+python3 tools/dev-session.py doctor
 ```
 
-Start by inspecting the current state and executing stage 1. Parallelize independent review, image API study and geometry design while keeping edits assigned to clear owners. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.
+Commit and push the verified stage 1 before starting image integration. Independent review, image API study and geometry design can proceed in parallel while edits remain assigned to clear owners. Update `APPROACH.md` as a sequential Arav/Astra collaboration log, not a replacement architecture specification. Commit coherent, verified stages and keep this handoff current as they finish.

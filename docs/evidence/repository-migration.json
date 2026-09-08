@@ -1,0 +1,82 @@
+{
+  "schema": "astra-repository-migration/v1",
+  "verifiedAt": "2026-09-08T22:06:06.122389+00:00",
+  "sourceCommit": "31bf3a5b77fdc354c91fefce470d5600f961884f",
+  "scope": "Directory/tool consolidation with dev-token preservation fix; no new scene/image/flow feature.",
+  "checks": {
+    "backendTypecheck": true,
+    "backendTests": 115,
+    "backendBuild": true,
+    "modelContextCheck": true,
+    "swiftTestingReportedTests": 69,
+    "xctestTests": 6,
+    "explicitEnvironmentGatedSkips": 4,
+    "approvedAppDetailResourcesTest": true,
+    "sceneLabNodes": 179,
+    "sceneLabGeometries": 32,
+    "pointingReplayCases": 6,
+    "simulatorBuild": true,
+    "signedDeviceBuild": true,
+    "verifiedResourceFilesPerBundle": 11,
+    "sourceCatalogExcluded": true,
+    "historicalEvidenceFilesUnchanged": 37,
+    "historicalEvidenceIndexLinksUpdated": true
+  },
+  "bundleFiles": {
+    "scene.json": {
+      "bytes": 148376,
+      "sha256": "712b5bc82c8aadd4ba33d07f522ef28c09cc8362f87cbe2b49531dfa0831455f"
+    },
+    "app-catalog.json": {
+      "bytes": 13138,
+      "sha256": "714cf3442a95e6dea486c9ab5f9ee5369194dbcc71c5f72ea8e8b469fed0178c"
+    },
+    "detail-catalog.json": {
+      "bytes": 26982,
+      "sha256": "ea90081c89505cfb0716fb028a62de6d0fad384486677b0c613808333bb864d9"
+    },
+    "detail-templates.json": {
+      "bytes": 12439,
+      "sha256": "4527f33143ebe0b7a52f466cc1bc94372a7671eac28582978b5c641978789f0f"
+    },
+    "rack-exterior.usdz": {
+      "bytes": 13232052,
+      "sha256": "b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1"
+    },
+    "server-teaching.usdz": {
+      "bytes": 8226964,
+      "sha256": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0"
+    }
+  },
+  "runtime": {
+    "developmentConfigurationBytesPreserved": true,
+    "tokenMode": "0600",
+    "backendRestartedFrom": "backend",
+    "logsDirectory": ".local/logs/backend-8788",
+    "existingAuthenticatedTunnelRetained": true,
+    "healthChecks": [
+      "local:passed",
+      "savedTunnel:passed"
+    ]
+  },
+  "devices": {
+    "iPhone15Pro": {
+      "installed": true,
+      "ordinaryLaunchWithoutInjectedSettings": true,
+      "connectionReady": true,
+      "observedAt": "2026-09-08T22:04:41.598Z",
+      "diagnosticRunID": "92c764c1-af1d-4816-bfac-5fd589342e41"
+    },
+    "iPadAir13M4": {
+      "installed": true,
+      "ordinaryLaunch": "blocked_by_device_lock",
+      "physicalVisualAcceptance": false
+    }
+  },
+  "limits": [
+    "Migration acceptance does not establish image integration or richer flow geometry.",
+    "Primitive-fix physical visual recheck remains pending.",
+    "Four native tests require separate environment/resources and were explicitly skipped; approved app detail expansion ran with bundled assets.",
+    "Historical payload paths/hashes retained as observations; current tool configuration paths updated."
+  ]
+}
