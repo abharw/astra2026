@@ -1,0 +1,3730 @@
+{
+  "version": 1,
+  "source": {
+    "path": null,
+    "sha256": "953c9a31caff2788aca121f6f4f4a7b67b671d6444b155c723235860ce60f6d4",
+    "bytes": 25995905,
+    "mtime_ns": 1788894339992568731,
+    "stream_index": 0,
+    "duration": 128.08668749999998,
+    "metadata_duration": 128.086,
+    "packet_span_seconds": 128.08668749999998,
+    "origin_seconds": 0.0,
+    "time_base": "1/16000",
+    "average_fps": 23.976078572209296,
+    "width": 1920,
+    "height": 1080,
+    "rotation": 0.0,
+    "sample_aspect_ratio": "1:1",
+    "audio_streams": [
+      {
+        "index": 1,
+        "start_time": "0.000000",
+        "sample_rate": "48000"
+      }
+    ],
+    "color_transfer": "bt709",
+    "subtitle_streams": [],
+    "original_filename": "GE1exIMYlGg.mp4",
+    "original_video_in_repository": false
+  },
+  "question": "Test plausible completion of an edited real house tour; freeze predicted connections and challenge them with denser rewatch",
+  "created": 1788894356.7662752,
+  "requests": [
+    {
+      "id": "r0001",
+      "kind": "scan",
+      "start": 0,
+      "end": 128.08668749999998,
+      "fps": 0.2,
+      "all_frames": false,
+      "width": 960,
+      "crop": null,
+      "max_frames": 30,
+      "frame_ids": [
+        "r0001-f0001",
+        "r0001-f0002",
+        "r0001-f0003",
+        "r0001-f0004",
+        "r0001-f0005",
+        "r0001-f0006",
+        "r0001-f0007",
+        "r0001-f0008",
+        "r0001-f0009",
+        "r0001-f0010",
+        "r0001-f0011",
+        "r0001-f0012",
+        "r0001-f0013",
+        "r0001-f0014",
+        "r0001-f0015",
+        "r0001-f0016",
+        "r0001-f0017",
+        "r0001-f0018",
+        "r0001-f0019",
+        "r0001-f0020",
+        "r0001-f0021",
+        "r0001-f0022",
+        "r0001-f0023",
+        "r0001-f0024",
+        "r0001-f0025",
+        "r0001-f0026"
+      ],
+      "truncated": false,
+      "decoded_in_window": 3071,
+      "largest_selected_gap_seconds": 5.006,
+      "purpose": "Whole edited house tour overview before freezing likely room-connection predictions"
+    },
+    {
+      "id": "r0002",
+      "kind": "inspect",
+      "start": 18.0,
+      "end": 32.0,
+      "fps": 1.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 70,
+      "frame_ids": [
+        "r0002-f0001",
+        "r0002-f0002",
+        "r0002-f0003",
+        "r0002-f0004",
+        "r0002-f0005",
+        "r0002-f0006",
+        "r0002-f0007",
+        "r0002-f0008",
+        "r0002-f0009",
+        "r0002-f0010",
+        "r0002-f0011",
+        "r0002-f0012",
+        "r0002-f0013",
+        "r0002-f0014"
+      ],
+      "truncated": false,
+      "decoded_in_window": 336,
+      "largest_selected_gap_seconds": 1.0010000000000012,
+      "purpose": "HOUSE-1 living dining and corridor anchor continuity"
+    },
+    {
+      "id": "r0003",
+      "kind": "inspect",
+      "start": 44.0,
+      "end": 82.0,
+      "fps": 1.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 70,
+      "frame_ids": [
+        "r0003-f0001",
+        "r0003-f0002",
+        "r0003-f0003",
+        "r0003-f0004",
+        "r0003-f0005",
+        "r0003-f0006",
+        "r0003-f0007",
+        "r0003-f0008",
+        "r0003-f0009",
+        "r0003-f0010",
+        "r0003-f0011",
+        "r0003-f0012",
+        "r0003-f0013",
+        "r0003-f0014",
+        "r0003-f0015",
+        "r0003-f0016",
+        "r0003-f0017",
+        "r0003-f0018",
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0021",
+        "r0003-f0022",
+        "r0003-f0023",
+        "r0003-f0024",
+        "r0003-f0025",
+        "r0003-f0026",
+        "r0003-f0027",
+        "r0003-f0028",
+        "r0003-f0029",
+        "r0003-f0030",
+        "r0003-f0031",
+        "r0003-f0032",
+        "r0003-f0033",
+        "r0003-f0034",
+        "r0003-f0035",
+        "r0003-f0036",
+        "r0003-f0037",
+        "r0003-f0038"
+      ],
+      "truncated": false,
+      "decoded_in_window": 912,
+      "largest_selected_gap_seconds": 1.0019999999999953,
+      "purpose": "HOUSE-1 and HOUSE-2 bedroom hallway and bathroom access"
+    },
+    {
+      "id": "r0004",
+      "kind": "inspect",
+      "start": 90.0,
+      "end": 110.0,
+      "fps": 1.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 70,
+      "frame_ids": [
+        "r0004-f0001",
+        "r0004-f0002",
+        "r0004-f0003",
+        "r0004-f0004",
+        "r0004-f0005",
+        "r0004-f0006",
+        "r0004-f0007",
+        "r0004-f0008",
+        "r0004-f0009",
+        "r0004-f0010",
+        "r0004-f0011",
+        "r0004-f0012",
+        "r0004-f0013",
+        "r0004-f0014",
+        "r0004-f0015",
+        "r0004-f0016",
+        "r0004-f0017",
+        "r0004-f0018",
+        "r0004-f0019",
+        "r0004-f0020"
+      ],
+      "truncated": false,
+      "decoded_in_window": 480,
+      "largest_selected_gap_seconds": 1.0010000000000048,
+      "purpose": "HOUSE-3 utility approach and rear deck exit"
+    },
+    {
+      "id": "r0005",
+      "kind": "inspect",
+      "start": 82.0,
+      "end": 100.0,
+      "fps": 2.0,
+      "all_frames": false,
+      "width": 1920,
+      "crop": null,
+      "max_frames": 40,
+      "frame_ids": [
+        "r0005-f0001",
+        "r0005-f0002",
+        "r0005-f0003",
+        "r0005-f0004",
+        "r0005-f0005",
+        "r0005-f0006",
+        "r0005-f0007",
+        "r0005-f0008",
+        "r0005-f0009",
+        "r0005-f0010",
+        "r0005-f0011",
+        "r0005-f0012",
+        "r0005-f0013",
+        "r0005-f0014",
+        "r0005-f0015",
+        "r0005-f0016",
+        "r0005-f0017",
+        "r0005-f0018",
+        "r0005-f0019",
+        "r0005-f0020",
+        "r0005-f0021",
+        "r0005-f0022",
+        "r0005-f0023",
+        "r0005-f0024",
+        "r0005-f0025",
+        "r0005-f0026",
+        "r0005-f0027",
+        "r0005-f0028",
+        "r0005-f0029",
+        "r0005-f0030",
+        "r0005-f0031",
+        "r0005-f0032",
+        "r0005-f0033",
+        "r0005-f0034",
+        "r0005-f0035",
+        "r0005-f0036"
+      ],
+      "truncated": false,
+      "decoded_in_window": 431,
+      "largest_selected_gap_seconds": 0.5010000000000048,
+      "purpose": "Resolve bedroom 2 versus bedroom 3 identity and detect edit before utility; do not join a cut into a traversed doorway"
+    }
+  ],
+  "frames": {
+    "r0001-f0001": {
+      "id": "r0001-f0001",
+      "time": 0.0,
+      "pts": 0,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0002": {
+      "id": "r0001-f0002",
+      "time": 5.005,
+      "pts": 80080,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0003": {
+      "id": "r0001-f0003",
+      "time": 10.01,
+      "pts": 160160,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0004": {
+      "id": "r0001-f0004",
+      "time": 15.015,
+      "pts": 240240,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0005": {
+      "id": "r0001-f0005",
+      "time": 20.02,
+      "pts": 320320,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0006": {
+      "id": "r0001-f0006",
+      "time": 25.025,
+      "pts": 400400,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0007": {
+      "id": "r0001-f0007",
+      "time": 30.03,
+      "pts": 480480,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0008": {
+      "id": "r0001-f0008",
+      "time": 35.035,
+      "pts": 560560,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0009": {
+      "id": "r0001-f0009",
+      "time": 40.04,
+      "pts": 640640,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0010": {
+      "id": "r0001-f0010",
+      "time": 45.003,
+      "pts": 720048,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0011": {
+      "id": "r0001-f0011",
+      "time": 50.008,
+      "pts": 800128,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0012": {
+      "id": "r0001-f0012",
+      "time": 55.013,
+      "pts": 880208,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s001"
+      ]
+    },
+    "r0001-f0013": {
+      "id": "r0001-f0013",
+      "time": 60.018,
+      "pts": 960288,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0014": {
+      "id": "r0001-f0014",
+      "time": 65.024,
+      "pts": 1040384,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0015": {
+      "id": "r0001-f0015",
+      "time": 70.029,
+      "pts": 1120464,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0016": {
+      "id": "r0001-f0016",
+      "time": 75.034,
+      "pts": 1200544,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0017": {
+      "id": "r0001-f0017",
+      "time": 80.039,
+      "pts": 1280624,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0018": {
+      "id": "r0001-f0018",
+      "time": 85.002,
+      "pts": 1360032,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0019": {
+      "id": "r0001-f0019",
+      "time": 90.007,
+      "pts": 1440112,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0020": {
+      "id": "r0001-f0020",
+      "time": 95.012,
+      "pts": 1520192,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0021": {
+      "id": "r0001-f0021",
+      "time": 100.017,
+      "pts": 1600272,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0022": {
+      "id": "r0001-f0022",
+      "time": 105.022,
+      "pts": 1680352,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0023": {
+      "id": "r0001-f0023",
+      "time": 110.027,
+      "pts": 1760432,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0024": {
+      "id": "r0001-f0024",
+      "time": 115.032,
+      "pts": 1840512,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s002"
+      ]
+    },
+    "r0001-f0025": {
+      "id": "r0001-f0025",
+      "time": 120.037,
+      "pts": 1920592,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s003"
+      ]
+    },
+    "r0001-f0026": {
+      "id": "r0001-f0026",
+      "time": 125.0,
+      "pts": 2000000,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        960,
+        540
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0001-s003"
+      ]
+    },
+    "r0002-f0001": {
+      "id": "r0002-f0001",
+      "time": 18.018,
+      "pts": 288288,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0002": {
+      "id": "r0002-f0002",
+      "time": 19.019,
+      "pts": 304304,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0003": {
+      "id": "r0002-f0003",
+      "time": 20.02,
+      "pts": 320320,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0004": {
+      "id": "r0002-f0004",
+      "time": 21.021,
+      "pts": 336336,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0005": {
+      "id": "r0002-f0005",
+      "time": 22.022,
+      "pts": 352352,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0006": {
+      "id": "r0002-f0006",
+      "time": 23.023,
+      "pts": 368368,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0007": {
+      "id": "r0002-f0007",
+      "time": 24.024,
+      "pts": 384384,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0008": {
+      "id": "r0002-f0008",
+      "time": 25.025,
+      "pts": 400400,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0009": {
+      "id": "r0002-f0009",
+      "time": 26.026,
+      "pts": 416416,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0010": {
+      "id": "r0002-f0010",
+      "time": 27.027,
+      "pts": 432432,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0011": {
+      "id": "r0002-f0011",
+      "time": 28.028,
+      "pts": 448448,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0012": {
+      "id": "r0002-f0012",
+      "time": 29.029,
+      "pts": 464464,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s001"
+      ]
+    },
+    "r0002-f0013": {
+      "id": "r0002-f0013",
+      "time": 30.03,
+      "pts": 480480,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0002-f0014": {
+      "id": "r0002-f0014",
+      "time": 31.031,
+      "pts": 496496,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0002-s002"
+      ]
+    },
+    "r0003-f0001": {
+      "id": "r0003-f0001",
+      "time": 44.002,
+      "pts": 704032,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0002": {
+      "id": "r0003-f0002",
+      "time": 45.003,
+      "pts": 720048,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0003": {
+      "id": "r0003-f0003",
+      "time": 46.004,
+      "pts": 736064,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0004": {
+      "id": "r0003-f0004",
+      "time": 47.005,
+      "pts": 752080,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0005": {
+      "id": "r0003-f0005",
+      "time": 48.006,
+      "pts": 768096,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0006": {
+      "id": "r0003-f0006",
+      "time": 49.007,
+      "pts": 784112,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0007": {
+      "id": "r0003-f0007",
+      "time": 50.008,
+      "pts": 800128,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0008": {
+      "id": "r0003-f0008",
+      "time": 51.009,
+      "pts": 816144,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0009": {
+      "id": "r0003-f0009",
+      "time": 52.01,
+      "pts": 832160,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0010": {
+      "id": "r0003-f0010",
+      "time": 53.011,
+      "pts": 848176,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0011": {
+      "id": "r0003-f0011",
+      "time": 54.012,
+      "pts": 864192,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0012": {
+      "id": "r0003-f0012",
+      "time": 55.013,
+      "pts": 880208,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s001"
+      ]
+    },
+    "r0003-f0013": {
+      "id": "r0003-f0013",
+      "time": 56.014,
+      "pts": 896224,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0014": {
+      "id": "r0003-f0014",
+      "time": 57.015,
+      "pts": 912240,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0015": {
+      "id": "r0003-f0015",
+      "time": 58.016,
+      "pts": 928256,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0016": {
+      "id": "r0003-f0016",
+      "time": 59.017,
+      "pts": 944272,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0017": {
+      "id": "r0003-f0017",
+      "time": 60.018,
+      "pts": 960288,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0018": {
+      "id": "r0003-f0018",
+      "time": 61.019,
+      "pts": 976304,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0019": {
+      "id": "r0003-f0019",
+      "time": 62.02,
+      "pts": 992320,
+      "time_base": "1/16000",
+      "path": "best-fit-tests/house-test/r0003-f0019.png",
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0020": {
+      "id": "r0003-f0020",
+      "time": 63.022,
+      "pts": 1008352,
+      "time_base": "1/16000",
+      "path": "best-fit-tests/house-test/r0003-f0020.png",
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0021": {
+      "id": "r0003-f0021",
+      "time": 64.023,
+      "pts": 1024368,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0022": {
+      "id": "r0003-f0022",
+      "time": 65.024,
+      "pts": 1040384,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0023": {
+      "id": "r0003-f0023",
+      "time": 66.025,
+      "pts": 1056400,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0024": {
+      "id": "r0003-f0024",
+      "time": 67.026,
+      "pts": 1072416,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s002"
+      ]
+    },
+    "r0003-f0025": {
+      "id": "r0003-f0025",
+      "time": 68.027,
+      "pts": 1088432,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0026": {
+      "id": "r0003-f0026",
+      "time": 69.028,
+      "pts": 1104448,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0027": {
+      "id": "r0003-f0027",
+      "time": 70.029,
+      "pts": 1120464,
+      "time_base": "1/16000",
+      "path": "best-fit-tests/house-test/r0003-f0027.png",
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0028": {
+      "id": "r0003-f0028",
+      "time": 71.03,
+      "pts": 1136480,
+      "time_base": "1/16000",
+      "path": "best-fit-tests/house-test/r0003-f0028.png",
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet",
+        "individual"
+      ],
+      "exported_to_repository": true
+    },
+    "r0003-f0029": {
+      "id": "r0003-f0029",
+      "time": 72.031,
+      "pts": 1152496,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0030": {
+      "id": "r0003-f0030",
+      "time": 73.032,
+      "pts": 1168512,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0031": {
+      "id": "r0003-f0031",
+      "time": 74.033,
+      "pts": 1184528,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0032": {
+      "id": "r0003-f0032",
+      "time": 75.034,
+      "pts": 1200544,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0033": {
+      "id": "r0003-f0033",
+      "time": 76.035,
+      "pts": 1216560,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0034": {
+      "id": "r0003-f0034",
+      "time": 77.036,
+      "pts": 1232576,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0035": {
+      "id": "r0003-f0035",
+      "time": 78.037,
+      "pts": 1248592,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0036": {
+      "id": "r0003-f0036",
+      "time": 79.038,
+      "pts": 1264608,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s003"
+      ]
+    },
+    "r0003-f0037": {
+      "id": "r0003-f0037",
+      "time": 80.039,
+      "pts": 1280624,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s004"
+      ]
+    },
+    "r0003-f0038": {
+      "id": "r0003-f0038",
+      "time": 81.04,
+      "pts": 1296640,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0003-s004"
+      ]
+    },
+    "r0004-f0001": {
+      "id": "r0004-f0001",
+      "time": 90.007,
+      "pts": 1440112,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0002": {
+      "id": "r0004-f0002",
+      "time": 91.008,
+      "pts": 1456128,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0003": {
+      "id": "r0004-f0003",
+      "time": 92.009,
+      "pts": 1472144,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0004": {
+      "id": "r0004-f0004",
+      "time": 93.01,
+      "pts": 1488160,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0005": {
+      "id": "r0004-f0005",
+      "time": 94.011,
+      "pts": 1504176,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0006": {
+      "id": "r0004-f0006",
+      "time": 95.012,
+      "pts": 1520192,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0007": {
+      "id": "r0004-f0007",
+      "time": 96.013,
+      "pts": 1536208,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0008": {
+      "id": "r0004-f0008",
+      "time": 97.014,
+      "pts": 1552224,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0009": {
+      "id": "r0004-f0009",
+      "time": 98.015,
+      "pts": 1568240,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0010": {
+      "id": "r0004-f0010",
+      "time": 99.016,
+      "pts": 1584256,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0011": {
+      "id": "r0004-f0011",
+      "time": 100.017,
+      "pts": 1600272,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0012": {
+      "id": "r0004-f0012",
+      "time": 101.018,
+      "pts": 1616288,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s001"
+      ]
+    },
+    "r0004-f0013": {
+      "id": "r0004-f0013",
+      "time": 102.019,
+      "pts": 1632304,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0014": {
+      "id": "r0004-f0014",
+      "time": 103.02,
+      "pts": 1648320,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0015": {
+      "id": "r0004-f0015",
+      "time": 104.021,
+      "pts": 1664336,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0016": {
+      "id": "r0004-f0016",
+      "time": 105.022,
+      "pts": 1680352,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0017": {
+      "id": "r0004-f0017",
+      "time": 106.023,
+      "pts": 1696368,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0018": {
+      "id": "r0004-f0018",
+      "time": 107.024,
+      "pts": 1712384,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0019": {
+      "id": "r0004-f0019",
+      "time": 108.025,
+      "pts": 1728400,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0004-f0020": {
+      "id": "r0004-f0020",
+      "time": 109.026,
+      "pts": 1744416,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0004-s002"
+      ]
+    },
+    "r0005-f0001": {
+      "id": "r0005-f0001",
+      "time": 82.041,
+      "pts": 1312656,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0002": {
+      "id": "r0005-f0002",
+      "time": 82.5,
+      "pts": 1320000,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0003": {
+      "id": "r0005-f0003",
+      "time": 83.0,
+      "pts": 1328000,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0004": {
+      "id": "r0005-f0004",
+      "time": 83.501,
+      "pts": 1336016,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0005": {
+      "id": "r0005-f0005",
+      "time": 84.001,
+      "pts": 1344016,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0006": {
+      "id": "r0005-f0006",
+      "time": 84.502,
+      "pts": 1352032,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0007": {
+      "id": "r0005-f0007",
+      "time": 85.002,
+      "pts": 1360032,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0008": {
+      "id": "r0005-f0008",
+      "time": 85.503,
+      "pts": 1368048,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0009": {
+      "id": "r0005-f0009",
+      "time": 86.003,
+      "pts": 1376048,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0010": {
+      "id": "r0005-f0010",
+      "time": 86.504,
+      "pts": 1384064,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0011": {
+      "id": "r0005-f0011",
+      "time": 87.004,
+      "pts": 1392064,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0012": {
+      "id": "r0005-f0012",
+      "time": 87.505,
+      "pts": 1400080,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s001"
+      ]
+    },
+    "r0005-f0013": {
+      "id": "r0005-f0013",
+      "time": 88.005,
+      "pts": 1408080,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0014": {
+      "id": "r0005-f0014",
+      "time": 88.506,
+      "pts": 1416096,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0015": {
+      "id": "r0005-f0015",
+      "time": 89.006,
+      "pts": 1424096,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0016": {
+      "id": "r0005-f0016",
+      "time": 89.507,
+      "pts": 1432112,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0017": {
+      "id": "r0005-f0017",
+      "time": 90.007,
+      "pts": 1440112,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0018": {
+      "id": "r0005-f0018",
+      "time": 90.508,
+      "pts": 1448128,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0019": {
+      "id": "r0005-f0019",
+      "time": 91.008,
+      "pts": 1456128,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0020": {
+      "id": "r0005-f0020",
+      "time": 91.509,
+      "pts": 1464144,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0021": {
+      "id": "r0005-f0021",
+      "time": 92.009,
+      "pts": 1472144,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0022": {
+      "id": "r0005-f0022",
+      "time": 92.51,
+      "pts": 1480160,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0023": {
+      "id": "r0005-f0023",
+      "time": 93.01,
+      "pts": 1488160,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0024": {
+      "id": "r0005-f0024",
+      "time": 93.511,
+      "pts": 1496176,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s002"
+      ]
+    },
+    "r0005-f0025": {
+      "id": "r0005-f0025",
+      "time": 94.011,
+      "pts": 1504176,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0026": {
+      "id": "r0005-f0026",
+      "time": 94.511,
+      "pts": 1512176,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0027": {
+      "id": "r0005-f0027",
+      "time": 95.012,
+      "pts": 1520192,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0028": {
+      "id": "r0005-f0028",
+      "time": 95.512,
+      "pts": 1528192,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0029": {
+      "id": "r0005-f0029",
+      "time": 96.013,
+      "pts": 1536208,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0030": {
+      "id": "r0005-f0030",
+      "time": 96.513,
+      "pts": 1544208,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0031": {
+      "id": "r0005-f0031",
+      "time": 97.014,
+      "pts": 1552224,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0032": {
+      "id": "r0005-f0032",
+      "time": 97.514,
+      "pts": 1560224,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0033": {
+      "id": "r0005-f0033",
+      "time": 98.015,
+      "pts": 1568240,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0034": {
+      "id": "r0005-f0034",
+      "time": 98.515,
+      "pts": 1576240,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0035": {
+      "id": "r0005-f0035",
+      "time": 99.016,
+      "pts": 1584256,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    },
+    "r0005-f0036": {
+      "id": "r0005-f0036",
+      "time": 99.516,
+      "pts": 1592256,
+      "time_base": "1/16000",
+      "path": null,
+      "full_display_size": [
+        1920,
+        1080
+      ],
+      "output_size": [
+        1920,
+        1080
+      ],
+      "crop": null,
+      "viewed": true,
+      "viewed_as": [
+        "sheet"
+      ],
+      "exported_to_repository": false,
+      "available_in_contact_sheets": [
+        "r0005-s003"
+      ]
+    }
+  },
+  "sheets": {
+    "r0001-s001": {
+      "id": "r0001-s001",
+      "path": "best-fit-tests/house-test/r0001-s001.jpg",
+      "frame_ids": [
+        "r0001-f0001",
+        "r0001-f0002",
+        "r0001-f0003",
+        "r0001-f0004",
+        "r0001-f0005",
+        "r0001-f0006",
+        "r0001-f0007",
+        "r0001-f0008",
+        "r0001-f0009",
+        "r0001-f0010",
+        "r0001-f0011",
+        "r0001-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0001-s002": {
+      "id": "r0001-s002",
+      "path": "best-fit-tests/house-test/r0001-s002.jpg",
+      "frame_ids": [
+        "r0001-f0013",
+        "r0001-f0014",
+        "r0001-f0015",
+        "r0001-f0016",
+        "r0001-f0017",
+        "r0001-f0018",
+        "r0001-f0019",
+        "r0001-f0020",
+        "r0001-f0021",
+        "r0001-f0022",
+        "r0001-f0023",
+        "r0001-f0024"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0001-s003": {
+      "id": "r0001-s003",
+      "path": "best-fit-tests/house-test/r0001-s003.jpg",
+      "frame_ids": [
+        "r0001-f0025",
+        "r0001-f0026"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s001": {
+      "id": "r0002-s001",
+      "path": "best-fit-tests/house-test/r0002-s001.jpg",
+      "frame_ids": [
+        "r0002-f0001",
+        "r0002-f0002",
+        "r0002-f0003",
+        "r0002-f0004",
+        "r0002-f0005",
+        "r0002-f0006",
+        "r0002-f0007",
+        "r0002-f0008",
+        "r0002-f0009",
+        "r0002-f0010",
+        "r0002-f0011",
+        "r0002-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0002-s002": {
+      "id": "r0002-s002",
+      "path": "best-fit-tests/house-test/r0002-s002.jpg",
+      "frame_ids": [
+        "r0002-f0013",
+        "r0002-f0014"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s001": {
+      "id": "r0003-s001",
+      "path": "best-fit-tests/house-test/r0003-s001.jpg",
+      "frame_ids": [
+        "r0003-f0001",
+        "r0003-f0002",
+        "r0003-f0003",
+        "r0003-f0004",
+        "r0003-f0005",
+        "r0003-f0006",
+        "r0003-f0007",
+        "r0003-f0008",
+        "r0003-f0009",
+        "r0003-f0010",
+        "r0003-f0011",
+        "r0003-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s002": {
+      "id": "r0003-s002",
+      "path": "best-fit-tests/house-test/r0003-s002.jpg",
+      "frame_ids": [
+        "r0003-f0013",
+        "r0003-f0014",
+        "r0003-f0015",
+        "r0003-f0016",
+        "r0003-f0017",
+        "r0003-f0018",
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0021",
+        "r0003-f0022",
+        "r0003-f0023",
+        "r0003-f0024"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s003": {
+      "id": "r0003-s003",
+      "path": "best-fit-tests/house-test/r0003-s003.jpg",
+      "frame_ids": [
+        "r0003-f0025",
+        "r0003-f0026",
+        "r0003-f0027",
+        "r0003-f0028",
+        "r0003-f0029",
+        "r0003-f0030",
+        "r0003-f0031",
+        "r0003-f0032",
+        "r0003-f0033",
+        "r0003-f0034",
+        "r0003-f0035",
+        "r0003-f0036"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0003-s004": {
+      "id": "r0003-s004",
+      "path": "best-fit-tests/house-test/r0003-s004.jpg",
+      "frame_ids": [
+        "r0003-f0037",
+        "r0003-f0038"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0004-s001": {
+      "id": "r0004-s001",
+      "path": "best-fit-tests/house-test/r0004-s001.jpg",
+      "frame_ids": [
+        "r0004-f0001",
+        "r0004-f0002",
+        "r0004-f0003",
+        "r0004-f0004",
+        "r0004-f0005",
+        "r0004-f0006",
+        "r0004-f0007",
+        "r0004-f0008",
+        "r0004-f0009",
+        "r0004-f0010",
+        "r0004-f0011",
+        "r0004-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0004-s002": {
+      "id": "r0004-s002",
+      "path": "best-fit-tests/house-test/r0004-s002.jpg",
+      "frame_ids": [
+        "r0004-f0013",
+        "r0004-f0014",
+        "r0004-f0015",
+        "r0004-f0016",
+        "r0004-f0017",
+        "r0004-f0018",
+        "r0004-f0019",
+        "r0004-f0020"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0005-s001": {
+      "id": "r0005-s001",
+      "path": "best-fit-tests/house-test/r0005-s001.jpg",
+      "frame_ids": [
+        "r0005-f0001",
+        "r0005-f0002",
+        "r0005-f0003",
+        "r0005-f0004",
+        "r0005-f0005",
+        "r0005-f0006",
+        "r0005-f0007",
+        "r0005-f0008",
+        "r0005-f0009",
+        "r0005-f0010",
+        "r0005-f0011",
+        "r0005-f0012"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0005-s002": {
+      "id": "r0005-s002",
+      "path": "best-fit-tests/house-test/r0005-s002.jpg",
+      "frame_ids": [
+        "r0005-f0013",
+        "r0005-f0014",
+        "r0005-f0015",
+        "r0005-f0016",
+        "r0005-f0017",
+        "r0005-f0018",
+        "r0005-f0019",
+        "r0005-f0020",
+        "r0005-f0021",
+        "r0005-f0022",
+        "r0005-f0023",
+        "r0005-f0024"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    },
+    "r0005-s003": {
+      "id": "r0005-s003",
+      "path": "best-fit-tests/house-test/r0005-s003.jpg",
+      "frame_ids": [
+        "r0005-f0025",
+        "r0005-f0026",
+        "r0005-f0027",
+        "r0005-f0028",
+        "r0005-f0029",
+        "r0005-f0030",
+        "r0005-f0031",
+        "r0005-f0032",
+        "r0005-f0033",
+        "r0005-f0034",
+        "r0005-f0035",
+        "r0005-f0036"
+      ],
+      "viewed": true,
+      "exported_to_repository": true
+    }
+  },
+  "transcripts": {},
+  "audio": {},
+  "claims": [
+    {
+      "id": "c0001",
+      "kind": "observed",
+      "text": "Bedroom-side WC/vanity and hall-side WC/vanity connect through a shared tub compartment. Kitchen view shows utility access beside refrigerator; utility exits to concrete patio. The proposed fireplace-to-laundry-to-deck connection is revised. Bedroom sequence contains edits, so exact bedroom ordering remains inferred.",
+      "evidence": [
+        "r0003-s001",
+        "r0003-s003",
+        "r0003-s004",
+        "r0004-s002",
+        "r0005-s002"
+      ],
+      "limitation": "Unmeasured geometry; edited sequences do not prove continuous adjacency."
+    }
+  ],
+  "notes": []
+}

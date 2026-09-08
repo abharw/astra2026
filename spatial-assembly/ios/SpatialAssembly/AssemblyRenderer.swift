@@ -11,6 +11,7 @@ import simd
   private var meshes: [String: [(ModelEntity, Primitive)]] = [:]
   var objectID = UUID()
   private(set) var explosionAmount: Float = 0
+  var sourcePosition: SIMD3<Float> { home.translation }
   private var home = matrix_identity_float4x4
   private(set) var extracted = false
   private var selected: String?
@@ -45,6 +46,7 @@ import simd
       for primitive in part.primitives {
         let geometry: MeshResource
         switch primitive.kind {
+        case "mesh": geometry = try Self.customMesh(primitive)
         case "sphere": geometry = .generateSphere(radius: 0.5)
         case "cylinder": geometry = .generateCylinder(height: 1, radius: 0.5)
         case "cone": geometry = try Self.cone()
@@ -184,6 +186,23 @@ import simd
     t.translation += direction * step
     root.move(to: t, relativeTo: nil, duration: 0.3, timingFunction: .easeInOut)
   }
+  func drag(from: CGPoint, to: CGPoint) -> Bool {
+    guard let root, extracted, let view, let camera = view.session.currentFrame?.camera.transform,
+      let a = view.ray(through: from), let b = view.ray(through: to) else { return false }
+    let normal = SIMD3(camera.columns.2.x,camera.columns.2.y,camera.columns.2.z)
+    var pose = Transform(matrix: root.transformMatrix(relativeTo: nil))
+    func intersect(_ origin: SIMD3<Float>, _ direction: SIMD3<Float>) -> SIMD3<Float>? {
+      let denominator = simd_dot(direction, normal)
+      guard abs(denominator) > 0.001 else { return nil }
+      let distance = simd_dot(pose.translation-origin,normal)/denominator
+      guard distance > 0, distance < 10 else { return nil }
+      return origin + direction * distance
+    }
+    guard let start = intersect(a.origin,a.direction), let end = intersect(b.origin,b.direction), simd_distance(start,end) < 2 else { return false }
+    pose.translation += end-start
+    root.move(to:pose,relativeTo:nil,duration:0.6,timingFunction:.easeInOut)
+    return true
+  }
   func rotate(_ degrees: Float) {
     guard let root, extracted else { return }
     root.orientation = simd_quatf(angle: degrees * .pi / 180, axis: [0, 1, 0]) * root.orientation
@@ -212,6 +231,28 @@ import simd
     hologram = saved.hologram
     showInferred = saved.inferred
     explode(saved.explosion)
+  }
+  func rebuild(_ spec: Assembly) throws {
+    guard var saved = snapshot() else { throw AssemblyError.invalid }
+    saved.assembly = try spec.validated()
+    // Validate the replacement before clearing the existing assembly; preserve source and current pose.
+    try restore(saved)
+  }
+  private static func customMesh(_ primitive: Primitive) throws -> MeshResource {
+    guard let vectors = primitive.vertices, let faces = primitive.triangles else { throw AssemblyError.invalid }
+    let points = vectors.map(\.vector)
+    var normals = Array(repeating: SIMD3<Float>.zero, count: points.count)
+    for i in stride(from: 0, to: faces.count, by: 3) {
+      let a = faces[i], b = faces[i+1], c = faces[i+2]
+      let cross = simd_cross(points[b]-points[a], points[c]-points[a])
+      guard simd_length(cross) > 0.000000001 else { throw AssemblyError.invalid }
+      normals[a] += cross; normals[b] += cross; normals[c] += cross
+    }
+    var descriptor = MeshDescriptor(name: "generated-custom-mesh")
+    descriptor.positions = MeshBuffer(points)
+    descriptor.normals = MeshBuffer(normals.map { simd_length($0) > 0.000000001 ? simd_normalize($0) : SIMD3<Float>(0,1,0) })
+    descriptor.primitives = .triangles(faces.map(UInt32.init))
+    return try MeshResource.generate(from: [descriptor])
   }
   private static func cone() throws -> MeshResource {
     var positions: [SIMD3<Float>] = []

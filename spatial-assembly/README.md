@@ -4,7 +4,7 @@ Native iPhone AR prototype using RealityKit/ARKit, GPT-6 Astra image-to-componen
 
 ## Use
 
-Move the phone slowly until Tracking ready. Tap a real object to lock the surface, then tap Reconstruct that or enable the microphone and say it. The generated approximation appears at the source location. Tap a component to toggle explode/assemble. Parts lists component descriptions and inferred geometry. Pull out enables dragging, rotation and scaling; Return restores the saved source pose and assembled state.
+Move the phone slowly until Tracking ready. Tap a real object to reconstruct it immediately. Turn off Tap objects to reconstruct to lock the surface first, then use Reconstruct that or the microphone. The generated approximation appears at the source location. Tap a component to toggle explode/assemble. Parts lists component descriptions and inferred geometry. Pull out enables dragging, rotation and scaling; Return restores the saved source pose and assembled state.
 
 ## Spatial behavior and limits
 
@@ -31,8 +31,8 @@ Selected camera images and enabled microphone audio go to OpenAI. Do not distrib
 - Previous device run showed live camera tracking and bridge connection.
 - Real GPT-6 image probe produced eight components.
 - Real Realtime probe returned an explode tool call and audio.
-- Eight backend schema/command tests passed.
-- The latest fixed-anchor tap/explode/return behavior still needs visual testing on the unlocked phone; no completed end-to-end phone reconstruction has been verified.
+- Seventeen backend schema, research and bridge integration tests passed.
+- The physical phone generated and saved a speaker. Precise visual alignment and the full tap/explode/return sequence still need visual acceptance.
 
 ## Saved places
 
@@ -47,3 +47,17 @@ Unit tests cover independent saved places, object-state round trips, malformed t
 ## Physical persistence check — September 8, 2026
 
 The updated app generated a six-part wall-mounted speaker and automatically wrote a local saved-room file. After terminating and relaunching the app, the same room was restored and autosaved again. Comparing device files before and after showed the same room ID, object ID, full generated assembly and explode state. Maximum matrix-element difference was 0.0000007 (floating-point rounding). Four XCTest persistence tests passed, and the physical device build and installation succeeded. The Mac phone preview was black, so visual overlay alignment after relocalization was not independently confirmed. This checked reopening in the same location, not departure and return to a different room.
+
+## Reference search and part explanations
+
+Each reconstruction first identifies readable model information, searches the web for technical references, then uses the image and retrieved references to build components. Reference links carry exact/similar labels; undocumented hidden geometry remains inferred. Search failure is explicitly reported and generation can fall back to the image. Custom bounded meshes supplement basic primitives.
+
+Open Parts to inspect sources, select Explain part, or enter a correction and choose Research & rebuild. Rebuilding keeps the original/current poses and object identity. Restored geometry is sent back to the voice bridge as scene context, so it can explain a saved object without regenerating it. Voice can request a fresh camera image for a question about the current view.
+
+Pairing now writes both iPhone and Quest files and preserves the token by default. Use `--rotate` to replace it, then restart the bridge and rebuild clients. The research-enabled iPhone app was built, installed and launched; the new flow still needs physical visual acceptance. See [Quest setup](../quest/README.md).
+
+## Mounted-phone camera and control
+
+Apple iPhone Mirroring cannot access the physical camera/microphone. Use the optional **Mac camera test** link with the phone unlocked and this app in the foreground. It supplies actual ARView snapshots and bounded reconstruction/manipulation commands through an authenticated Mac relay. The visible stop control ends it, and backgrounding disables it. Snapshots are requested individually; this is not a continuous video stream or OS-wide phone control.
+
+Pair and run it using [the documented camera workaround](../docs/PHONE_COMPUTER_USE.md). No API key is required for viewing the camera; the generation/voice bridge remains separate. Private pairing credentials and camera snapshots are excluded from source control.

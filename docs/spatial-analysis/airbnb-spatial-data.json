@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-08",
+  "scope": "Two photo-led listing experiments; not a blind image-only benchmark",
+  "scale": null,
+  "camera_poses": null,
+  "claims": [
+    {
+      "listing": "A",
+      "from": "exterior path",
+      "to": "entrance",
+      "status": "observed doorway / matched vase",
+      "evidence": [
+        "A20",
+        "A19"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "entrance",
+      "to": "living",
+      "status": "observed co-visibility / reverse anchors",
+      "evidence": [
+        "A02",
+        "A03",
+        "A19"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "living",
+      "to": "kitchen",
+      "status": "observed co-visibility",
+      "evidence": [
+        "A06",
+        "A07",
+        "A08"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "gray-bed room",
+      "to": "workspace",
+      "status": "inferred matching arched mirror and botanical print across overlapping views",
+      "evidence": [
+        "A04",
+        "A11",
+        "A12"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "gray-bed room",
+      "to": "wood-bed room",
+      "status": "inferred likely connected via short passage; alternative intermediate passage/space retained",
+      "evidence": [
+        "A12",
+        "A14",
+        "A21"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "wood-bed room",
+      "to": "outdoors",
+      "status": "observed glazed exterior door; exact garden route unverified",
+      "evidence": [
+        "A15",
+        "A22"
+      ]
+    },
+    {
+      "listing": "A",
+      "from": "living/circulation",
+      "to": "bedrooms and bath",
+      "status": "unresolved; no joined global plan",
+      "evidence": [
+        "A03",
+        "A05",
+        "A12",
+        "A16"
+      ]
+    },
+    {
+      "listing": "B",
+      "from": "fireplace zone",
+      "to": "bed zone",
+      "status": "observed same room",
+      "evidence": [
+        "B02",
+        "B03"
+      ]
+    },
+    {
+      "listing": "B",
+      "from": "bed/fireplace room",
+      "to": "sofa/dining room",
+      "status": "observed French-door connection in reverse views",
+      "evidence": [
+        "B01",
+        "B04"
+      ]
+    },
+    {
+      "listing": "B",
+      "from": "sofa/dining room",
+      "to": "bathroom",
+      "status": "inferred short passage connection from visible matching tiled steps",
+      "evidence": [
+        "B05",
+        "B06"
+      ]
+    },
+    {
+      "listing": "B",
+      "from": "main rooms",
+      "to": "closet, kitchenette and exterior entrance",
+      "status": "unresolved photo-only placement",
+      "evidence": [
+        "B07",
+        "B09"
+      ]
+    }
+  ],
+  "rendering": "2D topology schematic only; boxes are not measured footprints"
+}

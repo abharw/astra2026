@@ -21,9 +21,21 @@ import SwiftUI
   @Published var voiceOn = false
   @Published var voiceConnecting = false
   @Published var transcript = ""
+  @Published var question = ""
+  @Published var answering = false
+  private var pendingQuestion: String?
+  @Published var macTestEnabled = false
+  @Published var macTestStatus = "Mac camera test off"
+  private let macTest = BridgeClient()
+  @Published var tapToCreate = true
   @Published var targetLocked = false
   @Published var targetScreen: CGPoint?
   @Published var generationInfo = ""
+  @Published var researchProgress = ""
+  @Published var refinement = ""
+  @Published var partExplanation = ""
+  private var refinementID: String?
+  private var refinementObject: UUID?
   @Published var roomStatus = "Mapping this place…"
   @Published var savedRooms: [SavedRoom] = []
   @Published var restoringRoom = false
@@ -99,6 +111,68 @@ import SwiftUI
       installed = true
     }
     bridge.connect()
+    #if DEBUG
+    if ProcessInfo.processInfo.arguments.contains("--mac-camera-test") { toggleMacTest() }
+    #endif
+  }
+  func toggleMacTest() {
+    if macTestEnabled { macTest.disconnect(); macTestEnabled = false; macTestStatus = "Mac camera test off"; UIApplication.shared.isIdleTimerDisabled = false; return }
+    guard let url = Bundle.main.url(forResource: "Connection", withExtension: "plist"),
+      let data = try? Data(contentsOf: url), let config = try? PropertyListSerialization.propertyList(from: data, format: nil) as? [String:String],
+      let endpoint = config["controlURL"], let token = config["controlToken"] else { error = "Pair the Mac camera test connection before building"; return }
+    macTest.baseURL = endpoint; macTest.token = token
+    macTest.onEvent = { [weak self] event in
+      guard let self else { return }
+      if event["type"] as? String == "connected" { self.macTestStatus = "Mac camera test connected" }
+      if event["type"] as? String == "disconnected" { self.macTestStatus = "Mac test disconnected · stop and retry" }
+      if event["type"] as? String == "test.command" { self.testCommand(event) }
+    }
+    macTestEnabled = true; macTestStatus = "Connecting Mac camera test…"; UIApplication.shared.isIdleTimerDisabled = true; macTest.connect()
+  }
+  private func testState() -> [String:Any] {
+    let frame = view.session.currentFrame
+    return ["tracking":tracking,"phase":phase,"busy":busy,"roomStatus":roomStatus,"restoring":restoringRoom,
+      "frameTimestamp":frame?.timestamp ?? -1,"frameAge":frame.map{ProcessInfo.processInfo.systemUptime - $0.timestamp} ?? -1,
+      "viewSize":[view.bounds.width,view.bounds.height],"bridgeConnected":bridge.connected,"voiceOn":voiceOn,
+      "object":assembly?.name ?? "","objectID":assembly == nil ? "" : renderer.objectID.uuidString,
+      "parts":assembly?.parts.map{["id":$0.id,"name":$0.name]} ?? [],"selectedPart":selectedID ?? "",
+      "explosion":explosion,"extracted":extracted,"error":error ?? "","macTestEnabled":macTestEnabled,"transcript":transcript,"answering":answering,
+      "homePose":renderer.snapshot()?.home ?? [],"currentPose":renderer.snapshot()?.pose ?? [],
+      "objects":objects().map{["id":$0.id.uuidString,"name":$0.assembly.name]}]
+  }
+  private func testCommand(_ e:[String:Any]) {
+    guard macTestEnabled else { return }
+    let id = e["id"] as? String ?? ""
+    func reply(_ ok:Bool,_ message:String) { macTest.send(["type":"test.result","id":id,"ok":ok,"message":message,"state":testState()]) }
+    switch e["action"] as? String {
+    case "state": reply(true,"Current app state")
+    case "snapshot":
+      guard let frame = view.session.currentFrame, ProcessInfo.processInfo.systemUptime - frame.timestamp < 2 else { reply(false,"No fresh physical camera frame; exit Mirroring and unlock the phone"); return }
+      view.snapshot(saveToHDR:false) { [weak self] image in
+        Task { @MainActor in
+          guard let self else { return }
+          guard self.macTestEnabled, let image, let data = image.jpegData(compressionQuality:0.8) else { reply(false,"AR snapshot unavailable"); return }
+          self.macTest.send(["type":"test.result","id":id,"ok":true,"message":"Actual ARView camera and virtual geometry snapshot; native toolbar not included","image":data.base64EncodedString(),"state":self.testState()])
+        }
+      }
+    case "tap":
+      guard let x = e["x"] as? Double, let y = e["y"] as? Double, (0...1).contains(x), (0...1).contains(y), !busy, !restoringRoom else { reply(false,"Tap unavailable while busy/restoring or invalid coordinates"); return }
+      tapObject(at:CGPoint(x:x*view.bounds.width,y:y*view.bounds.height)); reply(error == nil,"Invoked the same object-tap handler used on the phone")
+    case "reconstruct": guard !busy else { reply(false,"Already reconstructing"); return }; reconstruct(); reply(busy,"Reconstruction requested; completion is reported separately")
+    case "drag":
+      guard !busy, extracted, let fx=e["fromX"] as? Double, let fy=e["fromY"] as? Double, let x=e["x"] as? Double, let y=e["y"] as? Double,
+        [fx,fy,x,y].allSatisfy({ $0.isFinite && (0...1).contains($0) }) else { reply(false,"Extract the model before dragging; use normalized coordinates"); return }
+      let ok=renderer.drag(from:CGPoint(x:fx*view.bounds.width,y:fy*view.bounds.height),to:CGPoint(x:x*view.bounds.width,y:y*view.bounds.height)); reply(ok,ok ? "Dragging selected model across the view" : "Drag projection unavailable")
+    case "ask": ask(e["question"] as? String ?? ""); reply(pendingQuestion != nil || answering || voiceOn,"Question submitted to the active object context")
+    case "cancel": cancel(); reply(true,"Cancelled")
+    case "manipulate":
+      let result = command(["action":e["operation"] as? String ?? "","amount":e["amount"] as? Double ?? 0,"part":e["part"] as? String ?? ""]); reply(result.0,result.1)
+    case "voice.start": if !voiceOn && !voiceConnecting { toggleVoice() }; reply(true,"Voice requested; inspect state for readiness")
+    case "voice.stop": stopVoice(); reply(true,"Voice stopped")
+    case "explain": explainSelected(); reply(true,"Part explanation requested")
+    case "refine": refine(); reply(busy,"Refinement requested")
+    default: reply(false,"Unsupported test action")
+    }
   }
   private func configuration() -> ARWorldTrackingConfiguration {
     let c = ARWorldTrackingConfiguration()
@@ -200,6 +274,7 @@ import SwiftUI
     extracted = renderer.extracted
     hologram = renderer.hologram
     inferred = renderer.showInferred
+    syncScene()
   }
   // Map and poses share one coordinate system; never save while testing a different room map.
   private func saveCachedRoom() {
@@ -237,14 +312,17 @@ import SwiftUI
   }
   func pause() {
     sessionRunning = false
+    if macTestEnabled { toggleMacTest() }
     if busy { cancel() }
     saveCachedRoom()
     stopVoice()
     view.session.pause()
   }
   @objc private func tapped(_ recognizer: UITapGestureRecognizer) {
-    let p = recognizer.location(in: view)
-    guard !restoringRoom else { return }
+    tapObject(at: recognizer.location(in: view))
+  }
+  func tapObject(at p: CGPoint) {
+    guard !restoringRoom, !busy else { return }
     if let index = placed.firstIndex(where: { $0.contains(p) }) {
       let picked = placed.remove(at: index)
       if renderer.assembly != nil { placed.append(renderer) }
@@ -257,7 +335,7 @@ import SwiftUI
       return
     }
     guard !busy else { return }
-    lock(at: p)
+    if lock(at: p), tapToCreate { reconstruct() }
   }
   private func surfacePoint(at point: CGPoint, frame supplied: ARFrame? = nil) -> SIMD3<Float>? {
     guard let frame = supplied ?? view.session.currentFrame else { return nil }
@@ -267,10 +345,10 @@ import SwiftUI
     if let measured = DepthSnapshot(frame: frame)?.point(raw) { return measured }
     return view.raycast(from: point, allowing: .estimatedPlane, alignment: .any).first?.worldTransform.translation
   }
-  func lock(at point: CGPoint) {
+  @discardableResult func lock(at point: CGPoint) -> Bool {
     guard let world = surfacePoint(at: point) else {
       error = "No surface at that point yet. Move the phone slightly, then tap the object again."
-      return
+      return false
     }
     targetWorld = world
     targetLocked = true
@@ -283,6 +361,7 @@ import SwiftUI
     anchor.addChild(dot)
     view.scene.addAnchor(anchor)
     targetAnchor = anchor
+    return true
   }
   func resetTarget() {
     if let targetAnchor { view.scene.removeAnchor(targetAnchor) }
@@ -375,7 +454,7 @@ import SwiftUI
       }
     }
     bridge.send([
-      "type": "reconstruct", "request_id": id,
+      "type": "reconstruct", "request_id": id, "mode": refinementID == id ? "refine" : "new", "object_id": refinementID == id ? renderer.objectID.uuidString : id,
       "image": "data:image/jpeg;base64," + jpeg.base64EncodedString(), "target": target,
       "distance": distance, "hint": hint,
     ])
@@ -388,6 +467,8 @@ import SwiftUI
   func cancel() {
     bridge.send(["type": "reconstruction.cancel"])
     capture = nil
+    refinementID = nil
+    refinementObject = nil
     busy = false
     timer?.invalidate()
     phase = assembly == nil ? "Aim at an object" : "Ready to inspect"
@@ -466,6 +547,42 @@ import SwiftUI
   func select(_ id: String) {
     selectedID = id
     renderer.select(id)
+    syncScene()
+  }
+  private func syncScene() {
+    var event: [String: Any] = ["type": "scene.update", "object_id": renderer.objectID.uuidString, "selected_part": selectedID ?? ""]
+    if let assembly, let data = try? JSONEncoder().encode(assembly), let json = try? JSONSerialization.jsonObject(with: data) { event["assembly"] = json }
+    bridge.send(event)
+  }
+  func refine() {
+    guard assembly != nil, !busy, bridge.connected else { return }
+    syncScene()
+    let id = UUID().uuidString
+    refinementID = id
+    refinementObject = renderer.objectID
+    busy = true
+    researchProgress = "Searching references to improve this model…"
+    startProgressTimer()
+    bridge.send(["type": "rebuild", "request_id": id, "hint": refinement.isEmpty ? "Improve fidelity using relevant technical references" : refinement])
+  }
+  private func startProgressTimer() {
+    started = Date(); elapsed = 0
+    timer?.invalidate()
+    timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+      Task { @MainActor in guard let self else { return }; self.elapsed = Int(Date().timeIntervalSince(self.started)) }
+    }
+  }
+  func explainSelected() {
+    guard let id = selectedID ?? assembly?.parts.first?.id else { return }
+    select(id)
+    bridge.send(["type":"part.explain", "part":id])
+  }
+  private func sendView(_ id: String) {
+    guard let frame = view.session.currentFrame else { failCapture(id, "Camera unavailable"); return }
+    let image = CIImage(cvPixelBuffer: frame.capturedImage).oriented(.right)
+    let resized = image.transformed(by: CGAffineTransform(scaleX: min(1,1280/image.extent.width), y: min(1,1280/image.extent.width)))
+    guard let cg = ci.createCGImage(resized, from: resized.extent), let data = UIImage(cgImage:cg).jpegData(compressionQuality:0.75) else { failCapture(id,"Capture failed"); return }
+    bridge.send(["type":"view.frame", "request_id":id, "image":"data:image/jpeg;base64,"+data.base64EncodedString()])
   }
   func setExplosion(_ amount: Double) {
     explosion = min(1, max(0, amount))
@@ -501,8 +618,16 @@ import SwiftUI
     guard extracted else { error = "Pull out the model before rotating it."; return }
     renderer.rotate(30)
   }
+  func ask(_ text: String) {
+    let value=String(text.trimmingCharacters(in:.whitespacesAndNewlines).prefix(2000))
+    guard !value.isEmpty, bridge.connected else { error="Enter a question and connect the bridge"; return }
+    syncScene(); transcript=""
+    if voiceOn || (answering && !voiceConnecting) { bridge.send(["type":"voice.text","text":value]); return }
+    pendingQuestion=value
+    if !voiceConnecting { answering=true; voiceConnecting=true; bridge.send(["type":"voice.start"]) }
+  }
   func toggleVoice() {
-    if voiceOn || voiceConnecting {
+    if voiceOn || voiceConnecting || answering {
       stopVoice()
       return
     }
@@ -525,36 +650,70 @@ import SwiftUI
   func stopVoice() {
     voiceConnecting = false
     voiceOn = false
+    answering = false; pendingQuestion = nil
     audio.stop()
     bridge.send(["type": "voice.stop"])
   }
   private func handle(_ e: [String: Any]) {
     guard let type = e["type"] as? String else { return }
     switch type {
+    case "connected": syncScene()
+    case "view.request": sendView(e["request_id"] as? String ?? "")
+    case "rebuild.request":
+      let id = e["request_id"] as? String ?? UUID().uuidString
+      refinementID = id; refinementObject = renderer.objectID
+      targetWorld = renderer.sourcePosition; targetLocked = true
+      busy = false
+      reconstruct(id:id,hint:e["hint"] as? String ?? "Improve this assembly")
+      if !busy { refinementID = nil; refinementObject = nil }
+    case "reconstruction.started":
+      if e["mode"] as? String == "refine" {
+        refinementID = e["request_id"] as? String
+        refinementObject = renderer.objectID
+        busy = true; startProgressTimer()
+      }
+    case "part.explanation":
+      if let p = e["part"] as? [String:Any] { partExplanation = [p["function"] as? String,p["description"] as? String,p["uncertainty"] as? String].compactMap{$0}.filter{!$0.isEmpty}.joined(separator:"\n\n") }
+    case "research.warning": researchProgress = e["message"] as? String ?? "Search unavailable"
     case "capture.request":
       reconstruct(
         id: e["request_id"] as? String ?? UUID().uuidString, hint: e["hint"] as? String ?? "")
     case "reconstruction.progress":
-      if e["request_id"] as? String == capture?.id { progressParts = e["parts"] as? Int ?? 0 }
+      if e["request_id"] as? String == capture?.id || e["request_id"] as? String == refinementID {
+        progressParts = e["parts"] as? Int ?? 0
+        researchProgress = e["message"] as? String ?? "Generating components…"
+      }
     case "reconstruction.complete":
-      guard let current = capture, e["request_id"] as? String == current.id else { return }
+      let isRefinement = e["mode"] as? String == "refine"
+      guard (isRefinement && e["request_id"] as? String == refinementID && refinementObject == renderer.objectID) || (!isRefinement && e["request_id"] as? String == capture?.id) else { return }
       defer {
         busy = false
         timer?.invalidate()
         capture = nil
+        refinementID = nil; refinementObject = nil
       }
       do {
         guard let object = e["assembly"],
           let data = try? JSONSerialization.data(withJSONObject: object)
         else { throw AssemblyError.invalid }
         let spec = try JSONDecoder().decode(Assembly.self, from: data)
-        try install(spec, from: current)
+        if isRefinement {
+          try renderer.rebuild(spec)
+          assembly = spec
+          synchronizeSelection()
+          saveCachedRoom()
+        } else if let current = capture {
+          try install(spec, from: current)
+          if let id = e["object_id"] as? String, let uuid = UUID(uuidString:id) { renderer.objectID = uuid }
+          syncScene()
+        }
       } catch {
         self.error = error.localizedDescription
         phase = "Reconstruction could not be displayed"
       }
     case "reconstruction.error":
-      guard e["request_id"] as? String == capture?.id else { return }
+      guard e["request_id"] as? String == capture?.id || e["request_id"] as? String == refinementID else { return }
+      refinementID = nil; refinementObject = nil
       busy = false
       capture = nil
       timer?.invalidate()
@@ -563,10 +722,11 @@ import SwiftUI
     case "voice.ready":
       guard voiceConnecting else { return }
       do {
-        try audio.start()
-        voiceOn = true
+        try audio.start(inputEnabled: !answering)
+        voiceOn = !answering
         voiceConnecting = false
-        transcript = "Listening. Try ‘reconstruct that’."
+        transcript = answering ? "Thinking…" : "Listening. Try ‘reconstruct that’."
+        if let pendingQuestion { self.pendingQuestion=nil; bridge.send(["type":"voice.text","text":pendingQuestion]) }
       } catch {
         self.error = error.localizedDescription
         stopVoice()
@@ -574,7 +734,7 @@ import SwiftUI
     case "voice.audio": if let audio = e["audio"] as? String { self.audio.play(audio) }
     case "voice.transcript.delta":
       if let text = e["text"] as? String {
-        if transcript == "Listening. Try ‘reconstruct that’." { transcript = "" }
+        if transcript == "Listening. Try ‘reconstruct that’." || transcript == "Thinking…" { transcript = "" }
         transcript += text
       }
     case "voice.transcript": transcript = e["text"] as? String ?? ""
@@ -582,6 +742,7 @@ import SwiftUI
       audio.interrupt()
       transcript = "Listening…"
     case "voice.closed":
+      answering = false; pendingQuestion = nil
       voiceOn = false
       voiceConnecting = false
       audio.stop()

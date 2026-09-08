@@ -1,0 +1,123 @@
+{
+  "created_utc": "2026-09-08T19:15:54.782641+00:00",
+  "stage": "After viewed overview, before targeted rechecks; source titles exposed, no external ground-truth floorplan consulted",
+  "predictions": [
+    {
+      "id": "APT-1",
+      "source": "apartment-test",
+      "selected_hypothesis": "Bedroom 1 and bathroom 1 are separate doors off a short common hall near the entry, not a private en-suite.",
+      "alternative": "Bathroom 1 is reachable only through bedroom 1.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002"
+      ],
+      "test_prediction": "The 58\u2013100 s route should leave the bedroom, return to hard-floor circulation and enter bathroom from the same short hall.",
+      "confidence": "moderate",
+      "test_result": "supported",
+      "recheck_observation": "87\u201399 s returns from bedroom to hard-floor common hall and enters bathroom separately.",
+      "recheck_evidence": [
+        "r0003-s001",
+        "r0003-s002",
+        "r0003-s003"
+      ]
+    },
+    {
+      "id": "APT-2",
+      "source": "apartment-test",
+      "selected_hypothesis": "Bedroom 2 has an internal dressing/closet approach to its own bathroom on the opposite side of living from bedroom 1.",
+      "alternative": "The second bathroom is another common-hall bathroom.",
+      "evidence": [
+        "r0001-s002",
+        "r0001-s003"
+      ],
+      "test_prediction": "The 117\u2013160 s sequence should cross from living into bedroom 2 and show its closet/bath entry within that bedroom rather than returning to common circulation.",
+      "confidence": "moderate",
+      "test_result": "supported",
+      "recheck_observation": "120\u2013160 s shows bedroom entry, internal closet and bathroom; reverse view returns into bedroom.",
+      "recheck_evidence": [
+        "r0004-s001",
+        "r0004-s003",
+        "r0006-s001",
+        "r0006-s002"
+      ]
+    },
+    {
+      "id": "APT-3",
+      "source": "apartment-test",
+      "selected_hypothesis": "Laundry is a separate utility room off common living/entry circulation rather than either bedroom.",
+      "alternative": "Laundry is within bedroom 2 or its closet.",
+      "evidence": [
+        "r0001-s003"
+      ],
+      "test_prediction": "The 164\u2013180 s return should leave bedroom 2 and enter a separate common-area door before showing machines.",
+      "confidence": "moderate",
+      "test_result": "supported",
+      "recheck_observation": "168\u2013179 s leaves bedroom, returns to living and enters separate laundry doorway.",
+      "recheck_evidence": [
+        "r0005-s001",
+        "r0005-s002",
+        "r0005-s003"
+      ]
+    },
+    {
+      "id": "HOUSE-1",
+      "source": "house-test",
+      "selected_hypothesis": "Three bedrooms branch from a single narrow corridor beside living; the bathroom complex is reached from this corridor.",
+      "alternative": "The bathroom is private to one bedroom and the bedroom sequence is stitched across separate hallways.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002"
+      ],
+      "test_prediction": "The 44\u201395 s route should repeatedly return to the same corridor, with matching trim and doorway order.",
+      "confidence": "moderate",
+      "test_result": "partially supported",
+      "recheck_observation": "Repeated corridor anchors support a shared bedroom corridor; bedroom edits prevent recovery of exact order. Bathroom also has access from bedroom 1.",
+      "recheck_evidence": [
+        "r0003-s004",
+        "r0005-s001",
+        "r0005-s002",
+        "r0005-s003"
+      ]
+    },
+    {
+      "id": "HOUSE-2",
+      "source": "house-test",
+      "selected_hypothesis": "The bath includes a shared tub/toilet compartment between hall-side and bedroom-side vanity/access areas.",
+      "alternative": "Only one standard bathroom exists, and reversed views give the impression of extra access.",
+      "evidence": [
+        "r0001-s002"
+      ],
+      "test_prediction": "The 60\u201385 s sequence should show whether the tub area has another doorway and whether its exit opens toward a bedroom.",
+      "confidence": "low",
+      "test_result": "supported with correction",
+      "recheck_observation": "Two access/vanity areas share a tub compartment, but each outer area has its own toilet. The initial shared tub/toilet wording was wrong.",
+      "recheck_evidence": [
+        "r0003-f0019",
+        "r0003-f0020",
+        "r0003-f0027",
+        "r0003-f0028"
+      ]
+    },
+    {
+      "id": "HOUSE-3",
+      "source": "house-test",
+      "selected_hypothesis": "Laundry is a rear utility passage beside the living fireplace, connecting to the deck.",
+      "alternative": "Laundry is reached from the bedroom corridor independently of the fireplace door.",
+      "evidence": [
+        "r0001-s001",
+        "r0001-s002",
+        "r0001-s003"
+      ],
+      "test_prediction": "The 90\u2013110 s sequence should tie utility room to the fireplace-side door and then to the exterior deck.",
+      "confidence": "moderate",
+      "test_result": "contradicted and revised",
+      "recheck_observation": "44\u201348 s kitchen view places utility beside refrigerator; 100\u2013109 s shows utility and concrete patio. Fireplace-side deck connection was an incorrect join.",
+      "recheck_evidence": [
+        "r0003-s001",
+        "r0004-s002"
+      ]
+    }
+  ],
+  "rechecked_utc": "2026-09-08T19:20:59.709204+00:00",
+  "evaluation_limit": "Six prospective source-consistency checks on two selected tours, not ground-truth floor-plan accuracy or a blinded benchmark."
+}

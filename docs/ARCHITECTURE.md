@@ -51,3 +51,9 @@ Saved `home` and `pose` matrices are both needed. A pulled-out model should reop
 ## Boundaries
 
 GPT describes approximate geometry; it does not run the tracking loop. ARKit tracks room coordinates; it does not infer component identity. Depth is measured, but fitting generated geometry to it remains approximate. Internals labeled inferred are not discoveries about the real object. Local persistence works without regeneration, while new generation and voice require the running bridge and network.
+
+## Shared reference-aware bridge and Quest client
+
+`spatial-assembly/server/bridge.mjs` owns authenticated sessions, injected API access for tests, voice tools and generation lifecycle. `research.mjs` handles visible identity and required web search, source URL grounding and exact/similar evidence labels. `schema.mjs` bounds geometry, including small custom meshes. A per-session in-memory cache holds up to twelve source images for refinement; images are not part of saved-room geometry. After reconnect, refining a restored object requires a fresh capture toward its source location. Revisions retain object identity/poses rather than replacing the place. `scene.update` restores voice context without a new generation.
+
+The Quest client uses Unity/OpenXR with Meta camera, depth and spatial-anchor APIs. `QuestAssemblyController` freezes image-associated projection and source-plane context; `AssemblyModel` builds selectable component geometry; `SavedAssemblies` persists local anchor IDs and geometry/state; `BridgeConnection` and `RealtimeAudio` carry authenticated messages and opt-in audio. These are separate platform renderers sharing an assembly contract, not cross-device shared anchors. Source URLs/explanations persist inside saved assemblies.

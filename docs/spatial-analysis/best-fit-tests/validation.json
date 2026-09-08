@@ -1,0 +1,16 @@
+{
+  "validated_utc": "2026-09-08T19:24:13.656845+00:00",
+  "assumptions": 27,
+  "tour_gaps_completed": 29,
+  "video_frame_records_viewed": {
+    "7958": 122,
+    "7960": 59,
+    "youtube": 68,
+    "apartment-test": 171,
+    "house-test": 134
+  },
+  "evidence_ids_valid": true,
+  "all_video_records_viewed": true,
+  "metric_geometry_verified": false,
+  "ground_truth_floorplans_available": false
+}

@@ -36,7 +36,7 @@ struct AssemblyScreen: View {
       VStack(spacing: 0) {
         header
         Spacer()
-        if !ar.transcript.isEmpty && (ar.voiceOn || ar.voiceConnecting) {
+        if !ar.transcript.isEmpty && (ar.voiceOn || ar.voiceConnecting || ar.answering) {
           Text(ar.transcript).font(.subheadline).lineLimit(3).padding(12).frame(
             maxWidth: .infinity, alignment: .leading
           ).background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16)).padding(
@@ -91,6 +91,7 @@ struct AssemblyScreen: View {
         }.accessibilityLabel("Connection settings")
       }
       ConnectionBadge(bridge: ar.bridge)
+      Button { ar.toggleMacTest() } label: { Label(ar.macTestStatus, systemImage: ar.macTestEnabled ? "stop.circle.fill" : "desktopcomputer").font(.caption) }.accessibilityIdentifier("macCameraTestButton")
       HStack {
         Text(ar.roomStatus).font(.caption2).foregroundStyle(ar.restoringRoom ? .orange : .secondary).lineLimit(2)
         Spacer()
@@ -100,7 +101,7 @@ struct AssemblyScreen: View {
   }
   private var capturePanel: some View {
     VStack(alignment: .leading, spacing: 14) {
-      Text(ar.restoringRoom ? "Recognizing this place…" : ar.targetLocked ? "Target locked." : "Point. Reconstruct. Explore.").font(
+      Text(ar.restoringRoom ? "Recognizing this place…" : ar.targetLocked ? "Target locked." : "Tap an object. Make it 3D.").font(
         .system(size: 25, weight: .medium)
       ).tracking(-0.5)
       Text(ar.targetLocked ? "Keep the object in view, then reconstruct it." : ar.surface).font(
@@ -116,6 +117,7 @@ struct AssemblyScreen: View {
           "reconstructButton").disabled(ar.restoringRoom)
         voiceButton
       }
+      Toggle("Tap objects to reconstruct", isOn: $ar.tapToCreate).font(.subheadline).accessibilityIdentifier("tapToCreateToggle")
       if ar.restoringRoom { Button("I’m somewhere new") { ar.newPlace() }.font(.subheadline) }
       if ar.targetLocked { Button("Unlock target") { ar.resetTarget() }.font(.subheadline) }
       Text("Selected camera images go to OpenAI. Generated shapes and hidden parts are estimates.")
@@ -132,7 +134,7 @@ struct AssemblyScreen: View {
       }
       Text(
         ar.progressParts == 0
-          ? "GPT‑6 is reading the selected camera frame…"
+          ? (ar.researchProgress.isEmpty ? "GPT‑6 is reading the selected camera frame…" : ar.researchProgress)
           : "\(ar.progressParts) components described so far…"
       ).font(.subheadline).foregroundStyle(.secondary)
       Text("Your capture is fixed in the room.").font(.caption).foregroundStyle(.secondary)
@@ -176,6 +178,10 @@ struct AssemblyScreen: View {
           Label("Parts", systemImage: "square.stack.3d.up").frame(maxWidth: .infinity)
         }.buttonStyle(.bordered)
       }
+      HStack(spacing: 10) {
+        Button("Research & rebuild") { ar.refine() }.buttonStyle(.bordered)
+        Button("Explain part") { ar.explainSelected(); showParts = true }.buttonStyle(.bordered)
+      }.font(.caption)
       HStack(spacing: 14) {
         Button {
           ar.moveCloser()
@@ -211,11 +217,11 @@ struct AssemblyScreen: View {
     Button {
       ar.toggleVoice()
     } label: {
-      Image(systemName: ar.voiceConnecting ? "ellipsis" : ar.voiceOn ? "mic.fill" : "mic").font(
+      Image(systemName: ar.voiceConnecting ? "ellipsis" : ar.answering ? "stop.fill" : ar.voiceOn ? "mic.fill" : "mic").font(
         .title3
       ).frame(width: 35, height: 35)
-    }.buttonStyle(.bordered).tint(ar.voiceOn ? .red : cyan).accessibilityLabel(
-      ar.voiceOn ? "Stop voice" : "Start voice"
+    }.buttonStyle(.bordered).tint((ar.voiceOn || ar.answering) ? .red : cyan).accessibilityLabel(
+      ar.answering ? "Stop answer" : ar.voiceOn ? "Stop voice" : "Start voice"
     ).accessibilityIdentifier("voiceButton")
   }
   private var placesSheet: some View {
@@ -256,6 +262,32 @@ struct AssemblyScreen: View {
               "Show inferred parts",
               isOn: Binding(get: { ar.inferred }, set: { ar.setInferred($0) }))
           }
+          Section("Ask about this object or selected part") {
+            TextField("What would you like to know?", text: $ar.question)
+            Button("Ask") { ar.ask(ar.question) }
+            if !ar.transcript.isEmpty { Text(ar.transcript).font(.subheadline) }
+            Text("Typed questions play an answer without turning on the microphone.").font(.caption).foregroundStyle(.secondary)
+          }
+          Section("Improve this reconstruction") {
+            TextField("Correction or part to improve", text: $ar.refinement)
+            Button("Find references and rebuild") { ar.refine(); showParts = false }
+          }
+          if !ar.partExplanation.isEmpty { Section("Part explanation") { Text(ar.partExplanation) } }
+          if let research = ar.assembly?.research {
+            Section("Technical references") {
+              Text(research.summary).font(.subheadline)
+              ForEach(research.sources) { source in
+                VStack(alignment: .leading, spacing: 5) {
+                  if let url = URL(string: source.url), ["https","http"].contains(url.scheme ?? "") {
+                    Link(source.title, destination: url)
+                  }
+                  Text(source.match == "exact" ? "Exact-model reference" : "Similar/general reference · not proof of this object's internals").font(.caption).foregroundStyle(source.match == "exact" ? .cyan : .orange)
+                  Text(source.findings).font(.caption)
+                }
+              }
+              ForEach(research.gaps, id: \.self) { Text($0).font(.caption).foregroundStyle(.secondary) }
+            }
+          }
           Section("Select a component") {
             ForEach(model.parts) { p in
               Button {
@@ -267,7 +299,7 @@ struct AssemblyScreen: View {
                     .foregroundStyle(cyan)
                   VStack(alignment: .leading, spacing: 4) {
                     Text(p.name).foregroundStyle(.primary)
-                    Text(p.description).font(.caption).foregroundStyle(.secondary)
+                    Text(p.function ?? p.description).font(.caption).foregroundStyle(.secondary)
                     Text(p.evidence.uppercased()).font(.caption2.monospaced()).foregroundStyle(
                       p.evidence == "inferred" ? .orange : cyan)
                   }
@@ -287,7 +319,7 @@ struct AssemblyScreen: View {
         VStack(alignment: .leading, spacing: 22) {
           Text("From your room into your hands.").font(.largeTitle.bold())
           Text(
-            "1. Move the phone slowly until Tracking ready appears.\n\n2. Point at an object, or tap its surface to lock it.\n\n3. Tap Reconstruct that, or turn on the microphone and say it.\n\n4. The overlay stays anchored over the source. Tap it to take it apart, then tap again to assemble it there.\n\n5. Use Pull out to move it; Return restores its original pose."
+            "1. Move the phone slowly until Tracking ready appears.\n\n2. Tap a real object to reconstruct it. Turn off Tap objects to reconstruct if you prefer to lock the target first.\n\n3. You can also turn on the microphone and say reconstruct that, or use the Reconstruct that button.\n\n4. The overlay stays anchored over the source. Tap it to take it apart, then tap again to assemble it there.\n\n5. Use Pull out to move it; Return restores its original pose."
           )
           Text("Try saying").font(.headline)
           Text(

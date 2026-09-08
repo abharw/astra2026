@@ -1,0 +1,408 @@
+{
+  "listing_url": "https://www.airbnb.com/rooms/1586369805694396546",
+  "title": "Stylish 2BR Garden Flat Near GGP & The Presidio",
+  "acquisition": "CUA gallery browsing plus pageAssets; four 2560 px exports failed, observed 720 px variants succeeded",
+  "photos": [
+    {
+      "id": "A01",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/6b96deb6-e798-4814-96e3-ae7cc551bfd8.jpeg?im_w=960",
+      "source_name": "6b96deb6-e798-4814-96e3-ae7cc551bfd8.jpeg",
+      "source_sha256": "e1553b2c074fc19a8211b3f647297a68f0622d94b76e980425297e56663a05dd",
+      "path": "airbnb-evidence/a/A01.png",
+      "size": [
+        960,
+        640
+      ],
+      "viewed": true,
+      "observations": [
+        "Glazed exterior door beside bamboo and brick path; interior obscured."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A02",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/8a292c25-60d1-46fb-98b9-ccbc6cc09bb2.jpeg?im_w=720",
+      "source_name": "8a292c25-60d1-46fb-98b9-ccbc6cc09bb2.jpeg",
+      "source_sha256": "c4c4047e5390fb5eaea8628e0d7addc23e9daad81e5039a67615474832140f1a",
+      "path": "airbnb-evidence/a/A02.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Bench and landscape painting in narrow entrance space; open passage shows white living sectional and round table."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A03",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/0d914025-81ca-41e3-9e6a-ca379da78d4f.jpeg?im_w=720",
+      "source_name": "0d914025-81ca-41e3-9e6a-ca379da78d4f.jpeg",
+      "source_sha256": "3fb92dbbf73de793930aad89d09e05a4ec78c4aa6daed237e65c64e0b4bf296d",
+      "path": "airbnb-evidence/a/A03.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Living sectional/window/niches to right; TV and artwork opposite; bench and vase through opening left."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A04",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/93b75eb3-2ae2-4385-89ab-46aa24bd6c7a.jpeg?im_w=1200",
+      "source_name": "93b75eb3-2ae2-4385-89ab-46aa24bd6c7a.jpeg",
+      "source_sha256": "2b65a0ff6903781463bd142b58827d5f4422ff53dfcdf6db65e5082fcc4b88f7",
+      "path": "airbnb-evidence/a/A04.png",
+      "size": [
+        1200,
+        800
+      ],
+      "viewed": true,
+      "observations": [
+        "Desk, lamp and window in narrow work area; arched mirror reflects desk, not another room."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A05",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/a5cf076d-4cfb-4a61-8205-ed1251fefd82.jpeg?im_w=720",
+      "source_name": "a5cf076d-4cfb-4a61-8205-ed1251fefd82.jpeg",
+      "source_sha256": "c32fd52444adc7ef2feecffd8eaad0d5fda0829af729bd596b9aad42b0e4ad6f",
+      "path": "airbnb-evidence/a/A05.png",
+      "size": [
+        720,
+        1080
+      ],
+      "viewed": true,
+      "observations": [
+        "Bathroom vanity and mirror by doorway; room connection not established."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A06",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/93dd247b-6122-4e4a-a405-897ea8283862.jpeg?im_w=720",
+      "source_name": "93dd247b-6122-4e4a-a405-897ea8283862.jpeg",
+      "source_sha256": "017a5f7b8cd51beb528ab1b8a2994d7b51309c61486ef4a6e2606f7d3b48fbcd",
+      "path": "airbnb-evidence/a/A06.png",
+      "size": [
+        720,
+        1080
+      ],
+      "viewed": true,
+      "observations": [
+        "Kitchen range, table and chairs visible from living coffee-table foreground."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A07",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/a9239224-5de5-458b-99a2-454261339f72.jpeg?im_w=720",
+      "source_name": "a9239224-5de5-458b-99a2-454261339f72.jpeg",
+      "source_sha256": "49f9e82cc99e72fa7cfaf2417e5058df37eec8d7c275091b169254e1ddfc73c3",
+      "path": "airbnb-evidence/a/A07.png",
+      "size": [
+        720,
+        1080
+      ],
+      "viewed": true,
+      "observations": [
+        "White sectional, niches and window repeat living anchors."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A08",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/abec2b61-a15a-46d2-adf5-a5677bb7b561.jpeg?im_w=720",
+      "source_name": "abec2b61-a15a-46d2-adf5-a5677bb7b561.jpeg",
+      "source_sha256": "8a5c4c21b19c633fd612eb4f47070a2bd527d8e102c0d15f93e6f5b995b7200c",
+      "path": "airbnb-evidence/a/A08.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Kitchen range/hood against cabinet wall, window/counter left and dining table right."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A09",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/a6273fa6-ae9d-44c2-9e9d-5f3940b33b1c.jpeg?im_w=720",
+      "source_name": "a6273fa6-ae9d-44c2-9e9d-5f3940b33b1c.jpeg",
+      "source_sha256": "4723d7518c0f30382ff6963dc967dfe4e8181355af4f2b97315af6be7f32ff12",
+      "path": "airbnb-evidence/a/A09.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Fridge beside counter and sink beneath windows."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A10",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/66ec5c6a-da3f-4070-864b-7b549ec9cd90.jpeg?im_w=720",
+      "source_name": "66ec5c6a-da3f-4070-864b-7b549ec9cd90.jpeg",
+      "source_sha256": "8d719d3c970411b8bdb6a156604af37154e1a1823e8a44a0ab5ae7a6a6f24017",
+      "path": "airbnb-evidence/a/A10.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Gray upholstered bed, striped bedding and fruit picture."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A11",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/b5961049-4787-4dd3-a4e6-c6b166404ea0.jpeg?im_w=1200",
+      "source_name": "b5961049-4787-4dd3-a4e6-c6b166404ea0.jpeg",
+      "source_sha256": "0046a4f0d4b91b3501ee30010f5d6c0ee35dd80f1a7a2a0c67ce6489f67d9bbf",
+      "path": "airbnb-evidence/a/A11.png",
+      "size": [
+        1200,
+        800
+      ],
+      "viewed": true,
+      "observations": [
+        "Arched mirror and botanical print beside opening showing gray bed; closet reflected."
+      ],
+      "viewed_as": [
+        "contact_sheet",
+        "individual_image"
+      ]
+    },
+    {
+      "id": "A12",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/a0ca9835-64f0-4e51-9eb5-58f6480305bb.jpeg?im_w=720",
+      "source_name": "a0ca9835-64f0-4e51-9eb5-58f6480305bb.jpeg",
+      "source_sha256": "12a020a7e961f9a08a36237f3e4462d2a4aebc9fc062c3b6e2cec303b3af1f9e",
+      "path": "airbnb-evidence/a/A12.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Gray bed room reverse view: closet/work-area side opening left of passage that ends toward glazed door."
+      ],
+      "viewed_as": [
+        "contact_sheet",
+        "individual_image"
+      ]
+    },
+    {
+      "id": "A13",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/439e6e5a-8ae4-4964-96f8-23d125c3563f.jpeg?im_w=1200",
+      "source_name": "439e6e5a-8ae4-4964-96f8-23d125c3563f.jpeg",
+      "source_sha256": "daa244b74dac4cf4dc7f6b2c11d6e2d7dfbf89e769baf76559609dbb61b9a763",
+      "path": "airbnb-evidence/a/A13.png",
+      "size": [
+        1200,
+        800
+      ],
+      "viewed": true,
+      "observations": [
+        "Closet with sliding panel; adjacent doorway partly visible."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A14",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/6059dd71-27d2-42d2-9768-4404439ee9d8.jpeg?im_w=720",
+      "source_name": "6059dd71-27d2-42d2-9768-4404439ee9d8.jpeg",
+      "source_sha256": "a4f05f2b83b0e1b61d29c7067868468cec9bf0bb726e81cc366866863f87f8da",
+      "path": "airbnb-evidence/a/A14.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Wood bed with mustard cushions; open doorway shows edge of gray bed and dark rug in adjacent space."
+      ],
+      "viewed_as": [
+        "contact_sheet",
+        "individual_image"
+      ]
+    },
+    {
+      "id": "A15",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/467572b6-3a9c-48c4-a0b5-91e075992bc3.jpeg?im_w=720",
+      "source_name": "467572b6-3a9c-48c4-a0b5-91e075992bc3.jpeg",
+      "source_sha256": "359a61c7067702014fd850750aba14c614f6e51751fd1ebb783e4db8f3884b66",
+      "path": "airbnb-evidence/a/A15.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Wood bed room has glazed exterior door and neighboring window."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A16",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/0d84cd9b-692b-475b-849a-51ff49a27ea8.jpeg?im_w=720",
+      "source_name": "0d84cd9b-692b-475b-849a-51ff49a27ea8.jpeg",
+      "source_sha256": "ec054a0b80ab9376f357a5b7c9c662152fd89c205417650ed1532479544db073",
+      "path": "airbnb-evidence/a/A16.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Bathroom shower and toilet beneath window; unseen connection to hall."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A17",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/81f75552-e249-4cec-90c5-cfec4ebc04c6.jpeg?im_w=720",
+      "source_name": "81f75552-e249-4cec-90c5-cfec4ebc04c6.jpeg",
+      "source_sha256": "253866b2462f63c17b9cb9d818b6d05296f55f7c6ec6275209d5be9db1250b39",
+      "path": "airbnb-evidence/a/A17.png",
+      "size": [
+        720,
+        1080
+      ],
+      "viewed": true,
+      "observations": [
+        "Streetside book box; not indoor topology evidence."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A18",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/faa2acac-4574-4c03-9fc5-f6c7c57b7050.jpeg?im_w=720",
+      "source_name": "faa2acac-4574-4c03-9fc5-f6c7c57b7050.jpeg",
+      "source_sha256": "b41f1a66fec5ddfd907b272717487310fa32759dde6af5a2fba23b27da7b83a1",
+      "path": "airbnb-evidence/a/A18.png",
+      "size": [
+        720,
+        457
+      ],
+      "viewed": true,
+      "observations": [
+        "Garden with lawn, brick path and outdoor table; building beyond."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A19",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/a60d11b7-90af-4b54-8e28-69a03ee20b28.jpeg?im_w=720",
+      "source_name": "a60d11b7-90af-4b54-8e28-69a03ee20b28.jpeg",
+      "source_sha256": "10c804ebde1d94c2a016359beb12cce27274dd52ebd5c0bdb0872461a2cefa73",
+      "path": "airbnb-evidence/a/A19.png",
+      "size": [
+        720,
+        1080
+      ],
+      "viewed": true,
+      "observations": [
+        "Vase, bench and landscape picture repeat entrance anchors."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A20",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/3579db24-704a-4bc9-997f-2f4de7c27514.jpeg?im_w=720",
+      "source_name": "3579db24-704a-4bc9-997f-2f4de7c27514.jpeg",
+      "source_sha256": "c171a1d9336bbf845f9ab8a98ca937deaf72b93306f0b9ff7d8023f5d9e312c2",
+      "path": "airbnb-evidence/a/A20.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Open exterior door from bamboo path reveals entrance vase."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A21",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/c783478c-691a-4c75-a03f-fedf00e0bd56.jpeg?im_w=720",
+      "source_name": "c783478c-691a-4c75-a03f-fedf00e0bd56.jpeg",
+      "source_sha256": "6e39d4091fbdc294dd35fda8a6c8b71a0e8a272598aa806d03f5ad2b203e55d3",
+      "path": "airbnb-evidence/a/A21.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Gray bed and fruit artwork viewed through glazed interior door."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    },
+    {
+      "id": "A22",
+      "source_url": "https://a0.muscache.com/im/pictures/hosting/Hosting-1586369805694396546/original/fca17c25-2693-450f-9f2d-5489116a9dbf.jpeg?im_w=720",
+      "source_name": "fca17c25-2693-450f-9f2d-5489116a9dbf.jpeg",
+      "source_sha256": "2c90ad1dbac111cfc1f8f79806253d7ae65eec7e6129c645227baa04535f733c",
+      "path": "airbnb-evidence/a/A22.png",
+      "size": [
+        720,
+        480
+      ],
+      "viewed": true,
+      "observations": [
+        "Wood bed, mustard cushions, glazed door and window repeat bedroom anchors."
+      ],
+      "viewed_as": [
+        "contact_sheet"
+      ]
+    }
+  ],
+  "blind_image_only": false,
+  "metadata_exposure": "Listing title, room counts and gallery labels seen; second listing also exposed descriptive text in DOM snapshot. Spatial claims cite visible photo anchors; no blind benchmark claim."
+}

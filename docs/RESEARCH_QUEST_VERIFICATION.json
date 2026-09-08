@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-08",
+  "backendTests": {
+    "passed": 17,
+    "failed": 0
+  },
+  "iphoneTests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "iphoneBuildInstallLaunch": "passed",
+  "liveResearch": {
+    "parts": 11,
+    "primitives": 37,
+    "customMeshes": 2,
+    "seconds": 145.031,
+    "sources": [
+      {
+        "title": "JBL AC16 Specification Sheet",
+        "url": "https://jblpro.com/en/site_elements/ac16-spec-sheet",
+        "match": "similar",
+        "kind": "manufacturer"
+      },
+      {
+        "title": "JBL AE Series U-Bracket Handbook",
+        "url": "https://jblpro.com/en-US/site_elements/ae-series-u-bracket-handbook",
+        "match": "similar",
+        "kind": "manufacturer"
+      },
+      {
+        "title": "Yamaha VXS8/VXS8W/VXS5/VXS5W Owner\u2019s Manual",
+        "url": "https://usa.yamaha.com/files/download/other_assets/1/329381/vxs8_vxs8w_vxs5_vxs5w_en_om_f0.pdf",
+        "match": "similar",
+        "kind": "manufacturer"
+      }
+    ]
+  },
+  "liveVoice": {
+    "explanationAndAudio": "passed",
+    "deviceSelectionAcknowledgment": "simulated in API probe"
+  },
+  "quest": {
+    "apkBuild": "passed",
+    "geometryChecks": "real assembly, captured-ray orientation and return pose passed",
+    "hardware": "not connected; POV, alignment, input, voice and persistence unverified"
+  },
+  "limits": [
+    "Generated approximate geometry, not a CAD scan",
+    "Similar references do not establish exact internal components",
+    "Sampled camera frames, not a continuous vision stream",
+    "Stationary anchors do not track moving physical objects"
+  ]
+}

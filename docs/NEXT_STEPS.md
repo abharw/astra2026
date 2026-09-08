@@ -19,10 +19,14 @@ Current recovery tries saved maps sequentially for fifteen seconds per candidate
 ## Strengthen runtime behavior
 
 - Confirm drift, relocalization-loss presentation and recovery across real environments.
-- Verify voice after restoring a saved model; the bridge's scene context currently originates from generation in its current session.
+- Verify restored-model voice on the actual device; scene synchronization and its API probe are now implemented.
 - Decide how users remove a saved object/place, with clear deletion semantics.
 - Improve reconstruction latency and geometric fidelity without hiding approximation.
 - Replace the temporary Mac/tunnel dependency with a deployable authenticated service if product scope requires it.
 - Evaluate storage growth, map pruning, backups and optional cross-device sync before broad deployment.
 
 These are follow-up tasks, not claims of current functionality.
+
+## Quest and fidelity acceptance
+
+Connect Quest 3 and complete the headset acceptance procedure in quest/README.md. Measure projection and alignment on varied surfaces; test permissions, camera availability, anchor restore, hand/controller input and voice from the actual headset. Improve the approximation with guided multiview capture if detailed CAD-like fidelity is required. Reference search and small custom meshes do not by themselves satisfy that target.

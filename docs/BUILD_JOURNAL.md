@@ -134,3 +134,81 @@ The recreation is of the adaptive tool-use pattern: ask a spatial question, deco
 **Deliverables and verification:** created separate local home and hall floor-plan diagrams, a wall-by-wall report with timestamps, a public-tour partial diagram, and machine-readable evidence records. Final skill status showed 122/122 home frame records viewed (13 individual reopens), 59/59 hall records viewed (3 individual reopens), and 46/46 public-video records viewed. These include repeated timestamps, not 227 unique moments. Every request completed without truncation. No audio verification, measured dimension recovery, accuracy score or finished 3D reconstruction is claimed. The private source videos, detailed home/hall diagrams and frame evidence remain local. The method, public comparison and limits are documented in [the experiment report](VIDEO_FLOOR_PLAN_EXPERIMENT.md).
 
 **What this established:** Astra can form an inspectable room/wall hypothesis from one video and use targeted rewatching to correct an orientation error. It does not establish a complete or metrically accurate building plan. Human checking was requested and is pending; the current diagrams can be revised against the user's knowledge. No iPhone application code changed in this experiment.
+
+## 12. Extend the experiment to Airbnb photos and tour-point data (September 8, 2026)
+
+**User direction:** also test public Airbnb images; document Astra's computer use and reconstruction process for the hackathon; prepare video-based guided-tour points with timestamps, observed references and missing-view requirements, without generating panoramas or 3D. Both original videos remained the primary source tests.
+
+**Actual computer use:** browsed two San Francisco listing galleries, scrolled screenshots, exported loaded images with the browser page-assets tool, converted returned formats locally and inspected indexed sheets plus selected individual images. Viewed 22 photos from the garden flat and 11 gallery assets from the suite. Four large-image exports failed; already-observed lower-resolution variants succeeded. Listing prose was exposed in browser snapshots, so the result is explicitly photo-led rather than a blind image-only benchmark.
+
+**Spatial result:** overlapping door/object views support some local relationships, but disconnected photo groups remain unjoined. The suite's fireplace area and bed are co-visible in one room; they were not counted as separate rooms. Bedroom joins, bathroom access and unseen door destinations were not filled with invented geometry. The public [comparison report](PHOTO_AND_TOUR_EXPERIMENT.md) contains a topology schematic and source links.
+
+**Video data result:** assembled nine proposed home points and one hall pan station, with 40 timestamped references to already-viewed frames. Each records observed anchors, missing views and conditional completion constraints. Exact camera positions and 360 coverage were not recovered. All points remain unready for panorama assembly. No panorama, 3D scene or synthetic room imagery was generated.
+
+**Process record:** added [Astra's operational log](ASTRA_PROCESS_LOG.md), including the browser/control sequence, exact video sampling scope, evidence tracking, the corrected kitchen-side mistake, image-export fallback, evaluation contamination, environment check and publication method. A [sanitized command ledger](video-experiment/command-ledger.json) preserves actual skill-command timestamps and arguments; private room imagery and detailed tour JSON remain local. Prior skill recreation is still labeled retrospective, and human layout confirmation remains pending.
+
+**Verification:** checked JSON evidence references against viewed source records, local artifacts and document links, and visually inspected the new topology diagram. No application code changed. The logs distinguish observed evidence, inferred layout and proposed future generation.
+
+## 13. Technical references and Quest POV (September 8, 2026)
+
+Added a two-stage research path: read visible product identity, then request web search for manuals, schematics, parts diagrams and related technical references. Source URLs must be present in the web tool result. Exact-model labels require readable identifying information; similar-model sources cannot promote hidden geometry to documented evidence. Search failure is visible and falls back to image-only geometry.
+
+Expanded the assembly format with component functions, uncertainties, source IDs and bounded custom triangle meshes. The iPhone Parts panel exposes references, explanations and a correction/rebuild action. Revisions retain object identity and original/current placement. Restored scenes synchronize with the bridge for voice context. The bridge adds fresh-camera inspection, part explanation and reference-assisted refinement tools; it freezes revision input during asynchronous research and handles cancellation and device command acknowledgments.
+
+Built a native Unity/OpenXR Quest client around Meta passthrough camera access and environment raycasting. Hand/controller pointing is projected using the camera-associated pose, then frozen for source-plane placement when generation returns. The client implements selection, explosion, pull/return, voice, rebuilding and local Meta spatial-anchor persistence. The original XR configuration was adapted from Meta's public passthrough sample and attributed in quest/NOTICE.md.
+
+A real speaker-photo probe searched manufacturer materials and returned eleven components with 37 primitives, including two custom meshes. The three sources were similar-product references (JBL AC16, JBL AE bracket guidance, Yamaha VXS); the image did not verify an exact model. Search took roughly 35 seconds and the complete pipeline roughly 145 seconds. A real Realtime API probe then explained the selected grille, supplied audio and stated the exact model was unconfirmed. Its device selection acknowledgment was simulated; it is not a headset runtime proof.
+
+Seventeen backend tests passed, including source grounding, mesh validation, restored scene context, search fallback, cancellation and a selection-change race during refinement. Six iPhone XCTest tests passed, covering the prior storage checks plus mesh validation/backward decoding. The research-enabled iPhone app built, installed and launched. Visual fidelity and the new reference/rebuild flow on the physical device remain acceptance work.
+
+Build diagnosis: OpenXR required explicit EditorBuildSettings configuration registration before BuildPipeline; adding this resolved its late-initialization failure. On this Mac, Xcode's clang macro-introspection command can block when verbose output fills its capture path; a local wrapper removes only `-v` for `-dM` invocations. It is not part of portable source requirements and the compiler itself was not modified.
+
+Quest headset acceptance remains pending a USB-authorized Quest 3. The implementation is a generated approximate assembly with sampled POV frames, not an accurate CAD scan, continuous omniscient vision, or a tracker for a moved physical object.
+
+Final software checks: the Quest APK built successfully with camera/scene/anchor/hand/audio/network permissions. Unity checked the real 11-part, 37-primitive response, calibrated capture-ray orientation and return pose. The final pass also guarded concurrent captures and preserved JSON/toolbar members under IL2CPP stripping. No Quest was listed by adb at delivery; hardware acceptance remains pending. Sanitized metrics and public reference links are in RESEARCH_QUEST_VERIFICATION.json.
+
+## 14. Phone computer use and direct tap creation (September 8, 2026)
+
+The user requested a mounted-phone computer-use test and explicit hackathon documentation. Searched for the Astra iPhone-control demonstration, located a matching creator video, and checked Apple's camera/microphone limitation for iPhone Mirroring. Opened Mirroring with native computer use; it is waiting for the user's Mac login. The existing QuickTime iPhone screen preview remained black. Neither observation proves remote touch or live AR success.
+
+Changed the app so tapping a physical surface starts reconstruction by default, with an on-screen toggle for the original target-lock-then-voice workflow. Existing generated-part taps still select/explode. The physical iPhone build passed. See [the phone-control experiment record](PHONE_COMPUTER_USE.md) for source links, actual tool actions, current blockers and the remaining acceptance sequence.
+
+## 15. Direct camera/control workaround (September 8, 2026)
+
+After the user unlocked Mac authentication and locked the phone, Astra controlled the physical iPhone through Mirroring and opened Spatial Assembly. The system visibly rejected camera access, matching Apple's documentation. The user requested a workaround. Added an optional authenticated foreground-only camera/control link inside the app, with fresh ARView snapshots, shared object-tap handling, command acknowledgments and an explicit stop control. Three relay tests and the physical iPhone build passed; the build was installed and launched. See PHONE_COMPUTER_USE.md for setup, the exact distinction from OS computer use, and pending/live evidence.
+
+## 16. Resume control; add drag and typed questions (September 8, 2026)
+
+On resuming, the device reported three saved objects with a seven-part chair selected. Added app-level screen-space dragging after extraction and typed questions about the current object/part, with playback-only audio for typed input. Test state includes transcripts and original/current transforms. Builds and relay validation passed. The initial installation lost the device connection, then installation and launch succeeded after reconnection. A live snapshot from the updated app succeeded; it showed a close-up gray surface during relocalization. Drag and question acceptance remain pending a useful camera view. The camera-link and real mirrored UI results remain separately documented in PHONE_COMPUTER_USE.md.
+
+## 2026-09-08 — Best-fit spatial completion and additional tours
+
+Discovery used web search followed by yt-dlp flat JSON YouTube search; candidate lists are retained under work/new-*-candidates*.jsonl. Selected real interior footage from RentVision and HomeJab, excluding rendered-house examples. Downloaded with yt-dlp, registered independent agentic-video sessions, and viewed initial overview sheets. Saved six predictions in outputs/best-fit-tests/predictions-before-recheck.json before opening targeted checks. Request manifests preserve actual times, PTS, sampling parameters and source hashes.
+
+Targeted rechecks used the installed `video inspect --session ... --start ... --end ... --fps ...` command, then actual model viewing and `video mark`. Separate source decoding used local Python threads, not delegated agents. A denser house recheck separated edited bedroom shots. Four native bathroom frames distinguished two toilets from a reflection. All 171 apartment and 134 house extracted records were viewed; none of these requests was truncated. The studio received 22 more viewed records and three individual reopens, bringing its total to 68.
+
+All three apartment predictions were supported. House corridor topology was partly supported; bathroom compartment interpretation was corrected; fireplace-side laundry placement was rejected in favor of kitchen-to-utility-to-concrete-patio. Studio rewatch revealed a folding wall bed and identified the center window panel as a mirror. These are within-source checks, without a measured ground-truth floor plan.
+
+Created seven best-fit schematics, 27 assumption records and selected completions for all 29 supplied-video gaps. Retained earlier conservative diagrams. Inspected the atlas and fixed cramped labels; validated cited evidence IDs/viewed state and gap coverage. Updated aggregate evidence counts, framework, report and download bundle. The plots are unmeasured diagram coordinates, not recovered geometry. No panorama/3D generation ran. A shell attempt using `python` failed because only `python3` was available; reran successfully with python3.
+
+
+[Reusable workflow](SPATIAL_WORKFLOW.md) · [Test report and public-source plans](SPATIAL_BEST_FIT_TESTS.md).
+
+
+## 2026-09-08 — Publish complete spatial-analysis artifacts
+
+At the user's request, added the previously local supplied-video floor plans, all seven best-fit diagrams, 10 panorama candidate points, 40 linked timestamped frames, missing-view inventory, 27 assumptions and 29 gap completions, photo evidence, viewed contact sheets and native detail reopens. The full bundle is in [docs/spatial-analysis](spatial-analysis/README.md), with a SHA-256 file manifest. Session asset paths were made portable; original source videos remain outside Git. This supplies the actual planning data in addition to the earlier summaries. The five other places still do not have the same detailed panorama-point inventory.
+## 17. First Quest session and audio/interaction repair (September 8, 2026)
+
+The Quest 3 was connected, authorized and installed successfully. The first connection failure was reproduced in a headset screenshot; Android reported Wi-Fi disconnected and no default network. After Wi-Fi connection and relaunch, a later screenshot showed Connected, Listening, a generated voice transcript, and an active reconstruction. This verifies the live headset/client connection, not completed geometry or audible playback.
+
+The user could not hear replies or move the controls and found the state unclear. The installed scene had no AudioListener despite its AudioSource and incoming transcript. Added a center-eye AudioListener with a build gate requiring exactly one listener. Expanded the panel with distinct primary states, elapsed reconstruction time, a next-action instruction, live captions, microphone activity, and Start/Stop voice and Pull/Return labels. The header can be held with trigger/pinch to move the panel; grip over the panel also moves it, and left thumbstick click brings it back. The panel background consumes interactions rather than accidentally starting a reconstruction through empty panel space. The Android build and exactly-one-listener gate passed, and the updated APK installed successfully. Launch was requested; audible playback and physical panel movement still need wearer confirmation.
+
+Before switching to Quest, the iPhone app acknowledged extraction and dragging of a generated roller-blind assembly. State measurements showed a 0.126873 m displacement and Return restored the original transform within 2.4e-7 maximum matrix difference. Camera images showed the model in the room, but camera movement prevents a fixed-view visual comparison. The intended cup target instead produced a blind; the camera moved between inspection and capture, so target accuracy remains unresolved. A typed question was submitted, then the phone disconnected before its answer could be verified.
+
+
+## 18. Cast the headset view and repair panel placement
+
+Opened Meta Horizon casting in the desktop browser; the wearer completed account login. Actual browser screenshots showed Ready, a selected chair assembly, one saved object and cyan geometry in the room. The wearer still found the panel too low after horizontal recentering. Changed the default to follow horizontal heading at current eye height, with grab/release to pin and recenter to resume following. The complete workflow, failures, fixes and remaining wearer acceptance are in [QUEST_LIVE_TESTING.md](QUEST_LIVE_TESTING.md).
+
+The final follow-and-pin APK built and installed successfully. In the live browser cast after launch, the complete panel was centered in the forward view and displayed “Panel follows you”, Ready, the saved chair selection and controls. This is visual placement proof at that moment; audio and grab/pin behavior remain unconfirmed by the wearer.

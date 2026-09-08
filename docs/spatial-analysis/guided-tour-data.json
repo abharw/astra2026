@@ -1,0 +1,935 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-09-08",
+  "scope": "Planning data only for both supplied videos; no panorama or 3D generated",
+  "user_ground_truth_confirmation": "pending",
+  "direction_convention": "All left/right statements are local to named camera approach, not compass directions",
+  "source_assets": [
+    {
+      "id": "7958",
+      "source_name": "IMG_7958 2.MOV",
+      "sha256": "36c0bbf81f46e464a6683f719c8382a85138639d3cf315a1a1a20e67fb7c033b",
+      "duration_seconds": 57.791666666666664,
+      "frames_extracted": 122,
+      "frames_marked_viewed": 122
+    },
+    {
+      "id": "7960",
+      "source_name": "IMG_7960.MOV",
+      "sha256": "d28097b36693bcccc5a3464fde5e6ff07b765759f306c6d6d0dfffdfe27e159d",
+      "duration_seconds": 48.16,
+      "frames_extracted": 59,
+      "frames_marked_viewed": 59
+    }
+  ],
+  "points": [
+    {
+      "id": "home-study",
+      "source_id": "7958",
+      "label": "Study",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          0,
+          6
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0001",
+          "actual_time_seconds": 0.0,
+          "pts": 0,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0001.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0004",
+          "actual_time_seconds": 3.001666667,
+          "pts": 1801,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0004.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0006",
+          "actual_time_seconds": 5.003333333,
+          "pts": 3002,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0006.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Tall wooden shelving, pictures and floor lamp",
+        "Desk, monitors and chairs on window side",
+        "Broad opening into sitting room"
+      ],
+      "missing_or_unresolved": [
+        "Entrance-side perimeter behind initial camera",
+        "Floor beneath furniture and upper wall joins"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-sitting"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Tall wooden shelving, pictures and floor lamp",
+          "Desk, monitors and chairs on window side",
+          "Broad opening into sitting room"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-sitting",
+      "source_id": "7958",
+      "label": "Sitting room",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          6,
+          19
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0008",
+          "actual_time_seconds": 7.005,
+          "pts": 4203,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0008.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0011",
+          "actual_time_seconds": 10.006666667,
+          "pts": 6004,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0011.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0015",
+          "actual_time_seconds": 14.01,
+          "pts": 8406,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0015.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0019",
+          "actual_time_seconds": 18.013333333,
+          "pts": 10808,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0019.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "From study: fireplace/TV/whiteboard left, sofa right, curtained bay ahead",
+        "Statue on narrow pier; desk, artwork and closed door beside hall route"
+      ],
+      "missing_or_unresolved": [
+        "Curtained window geometry",
+        "Wall behind camera at a single fixed position",
+        "Destination of closed door"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-hall-near"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "From study: fireplace/TV/whiteboard left, sofa right, curtained bay ahead",
+          "Statue on narrow pier; desk, artwork and closed door beside hall route"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-hall-near",
+      "source_id": "7958",
+      "label": "Hall near sitting room",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          19,
+          27
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0021",
+          "actual_time_seconds": 20.015,
+          "pts": 12009,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0021.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0025",
+          "actual_time_seconds": 24.016666667,
+          "pts": 14410,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0025.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0027",
+          "actual_time_seconds": 26.018333333,
+          "pts": 15611,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0027.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Stair railing/open stairwell on travel-left",
+        "Windows and runner rugs",
+        "Shelving and lamp through travel-right doorway"
+      ],
+      "missing_or_unresolved": [
+        "Downstairs and stair void depth",
+        "Closed-door destinations",
+        "Whether shelving doorway returns to study"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-hall-bath"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Stair railing/open stairwell on travel-left",
+          "Windows and runner rugs",
+          "Shelving and lamp through travel-right doorway"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-hall-bath",
+      "source_id": "7958",
+      "label": "Hall at bathroom and bedroom",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          28,
+          43
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0029",
+          "actual_time_seconds": 28.02,
+          "pts": 16812,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0029.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0031",
+          "actual_time_seconds": 30.021666667,
+          "pts": 18013,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0031.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0039",
+          "actual_time_seconds": 38.028333333,
+          "pts": 22817,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0039.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0041",
+          "actual_time_seconds": 40.03,
+          "pts": 24018,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0041.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0043",
+          "actual_time_seconds": 42.03,
+          "pts": 25218,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0043.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Bathroom doorway on travel-left",
+        "Bedroom viewed across corridor on travel-right",
+        "Rounded/recessed corridor surfaces"
+      ],
+      "missing_or_unresolved": [
+        "Exact doorway offset and corridor bend dimensions",
+        "Occluded wall strips"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-bath",
+        "home-bedroom",
+        "home-dining"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Bathroom doorway on travel-left",
+          "Bedroom viewed across corridor on travel-right",
+          "Rounded/recessed corridor surfaces"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-bath",
+      "source_id": "7958",
+      "label": "Bathroom",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          30,
+          38
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0033",
+          "actual_time_seconds": 32.023333333,
+          "pts": 19214,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0033.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0035",
+          "actual_time_seconds": 34.025,
+          "pts": 20415,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0035.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0037",
+          "actual_time_seconds": 36.026666667,
+          "pts": 21616,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0037.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0038",
+          "actual_time_seconds": 37.026666667,
+          "pts": 22216,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0038.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "From entry: basin/mirror left and glass shower ahead/right",
+        "Pan left reveals toilet/window and toiletries shelf"
+      ],
+      "missing_or_unresolved": [
+        "Behind shower enclosure",
+        "Entry-side wall and floor occlusions",
+        "Mirror must not be used as a real doorway"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-hall-bath"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "From entry: basin/mirror left and glass shower ahead/right",
+          "Pan left reveals toilet/window and toiletries shelf"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-bedroom",
+      "source_id": "7958",
+      "label": "Bedroom threshold",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          39,
+          42
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0003-f0024",
+          "actual_time_seconds": 39.528333333,
+          "pts": 23717,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0003-f0024.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0003-f0026",
+          "actual_time_seconds": 40.53,
+          "pts": 24318,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0003-f0026.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0003-f0028",
+          "actual_time_seconds": 41.53,
+          "pts": 24918,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0003-f0028.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Bed in far/left visible area",
+        "Dresser and tall mirror at right; stool; far curtains"
+      ],
+      "missing_or_unresolved": [
+        "Most entrance-side and leftmost wall",
+        "Hidden floor, closet status and room depth",
+        "No interior turn at a room-center station"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-hall-bath"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Bed in far/left visible area",
+          "Dresser and tall mirror at right; stool; far curtains"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-dining",
+      "source_id": "7958",
+      "label": "Dining room",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          46,
+          49
+        ],
+        [
+          56,
+          57.791666666666664
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0047",
+          "actual_time_seconds": 46.033333333,
+          "pts": 27620,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0047.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0004-f0004",
+          "actual_time_seconds": 48.535,
+          "pts": 29121,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0004-f0004.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0057",
+          "actual_time_seconds": 56.041666667,
+          "pts": 33625,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0057.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0058",
+          "actual_time_seconds": 57.0,
+          "pts": 34200,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0058.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "On hall entry: fireplace/mirror left, bay windows and table ahead",
+        "Kitchen opening right; peninsula",
+        "Reverse view: sofa near hall end"
+      ],
+      "missing_or_unresolved": [
+        "Window bay angles",
+        "Single-center reverse view and ceiling/floor coverage",
+        "Kitchen in fireplace mirror is reflected evidence only"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-kitchen"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "On hall entry: fireplace/mirror left, bay windows and table ahead",
+          "Kitchen opening right; peninsula",
+          "Reverse view: sofa near hall end"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-kitchen",
+      "source_id": "7958",
+      "label": "Kitchen",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          48.5,
+          54
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0050",
+          "actual_time_seconds": 49.035,
+          "pts": 29421,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0050.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0052",
+          "actual_time_seconds": 51.036666667,
+          "pts": 30622,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0052.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0054",
+          "actual_time_seconds": 53.038333333,
+          "pts": 31823,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0054.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Range/hood and cabinetry ahead",
+        "Fridge to range-right, sink to range-left",
+        "Peninsula toward dining; utility area left of range"
+      ],
+      "missing_or_unresolved": [
+        "Right recess extent",
+        "Hidden counter and appliance surfaces",
+        "No verified fixed-center panorama"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-utility",
+        "home-dining"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Range/hood and cabinetry ahead",
+          "Fridge to range-right, sink to range-left",
+          "Peninsula toward dining; utility area left of range"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "home-utility",
+      "source_id": "7958",
+      "label": "Utility / laundry area",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          54,
+          55.5
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0055",
+          "actual_time_seconds": 54.04,
+          "pts": 32424,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0055.png",
+          "viewed_as": [
+            "sheet",
+            "individual"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0056",
+          "actual_time_seconds": 55.04,
+          "pts": 33024,
+          "time_base": "1/600",
+          "path": "tour-evidence/7958/r0002-f0056.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Front-loading washing machine under counter/window",
+        "Side glazing and storage/equipment"
+      ],
+      "missing_or_unresolved": [
+        "Alcove versus enclosed room",
+        "Hidden exit destinations",
+        "Reverse wall and floor"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Moving walkthrough; reference frames may have different camera centers",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [
+        "home-kitchen"
+      ],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Front-loading washing machine under counter/window",
+          "Side glazing and storage/equipment"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    },
+    {
+      "id": "hall-pan-station",
+      "source_id": "7960",
+      "label": "Event hall: candidate pan station",
+      "status": "proposed tour point grounded in observed imagery",
+      "source_intervals_seconds": [
+        [
+          0,
+          48.16
+        ]
+      ],
+      "references": [
+        {
+          "frame_id": "r0002-f0001",
+          "actual_time_seconds": 0.0,
+          "pts": 0,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0001.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0008",
+          "actual_time_seconds": 7.005,
+          "pts": 4203,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0008.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0013",
+          "actual_time_seconds": 12.008333333,
+          "pts": 7205,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0013.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0021",
+          "actual_time_seconds": 20.015,
+          "pts": 12009,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0021.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0029",
+          "actual_time_seconds": 28.02,
+          "pts": 16812,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0029.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0034",
+          "actual_time_seconds": 33.023333333,
+          "pts": 19814,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0034.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0040",
+          "actual_time_seconds": 39.028333333,
+          "pts": 23417,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0040.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0045",
+          "actual_time_seconds": 44.031666667,
+          "pts": 26419,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0045.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        },
+        {
+          "frame_id": "r0002-f0048",
+          "actual_time_seconds": 47.035,
+          "pts": 28221,
+          "time_base": "1/600",
+          "path": "tour-evidence/7960/r0002-f0048.png",
+          "viewed_as": [
+            "sheet"
+          ]
+        }
+      ],
+      "observed_anchors": [
+        "Stage/display wall A opposite braced glazing wall C",
+        "Service-opening wall B opposite whiteboard/blind wall D",
+        "Central work tables, stage-facing chairs, high glazing and roof lights"
+      ],
+      "missing_or_unresolved": [
+        "Floor beneath tables/people and near camera",
+        "Occluded wall bases",
+        "Door destinations and upper-level uses",
+        "Exact camera-center drift and spherical coverage"
+      ],
+      "candidate_position": "Near the filmed camera route; exact center and pose unresolved",
+      "capture_type": "Predominantly turning with unmeasured center drift",
+      "camera_pose": null,
+      "yaw_pitch_degrees": null,
+      "metric_position": null,
+      "coverage_percent": null,
+      "panorama_ready": false,
+      "next_point_ids": [],
+      "preferred_next_capture": "At one chosen point, capture a slow full turn plus ceiling and floor; add doorway overlap without moving between the turn frames. Measure one reference length.",
+      "conditional_generation_requirements": {
+        "requested_now": false,
+        "only_if_later_authorized": "Complete only unseen or occluded surfaces, keep observed wall/furniture anchors fixed, and label completion as inferred. Capture topology-critical doors and rooms instead of guessing them.",
+        "must_preserve": [
+          "Stage/display wall A opposite braced glazing wall C",
+          "Service-opening wall B opposite whiteboard/blind wall D",
+          "Central work tables, stage-facing chairs, high glazing and roof lights"
+        ],
+        "must_not_invent": [
+          "Door destinations",
+          "Dimensions or calibrated camera pose",
+          "Objects behind curtains or occluders"
+        ]
+      }
+    }
+  ],
+  "unresolved_edges": [
+    {
+      "from": "home-hall-near",
+      "to": "home-study",
+      "status": "inferred; not traversed",
+      "reason": "Similar shelving and lamp at about 24 seconds; could be a different room"
+    }
+  ],
+  "constraints": [
+    "Points are an editorial route proposal, not recovered metric camera stations",
+    "A list of viewed frames does not prove 360-degree coverage",
+    "Frames with translation cannot be assumed stitchable",
+    "Mirror views do not create new rooms or openings",
+    "No SfM, pose solve, panorama stitching, depth estimation, splats, mesh or image generation was performed"
+  ],
+  "best_fit_assumption_ledger": "best-fit-assumptions.json"
+}

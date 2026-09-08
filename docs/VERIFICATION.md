@@ -10,8 +10,8 @@
 | Real GPT-6 source-photo probe | Eight parts returned | Actual image-to-schema API path |
 | Real phone captures | Laptop and speaker assemblies returned | Phone images reached GPT-6 and produced geometry |
 | Realtime probe | Explode tool call plus audio | Realtime tool/audio API path |
-| Backend validation tests | 8 passed | Bounded geometry and enumerated command validation |
-| Persistence XCTest suite | 4 passed | Storage, state round trip and invalid-data handling |
+| Backend tests | 17 passed | Geometry/command validation, source grounding, pipeline/refinement, cancellation and restored scene context |
+| iPhone XCTest suite | 6 passed | Storage/state round trip, invalid-data handling, backward decoding and mesh indices |
 | Same-location terminate/relaunch | Restored and autosaved same room | Persistence and ARKit-gated restoration path ran on phone |
 | Before/after saved-state comparison | IDs/geometry/state preserved; matrix delta ~7e-7 | Saved object state survived restart |
 
@@ -54,3 +54,12 @@ Only the single-object same-location reopen and saved-state comparison have been
 ## Evidence handling
 
 `spatial-assembly/persistence-verification.json` contains sanitized comparison results. Raw world maps, camera images, API response identifiers, device identifiers, tunnel tokens and the OpenAI key are not included. Matching serialized transforms does not measure visual registration error or tracking drift.
+
+## Reference and Quest extension
+
+- Actual web-search/API probe: three manufacturer references returned, all similar rather than exact; eleven parts, 37 primitives and two custom meshes. Search about 35 seconds, whole generation about 145 seconds. Source photograph and full raw response stay private.
+- Actual Realtime API probe: selected grille explanation plus audio, with exact-model uncertainty stated. Device selection was a probe acknowledgment, not headset interaction.
+- Updated research-enabled iPhone app built, installed and launched. Full physical reference/rebuild visual acceptance remains open.
+- Quest Android APK built successfully. The APK manifest contains network, audio, hand tracking, scene, anchor and headset-camera permissions. Unity geometry checks accepted the real eleven-part / 37-primitive response and checked captured-ray orientation and return pose. Headset runtime has not been verified.
+
+To reproduce the live source-photo probe, use `node server/live-research-probe.mjs /path/to/speaker.jpeg` from spatial-assembly. It sends the supplied image to the bridge and uses a speaker-specific prompt/target; adapt those for a different photograph. Then `node server/live-voice-probe.mjs` uses the saved probe assembly. `BRIDGE_WS` overrides the default localhost:8796 WebSocket endpoint. These are API smoke probes, not end-to-end device tests.
