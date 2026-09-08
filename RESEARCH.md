@@ -1,6 +1,6 @@
 # Astra AR — framework research
 
-2026-09-08. Initial research background, not implemented or benchmarked behavior. The current design is [architecture.md](architecture.md); the chronological Arav/Astra collaboration log is [APPROACH.md](APPROACH.md). Where this research discusses alternatives, the architecture document records the current choice.
+2026-09-08. Initial research background. Core contracts, the native app, RealityKit adapter, voice path, and session service now exist. Live Astra-to-Swift runs and signed iPad camera deployment have passed; [evidence](evidence/README.md) separates those results from outstanding physical interaction checks. The current design is [architecture.md](architecture.md); the chronological Arav/Astra collaboration log is [APPROACH.md](APPROACH.md). Where this research discusses alternatives, the architecture document records the current choice.
 
 The subsequent deeper design specifies [model authoring and the asset pipeline](docs/asset-pipeline.md), [data formats and transport](docs/data-formats.md), and [persistence](docs/storage.md). In particular, code and direct structured calls now share one normalized scene contract, and generation batches use an ordered scope rather than a global-revision round trip for each batch.
 
@@ -8,7 +8,7 @@ Subsequent user direction expands the native app to [iPhone and iPad](docs/devic
 
 ## Recommendation
 
-Use **Swift + SwiftUI + ARKit + RealityKit** in one universal iPhone/iPad app, a thin **TypeScript/Node backend**, **GPT-6 Astra through Responses** for spatial reasoning and geometry generation, and a separate **Realtime voice session**. Start with the continuous voice-to-generation loop using schematic geometry. Compare authored deconstruction and live creation within that loop. Keep Quest outside the first device acceptance test.
+Use **Swift + SwiftUI + ARKit + RealityKit** in one universal iPhone/iPad app, a thin **TypeScript/Node backend**, **GPT-6 Astra through Responses** for spatial reasoning and geometry generation, and a separate **Realtime voice session**. Start with one bounded complete model proposal and the continuous voice-to-generation loop using schematic geometry. Compare authored deconstruction and live creation within that loop. Keep Quest outside the first device acceptance test.
 
 The first user is exploring hardware architecture. The important experiment is whether a spoken request can produce a useful, editable spatial explanation fast enough to sustain conversation. Building the whole framework before measuring that would postpone the main uncertainty.
 
@@ -26,7 +26,7 @@ The user explicitly places initial visual fidelity below on-demand usefulness: d
 
 ## Native rendering and portability
 
-RealityKit can load hierarchical assets and create meshes programmatically. Use an asynchronous full `Entity` load for USDZ: Apple's `loadModel` path flattens hierarchy. Use ARKit raycasting to place the rack on a real surface; use collision hit testing for picking virtual components. Store rest transforms so repeated explode/restore operations do not accumulate drift. [Entity loading](https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file), [MeshResource](https://developer.apple.com/documentation/realitykit/meshresource), [RealityKit hit testing](https://developer.apple.com/documentation/realitykit/arview/hittest(_:query:mask:)).
+RealityKit constructs the current six-shape scene vocabulary from the normalized JSON recipe. Use ARKit raycasting to place the rack on a real surface and collision hit testing for picking virtual components. Store rest transforms so repeated explode/restore operations do not accumulate drift. Imported USDZ, text labels, arbitrary mesh import, and a source-code execution path are not part of the current implementation. [MeshResource](https://developer.apple.com/documentation/realitykit/meshresource), [RealityKit hit testing](https://developer.apple.com/documentation/realitykit/arview/hittest(_:query:mask:)).
 
 Keep these outside renderer-specific classes:
 
@@ -69,7 +69,7 @@ Choose latency and visual targets after the first samples; no subsecond generati
 
 ## Astra and voice ownership
 
-The [Astra model page](https://developers.openai.com/api/docs/models/gpt-6-astra) lists text/image input, text output, streaming, function calling, and structured output, but no audio support. Use `gpt-6-astra` through Responses for tools. The API account's access is still untested.
+The [Astra model page](https://developers.openai.com/api/docs/models/gpt-6-astra) lists text/image input, text output, streaming, function calling, and structured output, but no audio support. Use `gpt-6-astra` through Responses for tools. Doppler-backed model access, actual generated scene acceptance in Swift, and native simulator/device builds are verified; see [the run evidence](evidence/README.md).
 
 The device owns actual scene state. Astra receives current node IDs, selection, geometry bounds, state revision, and references. An optional visual input must include the rendered virtual content: a composited AR snapshot, not just the raw camera image. Send frames when useful for a request or validation, not continuously by default.
 
@@ -90,17 +90,16 @@ Use a minimal scene contract: inspect current state; apply a bounded batch of cr
 
 Realtime handles audio transport and conversational delivery. Spatial changes and substantive generated content should be delegated to Astra. Acknowledging a request is fine while geometry builds; an explanation must not claim a part has appeared before the device confirms it. A tap provides the part ID for “this.” Ask for clarification when selection and context do not resolve the reference.
 
-Use [`gpt-realtime-2.1`](https://developers.openai.com/api/docs/models/gpt-realtime-2.1) as the documented live voice candidate. OpenAI recommends WebRTC for mobile, with a backend sideband able to control the session. A native Swift WebRTC integration has not been proven here. Timebox that transport decision on the device: a working native WebRTC dependency is preferable; `AVAudioEngine` plus WebSocket is a viable spike candidate if we accept implementing audio conversion, playback accounting, route handling, and interruption. [WebRTC](https://developers.openai.com/api/docs/guides/realtime-webrtc), [server controls](https://developers.openai.com/api/docs/guides/realtime-server-controls).
+Use [`gpt-realtime-2.1`](https://developers.openai.com/api/docs/models/gpt-realtime-2.1) over the implemented native Swift WebSocket and `AVAudioEngine` path. WebRTC and a backend sideband remain unchosen alternatives, not the current transport. [Conversation interruption](https://developers.openai.com/api/docs/guides/realtime-conversations#interruption-and-truncation).
 
 For WebSocket audio, stop actual playback on interruption and truncate conversation audio to what was played. Speech cancellation and geometry-job cancellation are separate operations. New voice corrections must reach an active Astra request instead of waiting for an old bridge call to complete. [Conversation interruption](https://developers.openai.com/api/docs/guides/realtime-conversations#interruption-and-truncation). A chained speech-to-text → Astra → text-to-speech loop is an available fallback, but does not establish the desired fluid speech-to-speech experience. [Voice architectures](https://developers.openai.com/api/docs/guides/voice-agents).
 
 ## Astra-specific capability demonstrations
 
-1. **Async tools:** keep working while the application's geometry job runs, then use its actual result. Async execution does not host or manage the job for us. [Async tools](https://developers.openai.com/api/docs/guides/async-tool-calling).
-2. **Mid-turn steering:** while generating an assembly, accept “Actually, just show the cooling system” through Responses WebSocket steering. The update is queued and produces a continuation; it does not retract sent output, undo scene changes, or cancel tools. Use an application generation epoch to fence late work. [Steering](https://developers.openai.com/api/docs/guides/steering).
-3. **Visual correction — optional after the core loop:** provide a rendered snapshot plus scene IDs, ask Astra to identify a layout problem, and apply its corrective patch. Geometry checks remain necessary; model self-review alone is not acceptance evidence.
+1. **Direct structured proposal:** the service makes one fresh HTTP Responses request using `propose_scene`; its complete JSON result is normalized and sent to Swift. PTC, async tools, and Responses steering are future experiments, not current capabilities.
+2. **Visual correction — optional after the core loop:** provide a rendered snapshot plus scene IDs, ask Astra to identify a layout problem, and apply its corrective patch. Geometry checks remain necessary; model self-review alone is not acceptance evidence.
 
-Use small semantic output chunks so steering does not have to wait for a huge mesh description to finish. Start with low reasoning for routine commands and compare more reasoning for difficult generation. The model's documentation establishes supported features, not acceptable latency or geometry quality for our use case. [Model guidance](https://developers.openai.com/api/docs/guides/latest-model).
+Keep the first proposal bounded and complete. Start with low reasoning for routine commands and compare more reasoning for difficult generation. The model's documentation establishes supported features, not acceptable latency or geometry quality for our use case. [Model guidance](https://developers.openai.com/api/docs/guides/latest-model).
 
 ## Demo and verification
 
@@ -112,9 +111,9 @@ Keep one useful failure/diagnosis/fix in the development record. A clean second 
 
 ## What remains unverified
 
-- A signed build, camera/microphone operation, and live tracking on the target devices: iPad Air M4 on iPadOS 26.5 first, iPhone 15 Pro second. Xcode 26.6 is installed; the latest device check found the iPhone available, while the iPad still needs pairing.
-- API access to the chosen Astra and Realtime models; transport, interruption, and latency on venue networking.
-- Asset choice, component separation, redistribution rights, and hardware reference accuracy.
-- Live geometry quality, usable generation time, device performance, and successful Quest execution.
+- Physical pointing accuracy, microphone/playback quality, interruption behavior, and the complete spoken loop. The signed app and rear-camera view already run on the verified iPad Air 13-inch (M4), iPadOS 26.5, with Developer Mode enabled. The available iPhone 15 Pro on iOS 26.6.1 has not yet run this app.
+- Full native service round trips and latency on venue networking. Separate live headless generation/explanation runs took approximately 10–24 seconds; these are not device display latency measurements.
+- Imported CAD/USDZ hierarchy, redistribution rights, and hardware reference accuracy. The bundled starting rack is an original authored schematic JSON assembly.
+- Generalization beyond the first generated fan/rack examples, conversational generation time, sustained device performance, and Quest execution.
 
 Possible references, not accepted dependencies: [Dell R760 interior documentation](https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/inside-the-system?guid=guid-043d9f52-a16e-4494-a65a-128c47fd4ea4&lang=en-us) for a particular server layout; [Poly Pizza rack](https://poly.pizza/m/6ijQclm8jxw) as a potential exterior (agent found an attribution license; hierarchy and interior detail still need inspection). Authoring a small reference assembly may be faster than repairing an unsuitable model.

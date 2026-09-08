@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "geometrySemanticsVersion": 1,
+  "documentId": "document_fixture",
+  "geometryDefinitions": [
+    {
+      "geometryId": "geometry_box",
+      "contentHash": "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb",
+      "recipe": { "kind": "box", "size": [0.4, 0.2, 0.6] }
+    }
+  ],
+  "materials": [
+    { "materialId": "material_blue", "baseColorLinear": [0.05, 0.2, 0.8, 1], "metallic": 0.2, "roughness": 0.6 }
+  ],
+  "nodes": [
+    {
+      "nodeId": "node_group",
+      "transform": { "translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+      "isVisible": true,
+      "semantic": { "name": "Fixture group", "role": "group" },
+      "provenance": { "origin": "authored", "factualSupport": "illustrative", "sourceRefs": [] }
+    },
+    {
+      "nodeId": "node_box",
+      "parentId": "node_group",
+      "geometryId": "geometry_box",
+      "materialId": "material_blue",
+      "transform": { "translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+      "isVisible": true,
+      "semantic": { "name": "Box" },
+      "provenance": { "origin": "generated", "factualSupport": "illustrative", "sourceRefs": [] }
+    }
+  ],
+  "relationships": []
+}

@@ -1,0 +1,31 @@
+name: AstraPointingReplay
+options:
+  bundleIdPrefix: com.astra
+  deploymentTarget:
+    macOS: "26.0"
+  developmentLanguage: en
+  xcodeVersion: "26.0"
+packages:
+  SpatialKit:
+    path: ../../packages/SpatialKit
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    MACOSX_DEPLOYMENT_TARGET: "26.0"
+targets:
+  AstraPointingReplay:
+    type: tool
+    platform: macOS
+    sources:
+      - path: Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.astra.pointing-replay
+        PRODUCT_NAME: astra-pointing-replay
+        CODE_SIGNING_ALLOWED: NO
+        CODE_SIGNING_REQUIRED: NO
+    dependencies:
+      - package: SpatialKit
+        product: SpatialApple

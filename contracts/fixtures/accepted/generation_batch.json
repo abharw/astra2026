@@ -1,0 +1,33 @@
+{
+  "type": "generation.batch",
+  "protocolVersion": 1,
+  "requestId": "request_batch_1",
+  "sceneId": "scene_fixture",
+  "generationId": "generation_1",
+  "intentEpoch": 3,
+  "sequence": 1,
+  "payloadHash": "747815843c7f19dfe783690a2220d8b6d6fe9b37449b1250e6ece98d16a1f678",
+  "operations": [
+    {
+      "op": "put.geometry",
+      "geometry": {
+        "geometryId": "geometry_box",
+        "contentHash": "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb",
+        "recipe": { "kind": "box", "size": [0.4, 0.2, 0.6] }
+      }
+    },
+    {
+      "op": "create.node",
+      "node": {
+        "nodeId": "node_box",
+        "parentId": "node_group",
+        "geometryId": "geometry_box",
+        "materialId": "material_blue",
+        "transform": { "translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+        "isVisible": true,
+        "semantic": { "name": "Box" },
+        "provenance": { "origin": "generated", "factualSupport": "illustrative", "sourceRefs": [] }
+      }
+    }
+  ]
+}

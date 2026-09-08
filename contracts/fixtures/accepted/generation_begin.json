@@ -1,0 +1,10 @@
+{
+  "type": "generation.begin",
+  "protocolVersion": 1,
+  "requestId": "request_begin_1",
+  "sceneId": "scene_fixture",
+  "generationId": "generation_1",
+  "intentEpoch": 3,
+  "initialBaseRevision": 7,
+  "scopeParentNodeId": "node_group"
+}

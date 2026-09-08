@@ -1,0 +1,7172 @@
+{
+  "documentId" : "authored-server-rack-v2",
+  "geometryDefinitions" : [
+    {
+      "contentHash" : "a1715c929f741928d2120bf14e3afd71ae040ddd1f3173d976a5537e234c1781",
+      "geometryId" : "post",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.022,
+          0.6,
+          0.022
+        ]
+      }
+    },
+    {
+      "contentHash" : "deb4f7be8344ca16d686b1d27e111854d340dc4bf42f82f72f5c66d8e39c8e04",
+      "geometryId" : "beam-x",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.48,
+          0.018,
+          0.024
+        ]
+      }
+    },
+    {
+      "contentHash" : "84d7429512678a9562c91fff1657393c95bbd300d464ac28621efc4728fb84e8",
+      "geometryId" : "beam-z",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.022,
+          0.018,
+          0.856
+        ]
+      }
+    },
+    {
+      "contentHash" : "bf205f810fa181898e5320cd76d2be461561a1c60adf45a050124d769f753f4d",
+      "geometryId" : "u-marker",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.009,
+          0.009,
+          0.003
+        ]
+      }
+    },
+    {
+      "contentHash" : "cfefad3de975da86f06d61ebd103ac3f10eb7c317ec746f48e7757c479af275f",
+      "geometryId" : "server-floor",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.4,
+          0.008,
+          0.646
+        ]
+      }
+    },
+    {
+      "contentHash" : "7825c1bad8d01f7ad167ae73084052e01c0cc3816a127ccca8e27c7155d53636",
+      "geometryId" : "server-side",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.012,
+          0.08,
+          0.646
+        ]
+      }
+    },
+    {
+      "contentHash" : "6cd59eeff9251457ed7ca234cf83b76a9d573a31f046d5a39496fa3b6b5dc467",
+      "geometryId" : "server-rear",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.4,
+          0.08,
+          0.01
+        ]
+      }
+    },
+    {
+      "contentHash" : "54c39cdb353066df316cfa38d1c6998b0354e26ffab6b7abc161caf88bd6f543",
+      "geometryId" : "server-cover",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.4,
+          0.008,
+          0.636
+        ]
+      }
+    },
+    {
+      "contentHash" : "ab3ae4b4c39aeed7d831cb45b8144cee78b89fdbe62346cb1d7b147a32cc2905",
+      "geometryId" : "rack-ear",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.026,
+          0.08,
+          0.012
+        ]
+      }
+    },
+    {
+      "contentHash" : "328315742dc9b125d0ce89f183c52ecd34c4c3a18e19f1e8ed071847c01eeb5c",
+      "geometryId" : "drive",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.04,
+          0.05,
+          0.032
+        ]
+      }
+    },
+    {
+      "contentHash" : "2d687a8f1e1d9100897a9a83e713b71331269e56e87c4770caff62a01bd097de",
+      "geometryId" : "drive-handle",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.034,
+          0.006,
+          0.006
+        ]
+      }
+    },
+    {
+      "contentHash" : "268faf1f558744b65b17971d2469aa6146a1738c9afd33ac11a264c2c0b373ad",
+      "geometryId" : "light",
+      "recipe" : {
+        "kind" : "sphere",
+        "radius" : 0.004,
+        "segments" : 8
+      }
+    },
+    {
+      "contentHash" : "2ffd6fe7b96073af58a2d5e7a031355d310d1f68f8d151a449490793f2663089",
+      "geometryId" : "control",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.025,
+          0.05,
+          0.014
+        ]
+      }
+    },
+    {
+      "contentHash" : "a3618d6b96cd8584a7366495245d09960049340a681e455d60188ff589a86d27",
+      "geometryId" : "motherboard",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.31,
+          0.008,
+          0.21
+        ]
+      }
+    },
+    {
+      "contentHash" : "c2046397ecb1f9170be423f1649f7ab15fb54e2d30b4031bf3270869f82e31df",
+      "geometryId" : "cpu",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.05,
+          0.01,
+          0.055
+        ]
+      }
+    },
+    {
+      "contentHash" : "011fd8bf59e1139a4710ea4aecc1c14a6f8f3a402fedc10f921d5c5a7c99b2bb",
+      "geometryId" : "heatsink-base",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.066,
+          0.01,
+          0.073
+        ]
+      }
+    },
+    {
+      "contentHash" : "99a85240118650ced1f3702f71cae33ac82b766eb75b0098a3175d7567ce41a2",
+      "geometryId" : "heatsink-fin",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.005,
+          0.035,
+          0.068
+        ]
+      }
+    },
+    {
+      "contentHash" : "adc391a66a100d12d056a6451f643fdbb6e42ab5b79fd2301872ac80b57bff9c",
+      "geometryId" : "dimm",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.007,
+          0.04,
+          0.058
+        ]
+      }
+    },
+    {
+      "contentHash" : "8df4e94eed11f861750b6d7ef15757521f06622cbee1b2927ad77f7fed2fbd88",
+      "geometryId" : "dimm-bank",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.055,
+          0.004,
+          0.07
+        ]
+      }
+    },
+    {
+      "contentHash" : "45dc93e1f00fee64434fb0ae17cf87b9e3276293a9ea4af03cfeb787fb69d3e6",
+      "geometryId" : "fan",
+      "recipe" : {
+        "height" : 0.03,
+        "kind" : "cylinder",
+        "radialSegments" : 12,
+        "radius" : 0.027
+      }
+    },
+    {
+      "contentHash" : "adc14913c03cf4f050252ba94e39c900f2ef9eec376930a2735cb90d8ee73a68",
+      "geometryId" : "fan-hub",
+      "recipe" : {
+        "height" : 0.034,
+        "kind" : "cylinder",
+        "radialSegments" : 12,
+        "radius" : 0.009
+      }
+    },
+    {
+      "contentHash" : "f349df80149a5bd8c12980b55d7804754af41680ac22b24d8c446efb39024b67",
+      "geometryId" : "fan-cage",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.055,
+          0.06,
+          0.038
+        ]
+      }
+    },
+    {
+      "contentHash" : "96b55ee2b0c346f50d9468c711c780ec61c55225b30b4b7f6f9b090f859ab318",
+      "geometryId" : "backplane",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.32,
+          0.05,
+          0.01
+        ]
+      }
+    },
+    {
+      "contentHash" : "b398b77884105c6f884d187d14debe19b50dd1336217f7eb202a8215c9eb9ed7",
+      "geometryId" : "psu",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.085,
+          0.05,
+          0.14
+        ]
+      }
+    },
+    {
+      "contentHash" : "1a3373060c102c52c1264841732e6a70d47a2344ad85a23ead03f4a979fc4866",
+      "geometryId" : "handle",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.055,
+          0.008,
+          0.012
+        ]
+      }
+    },
+    {
+      "contentHash" : "af4a9d5814fc2c6d5345b83b791b5a4b1c74e6db2ac23b50854e855080378fe4",
+      "geometryId" : "riser",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.06,
+          0.045,
+          0.09
+        ]
+      }
+    },
+    {
+      "contentHash" : "3041e84642d5aead6a31a6958d5a7363b048cff1e08b935d84175b73aa921318",
+      "geometryId" : "switch",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.4,
+          0.034,
+          0.3
+        ]
+      }
+    },
+    {
+      "contentHash" : "139fd0c6b6631112ac2590ad27ce511edccd46a6018f9c19a26fc565ccd30d86",
+      "geometryId" : "port",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.011,
+          0.01,
+          0.006
+        ]
+      }
+    },
+    {
+      "contentHash" : "f2f913b394dfaec1361591e3da41fb283840bfff1169d7e7f0031a1db36ab4d8",
+      "geometryId" : "vent",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.007,
+          0.026,
+          0.004
+        ]
+      }
+    },
+    {
+      "contentHash" : "418025e917e418f7efc825c421c30b2459092d306d5f33ea4335ac5c70dea1dc",
+      "geometryId" : "pdu",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.032,
+          0.43,
+          0.038
+        ]
+      }
+    },
+    {
+      "contentHash" : "f858e04cef13fece45f0135b0263b4e90c7d55e79fdc6600996605b278c04daa",
+      "geometryId" : "outlet",
+      "recipe" : {
+        "kind" : "box",
+        "size" : [
+          0.019,
+          0.026,
+          0.004
+        ]
+      }
+    },
+    {
+      "contentHash" : "638d91a86904777d0fad8d5ceb27f505109a3beec5c8b74a9d9c5d83ebdba25b",
+      "geometryId" : "cable",
+      "recipe" : {
+        "kind" : "tube",
+        "points" : [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0.1
+          ],
+          [
+            0.04,
+            0,
+            0.16
+          ]
+        ],
+        "radialSegments" : 8,
+        "radius" : 0.004
+      }
+    }
+  ],
+  "geometrySemanticsVersion" : 1,
+  "materials" : [
+    {
+      "baseColorLinear" : [
+        0.035,
+        0.045,
+        0.055,
+        1
+      ],
+      "materialId" : "rack-black",
+      "metallic" : 0.72,
+      "roughness" : 0.34
+    },
+    {
+      "baseColorLinear" : [
+        0.17,
+        0.19,
+        0.21,
+        1
+      ],
+      "materialId" : "chassis",
+      "metallic" : 0.72,
+      "roughness" : 0.38
+    },
+    {
+      "baseColorLinear" : [
+        0.25,
+        0.28,
+        0.3,
+        1
+      ],
+      "materialId" : "cover",
+      "metallic" : 0.78,
+      "roughness" : 0.33
+    },
+    {
+      "baseColorLinear" : [
+        0.025,
+        0.03,
+        0.035,
+        1
+      ],
+      "materialId" : "dark-plastic",
+      "metallic" : 0.08,
+      "roughness" : 0.62
+    },
+    {
+      "baseColorLinear" : [
+        0.035,
+        0.19,
+        0.12,
+        1
+      ],
+      "materialId" : "pcb",
+      "metallic" : 0.12,
+      "roughness" : 0.62
+    },
+    {
+      "baseColorLinear" : [
+        0.48,
+        0.52,
+        0.55,
+        1
+      ],
+      "materialId" : "aluminum",
+      "metallic" : 0.85,
+      "roughness" : 0.28
+    },
+    {
+      "baseColorLinear" : [
+        0.04,
+        0.27,
+        0.15,
+        1
+      ],
+      "materialId" : "memory",
+      "metallic" : 0.14,
+      "roughness" : 0.58
+    },
+    {
+      "baseColorLinear" : [
+        0.03,
+        0.34,
+        0.78,
+        1
+      ],
+      "materialId" : "service-blue",
+      "metallic" : 0.12,
+      "roughness" : 0.32
+    },
+    {
+      "baseColorLinear" : [
+        0.04,
+        0.19,
+        0.26,
+        1
+      ],
+      "materialId" : "network",
+      "metallic" : 0.35,
+      "roughness" : 0.48
+    },
+    {
+      "baseColorLinear" : [
+        0.31,
+        0.32,
+        0.34,
+        1
+      ],
+      "materialId" : "power",
+      "metallic" : 0.52,
+      "roughness" : 0.45
+    },
+    {
+      "baseColorLinear" : [
+        0.05,
+        0.92,
+        0.3,
+        1
+      ],
+      "materialId" : "led-green",
+      "metallic" : 0.05,
+      "roughness" : 0.18
+    },
+    {
+      "baseColorLinear" : [
+        0.02,
+        0.25,
+        0.74,
+        1
+      ],
+      "materialId" : "cable-blue",
+      "metallic" : 0.05,
+      "roughness" : 0.5
+    },
+    {
+      "baseColorLinear" : [
+        0.92,
+        0.2,
+        0.03,
+        1
+      ],
+      "materialId" : "cable-orange",
+      "metallic" : 0.05,
+      "roughness" : 0.5
+    }
+  ],
+  "nodes" : [
+    {
+      "isVisible" : true,
+      "nodeId" : "rack",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "authored",
+        "sourceRefs" : [
+          "https://www.se.com/us/en/product/AR3100/apc-netshelter-sx-server-rack-enclosure-42u-black-1991h-x-600w-x-1070d-mm-taa/"
+        ]
+      },
+      "semantic" : {
+        "description" : "A 12U teaching cutaway derived from 19-inch rack and APC 42U proportions. Compressed to a 0.60 m tabletop height; rail holes and small dimensions are schematic.",
+        "name" : "Open-frame tabletop server rack",
+        "role" : "assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "post",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-post-1",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Rack post 1",
+        "role" : "mounting-rail"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.23,
+          0.3,
+          -0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "post",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-post-2",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Rack post 2",
+        "role" : "mounting-rail"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.23,
+          0.3,
+          -0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "post",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-post-3",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Rack post 3",
+        "role" : "mounting-rail"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.23,
+          0.3,
+          0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-1",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 1",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          -0.25,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-2",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 2",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          -0.15,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-3",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 3",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          -0.04999999999999999,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-4",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 4",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          0.050000000000000044,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-5",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 5",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          0.15000000000000002,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-3-u-marker-6",
+      "parentId" : "rack-post-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 6",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0115,
+          0.25,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "post",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-post-4",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Rack post 4",
+        "role" : "mounting-rail"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.23,
+          0.3,
+          0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-1",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 1",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          -0.25,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-2",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 2",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          -0.15,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-3",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 3",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          -0.04999999999999999,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-4",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 4",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          0.050000000000000044,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-5",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 5",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          0.15000000000000002,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "u-marker",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "rack-post-4-u-marker-6",
+      "parentId" : "rack-post-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One marker per displayed rack unit; the three-hole EIA pattern is simplified.",
+        "name" : "Paired U position marker 6",
+        "role" : "mounting-hole"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.0115,
+          0.25,
+          0.012
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-x",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-bottom-front",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Bottom front beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.01,
+          0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-x",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-bottom-rear",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Bottom rear beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.01,
+          -0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-z",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-bottom-left",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Bottom left beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.23,
+          0.01,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-z",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-bottom-right",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Bottom right beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.23,
+          0.01,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-x",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-top-front",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Top front beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.59,
+          0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-x",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-top-rear",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Top rear beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.59,
+          -0.417
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-z",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-top-left",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Top left beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.23,
+          0.59,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "beam-z",
+      "isVisible" : true,
+      "materialId" : "rack-black",
+      "nodeId" : "rack-top-right",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Top right beam",
+        "role" : "structure"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.23,
+          0.59,
+          0
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "authored",
+        "sourceRefs" : [
+          "https://www.dell.com/support/manuals/en-us/oth-r760/per760_ism_pub/chassis-dimensions?guid=guid-04578793-7445-43f5-acc4-a0b11f85eb5f&lang=en-us",
+          "https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/inside-the-system?guid=guid-043d9f52-a16e-4494-a65a-128c47fd4ea4&lang=en-us",
+          "https://www.dell.com/support/manuals/en-us/poweredge-r760/per760_ism_pub/system-overview?guid=guid-76d1f6a6-2a97-4b55-bef5-9db0afcce302&lang=en-us"
+        ]
+      },
+      "semantic" : {
+        "description" : "Reference-based 2U envelope and component topology. Pulled forward with cover lifted; internal sizes and installed DIMM choice are illustrative.",
+        "name" : "Server 1 — PowerEdge R760 teaching cutaway",
+        "role" : "compute-server"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.36,
+          0.075
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-floor",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-floor",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Chassis floor",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-side",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-left-wall",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Left chassis wall",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.194,
+          0.04,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-side",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-right-wall",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Right chassis wall",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.194,
+          0.04,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-rear",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-rear-wall",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Rear I/O wall",
+        "role" : "rear-io"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.04,
+          -0.318
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-cover",
+      "isVisible" : true,
+      "materialId" : "cover",
+      "nodeId" : "server-1-cover",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Parked above the chassis for the teaching view; normally closes the enclosure.",
+        "name" : "Lifted server cover",
+        "role" : "removable-cover"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.105,
+          -0.025
+        ]
+      }
+    },
+    {
+      "geometryId" : "rack-ear",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-left-ear",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Left rack ear",
+        "role" : "rack-handle"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.213,
+          0.04,
+          0.321
+        ]
+      }
+    },
+    {
+      "geometryId" : "rack-ear",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-1-right-ear",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Right rack ear",
+        "role" : "rack-handle"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.213,
+          0.04,
+          0.321
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1-front-storage",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "This teaching model selects the documented 8 x 2.5-inch front option.",
+        "name" : "Eight-bay front storage group",
+        "role" : "front-drive-bays"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.031,
+          0.316
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-1",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 1",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.143,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-1-handle",
+      "parentId" : "server-1-drive-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 1 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-2",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 2",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.10199999999999998,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-2-handle",
+      "parentId" : "server-1-drive-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 2 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-3",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 3",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.060999999999999985,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-3-handle",
+      "parentId" : "server-1-drive-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 3 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-4",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 4",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.01999999999999999,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-4-handle",
+      "parentId" : "server-1-drive-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 4 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-5",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 5",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.02100000000000002,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-5-handle",
+      "parentId" : "server-1-drive-5",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 5 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-6",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 6",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.06200000000000003,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-6-handle",
+      "parentId" : "server-1-drive-6",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 6 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-7",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 7",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.10300000000000001,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-7-handle",
+      "parentId" : "server-1-drive-7",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 7 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-drive-8",
+      "parentId" : "server-1-front-storage",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive carrier 8",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.14400000000000004,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive-handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-drive-8-handle",
+      "parentId" : "server-1-drive-8",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Drive 8 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.017,
+          0.019
+        ]
+      }
+    },
+    {
+      "geometryId" : "control",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-left-control",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Left control panel",
+        "role" : "front-control"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.181,
+          0.034,
+          0.326
+        ]
+      }
+    },
+    {
+      "geometryId" : "light",
+      "isVisible" : true,
+      "materialId" : "led-green",
+      "nodeId" : "server-1-power-light",
+      "parentId" : "server-1-left-control",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Power status light",
+        "role" : "status-indicator"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.012,
+          0.01
+        ]
+      }
+    },
+    {
+      "geometryId" : "control",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-right-control",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Right control panel and service tag",
+        "role" : "front-control"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.181,
+          0.034,
+          0.326
+        ]
+      }
+    },
+    {
+      "geometryId" : "backplane",
+      "isVisible" : true,
+      "materialId" : "pcb",
+      "nodeId" : "server-1-backplane",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Front drive backplane",
+        "role" : "storage-backplane"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.031,
+          0.27
+        ]
+      }
+    },
+    {
+      "geometryId" : "motherboard",
+      "isVisible" : true,
+      "materialId" : "pcb",
+      "nodeId" : "server-1-motherboard",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "System motherboard",
+        "role" : "system-board"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.01,
+          -0.04
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1-fan-wall",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Dell documents up to six hot-plug cooling fans.",
+        "name" : "Six-fan hot-swap cooling wall",
+        "role" : "cooling-assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.037,
+          0.19
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-1-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 1 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.145,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-1",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 1",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.145,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-1-hub",
+      "parentId" : "server-1-fan-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 1 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-2-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 2 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.087,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-2",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 2",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.087,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-2-hub",
+      "parentId" : "server-1-fan-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 2 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-3-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 3 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.028999999999999984,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-3",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 3",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.028999999999999984,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-3-hub",
+      "parentId" : "server-1-fan-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 3 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-4-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 4 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.029000000000000026,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-4",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 4",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.029000000000000026,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-4-hub",
+      "parentId" : "server-1-fan-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 4 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-5-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 5 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.08700000000000002,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-5",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 5",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.08700000000000002,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-5-hub",
+      "parentId" : "server-1-fan-5",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 5 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-cage",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-fan-6-cage",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 6 cage",
+        "role" : "fan-carrier"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.14500000000000005,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-fan-6",
+      "parentId" : "server-1-fan-wall",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Cooling fan 6",
+        "role" : "cooling-fan"
+      },
+      "transform" : {
+        "rotation" : [
+          0.7071067811865475,
+          0,
+          0,
+          0.7071067811865476
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.14500000000000005,
+          0,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "fan-hub",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-fan-6-hub",
+      "parentId" : "server-1-fan-6",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Fan 6 service hub",
+        "role" : "service-point"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1-cpu-1",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One of the R760's two documented processor positions.",
+        "name" : "CPU socket 1",
+        "role" : "processor-assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.075,
+          0.012,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "cpu",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-cpu-1-package",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 package",
+        "role" : "processor"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-base",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-heatsink-base",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink base",
+        "role" : "heat-sink"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.012,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-fin-1",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink fin 1",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.024,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-fin-2",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink fin 2",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.012,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-fin-3",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink fin 3",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-fin-4",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink fin 4",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.012000000000000004,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-1-fin-5",
+      "parentId" : "server-1-cpu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 1 heat sink fin 5",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.024,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1-cpu-2",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "One of the R760's two documented processor positions.",
+        "name" : "CPU socket 2",
+        "role" : "processor-assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.075,
+          0.012,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "cpu",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-cpu-2-package",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 package",
+        "role" : "processor"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-base",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-heatsink-base",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink base",
+        "role" : "heat-sink"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.012,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-fin-1",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink fin 1",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.024,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-fin-2",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink fin 2",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.012,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-fin-3",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink fin 3",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-fin-4",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink fin 4",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.012000000000000004,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "heatsink-fin",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-1-cpu-2-fin-5",
+      "parentId" : "server-1-cpu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "CPU 2 heat sink fin 5",
+        "role" : "heat-sink-fin"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.024,
+          0.034,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm-bank",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-dimm-bank-1",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Represents eight of the documented 32 DDR5 sockets.",
+        "name" : "DIMM socket bank 1",
+        "role" : "memory-sockets"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.142,
+          0.009,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-1-module-1",
+      "parentId" : "server-1-dimm-bank-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 1",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.018,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-1-module-2",
+      "parentId" : "server-1-dimm-bank-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 2",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.005999999999999998,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-1-module-3",
+      "parentId" : "server-1-dimm-bank-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 3",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.006000000000000002,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-1-module-4",
+      "parentId" : "server-1-dimm-bank-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 4",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.018000000000000006,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm-bank",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-dimm-bank-2",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Represents eight of the documented 32 DDR5 sockets.",
+        "name" : "DIMM socket bank 2",
+        "role" : "memory-sockets"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.112,
+          0.009,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-2-module-1",
+      "parentId" : "server-1-dimm-bank-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 5",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.018,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-2-module-2",
+      "parentId" : "server-1-dimm-bank-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 6",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.005999999999999998,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-2-module-3",
+      "parentId" : "server-1-dimm-bank-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 7",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.006000000000000002,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-2-module-4",
+      "parentId" : "server-1-dimm-bank-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 8",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.018000000000000006,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm-bank",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-dimm-bank-3",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Represents eight of the documented 32 DDR5 sockets.",
+        "name" : "DIMM socket bank 3",
+        "role" : "memory-sockets"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.112,
+          0.009,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-3-module-1",
+      "parentId" : "server-1-dimm-bank-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 9",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.018,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-3-module-2",
+      "parentId" : "server-1-dimm-bank-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 10",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.005999999999999998,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-3-module-3",
+      "parentId" : "server-1-dimm-bank-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 11",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.006000000000000002,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-3-module-4",
+      "parentId" : "server-1-dimm-bank-3",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 12",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.018000000000000006,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm-bank",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-dimm-bank-4",
+      "parentId" : "server-1-motherboard",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Represents eight of the documented 32 DDR5 sockets.",
+        "name" : "DIMM socket bank 4",
+        "role" : "memory-sockets"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.142,
+          0.009,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-4-module-1",
+      "parentId" : "server-1-dimm-bank-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 13",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.018,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-4-module-2",
+      "parentId" : "server-1-dimm-bank-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 14",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.005999999999999998,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-4-module-3",
+      "parentId" : "server-1-dimm-bank-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 15",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.006000000000000002,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "dimm",
+      "isVisible" : true,
+      "materialId" : "memory",
+      "nodeId" : "server-1-dimm-bank-4-module-4",
+      "parentId" : "server-1-dimm-bank-4",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative half-populated memory configuration.",
+        "name" : "DIMM module 16",
+        "role" : "memory-module"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.018000000000000006,
+          0.022,
+          0
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-1-rear-risers",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Four schematic cages correspond to the documented rear riser groups.",
+        "name" : "Rear expansion area",
+        "role" : "pcie-expansion"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.035,
+          -0.225
+        ]
+      }
+    },
+    {
+      "geometryId" : "riser",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-riser-1",
+      "parentId" : "server-1-rear-risers",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PCIe riser cage 1",
+        "role" : "expansion-riser"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.105,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "riser",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-riser-2",
+      "parentId" : "server-1-rear-risers",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PCIe riser cage 2",
+        "role" : "expansion-riser"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.03499999999999999,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "riser",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-riser-3",
+      "parentId" : "server-1-rear-risers",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PCIe riser cage 3",
+        "role" : "expansion-riser"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.03500000000000002,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "riser",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-1-riser-4",
+      "parentId" : "server-1-rear-risers",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PCIe riser cage 4",
+        "role" : "expansion-riser"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.10500000000000002,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "psu",
+      "isVisible" : true,
+      "materialId" : "power",
+      "nodeId" : "server-1-psu-1",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Redundant power supply 1",
+        "role" : "power-supply"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.145,
+          0.035,
+          -0.24
+        ]
+      }
+    },
+    {
+      "geometryId" : "handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-psu-1-handle",
+      "parentId" : "server-1-psu-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PSU 1 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          -0.076
+        ]
+      }
+    },
+    {
+      "geometryId" : "psu",
+      "isVisible" : true,
+      "materialId" : "power",
+      "nodeId" : "server-1-psu-2",
+      "parentId" : "server-1",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Redundant power supply 2",
+        "role" : "power-supply"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.145,
+          0.035,
+          -0.24
+        ]
+      }
+    },
+    {
+      "geometryId" : "handle",
+      "isVisible" : true,
+      "materialId" : "service-blue",
+      "nodeId" : "server-1-psu-2-handle",
+      "parentId" : "server-1-psu-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PSU 2 release handle",
+        "role" : "service-latch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          -0.076
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "server-2",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic closed server; detailed internals are represented by Server 1.",
+        "name" : "Server 2 — closed 2U compute node",
+        "role" : "compute-server"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.205,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-floor",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-2-chassis",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 chassis",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-side",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-2-left-wall",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 left wall",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.194,
+          0.04,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-side",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-2-right-wall",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 right wall",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.194,
+          0.04,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-rear",
+      "isVisible" : true,
+      "materialId" : "chassis",
+      "nodeId" : "server-2-rear-wall",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 rear wall",
+        "role" : "rear-io"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.04,
+          -0.318
+        ]
+      }
+    },
+    {
+      "geometryId" : "server-cover",
+      "isVisible" : true,
+      "materialId" : "cover",
+      "nodeId" : "server-2-cover",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 cover",
+        "role" : "cover"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.08,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-1",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 1",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.143,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-2",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 2",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.10199999999999998,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-3",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 3",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.060999999999999985,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-4",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 4",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.01999999999999999,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-5",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 5",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.02100000000000002,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-6",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 6",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.06200000000000003,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-7",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 7",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.10300000000000001,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "drive",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "server-2-drive-8",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 drive bay 8",
+        "role" : "hot-swap-drive"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.14400000000000004,
+          0.031,
+          0.323
+        ]
+      }
+    },
+    {
+      "geometryId" : "vent",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-2-vent-1",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 front vent 1",
+        "role" : "air-intake"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.016,
+          0.031,
+          0.341
+        ]
+      }
+    },
+    {
+      "geometryId" : "vent",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-2-vent-2",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 front vent 2",
+        "role" : "air-intake"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.008,
+          0.031,
+          0.341
+        ]
+      }
+    },
+    {
+      "geometryId" : "vent",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-2-vent-3",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 front vent 3",
+        "role" : "air-intake"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.031,
+          0.341
+        ]
+      }
+    },
+    {
+      "geometryId" : "vent",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-2-vent-4",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 front vent 4",
+        "role" : "air-intake"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.008,
+          0.031,
+          0.341
+        ]
+      }
+    },
+    {
+      "geometryId" : "vent",
+      "isVisible" : true,
+      "materialId" : "aluminum",
+      "nodeId" : "server-2-vent-5",
+      "parentId" : "server-2",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Server 2 front vent 5",
+        "role" : "air-intake"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.016,
+          0.031,
+          0.341
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "switch",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative switch with individually addressable front ports.",
+        "name" : "24-port top-of-rack network switch",
+        "role" : "network-switch"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.535,
+          0.055
+        ]
+      }
+    },
+    {
+      "geometryId" : "switch",
+      "isVisible" : true,
+      "materialId" : "network",
+      "nodeId" : "switch-chassis",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Switch chassis",
+        "role" : "chassis"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-1",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 1",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.132,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-2",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 2",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.10800000000000001,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-3",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 3",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.084,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-4",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 4",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.06,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-5",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 5",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.036000000000000004,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-6",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 6",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.01200000000000001,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-7",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 7",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.01200000000000001,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-8",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 8",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.036000000000000004,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-9",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 9",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.06,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-10",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 10",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.08399999999999999,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-11",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 11",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.10799999999999998,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-12",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 12",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.132,
+          -0.006,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-13",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 13",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.132,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-14",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 14",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.10800000000000001,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-15",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 15",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.084,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-16",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 16",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.06,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-17",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 17",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.036000000000000004,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-18",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 18",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.01200000000000001,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-19",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 19",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.01200000000000001,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-20",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 20",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.036000000000000004,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-21",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 21",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.06,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-22",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 22",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.08399999999999999,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-23",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 23",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.10799999999999998,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "port",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "switch-port-24",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Network port 24",
+        "role" : "ethernet-port"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.132,
+          0.006999999999999999,
+          0.128
+        ]
+      }
+    },
+    {
+      "geometryId" : "light",
+      "isVisible" : true,
+      "materialId" : "led-green",
+      "nodeId" : "switch-status",
+      "parentId" : "switch",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "Switch status light",
+        "role" : "status-indicator"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.18,
+          0.006,
+          0.13
+        ]
+      }
+    },
+    {
+      "isVisible" : true,
+      "nodeId" : "rear-pdu",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative PDU mounted at the rear side of the frame.",
+        "name" : "Vertical rack power distribution unit",
+        "role" : "power-distribution"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.205,
+          0.29,
+          -0.39
+        ]
+      }
+    },
+    {
+      "geometryId" : "pdu",
+      "isVisible" : true,
+      "materialId" : "power",
+      "nodeId" : "rear-pdu-body",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU body",
+        "role" : "power-distribution"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-1",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 1",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.175,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-2",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 2",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.12499999999999999,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-3",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 3",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.07499999999999998,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-4",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 4",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          -0.024999999999999967,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-5",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 5",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.025000000000000022,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-6",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 6",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.07500000000000001,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-7",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 7",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.12500000000000006,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "outlet",
+      "isVisible" : true,
+      "materialId" : "dark-plastic",
+      "nodeId" : "rear-pdu-outlet-8",
+      "parentId" : "rear-pdu",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Schematic authored geometry.",
+        "name" : "PDU outlet 8",
+        "role" : "power-outlet"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0.17500000000000004,
+          0.021
+        ]
+      }
+    },
+    {
+      "geometryId" : "cable",
+      "isVisible" : true,
+      "materialId" : "cable-blue",
+      "nodeId" : "network-cable-1",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative patch route; it does not assert a configured topology.",
+        "name" : "Patch cable 1",
+        "role" : "network-cable"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.13,
+          0.515,
+          0.13
+        ]
+      }
+    },
+    {
+      "geometryId" : "cable",
+      "isVisible" : true,
+      "materialId" : "cable-orange",
+      "nodeId" : "network-cable-2",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative patch route; it does not assert a configured topology.",
+        "name" : "Patch cable 2",
+        "role" : "network-cable"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.085,
+          0.515,
+          0.13
+        ]
+      }
+    },
+    {
+      "geometryId" : "cable",
+      "isVisible" : true,
+      "materialId" : "cable-blue",
+      "nodeId" : "network-cable-3",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative patch route; it does not assert a configured topology.",
+        "name" : "Patch cable 3",
+        "role" : "network-cable"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          -0.04000000000000001,
+          0.515,
+          0.13
+        ]
+      }
+    },
+    {
+      "geometryId" : "cable",
+      "isVisible" : true,
+      "materialId" : "cable-orange",
+      "nodeId" : "network-cable-4",
+      "parentId" : "rack",
+      "provenance" : {
+        "factualSupport" : "illustrative",
+        "origin" : "authored",
+        "sourceRefs" : [
+
+        ]
+      },
+      "semantic" : {
+        "description" : "Illustrative patch route; it does not assert a configured topology.",
+        "name" : "Patch cable 4",
+        "role" : "network-cable"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0.0050000000000000044,
+          0.515,
+          0.13
+        ]
+      }
+    }
+  ],
+  "relationships" : [
+    {
+      "description" : "Teaching relationship; cable routing and live configuration are not verified.",
+      "kind" : "illustrative-network-link",
+      "relationshipId" : "server-1-network-uplink",
+      "sourceNodeId" : "server-1",
+      "targetNodeId" : "switch"
+    },
+    {
+      "description" : "Teaching relationship; electrical configuration is not verified.",
+      "kind" : "illustrative-power-feed",
+      "relationshipId" : "server-1-power-feed",
+      "sourceNodeId" : "rear-pdu",
+      "targetNodeId" : "server-1"
+    },
+    {
+      "description" : "Teaching relationship; cable routing and live configuration are not verified.",
+      "kind" : "illustrative-network-link",
+      "relationshipId" : "server-2-network-uplink",
+      "sourceNodeId" : "server-2",
+      "targetNodeId" : "switch"
+    }
+  ],
+  "schemaVersion" : 1
+}

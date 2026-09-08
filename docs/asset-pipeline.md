@@ -1,17 +1,17 @@
 # Asset generation: the complete pipeline
 
-2026-09-08. Proposed design, with research-backed API capabilities and explicit implementation hypotheses. No live generation or latency benchmark has run. Read alongside [architecture.md](../architecture.md), [data formats](data-formats.md), and [storage](storage.md).
+2026-09-08. Current direct Astra-to-Swift path plus clearly marked future design. One fresh HTTP Responses request returns one complete `propose_scene` JSON proposal; [evidence](../evidence/README.md) records 10–24 second request-to-explanation times and distinguishes them from device display latency. Read alongside [architecture.md](../architecture.md), [data formats](data-formats.md), and [storage](storage.md).
 
 ## The decision
 
-Build an **editable procedural scene system**. Astra authors spatial source; a trusted compiler/validator turns it into scene data; Swift constructs geometry; RealityKit renders it; the app saves the editable scene when persistence is added.
+Build an **editable procedural scene system**. Astra authors spatial source; a trusted compiler/validator turns it into normalized JSON; Swift constructs the six supported geometry shapes; RealityKit renders them; manual SQLite checkpointing preserves the editable scene.
 
 Use one normalized scene representation and one native execution path. Give Astra two ways to author that representation:
 
-1. **Direct structured calls** for small creations, first useful visuals, and focused edits.
-2. **Short JavaScript programs through hosted Programmatic Tool Calling** when loops, arithmetic, and composition make a new assembly easier to express.
+1. **Direct structured calls** for small creations, first useful visuals, and focused edits. This is the current implementation baseline and emits one bounded complete proposal per request.
+2. **Programmatic Tool Calling** is a future experiment for loops, arithmetic, and composition; it is not used by the current service path.
 
-The direct path is the implementation baseline. Test the programmatic path with the same geometry capabilities before deciding how often Astra should use it. Neither path has been benchmarked here. This architecture gives model-generated code a useful role without making arbitrary code the device's execution format.
+Test the programmatic path with the same geometry capabilities before deciding how often Astra should use it. Neither path has been benchmarked here. This architecture gives model-generated code a useful role without making arbitrary code the device's execution format.
 
 ## 1. What “Astra generates an asset” literally means
 
@@ -71,7 +71,7 @@ Keep the provider-facing schema smaller than the complete saved-document format.
 
 ### Programmatic authoring
 
-For a new composed structure, Astra can write JavaScript that constructs the same proposal using loops, functions, arrays, and arithmetic, then calls a proposal tool once per useful batch. It should not call a network tool for every fin or screw.
+For a future authoring experiment, Astra could write JavaScript that constructs the same proposal using loops, functions, arrays, and arithmetic. The current service does not execute PTC programs or emit progressive batches.
 
 An illustrative code fragment could compute the placements:
 
@@ -83,13 +83,13 @@ const nodes = Array.from({ length: 24 }, (_, i) => ({
 }));
 ```
 
-OpenAI's hosted Programmatic Tool Calling runs generated JavaScript in isolated V8. The environment has no Node packages, general filesystem, direct network access, or persistent JavaScript state. The application executes returned permitted tool calls, not the program source itself. We cannot assume a custom geometry library can be imported there. The code constructs documented proposal data and calls an enabled tool. [Programmatic Tool Calling](https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling).
+If later evaluated, OpenAI's hosted Programmatic Tool Calling would run generated JavaScript in isolated V8. That future path is outside the current service, which uses one fresh HTTP Responses request and one complete JSON proposal. [Programmatic Tool Calling](https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling).
 
 Astra's demonstrated ability to construct editable Blender scenes supports trying code as an authoring interface. It does not establish that Blender, code authoring, or our pipeline meets conversational latency. [Architectural visualization with Astra](https://developers.openai.com/blog/architectural-visualization-with-astra).
 
 ### A constraint that changes the implementation
 
-PTC tools cannot be configured as Astra async tools. Keep these adapters distinct:
+PTC tools cannot be configured as Astra async tools. This is future design only; the current service has no PTC or async adapter. If evaluated later, keep these adapters distinct:
 
 - A **direct-only async emitter** can remain pending until its batch is installed, rejected, or superseded. Return one final result using its original call ID.
 - An **ordinary programmatic proposal tool** can return promptly with a candidate ID and `pending` status. That completes that tool call. The later device receipt is a separate application event, not a second output for the same call ID.
@@ -114,9 +114,9 @@ RealityKit supports procedural meshes through `MeshDescriptor`. `LowLevelMesh` i
 
 The initial compiler is generic geometry code inside the Swift SDK. A complex CAD kernel, arbitrary CSG, or cloud Blender worker can be an additional producer of validated artifacts later. Such a producer should earn its latency and operational cost by enabling useful forms that the fast path cannot create.
 
-## 5. Progressive generation without a round trip per component
+## 5. Bounded generation and future progressive streaming
 
-The first draft required every batch to wait for the previous installed global revision. That is simple but can put a model/network round trip between every component. Replace it with a restricted generation scope.
+The first implementation uses one bounded complete proposal and does not yet provide true progressive multi-batch streaming. The implemented scope barrier and ordered sequence protocol document a later multi-batch service experiment; the current service sends one batch.
 
 1. The backend requests `generation.begin` using the admitted scene ID, intent epoch, and `initialBaseRevision`. Later output retains that immutable admission record even if the current session advances.
 2. The device validates that basis and grants a scope for one generation-owned subtree under a permitted parent. A stale begin is rejected.
@@ -131,7 +131,7 @@ Normal edits to existing content retain strict `baseRevision` checks. Generation
 
 Reject conflicting reuse of a request identity or sequence. A batch may queue references to earlier sequences, but final dependency validation and installation wait for those sequences to commit; no forward references are allowed. Bound queued bytes, prepared resources, and missing-sequence waiting. Buffer out-of-order batches within those limits and request retransmission of the missing immutable message; after the configured deadline fail the scope. Reconnecting requires a snapshot/cursor reconciliation, not blind replay.
 
-Only execute complete tool-call items. Incomplete JSON arguments or half-written JavaScript may be logged as progress, but must not create scene objects. Small complete batches improve the earliest point at which execution and steering can occur. [Async tool execution](https://developers.openai.com/api/docs/guides/async-tool-calling), [steering boundaries](https://developers.openai.com/api/docs/guides/steering).
+Only execute complete proposal results. The current service does not interpret token deltas, incomplete JSON, JavaScript, or steering events as scene changes. [Async tool execution](https://developers.openai.com/api/docs/guides/async-tool-calling) and [steering boundaries](https://developers.openai.com/api/docs/guides/steering) are future references.
 
 ## 6. Voice and visual timing
 
@@ -151,7 +151,7 @@ Speech start provisionally pauses pending installations. A resume, supersede, or
 
 **Astra never writes directly to the scene database.** It proposes source data. Application code validates, installs, and saves accepted state.
 
-The first live spike can run in memory. The target Save/Open design is local SQLite containing a complete semantic JSON checkpoint and document metadata, with original binary assets in app files. Save the normalized accepted recipe and scene; retain the model source as provenance where useful. Reopening should not rerun Astra or execute an old source program.
+The first live spike keeps accepted state in memory. Manual Save/Open now uses local SQLite for a complete semantic JSON checkpoint and document metadata; coalesced autosave and durable external-asset custody remain planned. Save the normalized accepted recipe and scene; retain the model source as provenance where useful. Reopening should not rerun Astra or execute an old source program.
 
 Meshes, native entities, and GPU buffers are derived caches. An imported or externally generated binary whose contents cannot be reconstructed is a retained source artifact. Large USDZ/GLB/texture files live outside relational rows, referenced by identity, hash, media type, and size.
 
@@ -198,7 +198,7 @@ If an application-owned code worker becomes necessary, it must have actual execu
 
 ## 10. The benchmark that decides the authoring default
 
-Use eight unfamiliar requests spanning small creation, repeated structures, new assembly, component-level edit, existing-asset deconstruction, and interruption. Run each three times on the intended phone/network; distinguish cold/warm geometry caches. Keep renderer capabilities and requested visual detail equivalent.
+Use eight unfamiliar requests spanning small creation, repeated structures, new assembly, component-level edit, existing-asset deconstruction, and interruption. Run each three times on the intended device/network; distinguish cold/warm geometry caches. Keep renderer capabilities and requested visual detail equivalent.
 
 Compare direct compact recipes against hosted programmatic authoring. First compare valid output quality; then compare one large batch against a few useful progressive batches. Introduce a custom worker only if these cannot express a necessary result.
 

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://basic.software/contracts/astra/scene-v1.schema.json",
+  "title": "Astra scene and transport contract v1",
+  "oneOf": [
+    { "$ref": "#/$defs/sceneDocument" },
+    { "$ref": "#/$defs/hello" },
+    { "$ref": "#/$defs/generationBegin" },
+    { "$ref": "#/$defs/generationBatch" },
+    { "$ref": "#/$defs/generationFinish" },
+    { "$ref": "#/$defs/scenePatch" },
+    { "$ref": "#/$defs/sceneReceipt" },
+    { "$ref": "#/$defs/generationReceipt" }
+  ],
+  "$defs": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "uint64": { "type": "integer", "minimum": 0, "maximum": 9007199254740991 },
+    "finiteNumber": { "type": "number" },
+    "vec3": { "type": "array", "prefixItems": [{ "$ref": "#/$defs/finiteNumber" }, { "$ref": "#/$defs/finiteNumber" }, { "$ref": "#/$defs/finiteNumber" }], "minItems": 3, "maxItems": 3 },
+    "quat": { "type": "array", "prefixItems": [{ "$ref": "#/$defs/finiteNumber" }, { "$ref": "#/$defs/finiteNumber" }, { "$ref": "#/$defs/finiteNumber" }, { "$ref": "#/$defs/finiteNumber" }], "minItems": 4, "maxItems": 4 },
+    "transform": {
+      "type": "object", "additionalProperties": false,
+      "required": ["translation", "rotation", "scale"],
+      "properties": { "translation": { "$ref": "#/$defs/vec3" }, "rotation": { "$ref": "#/$defs/quat" }, "scale": { "$ref": "#/$defs/vec3" } },
+      "x-astra-hash-order": ["translation", "rotation", "scale"]
+    },
+    "geometryRecipe": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["kind", "size"], "properties": { "kind": { "const": "box" }, "size": { "$ref": "#/$defs/vec3" } }, "x-astra-hash-order": ["kind", "size"] },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "radius", "segments"], "properties": { "kind": { "const": "sphere" }, "radius": { "$ref": "#/$defs/finiteNumber" }, "segments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "radius", "segments"] },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "radius", "height", "radialSegments"], "properties": { "kind": { "const": "cylinder" }, "radius": { "$ref": "#/$defs/finiteNumber" }, "height": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "radius", "height", "radialSegments"] },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "bottomRadius", "topRadius", "height", "radialSegments"], "properties": { "kind": { "const": "cone" }, "bottomRadius": { "$ref": "#/$defs/finiteNumber" }, "topRadius": { "$ref": "#/$defs/finiteNumber" }, "height": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "bottomRadius", "topRadius", "height", "radialSegments"] },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "points", "radius", "radialSegments"], "properties": { "kind": { "const": "tube" }, "points": { "type": "array", "items": { "$ref": "#/$defs/vec3" }, "minItems": 2, "maxItems": 256 }, "radius": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "points", "radius", "radialSegments"] },
+        { "type": "object", "additionalProperties": false, "required": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"], "properties": { "kind": { "const": "arrow" }, "start": { "$ref": "#/$defs/vec3" }, "end": { "$ref": "#/$defs/vec3" }, "shaftRadius": { "$ref": "#/$defs/finiteNumber" }, "headRadius": { "$ref": "#/$defs/finiteNumber" }, "headLength": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "start", "end", "shaftRadius", "headRadius", "headLength", "radialSegments"] }
+      ]
+    },
+    "geometryDefinition": {
+      "type": "object", "additionalProperties": false,
+      "required": ["geometryId", "contentHash", "recipe"],
+      "properties": { "geometryId": { "$ref": "#/$defs/id" }, "contentHash": { "$ref": "#/$defs/sha256" }, "recipe": { "$ref": "#/$defs/geometryRecipe" } },
+      "x-astra-hash-order": ["geometryId", "contentHash", "recipe"]
+    },
+    "material": {
+      "type": "object", "additionalProperties": false,
+      "required": ["materialId", "baseColorLinear", "metallic", "roughness"],
+      "properties": { "materialId": { "$ref": "#/$defs/id" }, "baseColorLinear": { "type": "array", "items": { "type": "number", "minimum": 0, "maximum": 1 }, "minItems": 4, "maxItems": 4 }, "metallic": { "type": "number", "minimum": 0, "maximum": 1 }, "roughness": { "type": "number", "minimum": 0, "maximum": 1 } },
+      "x-astra-hash-order": ["materialId", "baseColorLinear", "metallic", "roughness"]
+    },
+    "semantic": {
+      "type": "object", "additionalProperties": false, "required": ["name"],
+      "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 256 }, "role": { "type": "string", "maxLength": 128 }, "description": { "type": "string", "maxLength": 2048 } },
+      "x-astra-hash-order": ["name", "role?", "description?"]
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false, "required": ["origin", "factualSupport", "sourceRefs"],
+      "properties": { "origin": { "enum": ["authored", "generated", "imported"] }, "factualSupport": { "enum": ["illustrative", "referenceBased"] }, "sourceRefs": { "type": "array", "items": { "type": "string", "maxLength": 1024 }, "maxItems": 64 } },
+      "x-astra-hash-order": ["origin", "factualSupport", "sourceRefs"]
+    },
+    "sceneNode": {
+      "type": "object", "additionalProperties": false,
+      "required": ["nodeId", "transform", "isVisible", "semantic", "provenance"],
+      "properties": { "nodeId": { "$ref": "#/$defs/id" }, "parentId": { "$ref": "#/$defs/id" }, "geometryId": { "$ref": "#/$defs/id" }, "materialId": { "$ref": "#/$defs/id" }, "transform": { "$ref": "#/$defs/transform" }, "isVisible": { "type": "boolean" }, "semantic": { "$ref": "#/$defs/semantic" }, "provenance": { "$ref": "#/$defs/provenance" } },
+      "x-astra-hash-order": ["nodeId", "parentId?", "geometryId?", "materialId?", "transform", "isVisible", "semantic", "provenance"]
+    },
+    "relationship": {
+      "type": "object", "additionalProperties": false, "required": ["relationshipId", "kind", "sourceNodeId", "targetNodeId"],
+      "properties": { "relationshipId": { "$ref": "#/$defs/id" }, "kind": { "type": "string", "minLength": 1, "maxLength": 128 }, "sourceNodeId": { "$ref": "#/$defs/id" }, "targetNodeId": { "$ref": "#/$defs/id" }, "description": { "type": "string", "maxLength": 2048 } },
+      "x-astra-hash-order": ["relationshipId", "kind", "sourceNodeId", "targetNodeId", "description?"]
+    },
+    "sceneDocument": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "geometrySemanticsVersion", "documentId", "geometryDefinitions", "materials", "nodes", "relationships"],
+      "properties": { "schemaVersion": { "const": 1 }, "geometrySemanticsVersion": { "const": 1 }, "documentId": { "$ref": "#/$defs/id" }, "geometryDefinitions": { "type": "array", "items": { "$ref": "#/$defs/geometryDefinition" }, "maxItems": 2000 }, "materials": { "type": "array", "items": { "$ref": "#/$defs/material" }, "maxItems": 512 }, "nodes": { "type": "array", "items": { "$ref": "#/$defs/sceneNode" }, "maxItems": 2000 }, "relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" }, "maxItems": 4000 } }
+    },
+    "operation": {
+      "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["op", "geometry"], "properties": { "op": { "const": "put.geometry" }, "geometry": { "$ref": "#/$defs/geometryDefinition" } }, "x-astra-hash-order": ["op", "geometry"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "material"], "properties": { "op": { "const": "put.material" }, "material": { "$ref": "#/$defs/material" } }, "x-astra-hash-order": ["op", "material"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "node"], "properties": { "op": { "const": "create.node" }, "node": { "$ref": "#/$defs/sceneNode" } }, "x-astra-hash-order": ["op", "node"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "nodeId"], "properties": { "op": { "const": "remove.node" }, "nodeId": { "$ref": "#/$defs/id" } }, "x-astra-hash-order": ["op", "nodeId"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "nodeId", "transform"], "properties": { "op": { "const": "set.transform" }, "nodeId": { "$ref": "#/$defs/id" }, "transform": { "$ref": "#/$defs/transform" } }, "x-astra-hash-order": ["op", "nodeId", "transform"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "nodeId", "geometryId"], "properties": { "op": { "const": "set.geometry" }, "nodeId": { "$ref": "#/$defs/id" }, "geometryId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] } }, "x-astra-hash-order": ["op", "nodeId", "geometryId?"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "nodeId", "materialId"], "properties": { "op": { "const": "set.material" }, "nodeId": { "$ref": "#/$defs/id" }, "materialId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] } }, "x-astra-hash-order": ["op", "nodeId", "materialId?"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "nodeId", "isVisible"], "properties": { "op": { "const": "set.visibility" }, "nodeId": { "$ref": "#/$defs/id" }, "isVisible": { "type": "boolean" } }, "x-astra-hash-order": ["op", "nodeId", "isVisible"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "relationship"], "properties": { "op": { "const": "put.relationship" }, "relationship": { "$ref": "#/$defs/relationship" } }, "x-astra-hash-order": ["op", "relationship"] },
+        { "type": "object", "additionalProperties": false, "required": ["op", "relationshipId"], "properties": { "op": { "const": "remove.relationship" }, "relationshipId": { "$ref": "#/$defs/id" } }, "x-astra-hash-order": ["op", "relationshipId"] }
+      ]
+    },
+    "operations": { "type": "array", "items": { "$ref": "#/$defs/operation" }, "maxItems": 128 },
+    "hello": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "sceneSchemaVersions", "geometrySemanticsVersions", "capabilities"],
+      "properties": { "type": { "const": "hello" }, "protocolVersion": { "const": 1 }, "sceneSchemaVersions": { "type": "array", "contains": { "const": 1 } }, "geometrySemanticsVersions": { "type": "array", "contains": { "const": 1 } }, "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["box.v1", "sphere.v1", "cylinder.v1", "cone.v1", "tube.v1", "arrow.v1"] } } }
+    },
+    "generationBegin": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "initialBaseRevision"],
+      "properties": { "type": { "const": "generation.begin" }, "protocolVersion": { "const": 1 }, "requestId": { "$ref": "#/$defs/id" }, "sceneId": { "$ref": "#/$defs/id" }, "generationId": { "$ref": "#/$defs/id" }, "intentEpoch": { "$ref": "#/$defs/uint64" }, "initialBaseRevision": { "$ref": "#/$defs/uint64" }, "scopeParentNodeId": { "$ref": "#/$defs/id" } }
+    },
+    "generationBatch": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "sequence", "payloadHash", "operations"],
+      "properties": { "type": { "const": "generation.batch" }, "protocolVersion": { "const": 1 }, "requestId": { "$ref": "#/$defs/id" }, "sceneId": { "$ref": "#/$defs/id" }, "generationId": { "$ref": "#/$defs/id" }, "intentEpoch": { "$ref": "#/$defs/uint64" }, "sequence": { "type": "integer", "minimum": 1 }, "payloadHash": { "$ref": "#/$defs/sha256" }, "operations": { "$ref": "#/$defs/operations" } },
+      "x-astra-hash-order": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "sequence", "operations"]
+    },
+    "generationFinish": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "lastSequence"],
+      "properties": { "type": { "const": "generation.finish" }, "protocolVersion": { "const": 1 }, "requestId": { "$ref": "#/$defs/id" }, "sceneId": { "$ref": "#/$defs/id" }, "generationId": { "$ref": "#/$defs/id" }, "intentEpoch": { "$ref": "#/$defs/uint64" }, "lastSequence": { "$ref": "#/$defs/uint64" } }
+    },
+    "scenePatch": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "intentEpoch", "baseRevision", "payloadHash", "operations"],
+      "properties": { "type": { "const": "scene.patch" }, "protocolVersion": { "const": 1 }, "requestId": { "$ref": "#/$defs/id" }, "sceneId": { "$ref": "#/$defs/id" }, "intentEpoch": { "$ref": "#/$defs/uint64" }, "baseRevision": { "$ref": "#/$defs/uint64" }, "payloadHash": { "$ref": "#/$defs/sha256" }, "operations": { "$ref": "#/$defs/operations" } },
+      "x-astra-hash-order": ["type", "protocolVersion", "requestId", "sceneId", "intentEpoch", "baseRevision", "operations"]
+    },
+    "rejection": {
+      "type": "object", "additionalProperties": false, "required": ["code", "message"],
+      "properties": { "code": { "type": "string", "minLength": 1 }, "message": { "type": "string", "minLength": 1 }, "expectedRevision": { "$ref": "#/$defs/uint64" }, "expectedSequence": { "$ref": "#/$defs/uint64" } }
+    },
+    "sceneReceipt": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "sceneId", "requestId", "status", "revision", "affectedNodeIds"],
+      "properties": { "type": { "const": "scene.receipt" }, "protocolVersion": { "const": 1 }, "sceneId": { "$ref": "#/$defs/id" }, "generationId": { "$ref": "#/$defs/id" }, "requestId": { "$ref": "#/$defs/id" }, "sequence": { "$ref": "#/$defs/uint64" }, "status": { "enum": ["installed", "rejected"] }, "revision": { "$ref": "#/$defs/uint64" }, "affectedNodeIds": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true }, "rejection": { "$ref": "#/$defs/rejection" } }
+    },
+    "generationReceipt": {
+      "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "sceneId", "generationId", "requestId", "status", "revision", "committedSequence"],
+      "properties": { "type": { "const": "generation.receipt" }, "protocolVersion": { "const": 1 }, "sceneId": { "$ref": "#/$defs/id" }, "generationId": { "$ref": "#/$defs/id" }, "requestId": { "$ref": "#/$defs/id" }, "status": { "enum": ["accepted", "completed", "rejected"] }, "revision": { "$ref": "#/$defs/uint64" }, "committedSequence": { "$ref": "#/$defs/uint64" }, "rejection": { "$ref": "#/$defs/rejection" } }
+    }
+  }
+}

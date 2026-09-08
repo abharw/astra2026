@@ -1,6 +1,6 @@
 # Renderer choice and local neural inference
 
-2026-09-08 · Research and recommendation, not a renderer benchmark or implemented feature. RealityKit remains the proposed renderer; this repository does not yet contain the app.
+2026-09-08 · Research and recommendation. RealityKit is implemented and native simulator/device builds pass. The signed iPad app runs its camera view; sustained frame rate, thermal behavior, and a controlled comparison with Three.js remain unmeasured.
 
 ## Decision
 

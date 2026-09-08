@@ -1,0 +1,57 @@
+name: AstraSpatialDemo
+options:
+  bundleIdPrefix: com.astra
+  deploymentTarget:
+    iOS: "26.0"
+  developmentLanguage: en
+  xcodeVersion: "26.0"
+packages:
+  SpatialKit:
+    path: ../../packages/SpatialKit
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    GENERATE_INFOPLIST_FILE: YES
+    IPHONEOS_DEPLOYMENT_TARGET: "26.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+targets:
+  AstraSpatialDemo:
+    type: application
+    platform: iOS
+    sources:
+      - path: SpatialDemo
+      - path: ../../examples/server-rack/scene.json
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.astra.spatialdemo
+        PRODUCT_NAME: Astra Spatial Demo
+        INFOPLIST_KEY_CFBundleDisplayName: Astra Spatial
+        INFOPLIST_KEY_NSCameraUsageDescription: Astra uses the camera to place and track the spatial scene.
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: Astra uses the microphone for the live voice conversation.
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: Astra connects to the local session service to stream scene proposals and receipts.
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        CODE_SIGNING_ALLOWED: NO
+        CODE_SIGNING_REQUIRED: NO
+        ENABLE_PREVIEWS: YES
+    info:
+      path: SpatialDemo/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+    dependencies:
+      - package: SpatialKit
+        product: SpatialCore
+      - package: SpatialKit
+        product: SpatialApple
+    scheme:
+      testTargets: []
+      gatherCoverageData: false

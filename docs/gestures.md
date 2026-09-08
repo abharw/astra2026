@@ -1,6 +1,6 @@
 # Pointing: required demo milestone
 
-2026-09-08 · Arav clarified that pointing must be demonstrated. It may follow the first working voice/generation slice, but it is required for demo acceptance. Pinch, dragging and other manipulation remain optional. Target one native app for supported iPhones and iPads; no pointing or gesture interaction has been implemented or tested.
+2026-09-08 · Arav clarified that pointing must be demonstrated. It may follow the first working voice/generation slice, but it is required for demo acceptance. Pinch, dragging and other manipulation remain optional. Target one native app for supported iPhones and iPads. The resolver, Vision adapter, native ARFrame wiring, and speech binding are implemented. Synthetic tests pass. After fixing completed-result starvation and adding a visible cursor, Arav confirmed on the physical iPad that the ring follows his fingertip and turns green over a part. This first success is not a measured accuracy or combined voice result. iPhone usability is now a priority for audience participation.
 
 ## First interaction: point and speak
 
@@ -13,6 +13,8 @@ The agreed baseline is a camera-view cursor: it casts from the camera through th
 ## iPad demonstration setup
 
 Use the same app on iPhone and iPad. Arav's iPad Air M4 on iPadOS 26.5 is the primary demonstration target; validate the actual interaction before recording. A teammate can hold it in landscape beside Arav so he can see the display and reach a hand into the rear camera's view. A stand is another option. If the presenter stands opposite the tablet looking at its back, he cannot see the virtual part or selection feedback; that setup needs a mirrored display or a different interaction design.
+
+The iPhone uses the same ARSession → Vision → viewport mapping → RealityKit hit-test pipeline. It needs a compact layout and a one-hand-holds/one-hand-points trial, not a second tracking implementation. This input is a fingertip cursor inside explicit Hand mode; it does not yet classify a deliberate pointing pose versus an open palm. [Apple and working-source references](hand-tracking-references.md) distinguish this iOS path from visionOS hand anchors.
 
 A larger screen and separate holder may improve aim and presentation, but holder motion, hand occlusion, screen visibility and speech capture need testing. Do not assume the tablet establishes depth or requires LiDAR. See [device support and hardware policy](devices.md).
 

@@ -1,6 +1,6 @@
 # Storage and recovery
 
-2026-09-08 · Architecture proposal. None of the storage, checkpoint, cache, or recovery behavior below is implemented or benchmarked.
+2026-09-08 · Architecture proposal. Manual semantic Save/Open checkpoints are implemented in the Swift package; autosave, artifact-file custody, cache, and crash/recovery acceptance remain unverified.
 
 The device owns the accepted scene. Saving preserves its editable source; the database does not generate assets. Astra produces a program or description, the generation pipeline normalizes it into a bounded intermediate representation (IR), and Swift constructs native geometry from that IR. Reopening a saved scene must not require executing the original program or calling a model again.
 
@@ -21,7 +21,7 @@ The saved normalized IR is the reconstruction source. The original program expla
 
 ## 2. Milestones and ownership
 
-The first live spike keeps its accepted scene in memory. Local Save/Open is the next storage milestone, followed by coalesced autosave. Disk mesh caching follows only if measured reconstruction cost justifies it. Cloud storage is a later feature.
+The first live spike keeps its accepted scene in memory. Manual SQLite checkpointing is implemented; there is no Save/Open UI or autosave yet. Disk mesh caching and cloud storage are later features.
 
 Introduce a stable `documentId` when saving begins. A `sceneId` identifies one live session. Reopening a document creates a new scene ID and initializes its scene revision and intent epoch; old requests, receipts, and pending jobs cannot mutate that session. The checkpoint retains its source scene ID and revision for provenance.
 
@@ -29,7 +29,9 @@ SQLite stores the last saved checkpoint. The current in-memory scene can be newe
 
 SQLite fits local application documents with modest writer concurrency and avoids requiring a network connection to save. This is consistent with its documented application-file and device-storage uses. [SQLite appropriate uses](https://www.sqlite.org/whentouse.html).
 
-## 3. Proposed disk layout and schema
+## 3. Disk layout and schema status
+
+The manual checkpoint path is implemented in `SpatialApple/Storage/SceneDocumentStore.swift` and stores the complete `SceneDocument` JSON plus checkpoint metadata in local SQLite. The tables below are a future history/artifact design, not the current schema.
 
 Resolve directories through Foundation; do not persist absolute iOS sandbox paths.
 
@@ -47,7 +49,7 @@ tmp/SpatialKit/
 
 Application Support holds required source and saved documents. Caches contains only replaceable data; Apple does not back up the caches directory. Bundled seed assets remain in the bundle and are referenced by pack identity, version, and hash. [Apple file-system guidance](https://developer.apple.com/documentation/foundation/using-the-file-system-effectively).
 
-Proposed starting schema:
+Future starting schema (not yet implemented):
 
 ```sql
 PRAGMA foreign_keys = ON;
@@ -89,7 +91,7 @@ CREATE TABLE artifacts (
 );
 ```
 
-JSON blobs contain canonical UTF-8 document data, not database-specific serialized Swift objects. The application validates the complete document and every referenced artifact before saving or opening it. SQL constraints alone cannot validate references embedded in JSON.
+JSON blobs contain versioned UTF-8 scene JSON, not database-specific serialized Swift objects. The checkpoint encoding is separate from canonical hashing. The application validates the complete document and every referenced artifact before saving or opening it. SQL constraints alone cannot validate references embedded in JSON.
 
 `changes` holds bounded inspection and undo evidence, not a replay log required to reconstruct the document. Its `base_revision` records the actual immediately preceding committed revision, including for a generation batch whose wire precondition uses scope/sequence. Start with whole snapshots instead of normalizing every node into SQL rows. Add finer storage only when measured scene sizes or query needs justify it. Keep SQL in a concrete device storage component; `SpatialCore` owns document values and migrations without importing SQLite.
 
@@ -130,11 +132,11 @@ Referenced source files must be protected from cache eviction and garbage collec
 
 ## 6. Hashes, versions, and caching
 
-Hash schema-normalized, canonically encoded UTF-8 geometry bytes. The format specification must define defaults, numeric normalization, coordinates, and encoding; shared Swift/TypeScript fixtures must produce identical hashes. Include the geometry semantics version in hashed source. Exclude node IDs, labels, placement transforms, and material bindings from geometry content hashes.
+Hash normalized recipes using the typed binary `astra-geometry-v1` encoding defined in [the contract](../contracts/README.md), while the wire document remains UTF-8 JSON. Shared Swift/TypeScript fixtures verify identical hashes; do not substitute a platform JSON serializer for this encoding. Include the geometry semantics version in hashed source. Exclude node IDs, labels, placement transforms, and material bindings from geometry content hashes.
 
 ```text
-meshCacheKey = SHA256(
-  canonicalUTF8({
+futureMeshCacheKey = SHA256(
+  specifiedCacheKeyEncoding({
     geometryContentHash,
     geometryCompilerVersion,
     tessellationProfile,

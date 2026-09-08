@@ -1,0 +1,11 @@
+{
+  "algorithm": "sha256",
+  "encoding": "astra-canonical-request-v1",
+  "vectors": [
+    { "fixture": "accepted/generation_batch.json", "expectedPayloadHash": "747815843c7f19dfe783690a2220d8b6d6fe9b37449b1250e6ece98d16a1f678" },
+    { "fixture": "accepted/scene_patch.json", "expectedPayloadHash": "be713f08cdf4a851b1cbde720df96af7d697701eaab9561f60699e2fc7a1f1e6" }
+  ],
+  "geometryVectors": [
+    { "geometrySemanticsVersion": 1, "recipe": { "kind": "box", "size": [0.4, 0.2, 0.6] }, "expectedContentHash": "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb" }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "document" : {
+    "documentId" : "live-5044C95D-C754-4674-B1A5-493AA2F2B8C6",
+    "geometryDefinitions" : [
+      {
+        "contentHash" : "846fd17d55a586110f1f1ed6aeb6bc279d9e36486906d0be08a73717d83d4936",
+        "geometryId" : "geometry_ca12cf471af4f07f48c214ae",
+        "recipe" : {
+          "height" : 0.022,
+          "kind" : "cylinder",
+          "radialSegments" : 32,
+          "radius" : 0.018
+        }
+      },
+      {
+        "contentHash" : "c507446f25e03637c5bea79c231726f40eb5a94e65f1e16de63eb67aca2963db",
+        "geometryId" : "geometry_bb99905104042f74944f0d41",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.062,
+            0.004,
+            0.024
+          ]
+        }
+      }
+    ],
+    "geometrySemanticsVersion" : 1,
+    "materials" : [
+      {
+        "baseColorLinear" : [
+          0.12,
+          0.15,
+          0.19,
+          1
+        ],
+        "materialId" : "material_2806d6eaaee88061a24bd691",
+        "metallic" : 0.5,
+        "roughness" : 0.35
+      },
+      {
+        "baseColorLinear" : [
+          0.04,
+          0.36,
+          0.62,
+          1
+        ],
+        "materialId" : "material_f5e339912d6acfc91ba990b2",
+        "metallic" : 0.1,
+        "roughness" : 0.4
+      }
+    ],
+    "nodes" : [
+      {
+        "isVisible" : true,
+        "nodeId" : "node_db8058e5802db9a16046e602",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Approximately 0.15 m across; hub axis is local Y. Hub and blades are individually editable.",
+          "name" : "Small three-blade cooling fan",
+          "role" : "assembly"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_ca12cf471af4f07f48c214ae",
+        "isVisible" : true,
+        "materialId" : "material_2806d6eaaee88061a24bd691",
+        "nodeId" : "node_ea5cf9fda0a1847fc0b5da16",
+        "parentId" : "node_db8058e5802db9a16046e602",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Hub radius 0.018 m and height 0.022 m, joining the three blades.",
+          "name" : "Cylindrical hub",
+          "role" : "hub"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_bb99905104042f74944f0d41",
+        "isVisible" : true,
+        "materialId" : "material_f5e339912d6acfc91ba990b2",
+        "nodeId" : "node_4ae53271b5220401a7c90e40",
+        "parentId" : "node_db8058e5802db9a16046e602",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Radial box blade with 20-degree pitch to illustrate axial airflow generation.",
+          "name" : "Box blade 1",
+          "role" : "blade"
+        },
+        "transform" : {
+          "rotation" : [
+            0.173648,
+            0,
+            0,
+            0.984808
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.043,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_bb99905104042f74944f0d41",
+        "isVisible" : true,
+        "materialId" : "material_f5e339912d6acfc91ba990b2",
+        "nodeId" : "node_2b37a508c138fe71eb280af0",
+        "parentId" : "node_db8058e5802db9a16046e602",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Second pitched box blade, spaced 120 degrees around the hub.",
+          "name" : "Box blade 2",
+          "role" : "blade"
+        },
+        "transform" : {
+          "rotation" : [
+            0.086824,
+            0.852869,
+            -0.150384,
+            0.492404
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.0215,
+            0,
+            -0.037239
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_bb99905104042f74944f0d41",
+        "isVisible" : true,
+        "materialId" : "material_f5e339912d6acfc91ba990b2",
+        "nodeId" : "node_b894ec0aba28847b7c4eb4c9",
+        "parentId" : "node_db8058e5802db9a16046e602",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Third pitched box blade, completing the evenly spaced three-blade arrangement.",
+          "name" : "Box blade 3",
+          "role" : "blade"
+        },
+        "transform" : {
+          "rotation" : [
+            0.086824,
+            -0.852869,
+            0.150384,
+            0.492404
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.0215,
+            0,
+            0.037239
+          ]
+        }
+      }
+    ],
+    "relationships" : [
+
+    ],
+    "schemaVersion" : 1
+  },
+  "elapsed" : "24.126378 seconds",
+  "explanation" : "Creates a small, editable fan about 0.15 metres across, with a cylindrical hub and three individually editable box blades spaced 120° apart. The blades have a slight pitch: when a real fan rotates, angled blades create a pressure difference that drives air along the hub axis. This model illustrates the concept without simulating rotation or airflow.",
+  "prompt" : "Generate a small editable cooling fan with a hub and three blades. Use boxes for blades and a cylinder for the hub, no more than twelve operations. All sizes under 0.2 metres. Explain the airflow concept briefly.",
+  "receipts" : [
+    {
+      "committedSequence" : 0,
+      "generationId" : "generation_8afb0c61ad8c425e6d072768",
+      "protocolVersion" : 1,
+      "requestId" : "3C7E65F9-0E12-4B10-A3DB-AC9957C3FE51:begin",
+      "revision" : 0,
+      "sceneId" : "F3060DE4-732B-4FA9-A471-5303CAA6DAC8",
+      "status" : "accepted",
+      "type" : "generation.receipt"
+    },
+    {
+      "affectedNodeIds" : [
+        "node_2b37a508c138fe71eb280af0",
+        "node_4ae53271b5220401a7c90e40",
+        "node_b894ec0aba28847b7c4eb4c9",
+        "node_db8058e5802db9a16046e602",
+        "node_ea5cf9fda0a1847fc0b5da16"
+      ],
+      "generationId" : "generation_8afb0c61ad8c425e6d072768",
+      "protocolVersion" : 1,
+      "requestId" : "3C7E65F9-0E12-4B10-A3DB-AC9957C3FE51:batch:1",
+      "revision" : 1,
+      "sceneId" : "F3060DE4-732B-4FA9-A471-5303CAA6DAC8",
+      "sequence" : 1,
+      "status" : "installed",
+      "type" : "scene.receipt"
+    },
+    {
+      "committedSequence" : 1,
+      "generationId" : "generation_8afb0c61ad8c425e6d072768",
+      "protocolVersion" : 1,
+      "requestId" : "3C7E65F9-0E12-4B10-A3DB-AC9957C3FE51:finish",
+      "revision" : 1,
+      "sceneId" : "F3060DE4-732B-4FA9-A471-5303CAA6DAC8",
+      "status" : "completed",
+      "type" : "generation.receipt"
+    }
+  ],
+  "revision" : 1,
+  "source" : "liveAstraHeadlessSwiftReducer"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "generation.finish",
+  "protocolVersion": 1,
+  "requestId": "request_finish_1",
+  "sceneId": "scene_fixture",
+  "generationId": "generation_1",
+  "intentEpoch": 3,
+  "lastSequence": 1
+}

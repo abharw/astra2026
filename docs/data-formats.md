@@ -1,6 +1,6 @@
 # Data formats
 
-2026-09-08 · Proposed v0 specification. These contracts, compilers and examples are not implemented or validated on a device yet. Numeric limits below are initial engineering limits to test, not measured device capabilities.
+2026-09-08 · Format design and implemented v1 boundary. Swift/TypeScript hashes, strict decoding, semantic validation, and live generation-to-reducer acceptance are verified. Native builds pass; physical pointing/voice acceptance is in progress. The normative current shape is [the contract](../contracts/README.md). Numeric limits below are initial engineering limits to test, not measured device capabilities.
 
 ## 1. Three representations
 
@@ -8,10 +8,10 @@
 
 | Representation | v0 format | Responsibility |
 | --- | --- | --- |
-| Model authoring | Typed tool arguments, or a program using a bounded authoring API | Describe parts, repeated structures, relationships and changes compactly |
+| Model authoring | One typed `propose_scene` tool result | Describe parts, repeated structures, relationships and changes compactly; PTC is future work |
 | Normalized scene | Versioned UTF-8 JSON | Preserve identities, geometry recipes, materials, transforms, semantics and provenance |
 | Runtime rendering | Swift values, mesh buffers and RealityKit resources | Construct geometry and render it on the device |
-| Imported asset | Hierarchical USDZ plus semantic manifest | Supply authored component geometry through Apple's native loader |
+| Future imported asset | Hierarchical USDZ plus semantic manifest | Possible later authored component geometry path; not current source input |
 | Future portable baked asset | Self-contained GLB 2.0 plus semantic manifest | Exchange generated meshes with other renderers, including a later Unity client |
 | Checkpoint | Accepted scene JSON and references to immutable artifacts | Reconstruct content without rerunning the model |
 
@@ -23,7 +23,7 @@ Expose the same generic operations through direct tool calls and programmatic to
 
 The model supplies local aliases for new objects and observed references for existing objects. Backend normalization resolves aliases, assigns persistent IDs, expands bounded linear/radial repetition into explicit semantic nodes sharing immutable geometry definitions, normalizes defaults and checks references. The device receives those nodes and generic geometry recipes, without expressions or control flow. The backend assigns transport IDs and populates revision/epoch fields from the request's immutable admission record, never from the newest session state when a delayed result arrives. The model cannot grant itself a newer revision or choose an installation epoch.
 
-Use JSON Schema 2020-12 for the application contract, with closed tagged variants. Keep the provider-facing strict tool schema separate: a provider's supported schema subset is an adapter constraint, not the definition of the portable format. Schema checks establish structure; semantic checks establish acyclic hierarchy, valid references, affordable geometry and valid numbers. Additional JSON properties are allowed unless explicitly prohibited, so close each wire object deliberately. [JSON Schema object rules](https://json-schema.org/understanding-json-schema/reference/object).
+Use [the contract README](../contracts/README.md) as the current normative reference; a generated JSON Schema will live under `contracts/schema/` when it lands. Use JSON Schema 2020-12 for the application contract, with closed tagged variants. Keep the provider-facing strict tool schema separate: a provider's supported schema subset is an adapter constraint, not the definition of the portable format. Schema checks establish structure; semantic checks establish acyclic hierarchy, valid references, affordable geometry and valid numbers. Additional JSON properties are allowed unless explicitly prohibited, so close each wire object deliberately. [JSON Schema object rules](https://json-schema.org/understanding-json-schema/reference/object).
 
 ## 3. Identity and document structure
 
@@ -49,14 +49,15 @@ This valid JSON illustrates a recipe body. It intentionally omits application-co
   "geometryDefinitions": [
     {
       "geometryId": "geometry_chassis",
-      "kind": "box",
-      "size": [0.44, 0.09, 0.6]
+      "recipe": {
+        "kind": "box",
+        "size": [0.44, 0.09, 0.6]
+      }
     }
   ],
   "materials": [
     {
       "materialId": "material_metal",
-      "kind": "pbr",
       "baseColorLinear": [0.12, 0.12, 0.14, 1],
       "metallic": 0.7,
       "roughness": 0.45
@@ -73,6 +74,7 @@ This valid JSON illustrates a recipe body. It intentionally omits application-co
         "rotation": [0, 0, 0, 1],
         "scale": [1, 1, 1]
       },
+      "isVisible": true,
       "semantic": {
         "name": "Server chassis",
         "role": "enclosure",
@@ -127,11 +129,11 @@ Start with opaque metallic/roughness materials and unlit annotations. Require al
 
 The Swift geometry compiler computes vertices, normals and indices. It uses Float32 position/normal buffers and UInt32 triangle indices in memory. MeshDescriptor exposes the native construction path. There is no custom binary mesh network format in v0. [Apple MeshDescriptor](https://developer.apple.com/documentation/realitykit/meshdescriptor).
 
-Provisional admission ceilings are 256 KiB decoded JSON per message, 128 nodes per batch, 2,000 nodes per scene, and 256 centerline points per tube. Track unique mesh triangles and expanded visible-instance triangles separately, with a provisional ceiling of 500,000 for each. Sharing a mesh reduces resource storage but does not eliminate the rendering cost of its instances. These ceilings are not target scene complexity or evidence that a particular phone sustains its frame rate.
+Provisional admission ceilings are 256 KiB decoded JSON per message, 128 operations/created nodes per batch, 2,000 nodes per scene, and 256 centerline points per tube. Track unique mesh triangles and expanded visible-instance triangles separately, with a provisional ceiling of 500,000 for each. Sharing a mesh reduces resource storage but does not eliminate the rendering cost of its instances. These ceilings are not target scene complexity or evidence that a particular device sustains its frame rate.
 
-The implementation must additionally set bounds for pending batches, prepared bytes, textures, materials, imported decoded resources, and total generation duration before admitting those capabilities. File byte size alone does not bound decoded mesh/texture memory. Reject invalid indices, zero-length segments, unsupported recipes and excessive expanded output before allocating native resources. Profile the actual phone and lower limits as needed.
+The implementation must additionally set bounds for pending batches, prepared bytes, textures, materials, imported decoded resources, and total generation duration before admitting those capabilities. File byte size alone does not bound decoded mesh/texture memory. Reject invalid indices, zero-length segments, unsupported recipes and excessive expanded output before allocating native resources. Profile the actual target device and lower limits as needed.
 
-## 5. Wire messages and progressive generation
+## 5. Wire messages and bounded generation
 
 Use one complete UTF-8 JSON object per WebSocket message. Do not interpret arbitrary token deltas as executable scene changes. A handshake declares protocol and capabilities; the server returns the selected supported subset before mutation messages are admitted.
 
@@ -147,7 +149,7 @@ Use one complete UTF-8 JSON object per WebSocket message. Do not interpret arbit
 
 Protocol version describes message behavior; schema version describes document structure; geometry semantics version describes recipe interpretation. Changing cylinder origin is a geometry compatibility change even if its JSON shape remains identical.
 
-A `generation.begin` carries `sceneId`, `generationId`, `intentEpoch` and `initialBaseRevision`. Acceptance reserves a generation scope against that starting state. Subsequent creation batches carry monotonically increasing `sequence`, starting at 1. They do not each reuse a stale global base revision. An illustrative envelope, omitting application-computed `payloadHash` and the actual operations, is:
+A `generation.begin` carries `sceneId`, `generationId`, `intentEpoch` and `initialBaseRevision`. Acceptance reserves a generation scope against that starting state. The first implementation sends one bounded complete model proposal as one generation batch; true progressive multi-batch streaming is planned, not implemented. When multiple batches are enabled, they carry monotonically increasing `sequence` values and do not each reuse a stale global base revision.
 
 ```json
 {
@@ -164,9 +166,9 @@ A `generation.begin` carries `sceneId`, `generationId`, `intentEpoch` and `initi
 
 Batches can introduce generation-owned nodes and refer to earlier-sequence nodes or approved anchors. They may queue before predecessors commit, but final dependency validation and installation wait for those predecessors. No forward-sequence references are allowed. Buffer out-of-order messages only within negotiated count/byte limits; on a gap request the next expected sequence, then fail the scope if the configured deadline expires. Never skip a missing batch.
 
-Compute `payloadHash` over the canonical request object excluding the hash field itself. Retries reuse the exact request ID and payload bytes. Same-ID/same-hash retries return the previous receipt; same-ID/different-hash requests fail. Bind sequence identity to scene, generation and epoch; reusing the same sequence with different content also fails. A confirmed superseding intent invalidates the old generation scope. `generation.finish` supplies `lastSequence`; completion requires every batch through that sequence to be installed.
+Compute `payloadHash` with the typed Astra Canonical Request v1 encoder implemented by `SpatialCore`; the wire remains JSON and RFC 8785 is not used. Retries reuse the exact request ID and payload bytes. Same-ID/same-hash retries return the previous receipt; same-ID/different-hash requests fail. Bind sequence identity to scene, generation and epoch; reusing the same sequence with different content also fails. A confirmed superseding intent invalidates the old generation scope. `generation.finish` supplies `lastSequence`; completion requires every batch through that sequence to be installed.
 
-Edits to pre-existing scene nodes use a separate transaction with strict `baseRevision`; a generation scope is not permission to ignore conflicts elsewhere. The receipt reports the actual installation result:
+Edits to pre-existing scene nodes use a separate transaction with strict `baseRevision`; a generation scope is not permission to ignore conflicts elsewhere. Generation receipts report `accepted`, `completed`, or `rejected` for scope lifecycle. Scene receipts report `installed` or `rejected` for each committed batch/patch; `installed` means accepted semantic state was applied, not that the generation is complete:
 
 ```json
 {
@@ -186,11 +188,11 @@ These independent specimens show field shapes, not an executed request/receipt p
 
 ## 6. Artifact formats, hashes and checkpoints
 
-Each immutable geometry definition receives a `contentHash` computed by application code. Hash the normalized recipe and geometry semantics version, excluding IDs, display names, provenance and node placement. A compiled mesh cache key additionally includes compiler version and tessellation policy. Hash binary files over their exact bytes. The backend can generate canonical JSON bytes once and clients verify those bytes, avoiding independent ad hoc serializers. RFC 8785 defines a canonicalization scheme if interoperable canonical JSON is needed. [JSON canonicalization](https://www.rfc-editor.org/info/rfc8785/).
+Each immutable geometry definition receives a `contentHash` computed by application code. Hash the normalized recipe and geometry semantics version with the typed binary canonical encoder used by `SpatialCore`; the wire format remains JSON and no RFC 8785 serializer participates. Exclude IDs, display names, provenance and node placement. A compiled mesh cache key additionally includes compiler version and tessellation policy. Hash binary files over their exact bytes.
 
 Large assets travel through bounded HTTP downloads using application-issued handles with format, byte length and SHA-256 metadata. Do not embed base64 meshes in conversational messages. Store USDZ/GLB bytes in artifact storage; database/checkpoint records contain references.
 
-Use full hierarchical USDZ loading on iPhone/iPad. Apple's documented loader accepts USD-family and Reality files; do not assume GLB is directly supported. A semantic sidecar maps stable component IDs to uniquely resolvable imported entities and is bound to the asset checksum. A merged mesh does not acquire separable interiors through metadata alone. [Apple entity loading](https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file).
+If imported assets are added later, use full hierarchical USDZ loading on iPhone/iPad. Apple's documented loader accepts USD-family and Reality files; do not assume GLB is directly supported. A semantic sidecar would map stable component IDs to uniquely resolvable imported entities and be bound to the asset checksum. A merged mesh does not acquire separable interiors through metadata alone. [Apple entity loading](https://developer.apple.com/documentation/realitykit/loading-entities-from-a-file).
 
 USDZ requires uncompressed, aligned packaging; ordinary ZIP repackaging is unsuitable. [USDZ specification](https://openusd.org/dev/spec_usdz.html). GLB export is a later interchange path. A Unity client must deliberately convert coordinate basis, including rotations and winding, and verify importer results. [Unity glTFast loading](https://docs.unity3d.com/Packages/com.unity.cloud.gltfast@6.19/manual/ImportRuntime.html).
 

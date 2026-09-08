@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "geometrySemanticsVersion": 1,
+  "documentId": "document_cycle",
+  "geometryDefinitions": [],
+  "materials": [],
+  "nodes": [
+    {
+      "nodeId": "node_a", "parentId": "node_b",
+      "transform": { "translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+      "isVisible": true, "semantic": { "name": "A" },
+      "provenance": { "origin": "authored", "factualSupport": "illustrative", "sourceRefs": [] }
+    },
+    {
+      "nodeId": "node_b", "parentId": "node_a",
+      "transform": { "translation": [0, 0, 0], "rotation": [0, 0, 0, 1], "scale": [1, 1, 1] },
+      "isVisible": true, "semantic": { "name": "B" },
+      "provenance": { "origin": "authored", "factualSupport": "illustrative", "sourceRefs": [] }
+    }
+  ],
+  "relationships": []
+}

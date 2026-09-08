@@ -1,0 +1,739 @@
+{
+  "document" : {
+    "documentId" : "authored-server-rack-v1",
+    "geometryDefinitions" : [
+      {
+        "contentHash" : "ad2b35bba7cf2b84a3b2b436735973632a7c153d4e3b4ac89470473bcc841ec5",
+        "geometryId" : "rail",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.018,
+            0.6,
+            0.018
+          ]
+        }
+      },
+      {
+        "contentHash" : "4d9435fe7755844cef2c775e765e539a756599f2169f9288088dc4b48e499a32",
+        "geometryId" : "plate",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.32,
+            0.016,
+            0.3
+          ]
+        }
+      },
+      {
+        "contentHash" : "29851efda4a85b1a6f532fdd610093ecc92403b8f4ad808a9cc552a753927ae5",
+        "geometryId" : "server",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.28,
+            0.055,
+            0.27
+          ]
+        }
+      },
+      {
+        "contentHash" : "5b1e89bdf05d9e94c48b6b48e7753937e9bda9dd2961c9ba069e9e2887c631c0",
+        "geometryId" : "switch",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.28,
+            0.034,
+            0.22
+          ]
+        }
+      },
+      {
+        "contentHash" : "b4c30d6d64ba8fc7e83bd942562fb3e5f0cda2dc164286fea9670d538e1f5d28",
+        "geometryId" : "power",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.035,
+            0.4,
+            0.04
+          ]
+        }
+      },
+      {
+        "contentHash" : "a49843ab52c0523ecf929c38c5287dcd9737aaae7abb464e54dc3496e169bb93",
+        "geometryId" : "geometry_f6cf3d9f352930c8404ef47a",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.065,
+            0.018,
+            0.065
+          ]
+        }
+      },
+      {
+        "contentHash" : "bd856c16f5c59a8a1a8df81998400b42f08f16f2de5a9c520244cb458855f9e4",
+        "geometryId" : "geometry_2c4c46c4b9cb3018e14eec7f",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.012,
+            0.032,
+            0.1
+          ]
+        }
+      }
+    ],
+    "geometrySemanticsVersion" : 1,
+    "materials" : [
+      {
+        "baseColorLinear" : [
+          0.09,
+          0.11,
+          0.14,
+          1
+        ],
+        "materialId" : "steel",
+        "metallic" : 0.65,
+        "roughness" : 0.4
+      },
+      {
+        "baseColorLinear" : [
+          0.14,
+          0.31,
+          0.44,
+          1
+        ],
+        "materialId" : "compute",
+        "metallic" : 0.45,
+        "roughness" : 0.45
+      },
+      {
+        "baseColorLinear" : [
+          0.1,
+          0.52,
+          0.38,
+          1
+        ],
+        "materialId" : "network",
+        "metallic" : 0.3,
+        "roughness" : 0.5
+      },
+      {
+        "baseColorLinear" : [
+          0.74,
+          0.33,
+          0.09,
+          1
+        ],
+        "materialId" : "power",
+        "metallic" : 0.2,
+        "roughness" : 0.6
+      },
+      {
+        "baseColorLinear" : [
+          0.6,
+          0.65,
+          0.72,
+          1
+        ],
+        "materialId" : "material_378711250fdcf09f5af45645",
+        "metallic" : 0.6,
+        "roughness" : 0.35
+      },
+      {
+        "baseColorLinear" : [
+          0.035,
+          0.4,
+          0.12,
+          1
+        ],
+        "materialId" : "material_9cf85c2a71b571b184dd2d49",
+        "metallic" : 0.1,
+        "roughness" : 0.6
+      }
+    ],
+    "nodes" : [
+      {
+        "isVisible" : true,
+        "nodeId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Authored starting assembly. Dimensions are schematic, not a specific manufacturer's hardware.",
+          "name" : "Illustrative server rack",
+          "role" : "assembly"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-0",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 1",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.15,
+            0.3,
+            -0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-1",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 2",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.15,
+            0.3,
+            -0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-2",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 3",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.15,
+            0.3,
+            0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-3",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 4",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.15,
+            0.3,
+            0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "plate",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "base",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Bottom of the rack.",
+          "name" : "Base",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.008,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "plate",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "top",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Top of the rack.",
+          "name" : "Top",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.6,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-1",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 1",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.13,
+            0.25
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-2",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 2",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.23,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-3",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 3",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.33,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "switch",
+        "isVisible" : true,
+        "materialId" : "network",
+        "nodeId" : "switch",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Connects servers to the network.",
+          "name" : "Network switch",
+          "role" : "networking"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.48,
+            0.02
+          ]
+        }
+      },
+      {
+        "geometryId" : "power",
+        "isVisible" : true,
+        "materialId" : "power",
+        "nodeId" : "pdu",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Distributes electrical power within the rack.",
+          "name" : "Power distribution unit",
+          "role" : "power"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.11,
+            0.3,
+            -0.1
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_f6cf3d9f352930c8404ef47a",
+        "isVisible" : true,
+        "materialId" : "material_378711250fdcf09f5af45645",
+        "nodeId" : "node_14cb3557d15019fa7aeb273c",
+        "parentId" : "server-1",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Executes program instructions and performs calculations; exploded schematic above the chassis.",
+          "name" : "CPU — schematic block",
+          "role" : "processor"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.055,
+            0.075,
+            0.035
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_2c4c46c4b9cb3018e14eec7f",
+        "isVisible" : true,
+        "materialId" : "material_9cf85c2a71b571b184dd2d49",
+        "nodeId" : "node_448aed9933bcd0b72467959e",
+        "parentId" : "server-1",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Volatile working memory holding active programs and data for quick CPU access.",
+          "name" : "RAM stick 1 — schematic",
+          "role" : "memory"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.035,
+            0.075,
+            0.035
+          ]
+        }
+      },
+      {
+        "geometryId" : "geometry_2c4c46c4b9cb3018e14eec7f",
+        "isVisible" : true,
+        "materialId" : "material_9cf85c2a71b571b184dd2d49",
+        "nodeId" : "node_c7e35b30aeaf98673f112f86",
+        "parentId" : "server-1",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "generated",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Additional volatile working memory; contents are lost when power is removed.",
+          "name" : "RAM stick 2 — schematic",
+          "role" : "memory"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.07,
+            0.075,
+            0.035
+          ]
+        }
+      }
+    ],
+    "relationships" : [
+
+    ],
+    "schemaVersion" : 1
+  },
+  "elapsed" : "15.362561083000001 seconds",
+  "explanation" : "Proposes moving Compute server 1 from Z=0 to Z=0.25 m, preserving its X/Y position, rotation, and scale. Adds three individually editable schematic parts above the pulled-out chassis, parented to that server: a CPU block that executes instructions and performs calculations, and two RAM sticks that temporarily hold active programs and data for fast CPU access. RAM is volatile and loses its contents without power. All other existing rack parts remain unchanged.",
+  "prompt" : "Pull Compute server 1 (node server-1) 0.25 metres toward the rack front (+Z), preserving its other transform values. Add a simple CPU block and two RAM sticks as individually editable schematic parts above that server. Keep all other rack parts unchanged. Use a patch with at most twelve operations and explain what those components do. Existing dimensions are metres.",
+  "receipts" : [
+    {
+      "affectedNodeIds" : [
+        "node_14cb3557d15019fa7aeb273c",
+        "node_448aed9933bcd0b72467959e",
+        "node_c7e35b30aeaf98673f112f86",
+        "server-1"
+      ],
+      "protocolVersion" : 1,
+      "requestId" : "FA8FB632-C4A0-45AF-AB5F-4BEA9E9DEBB5:patch",
+      "revision" : 1,
+      "sceneId" : "751CCE34-9471-471D-B695-894CC3260CED",
+      "status" : "installed",
+      "type" : "scene.receipt"
+    }
+  ],
+  "revision" : 1,
+  "source" : "liveAstraHeadlessSwiftReducer"
+}

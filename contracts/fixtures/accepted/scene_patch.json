@@ -1,0 +1,21 @@
+{
+  "type": "scene.patch",
+  "protocolVersion": 1,
+  "requestId": "request_patch_1",
+  "sceneId": "scene_fixture",
+  "intentEpoch": 3,
+  "baseRevision": 7,
+  "payloadHash": "be713f08cdf4a851b1cbde720df96af7d697701eaab9561f60699e2fc7a1f1e6",
+  "operations": [
+    {
+      "op": "put.material",
+      "material": {
+        "materialId": "material_blue",
+        "baseColorLinear": [0.05, 0.2, 0.8, 1],
+        "metallic": 0.2,
+        "roughness": 0.6
+      }
+    },
+    { "op": "set.material", "nodeId": "node_group", "materialId": "material_blue" }
+  ]
+}

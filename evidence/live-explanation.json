@@ -1,0 +1,569 @@
+{
+  "document" : {
+    "documentId" : "authored-server-rack-v1",
+    "geometryDefinitions" : [
+      {
+        "contentHash" : "ad2b35bba7cf2b84a3b2b436735973632a7c153d4e3b4ac89470473bcc841ec5",
+        "geometryId" : "rail",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.018,
+            0.6,
+            0.018
+          ]
+        }
+      },
+      {
+        "contentHash" : "4d9435fe7755844cef2c775e765e539a756599f2169f9288088dc4b48e499a32",
+        "geometryId" : "plate",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.32,
+            0.016,
+            0.3
+          ]
+        }
+      },
+      {
+        "contentHash" : "29851efda4a85b1a6f532fdd610093ecc92403b8f4ad808a9cc552a753927ae5",
+        "geometryId" : "server",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.28,
+            0.055,
+            0.27
+          ]
+        }
+      },
+      {
+        "contentHash" : "5b1e89bdf05d9e94c48b6b48e7753937e9bda9dd2961c9ba069e9e2887c631c0",
+        "geometryId" : "switch",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.28,
+            0.034,
+            0.22
+          ]
+        }
+      },
+      {
+        "contentHash" : "b4c30d6d64ba8fc7e83bd942562fb3e5f0cda2dc164286fea9670d538e1f5d28",
+        "geometryId" : "power",
+        "recipe" : {
+          "kind" : "box",
+          "size" : [
+            0.035,
+            0.4,
+            0.04
+          ]
+        }
+      }
+    ],
+    "geometrySemanticsVersion" : 1,
+    "materials" : [
+      {
+        "baseColorLinear" : [
+          0.09,
+          0.11,
+          0.14,
+          1
+        ],
+        "materialId" : "steel",
+        "metallic" : 0.65,
+        "roughness" : 0.4
+      },
+      {
+        "baseColorLinear" : [
+          0.14,
+          0.31,
+          0.44,
+          1
+        ],
+        "materialId" : "compute",
+        "metallic" : 0.45,
+        "roughness" : 0.45
+      },
+      {
+        "baseColorLinear" : [
+          0.1,
+          0.52,
+          0.38,
+          1
+        ],
+        "materialId" : "network",
+        "metallic" : 0.3,
+        "roughness" : 0.5
+      },
+      {
+        "baseColorLinear" : [
+          0.74,
+          0.33,
+          0.09,
+          1
+        ],
+        "materialId" : "power",
+        "metallic" : 0.2,
+        "roughness" : 0.6
+      }
+    ],
+    "nodes" : [
+      {
+        "isVisible" : true,
+        "nodeId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Authored starting assembly. Dimensions are schematic, not a specific manufacturer's hardware.",
+          "name" : "Illustrative server rack",
+          "role" : "assembly"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-0",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 1",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.15,
+            0.3,
+            -0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-1",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 2",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.15,
+            0.3,
+            -0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-2",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 3",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            -0.15,
+            0.3,
+            0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "rail",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "rail-3",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Supports the installed equipment.",
+          "name" : "Rack support 4",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.15,
+            0.3,
+            0.14
+          ]
+        }
+      },
+      {
+        "geometryId" : "plate",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "base",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Bottom of the rack.",
+          "name" : "Base",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.008,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "plate",
+        "isVisible" : true,
+        "materialId" : "steel",
+        "nodeId" : "top",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Top of the rack.",
+          "name" : "Top",
+          "role" : "structure"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.6,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-1",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 1",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.13,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-2",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 2",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.23,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "server",
+        "isVisible" : true,
+        "materialId" : "compute",
+        "nodeId" : "server-3",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "A removable server chassis. Internal processors, memory, cooling, and power components can be illustrated on demand.",
+          "name" : "Compute server 3",
+          "role" : "compute"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.33,
+            0
+          ]
+        }
+      },
+      {
+        "geometryId" : "switch",
+        "isVisible" : true,
+        "materialId" : "network",
+        "nodeId" : "switch",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Connects servers to the network.",
+          "name" : "Network switch",
+          "role" : "networking"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0,
+            0.48,
+            0.02
+          ]
+        }
+      },
+      {
+        "geometryId" : "power",
+        "isVisible" : true,
+        "materialId" : "power",
+        "nodeId" : "pdu",
+        "parentId" : "rack",
+        "provenance" : {
+          "factualSupport" : "illustrative",
+          "origin" : "authored",
+          "sourceRefs" : [
+
+          ]
+        },
+        "semantic" : {
+          "description" : "Distributes electrical power within the rack.",
+          "name" : "Power distribution unit",
+          "role" : "power"
+        },
+        "transform" : {
+          "rotation" : [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale" : [
+            1,
+            1,
+            1
+          ],
+          "translation" : [
+            0.11,
+            0.3,
+            -0.1
+          ]
+        }
+      }
+    ],
+    "relationships" : [
+
+    ],
+    "schemaVersion" : 1
+  },
+  "elapsed" : "10.100373708 seconds",
+  "explanation" : "Compute server 1 (server-1) is the lowest of the three removable server chassis in the accepted rack. Its compute role represents running applications and processing data; processors, memory, cooling, and power components are not modeled inside it in this scene.\n\nThe network switch (switch), positioned above the servers, represents the equipment that connects them to the network. In a typical setup, server-1 sends and receives data through a network interface connected to the switch, which forwards traffic toward other connected devices or an upstream network. The server performs computation; the switch provides network connectivity.\n\nBoth are children of the rack assembly. This snapshot shows no cables or explicit connection records, so their networking relationship is illustrative, not a verified physical link or configured topology. No geometry changes are proposed.",
+  "prompt" : "Explain the role of Compute server 1 (server-1) and how it relates to the network switch, using the accepted scene. Do not create or change any geometry.",
+  "receipts" : [
+
+  ],
+  "revision" : 0,
+  "source" : "liveAstraHeadlessSwiftReducer"
+}

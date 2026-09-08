@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07B9373109500C669B8AB408 /* SpatialApple in Frameworks */ = {isa = PBXBuildFile; productRef = 8ACE560BA0FFF7F851364B9B /* SpatialApple */; };
+		38F525A5D654D2442BA98CB7 /* NativeARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */; };
+		3D2143EE43C695B564AF7604 /* scene.json in Resources */ = {isa = PBXBuildFile; fileRef = 323E938DBF004EF68FAE077D /* scene.json */; };
+		3D5F903A60D89920B7662938 /* SpatialDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED48390268EED22994556DB /* SpatialDemoApp.swift */; };
+		558F0CFAE8036F8903D318C2 /* VoiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711A0FCDBDC403F3E593BAD7 /* VoiceModels.swift */; };
+		791C7C42447E52329A57F744 /* DemoSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */; };
+		B8C971C89DE591F4E62BF647 /* SpatialDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0568E5C6B67C28FBB9D2C8A4 /* SpatialDemoView.swift */; };
+		CBFD22D003B4CD844D44F0BE /* VoiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A45777355A4D63254E0AE /* VoiceSession.swift */; };
+		EC6E7F1C74C3789DF147ACCE /* SpatialCore in Frameworks */ = {isa = PBXBuildFile; productRef = F67B13ECA511F7D0D87D4DE6 /* SpatialCore */; };
+		EEA04481ACF4B44F9451A475 /* PCMCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59515B63B388C814540E1A /* PCMCodec.swift */; };
+		F52584388F1A0216AAF249F3 /* AudioIOController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2EAEB29A88ABCA0BF1D8A0 /* AudioIOController.swift */; };
+		F9F693D88307FDC96973321C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B95575DC5FE858F8BA368A85 /* README.md */; };
+		FAB737A1165FDB4B1C96D89F /* RealtimeWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66E79714056EBF1C901B0F2 /* RealtimeWire.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0568E5C6B67C28FBB9D2C8A4 /* SpatialDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialDemoView.swift; sourceTree = "<group>"; };
+		0E2EAEB29A88ABCA0BF1D8A0 /* AudioIOController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioIOController.swift; sourceTree = "<group>"; };
+		299984F9E70FB00FFD02355C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		323E938DBF004EF68FAE077D /* scene.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scene.json; sourceTree = "<group>"; };
+		3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeARView.swift; sourceTree = "<group>"; };
+		3ED52579FBB8CA199B1F2E0C /* SpatialKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SpatialKit; path = ../../packages/SpatialKit; sourceTree = SOURCE_ROOT; };
+		4DD54CC7344D9A424145A065 /* AstraSpatialDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AstraSpatialDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B59515B63B388C814540E1A /* PCMCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMCodec.swift; sourceTree = "<group>"; };
+		711A0FCDBDC403F3E593BAD7 /* VoiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceModels.swift; sourceTree = "<group>"; };
+		894A45777355A4D63254E0AE /* VoiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSession.swift; sourceTree = "<group>"; };
+		AED48390268EED22994556DB /* SpatialDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialDemoApp.swift; sourceTree = "<group>"; };
+		B66E79714056EBF1C901B0F2 /* RealtimeWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeWire.swift; sourceTree = "<group>"; };
+		B95575DC5FE858F8BA368A85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSessionModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE1357CB8E3B00F29079BAB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC6E7F1C74C3789DF147ACCE /* SpatialCore in Frameworks */,
+				07B9373109500C669B8AB408 /* SpatialApple in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		176BA8667A4CB77ABE9FF032 = {
+			isa = PBXGroup;
+			children = (
+				3EF9E07383A6079D7403DCF3 /* Packages */,
+				ABC131B8B566E5C8BEC1BFD0 /* server-rack */,
+				FE8C4BCCF7DAAB0A6ED483ED /* SpatialDemo */,
+				70A079CF9FF796E8A21C2346 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EF9E07383A6079D7403DCF3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3ED52579FBB8CA199B1F2E0C /* SpatialKit */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		620141387D13949000314844 /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+				0E2EAEB29A88ABCA0BF1D8A0 /* AudioIOController.swift */,
+				6B59515B63B388C814540E1A /* PCMCodec.swift */,
+				B95575DC5FE858F8BA368A85 /* README.md */,
+				B66E79714056EBF1C901B0F2 /* RealtimeWire.swift */,
+				711A0FCDBDC403F3E593BAD7 /* VoiceModels.swift */,
+				894A45777355A4D63254E0AE /* VoiceSession.swift */,
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		70A079CF9FF796E8A21C2346 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DD54CC7344D9A424145A065 /* AstraSpatialDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		933259BD496D024DC875C1F3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3E8DFBA3B6FADDEFF20A108E /* NativeARView.swift */,
+				0568E5C6B67C28FBB9D2C8A4 /* SpatialDemoView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		ABC131B8B566E5C8BEC1BFD0 /* server-rack */ = {
+			isa = PBXGroup;
+			children = (
+				323E938DBF004EF68FAE077D /* scene.json */,
+			);
+			name = "server-rack";
+			path = "../../examples/server-rack";
+			sourceTree = "<group>";
+		};
+		FE8C4BCCF7DAAB0A6ED483ED /* SpatialDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BCD1074653AA6BA4568E89E8 /* DemoSessionModel.swift */,
+				299984F9E70FB00FFD02355C /* Info.plist */,
+				AED48390268EED22994556DB /* SpatialDemoApp.swift */,
+				933259BD496D024DC875C1F3 /* UI */,
+				620141387D13949000314844 /* Voice */,
+			);
+			path = SpatialDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2596626F76C3F62A80D90A1B /* AstraSpatialDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 634BBFB33C4CFC2D295DD21D /* Build configuration list for PBXNativeTarget "AstraSpatialDemo" */;
+			buildPhases = (
+				28EE5EF6766D72C9EA369980 /* Sources */,
+				3D5B3D41B7F05A6A94714E9A /* Resources */,
+				EE1357CB8E3B00F29079BAB4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AstraSpatialDemo;
+			packageProductDependencies = (
+				F67B13ECA511F7D0D87D4DE6 /* SpatialCore */,
+				8ACE560BA0FFF7F851364B9B /* SpatialApple */,
+			);
+			productName = AstraSpatialDemo;
+			productReference = 4DD54CC7344D9A424145A065 /* AstraSpatialDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83EA790C85B99BB9BD31FAAB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = FE6586CBCDAB273A387A52A3 /* Build configuration list for PBXProject "AstraSpatialDemo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 176BA8667A4CB77ABE9FF032;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1392766010254E06D5C743CE /* XCLocalSwiftPackageReference "../../packages/SpatialKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 70A079CF9FF796E8A21C2346 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2596626F76C3F62A80D90A1B /* AstraSpatialDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D5B3D41B7F05A6A94714E9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9F693D88307FDC96973321C /* README.md in Resources */,
+				3D2143EE43C695B564AF7604 /* scene.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28EE5EF6766D72C9EA369980 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52584388F1A0216AAF249F3 /* AudioIOController.swift in Sources */,
+				791C7C42447E52329A57F744 /* DemoSessionModel.swift in Sources */,
+				38F525A5D654D2442BA98CB7 /* NativeARView.swift in Sources */,
+				EEA04481ACF4B44F9451A475 /* PCMCodec.swift in Sources */,
+				FAB737A1165FDB4B1C96D89F /* RealtimeWire.swift in Sources */,
+				3D5F903A60D89920B7662938 /* SpatialDemoApp.swift in Sources */,
+				B8C971C89DE591F4E62BF647 /* SpatialDemoView.swift in Sources */,
+				558F0CFAE8036F8903D318C2 /* VoiceModels.swift in Sources */,
+				CBFD22D003B4CD844D44F0BE /* VoiceSession.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		367EA703B5FDB5F451A92122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		500FBBE9AD7B809DAB727793 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SpatialDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Astra Spatial";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Astra uses the camera to place and track the spatial scene.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Astra connects to the local session service to stream scene proposals and receipts.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Astra uses the microphone for the live voice conversation.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.astra.spatialdemo;
+				PRODUCT_NAME = "Astra Spatial Demo";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92C0AED70726EADEA2E7A32C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SpatialDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Astra Spatial";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Astra uses the camera to place and track the spatial scene.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Astra connects to the local session service to stream scene proposals and receipts.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Astra uses the microphone for the live voice conversation.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.astra.spatialdemo;
+				PRODUCT_NAME = "Astra Spatial Demo";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E3A16D75B8C80DC14E935ADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		634BBFB33C4CFC2D295DD21D /* Build configuration list for PBXNativeTarget "AstraSpatialDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500FBBE9AD7B809DAB727793 /* Debug */,
+				92C0AED70726EADEA2E7A32C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE6586CBCDAB273A387A52A3 /* Build configuration list for PBXProject "AstraSpatialDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3A16D75B8C80DC14E935ADB /* Debug */,
+				367EA703B5FDB5F451A92122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		1392766010254E06D5C743CE /* XCLocalSwiftPackageReference "../../packages/SpatialKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../packages/SpatialKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8ACE560BA0FFF7F851364B9B /* SpatialApple */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpatialApple;
+		};
+		F67B13ECA511F7D0D87D4DE6 /* SpatialCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SpatialCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 83EA790C85B99BB9BD31FAAB /* Project object */;
+}

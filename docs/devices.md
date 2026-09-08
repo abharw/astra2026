@@ -1,21 +1,21 @@
 # iPhone and iPad support
 
-2026-09-08 · Proposed device strategy. Arav identified his iPad as an **iPad Air M4 running iPadOS 26.5**. A read-only developer-device check currently sees his paired iPhone 15 Pro as available and no paired iPad. The iPad model/OS is user-reported; app deployment and runtime behavior on it remain untested.
+2026-09-08 · `devicectl deviceinfo` verifies the wired **iPad Air 13-inch (M4)** (`iPad16,10`) on iPadOS 26.5. iPhone 15 Pro on iOS 26.6.1 is also verified and available. The iPad has Developer Mode enabled and its development profile trusted. A signed app has been installed and launched; its rear-camera view was inspected over USB in QuickTime. Arav reported that the updated fingertip ring tracks his hand and turns green over a part. Universal deployment floor is iOS/iPadOS 26. Accuracy across orientations and the combined voice interaction remain under test.
 
 ## One application, two device families
 
 Build one universal native app targeting supported iPhones and iPads, using the same Swift SDK, ARKit/RealityKit renderer, Vision input processing, scene contract, backend and voice integration. RealityKit's AR camera mode supports both device families. [Apple AR camera mode](https://developer.apple.com/documentation/realitykit/arview/cameramode-swift.enum/ar).
 
-Use the **iPad Air M4 on iPadOS 26.5 as the primary demo target**, with the iPhone 15 Pro as the second test device. The iPhone can host the first hardware spike while the iPad is being connected. The iPad preference reflects the pointing setup and shared screen, not a measured renderer or inference speed advantage.
+Use the **iPad Air M4 on iPadOS 26.5 for the shared presentation**, and prioritize **iPhone usability for audience participation**. Arav requested phone optimization after the first successful iPad pointing trial. Both use the exact same camera/Vision/RealityKit implementation; phone work concerns compact controls, reachable touch targets, camera framing, and measured performance. The iPad preference reflects the shared screen, not a measured renderer or inference speed advantage.
 
 | Device | Role | Current evidence |
 | --- | --- | --- |
-| Arav's iPad Air M4, iPadOS 26.5 | Primary pointing/voice/AR demo | Model and OS reported by Arav; not yet paired or tested here |
-| Arav's iPhone 15 Pro | Secondary device and available first spike | Developer tooling reports available/paired; app behavior untested |
+| iPad Air 13-inch (M4), iPadOS 26.5 | Shared presentation and first hardware test | Signed app/camera running; Arav confirmed fingertip tracking and green target feedback; combined voice trial pending |
+| Arav's iPhone 15 Pro | Phone usability and audience experience reference | Universal build installed; signature/provisioning pass; Arav trusted its developer profile and the app launched. Controls reviewed in simulator portrait/landscape; full device trial pending |
 
 Configure both device families in the app target. Adapt controls to the viewport and safe areas, keep the rendered scene's physical scale in metres, and derive image-to-view mapping from the actual AR viewport. Do not hardcode a phone aspect ratio. Orientation changes, window resizing, app interruptions and resume must invalidate stale pointing observations and cancel any manipulation preview. One active AR scene/session per app is sufficient; multiwindow collaboration is outside this milestone.
 
-Keep the chosen APIs compatible with iPadOS 26.5; the demo must not depend on iPadOS 27 beta features. Pin the universal deployment target after confirming the secondary phone's OS. Check `ARWorldTrackingConfiguration.isSupported`, availability of the chosen Vision API, and any optional AR features at runtime. Broad historical ARKit compatibility is not a promise that every older iPad can run this application's selected APIs and workload. [Apple device checks](https://developer.apple.com/documentation/arkit/verifying-device-support-and-user-permission).
+Keep the chosen APIs compatible with iPadOS 26.5; the demo must not depend on iPadOS 27 beta features. The universal deployment floor is iOS/iPadOS 26, below the verified secondary phone's OS. Check `ARWorldTrackingConfiguration.isSupported`, availability of the chosen Vision API, and any optional AR features at runtime. Broad historical ARKit compatibility is not a promise that every older iPad can run this application's selected APIs and workload. [Apple device checks](https://developer.apple.com/documentation/arkit/verifying-device-support-and-user-permission).
 
 ## Pointing setup
 

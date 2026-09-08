@@ -13,4 +13,6 @@ dist/
 xcuserdata/
 evidence/local/
 runtime/
+.vscode/
+.derived-data/
 *.log
