@@ -1,0 +1,58 @@
+{
+  "schema": "astra.mobile-rack-validation.v1",
+  "profiles": {
+    "conservative": {
+      "status": "passed",
+      "source": "runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+      "output": "runtime/processed-assets/rack-exterior-mobile.usdz",
+      "sourceSHA256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+      "outputSHA256": "685fb4717cd6209bbb7ecc9a9e993c4d124fa5860958ae0d650215e155a3d84b",
+      "authoredPrims": 221,
+      "serverRoots": 18,
+      "internalInstances": 18,
+      "composedPrototypes": 1,
+      "materials": 19,
+      "meshes": 38,
+      "storedTriangles": {
+        "before": 791123,
+        "after": 233060
+      },
+      "sourceBytes": 25786225,
+      "outputBytes": 10549419,
+      "archiveEntries": [
+        "rack-exterior-mobile-compact.usdc"
+      ],
+      "limitation": "Validates USD structure and face-material domains; visual fidelity and device performance require separate evidence."
+    },
+    "distance": {
+      "status": "passed",
+      "source": "runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+      "output": "runtime/processed-assets/rack-exterior-distance.usdz",
+      "sourceSHA256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+      "outputSHA256": "fae0a2926ef61542fef27dc1d85d992211da6bef4fccf5b1cce3b8b252626974",
+      "authoredPrims": 221,
+      "serverRoots": 18,
+      "internalInstances": 18,
+      "composedPrototypes": 1,
+      "materials": 19,
+      "meshes": 38,
+      "storedTriangles": {
+        "before": 791123,
+        "after": 205273
+      },
+      "sourceBytes": 25786225,
+      "outputBytes": 9334783,
+      "archiveEntries": [
+        "rack-exterior-distance-compact.usdc"
+      ],
+      "limitation": "Validates USD structure and face-material domains; visual fidelity and device performance require separate evidence."
+    }
+  },
+  "reproducibility": {
+    "method": "Canonicalize ZIP timestamps to 1980-01-01; run complete source-to-USDZ recipe again for each profile with the same basename and pinned toolchain; compare full file SHA256.",
+    "conservative_repeat_sha256": "685fb4717cd6209bbb7ecc9a9e993c4d124fa5860958ae0d650215e155a3d84b",
+    "distance_repeat_sha256": "fae0a2926ef61542fef27dc1d85d992211da6bef4fccf5b1cce3b8b252626974",
+    "both_byte_identical": true
+  },
+  "scope": "USD structure, material and geometry domains, source preservation, aligned packaging, and repeat build hashes. No device frame-rate claim."
+}

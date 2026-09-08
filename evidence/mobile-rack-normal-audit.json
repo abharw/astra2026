@@ -1,0 +1,42 @@
+{
+  "method": "Server side triangles with abs(geometricNormal.x) > 0.9999 and area > 2e-5 square metres. Compare the face normal to each normalized authored corner normal. Nonzero source deviation includes intended edge smoothing.",
+  "inspection_script": "runtime/processed-assets/audit-normals.py",
+  "results": [
+    {
+      "label": "source",
+      "triangles": 129331,
+      "normalsMode": "faceVarying",
+      "sideTriangles": 2907,
+      "sideAreaM2": 0.7119995951652527,
+      "sideMaxAngleDegrees": 32.62065505981445,
+      "sideMeanMaxAngleDegrees": 2.502730369567871,
+      "sideAreaOver10DegreesPercent": 11.228316307067871,
+      "path": "runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+      "sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+    },
+    {
+      "label": "mobile",
+      "triangles": 51446,
+      "normalsMode": "faceVarying",
+      "sideTriangles": 760,
+      "sideAreaM2": 0.20182062685489655,
+      "sideMaxAngleDegrees": 175.5533905029297,
+      "sideMeanMaxAngleDegrees": 48.30607986450195,
+      "sideAreaOver10DegreesPercent": 80.09586334228516,
+      "path": "runtime/processed-assets/rack-exterior-mobile.usdz",
+      "sha256": "685fb4717cd6209bbb7ecc9a9e993c4d124fa5860958ae0d650215e155a3d84b"
+    },
+    {
+      "label": "distance",
+      "triangles": 23659,
+      "normalsMode": "faceVarying",
+      "sideTriangles": 1154,
+      "sideAreaM2": 0.3780704140663147,
+      "sideMaxAngleDegrees": 0.01978234015405178,
+      "sideMeanMaxAngleDegrees": 0.0007199812098406255,
+      "sideAreaOver10DegreesPercent": 0.0,
+      "path": "runtime/processed-assets/rack-exterior-distance.usdz",
+      "sha256": "fae0a2926ef61542fef27dc1d85d992211da6bef4fccf5b1cce3b8b252626974"
+    }
+  ]
+}

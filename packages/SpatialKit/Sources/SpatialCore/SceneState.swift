@@ -13,6 +13,17 @@ public struct SceneState: Sendable, Equatable {
   private var undoStack: [SceneDocument] = []
   private let validator: SceneValidator
 
+  /// Native resources needed by the current document or any still-available undo checkpoint.
+  public var retainedImportedAssetIDs: Set<String> {
+    var result = Set<String>()
+    for retainedDocument in [document] + undoStack {
+      for definition in retainedDocument.geometryDefinitions {
+        if case let .importedAsset(assetID, _) = definition.recipe { result.insert(assetID) }
+      }
+    }
+    return result
+  }
+
   public static func == (lhs: SceneState, rhs: SceneState) -> Bool {
     lhs.sceneId == rhs.sceneId
       && lhs.revision == rhs.revision

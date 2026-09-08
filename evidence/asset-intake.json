@@ -1,0 +1,1074 @@
+{
+  "source_commit": "051c9d954292438fc8419661aa91451367961d86",
+  "asset_path": "/Users/aravb/Developer/astra2026/runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+  "asset_bytes": 25786225,
+  "asset_sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+  "usd_stage": {
+    "up_axis": "Z",
+    "meters_per_unit": 1,
+    "default_prim": "root",
+    "archive_files": [
+      "rack-exterior.usdc"
+    ],
+    "texture_files": 0
+  },
+  "measurement_method": "USDA exported by installed usdcat; count authored faces, triangulate n-gons as n-2, expand 18 instance references arithmetically; world bounds from authored mesh extents plus translations; not measured rendering cost. All 18 authored scale and rotation operations are identity.",
+  "authored_prim_types": {
+    "Xform": 94,
+    "Mesh": 38,
+    "GeomSubset": 48,
+    "Scope": 2,
+    "Material": 19,
+    "Shader": 17,
+    "class": 1
+  },
+  "unique_authored_geometry": {
+    "meshes": 38,
+    "vertices": 437334,
+    "polygons": 475918,
+    "triangles_equivalent": 791123
+  },
+  "instancing": {
+    "instances": 18,
+    "prototype_meshes": 1,
+    "triangles_per_server": 129331,
+    "vertices_per_server": 59416,
+    "direct_rack_triangles": 661792,
+    "expanded_visible_meshes": 55,
+    "expanded_visible_triangles": 2989750
+  },
+  "materials": {
+    "authored_materials": 17,
+    "names": [
+      "rack_material_stainless_fasteners",
+      "cable_material_blue",
+      "Brushed_zinc_steel",
+      "Black_engineering_polymer",
+      "rack_material_silver_busbar_plating",
+      "rack_material_insulator_black",
+      "rack_material_powder_coat_RAL9005",
+      "rack_material_zinc_plated_steel",
+      "rack_material_contact_gold",
+      "rack_material_silkscreen",
+      "rack_material_status_green",
+      "cable_material_black",
+      "cable_material_gray",
+      "cable_material_white",
+      "cable_material_plug",
+      "cable_material_gold",
+      "rack_material_caster_tread"
+    ],
+    "geometry_subsets": 48
+  },
+  "bounds_blender_m": {
+    "min": [
+      -0.3415,
+      -0.8120773,
+      0
+    ],
+    "max": [
+      0.3,
+      0.5335,
+      3.8616
+    ],
+    "size": [
+      0.6415,
+      1.3455773,
+      3.8616
+    ]
+  },
+  "servers": [
+    {
+      "part_id": "rack01.server01",
+      "node_name": "rack01_server01",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server01",
+      "slot_ou": 1,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.18000000715255737
+      ]
+    },
+    {
+      "part_id": "rack01.server02",
+      "node_name": "rack01_server02",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server02",
+      "slot_ou": 3,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.2759999930858612
+      ]
+    },
+    {
+      "part_id": "rack01.server03",
+      "node_name": "rack01_server03",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server03",
+      "slot_ou": 5,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.3720000088214874
+      ]
+    },
+    {
+      "part_id": "rack01.server04",
+      "node_name": "rack01_server04",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server04",
+      "slot_ou": 7,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.46799999475479126
+      ]
+    },
+    {
+      "part_id": "rack01.server05",
+      "node_name": "rack01_server05",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server05",
+      "slot_ou": 9,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.5640000104904175
+      ]
+    },
+    {
+      "part_id": "rack01.server06",
+      "node_name": "rack01_server06",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server06",
+      "slot_ou": 11,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.6600000262260437
+      ]
+    },
+    {
+      "part_id": "rack01.server07",
+      "node_name": "rack01_server07",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server07",
+      "slot_ou": 13,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.7559999823570251
+      ]
+    },
+    {
+      "part_id": "rack01.server08",
+      "node_name": "rack01_server08",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server08",
+      "slot_ou": 15,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.8519999980926514
+      ]
+    },
+    {
+      "part_id": "rack01.server09",
+      "node_name": "rack01_server09",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server09",
+      "slot_ou": 17,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        0.9480000138282776
+      ]
+    },
+    {
+      "part_id": "rack01.server10",
+      "node_name": "rack01_server10",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server10",
+      "slot_ou": 19,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.0440000295639038
+      ]
+    },
+    {
+      "part_id": "rack01.server11",
+      "node_name": "rack01_server11",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server11",
+      "slot_ou": 21,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.1399999856948853
+      ]
+    },
+    {
+      "part_id": "rack01.server12",
+      "node_name": "rack01_server12",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server12",
+      "slot_ou": 23,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.2359999418258667
+      ]
+    },
+    {
+      "part_id": "rack01.server13",
+      "node_name": "rack01_server13",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server13",
+      "slot_ou": 25,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.3320000171661377
+      ]
+    },
+    {
+      "part_id": "rack01.server14",
+      "node_name": "rack01_server14",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server14",
+      "slot_ou": 27,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.4279999732971191
+      ]
+    },
+    {
+      "part_id": "rack01.server15",
+      "node_name": "rack01_server15",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server15",
+      "slot_ou": 29,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.5240000486373901
+      ]
+    },
+    {
+      "part_id": "rack01.server16",
+      "node_name": "rack01_server16",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server16",
+      "slot_ou": 31,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.6200000047683716
+      ]
+    },
+    {
+      "part_id": "rack01.server17",
+      "node_name": "rack01_server17",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server17",
+      "slot_ou": 33,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.715999960899353
+      ]
+    },
+    {
+      "part_id": "rack01.server18",
+      "node_name": "rack01_server18",
+      "usd_path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server18",
+      "slot_ou": 35,
+      "position_blender_m": [
+        0,
+        -0.4000000059604645,
+        1.812000036239624
+      ]
+    }
+  ],
+  "duplicate_authored_part_ids": {
+    "rack01.psu.01": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_01",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_012"
+    ],
+    "server.exterior.surface": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_server12/rack01_server12_exterior/server_exterior_surface_0",
+      "/root/prototypes/server_exterior_surface_0"
+    ],
+    "rack01.psu.06": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007"
+    ],
+    "rack01.psu.05": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_05",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_008"
+    ],
+    "rack01.psu.04": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_04",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_009"
+    ],
+    "rack01.psu.03": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_03",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_010"
+    ],
+    "rack01.psu.02": [
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_02",
+      "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_011"
+    ]
+  },
+  "full_package_preflight": {
+    "result": "blocked_by_intentional_partial_download",
+    "exit_code": 1,
+    "first_missing_binary": "rack-exterior.blend",
+    "all_blend_libraries_not_downloaded": true
+  },
+  "mesh_detail": [
+    {
+      "name": "rack01_psu_01_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_01/rack01_psu_01_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "cable_ou09_BMC_LAN1_to_patch05_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou09_BMC_LAN1_to_patch05_001_export/cable_ou09_BMC_LAN1_to_patch05_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou17_BMC_LAN1_to_patch09_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou17_BMC_LAN1_to_patch09_001_export/cable_ou17_BMC_LAN1_to_patch09_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_hardware_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_hardware/rack01_hardware_mesh",
+      "vertices": 7896,
+      "polygons": 7520,
+      "triangles_equivalent": 15416
+    },
+    {
+      "name": "cable_ou07_BMC_LAN1_to_patch04_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou07_BMC_LAN1_to_patch04_001_export/cable_ou07_BMC_LAN1_to_patch04_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_power_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_power/rack01_power_mesh",
+      "vertices": 50810,
+      "polygons": 52096,
+      "triangles_equivalent": 104592
+    },
+    {
+      "name": "cable_ou25_BMC_LAN1_to_patch13_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou25_BMC_LAN1_to_patch13_001_export/cable_ou25_BMC_LAN1_to_patch13_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou21_BMC_LAN1_to_patch11_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou21_BMC_LAN1_to_patch11_001_export/cable_ou21_BMC_LAN1_to_patch11_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_psu_06_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06/rack01_psu_06_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "cable_ou15_BMC_LAN1_to_patch08_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou15_BMC_LAN1_to_patch08_001_export/cable_ou15_BMC_LAN1_to_patch08_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_labels_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_labels/rack01_labels_mesh",
+      "vertices": 60084,
+      "polygons": 44615,
+      "triangles_equivalent": 59636
+    },
+    {
+      "name": "cable_ou05_BMC_LAN1_to_patch03_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou05_BMC_LAN1_to_patch03_001_export/cable_ou05_BMC_LAN1_to_patch03_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_psu_06_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007/rack01_psu_06_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "rack01_psu_05_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_05/rack01_psu_05_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "cable_ou13_BMC_LAN1_to_patch07_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou13_BMC_LAN1_to_patch07_001_export/cable_ou13_BMC_LAN1_to_patch07_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_management_patch_panel_and_plugs_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_management_patch_panel_and_plugs/rack01_management_patch_panel_and_plugs_mesh",
+      "vertices": 74708,
+      "polygons": 64351,
+      "triangles_equivalent": 111708
+    },
+    {
+      "name": "cable_ou23_BMC_LAN1_to_patch12_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou23_BMC_LAN1_to_patch12_001_export/cable_ou23_BMC_LAN1_to_patch12_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou03_BMC_LAN1_to_patch02_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou03_BMC_LAN1_to_patch02_001_export/cable_ou03_BMC_LAN1_to_patch02_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou31_BMC_LAN1_to_patch16_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou31_BMC_LAN1_to_patch16_001_export/cable_ou31_BMC_LAN1_to_patch16_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_psu_04_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_04/rack01_psu_04_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "rack01_structure_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_structure/rack01_structure_mesh",
+      "vertices": 14784,
+      "polygons": 12892,
+      "triangles_equivalent": 28936
+    },
+    {
+      "name": "rack01_psu_04_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_009/rack01_psu_04_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "cable_ou11_BMC_LAN1_to_patch06_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou11_BMC_LAN1_to_patch06_001_export/cable_ou11_BMC_LAN1_to_patch06_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou35_BMC_LAN1_to_patch18_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou35_BMC_LAN1_to_patch18_001_export/cable_ou35_BMC_LAN1_to_patch18_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_psu_03_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_03/rack01_psu_03_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "cable_ou01_BMC_LAN1_to_patch01_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou01_BMC_LAN1_to_patch01_001_export/cable_ou01_BMC_LAN1_to_patch01_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou29_BMC_LAN1_to_patch15_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou29_BMC_LAN1_to_patch15_001_export/cable_ou29_BMC_LAN1_to_patch15_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_retention_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_retention/rack01_retention_mesh",
+      "vertices": 106280,
+      "polygons": 107560,
+      "triangles_equivalent": 215120
+    },
+    {
+      "name": "rack01_psu_05_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_008/rack01_psu_05_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "rack01_psu_03_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_010/rack01_psu_03_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "cable_ou19_BMC_LAN1_to_patch10_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou19_BMC_LAN1_to_patch10_001_export/cable_ou19_BMC_LAN1_to_patch10_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "rack01_psu_02_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_02/rack01_psu_02_mesh",
+      "vertices": 168,
+      "polygons": 160,
+      "triangles_equivalent": 328
+    },
+    {
+      "name": "rack01_supports_mesh",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_supports/rack01_supports_mesh",
+      "vertices": 4256,
+      "polygons": 4104,
+      "triangles_equivalent": 8208
+    },
+    {
+      "name": "rack01_psu_01_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_012/rack01_psu_01_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "rack01_psu_02_mesh_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_011/rack01_psu_02_mesh_001",
+      "vertices": 5272,
+      "polygons": 5300,
+      "triangles_equivalent": 10680
+    },
+    {
+      "name": "cable_ou27_BMC_LAN1_to_patch14_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou27_BMC_LAN1_to_patch14_001_export/cable_ou27_BMC_LAN1_to_patch14_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "cable_ou33_BMC_LAN1_to_patch17_route_001",
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou33_BMC_LAN1_to_patch17_001_export/cable_ou33_BMC_LAN1_to_patch17_route_001",
+      "vertices": 1470,
+      "polygons": 1456,
+      "triangles_equivalent": 2896
+    },
+    {
+      "name": "server_exterior_surface_mesh",
+      "path": "/root/prototypes/server_exterior_surface_0/server_exterior_surface_mesh",
+      "vertices": 59416,
+      "polygons": 123812,
+      "triangles_equivalent": 129331
+    }
+  ],
+  "reviewed_at": "2026-09-08T20:19:11.213282+00:00",
+  "source_url": "https://github.com/abharw/astra2026/tree/051c9d954292438fc8419661aa91451367961d86/datacenter-rack",
+  "scope": "Source asset acquisition and structural inspection only; this receipt does not assert native app or device rendering acceptance.",
+  "cross_checks": {
+    "openusd": {
+      "pxr_version": [
+        0,
+        26,
+        3
+      ],
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "visible_mesh_occurrences": 55,
+      "visible_triangles": 2989750,
+      "instance_roots": 18,
+      "bounds_blender_m": {
+        "min": [
+          -0.34150001406669617,
+          -0.8120772838592529,
+          0.0
+        ],
+        "max": [
+          0.30000001192092896,
+          0.5335000157356262,
+          3.861599922180176
+        ],
+        "size": [
+          0.6415000259876251,
+          1.3455772995948792,
+          3.861599922180176
+        ]
+      },
+      "servers": [
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server12",
+          "name": "rack01_server12",
+          "part_id": "rack01.server12"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server09",
+          "name": "rack01_server09",
+          "part_id": "rack01.server09"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server03",
+          "name": "rack01_server03",
+          "part_id": "rack01.server03"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server16",
+          "name": "rack01_server16",
+          "part_id": "rack01.server16"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server06",
+          "name": "rack01_server06",
+          "part_id": "rack01.server06"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server13",
+          "name": "rack01_server13",
+          "part_id": "rack01.server13"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server10",
+          "name": "rack01_server10",
+          "part_id": "rack01.server10"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server08",
+          "name": "rack01_server08",
+          "part_id": "rack01.server08"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server07",
+          "name": "rack01_server07",
+          "part_id": "rack01.server07"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server04",
+          "name": "rack01_server04",
+          "part_id": "rack01.server04"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server01",
+          "name": "rack01_server01",
+          "part_id": "rack01.server01"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server17",
+          "name": "rack01_server17",
+          "part_id": "rack01.server17"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server14",
+          "name": "rack01_server14",
+          "part_id": "rack01.server14"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server11",
+          "name": "rack01_server11",
+          "part_id": "rack01.server11"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server05",
+          "name": "rack01_server05",
+          "part_id": "rack01.server05"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server02",
+          "name": "rack01_server02",
+          "part_id": "rack01.server02"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server15",
+          "name": "rack01_server15",
+          "part_id": "rack01.server15"
+        },
+        {
+          "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_server18",
+          "name": "rack01_server18",
+          "part_id": "rack01.server18"
+        }
+      ]
+    },
+    "blender_import": {
+      "blender_version": "5.2.1 LTS",
+      "import_elapsed_seconds": 0.0945893750176765,
+      "object_count": 95,
+      "mesh_objects": 38,
+      "visible_mesh_occurrences": 55,
+      "unique_mesh_data": 38,
+      "bounds": {
+        "min": [
+          -0.34150001406669617,
+          -0.8120772838592529,
+          0.0
+        ],
+        "max": [
+          0.30000001192092896,
+          0.5335000157356262,
+          3.861599922180176
+        ],
+        "size": [
+          0.6415000259876251,
+          1.3455772995948792,
+          3.861599922180176
+        ]
+      },
+      "psu6": [
+        {
+          "name": "rack01_psu_06_mesh",
+          "bounds": [
+            [
+              -0.1794086992740631,
+              -0.7217320799827576,
+              3.85860013961792
+            ],
+            [
+              -0.1794086992740631,
+              -0.7217320799827576,
+              3.861599922180176
+            ],
+            [
+              -0.1794086992740631,
+              -0.3682679533958435,
+              3.861599922180176
+            ],
+            [
+              -0.1794086992740631,
+              -0.3682679533958435,
+              3.85860013961792
+            ],
+            [
+              -0.17559128999710083,
+              -0.7217320799827576,
+              3.85860013961792
+            ],
+            [
+              -0.17559128999710083,
+              -0.7217320799827576,
+              3.861599922180176
+            ],
+            [
+              -0.17559128999710083,
+              -0.3682679533958435,
+              3.861599922180176
+            ],
+            [
+              -0.17559128999710083,
+              -0.3682679533958435,
+              3.85860013961792
+            ]
+          ]
+        },
+        {
+          "name": "rack01_psu_06_mesh_001",
+          "bounds": [
+            [
+              -0.21199999749660492,
+              -0.8120772838592529,
+              3.819000005722046
+            ],
+            [
+              -0.21199999749660492,
+              -0.8120772838592529,
+              3.859600067138672
+            ],
+            [
+              -0.21199999749660492,
+              -0.2686000168323517,
+              3.859600067138672
+            ],
+            [
+              -0.21199999749660492,
+              -0.2686000168323517,
+              3.819000005722046
+            ],
+            [
+              -0.14299999177455902,
+              -0.8120772838592529,
+              3.819000005722046
+            ],
+            [
+              -0.14299999177455902,
+              -0.8120772838592529,
+              3.859600067138672
+            ],
+            [
+              -0.14299999177455902,
+              -0.2686000168323517,
+              3.859600067138672
+            ],
+            [
+              -0.14299999177455902,
+              -0.2686000168323517,
+              3.819000005722046
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "psu06_defect": {
+    "affected_mesh_names": [
+      "rack01_psu_06_mesh",
+      "rack01_psu_06_mesh_001"
+    ],
+    "source_correction_m": [
+      0,
+      0.4,
+      -1.908
+    ],
+    "cause": "Missing dependency graph update after restoring child world matrices during nested assembly origin changes, source/rack_frame.py:204-210. Reproduced by running committed source twice, with exactly one added view_layer.update in the second run.",
+    "reproduction": {
+      "blender_version": "5.2.1 LTS",
+      "method": "Execute committed rack_frame.py twice in isolated factory-empty scene. Second run adds one view_layer.update() after each loop restores child world matrices. No source files or original binary mutated.",
+      "checks": {
+        "rack.psu.01": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0,
+            0
+          ],
+          "max_delta_error": 0.0,
+          "original_bounds": {
+            "min": [
+              0.14299999177455902,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.21199999749660492,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              0.14299999177455902,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.21199999749660492,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        },
+        "rack.psu.02": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0,
+            0
+          ],
+          "max_delta_error": 0.0,
+          "original_bounds": {
+            "min": [
+              0.07199999690055847,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.14100000262260437,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              0.07199999690055847,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.14100000262260437,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        },
+        "rack.psu.03": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0,
+            0
+          ],
+          "max_delta_error": 0.0,
+          "original_bounds": {
+            "min": [
+              0.0009999992325901985,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.07000000029802322,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              0.0009999992325901985,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              0.07000000029802322,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        },
+        "rack.psu.04": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0,
+            0
+          ],
+          "max_delta_error": 0.0,
+          "original_bounds": {
+            "min": [
+              -0.07000000029802322,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              -0.0009999992325901985,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              -0.07000000029802322,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              -0.0009999992325901985,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        },
+        "rack.psu.05": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0,
+            0
+          ],
+          "max_delta_error": 0.0,
+          "original_bounds": {
+            "min": [
+              -0.14100000262260437,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              -0.07199999690055847,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              -0.14100000262260437,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              -0.07199999690055847,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        },
+        "rack.psu.06": {
+          "object_count": 30,
+          "expected_correction": [
+            0,
+            0.4,
+            -1.908
+          ],
+          "max_delta_error": 1.2683868400031884e-07,
+          "original_bounds": {
+            "min": [
+              -0.21199999749660492,
+              -0.8120772838592529,
+              3.819000005722046
+            ],
+            "max": [
+              -0.14299999177455902,
+              -0.2686000168323517,
+              3.861599922180176
+            ]
+          },
+          "corrected_bounds": {
+            "min": [
+              -0.21199999749660492,
+              -0.41207727789878845,
+              1.9110000133514404
+            ],
+            "max": [
+              -0.14299999177455902,
+              0.1313999891281128,
+              1.9536000490188599
+            ]
+          }
+        }
+      }
+    },
+    "original_asset_changed": false
+  },
+  "semantic_boundaries": [
+    "All 18 server root IDs are unique and preserved in USD.",
+    "Each server exterior is a single shared mesh; internal component geometry is absent.",
+    "Cables belong to rack root, so server-only transforms do not move their cables.",
+    "Each PSU semantic ID appears on two aggregate nodes; select by exact node path or group both deliberately.",
+    "Custom properties exist in USD but RealityKit preservation must be verified separately.",
+    "Detailed collections and their loader are Blender-specific; no runtime detail interchange exports are supplied."
+  ],
+  "deferred_lfs_assets": {
+    "rack-exterior.glb": {
+      "sha256": "4b7403e79b78a1947ac6f85089d4fbaa855bcbbf31442c8c3c987bc507952c71",
+      "bytes": 23057200
+    },
+    "rack-exterior.blend": {
+      "sha256": "77dc1d16cc70906595bca1c0a1b16d957cc102fa638012314760fb6dd054bca5",
+      "bytes": 11199741
+    },
+    "exterior-library.blend": {
+      "sha256": "4358748a1b10b07531470eed8a4e7209d28cbde17193ae7c6eca8a9e617cd713",
+      "bytes": 2962844
+    },
+    "parts-library.blend": {
+      "sha256": "1d086d872ff4e795b795aed3400e5bac98fa7872bd26c84dc0877788be5ee4d2",
+      "bytes": 137229178
+    },
+    "part-knowledge.json": {
+      "sha256": "0940cb2149a4bccee6ae5158c1725361a07f66bd9ce1464ce6999b061acb3ec2",
+      "bytes": 24939668
+    }
+  }
+}

@@ -65,6 +65,64 @@ private func fixture(_ relativePath: String) throws -> Data {
       == "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb")
 }
 
+@Test func importedAssetReferencesRoundTripAndHaveStableHashes() throws {
+  let recipe = GeometryRecipe.importedAsset(assetID: "asset_fixture", partID: "part_fixture")
+  let expectedHash = "0f1b897908b19a74554743fc0b4a11abeabe032a92fb8171e3f3cd8a270746a9"
+  #expect(try canonicalContentHash(for: recipe) == expectedHash)
+  #expect(
+    try canonicalContentHash(for: .importedAsset(assetID: "other_asset", partID: "part_fixture"))
+      != expectedHash)
+  #expect(
+    try canonicalContentHash(for: .importedAsset(assetID: "asset_fixture", partID: "other_part"))
+      != expectedHash)
+  #expect(
+    try canonicalContentHash(for: .importedAsset(assetID: "ab", partID: "c"))
+      != canonicalContentHash(for: .importedAsset(assetID: "a", partID: "bc")))
+
+  let decoder = SceneWireDecoder()
+  let imported = try decoder.decodeDocument(from: fixture("accepted/imported_asset_document.json"))
+  #expect(imported.geometryDefinitions.first?.recipe == recipe)
+  #expect(try decoder.decodeDocument(from: JSONEncoder().encode(imported)) == imported)
+
+  let definition = try geometry("imported", recipe: recipe)
+  let patch = try hashed(ScenePatch(
+    requestId: "import", sceneId: "scene", intentEpoch: 0, baseRevision: 0,
+    payloadHash: "", operations: [.putGeometry(definition)]))
+  #expect(try decoder.decodeMessage(from: JSONEncoder().encode(patch)) == .scenePatch(patch))
+}
+
+@Test func importedAssetReferencesRejectUnboundedIdentifiers() throws {
+  let invalid: [GeometryRecipe] = [
+    .importedAsset(assetID: "", partID: "part"),
+    .importedAsset(assetID: "asset", partID: ""),
+    .importedAsset(assetID: String(repeating: "a", count: 129), partID: "part"),
+    .importedAsset(assetID: "asset", partID: String(repeating: "é", count: 65)),
+  ]
+  for recipe in invalid {
+    let scene = document(geometries: [try geometry(recipe: recipe)])
+    #expect(throws: SceneValidationError.self) { try SceneValidator().validate(scene) }
+  }
+}
+
+@Test func importedAssetWireRejectsAssetPathsAndMissingReferences() throws {
+  let data = try fixture("accepted/imported_asset_document.json")
+  let original = try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
+  for change in ["url", "path", "assetId", "missingPart"] {
+    var object = original
+    var definitions = try #require(object["geometryDefinitions"] as? [[String: Any]])
+    var recipe = try #require(definitions[0]["recipe"] as? [String: Any])
+    if change == "missingPart" {
+      recipe.removeValue(forKey: "partID")
+    } else {
+      recipe[change] = "untrusted"
+    }
+    definitions[0]["recipe"] = recipe
+    object["geometryDefinitions"] = definitions
+    let modified = try JSONSerialization.data(withJSONObject: object)
+    #expect(throws: (any Error).self) { try SceneWireDecoder().decodeDocument(from: modified) }
+  }
+}
+
 @Test func sharedLifecycleFixturesReduceToExpectedState() throws {
   let decoder = SceneWireDecoder()
   let initial = try decoder.decodeDocument(from: fixture("accepted/scene_document.json"))
@@ -129,6 +187,7 @@ private func fixture(_ relativePath: String) throws -> Data {
     .arrow(
       start: Vec3(0, 0, 0), end: Vec3(0, 1, 0), shaftRadius: 0.02, headRadius: 0.05,
       headLength: 0.2, radialSegments: 8),
+    .importedAsset(assetID: "asset_fixture", partID: "part_fixture"),
   ]
   let definitions = try recipes.enumerated().map {
     try geometry("geometry_\($0.offset)", recipe: $0.element)

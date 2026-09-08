@@ -1,0 +1,338 @@
+{
+  "schema": "astra.mobile-rack-processing.v2",
+  "source": {
+    "path": "runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+    "sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+    "bytes": 25786225,
+    "repository": "https://github.com/abharw/astra2026",
+    "commit": "051c9d954292438fc8419661aa91451367961d86",
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "authored_meshes": 38,
+    "authored_vertices": 437334,
+    "authored_triangle_equivalents": 791123,
+    "visible_mesh_occurrences": 55,
+    "visible_expanded_triangle_equivalents": 2989750,
+    "instances": 18,
+    "prototypes": 1,
+    "materials": 19,
+    "material_subsets": 48,
+    "world_bounds_m": [
+      [
+        -0.34150001406669617,
+        -0.8120772838592529,
+        0.0
+      ],
+      [
+        0.30000001192092896,
+        0.5335000157356262,
+        3.861599922180176
+      ]
+    ]
+  },
+  "derivative": {
+    "path": "runtime/processed-assets/rack-exterior-faithful-v2.usdz",
+    "sha256": "b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1",
+    "bytes": 13232052,
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "authored_meshes": 38,
+    "authored_vertices": 437334,
+    "authored_triangle_equivalents": 791123,
+    "visible_mesh_occurrences": 55,
+    "visible_expanded_triangle_equivalents": 2989750,
+    "instances": 18,
+    "prototypes": 1,
+    "materials": 19,
+    "material_subsets": 48,
+    "world_bounds_m": [
+      [
+        -0.34150001406669617,
+        -0.5355150103569031,
+        0.0
+      ],
+      [
+        0.30000001192092896,
+        0.5335000157356262,
+        2.2100000381469727
+      ]
+    ]
+  },
+  "toolchain": {
+    "blender": "5.2.1 LTS",
+    "blender_build_hash": "9e2066aef7ef",
+    "openusd": "0.26.3",
+    "pipeline": "scripts/prepare-mobile-rack.py",
+    "pipeline_sha256": "07453abf4ef4cf7f35b7f79074f94eef51e87abf806bd73772535ca70d0d11c3"
+  },
+  "settings": {
+    "profile": "faithful",
+    "geometry_simplification": false,
+    "normals": "Exact unique float32 values with indexed primvars:normals where smaller; original normal interpolation retained",
+    "correct_psu6": true,
+    "zip_timestamp": "1980-01-01 00:00:00"
+  },
+  "verification": {
+    "source_sha256_unchanged": true,
+    "topology_arrays_identical": true,
+    "points_identical_except_documented_psu6_correction": true,
+    "expanded_authored_normals_identical": true,
+    "usdz_reopened": true
+  },
+  "source_corrections": [
+    {
+      "mesh": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06/rack01_psu_06_mesh",
+      "world_translation_m": [
+        0.0,
+        0.4,
+        -1.908
+      ]
+    },
+    {
+      "mesh": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007/rack01_psu_06_mesh_001",
+      "world_translation_m": [
+        0.0,
+        0.4,
+        -1.908
+      ]
+    }
+  ],
+  "source_correction_evidence": "evidence/asset-intake.json and evidence/rack-psu-offset-reproduction.py",
+  "meshes": [
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_01/rack01_psu_01_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 240,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou09_BMC_LAN1_to_patch05_001_export/cable_ou09_BMC_LAN1_to_patch05_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou17_BMC_LAN1_to_patch09_001_export/cable_ou17_BMC_LAN1_to_patch09_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_hardware/rack01_hardware_mesh",
+      "normal_elements_before": 30456,
+      "unique_normal_elements": 7717,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou07_BMC_LAN1_to_patch04_001_export/cable_ou07_BMC_LAN1_to_patch04_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_power/rack01_power_mesh",
+      "normal_elements_before": 208784,
+      "unique_normal_elements": 51117,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou25_BMC_LAN1_to_patch13_001_export/cable_ou25_BMC_LAN1_to_patch13_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou21_BMC_LAN1_to_patch11_001_export/cable_ou21_BMC_LAN1_to_patch11_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06/rack01_psu_06_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 236,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou15_BMC_LAN1_to_patch08_001_export/cable_ou15_BMC_LAN1_to_patch08_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_labels/rack01_labels_mesh",
+      "normal_elements_before": 148866,
+      "unique_normal_elements": 12512,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou05_BMC_LAN1_to_patch03_001_export/cable_ou05_BMC_LAN1_to_patch03_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007/rack01_psu_06_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5204,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_05/rack01_psu_05_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 240,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou13_BMC_LAN1_to_patch07_001_export/cable_ou13_BMC_LAN1_to_patch07_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_management_patch_panel_and_plugs/rack01_management_patch_panel_and_plugs_mesh",
+      "normal_elements_before": 240410,
+      "unique_normal_elements": 45637,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou23_BMC_LAN1_to_patch12_001_export/cable_ou23_BMC_LAN1_to_patch12_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou03_BMC_LAN1_to_patch02_001_export/cable_ou03_BMC_LAN1_to_patch02_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou31_BMC_LAN1_to_patch16_001_export/cable_ou31_BMC_LAN1_to_patch16_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_04/rack01_psu_04_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 239,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_structure/rack01_structure_mesh",
+      "normal_elements_before": 54720,
+      "unique_normal_elements": 12635,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_009/rack01_psu_04_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5658,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou11_BMC_LAN1_to_patch06_001_export/cable_ou11_BMC_LAN1_to_patch06_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou35_BMC_LAN1_to_patch18_001_export/cable_ou35_BMC_LAN1_to_patch18_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_03/rack01_psu_03_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 239,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou01_BMC_LAN1_to_patch01_001_export/cable_ou01_BMC_LAN1_to_patch01_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou29_BMC_LAN1_to_patch15_001_export/cable_ou29_BMC_LAN1_to_patch15_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_retention/rack01_retention_mesh",
+      "normal_elements_before": 430240,
+      "unique_normal_elements": 63047,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_008/rack01_psu_05_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5434,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_010/rack01_psu_03_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5686,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou19_BMC_LAN1_to_patch10_001_export/cable_ou19_BMC_LAN1_to_patch10_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_02/rack01_psu_02_mesh",
+      "normal_elements_before": 648,
+      "unique_normal_elements": 240,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_supports/rack01_supports_mesh",
+      "normal_elements_before": 16416,
+      "unique_normal_elements": 4366,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_012/rack01_psu_01_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5145,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_011/rack01_psu_02_mesh_001",
+      "normal_elements_before": 21280,
+      "unique_normal_elements": 5430,
+      "indexed_normals": true
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou27_BMC_LAN1_to_patch14_001_export/cable_ou27_BMC_LAN1_to_patch14_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou33_BMC_LAN1_to_patch17_001_export/cable_ou33_BMC_LAN1_to_patch17_route_001",
+      "normal_elements_before": 1470,
+      "unique_normal_elements": 1470,
+      "indexed_normals": false
+    },
+    {
+      "path": "/root/prototypes/server_exterior_surface_0/server_exterior_surface_mesh",
+      "normal_elements_before": 376955,
+      "unique_normal_elements": 124891,
+      "indexed_normals": true
+    }
+  ],
+  "elapsed_seconds": 1.726,
+  "limits": [
+    "Reduces serialized bytes, not expanded triangle count or proven GPU cost.",
+    "Indexed normals require separate RealityKit import and visual acceptance.",
+    "Retains the source exterior only; detailed Blender interior libraries are not exported.",
+    "Blender comparison is not a device frame-rate measurement."
+  ]
+}

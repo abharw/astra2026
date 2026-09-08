@@ -1,0 +1,163 @@
+{
+  "assetID": "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+  "sourceURL": "https://media.githubusercontent.com/media/abharw/astra2026/051c9d954292438fc8419661aa91451367961d86/datacenter-rack/models/lazy/rack-exterior.usdz",
+  "sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+  "byteCount": 25786225,
+  "uniqueTriangleCount": 791123,
+  "parts": [
+    {
+      "partID": "rack01.frame",
+      "name": "Open Rack V2 frame and power equipment",
+      "entityName": null,
+      "triangleCount": 661792,
+      "role": "rack frame",
+      "description": "Frame and power equipment remainder from the source hierarchy."
+    },
+    {
+      "partID": "rack01.server01",
+      "name": "Barreleye G2 server 1",
+      "entityName": "rack01_server01",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server02",
+      "name": "Barreleye G2 server 2",
+      "entityName": "rack01_server02",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server03",
+      "name": "Barreleye G2 server 3",
+      "entityName": "rack01_server03",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server04",
+      "name": "Barreleye G2 server 4",
+      "entityName": "rack01_server04",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server05",
+      "name": "Barreleye G2 server 5",
+      "entityName": "rack01_server05",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server06",
+      "name": "Barreleye G2 server 6",
+      "entityName": "rack01_server06",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server07",
+      "name": "Barreleye G2 server 7",
+      "entityName": "rack01_server07",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server08",
+      "name": "Barreleye G2 server 8",
+      "entityName": "rack01_server08",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server09",
+      "name": "Barreleye G2 server 9",
+      "entityName": "rack01_server09",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server10",
+      "name": "Barreleye G2 server 10",
+      "entityName": "rack01_server10",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server11",
+      "name": "Barreleye G2 server 11",
+      "entityName": "rack01_server11",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server12",
+      "name": "Barreleye G2 server 12",
+      "entityName": "rack01_server12",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server13",
+      "name": "Barreleye G2 server 13",
+      "entityName": "rack01_server13",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server14",
+      "name": "Barreleye G2 server 14",
+      "entityName": "rack01_server14",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server15",
+      "name": "Barreleye G2 server 15",
+      "entityName": "rack01_server15",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server16",
+      "name": "Barreleye G2 server 16",
+      "entityName": "rack01_server16",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server17",
+      "name": "Barreleye G2 server 17",
+      "entityName": "rack01_server17",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    },
+    {
+      "partID": "rack01.server18",
+      "name": "Barreleye G2 server 18",
+      "entityName": "rack01_server18",
+      "triangleCount": 129331,
+      "role": "server",
+      "description": "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation."
+    }
+  ],
+  "name": "Open Rack V2 with 18 Barreleye G2 servers",
+  "description": "Imported exterior from Akeil commit 051c9d954292438fc8419661aa91451367961d86. The rack frame is 0.600 m wide, 1.067 m deep and 2.210 m tall in asset space. Its uniform scene scale presents the rack at 0.6 m tall. Source axes are +X right, +Y front-to-rear, +Z up. RealityKit converts source [X,Y,Z] to [X,Z,-Y], so in THIS assembly parent coordinates +X is right, +Y is up, and +Z is toward the rack front. Pull a server out by increasing its parent-space position.z; preserve its existing rotation and scale. Child transforms and mesh dimensions use source metres before the assembly scale. Only the frame and 18 joined server exteriors are loaded; interiors must be separately imported or generated as illustrative additions. The raw source includes a known misplaced PSU6 mesh; this reference intentionally preserves the exact original export."
+}

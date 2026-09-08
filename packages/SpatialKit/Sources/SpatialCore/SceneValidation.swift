@@ -171,6 +171,9 @@ public struct SceneValidator: Sendable {
       throw SceneValidationError.invalidGeometry("contentHash mismatch for \(geometry.geometryId)")
     }
     switch geometry.recipe {
+    case .importedAsset(let assetID, let partID):
+      try identifier(assetID, field: "assetID")
+      try identifier(partID, field: "partID")
     case .box(let size): try positive(size, "box size")
     case .sphere(let radius, let segmentCount):
       try positive(radius, "sphere radius")
@@ -215,6 +218,11 @@ public struct SceneValidator: Sendable {
 
   private func triangleEstimate(for recipe: GeometryRecipe) -> Int {
     switch recipe {
+    case .importedAsset:
+      // Core has no asset bytes. Native admission must resolve this reference in its
+      // bounded catalog and enforce measured unique and visible-instance triangles,
+      // under its separate imported-resource budget before installing a scene.
+      0
     case .box:
       12
     case .sphere(_, let segments):

@@ -1,0 +1,1184 @@
+{
+  "schema": "astra.mobile-rack-processing.v1",
+  "packaging": {
+    "zip_timestamp": "1980-01-01 00:00:00",
+    "reason": "Canonical ZIP metadata makes hashes independent of wall-clock build time; entry offsets and content remain unchanged."
+  },
+  "source": {
+    "path": "runtime/asset-source/datacenter-rack/models/lazy/rack-exterior.usdz",
+    "sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+    "bytes": 25786225,
+    "repository": "https://github.com/abharw/astra2026",
+    "commit": "051c9d954292438fc8419661aa91451367961d86",
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "authored_meshes": 38,
+    "authored_vertices": 437334,
+    "authored_triangle_equivalents": 791123,
+    "visible_mesh_occurrences": 55,
+    "visible_expanded_triangle_equivalents": 2989750,
+    "instances": 18,
+    "prototypes": 1,
+    "materials": 19,
+    "material_subsets": 48,
+    "world_bounds_m": [
+      [
+        -0.34150001406669617,
+        -0.8120772838592529,
+        0.0
+      ],
+      [
+        0.30000001192092896,
+        0.5335000157356262,
+        3.861599922180176
+      ]
+    ]
+  },
+  "derivative": {
+    "path": "runtime/processed-assets/rack-exterior-distance.usdz",
+    "sha256": "fae0a2926ef61542fef27dc1d85d992211da6bef4fccf5b1cce3b8b252626974",
+    "bytes": 9334783,
+    "up_axis": "Z",
+    "meters_per_unit": 1.0,
+    "authored_meshes": 38,
+    "authored_vertices": 130308,
+    "authored_triangle_equivalents": 205273,
+    "visible_mesh_occurrences": 55,
+    "visible_expanded_triangle_equivalents": 607476,
+    "instances": 18,
+    "prototypes": 1,
+    "materials": 19,
+    "material_subsets": 48,
+    "world_bounds_m": [
+      [
+        -0.34150001406669617,
+        -0.5355150103569031,
+        4.2300922359572724e-05
+      ],
+      [
+        0.2998880445957184,
+        0.5333881378173828,
+        2.2098841667175293
+      ]
+    ]
+  },
+  "toolchain": {
+    "blender": "5.2.1 LTS",
+    "blender_build_hash": "9e2066aef7ef",
+    "openusd": "0.26.3",
+    "fast_simplification": "0.1.13",
+    "pipeline": "scripts/prepare-mobile-rack.py",
+    "pipeline_sha256": "31607754e7087b8260c53ff228d64a383d31f597a0bdd4efc56818e95104ff78"
+  },
+  "settings": {
+    "profile": "distance",
+    "server_algorithm": "fast-simplification per material region, flat normals from resulting geometry",
+    "rack_algorithm": "Blender Weld + Decimate",
+    "server_triangle_budget": 22000,
+    "rack_triangle_ratio": 0.2,
+    "planar_dissolve_angle_degrees": 0.5,
+    "coincident_vertex_weld_m": 1e-05,
+    "preserve_labels": true,
+    "preserve_meshes_below_triangles": 1000,
+    "correct_psu6": true
+  },
+  "verification": {
+    "source_sha256_unchanged": true,
+    "semantic_roots_transforms_and_references_unchanged": true,
+    "material_definitions_preserved": true,
+    "independent_server_ids": [
+      "rack01.server01",
+      "rack01.server02",
+      "rack01.server03",
+      "rack01.server04",
+      "rack01.server05",
+      "rack01.server06",
+      "rack01.server07",
+      "rack01.server08",
+      "rack01.server09",
+      "rack01.server10",
+      "rack01.server11",
+      "rack01.server12",
+      "rack01.server13",
+      "rack01.server14",
+      "rack01.server15",
+      "rack01.server16",
+      "rack01.server17",
+      "rack01.server18"
+    ],
+    "usdz_reopened": true
+  },
+  "source_corrections": [
+    {
+      "mesh": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06/rack01_psu_06_mesh",
+      "world_translation_m": [
+        0.0,
+        0.4,
+        -1.908
+      ],
+      "reason": "Pinned source service-child reparenting used a stale dependency graph; verified by independently rerunning rack_frame.py with and without view_layer.update()."
+    },
+    {
+      "mesh": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007/rack01_psu_06_mesh_001",
+      "world_translation_m": [
+        0.0,
+        0.4,
+        -1.908
+      ],
+      "reason": "Pinned source service-child reparenting used a stale dependency graph; verified by independently rerunning rack_frame.py with and without view_layer.update()."
+    }
+  ],
+  "source_correction_evidence": "evidence/asset-intake.json and evidence/rack-psu-offset-reproduction.py",
+  "meshes": [
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_01/rack01_psu_01_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou09_BMC_LAN1_to_patch05_001_export/cable_ou09_BMC_LAN1_to_patch05_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.22521,
+          "p99": 0.30478,
+          "max": 0.66159
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.14408,
+          "p99": 0.18693,
+          "max": 0.22505
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou17_BMC_LAN1_to_patch09_001_export/cable_ou17_BMC_LAN1_to_patch09_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.26465,
+          "p99": 0.35733,
+          "max": 0.42604
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.13893,
+          "p99": 0.18427,
+          "max": 0.22423
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_hardware/rack01_hardware_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 7896,
+      "source_faces": 7520,
+      "source_triangle_equivalents": 15416,
+      "output_vertices": 1729,
+      "output_triangles": 3082,
+      "requested_triangle_budget": 3083,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.12172,
+          "p99": 0.13079,
+          "max": 0.13242
+        },
+        "output_to_source": {
+          "samples": 1729,
+          "p95": 0.05816,
+          "p99": 0.05819,
+          "max": 0.05822
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou07_BMC_LAN1_to_patch04_001_export/cable_ou07_BMC_LAN1_to_patch04_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.21996,
+          "p99": 0.31525,
+          "max": 0.40545
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.14424,
+          "p99": 0.17829,
+          "max": 0.20474
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_power/rack01_power_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 50810,
+      "source_faces": 52096,
+      "source_triangle_equivalents": 104592,
+      "output_vertices": 8949,
+      "output_triangles": 20918,
+      "requested_triangle_budget": 20918,
+      "material_subsets_preserved": 6,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03845,
+          "p99": 0.06005,
+          "max": 0.1215
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.03071,
+          "p99": 0.0394,
+          "max": 0.03973
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou25_BMC_LAN1_to_patch13_001_export/cable_ou25_BMC_LAN1_to_patch13_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.25872,
+          "p99": 0.34801,
+          "max": 0.40332
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.12966,
+          "p99": 0.149,
+          "max": 0.17682
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou21_BMC_LAN1_to_patch11_001_export/cable_ou21_BMC_LAN1_to_patch11_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.2495,
+          "p99": 0.36372,
+          "max": 0.4041
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.1355,
+          "p99": 0.18394,
+          "max": 0.19553
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_06/rack01_psu_06_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou15_BMC_LAN1_to_patch08_001_export/cable_ou15_BMC_LAN1_to_patch08_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.2367,
+          "p99": 0.30243,
+          "max": 0.40657
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.14087,
+          "p99": 0.19231,
+          "max": 0.20964
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_labels/rack01_labels_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 60084,
+      "source_faces": 44615,
+      "source_triangle_equivalents": 59636,
+      "output_vertices": 60084,
+      "output_triangles": 59636,
+      "requested_triangle_budget": 59636,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou05_BMC_LAN1_to_patch03_001_export/cable_ou05_BMC_LAN1_to_patch03_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.22601,
+          "p99": 0.28344,
+          "max": 0.52664
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.15496,
+          "p99": 0.20026,
+          "max": 0.22483
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_007/rack01_psu_06_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03767,
+          "p99": 0.04736,
+          "max": 0.06056
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.03092,
+          "p99": 0.03953,
+          "max": 0.03977
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_05/rack01_psu_05_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou13_BMC_LAN1_to_patch07_001_export/cable_ou13_BMC_LAN1_to_patch07_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.23008,
+          "p99": 0.31868,
+          "max": 0.39084
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.13945,
+          "p99": 0.16559,
+          "max": 0.1831
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_management_patch_panel_and_plugs/rack01_management_patch_panel_and_plugs_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 74708,
+      "source_faces": 64351,
+      "source_triangle_equivalents": 111708,
+      "output_vertices": 12746,
+      "output_triangles": 22340,
+      "requested_triangle_budget": 22341,
+      "material_subsets_preserved": 6,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.06812,
+          "p99": 0.09842,
+          "max": 0.1033
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.05542,
+          "p99": 0.06373,
+          "max": 0.06795
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou23_BMC_LAN1_to_patch12_001_export/cable_ou23_BMC_LAN1_to_patch12_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.27628,
+          "p99": 0.38967,
+          "max": 0.45627
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.13982,
+          "p99": 0.19174,
+          "max": 0.23118
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou03_BMC_LAN1_to_patch02_001_export/cable_ou03_BMC_LAN1_to_patch02_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.22231,
+          "p99": 0.30754,
+          "max": 0.40283
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.15072,
+          "p99": 0.18159,
+          "max": 0.20047
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou31_BMC_LAN1_to_patch16_001_export/cable_ou31_BMC_LAN1_to_patch16_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.28595,
+          "p99": 0.43075,
+          "max": 0.53295
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.12871,
+          "p99": 0.1612,
+          "max": 0.23542
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_04/rack01_psu_04_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_structure/rack01_structure_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 14784,
+      "source_faces": 12892,
+      "source_triangle_equivalents": 28936,
+      "output_vertices": 3209,
+      "output_triangles": 5786,
+      "requested_triangle_budget": 5787,
+      "material_subsets_preserved": 4,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.25875,
+          "p99": 0.31394,
+          "max": 0.35108
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.27492,
+          "p99": 0.29259,
+          "max": 0.2931
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_009/rack01_psu_04_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03832,
+          "p99": 0.0477,
+          "max": 0.06044
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.03077,
+          "p99": 0.03458,
+          "max": 0.03963
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou11_BMC_LAN1_to_patch06_001_export/cable_ou11_BMC_LAN1_to_patch06_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.22615,
+          "p99": 0.30897,
+          "max": 0.60257
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.162,
+          "p99": 0.21283,
+          "max": 0.27028
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou35_BMC_LAN1_to_patch18_001_export/cable_ou35_BMC_LAN1_to_patch18_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.24906,
+          "p99": 0.39892,
+          "max": 0.52376
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.15348,
+          "p99": 0.17792,
+          "max": 0.23453
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_03/rack01_psu_03_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou01_BMC_LAN1_to_patch01_001_export/cable_ou01_BMC_LAN1_to_patch01_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.22073,
+          "p99": 0.30628,
+          "max": 0.36105
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.13926,
+          "p99": 0.17066,
+          "max": 0.19816
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou29_BMC_LAN1_to_patch15_001_export/cable_ou29_BMC_LAN1_to_patch15_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.28987,
+          "p99": 0.46821,
+          "max": 0.51511
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.14132,
+          "p99": 0.18999,
+          "max": 0.23459
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_retention/rack01_retention_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 106280,
+      "source_faces": 107560,
+      "source_triangle_equivalents": 215120,
+      "output_vertices": 19890,
+      "output_triangles": 43024,
+      "requested_triangle_budget": 43024,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.08369,
+          "p99": 0.12744,
+          "max": 0.13785
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.04526,
+          "p99": 0.04799,
+          "max": 0.04813
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_008/rack01_psu_05_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03772,
+          "p99": 0.0477,
+          "max": 0.06044
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.0308,
+          "p99": 0.03463,
+          "max": 0.03966
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_010/rack01_psu_03_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03788,
+          "p99": 0.04652,
+          "max": 0.06044
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.03077,
+          "p99": 0.0387,
+          "max": 0.03966
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou19_BMC_LAN1_to_patch10_001_export/cable_ou19_BMC_LAN1_to_patch10_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.25193,
+          "p99": 0.32817,
+          "max": 0.44176
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.1362,
+          "p99": 0.17358,
+          "max": 0.19393
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_02/rack01_psu_02_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 168,
+      "source_faces": 160,
+      "source_triangle_equivalents": 328,
+      "output_vertices": 168,
+      "output_triangles": 328,
+      "requested_triangle_budget": 328,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "output_to_source": {
+          "samples": 168,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_supports/rack01_supports_mesh",
+      "shared_server_prototype": false,
+      "source_vertices": 4256,
+      "source_faces": 4104,
+      "source_triangle_equivalents": 8208,
+      "output_vertices": 972,
+      "output_triangles": 1640,
+      "requested_triangle_budget": 1641,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.12634,
+          "p99": 0.12803,
+          "max": 0.1283
+        },
+        "output_to_source": {
+          "samples": 972,
+          "p95": 0.05738,
+          "p99": 0.05743,
+          "max": 0.05749
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_012/rack01_psu_01_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03779,
+          "p99": 0.04747,
+          "max": 0.06044
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.03079,
+          "p99": 0.03458,
+          "max": 0.03964
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/rack01_psu_011/rack01_psu_02_mesh_001",
+      "shared_server_prototype": false,
+      "source_vertices": 5272,
+      "source_faces": 5300,
+      "source_triangle_equivalents": 10680,
+      "output_vertices": 1000,
+      "output_triangles": 2136,
+      "requested_triangle_budget": 2136,
+      "material_subsets_preserved": 5,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 0.03784,
+          "p99": 0.04775,
+          "max": 0.06044
+        },
+        "output_to_source": {
+          "samples": 1000,
+          "p95": 0.0308,
+          "p99": 0.03458,
+          "max": 0.03964
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou27_BMC_LAN1_to_patch14_001_export/cable_ou27_BMC_LAN1_to_patch14_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.2915,
+          "p99": 0.42297,
+          "max": 0.48449
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.13865,
+          "p99": 0.17024,
+          "max": 0.19876
+        }
+      }
+    },
+    {
+      "path": "/root/rack01_\u00b7_Open_Rack_V2/cable_ou33_BMC_LAN1_to_patch17_001_export/cable_ou33_BMC_LAN1_to_patch17_route_001",
+      "shared_server_prototype": false,
+      "source_vertices": 1470,
+      "source_faces": 1456,
+      "source_triangle_equivalents": 2896,
+      "output_vertices": 291,
+      "output_triangles": 578,
+      "requested_triangle_budget": 579,
+      "material_subsets_preserved": 0,
+      "removed_unused_uv_attributes": [
+        "primvars:st",
+        "primvars:st:indices"
+      ],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 1470,
+          "p95": 0.24603,
+          "p99": 0.38701,
+          "max": 0.45333
+        },
+        "output_to_source": {
+          "samples": 291,
+          "p95": 0.14115,
+          "p99": 0.17786,
+          "max": 0.19948
+        }
+      }
+    },
+    {
+      "path": "/root/prototypes/server_exterior_surface_0/server_exterior_surface_mesh",
+      "shared_server_prototype": true,
+      "source_vertices": 59416,
+      "source_faces": 123812,
+      "source_triangle_equivalents": 129331,
+      "output_vertices": 10483,
+      "output_triangles": 23659,
+      "requested_triangle_budget": 22000,
+      "material_subsets_preserved": 2,
+      "removed_unused_uv_attributes": [],
+      "sampled_surface_error_mm": {
+        "source_to_output": {
+          "samples": 2048,
+          "p95": 1.96518,
+          "p99": 3.71639,
+          "max": 11.95194
+        },
+        "output_to_source": {
+          "samples": 2048,
+          "p95": 0.43336,
+          "p99": 1.24997,
+          "max": 11.26214
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 9.485,
+  "limits": [
+    "Exterior distance LOD only; not metrology geometry.",
+    "Surface errors are deterministic vertex samples before the separately documented PSU correction, not a Hausdorff-distance proof.",
+    "Mobile LOD contracts fine perforations and shows visible faceting on close inspection; it is intended for a whole-rack view.",
+    "Blender visual comparison does not establish iPhone or headset frame rate.",
+    "The detailed mechanical, motherboard, memory, and processor-study Blender libraries are not yet converted to native detail assets."
+  ]
+}

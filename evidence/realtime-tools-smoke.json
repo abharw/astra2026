@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "evidence": "live-Realtime-provider / synthetic-text-input / synthetic-scene-tool-result",
+  "nativeMicrophoneVerified": false,
+  "nativePlaybackVerified": false,
+  "nativeSceneInstallationVerified": false,
+  "sceneBackendExecutionVerified": false,
+  "model": "gpt-realtime-2.1",
+  "sessionID": "realtime-tools-eb5e86e5-879c-41c9-b455-c931ec1da346",
+  "startedAt": "2026-09-08T20:02:30.669Z",
+  "status": "passed",
+  "eventCounts": {
+    "session.created": 1,
+    "session.updated": 1,
+    "conversation.item.added": 10,
+    "conversation.item.done": 10,
+    "response.created": 4,
+    "response.output_item.added": 6,
+    "response.content_part.added": 4,
+    "response.output_text.delta": 36,
+    "response.function_call_arguments.delta": 42,
+    "response.output_text.done": 3,
+    "response.content_part.done": 4,
+    "response.output_item.done": 6,
+    "response.function_call_arguments.done": 2,
+    "response.done": 4,
+    "rate_limits.updated": 3,
+    "response.output_audio_transcript.delta": 13,
+    "response.output_audio.delta": 11,
+    "response.output_audio.done": 1,
+    "response.output_audio_transcript.done": 1
+  },
+  "turns": [
+    {
+      "generation": 1,
+      "requestID": "request-0729b47a-fcb9-49ca-87c0-11832d94ea44",
+      "source": "typed",
+      "inputKind": "synthetic_input_text",
+      "outputModality": "text",
+      "syntheticToolResults": 1,
+      "responses": [
+        {
+          "phase": "tool",
+          "status": "completed",
+          "requestedAtMS": 1813,
+          "metadataVerified": true,
+          "textCharacters": 60,
+          "transcriptCharacters": 0,
+          "audioBytes": 0,
+          "audioEvents": 0,
+          "id": "resp_ELwJUwdwhNnUeQ8hs3CCN",
+          "createdAtMS": 1987,
+          "completedAtMS": 2709,
+          "latencyMS": 896,
+          "functionCallCount": 1,
+          "callID": "call_mKUtZ6oprEKWeOgY"
+        },
+        {
+          "phase": "final",
+          "status": "completed",
+          "requestedAtMS": 2710,
+          "metadataVerified": true,
+          "textCharacters": 70,
+          "transcriptCharacters": 0,
+          "audioBytes": 0,
+          "audioEvents": 0,
+          "id": "resp_ELwJVO2iBuZQC7emmwQom",
+          "createdAtMS": 2808,
+          "completedAtMS": 3296,
+          "latencyMS": 586,
+          "functionCallCount": 0
+        }
+      ]
+    },
+    {
+      "generation": 2,
+      "requestID": "request-3ee45af0-0443-4eab-852e-0ba2d7dde922",
+      "source": "voice",
+      "inputKind": "synthetic_input_text",
+      "outputModality": "audio",
+      "syntheticToolResults": 1,
+      "responses": [
+        {
+          "phase": "tool",
+          "status": "completed",
+          "requestedAtMS": 3296,
+          "metadataVerified": true,
+          "textCharacters": 56,
+          "transcriptCharacters": 0,
+          "audioBytes": 0,
+          "audioEvents": 0,
+          "id": "resp_ELwJWnDBCy3y6vHOL2TNM",
+          "createdAtMS": 3421,
+          "completedAtMS": 4087,
+          "latencyMS": 791,
+          "functionCallCount": 1,
+          "callID": "call_qNcK1hj3iyh39hwn"
+        },
+        {
+          "phase": "final",
+          "status": "completed",
+          "requestedAtMS": 4087,
+          "metadataVerified": true,
+          "textCharacters": 0,
+          "transcriptCharacters": 70,
+          "audioBytes": 196800,
+          "audioEvents": 11,
+          "id": "resp_ELwJWzSNp4IywtE71bExB",
+          "createdAtMS": 4188,
+          "completedAtMS": 6001,
+          "latencyMS": 1914,
+          "functionCallCount": 0,
+          "audioDurationMS": 4100
+        }
+      ]
+    }
+  ],
+  "credentialHTTPStatus": 200,
+  "credentialLatencyMS": 990,
+  "providerSessionID": "sess_ELwJT22IHjCgXtpFJV96e",
+  "sessionConfigurationVerified": true,
+  "elapsedMS": 6002
+}

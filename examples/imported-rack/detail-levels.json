@@ -1,0 +1,476 @@
+{
+  "schema": "astra-asset-detail-levels/v1",
+  "source": {
+    "repository": "https://github.com/abharw/astra2026",
+    "commit": "051c9d954292438fc8419661aa91451367961d86",
+    "path": "datacenter-rack/models/lazy/parts-library.blend",
+    "sha256": "1d086d872ff4e795b795aed3400e5bac98fa7872bd26c84dc0877788be5ee4d2"
+  },
+  "templateID": "barreleye-g2-evt3-server",
+  "coordinates": {
+    "units": "meters",
+    "sourceUpAxis": "Z",
+    "sourceAxes": {
+      "x": "right",
+      "y": "front_to_rear",
+      "z": "up"
+    },
+    "sourceToRealityKitRotationQuaternion": [
+      -0.7071067811865476,
+      0,
+      0,
+      0.7071067811865476
+    ],
+    "sourceOrigin": "Original server local origin, matching source server.exterior geometry.",
+    "attachmentRule": "Native server wrapper already contains source-to-RealityKit rotation R. Remove imported pack R from each extracted part world transform before parenting to that wrapper: childLocal = inverse(R) * importedPartWorld. Preserve the server instance current transform."
+  },
+  "compiledAsset": {
+    "assetID": "sha256:0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+    "sha256": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+    "byteCount": 8226964,
+    "triangleCount": 381897,
+    "buildOutput": "runtime/processed-assets/server-teaching.usdz",
+    "delivery": "local_build_artifact",
+    "nativeSubtreeLoading": "pending_integration"
+  },
+  "hierarchy": {
+    "rootID": "barreleye-g2-evt3-server",
+    "children": [
+      "server.teaching.storage",
+      "server.teaching.fanwall",
+      "server.teaching.processors",
+      "server.teaching.heatsinks",
+      "server.teaching.network",
+      "server.teaching.power",
+      "server.teaching.chassis",
+      "server.teaching.motherboard",
+      "server.teaching.memory"
+    ],
+    "selectionPolicy": "Choose the smallest existing subtree sufficient for the request. Geometry detail and semantic depth are independent."
+  },
+  "parts": [
+    {
+      "partID": "server.teaching.storage",
+      "suffix": "storage",
+      "entityName": "detail_storage",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Storage and drive carriers",
+      "description": "Drive carriers, storage backplane and expander connect the storage subsystem.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 635,
+      "sourceTriangleCount": 26526668,
+      "triangleCount": 95853,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.04472074657678604,
+          -0.04447004199028015,
+          -0.0035736337304115295
+        ],
+        "maximum": [
+          0.2689591348171234,
+          0.7369297742843628,
+          0.09824513643980026
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          0.11180490764495976,
+          0.3487453483965043,
+          0.046471426976997514
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 45000,
+      "triangleBudgetMet": false
+    },
+    {
+      "partID": "server.teaching.fanwall",
+      "suffix": "fanwall",
+      "entityName": "detail_fanwall",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Cooling fan assembly",
+      "description": "Six source fan modules move air through the chassis; no airflow or RPM is simulated.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 262,
+      "sourceTriangleCount": 2164071,
+      "triangleCount": 29999,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.26261791586875916,
+          0.6092919111251831,
+          0.0006551854312419891
+        ],
+        "maximum": [
+          0.26260924339294434,
+          0.8887124061584473,
+          0.08850639313459396
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          1.6776649587602055e-06,
+          0.7489394800232388,
+          0.04460602061755076
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 30000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.processors",
+      "suffix": "processors",
+      "entityName": "detail_processors",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Processor and socket assemblies",
+      "description": "Two POWER9-family processor/socket/loading assemblies. U1 and U10 identify sockets, not CPU ordering codes.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 194,
+      "sourceTriangleCount": 1240348,
+      "triangleCount": 30000,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.19863998889923096,
+          0.2693299651145935,
+          -0.0005014203488826752
+        ],
+        "maximum": [
+          0.07487999647855759,
+          0.41933000087738037,
+          0.04891343414783478
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.061879999935626984,
+          0.34432998312493557,
+          0.024205547356534723
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 30000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.heatsinks",
+      "suffix": "heatsinks",
+      "entityName": "detail_heatsinks",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Processor heatsinks",
+      "description": "Source Furukawa cooling assemblies conduct heat from the processor modules to passing air.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 138,
+      "sourceTriangleCount": 650068,
+      "triangleCount": 25000,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.1890355348587036,
+          0.29456058144569397,
+          0.019733011722564697
+        ],
+        "maximum": [
+          0.06527367979288101,
+          0.3940747380256653,
+          0.0877687856554985
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.061879998072981834,
+          0.34433001259723695,
+          0.053736306153046885
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 25000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.network",
+      "suffix": "network",
+      "entityName": "detail_network",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Network adapter",
+      "description": "Selected dual-port 25GbE OCP adapter and mounting hardware. Distinct from the management controller's network path.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 8,
+      "sourceTriangleCount": 669655,
+      "triangleCount": 11491,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.052806586027145386,
+          -0.0036350004374980927,
+          0.005281846970319748
+        ],
+        "maximum": [
+          0.02408657968044281,
+          0.11241070926189423,
+          0.039010003209114075
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.01436000317071977,
+          0.05438785629853121,
+          0.02214592416539189
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 20000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.power",
+      "suffix": "power",
+      "entityName": "detail_power",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Power input and conversion",
+      "description": "48 V input, selected board power conversion components and their cooling. No electrical simulation or live telemetry.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 17,
+      "sourceTriangleCount": 284590,
+      "triangleCount": 64555,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.20558935403823853,
+          0.21983596682548523,
+          0.005187796428799629
+        ],
+        "maximum": [
+          0.06154733896255493,
+          0.8105869889259338,
+          0.05193816125392914
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.07550835350655545,
+          0.5205929882984733,
+          0.027560026954133454
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 25000,
+      "triangleBudgetMet": false
+    },
+    {
+      "partID": "server.teaching.chassis",
+      "suffix": "chassis",
+      "entityName": "detail_chassis",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Chassis and mounting structure",
+      "description": "Supports and locates the server's internal assemblies.",
+      "representation": "cad_derived",
+      "sourceObjectCount": 431,
+      "sourceTriangleCount": 3353856,
+      "triangleCount": 34999,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.27267009019851685,
+          -0.03985553979873657,
+          -0.00013140961527824402
+        ],
+        "maximum": [
+          0.27306655049324036,
+          0.8080463409423828,
+          0.09205000847578049
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          0.00019804294748854145,
+          0.3839279768451886,
+          0.04597821565569548
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 35000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.motherboard",
+      "suffix": "motherboard",
+      "entityName": "detail_motherboard",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Motherboard and board components",
+      "description": "EVT3 motherboard with source-derived component placements and reconstructed package appearance.",
+      "representation": "source_derived_reconstruction",
+      "sourceObjectCount": 1749,
+      "sourceTriangleCount": 1932752,
+      "triangleCount": 55000,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.22762668132781982,
+          -0.001522839069366455,
+          0.004733877256512642
+        ],
+        "maximum": [
+          0.10184865444898605,
+          0.5670100450515747,
+          0.04154590144753456
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.06290056676471067,
+          0.2827397880745551,
+          0.023137887934068024
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 55000,
+      "triangleBudgetMet": true
+    },
+    {
+      "partID": "server.teaching.memory",
+      "suffix": "memory",
+      "entityName": "detail_memory",
+      "parentTemplateID": "barreleye-g2-evt3-server",
+      "name": "Host memory modules",
+      "description": "32 supported-class RDIMM analogues at source socket positions. Installed module SKU and capacity are not established.",
+      "representation": "supported_class_analogue",
+      "sourceObjectCount": 1216,
+      "sourceTriangleCount": 269568,
+      "triangleCount": 35000,
+      "sourceBoundsMeters": {
+        "minimum": [
+          -0.2226000726222992,
+          0.19965501129627228,
+          0.012749999761581421
+        ],
+        "maximum": [
+          0.10015298426151276,
+          0.48900502920150757,
+          0.04399999976158142
+        ]
+      },
+      "sourceRestTransform": {
+        "translation": [
+          -0.061217920186790314,
+          0.34432999789714813,
+          0.02837499976158142
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "detailAvailable": "source_library_only",
+      "loadState": "exported_not_registered",
+      "requestedTriangleBudget": 35000,
+      "triangleBudgetMet": true
+    }
+  ],
+  "limits": [
+    "The detail library omits the removable cover; switching to this open interior does not recover or detach an authored cover.",
+    "Hardware below2.5mm and individual memory contacts are omitted in this sample overview recipe.",
+    "RDIMMs are supported-class analogues; exact installed SKU/capacity are not established.",
+    "Source relationships describe design evidence, not live measurements or simulated circuits.",
+    "Separate detailed component and illustrative processor study exports are not included.",
+    "Output uses untextured PBR colors from source material values, not image maps.",
+    "Physical frame rate, first-visible time and native subtree installation require device validation."
+  ]
+}

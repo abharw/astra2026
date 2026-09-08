@@ -6,6 +6,7 @@
     { "fixture": "accepted/scene_patch.json", "expectedPayloadHash": "be713f08cdf4a851b1cbde720df96af7d697701eaab9561f60699e2fc7a1f1e6" }
   ],
   "geometryVectors": [
-    { "geometrySemanticsVersion": 1, "recipe": { "kind": "box", "size": [0.4, 0.2, 0.6] }, "expectedContentHash": "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb" }
+    { "geometrySemanticsVersion": 1, "recipe": { "kind": "box", "size": [0.4, 0.2, 0.6] }, "expectedContentHash": "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb" },
+    { "geometrySemanticsVersion": 1, "recipe": { "kind": "importedAsset", "assetID": "asset_fixture", "partID": "part_fixture" }, "expectedContentHash": "0f1b897908b19a74554743fc0b4a11abeabe032a92fb8171e3f3cd8a270746a9" }
   ]
 }

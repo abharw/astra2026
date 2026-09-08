@@ -6,7 +6,7 @@
 
 Use three complementary lanes:
 
-1. Run the universal app on the physical iPad Air M4 and iPhone for camera, Vision pointing, and ARKit behavior. The current iPad observation setup is QuickTime's USB Screen input in a Movie Recording window, without starting a recording. Mirroring is observation; it does not give the Mac interactive control of iPadOS.
+1. Run the universal app on the physical iPad Air M4 and iPhone for camera, Vision pointing, and ARKit behavior. Observe the iPad through AirPlay or QuickTime USB Screen input without starting a recording. Screen observation is evidence capture only; it does not give the Mac interactive control of iPadOS.
 2. Run the universal app in iPad and iPhone simulators for layout, native scene compilation, the live backend/UI loop, accessibility, and screenshots.
 3. Run `tools/PointingReplay` only as a headless synthetic-landmark replay over the product's shared viewport mapper and pointing resolver.
 

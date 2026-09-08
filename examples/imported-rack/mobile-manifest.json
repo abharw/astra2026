@@ -1,0 +1,166 @@
+{
+  "schema": "astra.mobile-rack-manifest.v1",
+  "source": {
+    "repository": "https://github.com/abharw/astra2026",
+    "commit": "051c9d954292438fc8419661aa91451367961d86",
+    "path": "datacenter-rack/models/lazy/rack-exterior.usdz",
+    "sha256": "aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+  },
+  "default_profile": "conservative",
+  "variants": {
+    "conservative": {
+      "path": "runtime/processed-assets/rack-exterior-mobile.usdz",
+      "sha256": "685fb4717cd6209bbb7ecc9a9e993c4d124fa5860958ae0d650215e155a3d84b",
+      "bytes": 10549419,
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "authored_meshes": 38,
+      "authored_vertices": 138000,
+      "authored_triangle_equivalents": 233060,
+      "visible_mesh_occurrences": 55,
+      "visible_expanded_triangle_equivalents": 1107642,
+      "instances": 18,
+      "prototypes": 1,
+      "materials": 19,
+      "material_subsets": 48,
+      "world_bounds_m": [
+        [
+          -0.34150001406669617,
+          -0.5355150103569031,
+          4.2300922359572724e-05
+        ],
+        [
+          0.2998880445957184,
+          0.5333881378173828,
+          2.2098841667175293
+        ]
+      ],
+      "server_triangles": 51446,
+      "rack_triangles": 181614,
+      "measurements": "evidence/mobile-rack-processing.json",
+      "settings": {
+        "profile": "conservative",
+        "server_algorithm": "Blender Weld + Decimate; topology limits may prevent reaching the requested budget",
+        "rack_algorithm": "Blender Weld + Decimate",
+        "server_triangle_budget": 18000,
+        "rack_triangle_ratio": 0.2,
+        "planar_dissolve_angle_degrees": 0.5,
+        "coincident_vertex_weld_m": 1e-05,
+        "preserve_labels": true,
+        "preserve_meshes_below_triangles": 1000,
+        "correct_psu6": true
+      },
+      "intended_use": "Default candidate retaining more server perforation topology"
+    },
+    "distance": {
+      "path": "runtime/processed-assets/rack-exterior-distance.usdz",
+      "sha256": "fae0a2926ef61542fef27dc1d85d992211da6bef4fccf5b1cce3b8b252626974",
+      "bytes": 9334783,
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "authored_meshes": 38,
+      "authored_vertices": 130308,
+      "authored_triangle_equivalents": 205273,
+      "visible_mesh_occurrences": 55,
+      "visible_expanded_triangle_equivalents": 607476,
+      "instances": 18,
+      "prototypes": 1,
+      "materials": 19,
+      "material_subsets": 48,
+      "world_bounds_m": [
+        [
+          -0.34150001406669617,
+          -0.5355150103569031,
+          4.2300922359572724e-05
+        ],
+        [
+          0.2998880445957184,
+          0.5333881378173828,
+          2.2098841667175293
+        ]
+      ],
+      "server_triangles": 23659,
+      "rack_triangles": 181614,
+      "measurements": "evidence/mobile-rack-distance.json",
+      "settings": {
+        "profile": "distance",
+        "server_algorithm": "fast-simplification per material region, flat normals from resulting geometry",
+        "rack_algorithm": "Blender Weld + Decimate",
+        "server_triangle_budget": 22000,
+        "rack_triangle_ratio": 0.2,
+        "planar_dissolve_angle_degrees": 0.5,
+        "coincident_vertex_weld_m": 1e-05,
+        "preserve_labels": true,
+        "preserve_meshes_below_triangles": 1000,
+        "correct_psu6": true
+      },
+      "intended_use": "Optional whole-rack distance LOD; fine perforation detail contracts and visible faceting remains"
+    }
+  },
+  "pipeline": "scripts/prepare-mobile-rack.py",
+  "validation": "scripts/validate-mobile-rack.py",
+  "instructions": "examples/imported-rack/PROCESSING.md",
+  "license_notices": "examples/imported-rack/licenses",
+  "detail_status": "Mechanical, motherboard, memory, and processor-study Blender libraries are not converted to native assets.",
+  "visual_comparison": {
+    "renderer": "Blender 5.2.1 Workbench, identical cameras, actual USD imports",
+    "images": [
+      {
+        "profile": "conservative",
+        "path": "runtime/processed-assets/rack-exterior-mobile-comparison/rack-mobile-front.png",
+        "sha256": "5fc8d21c60be682dc3322d798d6b69f44a34f1813c150da1125e63c30aa29409",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "conservative",
+        "path": "runtime/processed-assets/rack-exterior-mobile-comparison/rack-mobile-rear.png",
+        "sha256": "fcd88ab49ddfcfa226c757d8114adc33bb693557d12b06b79a0de1d55879f2ea",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "conservative",
+        "path": "runtime/processed-assets/rack-exterior-mobile-comparison/rack-source-front.png",
+        "sha256": "86ba354200fcf43c6fcc57c2d79f7caa3739a3a9e8b187a9cedd9fbbe50d5ae1",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "conservative",
+        "path": "runtime/processed-assets/rack-exterior-mobile-comparison/rack-source-rear.png",
+        "sha256": "4ca475728593fd4e2f44ed1c29cbb7ceda9f0716f0bb190976b6c04acb84af59",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "distance",
+        "path": "runtime/processed-assets/rack-exterior-distance-comparison/rack-mobile-front.png",
+        "sha256": "e277d5cc255ef16f6faa058959156646928ac3f121b4b52eb1181880850f37f5",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "distance",
+        "path": "runtime/processed-assets/rack-exterior-distance-comparison/rack-mobile-rear.png",
+        "sha256": "0df826a32883f82eb4b2006c96cb3fad857550e037a7781ab41d799ccb8d3b92",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "distance",
+        "path": "runtime/processed-assets/rack-exterior-distance-comparison/rack-source-front.png",
+        "sha256": "6b91ebdca6c7b803312494da624366c344124b9ba2925be3fb77d52edbcf9fb2",
+        "width": 1000,
+        "height": 1200
+      },
+      {
+        "profile": "distance",
+        "path": "runtime/processed-assets/rack-exterior-distance-comparison/rack-source-rear.png",
+        "sha256": "c86ea7b54346436d611fc8b61f4297a3ab4fe5c2fc65363103b90c17f6a0c717",
+        "width": 1000,
+        "height": 1200
+      }
+    ]
+  }
+}

@@ -1,0 +1,904 @@
+{
+  "documentId" : "document_2abac10d-7bb1-4a9b-a50c-091ae69c17c3",
+  "geometryDefinitions" : [
+    {
+      "contentHash" : "46ca053e81e0b427a8de4582e84463682833761d468c96af608e565461d984e4",
+      "geometryId" : "imported.rack01.frame",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.frame"
+      }
+    },
+    {
+      "contentHash" : "c27b64346dd24291c9fcee2e5eefa189e00f149d7328d1075fedd2e27a587be9",
+      "geometryId" : "imported.rack01.server01",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server01"
+      }
+    },
+    {
+      "contentHash" : "33285bbcea331d86c87d1e1c898277befe9a674e888213607eb47e928c2441b6",
+      "geometryId" : "imported.rack01.server02",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server02"
+      }
+    },
+    {
+      "contentHash" : "4c09913a1806b2b1514256febbfa94fd9bb673213369bf29f025de65b3a784e0",
+      "geometryId" : "imported.rack01.server03",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server03"
+      }
+    },
+    {
+      "contentHash" : "12fb1e6a513da43d8d9b497bf149c115c4b5fef24a7aa765f34528484df97a87",
+      "geometryId" : "imported.rack01.server04",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server04"
+      }
+    },
+    {
+      "contentHash" : "9449cf05c73534eddf201df0bc5ef6a590624afa54ba64efee21c4bfb989d086",
+      "geometryId" : "imported.rack01.server05",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server05"
+      }
+    },
+    {
+      "contentHash" : "5c2a018560b6a98786e191aaab7c46790ae224cf12fb57f7aa60c01785d4a40d",
+      "geometryId" : "imported.rack01.server06",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server06"
+      }
+    },
+    {
+      "contentHash" : "78419eaed07925c2460ab0a9edabe1855df6ec074f8d91bf1d94090bdbf742cd",
+      "geometryId" : "imported.rack01.server07",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server07"
+      }
+    },
+    {
+      "contentHash" : "ce3cdf38718b8ac9c3e15c73dbd759fc02d24fe9100cef69341acd1525614d31",
+      "geometryId" : "imported.rack01.server08",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server08"
+      }
+    },
+    {
+      "contentHash" : "afb89e8413338a5be55c7442ca105c368fb20f6e95e9fa00646169b4d535645c",
+      "geometryId" : "imported.rack01.server09",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server09"
+      }
+    },
+    {
+      "contentHash" : "e290bc644fc26e75179298468265111fb885b775927b74db41cb022e81ab46b5",
+      "geometryId" : "imported.rack01.server10",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server10"
+      }
+    },
+    {
+      "contentHash" : "c4b2e4a97a75c2a318bea196c86f48b13c1e9bad411a3416729a335e0cf34a52",
+      "geometryId" : "imported.rack01.server11",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server11"
+      }
+    },
+    {
+      "contentHash" : "29ae7afdbea044fc892ddd20f8e070b9679d617f37219525574fe5a10b17ed0c",
+      "geometryId" : "imported.rack01.server12",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server12"
+      }
+    },
+    {
+      "contentHash" : "f9011454bfebb25131574fc0854ae4dda47f9b4fa338507f2bf715d6f5848ae5",
+      "geometryId" : "imported.rack01.server13",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server13"
+      }
+    },
+    {
+      "contentHash" : "61a997f19c8aff583b792a9581aa6bfc0f36cc899c8db6eaa13b0bbbd2248274",
+      "geometryId" : "imported.rack01.server14",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server14"
+      }
+    },
+    {
+      "contentHash" : "7e6fe1f5a93523ea65052d8d34d4e3e7ff387d19144246ac82ba5c6ab6c62e77",
+      "geometryId" : "imported.rack01.server15",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server15"
+      }
+    },
+    {
+      "contentHash" : "e9532150a1f96876743d46e77cd7fca80c9b1a72c1fafc044aa02e468bd96221",
+      "geometryId" : "imported.rack01.server16",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server16"
+      }
+    },
+    {
+      "contentHash" : "c7005b525a4e01ff054ffcffa8aac42fc16bb14439b1892dd1cc058a59f143fb",
+      "geometryId" : "imported.rack01.server17",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server17"
+      }
+    },
+    {
+      "contentHash" : "f5b076fcab36e7e705679af4b2fc75b82f9a3ee030bfd8af1883425037fdf307",
+      "geometryId" : "imported.rack01.server18",
+      "recipe" : {
+        "assetID" : "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba",
+        "kind" : "importedAsset",
+        "partID" : "rack01.server18"
+      }
+    }
+  ],
+  "geometrySemanticsVersion" : 1,
+  "materials" : [
+
+  ],
+  "nodes" : [
+    {
+      "isVisible" : true,
+      "nodeId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Imported exterior from Akeil commit 051c9d954292438fc8419661aa91451367961d86. The rack frame is 0.600 m wide, 1.067 m deep and 2.210 m tall in asset space. Its uniform scene scale presents the rack at 0.6 m tall. Source axes are +X right, +Y front-to-rear, +Z up. RealityKit converts source [X,Y,Z] to [X,Z,-Y], so in THIS assembly parent coordinates +X is right, +Y is up, and +Z is toward the rack front. Pull a server out by increasing its parent-space position.z; preserve its existing rotation and scale. Child transforms and mesh dimensions use source metres before the assembly scale. Only the frame and 18 joined server exteriors are loaded; interiors must be separately imported or generated as illustrative additions. The raw source includes a known misplaced PSU6 mesh; this reference intentionally preserves the exact original export.",
+        "name" : "Open Rack V2 with 18 Barreleye G2 servers",
+        "role" : "assembly"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          0.27149321266968324,
+          0.27149321266968324,
+          0.27149321266968324
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.frame",
+      "isVisible" : true,
+      "nodeId" : "rack01.frame",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Frame and power equipment remainder from the source hierarchy.",
+        "name" : "Open Rack V2 frame and power equipment",
+        "role" : "rack frame"
+      },
+      "transform" : {
+        "rotation" : [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale" : [
+          1,
+          1,
+          1
+        ],
+        "translation" : [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server01",
+      "isVisible" : true,
+      "nodeId" : "rack01.server01",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 1",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.17999997735023499,
+          0.3999999761581421
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server02",
+      "isVisible" : true,
+      "nodeId" : "rack01.server02",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 2",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.2759999632835388,
+          0.4000000059604645
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server03",
+      "isVisible" : true,
+      "nodeId" : "rack01.server03",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 3",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.37199994921684265,
+          0.4000000059604645
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server04",
+      "isVisible" : true,
+      "nodeId" : "rack01.server04",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 4",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.4679999351501465,
+          0.4000000059604645
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server05",
+      "isVisible" : true,
+      "nodeId" : "rack01.server05",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 5",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.5639999508857727,
+          0.4000000059604645
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server06",
+      "isVisible" : true,
+      "nodeId" : "rack01.server06",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 6",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.6599999666213989,
+          0.4000000059604645
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server07",
+      "isVisible" : true,
+      "nodeId" : "rack01.server07",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 7",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.7559999227523804,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server08",
+      "isVisible" : true,
+      "nodeId" : "rack01.server08",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 8",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.8519999384880066,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server09",
+      "isVisible" : true,
+      "nodeId" : "rack01.server09",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 9",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          0.9479999542236328,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server10",
+      "isVisible" : true,
+      "nodeId" : "rack01.server10",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 10",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.0439999103546143,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server11",
+      "isVisible" : true,
+      "nodeId" : "rack01.server11",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 11",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.1399998664855957,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server12",
+      "isVisible" : true,
+      "nodeId" : "rack01.server12",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 12",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.2359998226165771,
+          0.40000003576278687
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server13",
+      "isVisible" : true,
+      "nodeId" : "rack01.server13",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 13",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.3319998979568481,
+          0.40000006556510925
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server14",
+      "isVisible" : true,
+      "nodeId" : "rack01.server14",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 14",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.4279998540878296,
+          0.40000006556510925
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server15",
+      "isVisible" : true,
+      "nodeId" : "rack01.server15",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 15",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.5239999294281006,
+          0.40000006556510925
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server16",
+      "isVisible" : true,
+      "nodeId" : "rack01.server16",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 16",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.619999885559082,
+          0.40000006556510925
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server17",
+      "isVisible" : true,
+      "nodeId" : "rack01.server17",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 17",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.7159998416900635,
+          0.40000006556510925
+        ]
+      }
+    },
+    {
+      "geometryId" : "imported.rack01.server18",
+      "isVisible" : true,
+      "nodeId" : "rack01.server18",
+      "parentId" : "rack01",
+      "provenance" : {
+        "factualSupport" : "referenceBased",
+        "origin" : "imported",
+        "sourceRefs" : [
+          "sha256:aa98a44a29ab27c7e81116ba0340ad52b9a00e03516ad7ed6f7bf3de9ba0a6ba"
+        ]
+      },
+      "semantic" : {
+        "description" : "Joined Barreleye G2 exterior; no separately addressable internal components are loaded. Extract toward positive Z in the parent assembly coordinates. Preserve the existing coordinate-conversion rotation.",
+        "name" : "Barreleye G2 server 18",
+        "role" : "server"
+      },
+      "transform" : {
+        "rotation" : [
+          -0.7071067094802856,
+          0,
+          0,
+          0.7071068286895752
+        ],
+        "scale" : [
+          1,
+          0.9999999403953552,
+          0.9999999403953552
+        ],
+        "translation" : [
+          0,
+          1.8119999170303345,
+          0.40000009536743164
+        ]
+      }
+    }
+  ],
+  "relationships" : [
+
+  ],
+  "schemaVersion" : 1
+}

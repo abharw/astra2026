@@ -7,6 +7,7 @@ public enum SceneCapability: String, Codable, Sendable, CaseIterable {
   case cone = "cone.v1"
   case tube = "tube.v1"
   case arrow = "arrow.v1"
+  case importedAsset = "importedAsset.v1"
 }
 
 public struct Hello: Codable, Sendable, Equatable {

@@ -27,6 +27,7 @@
     },
     "geometryRecipe": {
       "oneOf": [
+        { "type": "object", "additionalProperties": false, "required": ["kind", "assetID", "partID"], "properties": { "kind": { "const": "importedAsset" }, "assetID": { "$ref": "#/$defs/id" }, "partID": { "$ref": "#/$defs/id" } }, "x-astra-hash-order": ["kind", "assetID", "partID"], "description": "Immutable native catalog part. The runtime resolves the reference and validates measured asset triangle budgets before installation; model drafts cannot create catalog references." },
         { "type": "object", "additionalProperties": false, "required": ["kind", "size"], "properties": { "kind": { "const": "box" }, "size": { "$ref": "#/$defs/vec3" } }, "x-astra-hash-order": ["kind", "size"] },
         { "type": "object", "additionalProperties": false, "required": ["kind", "radius", "segments"], "properties": { "kind": { "const": "sphere" }, "radius": { "$ref": "#/$defs/finiteNumber" }, "segments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "radius", "segments"] },
         { "type": "object", "additionalProperties": false, "required": ["kind", "radius", "height", "radialSegments"], "properties": { "kind": { "const": "cylinder" }, "radius": { "$ref": "#/$defs/finiteNumber" }, "height": { "$ref": "#/$defs/finiteNumber" }, "radialSegments": { "type": "integer", "minimum": 3, "maximum": 256 } }, "x-astra-hash-order": ["kind", "radius", "height", "radialSegments"] },
@@ -90,7 +91,7 @@
     "operations": { "type": "array", "items": { "$ref": "#/$defs/operation" }, "maxItems": 128 },
     "hello": {
       "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "sceneSchemaVersions", "geometrySemanticsVersions", "capabilities"],
-      "properties": { "type": { "const": "hello" }, "protocolVersion": { "const": 1 }, "sceneSchemaVersions": { "type": "array", "contains": { "const": 1 } }, "geometrySemanticsVersions": { "type": "array", "contains": { "const": 1 } }, "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["box.v1", "sphere.v1", "cylinder.v1", "cone.v1", "tube.v1", "arrow.v1"] } } }
+      "properties": { "type": { "const": "hello" }, "protocolVersion": { "const": 1 }, "sceneSchemaVersions": { "type": "array", "contains": { "const": 1 } }, "geometrySemanticsVersions": { "type": "array", "contains": { "const": 1 } }, "capabilities": { "type": "array", "uniqueItems": true, "items": { "enum": ["box.v1", "sphere.v1", "cylinder.v1", "cone.v1", "tube.v1", "arrow.v1", "importedAsset.v1"] } } }
     },
     "generationBegin": {
       "type": "object", "additionalProperties": false, "required": ["type", "protocolVersion", "requestId", "sceneId", "generationId", "intentEpoch", "initialBaseRevision"],

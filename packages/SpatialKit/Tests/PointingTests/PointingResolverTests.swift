@@ -201,6 +201,51 @@ struct PointingResolverTests {
         #expect(expired.confirmedSelection?.nodeID == "kept")
     }
 
+    @Test("automatic hand disappearance hides feedback without canceling speech or selection")
+    func handLossPreservesSpeechAndSelection() throws {
+        var resolver = PointingResolver(configuration: .init(
+            cursorSmoothingFactor: 1, stableDwellDuration: 0
+        ))
+        _ = resolver.ingest(observation(12, x: 20, y: 30), now: 12) { _ in
+            PointingTarget(nodeID: "server03")
+        }
+        _ = resolver.ingest(observation(12.1, x: 20, y: 30), now: 12.1) { _ in
+            PointingTarget(nodeID: "server03")
+        }
+        let requestedLock = resolver.beginSpeech(sceneID: "rack", at: 12.11)
+        let lock = try #require(requestedLock)
+
+        let lost = resolver.handLost(at: 12.2)
+        #expect(lost.cursor == nil)
+        #expect(lost.hover == nil)
+        #expect(lost.stableHover == nil)
+        #expect(lost.confirmedSelection?.nodeID == "server03")
+        #expect(lost.activeSpeechLock == lock)
+
+        let suspended = resolver.clearTransientTracking()
+        #expect(suspended.activeSpeechLock == lock)
+        #expect(suspended.confirmedSelection?.nodeID == "server03")
+    }
+
+    @Test("late hand-loss and recognition events cannot undo newer feedback")
+    func handLossRejectsOutOfOrderEvents() {
+        var resolver = PointingResolver()
+        _ = resolver.ingest(observation(20, x: 20, y: 30), now: 20) { _ in
+            PointingTarget(nodeID: "server03")
+        }
+        let lateLoss = resolver.handLost(at: 19.9)
+        #expect(lateLoss.rejectedObservation)
+        #expect(lateLoss.cursor != nil)
+
+        let loss = resolver.handLost(at: 20.2)
+        #expect(loss.cursor == nil)
+        let lateObservation = resolver.ingest(observation(20.1, x: 20, y: 30), now: 20.3) { _ in
+            PointingTarget(nodeID: "server03")
+        }
+        #expect(lateObservation.rejectedObservation)
+        #expect(lateObservation.cursor == nil)
+    }
+
     private func observation(_ timestamp: TimeInterval, x: Double, y: Double) -> PointingScreenObservation {
         PointingScreenObservation(
             point: PointingScreenPoint(x: x, y: y),

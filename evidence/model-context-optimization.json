@@ -1,0 +1,50 @@
+{
+  "schema": "astra-model-context-optimization/v1",
+  "measuredAt": "2026-09-08T20:48:38.784Z",
+  "reproduce": "cd services/session && npm run check:context",
+  "scope": "Local deterministic JSON byte measurements; no provider token counts, cache-hit, latency or physical-rendering claim.",
+  "semanticChecks": "scene-context.test.ts independently restores shared references and deep-compares every authoring field, excluding application-owned geometry contentHash; all nodes, IDs, parent links, exact TRS, visibility, semantics, provenance, recipes, materials and relationships remain.",
+  "contextSamples": [
+    {
+      "fixture": "contracts/fixtures/accepted/imported_rack_document.json",
+      "fixtureSHA256": "1182ddce6f21d8eda1ee37200d033f496a2c5785e675840f753a4dd3e8bfe297",
+      "nodes": 20,
+      "geometries": 19,
+      "originalDocumentBytes": 20003,
+      "modelContextBytes": 11926,
+      "inputByteReductionPercent": 40.38
+    },
+    {
+      "fixture": "examples/server-rack/scene.json",
+      "fixtureSHA256": "712b5bc82c8aadd4ba33d07f522ef28c09cc8362f87cbe2b49531dfa0831455f",
+      "nodes": 179,
+      "geometries": 32,
+      "originalDocumentBytes": 81125,
+      "modelContextBytes": 66691,
+      "inputByteReductionPercent": 17.79
+    }
+  ],
+  "outputSample": {
+    "task": "Translate all 18 imported server assemblies by 0.3 source metres in parent +Z, retaining child structure",
+    "operations": 18,
+    "priorSetTransformBytes": 4106,
+    "translateBytes": 1225,
+    "outputByteReductionPercent": 70.17,
+    "nativeWireOperationUnchanged": "set.transform"
+  },
+  "history": {
+    "maximumTurns": 6,
+    "maximumUTF8Bytes": 12288,
+    "records": "Whole terminal answered/installed/explicit failed outcomes only; current snapshot remains authoritative."
+  },
+  "sourceSHA256": {
+    "services/session/src/astra/scene-context.ts": "ba1f5ac8b2e3a46ce584061981293a970151f0582ed12b67178df5139ad6a894",
+    "services/session/src/astra/authoring-tool.ts": "6f8c20deb9364058a7525fd51e8c2c91aaf78656a833aab50b8de33076f95c3e",
+    "services/session/src/astra/instructions.ts": "f49eab7a19adb5cc4f00d45c42964a2058807a42791bde1f896917298febbc45",
+    "services/session/src/astra/conversation-context.ts": "96545a45cf599e377ebd7eb375ae9bda4314c8e8941ecfaf05c672a5fd684ffb",
+    "services/session/src/astra/client.ts": "bba715ac789fd3cd25caa0d769cad75c4992b2c86b78b5d7a44a6bc3047a83ad",
+    "services/session/src/normalizer.ts": "9f5b6f791f8cb0689fa42289e06da4c67b5f91d40670705427b3e6b0fdcce58b",
+    "services/session/src/session.ts": "cfbd0362798b00378e7dd3d3262e15daee5683204ea6d4ab95255b490735f816",
+    "services/session/src/diagnostics.ts": "f076b6fef4feb3c61bb1ea17bead8d5a747f6c8181578cad931109a3b638a246"
+  }
+}

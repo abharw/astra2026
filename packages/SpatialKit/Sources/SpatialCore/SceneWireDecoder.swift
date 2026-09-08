@@ -244,6 +244,7 @@ public struct SceneWireDecoder: Sendable {
     guard let kind = value["kind"] as? String else { return }
     let allowed: Set<String>
     switch kind {
+    case "importedAsset": allowed = ["kind", "assetID", "partID"]
     case "box": allowed = ["kind", "size"]
     case "sphere": allowed = ["kind", "radius", "segments"]
     case "cylinder": allowed = ["kind", "radius", "height", "radialSegments"]

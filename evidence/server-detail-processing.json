@@ -1,0 +1,30 @@
+{
+  "schema": "astra-asset-group-build/v1",
+  "sourceSHA256": "1d086d872ff4e795b795aed3400e5bac98fa7872bd26c84dc0877788be5ee4d2",
+  "sourceBytes": 137229178,
+  "blenderVersion": "5.2.1 LTS",
+  "output": "runtime/processed-assets/server-teaching.usdz",
+  "sha256": "0a026a5d4b06577b25d334dbca7a8e84bca8af0fe169e12be25099bb2740f4e0",
+  "bytes": 8226964,
+  "triangleCount": 381897,
+  "partCount": 9,
+  "omittedOverviewObjects": {
+    "below_2_5mm_overview_detail": 5155,
+    "individual_memory_contacts": 9088
+  },
+  "materialCount": 24,
+  "exportedUpAxis": "Z",
+  "metersPerUnit": 1.0,
+  "seconds": 377.15565929200966,
+  "sourceUnchanged": true,
+  "nativeLoadVerified": false,
+  "storageOptimization": {
+    "inputBytes": 17178641,
+    "outputBytes": 8226964,
+    "indexedMeshCount": 9,
+    "checkedMeshCount": 9,
+    "topologyAndPositionsIdentical": true,
+    "expandedNormalsIdentical": true,
+    "nativeImporterVerified": false
+  }
+}

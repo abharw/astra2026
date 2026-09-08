@@ -5,6 +5,7 @@ import { JsonObject, ProtocolError } from "./json.js";
 import { ModelTransport, OpenAIResponsesTransport } from "./astra/client.js";
 import { AstraSession, SessionSink } from "./session.js";
 import { ClientEnvelope, MAX_OUTGOING_BUFFER_BYTES, MAX_WIRE_BYTES, SessionHello, parseWireText } from "./protocol.js";
+import { DiagnosticLogger, JsonlLogger, safeError } from "./diagnostics.js";
 
 export interface ServiceOptions {
   host: string;
@@ -13,6 +14,7 @@ export interface ServiceOptions {
   accessToken?: string;
   model?: ModelTransport;
   fetchImpl?: typeof fetch;
+  logger?: DiagnosticLogger;
 }
 
 export class SessionServer {
@@ -21,11 +23,13 @@ export class SessionServer {
   private readonly sessions = new Map<string, AstraSession>();
   private readonly fetchImpl: typeof fetch;
   private readonly model: ModelTransport;
+  private readonly logger: DiagnosticLogger;
 
   constructor(private readonly options: ServiceOptions) {
     if (!isLoopback(options.host) && !options.accessToken) throw new Error("SESSION_ACCESS_TOKEN is required when listening beyond loopback");
     this.fetchImpl = options.fetchImpl ?? fetch;
-    this.model = options.model ?? new OpenAIResponsesTransport(requireApiKey(options.apiKey), this.fetchImpl);
+    this.logger = options.logger ?? new JsonlLogger();
+    this.model = options.model ?? new OpenAIResponsesTransport(requireApiKey(options.apiKey), this.fetchImpl, this.logger);
     this.http = createServer((request, response) => { void this.handleHttp(request, response); });
     this.http.on("upgrade", (request, socket, head) => {
       if (new URL(request.url ?? "/", "http://localhost").pathname !== "/session") { socket.destroy(); return; }
@@ -54,22 +58,33 @@ export class SessionServer {
   private handleConnection(ws: WebSocket): void {
     let session: AstraSession | undefined;
     let hello: SessionHello | undefined;
+    this.logger.log("connection", "accepted");
     const sink: SessionSink = { send: (message) => {
       if (ws.readyState !== WebSocket.OPEN) return;
       if (ws.bufferedAmount > MAX_OUTGOING_BUFFER_BYTES) { ws.close(1013, "outgoing queue exceeded"); return; }
       const text = JSON.stringify(message);
       if (Buffer.byteLength(text, "utf8") > MAX_WIRE_BYTES) { ws.close(1009, "outgoing message exceeded"); return; }
+      this.logger.log("connection", "outgoing", { sessionId: hello?.sessionId, requestId: typeof message.requestId === "string" ? message.requestId : undefined, bytes: Buffer.byteLength(text, "utf8"), name: typeof message.type === "string" ? message.type : "unknown" });
       ws.send(text);
     }};
+    ws.on("close", (code) => {
+      this.logger.log("connection", "closed", { sessionId: hello?.sessionId, status: code });
+      session?.dispose();
+      if (hello && this.sessions.get(hello.sessionId) === session) this.sessions.delete(hello.sessionId);
+    });
+    ws.on("error", (error) => this.logger.log("connection", "error", { sessionId: hello?.sessionId, safeError: safeError(error) }, "warn"));
     ws.on("message", (data, isBinary) => {
       if (isBinary) { this.sendError(sink, "", "invalid_message", "binary frames are not supported"); return; }
       try {
         const message = parseWireText(data.toString());
         if (!hello) {
           if (message.type !== "session.hello") throw new ProtocolError("session.hello is required first", "hello_required");
-          this.authorize(message.authToken);
+          try { this.authorize(message.authToken); } catch (error) { this.logger.log("connection", "handshake_rejected", { sessionId: message.sessionId, reason: "unauthorized" }, "warn"); throw error; }
           hello = message;
-          session = this.sessions.get(message.sessionId) ?? new AstraSession(this.model, sink);
+          // A reconnect starts a fresh protocol session. Dispose the previous owner
+          // before replacing its map entry so its provider fetch cannot outlive A.
+          this.sessions.get(message.sessionId)?.dispose();
+          session = new AstraSession(this.model, sink, { logger: this.logger, sessionId: message.sessionId });
           session.attachSink(sink);
           this.sessions.set(message.sessionId, session);
           session.acceptHello(message);
@@ -78,6 +93,7 @@ export class SessionServer {
         if (!session) throw new ProtocolError("session is unavailable", "session_unavailable");
         void this.dispatch(session, message, sink);
       } catch (error) {
+        this.logger.log("connection", "message_error", { sessionId: hello?.sessionId, safeError: safeError(error) }, "warn");
         const known = error instanceof ProtocolError ? error : new ProtocolError("invalid message");
         this.sendError(sink, "", known.code, known.message);
       }
@@ -96,6 +112,7 @@ export class SessionServer {
         case "session.hello": throw new ProtocolError("session.hello may only be sent once", "duplicate_hello");
       }
     } catch (error) {
+      this.logger.log("connection", "dispatch_error", { requestId: message.type === "user.request" ? message.requestId : undefined, safeError: safeError(error) }, "warn");
       const known = error instanceof ProtocolError ? error : new ProtocolError(error instanceof Error ? error.message : "session failure", "session_failed");
       this.sendError(sink, message.type === "user.request" ? message.requestId : "", known.code, known.message);
     }
@@ -108,20 +125,28 @@ export class SessionServer {
       return;
     }
     if (request.method === "POST" && path === "/realtime/client-secret") {
+      const startedAt = Date.now();
+      let sessionId: string | undefined;
       try {
         this.authorizeHeader(request.headers.authorization);
         const body = await readJsonBody(request);
         if (typeof body.sessionId !== "string" || body.sessionId.length === 0) throw new ProtocolError("sessionId is required");
+        sessionId = body.sessionId;
+        this.logger.log("realtime_credential", "start", { sessionId });
         const key = requireApiKey(this.options.apiKey);
         const upstream = await this.fetchImpl("https://api.openai.com/v1/realtime/client_secrets", {
           method: "POST",
+          signal: AbortSignal.timeout(25_000),
           headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
           body: JSON.stringify({ session: { type: "realtime", model: "gpt-realtime-2.1", reasoning: { effort: "low" }, audio: { output: { voice: "marin" } } } })
         });
+        this.logger.log("realtime_credential", "status", { sessionId, status: upstream.status, durationMs: Date.now() - startedAt });
         const payload = await upstream.json() as unknown;
         if (!upstream.ok || !isClientSecret(payload)) throw new Error(`Realtime credential request failed (${upstream.status})`);
         this.respondJson(response, 200, { clientSecret: { value: payload.value, expires_at: payload.expires_at }, model: payload.session.model });
+        this.logger.log("realtime_credential", "complete", { sessionId, status: 200, durationMs: Date.now() - startedAt });
       } catch (error) {
+        this.logger.log("realtime_credential", "error", { sessionId, status: error instanceof ProtocolError && error.code === "unauthorized" ? 401 : 400, durationMs: Date.now() - startedAt, safeError: safeError(error) }, "warn");
         const known = error instanceof ProtocolError ? error : new ProtocolError(error instanceof Error ? error.message : "credential request failed", "credential_failed");
         this.respondJson(response, known.code === "unauthorized" ? 401 : 400, { error: { code: known.code, message: known.message } });
       }

@@ -14,7 +14,7 @@ The agreed baseline is a camera-view cursor: it casts from the camera through th
 
 Use the same app on iPhone and iPad. Arav's iPad Air M4 on iPadOS 26.5 is the primary demonstration target; validate the actual interaction before recording. A teammate can hold it in landscape beside Arav so he can see the display and reach a hand into the rear camera's view. A stand is another option. If the presenter stands opposite the tablet looking at its back, he cannot see the virtual part or selection feedback; that setup needs a mirrored display or a different interaction design.
 
-The iPhone uses the same ARSession → Vision → viewport mapping → RealityKit hit-test pipeline. It needs a compact layout and a one-hand-holds/one-hand-points trial, not a second tracking implementation. This input is a fingertip cursor inside explicit Hand mode; it does not yet classify a deliberate pointing pose versus an open palm. [Apple and working-source references](hand-tracking-references.md) distinguish this iOS path from visionOS hand anchors.
+The iPhone uses the same ARSession → Vision → viewport mapping → RealityKit hit-test pipeline. It needs a compact layout and a one-hand-holds/one-hand-points trial, not a second tracking implementation. Foreground hand sampling is automatic on physical devices; this input is a fingertip cursor and does not yet classify a deliberate pointing pose versus an open palm. [Apple and working-source references](hand-tracking-references.md) distinguish this iOS path from visionOS hand anchors.
 
 A larger screen and separate holder may improve aim and presentation, but holder motion, hand occlusion, screen visibility and speech capture need testing. Do not assume the tablet establishes depth or requires LiDAR. See [device support and hardware policy](devices.md).
 
@@ -33,7 +33,7 @@ Limit inference to bounded work with at most one active prediction and a latest-
 
 Hover is temporary visual feedback; it does not change the scene revision or cancel generation. Hand loss hides the cursor and clears hover but preserves an already confirmed selection. For optional pinch confirmation, latch the stable hover target at pinch onset so the fingers moving together cannot choose a neighbor. Require release before another pinch and again after reacquisition, so a returning closed hand cannot trigger twice.
 
-Provide an explicit gesture mode so ordinary hand movements during conversation do not constantly change targets. If tracking confidence is insufficient, show unavailable cursor state and accept touch instead of guessing.
+Keep hand tracking foreground-only so ordinary background activity does not change targets. If tracking confidence is insufficient, show unavailable cursor state and accept touch instead of guessing.
 
 Bind each spoken request at speech start to the fresh stable hover target, or an explicitly locked selection when no pointing attempt is active. Capture scene identity, node ID, selection-event identity and the observation timestamp. Use local audio/selection timing; do not substitute whatever happens to be hovered when a delayed cloud tool call arrives. The initial interaction requires pointing before beginning speech. Later hover must not silently retarget an in-flight request. An uncertain attempted point must not silently fall back to an old selected part; resolve ambiguity before mutation. Revalidate that the referenced node still exists when admitting the scene request.
 

@@ -11,9 +11,19 @@ import Vision
 public final class VisionHandPointDetector: @unchecked Sendable {
     public struct Configuration: Sendable, Hashable {
         public var minimumConfidence: Double
+        /// Search cheaply when no hand is visible, then increase responsiveness
+        /// while a recently recognized fingertip remains in the camera frame.
+        public var searchFramesPerSecond: Double
+        public var trackingFramesPerSecond: Double
 
-        public init(minimumConfidence: Double = 0.55) {
+        public init(
+            minimumConfidence: Double = 0.55,
+            searchFramesPerSecond: Double = 5,
+            trackingFramesPerSecond: Double = 15
+        ) {
             self.minimumConfidence = minimumConfidence
+            self.searchFramesPerSecond = searchFramesPerSecond
+            self.trackingFramesPerSecond = trackingFramesPerSecond
         }
     }
 
@@ -31,6 +41,9 @@ public final class VisionHandPointDetector: @unchecked Sendable {
     private var isProcessing = false
     private var pendingFrame: QueuedFrame?
     private var deliveryGate = PointingFrameDeliveryGate()
+    private var samplingPolicy: PointingFrameSamplingPolicy
+    /// The serial processing queue is the sole owner after initialization.
+    private let handPoseRequest: VNDetectHumanHandPoseRequest
 
     public init(
         configuration: Configuration = .init(),
@@ -38,6 +51,12 @@ public final class VisionHandPointDetector: @unchecked Sendable {
     ) {
         self.configuration = configuration
         self.resultQueue = resultQueue
+        self.samplingPolicy = PointingFrameSamplingPolicy(
+            searchFramesPerSecond: configuration.searchFramesPerSecond,
+            trackingFramesPerSecond: configuration.trackingFramesPerSecond
+        )
+        self.handPoseRequest = VNDetectHumanHandPoseRequest()
+        self.handPoseRequest.maximumHandCount = 1
     }
 
     /// Adds a frame from an existing AR session or webcam capture. `timestamp`
@@ -62,7 +81,8 @@ public final class VisionHandPointDetector: @unchecked Sendable {
 
         let frameToStart: QueuedFrame?
         stateLock.lock()
-        guard deliveryGate.acceptsSubmission(timestamp) else {
+        guard samplingPolicy.acceptsFrame(at: timestamp),
+              deliveryGate.acceptsSubmission(timestamp) else {
             stateLock.unlock()
             return
         }
@@ -92,6 +112,7 @@ public final class VisionHandPointDetector: @unchecked Sendable {
 
     private func process(_ frame: QueuedFrame) {
         let result = Self.detect(
+            request: handPoseRequest,
             pixelBuffer: frame.pixelBuffer,
             orientation: frame.orientation,
             timestamp: frame.timestamp,
@@ -100,6 +121,9 @@ public final class VisionHandPointDetector: @unchecked Sendable {
 
         let nextFrame: QueuedFrame?
         stateLock.lock()
+        if case .observation(let observation) = result {
+            samplingPolicy.observedHand(at: observation.timestamp)
+        }
         nextFrame = pendingFrame
         pendingFrame = nil
         if nextFrame == nil {
@@ -128,14 +152,12 @@ public final class VisionHandPointDetector: @unchecked Sendable {
     }
 
     private static func detect(
+        request: VNDetectHumanHandPoseRequest,
         pixelBuffer: CVPixelBuffer,
         orientation: CGImagePropertyOrientation,
         timestamp: TimeInterval,
         minimumConfidence: Double
     ) -> Result {
-        let request = VNDetectHumanHandPoseRequest()
-        request.maximumHandCount = 1
-
         do {
             let requestHandler = VNImageRequestHandler(
                 cvPixelBuffer: pixelBuffer,
@@ -163,6 +185,44 @@ public final class VisionHandPointDetector: @unchecked Sendable {
         } catch {
             return .failed(timestamp: timestamp, reason: String(describing: error))
         }
+    }
+}
+
+/// Bounds inference independently of the camera's display rate. A brief hold
+/// avoids switching rates on a single occluded frame. It does not keep a cursor
+/// visible: no-hand results still immediately clear transient pointing feedback.
+struct PointingFrameSamplingPolicy: Sendable {
+    private let searchInterval: TimeInterval
+    private let trackingInterval: TimeInterval
+    private let trackingHoldDuration: TimeInterval = 0.5
+    private var lastAcceptedTimestamp: TimeInterval?
+    private var lastHandTimestamp: TimeInterval?
+
+    init(searchFramesPerSecond: Double = 5, trackingFramesPerSecond: Double = 15) {
+        let searchRate = searchFramesPerSecond.isFinite ? min(max(searchFramesPerSecond, 1), 15) : 5
+        let trackingRate = trackingFramesPerSecond.isFinite ? min(max(trackingFramesPerSecond, searchRate), 30) : 15
+        self.searchInterval = 1 / searchRate
+        self.trackingInterval = 1 / trackingRate
+    }
+
+    mutating func acceptsFrame(at timestamp: TimeInterval) -> Bool {
+        guard timestamp.isFinite, timestamp >= 0 else { return false }
+        let recentlySawHand = lastHandTimestamp.map {
+            timestamp >= $0 && timestamp - $0 <= trackingHoldDuration
+        } ?? false
+        let interval = recentlySawHand ? trackingInterval : searchInterval
+        if let lastAcceptedTimestamp {
+            guard timestamp > lastAcceptedTimestamp,
+                  timestamp - lastAcceptedTimestamp + 0.000_001 >= interval else { return false }
+        }
+        lastAcceptedTimestamp = timestamp
+        return true
+    }
+
+    mutating func observedHand(at timestamp: TimeInterval) {
+        guard timestamp.isFinite, timestamp >= 0,
+              lastHandTimestamp.map({ timestamp > $0 }) ?? true else { return }
+        lastHandTimestamp = timestamp
     }
 }
 

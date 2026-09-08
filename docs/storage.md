@@ -2,14 +2,14 @@
 
 2026-09-08 · Architecture proposal. Manual semantic Save/Open checkpoints are implemented in the Swift package; autosave, artifact-file custody, cache, and crash/recovery acceptance remain unverified.
 
-The device owns the accepted scene. Saving preserves its editable source; the database does not generate assets. Astra produces a program or description, the generation pipeline normalizes it into a bounded intermediate representation (IR), and Swift constructs native geometry from that IR. Reopening a saved scene must not require executing the original program or calling a model again.
+The device owns the accepted scene. Saving preserves its editable source; the database does not generate assets. Astra produces a bounded JSON description, the generation pipeline normalizes it into the intermediate representation (IR), and Swift constructs native geometry from that IR. Reopening a saved scene must not require executing source code or calling a model again.
 
 ## 1. Source, artifacts, and runtime state
 
 | Representation | Contents | Lifetime and location |
 | --- | --- | --- |
 | Scene document | Nodes, geometry definitions, materials, relationships, provenance, final/rest transforms | Complete JSON checkpoint in local SQLite |
-| Original binaries | Imported USDZ, textures, externally generated meshes | Bundle or durable application files |
+| Original binaries | Approved imported USDZ source assets | Host catalog or durable application files; never model-provided |
 | Generation programs | Original source and generation metadata | Provenance files; retained as text, never executed on reopen |
 | Compiled mesh data | Vertices, indices, bounds | Memory initially; optional discardable cache later |
 | RealityKit objects | Entities, mesh resources, materials, collision/selection state | Process memory and GPU resources |

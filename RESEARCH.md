@@ -1,14 +1,14 @@
 # Astra AR — framework research
 
-2026-09-08. Initial research background. Core contracts, the native app, RealityKit adapter, voice path, and session service now exist. Live Astra-to-Swift runs and signed iPad camera deployment have passed; [evidence](evidence/README.md) separates those results from outstanding physical interaction checks. The current design is [architecture.md](architecture.md); the chronological Arav/Astra collaboration log is [APPROACH.md](APPROACH.md). Where this research discusses alternatives, the architecture document records the current choice.
+2026-09-08. Initial research background. Core contracts, the native app, RealityKit adapter, unified Realtime conversation path, and session service now exist. Live Astra-to-Swift runs and signed iPad camera deployment have passed; acceptance of the updated composer, automatic hand mode, and combined physical interaction remains pending. The current design is [architecture.md](architecture.md); the chronological Arav/Astra collaboration log is [APPROACH.md](APPROACH.md). Where this research discusses alternatives, the architecture document records the current choice.
 
-The subsequent deeper design specifies [model authoring and the asset pipeline](docs/asset-pipeline.md), [data formats and transport](docs/data-formats.md), and [persistence](docs/storage.md). In particular, code and direct structured calls now share one normalized scene contract, and generation batches use an ordered scope rather than a global-revision round trip for each batch.
+The subsequent deeper design specifies [model authoring and the asset pipeline](docs/asset-pipeline.md), [data formats and transport](docs/data-formats.md), and [persistence](docs/storage.md). The implemented authoring path uses one structured `propose_scene` call. Future code authoring can target the same normalized contract; progressive generation remains planned.
 
 Subsequent user direction expands the native app to [iPhone and iPad](docs/devices.md) and makes [screen-aligned pointing](docs/gestures.md) required for demo acceptance. The primary demo target is iPad Air M4 on iPadOS 26.5; iPhone 15 Pro is the second test device.
 
 ## Recommendation
 
-Use **Swift + SwiftUI + ARKit + RealityKit** in one universal iPhone/iPad app, a thin **TypeScript/Node backend**, **GPT-6 Astra through Responses** for spatial reasoning and geometry generation, and a separate **Realtime voice session**. Start with one bounded complete model proposal and the continuous voice-to-generation loop using schematic geometry. Compare authored deconstruction and live creation within that loop. Keep Quest outside the first device acceptance test.
+Use **Swift + SwiftUI + ARKit + RealityKit** in one universal iPhone/iPad app, a thin **TypeScript/Node backend**, **GPT-6 Astra through Responses** for spatial reasoning and geometry generation, and one **Realtime conversation for typed text and voice**. Start with one bounded complete model proposal and the continuous voice-to-generation loop using schematic geometry. Compare authored deconstruction and live creation within that loop. Keep Quest outside the first device acceptance test.
 
 The first user is exploring hardware architecture. The important experiment is whether a spoken request can produce a useful, editable spatial explanation fast enough to sustain conversation. Building the whole framework before measuring that would postpone the main uncertainty.
 
@@ -26,7 +26,7 @@ The user explicitly places initial visual fidelity below on-demand usefulness: d
 
 ## Native rendering and portability
 
-RealityKit constructs the current six-shape scene vocabulary from the normalized JSON recipe. Use ARKit raycasting to place the rack on a real surface and collision hit testing for picking virtual components. Store rest transforms so repeated explode/restore operations do not accumulate drift. Imported USDZ, text labels, arbitrary mesh import, and a source-code execution path are not part of the current implementation. [MeshResource](https://developer.apple.com/documentation/realitykit/meshresource), [RealityKit hit testing](https://developer.apple.com/documentation/realitykit/arview/hittest(_:query:mask:)).
+RealityKit constructs the current six-shape scene vocabulary from the normalized JSON recipe. Use ARKit raycasting to place the rack on a real surface and collision hit testing for picking virtual components. Store rest transforms so repeated explode/restore operations do not accumulate drift. Approved bundled USDZ hierarchy import now shares the scene with generated recipes through immutable asset/part references. Text labels, arbitrary model-supplied mesh import, bounded array expansion in the provider path, and source-code execution remain unimplemented. [MeshResource](https://developer.apple.com/documentation/realitykit/meshresource), [RealityKit hit testing](https://developer.apple.com/documentation/realitykit/arview/hittest(_:query:mask:)).
 
 Keep these outside renderer-specific classes:
 
@@ -111,7 +111,7 @@ Keep one useful failure/diagnosis/fix in the development record. A clean second 
 
 ## What remains unverified
 
-- Physical pointing accuracy, microphone/playback quality, interruption behavior, and the complete spoken loop. The signed app and rear-camera view already run on the verified iPad Air 13-inch (M4), iPadOS 26.5, with Developer Mode enabled. The available iPhone 15 Pro on iOS 26.6.1 has not yet run this app.
+- Physical pointing accuracy, microphone/playback quality, interruption behavior, and the complete spoken loop. The signed app and rear-camera deployment exist on the verified iPad Air 13-inch (M4), iPadOS 26.5; acceptance of the updated composer and automatic hand path remains pending. The iPhone 15 Pro on iOS 26.6.1 has launched the universal build, but its full physical interaction trial remains pending.
 - Full native service round trips and latency on venue networking. Separate live headless generation/explanation runs took approximately 10–24 seconds; these are not device display latency measurements.
 - Imported CAD/USDZ hierarchy, redistribution rights, and hardware reference accuracy. The bundled starting rack is an original authored schematic JSON assembly.
 - Generalization beyond the first generated fan/rack examples, conversational generation time, sustained device performance, and Quest execution.

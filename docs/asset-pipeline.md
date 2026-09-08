@@ -4,7 +4,7 @@
 
 ## The decision
 
-Build an **editable procedural scene system**. Astra authors spatial source; a trusted compiler/validator turns it into normalized JSON; Swift constructs the six supported geometry shapes; RealityKit renders them; manual SQLite checkpointing preserves the editable scene.
+Build an **editable procedural scene system**. Astra authors spatial source; a trusted compiler/validator turns it into normalized JSON; Swift constructs the six supported geometry shapes or loads approved imported asset parts; RealityKit renders them; manual SQLite checkpointing preserves the editable scene.
 
 Use one normalized scene representation and one native execution path. Give Astra two ways to author that representation:
 
@@ -41,7 +41,7 @@ A compact authoring fragment might describe:
 
 This is a proposed authoring fragment, not a complete transport message. Dimensions are metres. The dimensions and arrangement are invented at request time; generic box and array algorithms are application code. A domain pack may provide real dimensions when fidelity matters.
 
-The backend expands the bounded structural array into twenty-four stable semantic nodes sharing one immutable geometry definition. The device needs one fin mesh and twenty-four placements, plus whatever geometry the base uses. A later “spread them farther apart” changes transforms. It does not require a new mesh, asset download, or database query in the render loop.
+In a future bounded array authoring path, the backend could expand this structural array into twenty-four stable semantic nodes sharing one immutable geometry definition. The current service does not accept array expressions; it receives explicit bounded operations. A later “spread them farther apart” would change transforms without requiring a new mesh or database query in the render loop.
 
 This is more expressive than a catalog of prebuilt server-rack scenes. It is also more editable than one opaque generated mesh. The model authors the structure and intent; deterministic code handles repetition, triangulation, normals, native resources, and drawing.
 
@@ -55,7 +55,7 @@ This is more expressive than a catalog of prebuilt server-rack scenes. It is als
 
 IR means intermediate representation: ordinary versioned JSON describing geometry definitions, materials, nodes, relationships, and provenance. It contains concrete bounded data rather than executable expressions. It is the common boundary between model authoring and native execution.
 
-Structural loops from code or authoring conveniences are expanded before the device receives normalized scene nodes. Native geometry recipes still contain parameters such as radius, dimensions, and curve points. Swift expands those into vertices. This keeps node identity explicit without making the model print mesh buffers.
+Structural loops from a future authoring path would be expanded before the device receives normalized scene nodes. The current service sends explicit bounded operations. Native geometry recipes still contain parameters such as radius, dimensions, and curve points. Swift expands those into vertices. This keeps node identity explicit without making the model print mesh buffers.
 
 Changing a label should not invalidate a mesh. Changing a node's position should not invalidate its geometry. Changing one fin's shape creates a new immutable geometry definition and changes that node's reference; it does not silently change every other fin sharing the original definition.
 

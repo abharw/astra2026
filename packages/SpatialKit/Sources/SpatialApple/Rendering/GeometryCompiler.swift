@@ -28,6 +28,8 @@ public final class GeometryCompiler {
 
         let resource: MeshResource
         switch definition.recipe {
+        case let .importedAsset(assetID, partID):
+            throw ImportedAssetError.unknownReference("\(assetID)/\(partID) requires an approved entity prototype")
         case let .box(size):
             resource = .generateBox(size: size.simdFloat)
         case let .sphere(radius, segments):

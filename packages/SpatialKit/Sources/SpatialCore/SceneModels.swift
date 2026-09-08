@@ -83,6 +83,8 @@ public struct Transform3D: Codable, Sendable, Equatable {
 }
 
 public enum GeometryRecipe: Sendable, Equatable {
+  /// An immutable part in the native asset catalog, never an arbitrary file or URL.
+  case importedAsset(assetID: String, partID: String)
   case box(size: Vec3)
   case sphere(radius: Double, segments: Int)
   case cylinder(radius: Double, height: Double, radialSegments: Int)
@@ -97,13 +99,19 @@ extension GeometryRecipe: Codable {
   private enum CodingKeys: String, CodingKey {
     case kind, size, radius, segments, height, radialSegments
     case bottomRadius, topRadius, points, start, end, shaftRadius, headRadius, headLength
+    case assetID, partID
   }
 
-  private enum Kind: String, Codable { case box, sphere, cylinder, cone, tube, arrow }
+  private enum Kind: String, Codable { case box, sphere, cylinder, cone, tube, arrow, importedAsset }
 
   public init(from decoder: any Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     switch try values.decode(Kind.self, forKey: .kind) {
+    case .importedAsset:
+      self = .importedAsset(
+        assetID: try values.decode(String.self, forKey: .assetID),
+        partID: try values.decode(String.self, forKey: .partID)
+      )
     case .box:
       self = .box(size: try values.decode(Vec3.self, forKey: .size))
     case .sphere:
@@ -145,6 +153,10 @@ extension GeometryRecipe: Codable {
   public func encode(to encoder: any Encoder) throws {
     var values = encoder.container(keyedBy: CodingKeys.self)
     switch self {
+    case .importedAsset(let assetID, let partID):
+      try values.encode(Kind.importedAsset, forKey: .kind)
+      try values.encode(assetID, forKey: .assetID)
+      try values.encode(partID, forKey: .partID)
     case .box(let size):
       try values.encode(Kind.box, forKey: .kind)
       try values.encode(size, forKey: .size)

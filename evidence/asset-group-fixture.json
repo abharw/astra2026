@@ -1,0 +1,95 @@
+{
+  "schema": "astra-asset-group-compiler-check/v1",
+  "status": "passed",
+  "command": "python3 scripts/check-asset-group-compiler.py",
+  "fixture": "Synthetic desk lamp with three semantic groups and a nested stem assembly; no rack source or recipe is used.",
+  "compiler": "scripts/export-asset-groups.py",
+  "blenderVersion": "5.2.1 LTS",
+  "sourceSHA256": "c87f491c9ba61653ca809622e8de04452ae00490fbafa849da12cd5300c90d8a",
+  "outputSHA256": "c1bb897e6b479cf825ee4b3c7204a59eda74b679114a5991ec99604343b1754a",
+  "bytes": 5628,
+  "triangleCount": 112,
+  "exportedUpAxis": "Z",
+  "metersPerUnit": 1.0,
+  "checks": [
+    "Explicit non-rack recipe accepted",
+    "Nested source ancestry resolves to the requested semantic group",
+    "Source part IDs retained in source index",
+    "All manifest parents reference the declared template",
+    "Unique semantic USD entity roots retained",
+    "World bounds preserve ancestor translation",
+    "USD and manifest triangle totals agree",
+    "SHA256 catalog addresses exact exported bytes",
+    "Source library remains unchanged"
+  ],
+  "parts": [
+    {
+      "partID": "lamp.base",
+      "parentTemplateID": "desk-lamp",
+      "entityName": "detail_base",
+      "sourcePartIDs": [
+        "fixture.base"
+      ],
+      "triangleCount": 12,
+      "sourceBoundsMeters": {
+        "minimum": [
+          0.0,
+          -0.1599999964237213,
+          0.019999999552965164
+        ],
+        "maximum": [
+          0.23999999463558197,
+          0.0,
+          0.05999999865889549
+        ]
+      }
+    },
+    {
+      "partID": "lamp.stem",
+      "parentTemplateID": "desk-lamp",
+      "entityName": "detail_stem",
+      "sourcePartIDs": [
+        "fixture.stem_collar",
+        "fixture.stem_tube"
+      ],
+      "triangleCount": 56,
+      "sourceBoundsMeters": {
+        "minimum": [
+          0.09999999403953552,
+          -0.09999999403953552,
+          0.06000000238418579
+        ],
+        "maximum": [
+          0.14000000059604645,
+          -0.05999999865889549,
+          0.36000001430511475
+        ]
+      }
+    },
+    {
+      "partID": "lamp.shade",
+      "parentTemplateID": "desk-lamp",
+      "entityName": "detail_shade",
+      "sourcePartIDs": [
+        "fixture.shade"
+      ],
+      "triangleCount": 44,
+      "sourceBoundsMeters": {
+        "minimum": [
+          0.019999995827674866,
+          -0.18000000715255737,
+          0.36000001430511475
+        ],
+        "maximum": [
+          0.2199999988079071,
+          0.020000003278255463,
+          0.48000001907348633
+        ]
+      }
+    }
+  ],
+  "nativeLoadVerified": false,
+  "limitations": [
+    "This check validates compilation and OpenUSD parsing, not RealityKit loading, visual fidelity or device performance."
+  ]
+}

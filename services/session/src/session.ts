@@ -3,6 +3,8 @@ import { JsonObject, ProtocolError, isObject } from "./json.js";
 import { ModelEvent, ModelTransport } from "./astra/client.js";
 import { NormalizedProposal, normalizeProposal, parseAuthoringProposal, payloadHash } from "./normalizer.js";
 import { GenerationReceipt, PhoneSnapshot, PROTOCOL_VERSION, SceneReceipt, SessionHello, UserRequest } from "./protocol.js";
+import { DiagnosticLogger, safeError } from "./diagnostics.js";
+import { SceneConversation, TurnInput } from "./astra/conversation-context.js";
 
 export interface SessionSink { send(message: JsonObject): void }
 
@@ -18,9 +20,17 @@ interface PendingProposal {
   intentEpoch: number;
   explanation: string;
   proposalRequestIds: string[];
+  receiptTimer: ReturnType<typeof setTimeout>;
+  startedAt: number;
+  input: TurnInput;
+  affectedNodeIds: Set<string>;
 }
 
-interface ActiveRun { controller: AbortController; requestId: string; admission: Snapshot }
+interface ActiveRun { controller: AbortController; requestId: string; admission: Snapshot; startedAt: number; timedOut: boolean; deadline: ReturnType<typeof setTimeout> }
+
+export interface SessionOptions { modelTimeoutMs?: number; receiptTimeoutMs?: number; logger?: DiagnosticLogger; sessionId?: string; }
+const DEFAULT_MODEL_TIMEOUT_MS = 45_000;
+const DEFAULT_RECEIPT_TIMEOUT_MS = 30_000;
 
 export class AstraSession {
   private hello?: SessionHello;
@@ -28,8 +38,18 @@ export class AstraSession {
   private readonly active = new Map<string, ActiveRun>();
   private readonly pending = new Map<string, PendingProposal>();
   private readonly completed = new Set<string>();
+  private readonly conversation = new SceneConversation();
 
-  constructor(private readonly model: ModelTransport, private sink: SessionSink) {}
+  private readonly modelTimeoutMs: number;
+  private readonly receiptTimeoutMs: number;
+  private readonly logger?: DiagnosticLogger;
+  private readonly sessionId?: string;
+  constructor(private readonly model: ModelTransport, private sink: SessionSink, options: SessionOptions = {}) {
+    this.modelTimeoutMs = options.modelTimeoutMs ?? DEFAULT_MODEL_TIMEOUT_MS;
+    this.receiptTimeoutMs = options.receiptTimeoutMs ?? DEFAULT_RECEIPT_TIMEOUT_MS;
+    this.logger = options.logger;
+    this.sessionId = options.sessionId;
+  }
 
   attachSink(sink: SessionSink): void { this.sink = sink; }
 
@@ -38,7 +58,13 @@ export class AstraSession {
       throw new ProtocolError("no compatible protocol/schema/geometry version", "unsupported_version");
     }
     if (this.hello && this.hello.sessionId !== hello.sessionId) throw new ProtocolError("connection cannot change sessionId", "session_mismatch");
+    if (this.hello?.sceneId !== hello.sceneId) {
+      this.dispose();
+      this.completed.clear();
+      this.installedProposalIds.clear();
+    }
     this.hello = hello;
+    this.log("handshake_accepted", { sessionId: hello.sessionId });
     this.snapshot = undefined;
     this.send({ type: "session.accepted", protocolVersion: PROTOCOL_VERSION, sessionId: hello.sessionId, sceneSchemaVersion: 1, geometrySemanticsVersion: 1 });
   }
@@ -51,63 +77,109 @@ export class AstraSession {
       throw new ProtocolError("snapshot cannot move epoch or revision backwards", "stale_snapshot");
     }
     this.snapshot = { sceneId: message.sceneId, revision: message.revision, intentEpoch: message.intentEpoch, document: message.document };
+    this.log("snapshot_received", { revision: message.revision, epoch: message.intentEpoch, nodeCount: observedNodeIds(message.document).size });
   }
 
   async request(message: UserRequest): Promise<void> {
     this.ensureHello();
     const admission = this.requireSnapshot();
-    if (this.completed.has(message.requestId) || this.active.has(message.requestId)) return;
+    if (this.completed.has(message.requestId) || this.active.has(message.requestId)) { this.log("user_request_stale", { requestId: message.requestId, reason: "duplicate" }, "warn"); return; }
     const controller = new AbortController();
-    this.active.set(message.requestId, { controller, requestId: message.requestId, admission });
+    const input: TurnInput = { userRequest: message.text, selectionNodeIds: [...(message.selection?.nodeIds ?? [])] };
+    const startedAt = Date.now();
+    const run: ActiveRun = { controller, requestId: message.requestId, admission, startedAt, timedOut: false, deadline: undefined as unknown as ReturnType<typeof setTimeout> };
+    run.deadline = setTimeout(() => { run.timedOut = true; controller.abort(); }, this.modelTimeoutMs);
+    run.deadline.unref();
+    this.active.set(message.requestId, run);
+    this.log("user_request_admitted", { requestId: message.requestId, revision: admission.revision, epoch: admission.intentEpoch });
     this.send({ type: "session.progress", requestId: message.requestId, status: "thinking", intentEpoch: admission.intentEpoch });
+    let deliveryStarted = false;
     try {
       let functionCall = await this.collectFunctionCall(message, admission, controller.signal, message.text);
       if (controller.signal.aborted) return;
       this.assertAdmissionCurrent(admission);
       let normalized: NormalizedProposal;
       try {
-        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document));
+        this.send({ type: "session.progress", requestId: message.requestId, status: "processing", intentEpoch: admission.intentEpoch });
+        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document));
       } catch (error) {
         if (!(error instanceof ProtocolError) || error.code !== "proposal_rejected") throw error;
-        recordDiscardedProposal(message.requestId, error.message, functionCall);
+        this.log("normalize_repair", { requestId: message.requestId, reason: error.code, safeError: safeError(error) }, "warn");
         this.send({ type: "session.progress", requestId: message.requestId, status: "repairing_proposal", intentEpoch: admission.intentEpoch });
         functionCall = await this.collectFunctionCall(message, admission, controller.signal, `${message.text}\n\nThe previous scene proposal was rejected before device delivery: ${error.message}. Return one corrected proposal that satisfies the tool schema. Do not mention this repair to the user.`);
         this.assertAdmissionCurrent(admission);
-        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document));
+        normalized = normalizeProposal(message.requestId, parseAuthoringProposal(JSON.parse(functionCall) as unknown), observedNodeIds(admission.document), observedGeometryIds(admission.document), observedNodes(admission.document));
       }
       if (controller.signal.aborted) return;
       if (normalized.mode === "explanation") {
+        this.conversation.append(input, { status: "answered", explanation: normalized.explanation, affectedNodeIds: [] });
         this.completed.add(message.requestId);
+        this.log("explanation_sent", { requestId: message.requestId, durationMs: Date.now() - startedAt });
         this.send({ type: "session.explanation", requestId: message.requestId, proposalRequestIds: [], intentEpoch: admission.intentEpoch, text: normalized.explanation });
         return;
       }
+      deliveryStarted = true;
       const proposalRequestIds = this.emitProposal(message.requestId, admission, normalized);
-      this.pending.set(message.requestId, { requestId: message.requestId, intentEpoch: admission.intentEpoch, explanation: normalized.explanation, proposalRequestIds });
+      const receiptTimer = setTimeout(() => this.expireReceipt(message.requestId, admission.intentEpoch), this.receiptTimeoutMs);
+      receiptTimer.unref();
+      this.pending.set(message.requestId, { requestId: message.requestId, intentEpoch: admission.intentEpoch, explanation: normalized.explanation, proposalRequestIds, receiptTimer, startedAt, input, affectedNodeIds: new Set() });
       this.completed.add(message.requestId);
       this.send({ type: "session.progress", requestId: message.requestId, status: "awaiting_installation", intentEpoch: admission.intentEpoch });
     } catch (error) {
-      if (!controller.signal.aborted) this.error(message.requestId, error);
+      // Before emitProposal there is no device mutation. Cancellation and stale
+      // work are not conversation outcomes, and must not become installed history.
+      if (!deliveryStarted && !controller.signal.aborted && !(error instanceof ProtocolError && error.code === "stale_model_result")) {
+        this.conversation.append(input, { status: "failed", explanation: "The request failed before a scene change was delivered.", affectedNodeIds: [] });
+      }
+      if (run.timedOut) this.error(message.requestId, new ProtocolError("The model took too long to respond.", "model_timeout"));
+      else if (!controller.signal.aborted) this.error(message.requestId, error);
     } finally {
+      clearTimeout(run.deadline);
       this.active.delete(message.requestId);
     }
   }
 
   private async collectFunctionCall(message: UserRequest, admission: Snapshot, signal: AbortSignal, text: string): Promise<string> {
     let functionCall: string | undefined;
-    for await (const event of this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, signal })) {
-      if (signal.aborted) throw new ProtocolError("request cancelled", "cancelled");
-      if (event.type === "text") this.send({ type: "session.model_text", requestId: message.requestId, delta: event.delta });
-      if (event.type === "function_call") {
-        if (event.name !== "propose_scene") throw new ProtocolError(`model called unsupported tool: ${event.name}`, "model_tool_rejected");
-        if (functionCall !== undefined) throw new ProtocolError("model made more than one scene proposal", "model_tool_rejected");
-        functionCall = event.arguments;
+    const streamController = new AbortController();
+    const forwardAbort = () => streamController.abort();
+    signal.addEventListener("abort", forwardAbort, { once: true });
+    if (signal.aborted) streamController.abort();
+    const iterator = this.model.stream({ requestId: message.requestId, text, selectionNodeIds: message.selection?.nodeIds ?? [], scene: admission.document, recentTurns: this.conversation.context(observedNodeIds(admission.document)), signal: streamController.signal })[Symbol.asyncIterator]();
+    this.log("astra_fetch_start", { requestId: message.requestId });
+    let sawFirstEvent = false;
+    let completed = false;
+    try {
+      while (true) {
+        const next = await nextBefore(iterator, signal);
+        if (next.done) break;
+        const event = next.value;
+        if (!sawFirstEvent) { sawFirstEvent = true; this.log("astra_first_event", { requestId: message.requestId, durationMs: Date.now() - this.active.get(message.requestId)!.startedAt }); }
+        if (signal.aborted) throw new ProtocolError("request cancelled", "cancelled");
+        if (event.type === "text") this.send({ type: "session.model_text", requestId: message.requestId, delta: event.delta });
+        if (event.type === "progress") this.send({ type: "session.progress", requestId: message.requestId, status: event.stage, intentEpoch: admission.intentEpoch });
+        if (event.type === "done") { completed = true; break; }
+        if (event.type === "function_call") {
+          if (event.name !== "propose_scene") throw new ProtocolError(`model called unsupported tool: ${event.name}`, "model_tool_rejected");
+          if (functionCall !== undefined) throw new ProtocolError("model made more than one scene proposal", "model_tool_rejected");
+          functionCall = event.arguments;
+          this.log("astra_function_arguments_done", { requestId: message.requestId, bytes: Buffer.byteLength(event.arguments, "utf8") });
+        }
       }
+    } finally {
+      // response.completed can arrive before the HTTP body EOF. Abort our private
+      // stream signal and close the iterator even on success so its reader is released.
+      await closeIterator(iterator);
+      streamController.abort();
+      signal.removeEventListener("abort", forwardAbort);
     }
+    if (!completed) throw new ProtocolError("model stream ended before completion", "model_incomplete");
     if (!functionCall) throw new ProtocolError("model completed without a scene proposal", "model_tool_rejected");
     return functionCall;
   }
 
   receiveReceipt(receipt: SceneReceipt): void {
+    this.log("receipt_received", { requestId: receipt.requestId, status: receipt.status, revision: receipt.revision });
     const snapshot = this.requireSnapshot();
     if (receipt.protocolVersion !== PROTOCOL_VERSION || receipt.sceneId !== snapshot.sceneId) throw new ProtocolError("receipt protocol or scene mismatch", "receipt_rejected");
     if (receipt.revision < snapshot.revision) throw new ProtocolError("receipt revision is stale", "stale_receipt");
@@ -117,39 +189,59 @@ export class AstraSession {
     for (const pending of this.pending.values()) {
       if (!pending.proposalRequestIds.includes(receipt.requestId)) continue;
       if (receipt.status === "rejected") {
-        this.pending.delete(pending.requestId);
+        this.clearPending(pending);
+        this.conversation.append(pending.input, { status: "failed", explanation: "The device rejected the proposed scene change.", affectedNodeIds: [] });
         this.send({ type: "session.error", requestId: pending.requestId, code: "installation_rejected", message: "The device rejected the proposed scene change.", receipt: receipt as unknown as JsonObject });
         return;
       }
+      for (const id of receipt.affectedNodeIds) pending.affectedNodeIds.add(id);
       if (!pending.proposalRequestIds.every((id) => receipt.requestId === id || this.wasInstalled(id))) return;
       if (snapshot.intentEpoch !== pending.intentEpoch || this.snapshot.intentEpoch !== pending.intentEpoch) {
-        this.pending.delete(pending.requestId);
+        this.clearPending(pending);
         return;
       }
-      this.pending.delete(pending.requestId);
+      this.clearPending(pending);
+      this.conversation.append(pending.input, { status: "installed", explanation: pending.explanation, affectedNodeIds: [...pending.affectedNodeIds] });
+      this.log("explanation_sent", { requestId: pending.requestId, durationMs: Date.now() - pending.startedAt });
       this.send({ type: "session.explanation", requestId: pending.requestId, proposalRequestIds: pending.proposalRequestIds, intentEpoch: pending.intentEpoch, text: pending.explanation });
       return;
     }
   }
 
   receiveGenerationReceipt(receipt: GenerationReceipt): void {
+    this.log("generation_receipt_received", { requestId: receipt.requestId, status: receipt.status, revision: receipt.revision });
     const snapshot = this.requireSnapshot();
     if (receipt.protocolVersion !== PROTOCOL_VERSION || receipt.sceneId !== snapshot.sceneId) throw new ProtocolError("generation receipt protocol or scene mismatch", "receipt_rejected");
     if (receipt.revision < snapshot.revision) throw new ProtocolError("generation receipt revision is stale", "stale_receipt");
     this.snapshot = { ...snapshot, revision: receipt.revision };
     if (receipt.status !== "rejected") return;
     const pending = [...this.pending.values()].find((item) => receipt.requestId.startsWith(`${item.requestId}:`));
-    if (pending) this.pending.delete(pending.requestId);
+    if (pending) {
+      this.clearPending(pending);
+      this.conversation.append(pending.input, { status: "failed", explanation: "The device rejected the generation scope.", affectedNodeIds: [] });
+    }
     this.send({ type: "session.error", requestId: pending?.requestId ?? receipt.requestId, code: "generation_rejected", message: "The device rejected the generation scope.", receipt: receipt as unknown as JsonObject });
   }
 
-  cancel(requestId: string): void { this.active.get(requestId)?.controller.abort(); }
+  cancel(requestId: string): void {
+    this.active.get(requestId)?.controller.abort();
+    const pending = this.pending.get(requestId);
+    if (pending) this.clearPending(pending);
+    this.log("user_request_cancel", { requestId });
+  }
+
+  dispose(): void {
+    for (const active of this.active.values()) { clearTimeout(active.deadline); active.controller.abort(); }
+    this.active.clear();
+    for (const pending of this.pending.values()) this.clearPending(pending);
+    this.conversation.clear();
+  }
 
   fence(sceneId: string, intentEpoch: number): void {
     const snapshot = this.requireSnapshot();
     if (sceneId !== snapshot.sceneId || intentEpoch < snapshot.intentEpoch) throw new ProtocolError("control carries a stale scene or epoch", "stale_control");
     for (const active of this.active.values()) active.controller.abort();
-    this.pending.clear();
+    for (const pending of this.pending.values()) this.clearPending(pending);
     // Native is the source of the new snapshot; do not fabricate a replacement epoch.
     this.snapshot = { ...snapshot, intentEpoch };
   }
@@ -168,6 +260,7 @@ export class AstraSession {
       const batch: JsonObject = { type: "generation.batch", protocolVersion: PROTOCOL_VERSION, requestId: batchRequestId, sceneId: admission.sceneId, generationId, intentEpoch: admission.intentEpoch, sequence: 1, operations: proposal.operations };
       batch.payloadHash = payloadHash(batch);
       this.send(batch);
+      this.log("outgoing_batch", { requestId: userRequestId, bytes: Buffer.byteLength(JSON.stringify(batch), "utf8") });
       const finishRequestId = `${userRequestId}:finish`;
       this.send({ type: "generation.finish", protocolVersion: PROTOCOL_VERSION, requestId: finishRequestId, sceneId: admission.sceneId, generationId, intentEpoch: admission.intentEpoch, lastSequence: 1 });
       requestIds.push(batchRequestId);
@@ -177,6 +270,7 @@ export class AstraSession {
     const patch: JsonObject = { type: "scene.patch", protocolVersion: PROTOCOL_VERSION, requestId: patchRequestId, sceneId: admission.sceneId, intentEpoch: admission.intentEpoch, baseRevision: admission.revision, operations: proposal.operations };
     patch.payloadHash = payloadHash(patch);
     this.send(patch);
+    this.log("outgoing_batch", { requestId: userRequestId, bytes: Buffer.byteLength(JSON.stringify(patch), "utf8") });
     requestIds.push(patchRequestId);
     return requestIds;
   }
@@ -194,7 +288,17 @@ export class AstraSession {
   private error(requestId: string, error: unknown): void {
     const known = error instanceof ProtocolError ? error : new ProtocolError(error instanceof Error ? error.message : "model request failed", "model_failed");
     this.send({ type: "session.error", requestId, code: known.code, message: known.message });
+    this.log("request_error", { requestId, reason: known.code, safeError: safeError(error) }, "warn");
   }
+  private clearPending(pending: PendingProposal): void { clearTimeout(pending.receiptTimer); this.pending.delete(pending.requestId); }
+  private expireReceipt(requestId: string, intentEpoch: number): void {
+    const pending = this.pending.get(requestId);
+    if (!pending || pending.intentEpoch !== intentEpoch || this.snapshot?.intentEpoch !== intentEpoch) return;
+    this.clearPending(pending);
+    this.send({ type: "session.error", requestId, code: "receipt_timeout", message: "The device did not confirm the scene change in time." });
+    this.log("receipt_timeout", { requestId, durationMs: this.receiptTimeoutMs }, "warn");
+  }
+  private log(event: string, fields: Record<string, boolean | number | string | undefined> = {}, level: "debug" | "info" | "warn" | "error" = "info"): void { this.logger?.log("session", event, { sessionId: this.hello?.sessionId ?? this.sessionId, ...fields }, level); }
 }
 
 function observedNodeIds(document: JsonObject): Set<string> {
@@ -205,12 +309,42 @@ function observedNodeIds(document: JsonObject): Set<string> {
   return ids;
 }
 
+function observedNodes(document: JsonObject): Map<string, JsonObject> {
+  if (!Array.isArray(document.nodes)) return new Map();
+  return new Map(document.nodes.filter(isObject).filter((node) => typeof node.nodeId === "string").map((node) => [node.nodeId as string, node]));
+}
+
 function stableGenerationId(requestId: string): string {
   return `generation_${createHash("sha256").update(requestId).digest("hex").slice(0, 24)}`;
 }
 
-function recordDiscardedProposal(requestId: string, reason: string, argumentsJson: string): void {
-  // Audit-only local evidence. It is never sent to the native scene executor or replayed.
-  const evidence = { event: "astra.discarded_proposal", requestId, reason, arguments: argumentsJson.slice(0, 16 * 1024), truncated: argumentsJson.length > 16 * 1024 };
-  process.stderr.write(`${JSON.stringify(evidence)}\n`);
+async function nextBefore<T>(iterator: AsyncIterator<T>, signal: AbortSignal): Promise<IteratorResult<T>> {
+  if (signal.aborted) { closeIteratorWithoutWaiting(iterator); throw new ProtocolError("request cancelled", "cancelled"); }
+  let rejectAbort: ((error: ProtocolError) => void) | undefined;
+  const onAbort = () => { closeIteratorWithoutWaiting(iterator); rejectAbort?.(new ProtocolError("request cancelled", "cancelled")); };
+  const aborted = new Promise<never>((_, reject) => { rejectAbort = reject; signal.addEventListener("abort", onAbort, { once: true }); });
+  try { return await Promise.race([iterator.next(), aborted]); }
+  finally { signal.removeEventListener("abort", onAbort); }
+}
+
+async function closeIterator(iterator: AsyncIterator<unknown>): Promise<void> {
+  const closing = iterator.return?.();
+  if (!closing) return;
+  // A compliant generator returns promptly. Bound a broken adapter without leaving
+  // its eventual rejection unobserved; the private controller below then aborts it.
+  const handled = closing.catch(() => undefined);
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try { await Promise.race([handled, new Promise<void>((resolve) => { timer = setTimeout(resolve, 100); timer.unref(); })]); }
+  finally { if (timer) clearTimeout(timer); }
+}
+
+function closeIteratorWithoutWaiting(iterator: AsyncIterator<unknown>): void {
+  const closing = iterator.return?.();
+  if (closing) void closing.catch(() => undefined);
+}
+
+function observedGeometryIds(document: JsonObject): Set<string> {
+  const geometries = document.geometryDefinitions;
+  if (!Array.isArray(geometries)) return new Set();
+  return new Set(geometries.flatMap((value) => isObject(value) && typeof value.geometryId === "string" ? [value.geometryId] : []));
 }

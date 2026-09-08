@@ -20,8 +20,9 @@ export interface NormalizedProposal {
  * deliberately match the portable v1 contract; native code remains authority
  * for semantic validity and installation.
  */
-export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>): NormalizedProposal {
+export function normalizeProposal(requestId: string, proposal: AuthoringProposal, observedNodeIds: Set<string>, observedGeometryIds: Set<string> = new Set(), observedNodes: ReadonlyMap<string, JsonObject> = new Map()): NormalizedProposal {
   const aliases = new Map<string, string>();
+  const workingTransforms = new Map<string, JsonObject>();
   const operationCount = proposal.operations.length;
   if (operationCount > 128 || (proposal.mode === "explanation" && operationCount !== 0) || (proposal.mode !== "explanation" && operationCount === 0)) {
     throw new ProtocolError("explanations require zero operations; mutations require 1-128 operations", "proposal_rejected");
@@ -29,7 +30,8 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
   if (proposal.mode === "explanation" && proposal.scopeParentNodeId !== null) throw new ProtocolError("explanations cannot reserve a generation scope", "proposal_rejected");
   const resolve = (value: unknown, kind: "node" | "geometry" | "material", allowObserved = false): string => {
     if (!isString(value) || value.length === 0 || value.length > 128) throw new ProtocolError(`invalid ${kind} reference`, "proposal_rejected");
-    if (allowObserved && observedNodeIds.has(value)) return value;
+    const observedIds = kind === "node" ? observedNodeIds : kind === "geometry" ? observedGeometryIds : undefined;
+    if (allowObserved && observedIds?.has(value)) return value;
     const existing = aliases.get(`${kind}:${value}`);
     if (existing) return existing;
     throw new ProtocolError(`unknown ${kind} alias: ${value}`, "proposal_rejected");
@@ -69,9 +71,11 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
         const geometryAlias = node.geometryAlias;
         const materialAlias = node.materialAlias;
         const semantic = asObject(node.semantic, "node.semantic");
-        asObject(node.provenance, "node.provenance");
+        // Legacy proposals may include provenance. New authoring calls omit it:
+        // generated content cannot grant itself reference-backed status.
+        if (node.provenance !== undefined) asObject(node.provenance, "node.provenance");
         const clean: JsonObject = {
-          nodeId, parentId, geometryId: geometryAlias === null || geometryAlias === undefined ? null : resolve(geometryAlias, "geometry"),
+          nodeId, parentId, geometryId: geometryAlias === null || geometryAlias === undefined ? null : resolve(geometryAlias, "geometry", true),
           materialId: materialAlias === null || materialAlias === undefined ? null : resolve(materialAlias, "material"),
           transform: canonicalTransform(asObject(node.transform, "node.transform")),
           isVisible: node.isVisible === undefined ? true : booleanField(node, "isVisible"),
@@ -82,11 +86,29 @@ export function normalizeProposal(requestId: string, proposal: AuthoringProposal
         break;
       }
       case "setTransform": {
-        operations.push({ op: "set.transform", nodeId: resolve(source.nodeRef, "node", true), transform: canonicalTransform(asObject(source.transform, "setTransform.transform")) });
+        const nodeId = resolve(source.nodeRef, "node", true);
+        const transform = canonicalTransform(asObject(source.transform, "setTransform.transform"));
+        workingTransforms.set(nodeId, transform);
+        operations.push({ op: "set.transform", nodeId, transform });
+        break;
+      }
+      case "translate": {
+        const nodeId = resolve(source.nodeRef, "node", true);
+        if (!observedNodeIds.has(nodeId)) throw new ProtocolError("translate requires an observed node ID", "proposal_rejected");
+        const observed = observedNodes.get(nodeId);
+        const current = workingTransforms.get(nodeId) ?? (observed && canonicalTransform(asObject(observed.transform, "observed transform")));
+        if (!current) throw new ProtocolError("translate requires the observed node transform", "proposal_rejected");
+        const translation = vector(current.translation, 3);
+        const offset = vector(source.offset, 3);
+        const position = translation.map((value, index) => value + offset[index]!);
+        if (position.some((value) => !Number.isFinite(value) || Math.abs(value) > 10_000)) throw new ProtocolError("translated position exceeds coordinate bounds", "proposal_rejected");
+        const transform = { ...current, translation: position };
+        workingTransforms.set(nodeId, transform);
+        operations.push({ op: "set.transform", nodeId, transform });
         break;
       }
       case "setGeometry": {
-        operations.push({ op: "set.geometry", nodeId: resolve(source.nodeRef, "node", true), geometryId: source.geometryAlias === null ? null : resolve(source.geometryAlias, "geometry") });
+        operations.push({ op: "set.geometry", nodeId: resolve(source.nodeRef, "node", true), geometryId: source.geometryAlias === null ? null : resolve(source.geometryAlias, "geometry", true) });
         break;
       }
       case "setMaterial": {
@@ -158,6 +180,7 @@ class CanonicalWriter {
       case "cone": this.double(numberField(value, "bottomRadius")); this.double(numberField(value, "topRadius")); this.double(numberField(value, "height")); this.integer(integerFieldOr(value, "radialSegments", 24)); return;
       case "tube": { const points = requireArray(value, "points", 256); this.count(points.length); points.forEach((point) => this.vec3(point)); this.double(numberField(value, "radius")); this.integer(integerFieldOr(value, "radialSegments", 12)); return; }
       case "arrow": this.vec3(value.start); this.vec3(value.end); this.double(numberField(value, "shaftRadius")); this.double(numberField(value, "headRadius")); this.double(numberField(value, "headLength")); this.integer(integerFieldOr(value, "radialSegments", 16)); return;
+      case "importedAsset": this.string(requireString(value, "assetID")); this.string(requireString(value, "partID")); return;
       default: throw new ProtocolError(`unsupported geometry recipe: ${kind}`, "proposal_rejected");
     }
   }

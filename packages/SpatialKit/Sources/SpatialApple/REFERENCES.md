@@ -11,6 +11,9 @@ Primary Apple documentation consulted on 2026-09-08:
 - [`MeshResource`](https://developer.apple.com/documentation/realitykit/meshresource): primitive/custom mesh resources and its main-actor isolation.
 - [`ModelEntity`](https://developer.apple.com/documentation/realitykit/modelentity): entities composed from a mesh and materials.
 - [`Entity.generateCollisionShapes(recursive:)`](https://developer.apple.com/documentation/realitykit/entity/generatecollisionshapes%28recursive%3A%29): generating selection collision shapes from model geometry.
+- [`Entity.init(contentsOf:withName:)`](https://developer.apple.com/documentation/realitykit/entity/init%28contentsof%3Awithname%3A%29): asynchronous USD/USDZ hierarchy import; the imported asset path uses this rather than the flattened model loader.
+- [`Entity.clone(recursive:)`](https://developer.apple.com/documentation/realitykit/entity/clone%28recursive%3A%29): creating scene instances from the approved native prototype cache.
+- [`visualBounds(recursive:relativeTo:excludeInactive:)`](https://developer.apple.com/documentation/realitykit/hastransform/visualbounds%28recursive%3Arelativeto%3Aexcludeinactive%3A%29): bounding boxes for imported part selection proxies; imported meshes do not undergo convex collision generation.
 - [`ARView.entities(at:)`](https://developer.apple.com/documentation/realitykit/arview/entities%28at%3A%29): point selection and its `CollisionComponent` requirement.
 - [`HasTransform.transform`](https://developer.apple.com/documentation/realitykit/hastransform/transform): local-to-parent transform semantics.
 - [`PerspectiveCamera`](https://developer.apple.com/documentation/realitykit/perspectivecamera): explicit virtual camera placement in non-AR mode.

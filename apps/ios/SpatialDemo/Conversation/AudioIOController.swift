@@ -1,5 +1,6 @@
 @preconcurrency import AVFAudio
 import Foundation
+import SpatialApple
 import os
 import Synchronization
 
@@ -18,6 +19,14 @@ enum AudioIOEvent: Sendable {
 private final class MicrophonePCMEncoder: @unchecked Sendable {
     private let converter: AVAudioConverter
     private let outputFormat: AVAudioFormat
+    private let aggregate = Mutex(PCMAggregate())
+
+    private struct PCMAggregate: Sendable {
+        var buffers = 0
+        var frames = 0
+        var bytes = 0
+        var lastLoggedAt = Date()
+    }
 
     init?(inputFormat: AVAudioFormat) {
         guard inputFormat.sampleRate > 0,
@@ -62,7 +71,28 @@ private final class MicrophonePCMEncoder: @unchecked Sendable {
               output.frameLength > 0,
               let samples = output.int16ChannelData?.pointee
         else { return Data() }
-        return Data(bytes: samples, count: Int(output.frameLength) * PCMCodec.bytesPerFrame)
+        let byteCount = Int(output.frameLength) * PCMCodec.bytesPerFrame
+        let data = Data(bytes: samples, count: byteCount)
+        let summary = aggregate.withLock { aggregate -> (Int, Int, Int)? in
+            aggregate.buffers += 1
+            aggregate.frames += Int(output.frameLength)
+            aggregate.bytes += byteCount
+            guard Date().timeIntervalSince(aggregate.lastLoggedAt) >= 1 else { return nil }
+            let summary = (aggregate.buffers, aggregate.frames, aggregate.bytes)
+            aggregate.buffers = 0
+            aggregate.frames = 0
+            aggregate.bytes = 0
+            aggregate.lastLoggedAt = Date()
+            return summary
+        }
+        if let summary {
+            DiagnosticsLog.shared.record("microphone_pcm_summary", component: "voice.audio", fields: [
+                "buffer_count": String(summary.0),
+                "frame_count": String(summary.1),
+                "byte_count": String(summary.2),
+            ])
+        }
+        return data
     }
 }
 
@@ -114,17 +144,24 @@ final class AudioIOController {
     }
 
     func start() throws -> AudioRouteReport {
+        diagnostic("audio_start_requested")
         wantsAudio = true
         do {
             try configureAudioSession()
-            return try rebuildAudioGraph()
+            let report = try rebuildAudioGraph()
+            diagnostic("audio_started", fields: report.diagnosticFields)
+            return report
         } catch {
+            diagnostic("audio_start_failed", level: .error, fields: [
+                "error_type": String(describing: type(of: error)),
+            ])
             stop()
             throw error
         }
     }
 
     func stop() {
+        diagnostic("audio_stop_requested")
         wantsAudio = false
         _ = interruptPlayback()
         removeInputTap()
@@ -145,6 +182,10 @@ final class AudioIOController {
             playbackGeneration += 1
             if !player.isPlaying { player.play() }
             playbackAccounting.begin(at: currentPlayerSampleTime ?? 0)
+            diagnostic("playback_started", fields: [
+                "item_id": itemID,
+                "content_index": String(contentIndex),
+            ])
         }
 
         guard let buffer = AVAudioPCMBuffer(
@@ -167,6 +208,7 @@ final class AudioIOController {
     }
 
     func markOutputComplete(itemID: String) {
+        diagnostic("playback_output_complete", fields: ["item_id": itemID])
         completedOutputItemID = itemID
         finishPlaybackIfDrained(itemID: itemID)
     }
@@ -187,6 +229,10 @@ final class AudioIOController {
         completedOutputItemID = nil
         pendingPlaybackBuffers = 0
         playbackAccounting = PlaybackAccounting()
+        diagnostic("playback_interrupted", fields: [
+            "item_id": itemID,
+            "played_ms": String(playedMilliseconds),
+        ])
         return cut
     }
 
@@ -235,16 +281,25 @@ final class AudioIOController {
     }
 
     private func playbackBufferFinished(itemID: String, generation: Int) {
-        guard generation == playbackGeneration, playbackItemID == itemID else { return }
+        guard generation == playbackGeneration, playbackItemID == itemID else {
+            diagnostic("playback_callback_ignored", level: .debug, fields: [
+                "item_id": itemID,
+                "reason": "stale_generation_or_item",
+            ])
+            return
+        }
         pendingPlaybackBuffers = max(0, pendingPlaybackBuffers - 1)
         finishPlaybackIfDrained(itemID: itemID)
     }
 
     private func finishPlaybackIfDrained(itemID: String) {
-        guard completedOutputItemID == itemID, pendingPlaybackBuffers == 0 else { return }
+        guard playbackItemID == itemID, completedOutputItemID == itemID,
+              pendingPlaybackBuffers == 0
+        else { return }
         playbackItemID = nil
         completedOutputItemID = nil
         playbackAccounting = PlaybackAccounting()
+        diagnostic("playback_completed", fields: ["item_id": itemID])
         onEvent(.playbackFinished(itemID))
     }
 
@@ -294,20 +349,31 @@ final class AudioIOController {
     private func handleInterruption(rawType: UInt?, rawOptions: UInt) {
         guard let rawType,
               let type = AVAudioSession.InterruptionType(rawValue: rawType)
-        else { return }
+        else {
+            diagnostic("audio_interruption_ignored", level: .warning, fields: ["reason": "invalid_type"])
+            return
+        }
 
         switch type {
         case .began:
+            diagnostic("audio_interruption_began")
             let cut = interruptPlayback()
             removeInputTap()
             engine.stop()
             onEvent(.interruptionBegan(cut))
         case .ended:
             let options = AVAudioSession.InterruptionOptions(rawValue: rawOptions)
-            guard wantsAudio, options.contains(.shouldResume) else { return }
+            guard wantsAudio, options.contains(.shouldResume) else {
+                diagnostic("audio_interruption_end_ignored", level: .warning, fields: [
+                    "wants_audio": String(wantsAudio),
+                    "should_resume": String(options.contains(.shouldResume)),
+                ])
+                return
+            }
             do {
                 try AVAudioSession.sharedInstance().setActive(true)
                 _ = try rebuildAudioGraph()
+                diagnostic("audio_interruption_recovered")
                 onEvent(.interruptionEnded)
             } catch {
                 onEvent(.failure(error.localizedDescription))
@@ -318,13 +384,20 @@ final class AudioIOController {
     }
 
     private func handleRouteChange(rawReason: UInt?) {
-        guard wantsAudio else { return }
+        guard wantsAudio else {
+            diagnostic("audio_route_callback_ignored", level: .debug, fields: ["reason": "audio_not_wanted"])
+            return
+        }
         if let rawReason, let reason = AVAudioSession.RouteChangeReason(rawValue: rawReason) {
             logger.info("Audio route changed, reason: \(reason.rawValue)")
         }
+        diagnostic("audio_route_changed", fields: [
+            "reason": rawReason.map { String($0) } ?? "unknown",
+        ])
         let cut = interruptPlayback()
         do {
             let report = try rebuildAudioGraph()
+            diagnostic("audio_route_recovered", fields: report.diagnosticFields)
             onEvent(.routeChanged(cut, report))
         } catch {
             onEvent(.failure(error.localizedDescription))
@@ -332,15 +405,26 @@ final class AudioIOController {
     }
 
     private func handleEngineConfigurationChange() {
-        guard wantsAudio, !isReconfiguring else { return }
+        guard wantsAudio, !isReconfiguring else {
+            diagnostic("engine_configuration_callback_ignored", level: .debug, fields: [
+                "wants_audio": String(wantsAudio),
+                "already_reconfiguring": String(isReconfiguring),
+            ])
+            return
+        }
         // Apple's configuration-change contract stops and uninitializes the
         // engine. Ignore notifications generated while an already-running
         // graph is deliberately being configured.
-        guard !engine.isRunning else { return }
+        guard !engine.isRunning else {
+            diagnostic("engine_configuration_callback_ignored", level: .debug, fields: ["reason": "engine_running"])
+            return
+        }
+        diagnostic("engine_configuration_change_began")
         let cut = interruptPlayback()
         onEvent(.configurationChangeBegan(cut))
         do {
             let report = try rebuildAudioGraph()
+            diagnostic("engine_configuration_change_recovered", fields: report.diagnosticFields)
             onEvent(.configurationChangeEnded(report))
         } catch {
             onEvent(.failure(error.localizedDescription))
@@ -348,11 +432,16 @@ final class AudioIOController {
     }
 
     private func restartAfterMediaServicesReset() {
-        guard wantsAudio else { return }
+        guard wantsAudio else {
+            diagnostic("media_services_reset_ignored", level: .debug, fields: ["reason": "audio_not_wanted"])
+            return
+        }
+        diagnostic("media_services_reset")
         let cut = interruptPlayback()
         do {
             try configureAudioSession()
             let report = try rebuildAudioGraph()
+            diagnostic("media_services_reset_recovered", fields: report.diagnosticFields)
             onEvent(.routeChanged(cut, report))
         } catch {
             onEvent(.failure(error.localizedDescription))
@@ -360,6 +449,7 @@ final class AudioIOController {
     }
 
     private func configureAudioSession() throws {
+        diagnostic("audio_session_configuring")
         let session = AVAudioSession.sharedInstance()
         try session.setCategory(
             .playAndRecord,
@@ -367,6 +457,7 @@ final class AudioIOController {
             options: [.defaultToSpeaker, .allowBluetoothHFP]
         )
         try session.setActive(true)
+        diagnostic("audio_session_configured")
     }
 
     private func rebuildAudioGraph() throws -> AudioRouteReport {
@@ -387,7 +478,10 @@ final class AudioIOController {
             voiceProcessingEnabled = engine.inputNode.isVoiceProcessingEnabled
         } catch {
             voiceProcessingEnabled = false
-            logger.notice("Voice processing could not be enabled: \(error.localizedDescription, privacy: .public)")
+            logger.notice("Voice processing could not be enabled (details withheld; see structured diagnostics)")
+            diagnostic("voice_processing_unavailable", level: .warning, fields: [
+                "error_type": String(describing: type(of: error)),
+            ])
         }
 
         let input = engine.inputNode
@@ -399,7 +493,9 @@ final class AudioIOController {
         try installInputTap(input: input)
         engine.prepare()
         try engine.start()
-        return currentRouteReport(inputFormat: inputFormat)
+        let report = currentRouteReport(inputFormat: inputFormat)
+        diagnostic("audio_graph_ready", fields: report.diagnosticFields)
+        return report
     }
 
     private func currentRouteReport(inputFormat: AVAudioFormat) -> AudioRouteReport {
@@ -411,5 +507,25 @@ final class AudioIOController {
             outputPortTypes: route.outputs.map { $0.portType.rawValue },
             voiceProcessingEnabled: voiceProcessingEnabled
         )
+    }
+
+    private func diagnostic(
+        _ name: String,
+        level: DiagnosticLevel = .info,
+        fields: [String: String] = [:]
+    ) {
+        DiagnosticsLog.shared.record(name, component: "voice.audio", level: level, fields: fields)
+    }
+}
+
+private extension AudioRouteReport {
+    var diagnosticFields: [String: String] {
+        [
+            "input_sample_rate": String(Int(inputSampleRate.rounded())),
+            "input_channel_count": String(inputChannelCount),
+            "input_ports": inputPortTypes.joined(separator: ","),
+            "output_ports": outputPortTypes.joined(separator: ","),
+            "voice_processing_enabled": String(voiceProcessingEnabled),
+        ]
     }
 }

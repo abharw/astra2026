@@ -16,3 +16,4 @@ runtime/
 .vscode/
 .derived-data/
 *.log
+__pycache__/

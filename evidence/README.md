@@ -17,6 +17,16 @@ The fan used the initial reasoning configuration. Later runs used low reasoning 
 
 The detailed asset uses 32 shared geometry definitions and 13 materials, with 2,644 expanded visible triangles. Its compact snapshot is 81,220 bytes. Dell R760 dimensions and component topology inform the seed; internal geometry and the tabletop rack are explicitly schematic. Source references and regeneration instructions live in [the example](../examples/server-rack/README.md). The first three runs above used the earlier 12-node seed, which remains recorded in their evidence documents.
 
+## Imported USDZ asset
+
+The app's default imported rack is the approved bundled Akeil USDZ described by [the app catalog](../examples/imported-rack/app-catalog.json). Its SHA-256 `assetID` is `sha256:b1ae63bb5e95a52152dba08574b0e6b852ec9499fb1e0cf63360e96e3f31bad1`; the bundled file is 13,232,052 bytes with approximately 2.99 million expanded triangles. Native validation confirms the 18 server bindings retain source vertices, normals, and materials, with the independently verified PSU6 correction. The app decodes this disk asset lazily when Load rack is selected and has no initial network dependency. The raw pinned URL and provenance remain in [the source catalog](../examples/imported-rack/source-catalog.json). No automatic LOD or runtime selective-detail policy is implemented; processing variants are separate evidence and are not the default. The raw interior is absent and remains only in `.blend` source material, with no lazy interior loader currently implemented.
+
+[The imported rack screenshot](simulator-imported-openrack.png) shows the 18-server rack in the production simulator app. This screenshot is rendering evidence, not a mobile frame-rate measurement. [Processing evidence](mobile-rack-validation.json) records derivative experiments; [processing instructions](../examples/imported-rack/PROCESSING.md) describe fidelity tradeoffs and licenses. The app intentionally defaults to the faithful bundled branch, not an automatically selected derivative.
+
+## Unified Realtime text and voice
+
+[Native Realtime evidence](native-realtime-tool.json) records a real typed app turn through Realtime, Astra, a native scene installation receipt, and final Realtime text. This earlier acceptance used the procedural rack. [The provider tool smoke](realtime-tools-smoke.json) instead uses synthetic tool outputs and verifies text/audio protocol sequencing; it does not prove microphone or speaker behavior.
+
 The first rack attempt exposed an unnecessarily restrictive alias rule; the first fan attempt exposed a provider-schema/normalization mismatch. Both were corrected before the passing runs. API streaming is real, but the current service waits for completed function arguments before installing a proposal.
 
 ## Other checks

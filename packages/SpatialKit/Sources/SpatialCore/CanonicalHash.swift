@@ -111,6 +111,10 @@ private struct CanonicalWriter {
 
   mutating func recipe(_ value: GeometryRecipe) throws {
     switch value {
+    case .importedAsset(let assetID, let partID):
+      try string("importedAsset")
+      try string(assetID)
+      try string(partID)
     case .box(let size):
       try string("box")
       try vec3(size)

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "geometrySemanticsVersion": 1,
+  "documentId": "document_imported_fixture",
+  "geometryDefinitions": [
+    {
+      "geometryId": "geometry_imported",
+      "contentHash": "0f1b897908b19a74554743fc0b4a11abeabe032a92fb8171e3f3cd8a270746a9",
+      "recipe": {
+        "kind": "importedAsset",
+        "assetID": "asset_fixture",
+        "partID": "part_fixture"
+      }
+    }
+  ],
+  "materials": [],
+  "nodes": [
+    {
+      "nodeId": "node_imported",
+      "geometryId": "geometry_imported",
+      "transform": {
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "isVisible": true,
+      "semantic": {
+        "name": "Imported fixture part"
+      },
+      "provenance": {
+        "origin": "imported",
+        "factualSupport": "illustrative",
+        "sourceRefs": []
+      }
+    }
+  ],
+  "relationships": []
+}

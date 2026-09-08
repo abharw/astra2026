@@ -1,0 +1,295 @@
+{
+  "schema": "astra.native-realtime-acceptance.v1",
+  "date": "2026-09-08",
+  "surface": "iPad Air M4 iOS 26.5 Simulator, non-AR RealityKit preview",
+  "input": "typed through production app UI",
+  "providers": [
+    "gpt-realtime-2.1",
+    "gpt-6-astra"
+  ],
+  "requestID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+  "asset": "earlier procedural 179-node rack, NOT the Akeil import",
+  "result": "completed, native installed revision 1, final Realtime text returned",
+  "durationSeconds": {
+    "typedToSceneToolCompleted": 10.571,
+    "typedToFinalText": 12.468
+  },
+  "screenshot": "evidence/simulator-realtime-deconstruction.png",
+  "events": [
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "typed_turn_sent",
+      "fields": {
+        "generation": "4",
+        "input_length": "145",
+        "target_count": "0"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 30,
+      "timestamp": "2026-09-08T20:17:50.279Z",
+      "uptimeMs": 241232284.487625
+    },
+    {
+      "component": "app",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "text.submitted",
+      "fields": {
+        "characters": "145",
+        "selection_count": "0"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 31,
+      "timestamp": "2026-09-08T20:17:50.279Z",
+      "uptimeMs": 241232284.783125
+    },
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "response_created",
+      "fields": {
+        "generation": "4",
+        "phase": "tool",
+        "response_id": "resp_ELwYIme4SKIjFrloHKigI"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 36,
+      "timestamp": "2026-09-08T20:17:50.397Z",
+      "uptimeMs": 241232401.9281667
+    },
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "ask_astra_started",
+      "fields": {
+        "generation": "4",
+        "request_length": "151",
+        "source": "typed",
+        "target_count": "0"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 86,
+      "timestamp": "2026-09-08T20:17:51.414Z",
+      "uptimeMs": 241233419.31004167
+    },
+    {
+      "component": "app",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "tool.executing",
+      "fields": {
+        "source": "typed"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 87,
+      "timestamp": "2026-09-08T20:17:51.414Z",
+      "uptimeMs": 241233419.62370837
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "request.started",
+      "fields": {
+        "intent_epoch": "1",
+        "selection_count": "0"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 88,
+      "timestamp": "2026-09-08T20:17:51.414Z",
+      "uptimeMs": 241233419.749
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "request.sent",
+      "fields": {
+        "intent_epoch": "1"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 92,
+      "timestamp": "2026-09-08T20:17:51.423Z",
+      "uptimeMs": 241233428.23475003
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "progress.received",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "thinking"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 94,
+      "timestamp": "2026-09-08T20:17:51.425Z",
+      "uptimeMs": 241233430.585875
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473:patch",
+      "event": "native.prepare_started",
+      "fields": {
+        "intent_epoch": "1",
+        "revision": "0"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 97,
+      "timestamp": "2026-09-08T20:18:00.829Z",
+      "uptimeMs": 241242834.27241668
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473:patch",
+      "event": "native.prepare_finished",
+      "fields": {
+        "node_count": "179"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 98,
+      "timestamp": "2026-09-08T20:18:00.829Z",
+      "uptimeMs": 241242834.56520835
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473:patch",
+      "event": "native.installed",
+      "fields": {
+        "node_count": "179",
+        "revision": "1"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 99,
+      "timestamp": "2026-09-08T20:18:00.833Z",
+      "uptimeMs": 241242838.43312502
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473:patch",
+      "event": "receipt.created",
+      "fields": {
+        "installed": "true",
+        "revision": "1"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 100,
+      "timestamp": "2026-09-08T20:18:00.833Z",
+      "uptimeMs": 241242838.58512503
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473:patch",
+      "event": "scene.reduced",
+      "fields": {
+        "document_changed": "true"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 101,
+      "timestamp": "2026-09-08T20:18:00.833Z",
+      "uptimeMs": 241242838.6826667
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "progress.received",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "awaiting_installation"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 105,
+      "timestamp": "2026-09-08T20:18:00.842Z",
+      "uptimeMs": 241242846.96654168
+    },
+    {
+      "component": "scene.controller",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "explanation.accepted",
+      "fields": {
+        "proposal_count": "1"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 107,
+      "timestamp": "2026-09-08T20:18:00.846Z",
+      "uptimeMs": 241242850.84125
+    },
+    {
+      "component": "app",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "tool.finished",
+      "fields": {
+        "revision": "1",
+        "status": "completed"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 108,
+      "timestamp": "2026-09-08T20:18:00.849Z",
+      "uptimeMs": 241242854.6751667
+    },
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "ask_astra_completed",
+      "fields": {
+        "explanation_length": "686",
+        "generation": "4",
+        "intent_epoch": "1",
+        "revision": "1",
+        "scene_id": "scene_08414925-c5de-44d6-aacb-9290ec36d93c",
+        "status": "completed"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 109,
+      "timestamp": "2026-09-08T20:18:00.850Z",
+      "uptimeMs": 241242854.858
+    },
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "response_created",
+      "fields": {
+        "generation": "4",
+        "phase": "final",
+        "response_id": "resp_ELwYSQGsjFQoJ0n0q0FvD"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 116,
+      "timestamp": "2026-09-08T20:18:00.940Z",
+      "uptimeMs": 241242945.24075
+    },
+    {
+      "component": "realtime.session",
+      "correlationID": "turn_22398fc3-e73a-4dab-8137-42d74f77f473",
+      "event": "final_response_completed",
+      "fields": {
+        "assistant_length": "672",
+        "generation": "4",
+        "source": "typed"
+      },
+      "level": "info",
+      "runID": "0c30178a-3dff-49c3-a980-a1ec0189c3ef",
+      "sequence": 126,
+      "timestamp": "2026-09-08T20:18:02.747Z",
+      "uptimeMs": 241244752.74683335
+    }
+  ],
+  "limitations": [
+    "No physical microphone, speaker, AR tracking or gesture acceptance is claimed.",
+    "Provider smoke using synthetic tool output is recorded separately in realtime-tools-smoke.json."
+  ]
+}

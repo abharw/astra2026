@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { AstraSession } from "../src/session.js";
-import { ModelEvent, ModelRequest, ModelTransport } from "../src/astra/client.js";
+import { ModelEvent, ModelRequest, ModelTransport, OpenAIResponsesTransport, formatUserInput } from "../src/astra/client.js";
 import { JsonObject } from "../src/json.js";
 import { geometryContentHash, payloadHash } from "../src/normalizer.js";
+import { JsonlLogger } from "../src/diagnostics.js";
 
 class ScriptedModel implements ModelTransport {
   constructor(private readonly events: ModelEvent[]) {}
@@ -41,6 +42,7 @@ test("never retags a model result after the device advances revision", async () 
   const model: ModelTransport = { async *stream(): AsyncIterable<ModelEvent> {
     await new Promise<void>((resolve) => { release = resolve; });
     yield { type: "function_call", name: "propose_scene", arguments: proposal };
+    yield { type: "done" };
   }};
   const sent: JsonObject[] = [];
   const session = new AstraSession(model, { send: (message) => sent.push(message) });
@@ -62,6 +64,7 @@ test("repairs one semantic proposal rejection before any device mutation", async
     yield { type: "function_call", name: "propose_scene", arguments: calls === 1
       ? JSON.stringify({ mode: "generation", explanation: "Bad proposal", scopeParentNodeId: null, operations: [{ kind: "geometry", alias: "bad", recipe: { kind: "box", size: [1, 2] } }] })
       : proposal };
+    yield { type: "done" };
   }};
   const sent: JsonObject[] = [];
   const session = new AstraSession(model, { send: (message) => sent.push(message) });
@@ -74,7 +77,7 @@ test("repairs one semantic proposal rejection before any device mutation", async
 
 test("delivers a read-only explanation without creating a scene mutation", async () => {
   const sent: JsonObject[] = [];
-  const model = new ScriptedModel([{ type: "function_call", name: "propose_scene", arguments: JSON.stringify({ mode: "explanation", explanation: "I need to know which fan you mean.", scopeParentNodeId: null, operations: [] }) }]);
+  const model = new ScriptedModel([{ type: "function_call", name: "propose_scene", arguments: JSON.stringify({ mode: "explanation", explanation: "I need to know which fan you mean.", scopeParentNodeId: null, operations: [] }) }, { type: "done" }]);
   const session = new AstraSession(model, { send: (message) => sent.push(message) });
   session.acceptHello(hello); session.updateSnapshot(snapshot);
   await session.request({ type: "user.request", requestId: "request_explain", text: "Explain this" });
@@ -100,4 +103,109 @@ test("matches the shared Astra Canonical Request v1 hash vectors", () => {
   assert.equal(payloadHash(batch), "747815843c7f19dfe783690a2220d8b6d6fe9b37449b1250e6ece98d16a1f678");
   assert.equal(payloadHash(patch), "be713f08cdf4a851b1cbde720df96af7d697701eaab9561f60699e2fc7a1f1e6");
   assert.equal(geometryContentHash({ kind: "box", size: [0.4, 0.2, 0.6] }), "10a4501e9bb51222f3d933d4e2b441b2bfa333c67a6d9784af35571168f72fdb");
+});
+
+test("diagnostics redact content-bearing fields while preserving correlation fields", () => {
+  const lines: string[] = [];
+  const logger = new JsonlLogger(undefined, { log: (line: string) => lines.push(line) });
+  logger.log("session", "request_error", { sessionId: "session_1", requestId: "request_1", prompt: "private", authToken: "secret", clientSecret: "secret", password: "secret", body: "private", payload: "private", safeError: "Bearer sk_private" }, "warn");
+  assert.equal(lines.length, 1);
+  const event = JSON.parse(lines[0]!) as Record<string, unknown>;
+  assert.equal(event.sessionId, "session_1");
+  assert.equal(event.requestId, "request_1");
+  assert.equal(event.safeError, "Bearer [redacted]");
+  assert.equal("prompt" in event, false);
+  assert.equal("authToken" in event, false);
+  assert.equal("clientSecret" in event, false);
+  assert.equal("password" in event, false);
+  assert.equal("body" in event, false);
+  assert.equal("payload" in event, false);
+});
+
+test("model and receipt deadlines emit bounded errors for only the admitted request", async () => {
+  const sent: JsonObject[] = [];
+  let timedOutSignal: AbortSignal | undefined;
+  const never: ModelTransport = { async *stream(request): AsyncIterable<ModelEvent> { timedOutSignal = request.signal; await new Promise((resolve) => request.signal.addEventListener("abort", resolve, { once: true })); } };
+  const session = new AstraSession(never, { send: (message) => sent.push(message) }, { modelTimeoutMs: 10, receiptTimeoutMs: 10 });
+  session.acceptHello(hello); session.updateSnapshot(snapshot);
+  await session.request({ type: "user.request", requestId: "request_timeout", text: "show a server" });
+  assert.equal(timedOutSignal?.aborted, true);
+  assert.equal(sent.some((message) => message.type === "session.error" && message.requestId === "request_timeout" && message.code === "model_timeout"), true);
+
+  const receiptSent: JsonObject[] = [];
+  const fast = new AstraSession(new ScriptedModel([{ type: "function_call", name: "propose_scene", arguments: proposal }, { type: "done" }]), { send: (message) => receiptSent.push(message) }, { receiptTimeoutMs: 10 });
+  fast.acceptHello(hello); fast.updateSnapshot(snapshot);
+  await fast.request({ type: "user.request", requestId: "request_receipt", text: "show a server" });
+  await new Promise((resolve) => setTimeout(resolve, 25));
+  assert.equal(receiptSent.some((message) => message.type === "session.error" && message.requestId === "request_receipt" && message.code === "receipt_timeout"), true);
+});
+
+test("Responses transport uses output_item.done once and requires response.completed", async () => {
+  const sse = [
+    `data: ${JSON.stringify({ type: "response.function_call_arguments.done", name: "propose_scene", arguments: proposal })}\n\n`,
+    `data: ${JSON.stringify({ type: "response.output_item.done", item: { type: "function_call", name: "propose_scene", arguments: proposal } })}\n\n`,
+    `data: ${JSON.stringify({ type: "response.completed" })}\n\n`
+  ].join("");
+  const transport = new OpenAIResponsesTransport("test", async () => new Response(sse, { status: 200 }));
+  const events: ModelEvent[] = [];
+  for await (const event of transport.stream({ requestId: "request_sse", text: "private", selectionNodeIds: [], scene: { nodes: [] }, signal: new AbortController().signal })) events.push(event);
+  assert.deepEqual(events.map((event) => event.type), ["function_call", "done"]);
+
+  const sent: JsonObject[] = [];
+  const incomplete = new AstraSession(new ScriptedModel([{ type: "function_call", name: "propose_scene", arguments: proposal }]), { send: (message) => sent.push(message) });
+  incomplete.acceptHello(hello); incomplete.updateSnapshot(snapshot);
+  await incomplete.request({ type: "user.request", requestId: "request_incomplete", text: "show a server" });
+  assert.equal(sent.some((message) => message.type === "generation.batch"), false);
+  assert.equal(sent.some((message) => message.type === "session.error" && message.code === "model_incomplete"), true);
+});
+
+test("completed model streams are explicitly unwound before a response body EOF", async () => {
+  let unwound = false;
+  const model: ModelTransport = { async *stream(): AsyncIterable<ModelEvent> {
+    try {
+      yield { type: "function_call", name: "propose_scene", arguments: JSON.stringify({ mode: "explanation", explanation: "Done.", scopeParentNodeId: null, operations: [] }) };
+      yield { type: "done" };
+      await new Promise<void>(() => {});
+    } finally { unwound = true; }
+  }};
+  const session = new AstraSession(model, { send: () => {} });
+  session.acceptHello(hello); session.updateSnapshot(snapshot);
+  await session.request({ type: "user.request", requestId: "request_release", text: "explain" });
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(unwound, true);
+});
+
+test("Responses body is cancelled after response.completed arrives before EOF", async () => {
+  let cancelled = false;
+  let abortObserved = false;
+  let streamController: ReadableStreamDefaultController<Uint8Array> | undefined;
+  const encoder = new TextEncoder();
+  const body = new ReadableStream<Uint8Array>({
+    start(controller) {
+      streamController = controller;
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: "response.output_item.done", item: { type: "function_call", name: "propose_scene", arguments: JSON.stringify({ mode: "explanation", explanation: "Done.", scopeParentNodeId: null, operations: [] }) } })}\n\n`));
+      controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: "response.completed" })}\n\n`));
+    },
+    cancel() { cancelled = true; }
+  });
+  const transport = new OpenAIResponsesTransport("test", async (_url, init) => {
+    (init?.signal as AbortSignal).addEventListener("abort", () => {
+      abortObserved = true;
+      streamController?.error(new DOMException("The operation was aborted.", "AbortError"));
+    }, { once: true });
+    return new Response(body, { status: 200 });
+  });
+  const session = new AstraSession(transport, { send: () => {} });
+  session.acceptHello(hello); session.updateSnapshot(snapshot);
+  await session.request({ type: "user.request", requestId: "request_response_body", text: "explain" });
+  assert.equal(cancelled, true);
+  assert.equal(abortObserved, true);
+});
+
+test("model input includes a selected node beyond the former 128-node cut-off", () => {
+  const nodes = Array.from({ length: 179 }, (_, index) => ({ nodeId: `node_${index}` }));
+  const input = formatUserInput({ requestId: "request_full_scene", text: "inspect selected", selectionNodeIds: ["node_178"], scene: { nodes }, signal: new AbortController().signal });
+  const context = JSON.parse(input);
+  assert.deepEqual(context.selectionNodeIds, ["node_178"]);
+  assert.deepEqual(context.acceptedScene.scene.nodes, nodes);
 });

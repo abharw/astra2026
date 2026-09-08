@@ -6,12 +6,14 @@ Astra Spatial is a universal iPhone/iPad app for exploring editable 3D structure
 
 | Directory | Responsibility | Does not own |
 | --- | --- | --- |
-| `apps/ios/SpatialDemo` | Product controls, permissions, audio/Realtime lifecycle, app composition | Geometry algorithms or model prompts |
+| `apps/ios/SpatialDemo/UI` | Product controls, status, local diagnostic viewer | Network and scene execution |
+| `apps/ios/SpatialDemo/Conversation` | Realtime text/audio turns, function-call lifecycle, native audio I/O | Scene operations or rack-specific behavior |
 | `packages/SpatialKit/Sources/SpatialCore` | Scene values, validation, immutable request hashes, pure transactional reducer | Apple graphics, network connections, server hardware knowledge |
 | `packages/SpatialKit/Sources/SpatialApple/Rendering` | Mesh/material compilation, entity hierarchy, AR/preview surfaces | Semantic scene authority |
 | `packages/SpatialKit/Sources/SpatialApple/Input` | Touch selection and camera-fingertip mapping, dwell and speech locks | Model inference or geometry edits |
 | `packages/SpatialKit/Sources/SpatialApple/Transport` | Native scene WebSocket and session envelopes | Model prompting |
 | `packages/SpatialKit/Sources/SpatialApple/Storage` | Manual SQLite document checkpoints | Autosave policy or GPU resources |
+| `packages/SpatialKit/Sources/SpatialApple/Diagnostics` | Bounded local event recorder and export | Conversation content or credentials |
 | `services/session` | OpenAI credentials, Astra authoring, proposal normalization, acknowledged scene mirror | Native entity state or rendering |
 | `examples/server-rack` | Authored starting assembly, component descriptions and references | Special rack commands or a separate executor |
 | `tools/SceneLab` | Seed generation and headless live-model acceptance using the production reducer | Rendering or camera testing |
@@ -30,45 +32,47 @@ The former Mac harness is a command-line pointing replay in `tools/PointingRepla
 ```mermaid
 flowchart LR
     subgraph Device["iPhone or iPad"]
-        UI["SwiftUI + native audio"]
+        UI["SwiftUI controls"]
+        Conversation["RealtimeSession + native audio"]
         Input["ARKit frames → Vision fingertip"]
         Controller["SceneController"]
         Core["SceneState: accepted document"]
         Render["Geometry compiler → RealityKit"]
         Input --> Controller
-        UI <--> Controller
+        UI --> Conversation
+        Conversation <-->|"ask_astra / terminal result"| Controller
         Controller --> Core
         Core --> Render
     end
     Service["Session service on development Mac"]
     Astra["gpt-6-astra / Responses"]
-    Voice["Realtime / audio + transcription"]
-    UI <-->|"Direct audio WebSocket"| Voice
+    Voice["gpt-realtime-2.1"]
+    Conversation <-->|"Text, audio, function calls / outputs"| Voice
     Controller <-->|"Requests, patches, receipts, snapshots"| Service
-    Service <-->|"Structured authoring tool"| Astra
+    Service <-->|"Fresh HTTP Responses / propose_scene"| Astra
 ```
 
-The app receives a final voice transcript and sends it through the same scene request path as typed text. Realtime does not independently mutate the scene. The backend provides an ephemeral Realtime credential; the OpenAI API key stays in its process.
+Typed text and local speech onset enter one Realtime conversation. Realtime is forced to call `ask_astra` exactly once with `{request: string}`; the app binds authoritative selected IDs locally, executes the call only after `response.done`, awaits the terminal scene-service result for the matching request ID and epoch, then sends `function_call_output` and requests the final response. Realtime does not independently mutate the scene. The backend provides an ephemeral Realtime credential; the OpenAI API key stays in its process.
 
 A request runs as follows:
 
-1. **Choose the subject locally.** Touch selects a semantic node. Hand mode maps a Vision fingertip through its ARFrame display transform, hit-tests RealityKit, and requires stable hover. Speech onset captures that target; later pointer movement cannot retarget the request.
-2. **Admit the intent.** On a submitted text request or final transcript, the device advances its intent epoch, sends the fence/current snapshot, and submits the text plus selected IDs. The backend calls Astra with that acknowledged scene.
+1. **Choose the subject locally.** Touch selects a semantic node. On physical devices, foreground hand sampling maps a Vision fingertip through its ARFrame display transform, hit-tests RealityKit, and requires stable hover; the simulator uses touch. Speech onset captures that target; later pointer movement cannot retarget the request.
+2. **Interpret and execute the turn.** Text enters a Realtime user item; speech enters its audio buffer. After the audio item is committed, the app requests a tool response. Only a matching, completed response with exactly one valid `ask_astra` call can execute. Its arguments contain request text; selected IDs come from the local input snapshot. `SceneController.execute` then advances the intent epoch, sends the fence/current snapshot, and submits that request to the scene service.
 3. **Author a bounded proposal.** Astra returns one structured `propose_scene` call: either an explanation, a new assembly, or edits. The backend resolves aliases and assigns IDs/hashes. Invalid proposals get one bounded repair before device delivery.
 4. **Validate and install.** The device applies the proposal to a copy of the pure reducer, prepares native resources, rechecks the current scene/epoch/revision, and installs the accepted semantic state and native entities in one serialized step. Invalid work leaves the scene intact.
-5. **Acknowledge and explain.** The device sends receipts and a snapshot. After acceptance, the service releases the explanation. The app displays it and, if voice is active, asks Realtime to speak it with state/epoch gating.
+5. **Acknowledge and explain.** The device sends receipts and a snapshot. After the terminal scene-service result, the app returns `function_call_output` and asks Realtime for the final response, delivering text for typed turns or audio plus transcript for spoken turns with state/epoch gating.
 
-Current cancellation occurs on submitted requests, Stop, and Undo. Speech onset interrupts playback and captures selection, but does **not** yet pause pending scene installation while the person is still speaking. The HTTP Responses adapter uses streaming transport but waits for complete tool arguments; true progressive installation, Responses steering, PTC, and an audio WebRTC sideband are not implemented.
+Stop, Undo, scene replacement, disconnection, and superseding turns invalidate pending work. Realtime responses carry local turn metadata; scene work carries request IDs, intent epochs, and revisions. Each stage has a deadline and reports failure instead of leaving the UI busy indefinitely. The HTTP Responses adapter uses streaming transport but accepts authoring only after completed function output and a successful response completion. Progressive installation, Responses steering, PTC, and a WebRTC sideband are not implemented.
 
 ## Generation, rendering, and persistence
 
 **Astra generates structured geometry descriptions. Swift constructs meshes. RealityKit renders frames on the device GPU.** Cloud model inference does not mean cloud rendering.
 
-The implemented vocabulary is box, sphere, cylinder, cone, tube, and arrow recipes; named nodes reference shared immutable geometry and materials. Parent/child relationships preserve assemblies. Moving an assembled server changes its parent transform; moving a fan changes that component's transform. Neither operation requires regenerating the mesh. Visibility can reveal the interior; Undo restores the latest accepted transaction.
+The implemented vocabulary is box, sphere, cylinder, cone, tube, and arrow recipes plus approved `importedAsset(assetID, partID)` references. Imported assets use host-owned descriptors and preserve their native PBR materials; the accepted Akeil rack asset exposes the frame and 18 server wrappers. Parent/child relationships preserve assemblies. Moving an assembled server changes its parent transform; moving a fan changes that component's transform. Neither operation requires regenerating the mesh. Undo restores the latest accepted transaction. The imported Akeil source is an exterior rack asset; its interior is not currently available to reveal.
 
 The normalized scene is versioned UTF-8 JSON with metres, +Y-up coordinates, quaternion rotations, stable node IDs, semantics, and source provenance. Wire JSON and typed canonical hash bytes are intentionally different representations. The provider tool schema is an adapter, not the public scene contract. [Exact formats](contracts/README.md) · [Representation rationale](docs/data-formats.md).
 
-The active device's `SceneState` is authoritative. RealityKit entities are a derived projection; the service's acknowledged mirror is model context. SQLite saves normalized documents through manual checkpoint APIs. App Save/Open controls, autosave, imported binary assets, and restoration of real-world anchors are future work. [Storage](docs/storage.md).
+The active device's `SceneState` is authoritative. RealityKit entities are a derived projection; the service's acknowledged mirror is model context. SQLite saves normalized documents through manual checkpoint APIs. App Save/Open controls, autosave, and restoration of real-world anchors are future work; imported asset loading is implemented through the host descriptor catalog. [Storage](docs/storage.md).
 
 The current seed is bundled directly from `examples/server-rack/scene.json`; there is no duplicated app copy or special phrase-to-animation route. Geometry detail and sourced component names belong in that example. A live fan-generation acceptance run already uses the same contract without rack-specific code, although a public third-party SDK is not yet packaged.
 
@@ -80,7 +84,7 @@ The current seed is bundled directly from `examples/server-rack/scene.json`; the
 - Selection and spoken-request locks are local UI/input state. They do not create scene revisions.
 - A successful installation receipt means native entities were installed. A screenshot or measured frame is separate evidence that they became visible.
 
-A later Blender worker can generate an immutable hierarchical USDZ plus component mapping, which the phone downloads and loads asynchronously. It must preserve named parts to support live deconstruction. That is an additional asset compiler; the interaction/render loop remains local. No Blender worker, USDZ importer, or live Blender bridge exists in this implementation. [Asset pipeline and deferred extensions](docs/asset-pipeline.md).
+A later Blender worker can generate additional immutable hierarchical USDZ assets plus component mappings. The current Akeil USDZ loader verifies and cache-loads the approved bundled source and preserves named parts; no Blender worker, live Blender bridge, automatic LOD, or lazy interior-loading path exists. [Asset pipeline and deferred extensions](docs/asset-pipeline.md).
 
 ## Read the code in order
 
@@ -89,6 +93,6 @@ A later Blender worker can generate an immutable hierarchical USDZ plus componen
 3. [Pure reducer](packages/SpatialKit/Sources/SpatialCore/SceneState.swift) and [closed decoder](packages/SpatialKit/Sources/SpatialCore/SceneWireDecoder.swift).
 4. [Native projection](packages/SpatialKit/Sources/SpatialApple/Rendering/SceneRenderer.swift) and [mesh compiler](packages/SpatialKit/Sources/SpatialApple/Rendering/GeometryCompiler.swift).
 5. [Backend session](services/session/src/session.ts), [Astra adapter](services/session/src/astra/client.ts), and [normalizer](services/session/src/normalizer.ts).
-6. [Pointing resolver](packages/SpatialKit/Sources/SpatialApple/Input/PointingResolver.swift) and [voice integration](apps/ios/SpatialDemo/Voice/README.md).
+6. [Pointing resolver](packages/SpatialKit/Sources/SpatialApple/Input/PointingResolver.swift) and [voice integration](apps/ios/SpatialDemo/Conversation/README.md).
 
 [Evidence](evidence/README.md) separates synthetic tests, live provider acceptance, native simulator rendering, and physical-device observations. [APPROACH.md](APPROACH.md) records how Arav and Astra built and tested the project together. [Apple references](docs/apple-references.md) and [hand-tracking source study](docs/hand-tracking-references.md) connect implementation choices to primary documentation.

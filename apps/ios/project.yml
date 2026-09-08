@@ -24,6 +24,15 @@ targets:
       - path: SpatialDemo
       - path: ../../examples/server-rack/scene.json
         buildPhase: resources
+      - path: ../../examples/imported-rack/source-catalog.json
+        buildPhase: resources
+      - path: ../../examples/imported-rack/app-catalog.json
+        buildPhase: resources
+      - path: ../../examples/imported-rack/Assets/rack-exterior.usdz
+        buildPhase: resources
+      - path: ../../examples/imported-rack/licenses
+        buildPhase: resources
+        type: folder
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.astra.spatialdemo
