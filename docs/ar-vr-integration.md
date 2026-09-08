@@ -9,9 +9,9 @@ Integration branch: `codex/ar-vr-integration`.
 | Source | Preserved revision | Destination |
 | --- | --- | --- |
 | Arav | `d70f39fbc5cc4f3779b077631f999a8e5355e6d8` | Existing root tree, with its app moved into `app/AR/` |
-| Akeil | `81d85bc7008b87f9ad2b2a0f2be68839111de0bf` | Entire tree preserved under `app/VR/` |
+| Akeil | `98dfc61ffcdd5753bfe793e7580ad37018ddd654` | Entire tree preserved under `app/VR/` |
 
-Both tips were refreshed before integration. Arav's previously uncommitted native flows and microphone/Realtime changes had been committed in `58f98a0` and `d70f39f`; both are included. Akeil's latest local rack demo, voice indicator, and placement-size controls are also included.
+Both tips were refreshed before integration. Arav's previously uncommitted native flows and microphone/Realtime changes had been committed in `58f98a0` and `d70f39f`; both are included. Akeil's latest local rack demo, voice indicator, and placement-size controls are also included. Its subsequent documentation-only deployment update (`98dfc61`) was incorporated before finalizing; the verified application, backend and asset bytes are unchanged by that update.
 
 The source histories have no common ancestor. The integration records both commits as merge parents and preserves Akeil's complete tree as a subtree. Neither original branch was rewritten, and `main` was not changed. The work is isolated in `/Users/aravb/Developer/astra2026-ar-vr`; the original `/Users/aravb/Developer/astra2026` checkout remains on Arav.
 
