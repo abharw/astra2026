@@ -36,7 +36,7 @@ A restart uses `adb shell am force-stop com.akeil.spatialassembly.quest` followe
 
 The panel's generated-object label is a model output, not a verified object identity. The chair's cyan geometry is an approximate component assembly, not an exact scan. The camera views contain people and local screens; raw captures and account data are not included in this repository record.
 
-## Repeatable wearer acceptance
+## Earlier panel acceptance (superseded by controller guide)
 
 - After launch, look down then forward and change seated/standing height. Following controls should return to eye height without remaining on the floor.
 - Hold the header with trigger or pinch, or hold right grip while pointing at the panel. Move, release, then move your head: the panel should remain pinned. Click the left thumbstick to resume following.
@@ -45,3 +45,47 @@ The panel's generated-object label is a model output, not a verified object iden
 - Select a part, pull the object, move it and Return. Compare placement from multiple viewpoints. Repeat for a second object and verify saved restoration after restart and after leaving/reentering the room.
 
 See [Quest setup and controls](../quest/README.md), [phone control experiments](PHONE_COMPUTER_USE.md), and [build journal](BUILD_JOURNAL.md).
+
+
+## Controller-first revision and independent app-level testing
+
+The wearer subsequently asked for native controller interactions, a panel containing instructions only, explicit trigger referents, deletion, multiple-object testing, and a review of the whole harness. The current controls are listed in [quest/README.md](../quest/README.md). The former panel buttons and panel dragging are superseded.
+
+The optional Quest test link uses a separately paired foreground-only connection. `configure-camera-test.py` writes the ignored Quest `control.json`; build preparation includes the link only when that file exists. The wearer can disable it with left grip + B. The local relay accepts the admin credential separately from the device credential, allows one active device, validates command types, and waits for an actual app acknowledgment. A successful queued question is not a completed answer. `control-phone.py` is shared with Quest despite its historical filename.
+
+Examples from the repository root:
+
+```sh
+python3 spatial-assembly/server/control-phone.py state
+python3 spatial-assembly/server/control-phone.py snapshot --output /private/local/path/quest-camera.jpg
+python3 spatial-assembly/server/control-phone.py tap --x 0.67 --y 0.29 --frame-id FRAME_ID
+python3 spatial-assembly/server/control-phone.py manipulate --operation delete --object-id OBJECT_ID
+python3 spatial-assembly/server/control-phone.py voice.start
+python3 spatial-assembly/server/control-phone.py ask --question 'Explode the selected object'
+```
+
+Snapshot/tap uses the exact inspected JPEG and associated camera pose, with a ten-second expiry. Surface depth is measured at command time; it is not a frozen depth image. Use stationary targets and refresh after scene changes. The real passthrough camera excludes virtual geometry and the guide; inspect casting separately for those. The harness calls application methods and does not remotely press physical controllers or establish ergonomic smoothness.
+
+### Actual observations before the final controller build
+
+- The saved chair was deleted through the real application's deletion handler. The device acknowledged success; its saved list retained the speaker and omitted the chair. A restart restored the speaker and the chair remained absent. The browser cast also showed the reduced saved-object state. This verifies deletion and restart persistence for that chair.
+- A first attempted whiteboard target was rejected as outside the current camera view. After inspecting a fresh real camera image, a second tap initiated reconstruction. The app completed a model labeled “Large whiteboard with marker holders and cloth”; the cast showed cyan generated geometry. Geometry fit and physical identity remain model-derived and unaccepted.
+- During a bridge restart, Codex incorrectly parsed an escaped underscore in the supplied credential, causing authentication failure and broken voice. Codex corrected the parsing, verified authentication, restarted the bridge, and observed Listening, transcript and queued audio state. This was an agent-caused regression, not merely disabled voice. Audible headset playback still needs wearer confirmation.
+
+### Review and fixes
+
+Two independent static reviews covered spec behavior and correctness/conventions. No documented coding-rule violation was found. Concrete findings were fixed: automatic bridge reconnect and controller restore recovery; voice-error shutdown so B can retry; explicit-deletion-only anchor erasure during asynchronous saves; atomic part selection on grab; placement mode separated from extracted state; exact inspected image reuse; disconnect delivery before reconnect; and preserving the held object when another reconstruction finishes. Physical-point state is cleared when selecting generated content. Camera-view failure no longer cancels an unrelated reconstruction.
+
+The Android build passed and installed, and all 21 shared backend tests passed. After installation, Quest system logs reported “a Reprojected OS dialog is currently showing” and blocked app launch. Meta's casting page also showed an unavailable-page error. At that point the final controller revision had no live acceptance: grip movement, placement, voice-triggered explosion, final-build restoration and reconnection, and a second new object still needed testing. No success is claimed from the APK installation alone.
+
+### Current wearer acceptance
+
+1. Dismiss any Quest OS dialog, open Spatial Assembly, and resume browser casting.
+2. Confirm the guide is readable and left-stick hide/show works.
+3. Trigger a real target, then select a generated part. Ask “explain this” in both cases and check the referent.
+4. Grip a generated model, move/release it, then grip/trigger to place. Start a new scan after release. While a scan runs, hold another object and verify scan completion does not change which object is held.
+5. Say “explode this” and “assemble it”; verify geometry and audible speech. Stop/restart voice with B.
+6. Delete a selected model and restart; verify it stays absent. Retry restoration with left grip + left-stick click if needed.
+7. Briefly restart the Mac bridge with the app awake; verify automatic recovery, cancellation of old pending work, and B voice restart.
+
+Raw camera images and private credentials remain outside Git. The repository record preserves observed results and limitations without publishing the room's people or screens.

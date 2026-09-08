@@ -45,3 +45,6 @@ quest/Assets/StreamingAssets/connection.json*
 
 **/__pycache__/
 quest/.utmp/
+
+quest/Assets/StreamingAssets/control.json
+quest/Assets/StreamingAssets/control.json.meta

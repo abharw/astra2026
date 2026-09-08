@@ -8,3 +8,5 @@ test('rejects duplicate part identities',()=>{const s=model();s.parts.push(struc
 test('rejects executable and unrecognized primitives',()=>{const s=model();s.parts[0].primitives[0].kind='eval';assert.throws(()=>validateAssembly(s));});
 test('rejects unrecognized evidence labels',()=>{const s=model();s.parts[0].evidence='verified internal';assert.throws(()=>validateAssembly(s));});
 test('only permits enumerated manipulation commands',()=>{assert.equal(validateCommand({action:'explode',amount:1,part:''}).action,'explode');assert.throws(()=>validateCommand({action:'execute_shell'}));assert.throws(()=>validateCommand({action:'scale',amount:NaN}));});
+
+test('allows explicit deletion of a generated object',()=>assert.equal(validateCommand({action:'delete',amount:0,part:''}).action,'delete'));

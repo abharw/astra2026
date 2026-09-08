@@ -16,16 +16,19 @@ The private APK embeds a scoped bridge credential, never the OpenAI API key. Do 
 
 ## Controls
 
-The panel follows at eye height by default. Grabbing and releasing pins it in the room; left thumbstick click resumes following. See [live headset and casting test record](../docs/QUEST_LIVE_TESTING.md).
+The panel is an instruction/status guide with no interactive buttons. It follows the wearer with a positional dead zone and smoothing. See the [live headset and casting test record](../docs/QUEST_LIVE_TESTING.md).
 
-- Hold trigger/pinch on the panel header to move it, or hold the right grip while aiming anywhere on the panel. Release to place it. While moving, the right stick adjusts its distance. Click the left thumbstick to bring the panel back in front of you.
-- The panel shows Ready, Listening, Speaking, Reconstructing, Starting voice, Camera not ready or Offline, with elapsed generation time and the next action. Start/Stop voice and Pull/Return labels reflect current state.
-- Point the right controller or tracked right hand at a real surface; trigger/pinch captures it.
-- Trigger/pinch a generated component to select and toggle explosion.
-- **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** researches and rebuilds the active object.
-- Floating buttons provide Reconstruct, Pull/Return, Explain, Voice, Rebuild, Cancel, Restore and Reconnect.
-- After Pull, the right thumbstick moves forward/back and rotates. Return restores the saved source pose.
-- Say “reconstruct that,” “explain this part,” “find a schematic and improve the bracket,” or “what am I looking at?” Voice tools request fresh frames when needed.
+- **Right trigger** on a real surface locks that physical referent and starts a scan when idle. On a generated component it selects that component without exploding it. Voice receives this explicit selection.
+- **Right grip** over a generated component grabs the model without jumping it to a new position. Move the controller and release to drop. While holding, trigger places the held model against the measured surface. After release, trigger can scan another object.
+- Tracked right-hand pinch selects/scans; pinching a generated model grabs it until release.
+- **A** toggles explode/assemble. **B** toggles voice. **X** explains the next part. **Y** researches and rebuilds the selected object.
+- **Left grip + X** deletes the selected generated object and its saved record. **Left grip + Y** cancels reconstruction.
+- **Left stick click** hides/shows the guide. **Left grip + left stick click** retries saved-anchor restoration.
+- While holding, the right stick adjusts distance. After release, it moves/rotates an extracted model. Say “return the object” to restore its saved source pose.
+- The main bridge reconnects automatically. Voice displays errors and B retries. **Left grip + B** toggles the optional paired Mac test connection.
+- Say “explode this,” “explain this part,” “reconstruct that,” or “find a schematic and improve it.” Actions report success only after the app acknowledges them.
+
+These controls are implemented and build-checked. Physical grip comfort and input acceptance on the latest build remain pending; see the test record for the last observed runtime state.
 
 ## What the headset measures
 
