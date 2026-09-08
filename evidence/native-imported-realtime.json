@@ -1,0 +1,332 @@
+{
+  "schema": "astra.imported-realtime-acceptance.v1",
+  "date": "2026-09-08",
+  "surface": "Native iOS Simulator RealityKit preview, typed input through production Realtime/Astra path",
+  "asset": "Original Akeil source rack, before bundled faithful-v2 default",
+  "requests": [
+    {
+      "id": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "result": "Server9 translated and generated cyan arrow installed, final narration completed. Undo observed visually afterward.",
+      "typedToFinalSeconds": 13.337
+    },
+    {
+      "id": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "result": "All18 units translated intact, frame unchanged, installed revision1, final response observed."
+    },
+    {
+      "id": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "result": "Contextual explanation completed without new scene revision. Backend received historyTurns1. UI preview suppression found and subsequently removed; final text delivery shown by event, not this screenshot."
+    }
+  ],
+  "events": [
+    {
+      "timestamp": "2026-09-08T20:32:20.080Z",
+      "event": "typed_turn_sent",
+      "component": "realtime.session",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "generation": "4",
+        "input_length": "264",
+        "target_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:21.319Z",
+      "event": "request.started",
+      "component": "scene.controller",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "intent_epoch": "1",
+        "selection_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:21.335Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "thinking"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:32.183Z",
+      "event": "native.installed",
+      "component": "scene.controller",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62:patch",
+      "fields": {
+        "node_count": "21",
+        "revision": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:32.187Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "awaiting_installation"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:32.189Z",
+      "event": "explanation.accepted",
+      "component": "scene.controller",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "proposal_count": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:32.199Z",
+      "event": "tool.finished",
+      "component": "app",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "revision": "1",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:32.199Z",
+      "event": "ask_astra_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "explanation_length": "446",
+        "generation": "4",
+        "intent_epoch": "1",
+        "revision": "1",
+        "scene_id": "scene_0a8d6fc1-55db-4fff-b1d9-97178b15d955",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:32:33.417Z",
+      "event": "final_response_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_2a2a5383-330c-47eb-b41b-78858a7cef62",
+      "fields": {
+        "assistant_length": "322",
+        "generation": "4",
+        "source": "typed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:19.992Z",
+      "event": "typed_turn_sent",
+      "component": "realtime.session",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "generation": "4",
+        "input_length": "139",
+        "target_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:21.599Z",
+      "event": "request.started",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "intent_epoch": "1",
+        "selection_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:21.609Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "thinking"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:24.803Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "generating"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.527Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "processing"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.540Z",
+      "event": "native.installed",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61:patch",
+      "fields": {
+        "node_count": "20",
+        "revision": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.544Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "intent_epoch": "1",
+        "status": "awaiting_installation"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.548Z",
+      "event": "explanation.accepted",
+      "component": "scene.controller",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "proposal_count": "1"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.550Z",
+      "event": "tool.finished",
+      "component": "app",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "revision": "1",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:31.551Z",
+      "event": "ask_astra_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "explanation_length": "152",
+        "generation": "4",
+        "intent_epoch": "1",
+        "revision": "1",
+        "scene_id": "scene_a2802986-4775-43c2-9c74-31fc819b937e",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:49:32.338Z",
+      "event": "final_response_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_85890663-5fad-4d70-bcb3-e98e19d29c61",
+      "fields": {
+        "assistant_length": "171",
+        "generation": "4",
+        "source": "typed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:09.275Z",
+      "event": "typed_turn_sent",
+      "component": "realtime.session",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "generation": "6",
+        "input_length": "131",
+        "target_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:10.447Z",
+      "event": "request.started",
+      "component": "scene.controller",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "intent_epoch": "2",
+        "selection_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:10.454Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "thinking"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:12.993Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "generating"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:19.119Z",
+      "event": "progress.received",
+      "component": "scene.controller",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "intent_epoch": "2",
+        "status": "processing"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:19.122Z",
+      "event": "explanation.accepted",
+      "component": "scene.controller",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "proposal_count": "0"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:19.124Z",
+      "event": "tool.finished",
+      "component": "app",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "revision": "1",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:19.124Z",
+      "event": "ask_astra_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "explanation_length": "975",
+        "generation": "6",
+        "intent_epoch": "2",
+        "revision": "1",
+        "scene_id": "scene_a2802986-4775-43c2-9c74-31fc819b937e",
+        "status": "completed"
+      }
+    },
+    {
+      "timestamp": "2026-09-08T20:50:21.193Z",
+      "event": "final_response_completed",
+      "component": "realtime.session",
+      "correlationID": "turn_32201488-1c55-469c-8c22-6e32377109dc",
+      "fields": {
+        "assistant_length": "581",
+        "generation": "6",
+        "source": "typed"
+      }
+    }
+  ],
+  "limitations": [
+    "Simulator checks do not establish physical AR, microphone quality or frame rate.",
+    "The separately bundled faithful-v2 asset has source/server geometry parity checks; these live requests used the raw source."
+  ]
+}

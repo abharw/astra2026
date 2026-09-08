@@ -3,6 +3,7 @@ import SwiftUI
 /// The primary control: type a request or open the live microphone.
 struct ConversationComposer: View {
     @Binding var text: String
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     var isFocused: FocusState<Bool>.Binding
     let isMicrophoneActive: Bool
     let canSend: Bool
@@ -32,34 +33,26 @@ struct ConversationComposer: View {
             .accessibilityLabel("Message Astra")
             .accessibilityIdentifier("text-composer")
 
-            Button(action: toggleMicrophone) {
-                Image(systemName: isMicrophoneActive ? "waveform" : "mic")
+            Button {
+                if hasDraft {
+                    send()
+                } else {
+                    toggleMicrophone()
+                }
+            } label: {
+                Image(systemName: hasDraft ? "arrow.up" : "mic")
                     .font(.system(size: 21, weight: .medium))
-                    .foregroundStyle(isMicrophoneActive || !hasDraft ? .black : .white)
+                    .symbolVariant(isMicrophoneActive && !hasDraft ? .fill : .none)
+                    .contentTransition(reduceMotion ? .identity : .symbolEffect(.replace.magic(fallback: .replace)))
+                    .foregroundStyle(isActionEnabled ? .black : .white.opacity(0.5))
                     .frame(width: 40, height: 40)
-                    .background(
-                        isMicrophoneActive || !hasDraft ? Color.white : Color.clear,
-                        in: Circle()
-                    )
+                    .background(isActionEnabled ? Color.white : Color.white.opacity(0.12), in: Circle())
                     .frame(width: 44, height: 44)
             }
-            .accessibilityLabel(isMicrophoneActive ? "Pause microphone" : "Start voice conversation")
-            .accessibilityValue(isMicrophoneActive ? "Microphone on" : "Microphone off")
-            .accessibilityIdentifier("microphone-button")
-
-            if hasDraft {
-                Button(action: send) {
-                    Image(systemName: "arrow.up")
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundStyle(canSend ? .black : .white.opacity(0.5))
-                        .frame(width: 40, height: 40)
-                        .background(canSend ? Color.white : Color.white.opacity(0.12), in: Circle())
-                        .frame(width: 44, height: 44)
-                }
-                .disabled(!canSend)
-                .accessibilityLabel("Send message")
-                .accessibilityIdentifier("send-request")
-            }
+            .disabled(!isActionEnabled)
+            .accessibilityLabel(actionLabel)
+            .accessibilityValue(actionValue)
+            .accessibilityIdentifier(hasDraft ? "send-request" : "microphone-button")
         }
         .padding(.trailing, 6)
         .padding(.bottom, 5)
@@ -71,5 +64,17 @@ struct ConversationComposer: View {
                 .allowsHitTesting(false)
         }
         .buttonStyle(.plain)
+    }
+
+    private var isActionEnabled: Bool { !hasDraft || canSend }
+
+    private var actionLabel: String {
+        if hasDraft { return "Send message" }
+        return isMicrophoneActive ? "Pause microphone" : "Start voice conversation"
+    }
+
+    private var actionValue: String {
+        if hasDraft { return "" }
+        return isMicrophoneActive ? "Microphone on" : "Microphone off"
     }
 }
