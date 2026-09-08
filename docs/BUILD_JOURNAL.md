@@ -293,3 +293,5 @@ Right grip retains whole-assembly dragging and drop. Left-stick click now toggle
 The wearer will connect the headset after all work is finished. The combined build is staged separately, preserving the previously installed rack APK and pre-rack rollback point. Compilation and source review do not establish visible or audible headset behavior; all runtime acceptance remains with the wearer.
 
 The final combined Android APK compiled successfully. All ten packaged rack payloads match the catalog byte counts and SHA-256 hashes, and the bridge JavaScript syntax check passed. Installation is pending the wearer reconnecting the headset.
+
+The wearer subsequently reconnected the Quest and requested deployment and removal of only the laptop. The combined APK installed successfully. The laptop saved record was backed up and removed, leaving the rack and VR-controller records unchanged. Launch was requested while the headset reported asleep; wearer wake and runtime acceptance remain pending.

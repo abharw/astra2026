@@ -66,4 +66,4 @@ The pre-addition source is preserved remotely at **`quest-before-rack`**, commit
 
 Delivery: the final Android APK built successfully, its ten catalog packages were verified inside the APK, installation returned Success, the matching backend was restarted and the app launch command succeeded. Saved models were retained. Headset acceptance remains with the wearer.
 
-The newer combined demo/indicator/size-control APK is staged as `spatial-assembly-quest-rack-demo.apk`. The wearer requested notification when finished and will reconnect the headset for installation. It has not yet replaced the installed rack build. No controller, voice or headset acceptance tests were run for these additions.
+The combined demo/indicator/size-control APK `spatial-assembly-quest-rack-demo.apk` is now installed. At the wearer's request, only the saved laptop model was removed; the rack and VR controller were preserved. Launch was requested while the headset reported asleep. Wearer wake and controller/voice acceptance remain pending; no headset interaction tests were run for these additions.
