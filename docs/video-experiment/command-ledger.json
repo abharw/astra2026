@@ -1,0 +1,444 @@
+{
+  "note": "Recorded installed-skill actions, sanitized to omit local paths and detailed claim prose. Source manifests and full local ledgers remain private. Not a transcript of every browser/tool action.",
+  "actions": [
+    {
+      "source": "private-hall",
+      "unix_time": 1788891944.1010728,
+      "command": "scan",
+      "recorded_arguments": {
+        "command": "scan",
+        "start": 0,
+        "end": null,
+        "fps": null,
+        "all_frames": false,
+        "width": 960,
+        "max_frames": 24,
+        "crop": null,
+        "purpose": "Chronological overview: find room transitions, wall anchors and camera turns"
+      },
+      "elapsed_seconds": 45.264347076416016
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788891951.4507608,
+      "command": "scan",
+      "recorded_arguments": {
+        "command": "scan",
+        "start": 0,
+        "end": null,
+        "fps": null,
+        "all_frames": false,
+        "width": 960,
+        "max_frames": 24,
+        "crop": null,
+        "purpose": "Chronological overview: find room transitions, wall anchors and camera turns"
+      },
+      "elapsed_seconds": 52.71918988227844
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788891964.0122612,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0001-s001"
+        ]
+      },
+      "elapsed_seconds": 0.0011489391326904297
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788891964.350431,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0001-s001"
+        ]
+      },
+      "elapsed_seconds": 0.0008540153503417969
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788892036.860268,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 0.0,
+        "end": null,
+        "fps": 1.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 70,
+        "crop": null,
+        "purpose": "Full chronological pass at one-second intervals to trace walls and room adjacency"
+      },
+      "elapsed_seconds": 72.16029381752014
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892038.094337,
+      "command": "scan",
+      "recorded_arguments": {
+        "command": "scan",
+        "start": 0,
+        "end": null,
+        "fps": null,
+        "all_frames": false,
+        "width": 960,
+        "max_frames": 36,
+        "crop": null,
+        "purpose": "Public comparison chronological overview and edit continuity check"
+      },
+      "elapsed_seconds": 25.93403697013855
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892053.792223,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 0.0,
+        "end": null,
+        "fps": 1.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 70,
+        "crop": null,
+        "purpose": "Full chronological pass at one-second intervals to trace walls and room adjacency"
+      },
+      "elapsed_seconds": 89.01603817939758
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788892074.971458,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0002-s001",
+          "r0002-s002",
+          "r0002-s003",
+          "r0002-s004",
+          "r0002-s005",
+          "r0001-f0003",
+          "r0001-f0004",
+          "r0001-f0007"
+        ]
+      },
+      "elapsed_seconds": 0.0026810169219970703
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892075.3918111,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0002-s001",
+          "r0002-s002",
+          "r0002-s003",
+          "r0002-s004",
+          "r0002-s005",
+          "r0001-f0002",
+          "r0001-f0005",
+          "r0001-f0006"
+        ]
+      },
+      "elapsed_seconds": 0.006452083587646484
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892075.849613,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0001-s001",
+          "r0001-s002",
+          "r0001-s003"
+        ]
+      },
+      "elapsed_seconds": 0.001585245132446289
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892098.1462772,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 28.0,
+        "end": 43.0,
+        "fps": 2.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 40,
+        "crop": null,
+        "purpose": "Resolve bathroom side, doorway reversal and bedroom across corridor; do not count reflected door as another room"
+      },
+      "elapsed_seconds": 21.86992120742798
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788892108.2773912,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "observed",
+        "evidence": [
+          "r0002-s001",
+          "r0002-s002",
+          "r0002-s003",
+          "r0002-s004",
+          "r0002-s005"
+        ]
+      },
+      "elapsed_seconds": 0.002232789993286133
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892108.722393,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 8.0,
+        "end": 13.0,
+        "fps": 1.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 8,
+        "crop": null,
+        "purpose": "Revisit wide room shot to verify sofa opposite fireplace and window end"
+      },
+      "elapsed_seconds": 1.7438650131225586
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788892108.7621381,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "inferred",
+        "evidence": [
+          "r0002-s001",
+          "r0002-s002",
+          "r0002-s003",
+          "r0002-s004"
+        ]
+      },
+      "elapsed_seconds": 0.002177000045776367
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892139.151527,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 47.0,
+        "end": 57.79,
+        "fps": 2.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 24,
+        "crop": null,
+        "purpose": "Revisit final turn: dining-kitchen opening, peninsula, appliance wall and utility alcove"
+      },
+      "elapsed_seconds": 23.16080403327942
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892139.756947,
+      "command": "inspect",
+      "recorded_arguments": {
+        "command": "inspect",
+        "start": 139.0,
+        "end": 144.0,
+        "fps": 1.0,
+        "all_frames": false,
+        "width": 1920,
+        "max_frames": 8,
+        "crop": null,
+        "purpose": "Verify kitchen is contiguous with fireplace living space across a wide shot, rather than infer adjacency from an edit"
+      },
+      "elapsed_seconds": 1.6598598957061768
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892170.30765,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0003-s001",
+          "r0003-s002",
+          "r0003-s003",
+          "r0004-s001",
+          "r0004-s002",
+          "r0002-f0018",
+          "r0002-f0025",
+          "r0002-f0048",
+          "r0002-f0050",
+          "r0002-f0033",
+          "r0002-f0037",
+          "r0002-f0042",
+          "r0002-f0055"
+        ]
+      },
+      "elapsed_seconds": 0.0027480125427246094
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892193.114513,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0004-f0004",
+          "r0004-f0021"
+        ]
+      },
+      "elapsed_seconds": 0.002103090286254883
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892193.378096,
+      "command": "mark",
+      "recorded_arguments": {
+        "command": "mark",
+        "ids": [
+          "r0002-s001",
+          "r0003-s001"
+        ]
+      },
+      "elapsed_seconds": 0.0014770030975341797
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892193.786506,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "observed",
+        "evidence": [
+          "r0002-s001",
+          "r0002-s002",
+          "r0002-s003",
+          "r0003-s001",
+          "r0003-s002",
+          "r0003-s003",
+          "r0004-s001",
+          "r0004-s002"
+        ]
+      },
+      "elapsed_seconds": 0.0022149085998535156
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892194.058864,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "observed",
+        "evidence": [
+          "r0004-f0004",
+          "r0004-f0021",
+          "r0002-f0050",
+          "r0002-f0055",
+          "r0004-s001",
+          "r0004-s002"
+        ]
+      },
+      "elapsed_seconds": 0.0024547576904296875
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892194.336252,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "inferred",
+        "evidence": [
+          "r0002-f0025",
+          "r0002-s001",
+          "r0002-s002"
+        ]
+      },
+      "elapsed_seconds": 0.0021708011627197266
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892194.616322,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "unresolved",
+        "evidence": [
+          "r0002-s002",
+          "r0002-s003",
+          "r0002-s004",
+          "r0004-s002"
+        ]
+      },
+      "elapsed_seconds": 0.002129077911376953
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892206.82529,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "observed",
+        "evidence": [
+          "r0001-s001",
+          "r0001-s002",
+          "r0002-s001",
+          "r0003-s001"
+        ]
+      },
+      "elapsed_seconds": 0.0011820793151855469
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892207.09646,
+      "command": "claim",
+      "recorded_arguments": {
+        "command": "claim",
+        "kind": "unresolved",
+        "evidence": [
+          "r0001-s001",
+          "r0001-s003",
+          "r0002-s001"
+        ]
+      },
+      "elapsed_seconds": 0.0012650489807128906
+    },
+    {
+      "source": "private-home",
+      "unix_time": 1788892302.959599,
+      "command": "status",
+      "recorded_arguments": {
+        "command": "status"
+      },
+      "elapsed_seconds": 0.0003159046173095703
+    },
+    {
+      "source": "private-hall",
+      "unix_time": 1788892303.916096,
+      "command": "status",
+      "recorded_arguments": {
+        "command": "status"
+      },
+      "elapsed_seconds": 0.00022721290588378906
+    },
+    {
+      "source": "public-youtube",
+      "unix_time": 1788892304.6989162,
+      "command": "status",
+      "recorded_arguments": {
+        "command": "status"
+      },
+      "elapsed_seconds": 0.0004177093505859375
+    }
+  ]
+}
