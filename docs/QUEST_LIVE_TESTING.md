@@ -132,3 +132,14 @@ New models include the visible exterior plus useful functional internals for tha
 Say “How does this work?” for a guided walkthrough, or “Explain the processor” for a specific component. The harness pulls out and highlights one part, explains its function and connections, and waits for the headset audio playback boundary before advancing. Speaking pauses the tour. It can also open/close housing, explode/assemble, return a part, or move/rotate/scale a named component. Right-stick click on a generated selection returns the complete model to its original anchor, resets part transforms and closes the housing. Stale commands are rejected after a newer user selection or Return.
 
 This revision was reviewed through source inspection and compilation only. No new remote camera inspection, voice question, scan, manipulation or runtime tests were performed; the wearer owns all acceptance testing. Current scene records are preserved through the single final installation.
+
+
+### Deeper detail for a component
+
+The voice tool `refine_part` accepts a named or selected component and a detail request, such as “Go deeper inside this processor” or “Generate the mechanism inside that part.” It generates a patch for that component and its functional subcomponents using the existing object capture when available. A restored object without a cached capture requests a fresh camera frame at its source anchor. Hidden geometry remains inferred unless supported by exact-model sources.
+
+Different components can refine concurrently within the four-job limit, alongside other object reconstructions. Requests for the same component or an ancestor/descendant are serialized by rejecting the conflicting request with a truthful error. Each completed patch merges into the latest assembly, preserving unrelated geometry, component IDs, reference citations, placement and inspection state. Refining one generated subcomponent again adds another level. Composite assemblies are bounded to 96 components and 1,024 primitives; each generated patch remains bounded to 24 parts. Exceeding the display budget leaves the prior assembly intact.
+
+Part focus, movement, rotation, scaling and return include its generated descendants. Changing focus does not leave temporary focus offsets behind. Round-trip comparison normalizes optional fields and tolerates float32 serialization differences so an unchanged headset scene does not invalidate an in-progress patch.
+
+This revision is built for delivery only. It has not been installed, its backend has not been restarted, and no runtime tests were performed. The installed version remains the prior walkthrough build until the wearer explicitly requests installation.

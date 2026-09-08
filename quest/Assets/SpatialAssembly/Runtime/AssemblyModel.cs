@@ -10,17 +10,17 @@ namespace SpatialAssembly {
   public string name, description, confidence, captureId; public int revision;
   public float[] bounds, sizeMeters; public List<PartData> parts; public ResearchData research;
   public void Validate() {
-   if(parts==null||parts.Count<1||parts.Count>24||sizeMeters==null||sizeMeters.Length!=3||sizeMeters.Any(x=>!Finite(x)||x<=0||x>20))throw new Exception("Invalid assembly");
+   if(parts==null||parts.Count<1||parts.Count>96||sizeMeters==null||sizeMeters.Length!=3||sizeMeters.Any(x=>!Finite(x)||x<=0||x>20))throw new Exception("Invalid assembly");
    if(bounds==null||bounds.Length!=4||bounds.Any(x=>!Finite(x)||x<0||x>1)||bounds[2]<=bounds[0]||bounds[3]<=bounds[1])throw new Exception("Invalid image bounds");
    var ids=new HashSet<string>();var total=0;
    foreach(var p in parts){if(string.IsNullOrEmpty(p.id)||!ids.Add(p.id)||!new[]{"observed","documented","inferred"}.Contains(p.evidence)||!VectorOK(p.explode,4)||p.primitives==null||p.primitives.Count<1||p.primitives.Count>16)throw new Exception("Invalid part");foreach(var m in p.primitives){total++;m.Validate();}}
-   if(total>256)throw new Exception("Too much geometry");
+   if(total>1024)throw new Exception("Too much geometry");
   }
   public static bool Finite(float x)=>!float.IsNaN(x)&&!float.IsInfinity(x);
   public static bool VectorOK(float[] v,float max)=>v!=null&&v.Length==3&&v.All(x=>Finite(x)&&Mathf.Abs(x)<=max);
   public static Vector3 V(float[] a)=>new Vector3(a[0],a[1],a[2]);
  }
- [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public bool isInternal,isHousing;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
+ [Serializable] public class PartData { public string id,name,evidence,description,function,uncertainty;public string parentPartId;public int detailLevel;public bool isInternal,isHousing;public string[] sourceIds;public float[] explode;public List<PrimitiveData> primitives; }
  [Serializable] public class SourceData {public string id,url,title,match,kind,findings;}
  [Serializable] public class ResearchData {public string summary,status;public List<SourceData> sources;public string[] gaps;}
  [Serializable] public class PrimitiveData {
@@ -36,10 +36,10 @@ namespace SpatialAssembly {
   public float Explosion;public bool Extracted,Hologram=false,ShowInferred=true; public string Selected;public bool InternalsRevealed;public string FocusedPart;Vector3 focusOffset;
   public Vector3 HomePosition,HomeScale=Vector3.one;public Quaternion HomeRotation=Quaternion.identity;
   bool moving;float moveTime;Vector3 moveFrom,moveTo,scaleFrom,scaleTo;Quaternion rotationFrom,rotationTo;
-  readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
+  HashSet<string> focusFamily=new();readonly Dictionary<string,PartData> partData=new();readonly Dictionary<string,Vector3> partOffsets=new();readonly Dictionary<string,Transform> parts=new();readonly List<(Renderer renderer,PrimitiveData primitive,PartData part)> surfaces=new();
   public void Build(AssemblyData data){
    data.Validate();Data=data;
-   foreach(var p in data.parts){var group=new GameObject(p.name);group.transform.SetParent(transform,false);parts[p.id]=group.transform;
+   foreach(var p in data.parts){partData[p.id]=p;var group=new GameObject(p.name);group.transform.SetParent(transform,false);parts[p.id]=group.transform;
     foreach(var primitive in p.primitives){var go=new GameObject(primitive.kind);go.transform.SetParent(group.transform,false);var mesh=Geometry.Create(primitive);
      go.AddComponent<MeshFilter>().sharedMesh=mesh;var r=go.AddComponent<MeshRenderer>();r.material=new Material(Shader.Find("Universal Render Pipeline/Lit")??Shader.Find("Standard"));
      go.transform.localPosition=AssemblyData.V(primitive.position);go.transform.localScale=AssemblyData.V(primitive.size);
@@ -52,12 +52,30 @@ namespace SpatialAssembly {
    Restyle();SetExplosion(Explosion);
   }
   public void SetExplosion(float value){Explosion=Mathf.Clamp01(value);}
-  void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,(partOffsets.TryGetValue(p.id,out var offset)?offset:p.id==FocusedPart?focusOffset:AssemblyData.V(p.explode)*Explosion),1-Mathf.Exp(-12*Time.deltaTime));}}
+  void Update(){if(moving){moveTime+=Time.deltaTime;float t=Mathf.SmoothStep(0,1,Mathf.Clamp01(moveTime/.32f));transform.position=Vector3.Lerp(moveFrom,moveTo,t);transform.rotation=Quaternion.Slerp(rotationFrom,rotationTo,t);transform.localScale=Vector3.Lerp(scaleFrom,scaleTo,t);if(t>=1)moving=false;}foreach(var p in Data?.parts??new List<PartData>()){var t=parts[p.id];t.localPosition=Vector3.Lerp(t.localPosition,PartOffset(p.id),1-Mathf.Exp(-12*Time.deltaTime));}}
+  public HashSet<string> RelatedParts(string id){var ids=new HashSet<string>{id};bool changed=true;while(changed){changed=false;foreach(var part in Data.parts)if(!string.IsNullOrEmpty(part.parentPartId)&&ids.Contains(part.parentPartId)&&ids.Add(part.id))changed=true;}return ids;}
+  Vector3 PartOffset(string id){if(partOffsets.TryGetValue(id,out var offset))return offset;var part=partData[id];if(id==FocusedPart)return focusOffset;if(focusFamily.Contains(id))return focusOffset+AssemblyData.V(part.explode)*.15f;return AssemblyData.V(part.explode)*Explosion;}
   public void RevealInternals(){InternalsRevealed=true;ShowInferred=true;SetExplosion(.25f);Restyle();}
-  public void FocusPart(string id,Transform head){var part=Data.parts.First(p=>p.id==id);partOffsets.Remove(id);FocusedPart=id;Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
-  public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null&&parts.TryGetValue(id,out var group)){partOffsets[id]=Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(id==FocusedPart)FocusedPart=null;Selected=null;Restyle();}
-  public void CloseHousing(){partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
-  public bool ManipulatePart(string id,string action,float amount,Transform head){if(!parts.TryGetValue(id,out var group))return false;Selected=id;ShowInferred=true;var part=Data.parts.First(p=>p.id==id);Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var worldCenter=group.TransformPoint(center);if(action=="rotate"||action=="scale"){if(action=="rotate")group.Rotate(Vector3.up,amount==0?30:amount,Space.World);else group.localScale*=Mathf.Clamp(amount==0?1.2f:amount,.25f,3);group.position+=worldCenter-group.TransformPoint(center);partOffsets[id]=group.localPosition;}else if(action.StartsWith("move_")){var direction=action=="move_left"?-head.right:action=="move_right"?head.right:action=="move_up"?Vector3.up:action=="move_down"?Vector3.down:action=="move_back"?head.forward:-head.forward;var start=partOffsets.TryGetValue(id,out var position)?position:id==FocusedPart?focusOffset:AssemblyData.V(Data.parts.First(p=>p.id==id).explode)*Explosion;partOffsets[id]=start+transform.InverseTransformVector(direction*Mathf.Clamp(Mathf.Abs(amount==0?.15f:amount),.02f,1));}else return false;Restyle();return true;}
+  public void FocusPart(string id,Transform head){var part=Data.parts.First(p=>p.id==id);foreach(var child in RelatedParts(id))partOffsets.Remove(child);FocusedPart=id;focusFamily=RelatedParts(id);Selected=id;InternalsRevealed=true;ShowInferred=true;Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var direction=transform.InverseTransformDirection(head.position-transform.position).normalized;focusOffset=direction*.55f-center;SetExplosion(.2f);Restyle();}
+  public void ReturnPart(string id=null){id=string.IsNullOrEmpty(id)?FocusedPart??Selected:id;if(id!=null){var related=RelatedParts(id);foreach(var child in related)if(parts.TryGetValue(child,out var group)){partOffsets[child]=Vector3.zero;group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}if(related.Contains(FocusedPart??"")){FocusedPart=null;focusFamily.Clear();}}Selected=null;Restyle();}
+  public void CloseHousing(){partOffsets.Clear();foreach(var group in parts.Values){group.localRotation=Quaternion.identity;group.localScale=Vector3.one;}FocusedPart=null;focusFamily.Clear();InternalsRevealed=false;Selected=null;SetExplosion(0);Restyle();}
+  public bool ManipulatePart(string id,string action,float amount,Transform head){
+   if(!parts.TryGetValue(id,out var group))return false;Selected=id;ShowInferred=true;var related=RelatedParts(id);var part=Data.parts.First(p=>p.id==id);Vector3 center=Vector3.zero;foreach(var primitive in part.primitives)center+=AssemblyData.V(primitive.position);center/=part.primitives.Count;var worldCenter=group.TransformPoint(center);
+   if(action=="rotate"||action=="scale"){
+    var before=group.localToWorldMatrix;var rotationBefore=group.rotation;float scaleFactor=action=="scale"?Mathf.Clamp(amount==0?1.2f:amount,.25f,3):1;
+    if(action=="rotate")group.Rotate(Vector3.up,amount==0?30:amount,Space.World);else group.localScale*=scaleFactor;
+    group.position+=worldCenter-group.TransformPoint(center);partOffsets[id]=group.localPosition;var delta=group.localToWorldMatrix*before.inverse;var rotationDelta=group.rotation*Quaternion.Inverse(rotationBefore);
+    foreach(var child in related){if(child==id||!parts.TryGetValue(child,out var target))continue;target.position=delta.MultiplyPoint3x4(target.position);target.rotation=rotationDelta*target.rotation;target.localScale*=scaleFactor;partOffsets[child]=target.localPosition;}
+   }else if(action.StartsWith("move_")){
+    var direction=action=="move_left"?-head.right:action=="move_right"?head.right:action=="move_up"?Vector3.up:action=="move_down"?Vector3.down:action=="move_back"?head.forward:-head.forward;var delta=transform.InverseTransformVector(direction*Mathf.Clamp(Mathf.Abs(amount==0?.15f:amount),.02f,1));foreach(var child in related)partOffsets[child]=PartOffset(child)+delta;
+   }else return false;Restyle();return true;
+  }
+  public void CopyInspectionFrom(AssemblyVisual old){
+   InternalsRevealed=old.InternalsRevealed;FocusedPart=parts.ContainsKey(old.FocusedPart??"")?old.FocusedPart:null;focusOffset=old.focusOffset;focusFamily=RelatedParts(FocusedPart??"");Selected=parts.ContainsKey(old.Selected??"")?old.Selected:null;
+   foreach(var part in Data.parts){var next=parts[part.id];var sourceId=part.id;var seen=new HashSet<string>();while(!old.parts.ContainsKey(sourceId)&&seen.Add(sourceId)){var ancestor=Data.parts.FirstOrDefault(p=>p.id==sourceId);if(string.IsNullOrEmpty(ancestor?.parentPartId))break;sourceId=ancestor.parentPartId;}if(!old.parts.TryGetValue(sourceId,out var previous))continue;next.localPosition=previous.localPosition;next.localRotation=previous.localRotation;next.localScale=previous.localScale;
+    if(old.partOffsets.TryGetValue(sourceId,out var offset))partOffsets[part.id]=offset;
+   }Restyle();
+  }
   public void Select(string id){Selected=id;Restyle();}
   public void Restyle(){
    foreach(var p in Data.parts)parts[p.id].gameObject.SetActive((ShowInferred||p.evidence!="inferred")&&(!InternalsRevealed||!p.isHousing||p.id==FocusedPart||p.id==Selected));

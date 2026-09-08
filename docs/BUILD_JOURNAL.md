@@ -244,7 +244,14 @@ At the wearer's repeated reset request, moved the saved assembly record into an 
 Added four concurrent request-scoped jobs, per-job capture/pose/progress, object-scoped refinement, cancellation epochs and selection protection. Added educational internal/housing metadata, inferred-evidence normalization, part focus/reveal/return and individual part transforms. The voice harness plans an ordered walkthrough and advances only after each response finishes headset playback. Per-response audio completion markers prevent concurrent reconstruction announcements from losing a tour acknowledgment. Newer wearer input rejects stale queued commands; Return restores the anchor and all component transforms. Current models are preserved, and the wearer retains all runtime testing. No tests or remote device inspection were run for these changes.
 
 
-## 23. Data-center video world consistency and maze benchmark
+## 23. Recursive component detail, staged build only
+
+Added a background refine_part voice tool and bounded component patches that merge into the latest assembly. Different nonoverlapping parts can deepen concurrently; overlapping subtrees cannot. Sources are namespaced during merge, unrelated geometry is preserved, and generated children retain parent IDs for further exploration. Native inspection, move/rotate/scale and Return include descendants. Source review caught temporary focus offsets and raw-JSON comparison problems; both were fixed, along with cached focus membership to avoid repeated per-frame subtree searches.
+
+The wearer requested the current app be cleared and reopened while the newer changes remained unbuilt. That reset/open was completed with a saved-record backup. They then authorized building the new version but explicitly prohibited installing it. The new APK is staged separately; the installed app and production backend remain on the previous revision. No remote tests were performed.
+
+
+## 24. Data-center video world consistency and maze benchmark
 
 The rack-image-to-video experiment produced four short Seedance 2.0 clips, but sampled review and user feedback found camera-path and floor-plan inconsistencies. The user supplied a Higgsfield + Blender tutorial and clarified a regular POV video. Shifted to explicit editable Blender geometry, saved camera poses and a rendered motion reference, with appearance images supplied separately. Initial source checks also caught and locally repaired a doubled PSU shelf offset in the appended rack copy.
 

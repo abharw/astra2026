@@ -3,13 +3,13 @@ const primitive = { type:'object', additionalProperties:false, required:['kind',
 const part = {type:'object',additionalProperties:false,required:['id','name','evidence','description','function','uncertainty','sourceIds','isInternal','isHousing','explode','primitives'],properties:{isInternal:{type:'boolean'},isHousing:{type:'boolean'},id:{type:'string'},name:{type:'string'},evidence:{type:'string',enum:['observed','documented','inferred']},description:{type:'string'},function:{type:'string'},uncertainty:{type:'string'},sourceIds:{type:'array',items:{type:'string'},maxItems:8},explode:vector,primitives:{type:'array',items:primitive,minItems:1,maxItems:16}}};
 export const assemblySchema = {type:'object',additionalProperties:false,required:['name','description','confidence','bounds','sizeMeters','parts'],properties:{name:{type:'string'},description:{type:'string'},confidence:{type:'string',enum:['low','medium','high']},bounds:{type:'array',items:{type:'number'},minItems:4,maxItems:4},sizeMeters:vector,parts:{type:'array',items:part,minItems:1,maxItems:24}}};
 export function validateAssembly(s){
- if(!s||typeof s.name!=='string'||s.name.length>180||!Array.isArray(s.parts)||!s.parts.length||s.parts.length>24)throw Error('Invalid assembly');
+ if(!s||typeof s.name!=='string'||s.name.length>180||!Array.isArray(s.parts)||!s.parts.length||s.parts.length>96)throw Error('Invalid assembly');
  const finiteVec=(v,max=10)=>Array.isArray(v)&&v.length===3&&v.every(n=>Number.isFinite(n)&&Math.abs(n)<=max);
  if(!finiteVec(s.sizeMeters,20)||s.sizeMeters.some(n=>n<=0))throw Error('Invalid dimensions');
  if(!Array.isArray(s.bounds)||s.bounds.length!==4||s.bounds.some(n=>!Number.isFinite(n)||n<0||n>1)||s.bounds[2]<=s.bounds[0]||s.bounds[3]<=s.bounds[1])throw Error('Invalid image bounds');
  let count=0;const ids=new Set();for(const p of s.parts){if(typeof p.id!=='string'||ids.has(p.id)||!['observed','documented','inferred'].includes(p.evidence)||!finiteVec(p.explode,4)||!Array.isArray(p.primitives)||!p.primitives.length||p.primitives.length>16)throw Error('Invalid component');ids.add(p.id);
  for(const m of p.primitives){count++;if(!['box','sphere','cylinder','cone','torus','mesh'].includes(m.kind)||!finiteVec(m.position,2)||!finiteVec(m.size,2)||m.size.some(n=>n<=0)||!finiteVec(m.rotation,360)||!finiteVec(m.color,1)||m.color.some(n=>n<0))throw Error('Invalid geometry');if(m.kind==='mesh')validateMesh(m);}}
- if(count>256)throw Error('Too much geometry');return s;
+ if(count>1024)throw Error('Too much geometry');return s;
 }
 export function validateMesh(m){
  if(!Array.isArray(m.vertices)||m.vertices.length<3||m.vertices.length>256||m.vertices.some(v=>!Array.isArray(v)||v.length!==3||v.some(n=>!Number.isFinite(n)||Math.abs(n)>.5)))throw Error('Invalid mesh vertices');
