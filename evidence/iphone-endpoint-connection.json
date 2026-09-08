@@ -49,5 +49,16 @@
     "deadlineErrorAt": "2026-09-08T21:34:52.328Z",
     "deadlineMsApproximately": 15049,
     "outcome": "Finite connection deadline reached; UI presents session-server cause. Simulator restored to HTTPS afterward."
+  },
+  "finalRollout": {
+    "commit": "edcf59e",
+    "installed": [
+      "iPhone 15 Pro",
+      "iPad Air 13-inch M4"
+    ],
+    "lastPhysicalLaunch": "Both denied because screens were locked",
+    "simulatorLaunched": true,
+    "iPhoneSavedHTTPSPreviouslyVerified": true,
+    "iPadHTTPSConfigurationPendingUnlockedLaunch": true
   }
 }
