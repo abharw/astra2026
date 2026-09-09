@@ -1,4 +1,4 @@
-# Astra Spatial
+# Astra(l) Projection
 
 Point, ask, and explore how things work in AR and VR. Built for the Cerebral Valley / OpenAI hackathon.
 
