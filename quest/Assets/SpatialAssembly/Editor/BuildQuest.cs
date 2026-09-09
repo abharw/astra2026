@@ -36,6 +36,7 @@ public static class BuildQuest {
   var services=new GameObject("Spatial Assembly services");var bridge=services.AddComponent<BridgeConnection>();var audio=services.AddComponent<RealtimeAudio>();var store=services.AddComponent<SavedAssemblies>();var controller=services.AddComponent<QuestAssemblyController>();var access=services.AddComponent<PassthroughCameraAccess>();access.CameraPosition=PassthroughCameraAccess.CameraPositionType.Left;access.RequestedResolution=new Vector2Int(1280,960);
   var depth=services.AddComponent<EnvironmentRaycastManager>();controller.Rig=rig;controller.RightHand=hand;controller.CameraAccess=access;controller.Depth=depth;controller.Bridge=bridge;controller.Audio=audio;controller.Store=store;
   CreateVoiceIndicator(rig.centerEyeAnchor,audio,bridge);
+  CreateRecallButton(rig.centerEyeAnchor,controller);
   var rack=services.AddComponent<RackWorld>();rack.Controller=controller;controller.Rack=rack;
   // The wearer requested an unobstructed scene. Controller and voice input do
   // not depend on the former black guide canvas or its text components.
@@ -43,6 +44,13 @@ public static class BuildQuest {
   var light=new GameObject("Neutral model light").AddComponent<Light>();light.type=LightType.Directional;light.intensity=1.2f;light.transform.rotation=Quaternion.Euler(45,-30,0);RenderSettings.ambientLight=new Color(.65f,.68f,.72f);
   Directory.CreateDirectory("Assets/Resources/SpatialMaterials");foreach(var name in new[]{"Standard","Unlit/Color","UI/Default"}){var shader=Shader.Find(name);if(shader){var path="Assets/Resources/SpatialMaterials/"+name.Replace('/','_')+".mat";if(!AssetDatabase.LoadAssetAtPath<Material>(path))AssetDatabase.CreateAsset(new Material(shader),path);}}
   Directory.CreateDirectory("Assets/Scenes");EditorSceneManager.SaveScene(scene,"Assets/Scenes/SpatialAssembly.unity");EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene("Assets/Scenes/SpatialAssembly.unity",true)};AssetDatabase.SaveAssets();
+ }
+ static void CreateRecallButton(Transform head,QuestAssemblyController controller){
+  var go=new GameObject("Bring all here",typeof(RectTransform),typeof(Canvas),typeof(BoxCollider),typeof(PersistentWorldButton));go.layer=5;go.transform.SetParent(head,false);go.transform.localPosition=new Vector3(-.095f,-.20f,.9f);go.transform.localScale=Vector3.one*.0008f;
+  go.GetComponent<RectTransform>().sizeDelta=new Vector2(200,44);var canvas=go.GetComponent<Canvas>();canvas.renderMode=RenderMode.WorldSpace;canvas.sortingOrder=101;go.GetComponent<BoxCollider>().size=new Vector3(200,44,8);
+  var background=new GameObject("Recovery button background",typeof(RectTransform),typeof(VoiceIndicatorGraphic));background.layer=5;background.transform.SetParent(go.transform,false);background.GetComponent<RectTransform>().sizeDelta=new Vector2(200,44);var graphic=background.GetComponent<VoiceIndicatorGraphic>();graphic.Pill=true;graphic.raycastTarget=false;
+  var label=Text(go.transform,"Bring all here",Vector2.zero,new Vector2(190,40),18,"Bring all here");label.alignment=TextAnchor.MiddleCenter;label.raycastTarget=false;label.gameObject.layer=5;controller.BringAllButton=label;
+  var button=go.GetComponent<PersistentWorldButton>();button.Receiver=controller;button.Method=nameof(QuestAssemblyController.BringAllToView);button.Feedback=graphic;button.SetHovered(false);
  }
  static void CreateVoiceIndicator(Transform head,RealtimeAudio audio,BridgeConnection bridge){
   var go=new GameObject("Voice status",typeof(RectTransform),typeof(Canvas),typeof(CanvasGroup));go.transform.SetParent(head,false);go.transform.localPosition=new Vector3(.11f,-.20f,.9f);go.transform.localScale=Vector3.one*.0008f;

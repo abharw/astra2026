@@ -307,3 +307,11 @@ B now resolves a single server, keeps it closed through a depth-derived slide, p
 Native Unity editor previews render the four stages using the production geometry helpers with another server already loaded. No headset interactions or voice tests are performed; the wearer retains runtime acceptance.
 
 The chassis-first APK compiled successfully and installed with `adb install -r`. This update did not edit or delete saved model records. Headset acceptance remains with the wearer.
+
+## 29. Bring all objects into view
+
+The wearer could not find the saved rack and requested a single recovery button for a quick demo. Added a small, always-available Bring all here control beside the voice badge. Controller trigger and tracked-hand pinch activate it through a dedicated UI ray hit, before grabbing or selecting a room surface. The action cancels pending demos/reconstruction, releases any grab, reassembles and spaces all live/saved objects in front of the current head pose, and selects the rack when present. It preserves current sizes and works without voice or network connectivity.
+
+Unlocalized saved objects reuse their identities and source records under a new recovery anchor. The async restore epoch prevents a late localization from creating a duplicate. Autosave skips a replacement anchor until its UUID is committed; the old saved record remains recoverable until the new anchor saves. A pre-recall placement backup is retained. Existing live objects keep their original home; previously unlocalized objects use the recovery placement as home. Deleted records are not restored.
+
+No autonomous headset interaction test was run; wearer button and spatial acceptance remain pending.

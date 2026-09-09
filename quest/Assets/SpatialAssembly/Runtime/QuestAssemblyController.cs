@@ -23,7 +23,8 @@ namespace SpatialAssembly {
    catch(Exception error){result=(false,error.Message);}
    if(!this)return;SyncScene();Bridge.Send(new JObject{{"type","command.result"},{"call_id",e["call_id"]},{"ok",result.ok},{"message",result.message}});
   }
-  public Text StatusText,DetailText,HintText,VoiceButton,PullButton;public Transform Panel;
+  public Text StatusText,DetailText,HintText,VoiceButton,PullButton,BringAllButton;
+  WorldButton hoveredButton;float lastRecallAt=-10;int recallLabelVersion;public Transform Panel;
   AssemblyVisual grabbed;Vector3 grabOffset,desiredGrabOffset,grabVelocity,desiredGrabScale;Quaternion grabRotation;bool grabByPinch,lastGrip;
   bool walkthroughActive;bool bHeld,bLong,bRack,bTest;float bPressedAt;int bSelection;
   bool waitForGripRelease;bool panelFollows=true;string voiceCaption="";
@@ -59,14 +60,18 @@ namespace SpatialAssembly {
    foreach(var j in jobs.Values){if(!j.marker)continue;j.label.transform.rotation=Quaternion.LookRotation(j.label.transform.position-Rig.centerEyeAnchor.position,Vector3.up);j.label.text="Scan "+j.number+" • "+(int)(Time.realtimeSinceStartup-j.started)+"s\n"+j.stage;}
    var ray=PointingRay();EnvironmentRaycastHit hit=default;hasTarget=EnvironmentRaycastManager.IsSupported&&Depth.Raycast(ray,out hit,6);
    if(hasTarget){target=hit.point;normal=hit.normalConfidence>.3f?hit.normal:(Rig.centerEyeAnchor.position-target).normalized;}
-   bool virtualHit=Physics.Raycast(ray,out var selected,6);var part=virtualHit?selected.collider.GetComponent<PartHandle>():null;
-   if(marker){marker.gameObject.SetActive(hasTarget||part);marker.position=part?selected.point:target;}
-   if(pointer){pointer.SetPosition(0,ray.origin);pointer.SetPosition(1,part?selected.point:hasTarget?target:ray.GetPoint(1));}
+   // Recovery UI gets first refusal, including when an object or room surface lies behind it.
+   bool uiHit=Physics.Raycast(ray,out var selected,3,1<<5);var button=uiHit?selected.collider.GetComponent<WorldButton>():null;
+   bool virtualHit=button||Physics.Raycast(ray,out selected,6,~(1<<5));var part=button?null:virtualHit?selected.collider.GetComponent<PartHandle>():null;
+   if(hoveredButton!=button){if(hoveredButton)hoveredButton.SetHovered(false);hoveredButton=button;if(hoveredButton)hoveredButton.SetHovered(true);}
+   if(marker){marker.gameObject.SetActive(hasTarget||part||button);marker.position=part||button?selected.point:target;}
+   if(pointer){pointer.SetPosition(0,ray.origin);pointer.SetPosition(1,part||button?selected.point:hasTarget?target:ray.GetPoint(1));}
    bool pinch=UsingHandPointer()&&RightHand.GetFingerIsPinching(OVRHand.HandFinger.Index);
    bool grip=OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,OVRInput.Controller.RTouch)>.5f;
    bool gripDown=grip&&!lastGrip;lastGrip=grip;
    bool leftGrip=OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger,OVRInput.Controller.LTouch)>.5f;
    bool pressed=(pinch&&!lastPinch)||OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger,OVRInput.Controller.RTouch);lastPinch=pinch;
+   if(pressed&&button){button.Invoke();UpdateStatus();return;}
    if(OVRInput.GetDown(OVRInput.Button.PrimaryThumbstick,OVRInput.Controller.LTouch)){if(leftGrip)Store.Restore();else ToggleSize();}
    if(OVRInput.GetDown(OVRInput.Button.One,OVRInput.Controller.RTouch)&&Active){Bridge.Send(new JObject{{"type","walkthrough.cancel"}});selectionVersion++;if(leftGrip)BringToMe();else if(Active.Explosion>.05f)Active.CloseHousing();else Active.SetExplosion(1);SyncScene();}
    if(OVRInput.GetDown(OVRInput.Button.Two,OVRInput.Controller.RTouch)){bHeld=true;bLong=false;bPressedAt=Time.realtimeSinceStartup;bSelection=selectionVersion;bRack=Active&&Active.IsImportedRack&&!pointedTargetLocked;bTest=!bRack&&leftGrip&&TestControl;}
@@ -116,6 +121,30 @@ namespace SpatialAssembly {
    grabbed.transform.rotation=Quaternion.Slerp(grabbed.transform.rotation,hand.rotation*grabRotation,immediate?1:1-Mathf.Exp(-22*Time.deltaTime));
   }
   public void BringToMe(){selectionVersion++;if(!Active){Status="Trigger-select a generated item first";return;}if(grabbed){desiredGrabOffset=new Vector3(0,0,.6f);desiredGrabScale=grabbed.InspectionScale(.65f);}else Active.PullOut(Rig.centerEyeAnchor);pointedTargetLocked=false;Status="Bringing selected item within reach";SyncScene();Store.SaveCurrent();}
+  public void BringAllToView(){
+   if(!Rig||!Store||Time.realtimeSinceStartup-lastRecallAt<.5f)return;lastRecallAt=Time.realtimeSinceStartup;
+   Cancel();EndGrab();waitForGripRelease=true;pointedTargetLocked=false;bHeld=false;
+   var head=Rig.centerEyeAnchor;var forward=Vector3.ProjectOnPlane(head.forward,Vector3.up).normalized;if(forward.sqrMagnitude<.5f)forward=Vector3.forward;
+   var right=Vector3.Cross(Vector3.up,forward);var recovered=Store.RecoverMissing(head.position).OrderBy(v=>v.ObjectId==RackWorld.DefaultId?0:1).ThenBy(v=>v.ObjectId).ToArray();
+   foreach(var v in recovered){v.StopMotion();v.CloseHousing();}
+   var layout=RecallPositions(recovered,head.position,forward);
+   for(int i=0;i<recovered.Length;i++){
+    var v=recovered[i];v.transform.SetPositionAndRotation(layout[i],Quaternion.LookRotation(-forward,Vector3.up));v.Extracted=true;v.gameObject.SetActive(true);
+   }
+   Store.SaveRecall();Active=recovered.FirstOrDefault();selectedPart=null;if(Active)Active.Select(null);SyncScene();
+   int failed=Store.RecoveryFailures;Status=failed>0?$"{recovered.Length} objects here · {failed} unavailable":recovered.Length==0?"No saved objects to bring back":$"Brought {recovered.Length} objects into view";
+   if(BringAllButton){BringAllButton.text=failed>0?"Some unavailable":recovered.Length==0?"No saved objects":$"{recovered.Length} objects here";StartCoroutine(ResetRecallLabel(++recallLabelVersion));}
+  }
+  public static Vector3[] RecallPositions(AssemblyVisual[] models,Vector3 eye,Vector3 forward){
+   if(models.Length==0)return Array.Empty<Vector3>();var right=Vector3.Cross(Vector3.up,forward).normalized;
+   var sizes=models.Select(v=>{var normalized=AssemblyData.V(v.Data.sizeMeters)/v.Data.sizeMeters.Max();var scale=v.transform.lossyScale;return Vector3.Scale(normalized,new Vector3(Mathf.Abs(scale.x),Mathf.Abs(scale.y),Mathf.Abs(scale.z)));}).ToArray();
+   int columns=Mathf.Min(5,models.Length),rows=Mathf.CeilToInt((float)models.Length/columns);float width=sizes.Max(v=>v.x)+.18f,height=sizes.Max(v=>v.y)+.18f;
+   float distance=Mathf.Max(1.15f,columns*width/(2*Mathf.Tan(35*Mathf.Deg2Rad)),rows*height/(2*Mathf.Tan(30*Mathf.Deg2Rad)))+sizes.Max(v=>v.z)*.5f;
+   var order=Enumerable.Range(0,columns).OrderBy(c=>Mathf.Abs(c-(columns-1)*.5f)).ThenBy(c=>c).ToArray();var positions=new Vector3[models.Length];
+   for(int i=0;i<models.Length;i++)positions[i]=eye+forward*distance+right*((order[i%columns]-(columns-1)*.5f)*width)+Vector3.up*(((rows-1)*.5f-i/columns)*height-.15f);
+   return positions;
+  }
+  IEnumerator ResetRecallLabel(int version){yield return new WaitForSecondsRealtime(3);if(version==recallLabelVersion&&BringAllButton)BringAllButton.text="Bring all here";}
   public void ToggleSize(){
    if(!Active){Status="Select an object before changing its size";return;}
    selectionVersion++;pointedTargetLocked=false;Bridge.Send(new JObject{{"type","walkthrough.cancel"}});Audio.InterruptPlayback();
@@ -235,5 +264,5 @@ namespace SpatialAssembly {
   void OnDestroy(){ClearJobs();if(Bridge)Bridge.Message-=OnMessage;}
  }
  public class PanelHandle:MonoBehaviour {}
- public class WorldButton:MonoBehaviour {public Action Action;public void Invoke()=>Action?.Invoke();}
+ public class WorldButton:MonoBehaviour {public Action Action;public Graphic Feedback;public void SetHovered(bool value){if(Feedback)Feedback.color=value?new Color(.05f,.37f,.44f,.98f):new Color(.035f,.075f,.085f,.94f);}public void Invoke()=>Action?.Invoke();}
 }
