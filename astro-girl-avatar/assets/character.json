@@ -1,0 +1,266 @@
+{
+  "name": "Astra Girl",
+  "version": "1.0",
+  "authorship": "Fresh authored geometry, Astro Boy / Uran inspired fan character; no downloaded model used.",
+  "controls": [
+    "jawOpen",
+    "mouthSmile",
+    "mouthFrown",
+    "mouthPucker",
+    "mouthWide",
+    "mouthClose",
+    "eyeBlinkLeft",
+    "eyeBlinkRight",
+    "eyeWideLeft",
+    "eyeWideRight",
+    "browInnerUp",
+    "browDownLeft",
+    "browDownRight",
+    "browOuterUpLeft",
+    "browOuterUpRight"
+  ],
+  "expressions": {
+    "neutral": {},
+    "happy": {
+      "mouthSmile": 0.85,
+      "jawOpen": 0.2,
+      "browOuterUpLeft": 0.2,
+      "browOuterUpRight": 0.2
+    },
+    "sad": {
+      "mouthFrown": 0.8,
+      "browInnerUp": 0.85
+    },
+    "angry": {
+      "browDownLeft": 0.9,
+      "browDownRight": 0.9,
+      "mouthFrown": 0.45,
+      "jawOpen": 0.08
+    },
+    "surprised": {
+      "jawOpen": 0.8,
+      "mouthPucker": 0.45,
+      "eyeWideLeft": 0.8,
+      "eyeWideRight": 0.8,
+      "browInnerUp": 0.6,
+      "browOuterUpLeft": 0.75,
+      "browOuterUpRight": 0.75
+    },
+    "thinking": {
+      "browOuterUpLeft": 0.75,
+      "browDownRight": 0.25,
+      "mouthPucker": 0.35
+    },
+    "wink": {
+      "eyeBlinkLeft": 1,
+      "mouthSmile": 0.8,
+      "browOuterUpRight": 0.35
+    },
+    "sleepy": {
+      "eyeBlinkLeft": 0.78,
+      "eyeBlinkRight": 0.78,
+      "mouthSmile": 0.15
+    }
+  },
+  "visemes": {
+    "rest": {},
+    "aa": {
+      "jawOpen": 0.9,
+      "mouthWide": 0.12
+    },
+    "ee": {
+      "jawOpen": 0.25,
+      "mouthWide": 0.9
+    },
+    "ih": {
+      "jawOpen": 0.4,
+      "mouthWide": 0.35
+    },
+    "oh": {
+      "jawOpen": 0.7,
+      "mouthPucker": 0.8
+    },
+    "ou": {
+      "jawOpen": 0.3,
+      "mouthPucker": 1
+    },
+    "mbp": {
+      "mouthClose": 1
+    },
+    "fv": {
+      "jawOpen": 0.12,
+      "mouthWide": 0.45
+    }
+  },
+  "motions": {
+    "idle": {
+      "clip": "Idle",
+      "duration": 4,
+      "loop": true,
+      "description": "Subtle breathing and relaxed posture"
+    },
+    "talk": {
+      "clip": "Talking",
+      "duration": 4,
+      "loop": true,
+      "description": "Small conversational head and hand gestures"
+    },
+    "wave": {
+      "clip": "Wave",
+      "duration": 3,
+      "loop": false,
+      "description": "Raise one hand and wave hello"
+    },
+    "nod": {
+      "clip": "Nod",
+      "duration": 1.8,
+      "loop": false,
+      "description": "Two small affirmative nods"
+    },
+    "shake_head": {
+      "clip": "ShakeHead",
+      "duration": 2,
+      "loop": false,
+      "description": "A gentle no gesture"
+    },
+    "shrug": {
+      "clip": "Shrug",
+      "duration": 2.6,
+      "loop": false,
+      "description": "Lift both arms and shoulders"
+    },
+    "think": {
+      "clip": "Thinking",
+      "duration": 3.2,
+      "loop": false,
+      "description": "Tilt the head and bring a hand toward the chest"
+    },
+    "cheer": {
+      "clip": "Cheer",
+      "duration": 3,
+      "loop": false,
+      "description": "Raise both hands with a little body bounce"
+    },
+    "listen": {
+      "clip": "Listening",
+      "duration": 4,
+      "loop": true,
+      "description": "Attentive head tilt and small acknowledging nod"
+    }
+  },
+  "bones": [
+    "root",
+    "torso",
+    "head",
+    "upper_arm.L",
+    "forearm.L",
+    "hand.L",
+    "thigh.L",
+    "shin.L",
+    "foot.L",
+    "upper_arm.R",
+    "forearm.R",
+    "hand.R",
+    "thigh.R",
+    "shin.R",
+    "foot.R"
+  ],
+  "meshes": 83,
+  "vertices": 77401,
+  "triangles": 153024,
+  "morph_meshes": {
+    "Face": [
+      "jawOpen"
+    ],
+    "Sclera.Left": [
+      "eyeBlinkLeft",
+      "eyeWideLeft"
+    ],
+    "Iris.Left": [
+      "eyeBlinkLeft",
+      "eyeWideLeft"
+    ],
+    "Pupil.Left": [
+      "eyeBlinkLeft",
+      "eyeWideLeft"
+    ],
+    "Catchlight.Left": [
+      "eyeBlinkLeft",
+      "eyeWideLeft"
+    ],
+    "Upper lash line.Left": [
+      "eyeBlinkLeft",
+      "eyeWideLeft"
+    ],
+    "Lash.Left0": [
+      "eyeBlinkLeft"
+    ],
+    "Lash.Left1": [
+      "eyeBlinkLeft"
+    ],
+    "Closed eyelid.Left": [
+      "eyeBlinkLeft"
+    ],
+    "Brow.Left": [
+      "browInnerUp",
+      "browDownLeft",
+      "browOuterUpLeft"
+    ],
+    "Sclera.Right": [
+      "eyeBlinkRight",
+      "eyeWideRight"
+    ],
+    "Iris.Right": [
+      "eyeBlinkRight",
+      "eyeWideRight"
+    ],
+    "Pupil.Right": [
+      "eyeBlinkRight",
+      "eyeWideRight"
+    ],
+    "Catchlight.Right": [
+      "eyeBlinkRight",
+      "eyeWideRight"
+    ],
+    "Upper lash line.Right": [
+      "eyeBlinkRight",
+      "eyeWideRight"
+    ],
+    "Lash.Right0": [
+      "eyeBlinkRight"
+    ],
+    "Lash.Right1": [
+      "eyeBlinkRight"
+    ],
+    "Closed eyelid.Right": [
+      "eyeBlinkRight"
+    ],
+    "Brow.Right": [
+      "browInnerUp",
+      "browDownRight",
+      "browOuterUpRight"
+    ],
+    "Mouth \u00b7 cavity": [
+      "jawOpen",
+      "mouthSmile",
+      "mouthFrown",
+      "mouthPucker",
+      "mouthWide",
+      "mouthClose"
+    ],
+    "Mouth \u00b7 contour": [
+      "jawOpen",
+      "mouthSmile",
+      "mouthFrown",
+      "mouthPucker",
+      "mouthWide",
+      "mouthClose"
+    ],
+    "Mouth \u00b7 tongue": [
+      "jawOpen",
+      "mouthPucker"
+    ]
+  },
+  "blender_controls_object": "FACE_CONTROLS",
+  "runtime": "GLB morph targets; JavaScript controls included; Blender drivers do not execute outside Blender."
+}

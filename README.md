@@ -22,6 +22,10 @@ The physical phone saved a six-part speaker, then restored and autosaved the sam
 
 The [complete rack library](datacenter-rack/README.md) adds a pregenerated, editable server rack with demand-loaded mechanical parts, motherboard, memory and processor study. [Agents start here](datacenter-rack/docs/AGENT_USAGE.md); fetch binaries with `git lfs pull`.
 
+## Expressive talking avatar
+
+[Astra Girl](astro-girl-avatar/README.md) adds an authored Blender character, 15 facial controls, nine editable motions, a browser camera stage, and OpenAI Realtime voice with audio-driven mouth movement. The [progress and validation record](docs/ASTRA_GIRL_PROGRESS.md) covers live API tests, background-audio interruption fixes, and the remaining microphone and FaceTime checks.
+
 ## Start here
 
 - [Quest rack and individually lazy-loaded parts](quest/RACK_LAZY_LOADING.md)

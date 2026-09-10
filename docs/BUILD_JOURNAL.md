@@ -315,3 +315,12 @@ The wearer could not find the saved rack and requested a single recovery button 
 Unlocalized saved objects reuse their identities and source records under a new recovery anchor. The async restore epoch prevents a late localization from creating a duplicate. Autosave skips a replacement anchor until its UUID is committed; the old saved record remains recoverable until the new anchor saves. A pre-recall placement backup is retained. Existing live objects keep their original home; previously unlocalized objects use the recovery placement as home. Deleted records are not restored.
 
 No autonomous headset interaction test was run; wearer button and spatial acceptance remain pending.
+
+
+## 30. Expressive Blender avatar and Realtime voice — September 10, 2026
+
+Created [Astra Girl](../astro-girl-avatar/README.md) with authored geometry, 15 facial controls, eight expressions, eight speech poses, and nine editable skeletal motions. A local Three.js studio and camera stage combine expression, speech, gaze, and gestures through a validated HTTP API. OpenAI Realtime now supplies voice and constrained expression/motion tool calls; API credentials remain server-side and outside the repository.
+
+User feedback exposed slow replies, background-audio cancellation, and movement stutter. A synthetic replay reproduced cancellation at 0.233 seconds. Added protected microphone gating, far-field noise reduction, hold-to-talk, minimal reasoning, fewer tool round trips, direct local mouth updates, and smoother motion blending. Individual first-audio replay measurements improved from 6.626 seconds to 0.650 seconds; the final replay measured 1.100 seconds without cancellation. A later hearing-without-reply report exposed an older open browser client with an active-response conflict; reloading/reconnecting restored a reply and the microphone.
+
+The user then requested natural interruption: Conversation mode now leaves the microphone open and permits interruption, while Noise protected remains optional. All 19 automated tests passed in the repository copy. Native assets, live browser animation, and real API output synchronization were checked. Sustained physical-microphone turn-taking, noisy-room behavior, hold-to-talk, and an actual OBS/FaceTime call remain acceptance gaps. The [full progress record](ASTRA_GIRL_PROGRESS.md) separates implementation, measured evidence, corrections, and remaining work.

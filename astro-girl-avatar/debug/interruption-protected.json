@@ -1,0 +1,20 @@
+{
+  "first_audio_seconds": 6.626,
+  "events": [
+    {
+      "time": 0.184,
+      "type": "input_audio_buffer.speech_started",
+      "status": null,
+      "original": false,
+      "code": null
+    },
+    {
+      "time": 6.864,
+      "type": "response.done",
+      "status": "incomplete",
+      "original": true,
+      "code": null
+    }
+  ],
+  "background_cancelled_reply": false
+}

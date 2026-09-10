@@ -1,0 +1,6 @@
+node_modules/
+.env
+.env.*
+*.blend1
+__pycache__/
+build.log

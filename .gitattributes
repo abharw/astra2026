@@ -6,3 +6,7 @@ datacenter-rack/**/*.blend filter=lfs diff=lfs merge=lfs -text
 datacenter-rack/**/*.glb filter=lfs diff=lfs merge=lfs -text
 datacenter-rack/walkthrough/*.mp4 filter=lfs diff=lfs merge=lfs -text
 datacenter-rack/walkthrough/smooth/*.mp4 filter=lfs diff=lfs merge=lfs -text
+
+astro-girl-avatar/**/*.blend filter=lfs diff=lfs merge=lfs -text
+astro-girl-avatar/**/*.glb filter=lfs diff=lfs merge=lfs -text
+astro-girl-avatar/**/*.wav filter=lfs diff=lfs merge=lfs -text
