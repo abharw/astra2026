@@ -67,3 +67,10 @@ User testing reported missed changes while talking and excessive image latency. 
 Replaced the GPT-6 plus medium-quality image-tool path with direct GPT Image 2.5 Flare generation at low quality and 1024x1024. One authenticated benchmark took 12.429 seconds, versus the earlier 23.508-second measurement; these are individual runs, not a latency guarantee. A smaller requested resolution was rejected and is not used. The Images API request keeps credentials server-side and avoids creating a Responses conversation.
 
 All 38 tests pass. Live typed conversation verified that counts one and two advance immediately while replies can be interrupted, and turn three starts generation before playback finishes. Physical microphone recognition remains a separate user acceptance check.
+
+
+## Natural language environment requests — September 10, 2026
+
+“Talk to me from/in X,” “take me to X,” and imagined shared locations now explicitly trigger immediate scene generation without requiring the word background. Follow-up environmental directions resolve against the latest requested place and submit a complete updated setting. Replies use that setting; factual discussion of a location remains on the normal three-user-turn cadence.
+
+Live Realtime checks: “Talk to me from a coral reef under the sea” immediately generated a visibly verified reef and produced a matching reply. “Make it nighttime with glowing coral” immediately generated a visibly verified night reef while retaining the underwater location, and the reply described the night setting. Both acknowledgements left the counter at zero. The microphone was restored. All three targeted Realtime proxy tests passed; the last full suite remains 38 tests.
