@@ -49,3 +49,8 @@ test('a reset during image saving cannot publish the old image afterward',async 
  manager.request('Ocean');await until(()=>finishWrite);manager.configure({reset:true});finishWrite();await wait(15);
  assert.equal(manager.get().url,null);assert.equal(manager.get().title,'Studio');assert.equal(manager.get().status,'idle');
 });
+
+test('double-clicking the same scene does not queue duplicate image generation',async t=>{
+ let complete,calls=0;const {manager}=await fixture(t,async()=>{calls++;return new Promise(resolve=>complete=resolve)});
+ manager.request('Ocean',{force:true});await until(()=>complete);manager.request('Ocean',{force:true});complete(image('Ocean'));await until(()=>manager.get().status==='ready');await wait(10);assert.equal(calls,1);
+});

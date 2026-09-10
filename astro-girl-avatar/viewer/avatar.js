@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {createBackgroundLayer} from './background-layer.js';
 import './backgrounds.js';
+import {avatarEvents} from './events.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {composeWeights,cloneDefault} from './state.js';
@@ -44,7 +45,7 @@ const ready=(async()=>{
  frame();document.body.dataset.loaded='true';document.dispatchEvent(new CustomEvent('avatar-ready',{detail:manifest}));return manifest;
 })();
 ready.catch(e=>{document.querySelector('#loading').textContent='Could not load avatar: '+e.message;document.body.dataset.error=e.message;console.error(e)});
-const events=new EventSource('/events');events.onmessage=e=>{targetState=JSON.parse(e.data);document.dispatchEvent(new CustomEvent('avatar-state',{detail:targetState}))};events.onerror=()=>document.dispatchEvent(new Event('avatar-disconnected'));
+const events=avatarEvents;events.onmessage=e=>{targetState=JSON.parse(e.data);document.dispatchEvent(new CustomEvent('avatar-state',{detail:targetState}))};events.onerror=()=>document.dispatchEvent(new Event('avatar-disconnected'));
 function tick(now){const dt=Math.min(.05,(now-previous)/1000);previous=now;time+=dt;
  if(model&&manifest){
   const phase=(time+1.3)%4.6;const autoBlink=phase>4.28?Math.sin(Math.PI*(phase-4.28)/.32):0;

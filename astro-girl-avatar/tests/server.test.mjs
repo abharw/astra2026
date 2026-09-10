@@ -12,6 +12,7 @@ test('HTTP controls validate atomically and retain legacy audio compatibility',a
   const legacy=await post('/state',{level:.65});assert.equal((await legacy.json()).mouth.level,.65);
   assert.equal((await post('/api/state',{expression:'neutral'},{Origin:'https://example.com'})).status,403);
   assert.equal((await post('/api/reset',{}).then(r=>r.json())).expression,'neutral');
+  const stream=await fetch(url+'/events');const reader=stream.body.getReader();const initial=new TextDecoder().decode((await reader.read()).value);assert.match(initial,/event: background/);assert.match(initial,/data: .*expression/);await reader.cancel();
   assert.equal((await fetch(url+'/api/background').then(r=>r.json())).enabled,true);
   assert.equal((await post('/api/background',{enabled:'yes'})).status,400);
   assert.equal((await fetch(url+'/api/background').then(r=>r.json())).enabled,true);

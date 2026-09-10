@@ -110,7 +110,7 @@ The standard API key stays on the server. Set `OPENAI_API_KEY` in the server env
 
 The remote audio is attached to a playback element and separately analyzed at 25 Hz. Its level reaches the local mouth directly; shared stage updates follow through the server without overriding fresher local audio. Gesture changes crossfade, and short speech pauses preserve conversational motion. Only returned model audio drives the mouth. Expressions and body gestures can change through model tool calls while speech continues. This is audio-reactive synchronization, not phoneme-level viseme generation.
 
-Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. The initial output-synchronization checks used typed prompts. The microphone was later restored for user testing; sustained microphone turn-taking and FaceTime routing remain acceptance gaps. Twenty-seven automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
+Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. The initial output-synchronization checks used typed prompts. The microphone was later restored for user testing; sustained microphone turn-taking and FaceTime routing remain acceptance gaps. Twenty-eight automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
 
 ## Reload after an update
 
@@ -130,12 +130,12 @@ Use **Set a scene → Generate scene** for a direct request, such as an observat
 
 The backdrop is drawn into the same WebGL canvas as Astra, with aspect-preserving cropping and a 1.2-second crossfade. Reduced-motion mode switches without the fade. The studio, clean `/stage`, and the renderer's canvas stream share the scenery. `/stage?background=transparent` intentionally omits it.
 
-Only one scene job runs at a time. New context replaces the queued context, stale results cannot overwrite a newer scene, a brief follow-up can retain the image already being generated, and an error leaves the previous image visible. Generated files live in `.generated-backgrounds/`, which is excluded from Git and release packages. The current selection is held in memory and resets on server restart. Conversation context is not written to application logs; the GPT-6 Responses request uses `store: false`.
+Each page uses one shared update stream for character and background state, so multiple studio/camera tabs do not consume two persistent HTTP connections apiece. Only one scene job runs at a time. New context replaces the queued context, stale results cannot overwrite a newer scene, a brief follow-up can retain the image already being generated, and an error leaves the previous image visible. Generated files live in `.generated-backgrounds/`, which is excluded from Git and release packages. The current selection is held in memory and resets on server restart. Conversation context is not written to application logs; the GPT-6 Responses request uses `store: false`.
 
 | Endpoint | Purpose |
 |---|---|
 | `GET /api/background` | Read scene state and model IDs |
-| `GET /api/background/events` | Subscribe to shared scene updates |
+| `GET /events` | One shared SSE stream: avatar state plus named `background` events |
 | `POST /api/background/context` | Submit `{context, force?: boolean}`; returns immediately |
 | `POST /api/background` | Set `{enabled: false}` or `{reset: true}` |
 
@@ -193,4 +193,4 @@ npm test
 
 The build recreates the asset from authored geometry; it overwrites generated assets/previews. Append `-- no-render` to skip preview renders. Save artistic edits under another name before rebuilding.
 
-Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Twenty-seven automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.
+Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Twenty-eight automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.

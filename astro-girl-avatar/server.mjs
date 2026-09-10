@@ -10,8 +10,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/character.json'
 const port=Number(process.env.PORT||8847),clients=new Set();let state=cloneDefault();
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.glb':'model/gltf-binary','.blend':'application/octet-stream','.css':'text/css','.png':'image/png','.webp':'image/webp','.wav':'audio/wav','.md':'text/plain'};
 const json=(res,status,value)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value))};
-const backgroundClients=new Set();
-const backgrounds=createBackgroundManager({directory:path.join(root,'.generated-backgrounds'),onChange:value=>{for(const c of backgroundClients)c.write(`data: ${JSON.stringify(value)}\n\n`)}});
+const backgrounds=createBackgroundManager({directory:path.join(root,'.generated-backgrounds'),onChange:value=>{for(const c of clients)c.write(`event: background\ndata: ${JSON.stringify(value)}\n\n`)}});
 const broadcast=()=>{for(const c of clients)c.write(`data: ${JSON.stringify(state)}\n\n`)};
 const server=http.createServer(async(req,res)=>{
  const host=req.headers.host,origin=req.headers.origin;
@@ -19,12 +18,8 @@ const server=http.createServer(async(req,res)=>{
  if(!allowed.includes(host)||(origin&&!allowed.map(x=>'http://'+x).includes(origin)))return json(res,403,{error:'Local same-origin requests only'});
  const url=new URL(req.url,'http://'+host),route=url.pathname;
  if(req.method==='GET'&&route==='/events'){
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(`data: ${JSON.stringify(state)}\n\n`);clients.add(res);
+  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(`data: ${JSON.stringify(state)}\n\nevent: background\ndata: ${JSON.stringify(backgrounds.get())}\n\n`);clients.add(res);
   const heartbeat=setInterval(()=>res.write(': keepalive\n\n'),15000);req.on('close',()=>{clearInterval(heartbeat);clients.delete(res)});return;
- }
- if(req.method==='GET'&&route==='/api/background/events'){
-  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(`data: ${JSON.stringify(backgrounds.get())}\n\n`);backgroundClients.add(res);
-  const heartbeat=setInterval(()=>res.write(': keepalive\n\n'),15000);req.on('close',()=>{clearInterval(heartbeat);backgroundClients.delete(res)});return;
  }
  if(req.method==='GET'&&route==='/api/background')return json(res,200,backgrounds.get());
  if(req.method==='POST'&&['/api/background/context','/api/background'].includes(route)){

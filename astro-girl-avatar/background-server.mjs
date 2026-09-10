@@ -56,7 +56,7 @@ export function createBackgroundManager({directory,onChange,generate=generateBac
  function request(context,{force=false}={}){
   if(typeof context!=='string'||!context.trim()||context.length>4000)throw new Error('Scene context must contain 1–4000 characters.');
   if(!state.enabled&&!force)return get();
-  context=context.trim();if(context===lastContext&&!force)return get();
+  context=context.trim();if(context===lastContext&&(!force||active||pending))return get();
   lastContext=context;pending={id:++sequence,context,force};state={...state,status:active?'generating':'queued',error:null};notify();schedule();return get();
  }
  function configure({enabled,reset=false}){

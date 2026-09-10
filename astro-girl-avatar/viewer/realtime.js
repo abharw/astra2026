@@ -91,7 +91,7 @@ async function connect(){
     s.audio.autoplay=true;s.audio.srcObject=stream;await s.audio.play();
     s.adapter=await connectAudioStream(stream,{context:s.context,monitor:false,onLevel:level=>{$('realtime-level').value=level;s.levelPromise=publishLevel(level,s)}});
     if(session!==s)await s.adapter.dispose();
-   }catch(e){showError(e)}
+   }catch(e){if(session===s)showError(e)}
   };
   s.pc.onconnectionstatechange=()=>{if(session===s&&['failed','closed'].includes(s.pc.connectionState)){showError(new Error('Realtime connection closed. Connect again to continue.'));disconnect().catch(showError)}};
   s.dc=s.pc.createDataChannel('oai-events');
