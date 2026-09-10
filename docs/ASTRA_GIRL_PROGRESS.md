@@ -58,3 +58,12 @@ Automatic scene generation now occurs every three completed conversation exchang
 
 
 Live cadence verification passed: the first two typed exchanges left the studio background unchanged; the third generated a reef. An explicit forest request immediately reset the counter, but visual inspection caught the previous scene influencing the generated image. Explicit generation now excludes the previous setting entirely, and scheduled input leads with the current conversation. A repeated live request produced the requested pine forest at sunrise, visibly verified in the studio, with the counter still at zero after its spoken acknowledgement. The microphone was restored in interrupt-anytime mode. All 35 automated tests pass.
+
+
+## Faster scenery during interrupted conversation — September 10, 2026
+
+User testing reported missed changes while talking and excessive image latency. A deterministic replay showed that three completed inputs whose replies were interrupted during playback produced zero counted turns. The studio now uses createUserBackgroundTurnTracker and counts a final voice transcript or submitted text once by user item ID, independently of reply playback. Explicit requests suppress late transcripts for their input item and reset the server cadence; assistant acknowledgements cannot count. The older response/playback tracker remains available to existing external callers.
+
+Replaced the GPT-6 plus medium-quality image-tool path with direct GPT Image 2.5 Flare generation at low quality and 1024x1024. One authenticated benchmark took 12.429 seconds, versus the earlier 23.508-second measurement; these are individual runs, not a latency guarantee. A smaller requested resolution was rejected and is not used. The Images API request keeps credentials server-side and avoids creating a Responses conversation.
+
+All 38 tests pass. Live typed conversation verified that counts one and two advance immediately while replies can be interrupted, and turn three starts generation before playback finishes. Physical microphone recognition remains a separate user acceptance check.

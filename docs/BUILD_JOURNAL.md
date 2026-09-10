@@ -342,3 +342,12 @@ Changed automatic scenery to run every three completed user/assistant exchanges.
 Completion requires both generated-response completion and finished playback, in either event order. Interrupted/incomplete replies, tool-only responses, and duplicate completion events do not count. The server owns the cadence so external voice bridges share it; turnId supports event deduplication. Added cadence, override, duplicate, playback-order, and cancellation regressions. All 34 tests pass.
 
 Final visual QA caught previous-scene anchoring in explicit image requests. Removed the old setting from explicit generation input and prioritized recent turns in scheduled input. Added a regression proving stale scenery is absent from the forced request. Replayed the live forest request and visually confirmed the pine forest at sunrise, with the counter still zero. Final suite: 35 passing tests.
+
+
+## Faster scenery during interrupted conversation — September 10, 2026
+
+User testing reported missed changes while talking and excessive image latency. A deterministic replay showed that three completed inputs whose replies were interrupted during playback produced zero counted turns. The studio now uses createUserBackgroundTurnTracker and counts a final voice transcript or submitted text once by user item ID, independently of reply playback. Explicit requests suppress late transcripts for their input item and reset the server cadence; assistant acknowledgements cannot count. The older response/playback tracker remains available to existing external callers.
+
+Replaced the GPT-6 plus medium-quality image-tool path with direct GPT Image 2.5 Flare generation at low quality and 1024x1024. One authenticated benchmark took 12.429 seconds, versus the earlier 23.508-second measurement; these are individual runs, not a latency guarantee. A smaller requested resolution was rejected and is not used. The Images API request keeps credentials server-side and avoids creating a Responses conversation.
+
+All 38 tests pass. Live typed conversation verified that counts one and two advance immediately while replies can be interrupted, and turn three starts generation before playback finishes. Physical microphone recognition remains a separate user acceptance check.

@@ -11,7 +11,7 @@ avatarEvents.addEventListener('background',e=>{
  if(!$('background-status'))return;
  $('background-auto').checked=state.enabled;
  $('background-status').textContent=state.status==='generating'?'Creating scene':state.status==='queued'?'Scene queued':state.title;
- $('background-description').textContent=state.error||(['generating','queued'].includes(state.status)?'Astra can keep speaking while the next background is made.':state.enabled?`Next automatic scene in ${state.turnInterval-state.turnsSinceChange} turn${state.turnInterval-state.turnsSinceChange===1?'':'s'}. Ask for a background to change it sooner.`:'Automatic changes are paused. You can request a scene below.');
+ $('background-description').textContent=state.error||(['generating','queued'].includes(state.status)?'Creating your next scene with Flare. Keep talking while it loads.':state.enabled?`Next automatic scene in ${state.turnInterval-state.turnsSinceChange} of your turn${state.turnInterval-state.turnsSinceChange===1?'':'s'}. Ask for a background to change it sooner.`:'Automatic changes are paused. You can request a scene below.');
  $('background-description').dataset.error=String(!!state.error);
 });
 if($('background-auto')){

@@ -9,17 +9,17 @@ async function until(check){for(let i=0;i<100;i++){if(check())return;await wait(
 const image=title=>({title,bytes:Buffer.alloc(128,1)});
 async function fixture(t,generate){const directory=await fs.mkdtemp(path.join(os.tmpdir(),'astra-background-'));const manager=createBackgroundManager({directory,generate,delayMs:0,timeoutMs:1000});t.after(async()=>{manager.dispose();await fs.rm(directory,{recursive:true,force:true})});return {manager,directory};}
 
-test('GPT-6 scene generation uses a server-side image tool and returns image bytes',async()=>{
+test('fast generation goes directly to Flare with low quality and bounded resolution',async()=>{
  const key='test-private-value';let request;
- const result=await generateBackground({context:'Discussing the ocean',currentScene:'Studio'},{key,fetcher:async(url,options)=>{request={url,...options};return {ok:true,json:async()=>({output:[{type:'image_generation_call',result:Buffer.alloc(128,1).toString('base64')},{type:'message',content:[{type:'output_text',text:'Ocean reef'}]}]})}}});
- assert.equal(request.url,'https://api.openai.com/v1/responses');const body=JSON.parse(request.body);assert.equal(body.model,BACKGROUND_MODELS.director);assert.equal(body.tools[0].model,BACKGROUND_MODELS.image);assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.ok(!request.body.includes(key));assert.equal(result.title,'Ocean reef');assert.equal(result.bytes.length,128);
+ const result=await generateBackground({context:'Discussing the ocean'},{key,fetcher:async(url,options)=>{request={url,...options};return {ok:true,json:async()=>({data:[{b64_json:Buffer.alloc(128,1).toString('base64')}]})}}});
+ assert.equal(request.url,'https://api.openai.com/v1/images/generations');const body=JSON.parse(request.body);assert.equal(body.model,BACKGROUND_MODELS.image);assert.equal(body.quality,'low');assert.equal(body.size,'1024x1024');assert.ok(!request.body.includes(key));assert.equal(result.bytes.length,128);
 });
 test('scheduled generation requires an image rather than silently keeping the old scene',async()=>{
- await assert.rejects(generateBackground({context:'Hello'},{key:'test',fetcher:async()=>({ok:true,json:async()=>({output:[{type:'message',content:[{type:'output_text',text:'KEEP'}]}]})})}),/KEEP/);
+ await assert.rejects(generateBackground({context:'Hello'},{key:'test',fetcher:async()=>({ok:true,json:async()=>({data:[]})})}),/No background image/);
 });
 test('an explicit image request excludes the previous setting from the generation input',async()=>{
- let body;await generateBackground({context:'A peaceful pine forest at sunrise',currentScene:'Underwater coral reef',force:true},{key:'test',fetcher:async(url,options)=>{body=JSON.parse(options.body);return {ok:true,json:async()=>({output:[{type:'image_generation_call',result:Buffer.alloc(128,1).toString('base64')}]})}}});
- assert.match(body.input,/pine forest at sunrise/);assert.ok(!body.input.includes('coral reef'));
+ let body;await generateBackground({context:'A peaceful pine forest at sunrise',currentScene:'Underwater coral reef',force:true},{key:'test',fetcher:async(url,options)=>{body=JSON.parse(options.body);return {ok:true,json:async()=>({data:[{b64_json:Buffer.alloc(128,1).toString('base64')}]})}}});
+ assert.match(body.prompt,/pine forest at sunrise/);assert.ok(!body.prompt.includes('coral reef'));
 });
 test('background errors redact upstream credentials',async()=>{
  const key='private-key-value';await assert.rejects(()=>generateBackground({context:'Ocean'},{key,fetcher:async()=>({ok:false,status:401,json:async()=>({error:{message:'Rejected '+key}})})}),e=>!e.message.includes(key)&&e.message.includes('[redacted]'));

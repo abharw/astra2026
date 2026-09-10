@@ -15,3 +15,13 @@ export function createBackgroundTurnTracker(onTurn){
   cancel(id){pending.delete(id);finished.delete(id);remember(settled,id)}
  };
 }
+
+// The live studio counts recognized user input, independently of reply playback.
+export function createUserBackgroundTurnTracker(onTurn){
+ const seen=new Set();
+ function remember(id){seen.add(id);if(seen.size>100)seen.delete(seen.values().next().value)}
+ return {
+  userTurn(id,text){if(!id||seen.has(id)||typeof text!=='string'||!text.trim())return;remember(id);onTurn({turnId:id,context:('User: '+text.trim()).slice(-4000)})},
+  explicit(id){if(id)remember(id)}
+ };
+}
