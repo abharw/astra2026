@@ -1,4 +1,5 @@
 import http from 'node:http';
+import {createBackgroundManager} from './background-server.mjs';
 import {loadAPIKey,sessionConfig,createRealtimeCall} from './realtime-server.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -7,8 +8,10 @@ import {cloneDefault,mergeState} from './viewer/state.js';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'assets/character.json')));
 const port=Number(process.env.PORT||8847),clients=new Set();let state=cloneDefault();
-const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.glb':'model/gltf-binary','.blend':'application/octet-stream','.css':'text/css','.png':'image/png','.wav':'audio/wav','.md':'text/plain'};
+const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.glb':'model/gltf-binary','.blend':'application/octet-stream','.css':'text/css','.png':'image/png','.webp':'image/webp','.wav':'audio/wav','.md':'text/plain'};
 const json=(res,status,value)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(value))};
+const backgroundClients=new Set();
+const backgrounds=createBackgroundManager({directory:path.join(root,'.generated-backgrounds'),onChange:value=>{for(const c of backgroundClients)c.write(`data: ${JSON.stringify(value)}\n\n`)}});
 const broadcast=()=>{for(const c of clients)c.write(`data: ${JSON.stringify(state)}\n\n`)};
 const server=http.createServer(async(req,res)=>{
  const host=req.headers.host,origin=req.headers.origin;
@@ -18,6 +21,22 @@ const server=http.createServer(async(req,res)=>{
  if(req.method==='GET'&&route==='/events'){
   res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(`data: ${JSON.stringify(state)}\n\n`);clients.add(res);
   const heartbeat=setInterval(()=>res.write(': keepalive\n\n'),15000);req.on('close',()=>{clearInterval(heartbeat);clients.delete(res)});return;
+ }
+ if(req.method==='GET'&&route==='/api/background/events'){
+  res.writeHead(200,{'Content-Type':'text/event-stream','Cache-Control':'no-cache','Connection':'keep-alive'});res.write(`data: ${JSON.stringify(backgrounds.get())}\n\n`);backgroundClients.add(res);
+  const heartbeat=setInterval(()=>res.write(': keepalive\n\n'),15000);req.on('close',()=>{clearInterval(heartbeat);backgroundClients.delete(res)});return;
+ }
+ if(req.method==='GET'&&route==='/api/background')return json(res,200,backgrounds.get());
+ if(req.method==='POST'&&['/api/background/context','/api/background'].includes(route)){
+  try{
+   let body='';for await(const chunk of req){body+=chunk;if(body.length>16384)return json(res,413,{error:'Request too large'})}
+   const input=JSON.parse(body||'{}');if(!input||typeof input!=='object'||Array.isArray(input))throw new Error('Expected an object');
+   const allowed=route.endsWith('/context')?['context','force']:['enabled','reset'];
+   if(Object.keys(input).some(key=>!allowed.includes(key)))throw new Error('Unknown background field');
+   if(input.force!==undefined&&typeof input.force!=='boolean')throw new Error('force must be a boolean');
+   const result=route.endsWith('/context')?backgrounds.request(input.context,{force:input.force}):backgrounds.configure(input);
+   return json(res,route.endsWith('/context')?202:200,result);
+  }catch(e){return json(res,400,{error:e.message})}
  }
  if(req.method==='GET'&&route==='/api/realtime/status')return json(res,200,{configured:!!loadAPIKey(),model:sessionConfig(manifest).model,voice:'marin'});
  if(req.method==='POST'&&route==='/api/realtime/session'){
@@ -42,6 +61,7 @@ const server=http.createServer(async(req,res)=>{
  let relative;
  if(route==='/')relative='viewer/index.html';
  else if(route==='/stage')relative='viewer/stage.html';
+ else if(/^\/backgrounds\/[0-9a-f-]{36}\.webp$/.test(route))relative='.generated-backgrounds/'+route.split('/').pop();
  else if(route.startsWith('/viewer/')||route.startsWith('/assets/')||route.startsWith('/previews/'))relative=route.slice(1);
  else if(route.startsWith('/vendor/three/'))relative='node_modules/three/'+route.slice('/vendor/three/'.length);
  else if(route==='/research.md'||route==='/README.md')relative=route.slice(1);

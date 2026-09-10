@@ -104,13 +104,13 @@ The studio now includes a live OpenAI Realtime connection using **gpt-realtime-2
 
 Microphone capture starts only when you click Enable microphone and grant browser permission. Conversation mode keeps the microphone open and lets detected speech interrupt Astra. Noise-protected mode pauses microphone transmission while Astra is preparing or playing a reply, then resumes after a short echo guard; use Stop reply to interrupt her in that mode. Hold-to-talk mode disables automatic turn detection and submits your turn immediately on release. Browser echo cancellation and noise suppression remain on; automatic gain is off to avoid amplifying room noise. Each studio tab owns its own session; use one connected studio tab plus as many clean camera-stage tabs as needed. The stage follows the shared avatar state; audio plays in the connected studio tab.
 
-The standard API key stays on the server. Set `OPENAI_API_KEY` in the server environment, or place the key in `~/.config/astra-girl/openai-api-key` with permissions `600`. Credentials are excluded from this repository and the downloadable package, and are never included in browser assets. Set `OPENAI_REALTIME_MODEL` to override the default model.
+The standard API key stays on the server. Set `OPENAI_API_KEY` in the server environment, or place the key in `~/.config/astra-girl/openai-api-key` with permissions `600`. Credentials are excluded from this repository and release packages, and are never included in browser assets. Set `OPENAI_REALTIME_MODEL` to override the default model.
 
 `GET /api/realtime/status` returns only whether a key is configured, the model, and the voice. `POST /api/realtime/session` accepts a WebRTC SDP offer and proxies initialization to OpenAI's `/v1/realtime/calls` endpoint. The browser receives the SDP answer; subsequent audio and data events use WebRTC. This follows [OpenAI's unified WebRTC interface](https://developers.openai.com/api/docs/guides/realtime-webrtc). Conversation items, spoken transcript events, and tool responses follow the [Realtime conversations guide](https://developers.openai.com/api/docs/guides/realtime-conversations).
 
 The remote audio is attached to a playback element and separately analyzed at 25 Hz. Its level reaches the local mouth directly; shared stage updates follow through the server without overriding fresher local audio. Gesture changes crossfade, and short speech pauses preserve conversational motion. Only returned model audio drives the mouth. Expressions and body gestures can change through model tool calls while speech continues. This is audio-reactive synchronization, not phoneme-level viseme generation.
 
-Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. Physical microphone capture and FaceTime routing were not exercised. Nineteen automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
+Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. The initial output-synchronization checks used typed prompts. The microphone was later restored for user testing; sustained microphone turn-taking and FaceTime routing remain acceptance gaps. Twenty-seven automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
 
 ## Reload after an update
 
@@ -121,6 +121,29 @@ An already-open tab keeps its older JavaScript until reloaded. If speech is tran
 The default session uses minimal reasoning effort, far-field input noise reduction, a 0.72 voice-activity threshold, a 350 ms end-of-turn silence interval, and automatic interruption in Conversation mode. The separate Noise-protected mode disables automatic interruption. Ordinary greetings no longer require an avatar tool round trip; explicit gesture requests still use the tool. These controls follow the [OpenAI voice activity detection guide](https://developers.openai.com/api/docs/guides/realtime-vad) and [Realtime session schema](https://developers.openai.com/api/reference/resources/realtime/subresources/client_secrets/methods/create).
 
 A synthetic quiet-speech replay reproduced cancellation 233 ms into the old reply. The protected configuration prevented cancellation. A controlled comparison reduced first-audio delay from 6.626 seconds to 0.650 seconds; the protected-mode replay measured 1.100 seconds. These are individual API replay measurements, not a guarantee for every network or room. Native room-noise rejection and a physical hold-to-talk conversation still need your microphone test. Use Hold to talk when other people or a television are audible; automatic noise reduction cannot reliably identify which speaker is addressing Astra.
+
+## Dynamic generated backgrounds
+
+**Follow the conversation** is on by default. The completed reply text and latest user turn go to a separate GPT-6 Astra request. GPT-6 decides whether the topic needs a different setting and uses GPT Image 2.5 Flare to generate it. Voice playback continues independently. Repeated topics, greetings, and filler can keep the existing image. These are generated environment illustrations, not live views of the user's surroundings.
+
+Use **Set a scene → Generate scene** for a direct request, such as an observatory above the clouds. Turn off **Follow the conversation** to freeze the scenery; direct requests still work. **Studio background** restores the original gradient. Images use the configured OpenAI API account. The first direct API image test took 23.5 seconds; generation is asynchronous and not instantaneous.
+
+The backdrop is drawn into the same WebGL canvas as Astra, with aspect-preserving cropping and a 1.2-second crossfade. Reduced-motion mode switches without the fade. The studio, clean `/stage`, and the renderer's canvas stream share the scenery. `/stage?background=transparent` intentionally omits it.
+
+Only one scene job runs at a time. New context replaces the queued context, stale results cannot overwrite a newer scene, a brief follow-up can retain the image already being generated, and an error leaves the previous image visible. Generated files live in `.generated-backgrounds/`, which is excluded from Git and release packages. The current selection is held in memory and resets on server restart. Conversation context is not written to application logs; the GPT-6 Responses request uses `store: false`.
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/background` | Read scene state and model IDs |
+| `GET /api/background/events` | Subscribe to shared scene updates |
+| `POST /api/background/context` | Submit `{context, force?: boolean}`; returns immediately |
+| `POST /api/background` | Set `{enabled: false}` or `{reset: true}` |
+
+The standard API credential stays on the local server. This follows the [OpenAI image generation guide](https://developers.openai.com/api/docs/guides/image-generation): GPT-6 Astra at the Responses API's top level with GPT Image 2.5 Flare in the `image_generation` tool. No separate image-generation service or API key is required.
+
+Live validation: a typed coral-reef conversation produced speech and then an actual generated reef backdrop; the studio and clean camera stage both displayed it. The source image and character remain separate layers. Queue, stale-result, cancellation, no-change, error-preservation, and HTTP validation paths have automated coverage. A sustained microphone conversation with several scene changes remains user acceptance.
+
+![Live conversation-generated reef backdrop](previews/live-reef-studio.png)
 
 ## Other voice providers and timed visemes
 
@@ -170,4 +193,4 @@ npm test
 
 The build recreates the asset from authored geometry; it overwrites generated assets/previews. Append `-- no-render` to skip preview renders. Save artistic edits under another name before rebuilding.
 
-Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Nineteen automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.
+Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Twenty-seven automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.

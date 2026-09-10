@@ -24,7 +24,15 @@ Built an Astro Boy / Uran inspired girl avatar from authored Blender geometry, t
 - Live browser checks covered facial/speech layering, wave/cheer motion, shared camera-stage state, and local synthesized audio returning the mouth to zero at playback end.
 - Live Realtime checks covered authentication, WebRTC, typed prompts producing speech, model-issued expressions/gestures, nonzero audio-driven mouth levels, Stop reply, and disconnect/reconnect.
 - The synthetic replay with interruption protection prevented the baseline cancellation. Individual first-audio measurements were 6.626 seconds before minimal reasoning, 0.650 seconds after it, and 1.100 seconds in the final configuration replay. These are individual API observations, not a room or network latency guarantee. Sanitized event-type/timing records and the optional paid-API replay are in [debug](../astro-girl-avatar/debug/README.md). The final replay ended with an incomplete response after audio began; its assertion concerns first audio and cancellation, not a complete 150-word answer.
-- `npm ci && npm test` passed **19/19 tests in the repository copy**, including morph/clip integrity, expression/speech precedence, stale shared-audio protection, microphone gating, input policy, HTTP validation, and credential-error redaction. These automated tests do not exercise a physical microphone or FaceTime.
+- `npm ci && npm test` passed **27/27 tests in the repository copy**, including morph/clip integrity, expression/speech precedence, stale shared-audio protection, microphone gating, input policy, HTTP validation, and credential-error redaction. These automated tests do not exercise a physical microphone or FaceTime.
+
+## Dynamic backgrounds added after the voice work
+
+The user requested GPT-6 image generation to change the setting based on the conversation. Added a separate server-side Responses request with GPT-6 Astra directing GPT Image 2.5 Flare. The completed assistant reply and latest user turn provide context; GPT-6 can retain the current setting or generate a new environment. This does not add a blocking tool round trip to Realtime speech.
+
+Scene requests queue asynchronously, coalesce to the latest pending context, and preserve the existing image during generation or errors. A brief follow-up can retain a scene already being generated. Users can pause automatic changes, request a scene directly, or restore the studio gradient. Backdrops crossfade inside the same WebGL canvas and appear in the clean camera stage; the transparent-stage option omits them.
+
+A direct observatory image request succeeded in 23.508 seconds. A real typed coral-reef conversation then produced speech and a generated underwater backdrop, visibly verified in both studio and camera stage. A subsequent request to keep the reef left its URL and scene revision unchanged. The [live screenshot](../astro-girl-avatar/previews/live-reef-studio.png) records that local result. Generated cache files and conversation context are excluded from the repository; the Responses call sets `store: false`. All 27 automated tests pass, including queue ordering, stale-result suppression, retaining an in-progress scene after a brief follow-up, disabling/resetting, error preservation, and HTTP validation.
 
 ## Remaining acceptance
 

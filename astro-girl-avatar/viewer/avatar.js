@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import {createBackgroundLayer} from './background-layer.js';
+import './backgrounds.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {composeWeights,cloneDefault} from './state.js';
@@ -8,6 +10,8 @@ const params=new URLSearchParams(location.search);
 const scene=new THREE.Scene();
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=.95;
+renderer.autoClear=false;const backgroundLayer=createBackgroundLayer(renderer);
+document.addEventListener('avatar-background',e=>{backgroundLayer.setURL(params.get('background')==='transparent'?null:e.detail.url).catch(error=>console.error('Could not load scene',error))});
 container.appendChild(renderer.domElement);renderer.domElement.setAttribute('aria-label','Live 3D Astro-inspired girl avatar');
 const pmrem=new THREE.PMREMGenerator(renderer);const env=new RoomEnvironment();const envmap=pmrem.fromScene(env,.04);scene.environment=envmap.texture;env.dispose();pmrem.dispose();
 scene.add(new THREE.HemisphereLight(0xeaf3ff,0xb9b4a3,.5));
@@ -71,7 +75,7 @@ function tick(now){const dt=Math.min(.05,(now-previous)/1000);previous=now;time+
   if(actual!==lastShownMotion){lastShownMotion=actual;document.dispatchEvent(new CustomEvent('avatar-motion',{detail:actual}))}
   const look=targetState.look;worldHeadRotation(look.yaw+(idle?.025*Math.sin(time*.7):0),look.pitch+(idle?.012*Math.sin(time*.9):0),look.roll+(idle?.015*Math.sin(time*.5):0));
  }
- renderer.render(scene,camera);
+ renderer.clear();backgroundLayer.render(container.clientWidth,container.clientHeight,dt);renderer.clearDepth();renderer.render(scene,camera);
  requestAnimationFrame(tick);
 }
 requestAnimationFrame(tick);

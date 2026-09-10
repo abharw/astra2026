@@ -12,5 +12,14 @@ test('HTTP controls validate atomically and retain legacy audio compatibility',a
   const legacy=await post('/state',{level:.65});assert.equal((await legacy.json()).mouth.level,.65);
   assert.equal((await post('/api/state',{expression:'neutral'},{Origin:'https://example.com'})).status,403);
   assert.equal((await post('/api/reset',{}).then(r=>r.json())).expression,'neutral');
+  assert.equal((await fetch(url+'/api/background').then(r=>r.json())).enabled,true);
+  assert.equal((await post('/api/background',{enabled:'yes'})).status,400);
+  assert.equal((await fetch(url+'/api/background').then(r=>r.json())).enabled,true);
+  assert.equal((await post('/api/background',{enabled:false}).then(r=>r.json())).enabled,false);
+  assert.equal((await post('/api/background/context',{context:'Ocean'}).then(r=>r.json())).status,'paused');
+  assert.equal((await post('/api/background/context',{context:{}})).status,400);
+  assert.equal((await post('/api/background',{reset:true,secret:'invalid'})).status,400);
+  assert.equal((await fetch(url+'/backgrounds/../../.env')).status,404);
+
  }finally{process.kill();await once(process,'exit')}
 });

@@ -1,3 +1,4 @@
+import {backgroundRequest} from './backgrounds.js';
 import {connectAudioStream} from './voice-adapter.js';
 import {gateMicrophone,turnDetection,MICROPHONE_CONSTRAINTS} from './voice-input.js';
 const $=id=>document.getElementById(id);
@@ -54,8 +55,8 @@ async function handle(event,s){
   case 'session.created': status('Connected');break;
   case 'response.created':s.responseId=event.response.id;s.cancelled=false;s.waiting=true;s.generating=true;updateMicrophone(s);s.transcript='';$('realtime-transcript').textContent='';status('Thinking');break;
   case 'response.output_audio_transcript.delta':s.transcript+=event.delta;$('realtime-transcript').textContent=s.transcript;break;
-  case 'response.output_audio_transcript.done':$('realtime-transcript').textContent=event.transcript;break;
-  case 'conversation.item.input_audio_transcription.completed':$('realtime-mic-note').textContent='You: '+event.transcript;break;
+  case 'response.output_audio_transcript.done':$('realtime-transcript').textContent=event.transcript;{const context=[s.userText&&'User: '+s.userText,'Astra: '+event.transcript].filter(Boolean).join('\n').slice(-4000);backgroundRequest(context).catch(error=>{const note=$('background-description');if(note)note.textContent=error.message})}break;
+  case 'conversation.item.input_audio_transcription.completed':s.userText=event.transcript;$('realtime-mic-note').textContent='You: '+event.transcript;break;
   case 'input_audio_buffer.speech_started':if(!s.generating&&!s.playing)status('Listening');break;
   case 'input_audio_buffer.speech_stopped':s.waiting=true;updateMicrophone(s);status('Thinking');break;
   case 'output_audio_buffer.started':s.playbackId=event.response_id;s.playing=true;updateMicrophone(s);$('realtime-section').dataset.speaking='true';status('Speaking');break;
@@ -127,7 +128,7 @@ $('realtime-disconnect').onclick=()=>disconnect().catch(showError);
 $('realtime-mic').onclick=()=>toggleMicrophone().catch(showError);
 $('realtime-stop').onclick=()=>{try{stopReply()}catch(e){showError(e)}};
 $('realtime-form').onsubmit=async event=>{
- event.preventDefault();const text=$('realtime-prompt').value.trim();if(!text)return;
+ event.preventDefault();const text=$('realtime-prompt').value.trim();if(!text)return;if(session)session.userText=text;
  try{if(session.generating||session.playing)stopReply();await session.context.resume();session.waiting=true;session.cancelled=false;updateMicrophone(session);send({type:'conversation.item.create',item:{type:'message',role:'user',content:[{type:'input_text',text}]}});send({type:'response.create'});$('realtime-prompt').value='';$('realtime-error').textContent=''}catch(e){showError(e)}
 };
 $('realtime-input-mode').onchange=()=>{
