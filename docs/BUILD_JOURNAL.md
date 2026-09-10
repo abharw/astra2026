@@ -333,3 +333,10 @@ Added GPT-6 Astra scene direction with GPT Image 2.5 Flare generation, driven by
 A direct observatory generation took 23.508 seconds. A live coral-reef conversation generated and displayed an underwater background in both studio and clean camera stage; a follow-up to keep the setting preserved its URL/revision. All 28 tests passed, including asynchronous ordering, stale updates, cancellation, no-change behavior and error preservation. Generated caches and API credentials are excluded. The [progress record](ASTRA_GIRL_PROGRESS.md) contains the evidence and screenshot; sustained microphone conversations with multiple changes and actual FaceTime routing remain user acceptance.
 
 Three simultaneously open avatar windows exposed browser HTTP connection exhaustion from two SSE streams per page. Consolidated both event types into one connection and replayed the three-window flow successfully. Added duplicate-request suppression and a reset-during-file-save guard; the final automated suite passes 28 tests.
+
+
+## 32. Choose scenery every three turns, with immediate explicit overrides — September 10, 2026
+
+Changed automatic scenery to run every three completed user/assistant exchanges. GPT-6 receives all three recent turns and chooses a fresh best-fit setting. Turns one and two preserve the current scene. Explicit spoken set_background tool calls or manual scene requests bypass the counter and restart it; the spoken acknowledgement does not count as an extra ordinary turn.
+
+Completion requires both generated-response completion and finished playback, in either event order. Interrupted/incomplete replies, tool-only responses, and duplicate completion events do not count. The server owns the cadence so external voice bridges share it; turnId supports event deduplication. Added cadence, override, duplicate, playback-order, and cancellation regressions. All 34 tests pass.

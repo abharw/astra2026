@@ -75,7 +75,7 @@ curl http://127.0.0.1:8847/api/state \
   -d '{"motion":{"name":"nod","loop":true,"speed":0.5}}'
 ```
 
-`GET /api/state` reads state; `POST /api/reset` restores neutral; `GET /health` checks the service. `POST /state` with `{"level":0.6}` supports the earlier canvas avatar's level contract. Point a compatible audio sender at port 8847 to drive this character.
+`GET /api/state` reads state; `POST /api/reset` restores neutral; `GET /health` checks the service. `POST /state` with `{"level":0.6}` supports the earlier canvas avatar's level contract. The prior renderer on port 8793 is separate; point your audio sender at port 8847 to drive this character.
 
 | Field | Values |
 |---|---|
@@ -110,7 +110,7 @@ The standard API key stays on the server. Set `OPENAI_API_KEY` in the server env
 
 The remote audio is attached to a playback element and separately analyzed at 25 Hz. Its level reaches the local mouth directly; shared stage updates follow through the server without overriding fresher local audio. Gesture changes crossfade, and short speech pauses preserve conversational motion. Only returned model audio drives the mouth. Expressions and body gestures can change through model tool calls while speech continues. This is audio-reactive synchronization, not phoneme-level viseme generation.
 
-Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. The initial output-synchronization checks used typed prompts. The microphone was later restored for user testing; sustained microphone turn-taking and FaceTime routing remain acceptance gaps. Twenty-eight automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
+Live validation on this Mac: authenticated API access; WebRTC connection; generated speech from typed prompts; model-issued happy/wave and surprised/nod controls; nonzero voice-driven mouth levels up to 0.681 in the counting test; visible mouth movement during a second reply; Stop reply returning the mouth to zero; disconnect/reconnect. The initial output-synchronization checks used typed prompts. The microphone was later restored for user testing; sustained microphone turn-taking and FaceTime routing remain acceptance gaps. Thirty-four automated tests pass, including server-side credential handling, invalid SDP, and sanitized upstream errors.
 
 ## Reload after an update
 
@@ -124,19 +124,21 @@ A synthetic quiet-speech replay reproduced cancellation 233 ms into the old repl
 
 ## Dynamic generated backgrounds
 
-**Follow the conversation** is on by default. The completed reply text and latest user turn go to a separate GPT-6 Astra request. GPT-6 decides whether the topic needs a different setting and uses GPT Image 2.5 Flare to generate it. Voice playback continues independently. Repeated topics, greetings, and filler can keep the existing image. These are generated environment illustrations, not live views of the user's surroundings.
+**Follow the conversation** is on by default. After every **three completed user/assistant exchanges**, GPT-6 Astra chooses the setting it thinks best suits those three turns and generates a fresh backdrop with GPT Image 2.5 Flare. Ordinary turns one and two do not make an image request. A turn counts only after both response generation and audible playback finish; cancelled replies, tool-only responses, and duplicate events do not count.
 
-Use **Set a scene → Generate scene** for a direct request, such as an observatory above the clouds. Turn off **Follow the conversation** to freeze the scenery; direct requests still work. **Studio background** restores the original gradient. Images use the configured OpenAI API account. The first direct API image test took 23.5 seconds; generation is asynchronous and not instantaneous.
+Explicit background requests bypass the wait. Say “Change the background to a forest,” or use **Set a scene → Generate scene**. Explicit requests restart the three-turn counter; their acknowledgement does not count as another ordinary turn. Turn off **Follow the conversation** to pause automatic changes; direct requests still work. **Studio background** restores the original gradient and resets the counter. Voice continues while images generate. The first image test took 23.5 seconds, so immediate means generation starts without waiting for three turns, not instantaneous image delivery.
+
+These are generated environment illustrations, not live views of the user's surroundings. Images use the configured OpenAI API account.
 
 The backdrop is drawn into the same WebGL canvas as Astra, with aspect-preserving cropping and a 1.2-second crossfade. Reduced-motion mode switches without the fade. The studio, clean `/stage`, and the renderer's canvas stream share the scenery. `/stage?background=transparent` intentionally omits it.
 
-Each page uses one shared update stream for character and background state, so multiple studio/camera tabs do not consume two persistent HTTP connections apiece. Only one scene job runs at a time. New context replaces the queued context, stale results cannot overwrite a newer scene, a brief follow-up can retain the image already being generated, and an error leaves the previous image visible. Generated files live in `.generated-backgrounds/`, which is excluded from Git and release packages. The current selection is held in memory and resets on server restart. Conversation context is not written to application logs; the GPT-6 Responses request uses `store: false`.
+Each page uses one shared update stream for character and background state, so multiple studio/camera tabs do not consume two persistent HTTP connections apiece. Only one scene job runs at a time. New context replaces the queued context, stale results cannot overwrite a newer scene, intervening turns one and two leave the pending image alone, and an error leaves the previous image visible. Generated files live in `.generated-backgrounds/`, which is excluded from Git and release packages. The current selection is held in memory and resets on server restart. Conversation context is not written to application logs; the GPT-6 Responses request uses `store: false`.
 
 | Endpoint | Purpose |
 |---|---|
 | `GET /api/background` | Read scene state and model IDs |
 | `GET /events` | One shared SSE stream: avatar state plus named `background` events |
-| `POST /api/background/context` | Submit `{context, force?: boolean}`; returns immediately |
+| `POST /api/background/context` | Submit one completed turn with `{context, turnId?}`; use `force: true` for an explicit scene request |
 | `POST /api/background` | Set `{enabled: false}` or `{reset: true}` |
 
 The standard API credential stays on the local server. This follows the [OpenAI image generation guide](https://developers.openai.com/api/docs/guides/image-generation): GPT-6 Astra at the Responses API's top level with GPT Image 2.5 Flare in the `image_generation` tool. No separate image-generation service or API key is required.
@@ -193,4 +195,4 @@ npm test
 
 The build recreates the asset from authored geometry; it overwrites generated assets/previews. Append `-- no-render` to skip preview renders. Save artistic edits under another name before rebuilding.
 
-Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Twenty-eight automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.
+Validated: native Blender renders; saved-file rig/helper execution; GLB skinning, all 15 nonempty morph controls and all nine skeletal clips; expression/speech layering; HTTP validation and compatibility; live browser wave and cheer; local speech audio driving the mouth and returning to zero when finished; clean stage loading shared state. Thirty-four automated tests pass. OpenAI Realtime was connected and live output synchronization was verified as described above. The timed speech-pose scheduler remains available for providers that supply viseme events.

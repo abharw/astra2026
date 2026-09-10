@@ -7,7 +7,7 @@ test('Realtime SDP proxy keeps the credential server-side and includes valid ava
  const answer=await createRealtimeCall('v=0\r\nm=audio',manifest,{key:'test-secret',fetcher:async(url,options)=>{
   assert.equal(url,'https://api.openai.com/v1/realtime/calls');assert.equal(options.headers.Authorization,'Bearer test-secret');
   assert.equal(options.body.get('sdp'),'v=0\r\nm=audio');const config=JSON.parse(options.body.get('session'));
-  assert.equal(config.type,'realtime');assert.equal(config.audio.output.voice,'marin');assert.deepEqual(config.tools[0].parameters.properties.motion.enum,Object.keys(manifest.motions));return new Response('v=0\r\nanswer',{status:201});
+  assert.ok(config.tools.some(tool=>tool.name==='set_background'));assert.equal(config.type,'realtime');assert.equal(config.audio.output.voice,'marin');assert.deepEqual(config.tools[0].parameters.properties.motion.enum,Object.keys(manifest.motions));return new Response('v=0\r\nanswer',{status:201});
  }});assert.equal(answer,'v=0\r\nanswer');
 });
 test('Realtime rejects missing credentials and malformed offers before fetching',async()=>{

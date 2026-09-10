@@ -26,10 +26,10 @@ const server=http.createServer(async(req,res)=>{
   try{
    let body='';for await(const chunk of req){body+=chunk;if(body.length>16384)return json(res,413,{error:'Request too large'})}
    const input=JSON.parse(body||'{}');if(!input||typeof input!=='object'||Array.isArray(input))throw new Error('Expected an object');
-   const allowed=route.endsWith('/context')?['context','force']:['enabled','reset'];
+   const allowed=route.endsWith('/context')?['context','force','turnId']:['enabled','reset'];
    if(Object.keys(input).some(key=>!allowed.includes(key)))throw new Error('Unknown background field');
    if(input.force!==undefined&&typeof input.force!=='boolean')throw new Error('force must be a boolean');
-   const result=route.endsWith('/context')?backgrounds.request(input.context,{force:input.force}):backgrounds.configure(input);
+   const result=route.endsWith('/context')?backgrounds.request(input.context,{force:input.force,turnId:input.turnId}):backgrounds.configure(input);
    return json(res,route.endsWith('/context')?202:200,result);
   }catch(e){return json(res,400,{error:e.message})}
  }

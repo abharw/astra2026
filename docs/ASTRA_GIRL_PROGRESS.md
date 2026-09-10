@@ -51,3 +51,7 @@ npm start
 ```
 
 Open `http://127.0.0.1:8847/`. Configure a server-side OpenAI key as described in the project README, reload any older studio tabs, then connect. Use the clean `/stage` view for camera capture. Blender/GLB/audio binaries use Git LFS. No credentials, private microphone recordings, dependencies, or build caches are imported.
+
+## Latest behavior: three-turn automatic scenery
+
+Automatic scene generation now occurs every three completed conversation exchanges, using those three turns as context. GPT-6 chooses the best setting and generates a new image even when the overall topic is unchanged. An explicit background request starts generation immediately and resets the counter. Completed audio playback gates ordinary turn counting; interrupted replies and duplicate events are excluded. The current test suite passes 34 tests. The studio displays the number of turns until its next automatic scene.

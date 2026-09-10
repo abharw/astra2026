@@ -1,4 +1,5 @@
 import {backgroundRequest} from './backgrounds.js';
+import {createBackgroundTurnTracker} from './background-turns.js';
 import {connectAudioStream} from './voice-adapter.js';
 import {gateMicrophone,turnDetection,MICROPHONE_CONSTRAINTS} from './voice-input.js';
 const $=id=>document.getElementById(id);
@@ -37,7 +38,13 @@ async function disconnect(){
  $('realtime-section').dataset.speaking='false';enabled(false);updateMicrophone();status('Offline');
 }
 async function toolCall(item,s){
+ const ownerResponseId=s.responseId;
  try{
+  if(item.name==='set_background'){
+   const args=JSON.parse(item.arguments);if(Object.keys(args).some(key=>key!=='prompt')||typeof args.prompt!=='string'||args.prompt.length>1000)throw new Error('Invalid scene request');
+   const result=await backgroundRequest(args.prompt,{force:true,turnId:item.call_id});if(session===s&&!s.cancelled&&s.responseId===ownerResponseId)s.backgroundRequested=true;
+   send({type:'conversation.item.create',item:{type:'function_call_output',call_id:item.call_id,output:JSON.stringify({ok:true,status:result.status})}},s);return;
+  }
   if(item.name!=='set_avatar')throw new Error('Unsupported avatar tool.');
   const args=JSON.parse(item.arguments);const patch={};
   for(const k of Object.keys(args))if(!['expression','motion','intensity'].includes(k))throw new Error('Unsupported avatar setting.');
@@ -55,18 +62,19 @@ async function handle(event,s){
   case 'session.created': status('Connected');break;
   case 'response.created':s.responseId=event.response.id;s.cancelled=false;s.waiting=true;s.generating=true;updateMicrophone(s);s.transcript='';$('realtime-transcript').textContent='';status('Thinking');break;
   case 'response.output_audio_transcript.delta':s.transcript+=event.delta;$('realtime-transcript').textContent=s.transcript;break;
-  case 'response.output_audio_transcript.done':$('realtime-transcript').textContent=event.transcript;{const context=[s.userText&&'User: '+s.userText,'Astra: '+event.transcript].filter(Boolean).join('\n').slice(-4000);backgroundRequest(context).catch(error=>{const note=$('background-description');if(note)note.textContent=error.message})}break;
+  case 'response.output_audio_transcript.done':$('realtime-transcript').textContent=event.transcript;break;
   case 'conversation.item.input_audio_transcription.completed':s.userText=event.transcript;$('realtime-mic-note').textContent='You: '+event.transcript;break;
   case 'input_audio_buffer.speech_started':if(!s.generating&&!s.playing)status('Listening');break;
   case 'input_audio_buffer.speech_stopped':s.waiting=true;updateMicrophone(s);status('Thinking');break;
   case 'output_audio_buffer.started':s.playbackId=event.response_id;s.playing=true;updateMicrophone(s);$('realtime-section').dataset.speaking='true';status('Speaking');break;
   case 'output_audio_buffer.stopped':
-  case 'output_audio_buffer.cleared':if(s.playbackId&&event.response_id&&event.response_id!==s.playbackId)break;s.playbackFinished=event.response_id;s.playing=false;$('realtime-section').dataset.speaking='false';if(!s.toolPending&&!s.generating)settleReply(s);status('Connected');break;
+  case 'output_audio_buffer.cleared':if(event.type==='output_audio_buffer.stopped')s.backgroundTurns.playbackFinished(event.response_id);else s.backgroundTurns.cancel(event.response_id);if(s.playbackId&&event.response_id&&event.response_id!==s.playbackId)break;s.playbackFinished=event.response_id;s.playing=false;$('realtime-section').dataset.speaking='false';if(!s.toolPending&&!s.generating)settleReply(s);status('Connected');break;
   case 'response.done':{
    const response=event.response;if(s.cancelledResponses.has(response.id))break;if(s.responseId&&response.id!==s.responseId)break;s.generating=false;
-   if(response.status==='cancelled'||s.cancelled){if(!s.playing)settleReply(s);status('Connected');break}
+   if(response.status==='cancelled'||s.cancelled){s.backgroundRequested=false;if(!s.playing)settleReply(s);status('Connected');break}
    if(response.status==='failed'){showError(new Error(response.status_details?.error?.message||'The voice response failed.'));settleReply(s);status('Connected');break}
    const calls=(response.output||[]).filter(item=>item.type==='function_call');
+   if(!calls.length){s.backgroundTurns.complete(response,s.userText,{skip:s.backgroundRequested});s.backgroundRequested=false;}
    s.toolPending=!!calls.length;updateMicrophone(s);
    for(const call of calls){if(session!==s)return;await toolCall(call,s)}
    if(calls.length&&session===s&&!s.cancelled){s.waiting=true;s.toolPending=false;send({type:'response.create',response:{tool_choice:'none'}},s)}
@@ -77,7 +85,7 @@ async function handle(event,s){
 }
 async function connect(){
  if(session)return;$('realtime-error').textContent='';
- const s={pc:new RTCPeerConnection(),context:new AudioContext(),audio:new Audio(),abort:new AbortController(),mic:null,adapter:null,generating:false,playing:false,transcript:'',pendingLevel:null,publishing:false,waiting:false,holding:false,cooldown:false,toolPending:false,cancelledResponses:new Set()};session=s;enabled(false);status('Connecting');
+ const s={pc:new RTCPeerConnection(),context:new AudioContext(),audio:new Audio(),abort:new AbortController(),mic:null,adapter:null,generating:false,playing:false,transcript:'',pendingLevel:null,publishing:false,waiting:false,holding:false,cooldown:false,toolPending:false,cancelledResponses:new Set()};s.backgroundTurns=createBackgroundTurnTracker(turn=>backgroundRequest(turn.context,{turnId:turn.turnId}).catch(error=>{const note=$('background-description');if(note)note.textContent=error.message}));session=s;enabled(false);status('Connecting');
  try{
   await s.context.resume();
   document.dispatchEvent(new Event('avatar-realtime-start'));$('voice-audio').pause();
@@ -120,8 +128,8 @@ async function toggleMicrophone(){
  $('realtime-mic').textContent='Turn microphone off';$('realtime-mic').setAttribute('aria-pressed','true');updateMicrophone(s);
 }
 function stopReply(){
- const s=session;if(!s)return;if(s.responseId)s.cancelledResponses.add(s.responseId);if(s.playbackId)s.cancelledResponses.add(s.playbackId);if(s.generating)send({type:'response.cancel'});if(s.playing)send({type:'output_audio_buffer.clear'});
- s.cancelled=true;s.generating=false;s.playing=false;settleReply(s);$('realtime-section').dataset.speaking='false';status('Connected');
+ const s=session;if(!s)return;if(s.responseId){s.cancelledResponses.add(s.responseId);s.backgroundTurns.cancel(s.responseId)}if(s.playbackId){s.cancelledResponses.add(s.playbackId);s.backgroundTurns.cancel(s.playbackId)}if(s.generating)send({type:'response.cancel'});if(s.playing)send({type:'output_audio_buffer.clear'});
+ s.backgroundRequested=false;s.cancelled=true;s.generating=false;s.playing=false;settleReply(s);$('realtime-section').dataset.speaking='false';status('Connected');
 }
 $('realtime-connect').onclick=()=>connect().catch(showError);
 $('realtime-disconnect').onclick=()=>disconnect().catch(showError);

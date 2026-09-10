@@ -12,10 +12,10 @@ async function fixture(t,generate){const directory=await fs.mkdtemp(path.join(os
 test('GPT-6 scene generation uses a server-side image tool and returns image bytes',async()=>{
  const key='test-private-value';let request;
  const result=await generateBackground({context:'Discussing the ocean',currentScene:'Studio'},{key,fetcher:async(url,options)=>{request={url,...options};return {ok:true,json:async()=>({output:[{type:'image_generation_call',result:Buffer.alloc(128,1).toString('base64')},{type:'message',content:[{type:'output_text',text:'Ocean reef'}]}]})}}});
- assert.equal(request.url,'https://api.openai.com/v1/responses');const body=JSON.parse(request.body);assert.equal(body.model,BACKGROUND_MODELS.director);assert.equal(body.tools[0].model,BACKGROUND_MODELS.image);assert.equal(body.store,false);assert.ok(!request.body.includes(key));assert.equal(result.title,'Ocean reef');assert.equal(result.bytes.length,128);
+ assert.equal(request.url,'https://api.openai.com/v1/responses');const body=JSON.parse(request.body);assert.equal(body.model,BACKGROUND_MODELS.director);assert.equal(body.tools[0].model,BACKGROUND_MODELS.image);assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.ok(!request.body.includes(key));assert.equal(result.title,'Ocean reef');assert.equal(result.bytes.length,128);
 });
-test('repeated or irrelevant conversation can keep the existing background without an image',async()=>{
- const result=await generateBackground({context:'Hello'},{key:'test',fetcher:async()=>({ok:true,json:async()=>({output:[{type:'message',content:[{type:'output_text',text:'KEEP'}]}]})})});assert.equal(result,null);
+test('scheduled generation requires an image rather than silently keeping the old scene',async()=>{
+ await assert.rejects(generateBackground({context:'Hello'},{key:'test',fetcher:async()=>({ok:true,json:async()=>({output:[{type:'message',content:[{type:'output_text',text:'KEEP'}]}]})})}),/KEEP/);
 });
 test('background errors redact upstream credentials',async()=>{
  const key='private-key-value';await assert.rejects(()=>generateBackground({context:'Ocean'},{key,fetcher:async()=>({ok:false,status:401,json:async()=>({error:{message:'Rejected '+key}})})}),e=>!e.message.includes(key)&&e.message.includes('[redacted]'));
@@ -23,34 +23,52 @@ test('background errors redact upstream credentials',async()=>{
 test('a late image cannot replace a newer requested conversation scene',async t=>{
  let finishFirst;const calls=[];
  const {manager,directory}=await fixture(t,async input=>{calls.push(input.context);if(calls.length===1)return new Promise(r=>finishFirst=r);return image(input.context)});
- manager.request('Ocean');await until(()=>finishFirst);manager.request('Forest');manager.request('Moon');finishFirst(image('Ocean'));
+ manager.request('Ocean',{force:true});await until(()=>finishFirst);manager.request('Forest',{force:true});manager.request('Moon',{force:true});finishFirst(image('Ocean'));
  await until(()=>manager.get().status==='ready');assert.deepEqual(calls,['Ocean','Moon']);assert.equal(manager.get().title,'Moon');assert.equal((await fs.readdir(directory)).length,1);
 });
 test('turning automatic scenes off cancels pending updates and keeps the displayed image',async t=>{
  let resolveLate;const {manager}=await fixture(t,async input=>input.context==='first'?image('Ocean'):new Promise(r=>resolveLate=r));
- manager.request('first');await until(()=>manager.get().status==='ready');const url=manager.get().url;
- manager.request('late');await until(()=>resolveLate);manager.configure({enabled:false});resolveLate(image('Late'));await wait(10);
+ manager.request('first',{force:true});await until(()=>manager.get().status==='ready');const url=manager.get().url;
+ manager.request('late',{force:true});await until(()=>resolveLate);manager.configure({enabled:false});resolveLate(image('Late'));await wait(10);
  assert.equal(manager.get().url,url);assert.equal(manager.get().status,'paused');manager.request('ignored');assert.equal(manager.get().status,'paused');
  manager.configure({reset:true});assert.equal(manager.get().url,null);
 });
 test('failed generation preserves the previous scene and exposes a retryable error',async t=>{
- const {manager}=await fixture(t,async input=>{if(input.context==='broken')throw new Error('Try again');return image('Ocean')});manager.request('ok');await until(()=>manager.get().status==='ready');const url=manager.get().url;
- manager.request('broken');await until(()=>manager.get().status==='error');assert.equal(manager.get().url,url);assert.equal(manager.get().error,'Try again');assert.throws(()=>manager.request({}),/context/);
+ const {manager}=await fixture(t,async input=>{if(input.context==='broken')throw new Error('Try again');return image('Ocean')});manager.request('ok',{force:true});await until(()=>manager.get().status==='ready');const url=manager.get().url;
+ manager.request('broken',{force:true});await until(()=>manager.get().status==='error');assert.equal(manager.get().url,url);assert.equal(manager.get().error,'Try again');assert.throws(()=>manager.request({}),/context/);
 });
 
 test('a brief follow-up does not discard the scene being generated for the topic',async t=>{
  let finishFirst;const {manager}=await fixture(t,async input=>{if(input.context==='Ocean')return new Promise(r=>finishFirst=r);assert.equal(input.currentScene,'Ocean reef');return null});
- manager.request('Ocean');await until(()=>finishFirst);manager.request('Thank you');finishFirst(image('Ocean reef'));await until(()=>manager.get().status==='ready');assert.equal(manager.get().title,'Ocean reef');assert.ok(manager.get().url);
+ manager.request('Ocean',{force:true});await until(()=>finishFirst);manager.request('Thank you',{force:true});finishFirst(image('Ocean reef'));await until(()=>manager.get().status==='ready');assert.equal(manager.get().title,'Ocean reef');assert.ok(manager.get().url);
 });
 
 test('a reset during image saving cannot publish the old image afterward',async t=>{
  const original=fs.writeFile;let finishWrite;const {manager}=await fixture(t,async()=>image('Ocean'));
  t.mock.method(fs,'writeFile',async(...args)=>{await new Promise(resolve=>finishWrite=resolve);return original(...args)});
- manager.request('Ocean');await until(()=>finishWrite);manager.configure({reset:true});finishWrite();await wait(15);
+ manager.request('Ocean',{force:true});await until(()=>finishWrite);manager.configure({reset:true});finishWrite();await wait(15);
  assert.equal(manager.get().url,null);assert.equal(manager.get().title,'Studio');assert.equal(manager.get().status,'idle');
 });
 
 test('double-clicking the same scene does not queue duplicate image generation',async t=>{
  let complete,calls=0;const {manager}=await fixture(t,async()=>{calls++;return new Promise(resolve=>complete=resolve)});
  manager.request('Ocean',{force:true});await until(()=>complete);manager.request('Ocean',{force:true});complete(image('Ocean'));await until(()=>manager.get().status==='ready');await wait(10);assert.equal(calls,1);
+});
+
+test('automatic backgrounds generate only on every third completed turn using all three turns',async t=>{
+ const calls=[];const {manager}=await fixture(t,async input=>{calls.push(input);return image('Scene')});
+ manager.request('Ocean',{turnId:'one'});manager.request('Coral',{turnId:'two'});await wait(10);assert.equal(calls.length,0);assert.equal(manager.get().turnsSinceChange,2);
+ manager.request('Fish',{turnId:'three'});await until(()=>manager.get().status==='ready');assert.equal(calls.length,1);assert.match(calls[0].context,/Ocean[\s\S]*Coral[\s\S]*Fish/);assert.equal(manager.get().turnsSinceChange,0);
+ manager.request('Sand',{turnId:'four'});manager.request('Water',{turnId:'five'});await wait(10);assert.equal(calls.length,1);
+ manager.request('Waves',{turnId:'six'});await until(()=>calls.length===2);
+});
+test('an explicit scene request bypasses the cadence and restarts the count',async t=>{
+ let calls=0;const {manager}=await fixture(t,async input=>{calls++;assert.equal(input.force,true);return image('Moon')});
+ manager.request('one',{turnId:'one'});manager.request('two',{turnId:'two'});manager.request('Change the background to the moon',{force:true,turnId:'explicit'});
+ await until(()=>manager.get().status==='ready');assert.equal(calls,1);assert.equal(manager.get().turnsSinceChange,0);
+ manager.request('next',{turnId:'next'});assert.equal(manager.get().turnsSinceChange,1);
+});
+test('duplicate completion events do not count twice while separate identical turns do',async t=>{
+ const {manager}=await fixture(t,async()=>image('Scene'));manager.request('Hello',{turnId:'same'});manager.request('Hello',{turnId:'same'});assert.equal(manager.get().turnsSinceChange,1);
+ manager.request('Hello',{turnId:'different'});assert.equal(manager.get().turnsSinceChange,2);
 });
