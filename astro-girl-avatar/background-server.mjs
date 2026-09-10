@@ -10,7 +10,7 @@ export async function generateBackground({context,currentScene='',force=false},{
  const response=await fetcher('https://api.openai.com/v1/responses',{
   method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},signal,
   body:JSON.stringify({model:BACKGROUND_MODELS.director,store:false,reasoning:{effort:'low'},instructions:instruction,tool_choice:'required',
-   input:JSON.stringify({current_scene:currentScene,request_type:force?'direct scene request':'scheduled three-turn scene update',context}),
+   input:force?`Generate this explicitly requested background now:\n${context}`:`Choose and generate the best background for these three completed conversation turns:\n${context}\n\nPrevious scene, for reference only: ${currentScene}`,
    tools:[{type:'image_generation',model:BACKGROUND_MODELS.image,action:'generate',size:'1536x1024',quality:'medium',output_format:'webp'}]})
  });
  if(!response.ok){let data;try{data=await response.json()}catch{}

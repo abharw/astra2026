@@ -17,6 +17,10 @@ test('GPT-6 scene generation uses a server-side image tool and returns image byt
 test('scheduled generation requires an image rather than silently keeping the old scene',async()=>{
  await assert.rejects(generateBackground({context:'Hello'},{key:'test',fetcher:async()=>({ok:true,json:async()=>({output:[{type:'message',content:[{type:'output_text',text:'KEEP'}]}]})})}),/KEEP/);
 });
+test('an explicit image request excludes the previous setting from the generation input',async()=>{
+ let body;await generateBackground({context:'A peaceful pine forest at sunrise',currentScene:'Underwater coral reef',force:true},{key:'test',fetcher:async(url,options)=>{body=JSON.parse(options.body);return {ok:true,json:async()=>({output:[{type:'image_generation_call',result:Buffer.alloc(128,1).toString('base64')}]})}}});
+ assert.match(body.input,/pine forest at sunrise/);assert.ok(!body.input.includes('coral reef'));
+});
 test('background errors redact upstream credentials',async()=>{
  const key='private-key-value';await assert.rejects(()=>generateBackground({context:'Ocean'},{key,fetcher:async()=>({ok:false,status:401,json:async()=>({error:{message:'Rejected '+key}})})}),e=>!e.message.includes(key)&&e.message.includes('[redacted]'));
 });

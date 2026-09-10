@@ -55,3 +55,6 @@ Open `http://127.0.0.1:8847/`. Configure a server-side OpenAI key as described i
 ## Latest behavior: three-turn automatic scenery
 
 Automatic scene generation now occurs every three completed conversation exchanges, using those three turns as context. GPT-6 chooses the best setting and generates a new image even when the overall topic is unchanged. An explicit background request starts generation immediately and resets the counter. Completed audio playback gates ordinary turn counting; interrupted replies and duplicate events are excluded. The current test suite passes 34 tests. The studio displays the number of turns until its next automatic scene.
+
+
+Live cadence verification passed: the first two typed exchanges left the studio background unchanged; the third generated a reef. An explicit forest request immediately reset the counter, but visual inspection caught the previous scene influencing the generated image. Explicit generation now excludes the previous setting entirely, and scheduled input leads with the current conversation. A repeated live request produced the requested pine forest at sunrise, visibly verified in the studio, with the counter still at zero after its spoken acknowledgement. The microphone was restored in interrupt-anytime mode. All 35 automated tests pass.
